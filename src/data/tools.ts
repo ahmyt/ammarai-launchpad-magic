@@ -8,9 +8,11 @@ import { marketingTools } from "./tools-marketing";
 import { commerceSeoTools } from "./tools-commerce-seo";
 import { platformTools } from "./tools-platform";
 import { agentTools } from "./tools-agents";
+import { engagementTools } from "./tools-engagement";
 
 export const tools: Tool[] = [
   ...agentTools,
+  ...engagementTools,
   ...coreToolsA,
   ...coreToolsB,
   ...seoAnalyzerTools,
