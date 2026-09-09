@@ -8,9 +8,11 @@ import { marketingTools } from "./tools-marketing";
 import { commerceSeoTools } from "./tools-commerce-seo";
 import { platformTools } from "./tools-platform";
 import { agentTools } from "./tools-agents";
+import { engagementTools } from "./tools-engagement";
 
 export const tools: Tool[] = [
   ...agentTools,
+  ...engagementTools,
   ...coreToolsA,
   ...coreToolsB,
   ...seoAnalyzerTools,
@@ -203,7 +205,15 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
   },
   {
     keywords: ["widget", "website bot", "support bot", "customer support", "live chat", "deploy"],
-    slugs: ["external-chatbot", "ai-chat-bots", "ai-chat"],
+    slugs: ["external-chatbot", "ai-smart-inbox", "ai-chat-bots", "ai-chat"],
+  },
+  {
+    keywords: ["inbox", "dm", "dms", "messages", "comments", "whatsapp", "instagram dm", "triage", "unread"],
+    slugs: ["ai-smart-inbox", "external-chatbot", "ai-crm", "ai-social-media-agent"],
+  },
+  {
+    keywords: ["marketing", "strategy", "campaign plan", "launch", "go to market", "offer", "positioning"],
+    slugs: ["ai-marketing-bot", "ai-ad-generator", "ai-social-media-agent", "ai-email-generator"],
   },
   {
     keywords: ["url", "product link", "influencer", "clip", "repurpose", "shorts"],
