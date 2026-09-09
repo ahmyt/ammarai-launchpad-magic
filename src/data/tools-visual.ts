@@ -203,18 +203,18 @@ export const visualTools: Tool[] = [
     ],
     examples: [
       {
-        label: "Sneakers on the living-room floor",
+        label: "Candle range to autumn campaign",
         input:
-          "One phone photo of white leather sneakers on a wooden floor. Direction: premium lifestyle, daylight, minimal.",
+          "One plain phone photo of three amber candle jars against a white wall. Direction: warm autumn interior, premium editorial light.",
         output:
-          "The same sneakers on a sunlit concrete plinth with soft plant shadows, plus a clean studio version, a top-down flat lay and a story-ratio crop — one coherent campaign.",
+          "The same three candles styled on dark stone with warm flame light, autumn leaves and soft linen — a polished seasonal campaign that preserves the jars and labels.",
       },
       {
-        label: "Full range, one look",
+        label: "Skincare summer refresh",
         input:
-          "Twelve candle jars photographed against a white wall. Direction: warm autumn interior.",
+          "One plain photo of a forest-green skincare pump bottle. Direction: clean summer campaign, poolside sunlight, fresh botanical details.",
         output:
-          "Twelve matching scenes with identical light direction and colour grade, so the collection page looks shot in a single session.",
+          "The same bottle on pale stone beside clear water, finished with realistic sunlight, water reflections and fresh leaves for a premium seasonal advert.",
       },
     ],
     capabilities: [

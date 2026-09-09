@@ -29,6 +29,10 @@ import editInMug from "@/assets/edit-in-mug.jpg";
 import editOutMug from "@/assets/edit-out-mug.jpg";
 import shootInSneakers from "@/assets/shoot-in-sneakers.jpg";
 import shootOutSneakers from "@/assets/shoot-out-sneakers.jpg";
+import shootInCandles from "@/assets/shoot-in-candles.jpg";
+import shootOutCandles from "@/assets/shoot-out-candles.jpg";
+import shootInSkincare from "@/assets/shoot-in-skincare.jpg";
+import shootOutSkincare from "@/assets/shoot-out-skincare.jpg";
 import tryonInBlazer from "@/assets/tryon-in-blazer.jpg";
 import tryonOutBlazer from "@/assets/tryon-out-blazer.jpg";
 import creativeBrandKit from "@/assets/creative-out-brandkit.jpg";
@@ -236,17 +240,17 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
   "ai-photoshoot": [
     {
       kind: "image",
-      url: shootOutSneakers,
-      inputImage: shootInSneakers,
-      inputImageAlt: "Source photo: white leather sneakers photographed on a wooden floor",
-      caption: "Sample shoot — the same sneakers on a sunlit concrete plinth with soft plant shadows.",
+      url: shootOutCandles,
+      inputImage: shootInCandles,
+      inputImageAlt: "Source photo: three amber candle jars photographed against a plain wall",
+      caption: "Sample shoot — the same candle range styled as a warm autumn campaign with professional light and props.",
     },
     {
       kind: "image",
-      url: editOutMug,
-      inputImage: editInMug,
-      inputImageAlt: "Source photo: a ceramic mug on a kitchen counter",
-      caption: "Sample shoot — clean e-commerce sweep generated from an ordinary phone snapshot.",
+      url: shootOutSkincare,
+      inputImage: shootInSkincare,
+      inputImageAlt: "Source photo: a forest-green skincare bottle photographed on a bathroom counter",
+      caption: "Sample shoot — the same skincare bottle turned into a bright summer campaign beside a pool.",
     },
   ],
   "ai-virtual-try-on": [
