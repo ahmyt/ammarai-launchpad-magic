@@ -470,6 +470,104 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       },
     },
   ],
+  "ai-smart-inbox": [
+    {
+      kind: "scene",
+      caption: "Sample run — an overnight backlog triaged across four channels before you open it.",
+      scene: {
+        label: "Overnight triage · 31 messages",
+        steps: [
+          { actor: "Inbox", text: "31 new: 14 website chat, 9 email, 6 Instagram DM, 2 comments", meta: "07:58" },
+          { actor: "Tag", text: "Sorted by intent — 18 support, 7 sales, 4 complaint, 2 spam", meta: "07:58" },
+          { actor: "Auto", text: "22 routine questions answered in your tone and closed", meta: "07:59" },
+          { actor: "Draft", text: "6 replies written, waiting for a one-click approval", meta: "07:59" },
+          { actor: "Escalate", text: "3 flagged: a refund, a bulk order, an angry review reply", meta: "08:00" },
+        ],
+        result: "Zero unread. Median first response: 4 minutes, overnight, with nobody awake.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample run — a buying signal spotted in a DM and pushed into the pipeline.",
+      scene: {
+        label: "Instagram DM · high intent",
+        steps: [
+          { actor: "DM", text: "\"do you do 200 units with our logo on them?\"", meta: "14:12" },
+          { actor: "Read", text: "Tagged sales · high intent · English", meta: "14:12" },
+          { actor: "Match", text: "Linked to an existing contact — enquired about samples in March", meta: "14:12" },
+          { actor: "Draft", text: "Reply with MOQ, lead time and a link to the branding form", meta: "14:13" },
+          { actor: "CRM", text: "Deal created at Qualified, assigned to the sales owner", meta: "14:13" },
+        ],
+        result: "The lead is in the pipeline before anyone opened the app.",
+      },
+    },
+  ],
+  "ai-marketing-bot": [
+    {
+      kind: "scene",
+      caption: "Sample run — a flat month turned into a costed campaign plan with the assets written.",
+      scene: {
+        label: "Campaign plan · February",
+        steps: [
+          { actor: "Brief", text: "Independent gym, 340 members, £600 budget, wants 40 joiners" },
+          { actor: "Audience", text: "Two segments: January quitters, and partners of current members" },
+          { actor: "Offer", text: "A 6-week 'finish what you started' block — not a discount" },
+          { actor: "Angles", text: "Ranked: shame-free restart > train with someone you know > 6-week result" },
+          { actor: "Channels", text: "£380 local Meta, £120 Google brand, £100 café print, referral email day 1" },
+          { actor: "Assets", text: "14 pieces written: 6 ads, 3 emails, 4 captions, 1 landing section" },
+        ],
+        result: "Strategy first, then the copy that follows from it — ready to schedule.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample run — an underperforming campaign critiqued in priority order.",
+      scene: {
+        label: "Campaign critique",
+        steps: [
+          { actor: "Input", text: "SaaS ads: good clicks, no trials. Traffic lands on the homepage." },
+          { actor: "Find", text: "The headline sells a feature — '30% faster reporting'" },
+          { actor: "Find", text: "One page for three angles; visitors are asked to choose" },
+          { actor: "Fix 1", text: "Build one landing page per angle, single call to action" },
+          { actor: "Fix 2", text: "Test the consequence: 'close the month in a morning, not a week'" },
+        ],
+        result: "Two changes, ranked by expected impact, with the new copy attached.",
+      },
+    },
+  ],
+  "external-chatbot": [
+    {
+      kind: "scene",
+      caption: "Sample chat — a website visitor served, verified and converted by the embedded widget.",
+      scene: {
+        label: "Website widget · live chat",
+        steps: [
+          { actor: "Visitor", text: "Is the Model B in stock and can it ship to Ireland?", meta: "20:41" },
+          { actor: "Bot", text: "Yes — 4 in stock. Ireland is 3–5 working days, €9 shipping.", meta: "20:41" },
+          { actor: "Visitor", text: "Does it work with the older base plate?", meta: "20:42" },
+          { actor: "Bot", text: "It does, from the 2021 plate onward. Here's the fit chart.", meta: "20:42" },
+          { actor: "Action", text: "Order status checked live — nothing invented, nothing guessed", meta: "20:43" },
+          { actor: "Capture", text: "Email collected and the thread sent to the Smart Inbox", meta: "20:44" },
+        ],
+        result: "Answered from your own content, out of hours, with a lead saved.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample run — the bot handing a hard conversation to a human without dropping context.",
+      scene: {
+        label: "Escalation · handover",
+        steps: [
+          { actor: "Visitor", text: "My order arrived damaged and nobody has replied for two days.", meta: "09:12" },
+          { actor: "Bot", text: "Detected complaint · negative sentiment — do not auto-resolve", meta: "09:12" },
+          { actor: "Bot", text: "\"I'm sorry — I'm getting a person on this right now.\"", meta: "09:12" },
+          { actor: "Route", text: "Assigned to support with the order number and full transcript", meta: "09:13" },
+          { actor: "Human", text: "Agent picks up in the same thread; the visitor sees no seam", meta: "09:15" },
+        ],
+        result: "The bot knows what it must not handle alone — that rule is yours to set.",
+      },
+    },
+  ],
 };
 
 
