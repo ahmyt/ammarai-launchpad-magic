@@ -1,4 +1,6 @@
 export type ToolCategory =
+  | "AI Agents"
+  | "AI Sales & CRM"
   | "AI Writing"
   | "AI Chat"
   | "AI Marketing"
@@ -17,6 +19,7 @@ export type ToolCategory =
   | "AI Code"
   | "AI Education"
   | "AI Productivity";
+
 
 export type Section = { title: string; body: string };
 export type Step = { title: string; body: string };

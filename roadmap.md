@@ -1,5 +1,15 @@
 # Roadmap
 
+## Magic AI feature build (approved plan)
+- [x] Phase 1: Agent Builder, Phone Call Agents, AI CRM, Social Media Agent, Blogger Agent + "AI Agents" and "AI Sales & CRM" categories + animated scene samples
+- [ ] Phase 2: External chatbot rewrite, Smart Inbox, Marketing Bot
+- [ ] Phase 3: Image Pro, image editing, Creative Suite, Photoshoot, Fashion/Try-On
+- [ ] Phase 4: Video Pro, Video Editor, Captions, Dubbing, UGC, YouTube publishing, Music Pro
+- [ ] Phase 5: Chat Pro, personas and skills, command search, models page, pricing update
+- [ ] Phase 6: ~95 missing Custom Templates (Group 8)
+- [ ] Every tool page sample must match its medium (video out for video tools, audio for audio, image for image, animated scene for agents)
+
+
 ## Done
 - Resume Lovable Cloud backend (was paused -> login "failed to fetch"). Healthy.
 - Sitemap + robots.txt now use https://ammarai.com (111 URLs, zero lovable.app refs; verified in served output).

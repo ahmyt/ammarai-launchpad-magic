@@ -58,6 +58,7 @@ export function AnimatedExample({
   const [phase, setPhase] = useState<Phase>("typing");
   const [typed, setTyped] = useState("");
   const [written, setWritten] = useState("");
+  const [revealed, setRevealed] = useState(0);
   const [playing, setPlaying] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -76,7 +77,9 @@ export function AnimatedExample({
     : undefined;
   const demoVideo = media?.url ? media : undefined;
   const demoCode = media?.code ? media : undefined;
+  const demoScene = media?.scene ? media.scene : undefined;
   const outputWords = useMemo(() => (example?.output ?? "").split(" "), [example?.output]);
+
 
   useEffect(() => {
     const node = containerRef.current;
@@ -93,6 +96,7 @@ export function AnimatedExample({
   useEffect(() => {
     setTyped("");
     setWritten("");
+    setRevealed(0);
     setPhase("typing");
   }, [index]);
 
@@ -103,10 +107,12 @@ export function AnimatedExample({
     if (reduced) {
       setTyped(example.input);
       setWritten(demoCode?.code ?? example.output);
+      setRevealed(demoScene?.steps.length ?? 0);
       setPhase("resting");
       return;
     }
     if (!active) return;
+
 
     if (phase === "typing") {
       if (typed.length >= example.input.length) {
@@ -119,6 +125,15 @@ export function AnimatedExample({
 
     if (phase === "thinking") {
       const t = setTimeout(() => setPhase("writing"), THINK_MS);
+      return () => clearTimeout(t);
+    }
+
+    if (phase === "writing" && demoScene) {
+      if (revealed >= demoScene.steps.length) {
+        const t = setTimeout(() => setPhase("resting"), 1800);
+        return () => clearTimeout(t);
+      }
+      const t = setTimeout(() => setRevealed((r) => r + 1), revealed === 0 ? 300 : 950);
       return () => clearTimeout(t);
     }
 
@@ -155,19 +170,34 @@ export function AnimatedExample({
       setIndex((i) => (i + 1) % examples.length);
     }, REST_MS);
     return () => clearTimeout(t);
-  }, [active, reduced, phase, typed, written, example, outputWords, examples.length, demoVideo, demoCode]);
+  }, [
+    active,
+    reduced,
+    phase,
+    typed,
+    written,
+    revealed,
+    example,
+    outputWords,
+    examples.length,
+    demoVideo,
+    demoCode,
+    demoScene,
+  ]);
 
   if (!example) return null;
 
-  const outputKind = demoCode
-    ? "code"
-    : demoVideo?.kind === "audio"
-      ? "audio"
-      : demoVideo?.kind === "image"
-        ? "image"
-        : demoVideo
-          ? "video"
-          : "text";
+  const outputKind = demoScene
+    ? "scene"
+    : demoCode
+      ? "code"
+      : demoVideo?.kind === "audio"
+        ? "audio"
+        : demoVideo?.kind === "image"
+          ? "image"
+          : demoVideo
+            ? "video"
+            : "text";
 
   const outputVerb =
     outputKind === "code"
@@ -176,7 +206,9 @@ export function AnimatedExample({
         ? "AmmarAI speaks"
         : outputKind === "image" || outputKind === "video"
           ? "AmmarAI renders"
-          : "AmmarAI writes";
+          : outputKind === "scene"
+            ? "AmmarAI works"
+            : "AmmarAI writes";
 
   const inputVerb = media?.inputImage
     ? "You upload + type"
@@ -184,7 +216,9 @@ export function AnimatedExample({
       ? "You record"
       : media?.inputFileLabel
         ? "You attach + ask"
-        : "You type";
+        : outputKind === "scene"
+          ? "You set it up"
+          : "You type";
 
   const progress =
     phase === "typing"
@@ -192,13 +226,17 @@ export function AnimatedExample({
       : phase === "thinking"
         ? 0.42
         : phase === "writing"
-          ? demoCode
-            ? 0.45 + (written.length / Math.max((demoCode.code ?? "").length, 1)) * 0.5
-            : demoVideo
-              ? 0.7
-              : 0.45 +
-                ((written ? written.split(" ").length : 0) / Math.max(outputWords.length, 1)) * 0.5
+          ? demoScene
+            ? 0.45 + (revealed / Math.max(demoScene.steps.length, 1)) * 0.5
+            : demoCode
+              ? 0.45 + (written.length / Math.max((demoCode.code ?? "").length, 1)) * 0.5
+              : demoVideo
+                ? 0.7
+                : 0.45 +
+                  ((written ? written.split(" ").length : 0) / Math.max(outputWords.length, 1)) *
+                    0.5
           : 1;
+
 
   const statusLabel =
     phase === "typing"
@@ -384,7 +422,68 @@ export function AnimatedExample({
                   </div>
                 ))}
               </div>
+            ) : demoScene ? (
+              <div className="demo-reveal">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="rounded-full bg-ink px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink-foreground">
+                    {demoScene.label}
+                  </span>
+                  <span className="text-[11px] text-muted-foreground">
+                    {Math.min(revealed, demoScene.steps.length)}/{demoScene.steps.length} steps
+                  </span>
+                </div>
+                <ol className="mt-3 space-y-2">
+                  {demoScene.steps.map((step, i) => {
+                    const shown = i < revealed;
+                    return (
+                      <li
+                        key={`${step.actor}-${i}`}
+                        className={cn(
+                          "flex items-start gap-3 rounded-xl px-3 py-2.5 ring-1 transition-all duration-500",
+                          shown
+                            ? "bg-secondary/60 opacity-100 ring-border/70"
+                            : "bg-secondary/20 opacity-30 ring-transparent",
+                        )}
+                      >
+                        <span
+                          className={cn(
+                            "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ring-1",
+                            shown
+                              ? "bg-accent text-accent-foreground ring-accent"
+                              : "bg-card text-muted-foreground ring-border",
+                          )}
+                          aria-hidden="true"
+                        >
+                          {i + 1}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                            {step.actor}
+                          </span>
+                          <span className="block text-pretty text-sm leading-relaxed text-foreground/85">
+                            {step.text}
+                          </span>
+                        </span>
+                        {step.meta ? (
+                          <span className="shrink-0 text-[11px] tabular-nums text-muted-foreground">
+                            {step.meta}
+                          </span>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ol>
+                {demoScene.result && revealed >= demoScene.steps.length ? (
+                  <p className="mt-3 text-pretty text-sm font-medium leading-relaxed text-foreground/85">
+                    {demoScene.result}
+                  </p>
+                ) : null}
+                <p className="mt-1.5 text-pretty text-xs leading-relaxed text-muted-foreground">
+                  {media?.caption ?? example.output}
+                </p>
+              </div>
             ) : demoCode ? (
+
               <div className="demo-reveal">
                 <div className="flex items-center justify-between gap-3">
                   <span className="rounded-full bg-ink px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink-foreground">

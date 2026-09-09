@@ -7,8 +7,10 @@ import { writingTools } from "./tools-writing";
 import { marketingTools } from "./tools-marketing";
 import { commerceSeoTools } from "./tools-commerce-seo";
 import { platformTools } from "./tools-platform";
+import { agentTools } from "./tools-agents";
 
 export const tools: Tool[] = [
+  ...agentTools,
   ...coreToolsA,
   ...coreToolsB,
   ...seoAnalyzerTools,
@@ -20,6 +22,7 @@ export const tools: Tool[] = [
 ];
 
 
+
 export const toolBySlug = new Map(tools.map((t) => [t.slug, t]));
 
 export function getTool(slug: string): Tool | undefined {
@@ -27,8 +30,12 @@ export function getTool(slug: string): Tool | undefined {
 }
 
 export const categoryOrder: ToolCategory[] = [
+  "AI Agents",
+  "AI Sales & CRM",
   "AI Writing",
   "AI Chat",
+
+
   "AI Marketing",
   "AI SEO",
   "AI Social Media",
@@ -59,6 +66,25 @@ export const recentTools = tools.filter((t) => t.recent).slice(0, 6);
 
 /** Frontend-only intent matcher used by the discovery search. No AI backend. */
 const intentMap: { keywords: string[]; slugs: string[] }[] = [
+  {
+    keywords: ["agent", "agents", "automation", "automate", "workflow", "autonomous", "assistant that works"],
+    slugs: [
+      "ai-agent-builder",
+      "ai-social-media-agent",
+      "ai-blogger-agent",
+      "ai-phone-agent",
+      "ai-crm",
+    ],
+  },
+  {
+    keywords: ["crm", "pipeline", "deal", "deals", "lead", "leads", "sales", "follow up", "follow-up"],
+    slugs: ["ai-crm", "ai-phone-agent", "ai-agent-builder", "ai-email-writer", "ai-chat-bots"],
+  },
+  {
+    keywords: ["phone", "call", "calls", "voice agent", "answering", "receptionist", "booking"],
+    slugs: ["ai-phone-agent", "ai-crm", "ai-chat-bots", "ai-voice-generator", "ai-transcription"],
+  },
+
   {
     keywords: ["chatbot", "chat bot", "assistant", "persona", "coach", "counselor", "advisor", "expert"],
     slugs: ["ai-chat-bots", "ai-chat", "ai-writer", "ai-summary-generator", "ai-avatar-video-generator"],
