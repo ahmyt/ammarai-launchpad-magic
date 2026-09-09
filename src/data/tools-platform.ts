@@ -268,8 +268,7 @@ export const platformTools: Tool[] = [
         a: "Conversation volume, the most common questions, and the queries the bot could not answer, so you know what to improve.",
       },
     ],
-    related: ["ai-chat", "ai-chat-bots", "ai-writer", "ai-summary-generator"],
-    hideDemoVideo: true,
+    related: ["ai-smart-inbox", "ai-chat-bots", "ai-chat", "ai-crm", "ai-phone-agent"],
   },
   {
     slug: "ai-presentation-maker",
