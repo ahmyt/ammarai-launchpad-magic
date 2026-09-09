@@ -422,7 +422,68 @@ export function AnimatedExample({
                   </div>
                 ))}
               </div>
+            ) : demoScene ? (
+              <div className="demo-reveal">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="rounded-full bg-ink px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink-foreground">
+                    {demoScene.label}
+                  </span>
+                  <span className="text-[11px] text-muted-foreground">
+                    {Math.min(revealed, demoScene.steps.length)}/{demoScene.steps.length} steps
+                  </span>
+                </div>
+                <ol className="mt-3 space-y-2">
+                  {demoScene.steps.map((step, i) => {
+                    const shown = i < revealed;
+                    return (
+                      <li
+                        key={`${step.actor}-${i}`}
+                        className={cn(
+                          "flex items-start gap-3 rounded-xl px-3 py-2.5 ring-1 transition-all duration-500",
+                          shown
+                            ? "bg-secondary/60 opacity-100 ring-border/70"
+                            : "bg-secondary/20 opacity-30 ring-transparent",
+                        )}
+                      >
+                        <span
+                          className={cn(
+                            "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ring-1",
+                            shown
+                              ? "bg-accent text-accent-foreground ring-accent"
+                              : "bg-card text-muted-foreground ring-border",
+                          )}
+                          aria-hidden="true"
+                        >
+                          {i + 1}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                            {step.actor}
+                          </span>
+                          <span className="block text-pretty text-sm leading-relaxed text-foreground/85">
+                            {step.text}
+                          </span>
+                        </span>
+                        {step.meta ? (
+                          <span className="shrink-0 text-[11px] tabular-nums text-muted-foreground">
+                            {step.meta}
+                          </span>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ol>
+                {demoScene.result && revealed >= demoScene.steps.length ? (
+                  <p className="mt-3 text-pretty text-sm font-medium leading-relaxed text-foreground/85">
+                    {demoScene.result}
+                  </p>
+                ) : null}
+                <p className="mt-1.5 text-pretty text-xs leading-relaxed text-muted-foreground">
+                  {media?.caption ?? example.output}
+                </p>
+              </div>
             ) : demoCode ? (
+
               <div className="demo-reveal">
                 <div className="flex items-center justify-between gap-3">
                   <span className="rounded-full bg-ink px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink-foreground">
