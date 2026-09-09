@@ -170,17 +170,45 @@ pointed at the new platform's models and capabilities.
 - **Phase 5:** Chat Pro, personas and skills, command search, models page, pricing update.
 - **Phase 6:** the ~95 missing Custom Templates in Group 8, built tab by tab.
 
+## Every page shows a sample in its own medium
+
+No page ships with a text sample standing in for real output. The sample matches the tool:
+
+- **Text to video, video generator, video pro, UGC, avatar, dubbing, captions:** a written
+  prompt in, a finished playing video out.
+- **Video to video / video editor:** the source clip and the enhanced result side by side.
+- **Image tools, photoshoot, try-on, designer, image editing:** the input photo (where one
+  applies) beside a striking finished image; before/after slider for edits and backgrounds.
+- **Text to speech, voice, music, voice isolator:** a play button with a real audio track.
+- **Speech to text, transcription, dubbing:** an audio file in, formatted text out.
+- **Vision, file analyzer, web chat:** the image, document or page in, the analysis out.
+- **Code tools:** a real code block with syntax highlighting.
+- **SEO and analyzer tools:** a rendered report card, as the SEO analyzer already does.
+- **Writing, ads, ecommerce, email, social templates:** a short brief in, the polished copy out,
+  typed on screen in the finished format (email card, ad card, product card, tweet card).
+- **Agents, CRM, chatbot, inbox, phone calls, publishing:** these have no single file output, so
+  each gets a small animated scene instead — a phone call transcript playing line by line with a
+  ringing-to-answered status, an agent canvas where steps light up as they run, a CRM deal card
+  moving across a pipeline, a chat thread where the visitor types and the bot answers, a posting
+  calendar filling in across a week, an inbox where a new conversation arrives and gets tagged.
+
+The existing sample system already supports video, audio, image, code and file inputs per
+example, so most of this is new sample assets plus a new animated "scene" sample type for the
+agent pages. Media is generated in-house — nothing is copied from Magic AI.
+
 ## Technical notes
 
 Every new tool is a data entry in `src/data/tools-*.ts` following the existing `Tool` shape, so
 each automatically gets its `/{slug}` page, FAQ schema, breadcrumbs, related links and a
-directory listing. Two new values join `ToolCategory` in `src/data/types.ts` and
-`categoryOrder` in `src/data/tools.ts`, with matching entries in the discovery search intent
-map. Homepage featured tools, the comparison section and use-case toolkits get refreshed as
-pages land. No database or CMS schema changes are needed.
+directory listing. New values join `ToolCategory` in `src/data/types.ts` and `categoryOrder` in
+`src/data/tools.ts`, with matching entries in the discovery search intent map. Samples extend
+`toolDemoMedia` in `src/data/tool-demos.ts`; `ToolDemoMedia` gains a `"scene"` kind rendered by
+`AnimatedExample` for the agent and CRM pages. Homepage featured tools, the comparison section
+and use-case toolkits get refreshed as pages land. No database or CMS schema changes are needed.
 
-## One thing to confirm before I build
+## Build note
 
 Several of these are premium add-ons on Magic AI (phone agents, CRM, creative suite, chatbot
-add-ons). Tell me which ones your licence actually includes, so the site doesn't advertise
-something your app can't do yet. If you'd rather I just build Phase 1 first, say so and I'll start.
+add-ons). I'll start with Phase 1 and its samples; tell me if any capability isn't in your
+licence and I'll leave that page out rather than advertise something the app can't do.
+
