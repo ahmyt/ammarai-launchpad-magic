@@ -181,7 +181,7 @@ export const coreToolsA: Tool[] = [
     popular: true,
     what: [
       "AI Chat is the conversational front door to AmmarAI. It behaves the way you expect a capable assistant to behave: it holds the thread, remembers the constraints you set twenty messages ago, and lets you attach files so the answers are grounded in your material rather than general knowledge.",
-      "What makes it different from a standalone chatbot is where the conversation goes next. When you land on a headline you like, you can move straight into the AI Writer with the context attached. When you describe a scene, you can generate it in the AI Image Generator without re-explaining. Chat is the reasoning layer; the specialist tools do the production.",
+      "What makes it different from a standalone chatbot is where the conversation goes next. When you land on a headline you like, you can move straight into the AI Writer with the context attached. When you describe a scene, you can generate it in AI Image Pro without re-explaining. Chat is the reasoning layer; the specialist tools do the production.",
       "It is genuinely useful for thinking, comparing options, drafting quickly and explaining unfamiliar material. It is not a search engine and it is not a source of record. When accuracy matters, attach the document that contains the answer and ask it to work from that.",
     ],
     canDo: [
@@ -208,7 +208,7 @@ export const coreToolsA: Tool[] = [
       },
       {
         title: "Hand off to a production tool",
-        body: "When the thinking is done, send the result to AI Writer, the AI Image Generator or the AI Code Generator rather than trying to finish everything in the chat window.",
+        body: "When the thinking is done, send the result to AI Writer, AI Image Pro or the AI Code Generator rather than trying to finish everything in the chat window.",
       },
     ],
     examples: [
@@ -321,48 +321,50 @@ export const coreToolsA: Tool[] = [
   },
   {
     slug: "ai-image-generator",
-    name: "AI Image Generator",
+    name: "AI Image Pro",
     category: "AI Image",
     summary:
-      "Generate high-quality images from text prompts. Create product shots, marketing visuals, social graphics, and more — then edit, upscale, or vary them.",
-    title: "AI Image Generator: Text to Image, On Brand | AmmarAI",
+      "A full image studio: generate from text, edit with a brush, keep one character or style consistent, swap backgrounds, upscale and export every size you need.",
+    title: "AI Image Pro: Generate, Edit and Upscale Images | AmmarAI",
     description:
-      "Generate high-quality images from text prompts. Create product shots, marketing visuals and social graphics, then edit, upscale or create variations.",
-    h1: "Describe the picture. Get something you can publish.",
-    lede: "Generate campaign visuals, product scenes, blog imagery and social assets from a written description, then iterate until the composition is right.",
-    ctaLabel: "Create an image",
+      "Generate images from text, edit them with reference images and a brush, keep characters and styles consistent, remove or replace backgrounds, upscale and export every ratio.",
+    h1: "A complete image studio, not just a prompt box",
+    lede: "Image Pro generates, edits and finishes. Start from a description or an upload, paint over the part you want changed, hold one character or house style across a whole set, then upscale and export every ratio your campaign needs.",
+    ctaLabel: "Open Image Pro",
     featured: true,
     popular: true,
     what: [
-      "The AI Image Generator turns a text description into an image. You write what you want to see, choose an aspect ratio and a visual register, and the model produces options. The part that matters in practice is iteration: the first result is rarely the one you ship, and the tool is built around refining lighting, framing, palette and subject placement across several passes.",
-      "Prompting is a craft with a learnable shape. Descriptions that work name the subject, the setting, the lighting, the camera perspective and the mood, and they say what to leave out. \"A matte black desk lamp on a pale concrete surface, single soft window light from the left, deep shadow, no props, shot at eye level\" gives the model something to aim at. \"A nice lamp photo\" does not.",
-      "There are honest limits. Text inside images is unreliable, hands and complex mechanical detail can distort, and exact replication of a real product is not something a generative model does. For brand-critical product photography you still shoot the product; for backgrounds, concepts, editorial imagery and social variations, generation is often faster than any alternative.",
+      "Image Pro is the whole picture workflow in one place. You can start from a written description, from a photograph you already own, or from a reference image whose look you want to borrow. From there you stay inside the same canvas: regenerate a region, replace a background, extend the frame, clean up an edge, then upscale and export.",
+      "The difference from a plain generator is control. Instead of rolling the dice on a new prompt every time something is nearly right, you mark the area you want changed and describe only that change. The rest of the image stays exactly as approved, which is what makes the output usable in real campaigns rather than a nice accident.",
+      "Consistency is the other half. Lock a character, a product angle or a house style as a reference and every following image inherits it, so a set of ten visuals reads as one deliberate campaign. Several image models sit behind the same canvas, so you can push a shot toward photographic realism or toward illustration without relearning anything.",
     ],
     canDo: [
-      "Generate hero imagery, blog headers and section illustrations",
-      "Create product scenes and lifestyle mockups for concepts and pitches",
-      "Produce variations of one composition in multiple aspect ratios",
-      "Build a consistent visual style across a campaign using a saved style reference",
-      "Explore art direction quickly before commissioning a shoot",
-      "Create backgrounds, textures and abstract assets for layouts",
-      "Feed a generated still into the image-to-video tool for motion",
+      "Generate images from a written description in any publishing ratio",
+      "Edit an existing photo or generated image by brushing over the area to change",
+      "Remove, replace or blur a background and drop the subject onto a clean surface",
+      "Extend a frame outwards so a square shot becomes a wide banner without cropping",
+      "Keep one character, model or product look consistent across a whole set",
+      "Match a house style from a reference image instead of describing it every time",
+      "Upscale to a crisp, large file for print-adjacent and retina use",
+      "Batch out every social size from one approved master image",
+      "Send any finished still into image-to-video for motion",
     ],
     how: [
       {
-        title: "Describe subject, setting and light",
-        body: "Those three carry most of the result. Add the camera angle and lens feel if you want photographic realism, or name a medium such as risograph, ink wash or 3D render if you do not.",
+        title: "Start from text or from an upload",
+        body: "Describe the picture, or drop in a photo you already own. Add reference images when you want a specific look, character or product carried over.",
       },
       {
-        title: "Set the aspect ratio before you fall in love",
-        body: "Generate directly in the ratio you will publish. Cropping a square into a 16:9 banner usually destroys the composition you liked.",
+        title: "Pick the ratio and the register",
+        body: "Choose the size you will actually publish and whether you want photographic, illustrated or graphic output before the first pass.",
       },
       {
-        title: "Iterate on one variable at a time",
-        body: "Change the lighting, then the framing, then the palette. Changing everything at once makes it impossible to tell what improved the image.",
+        title: "Edit instead of restarting",
+        body: "Brush over the sky, the jacket, the label or the background and describe only that change. Everything outside the brush stays untouched.",
       },
       {
-        title: "Lock the style, then produce the set",
-        body: "Once one image is right, reuse it as a style reference so the rest of the campaign holds together.",
+        title: "Lock the look and produce the set",
+        body: "Save the approved image as a style or character reference, then batch out the rest of the campaign and upscale the finals.",
       },
     ],
     examples: [
@@ -371,104 +373,129 @@ export const coreToolsA: Tool[] = [
         input:
           "Wide 16:9. Overhead shot of a wooden workbench with scattered ceramic glaze samples, morning light from a high window, muted terracotta and bone palette, film grain, no text, no hands.",
         output:
-          "Four wide compositions in a warm, matte photographic style, usable as a blog header without cropping.",
+          "Four wide compositions in a warm, matte photographic style, usable as a blog header without cropping, then upscaled for retina.",
       },
       {
-        label: "Concept scene",
+        label: "Edit on an existing photo",
         input:
-          "Portrait 4:5. A single cyclist crossing an empty coastal road at dusk, seen from behind at a distance, long shadows, cool blue light with one warm streetlamp, cinematic, no lens flare.",
+          "Uploaded product photo. Brushed over the background only: \"replace with a pale concrete studio surface, soft window light from the left, keep the product and its shadow exactly as they are.\"",
         output:
-          "A quiet, wide-negative-space image suitable for an Instagram post with the caption placed in the lower third.",
+          "The same product, untouched, on a clean studio background — plus square, 4:5 and story crops generated from the approved master.",
       },
     ],
     capabilities: [
       {
-        title: "Aspect ratio control",
-        body: "Generate natively in square, portrait, landscape and story ratios rather than cropping afterwards.",
+        title: "Brush editing",
+        body: "Mark a region and describe the change. The rest of the image is preserved pixel for pixel, so approved work stays approved.",
       },
       {
-        title: "Style references",
-        body: "Reuse an approved image as the visual anchor for an entire campaign so the set feels intentional.",
+        title: "Background replace and remove",
+        body: "Cut the subject out cleanly, drop it on a new surface, or export a transparent file for layouts.",
       },
       {
-        title: "Negative direction",
-        body: "State what must not appear, which is often the fastest way to fix an image that is nearly right.",
+        title: "Frame extension",
+        body: "Grow the canvas beyond the original edges so one composition serves banner, square and story without a crop that ruins it.",
       },
       {
-        title: "Variation passes",
-        body: "Produce controlled alternatives of a composition you already like, instead of rolling the dice again.",
+        title: "Character and style consistency",
+        body: "Hold the same face, product or visual language across an entire set using reference images rather than repeated adjectives.",
+      },
+      {
+        title: "Upscaling and cleanup",
+        body: "Raise resolution and sharpen detail on a final you like, ready for large placements.",
+      },
+      {
+        title: "Multiple models, one canvas",
+        body: "Choose a faster model for exploration and a higher-fidelity one for the final, without leaving the workflow.",
+      },
+      {
+        title: "Batch export",
+        body: "Produce every required ratio and size from one approved master in a single pass.",
       },
       {
         title: "Handoff to motion",
-        body: "Send any generated still into image-to-video to add camera movement or subtle animation.",
+        body: "Send any finished still into image-to-video to add camera movement or subtle animation.",
       },
     ],
     audiences: [
       {
         who: "Social media managers",
-        why: "Ship a week of on-brand visuals in the correct ratios without a photoshoot or a stock subscription.",
+        why: "Ship a week of on-brand visuals in every required ratio without a photoshoot or a stock subscription.",
+      },
+      {
+        who: "E-commerce teams",
+        why: "Clean up product shots, swap backgrounds and produce listing and ad variants from one photo.",
       },
       {
         who: "Content teams",
-        why: "Give every article an original header instead of the same stock photo everyone else licensed.",
+        why: "Give every article an original header in a house style that is recognisably yours.",
       },
       {
         who: "Designers",
-        why: "Explore art direction fast, then take the strongest direction into real production.",
+        why: "Explore art direction fast, then refine the strongest direction with real editing control instead of re-prompting.",
       },
       {
         who: "Small businesses",
-        why: "Produce presentable imagery for a site or a menu when a commissioned shoot is out of reach.",
+        why: "Produce presentable imagery for a site, a menu or a listing when a commissioned shoot is out of reach.",
       },
     ],
     useCases: [
       {
         title: "Campaign visual set",
-        body: "Generate one hero image, approve the style, then produce the story, square and banner variants from the same reference so the campaign reads as one thing.",
+        body: "Generate one hero image, approve it, save it as the reference, then batch the story, square and banner variants so the campaign reads as one thing.",
+      },
+      {
+        title: "Product photo rescue",
+        body: "Take a phone photo of the product, remove the cluttered background, place it on a clean studio surface and upscale it for the listing.",
       },
       {
         title: "Article illustration system",
-        body: "Define one visual language for the blog, save it as a reference, and generate a header per article that is recognisably yours.",
+        body: "Define one visual language for the blog, lock it as a style reference, and generate a header per article that always looks like you.",
       },
       {
         title: "Pitch mockups",
-        body: "Visualise a concept convincingly enough to get the idea approved before spending money on production.",
+        body: "Visualise a concept convincingly enough to get it approved before spending money on production.",
       },
     ],
     tips: [
       "Name the light. Direction, softness and time of day change an image more than any adjective about mood.",
+      "When something is nearly right, brush and edit it — do not re-roll the whole prompt and lose what worked.",
       "Ask for negative space if text will sit on top of the image later.",
-      "Avoid asking for words inside the image; add real typography in your layout instead.",
-      "Describe the camera position explicitly when the framing matters, for example eye level, overhead or low angle.",
-      "Keep a note of prompts that produced your approved style; they become the house look.",
-      "Check imagery involving people carefully for distortion before publishing.",
+      "Add real typography in your layout rather than asking the model for words inside the image.",
+      "Save your approved image as a reference; consistency comes from reuse, not from repeating adjectives.",
+      "Upscale only the final you have chosen, not every exploratory pass.",
     ],
     mistakes: [
-      "Writing prompts as keyword soup instead of a clear description of a scene.",
-      "Generating square images and cropping them into every other format.",
-      "Expecting an exact reproduction of a real product or a specific person.",
+      "Writing prompts as keyword soup instead of describing a scene.",
+      "Regenerating from scratch when a brushed edit would have fixed one detail.",
+      "Generating square images and cropping them into every other format instead of extending the frame.",
+      "Expecting an exact reproduction of a real person, or of your exact product from text alone — upload the photo and edit it instead.",
       "Publishing the first result without checking hands, edges and small detail.",
     ],
     faqs: [
       {
+        q: "Can I edit a photo I already have?",
+        a: "Yes. Upload it, brush over the area you want changed and describe only that change. The rest of the photo is preserved, which is the main reason to use Image Pro over a plain prompt box.",
+      },
+      {
         q: "Can I use the images commercially?",
-        a: "Images you generate on a paid plan are intended for commercial use in your own marketing and products. Avoid prompts that ask for trademarked characters, brand logos or the likeness of a real person, since those raise separate rights issues regardless of the tool.",
+        a: "Images you create on a paid plan are intended for commercial use in your own marketing and products. Avoid prompts that ask for trademarked characters, brand logos or the likeness of a real person, since those raise separate rights issues regardless of the tool.",
+      },
+      {
+        q: "How do I keep the same character or style across many images?",
+        a: "Approve one image and save it as a character or style reference, then generate the rest against it. Every new image inherits the locked look.",
       },
       {
         q: "Why does text in my images look wrong?",
-        a: "Generative image models render text unreliably. Generate the image without words and add typography in a design tool, which also keeps the type crisp and on brand.",
+        a: "Image models render lettering unreliably. Generate without words and add typography in your layout, which also keeps the type crisp and on brand.",
       },
       {
-        q: "How do I keep a consistent style across many images?",
-        a: "Approve one image, save it as a style reference, and generate the rest against it. Consistency comes from reuse, not from repeating the same adjectives.",
-      },
-      {
-        q: "Can I generate an image of my actual product?",
-        a: "Not faithfully. The model creates a plausible object, not your exact SKU. Use generation for scenes, backgrounds and concepts, and real photography where product accuracy matters.",
+        q: "Can I get a transparent background?",
+        a: "Yes. Remove the background on a finished image and export it as a transparent file to drop into layouts and mockups.",
       },
       {
         q: "What resolution do I get?",
-        a: "Output resolution depends on your plan, with higher plans producing larger files suitable for print-adjacent use. All plans generate at sizes that work for web and social.",
+        a: "All plans generate at sizes that work for web and social, and the upscaler raises a chosen final to a larger, sharper file suitable for print-adjacent use. Higher plans allow larger outputs.",
       },
     ],
     related: [

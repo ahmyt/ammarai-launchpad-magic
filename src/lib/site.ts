@@ -49,7 +49,7 @@ export const footerNav: { heading: string; links: SiteLink[] }[] = [
     heading: "Create",
     links: [
       { label: "AI Writer", slug: "ai-writer" },
-      { label: "AI Image Generator", slug: "ai-image-generator" },
+      { label: "AI Image Pro", slug: "ai-image-generator" },
       { label: "AI Video Generator", slug: "ai-video-generator" },
       { label: "AI Voice Generator", slug: "ai-voice-generator" },
       { label: "AI Code Generator", slug: "ai-code-generator" },

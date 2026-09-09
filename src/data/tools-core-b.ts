@@ -266,7 +266,7 @@ export const coreToolsB: Tool[] = [
       },
       {
         title: "Generated still to clip",
-        body: "Create an image in the AI Image Generator, approve the composition, then animate it here so the campaign visual moves.",
+        body: "Create an image in AI Image Pro, approve the composition, then animate it here so the campaign visual moves.",
       },
     ],
     tips: [
