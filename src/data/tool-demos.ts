@@ -307,7 +307,171 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
     { inputFileLabel: "service-agreement.pdf — 41 pages" },
     { inputFileLabel: "6 research PDFs — 148 pages total" },
   ],
+  "ai-agent-builder": [
+    {
+      kind: "scene",
+      caption: "Sample run — the morning briefing agent working through its steps on schedule.",
+      scene: {
+        label: "Agent run · 07:00 daily",
+        steps: [
+          { actor: "Trigger", text: "Schedule fired — daily at 07:00", meta: "0.0s" },
+          { actor: "Step 1", text: "Read 34 unread emails, kept 6 that need a reply", meta: "3.1s" },
+          { actor: "Step 2", text: "Pulled today's calendar — 4 meetings, one clash at 14:00", meta: "4.8s" },
+          { actor: "Step 3", text: "Checked yesterday's sales: 18 orders, £2,140", meta: "6.2s" },
+          { actor: "Step 4", text: "Wrote the briefing and posted it to #team-daily", meta: "8.9s" },
+        ],
+        result: "Delivered to Slack at 07:00:09 — no human involved.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample run — the inbox agent drafting a reply the moment a message lands.",
+      scene: {
+        label: "Agent run · on new email",
+        steps: [
+          { actor: "Trigger", text: "New email from a customer: \"Can I change my plan?\"", meta: "0.0s" },
+          { actor: "Step 1", text: "Looked up the account — Pro plan, renews 3 May", meta: "1.4s" },
+          { actor: "Step 2", text: "Matched the billing policy in the knowledge base", meta: "2.6s" },
+          { actor: "Step 3", text: "Drafted a reply with the two upgrade options", meta: "4.5s" },
+          { actor: "Step 4", text: "Held it for approval and pinged you on Telegram", meta: "4.9s" },
+        ],
+        result: "One tap to send. The agent never sends money-related replies on its own.",
+      },
+    },
+  ],
+  "ai-phone-agent": [
+    {
+      kind: "scene",
+      caption: "Sample call — an inbound booking answered and confirmed without a human.",
+      scene: {
+        label: "Inbound call · 00:41",
+        steps: [
+          { actor: "Ring", text: "Incoming call — answered on the second ring", meta: "00:02" },
+          { actor: "Agent", text: "Good afternoon, Marlow Dental. How can I help?", meta: "00:04" },
+          { actor: "Caller", text: "I'd like to book a check-up, ideally Thursday morning.", meta: "00:09" },
+          { actor: "Agent", text: "I have 9:20 or 11:05 on Thursday. Which suits you?", meta: "00:15" },
+          { actor: "Caller", text: "Nine twenty, please.", meta: "00:22" },
+          { actor: "Agent", text: "Booked for Thursday 9:20. I've texted you the confirmation.", meta: "00:31" },
+        ],
+        result: "Appointment written to the calendar, SMS sent, call summary saved to the CRM.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample call — an outbound follow-up that qualifies the lead and books the demo.",
+      scene: {
+        label: "Outbound call · 01:12",
+        steps: [
+          { actor: "Dial", text: "Calling a lead who downloaded the pricing guide", meta: "00:00" },
+          { actor: "Agent", text: "Hi Sam — you looked at our pricing yesterday. Is now a bad time?", meta: "00:06" },
+          { actor: "Caller", text: "Two minutes is fine.", meta: "00:11" },
+          { actor: "Agent", text: "How many people would be using it?", meta: "00:14" },
+          { actor: "Caller", text: "About twelve, in support.", meta: "00:19" },
+          { actor: "Agent", text: "That's our Team plan. I can put 30 minutes in with Aisha on Tuesday.", meta: "00:34" },
+        ],
+        result: "Lead scored, demo booked, transcript and next step logged on the deal.",
+      },
+    },
+  ],
+  "ai-crm": [
+    {
+      kind: "scene",
+      caption: "Sample session — asking the CRM a question and getting the record updated.",
+      scene: {
+        label: "CRM assistant",
+        steps: [
+          { actor: "You", text: "Which deals have gone quiet for more than two weeks?" },
+          { actor: "CRM", text: "Five: Northgate £8.4k, Vella £3.2k, Orbit £12k, Farrow £1.9k, Pike £6k" },
+          { actor: "You", text: "Move Orbit to Negotiation and set a call for Friday." },
+          { actor: "CRM", text: "Orbit moved Proposal → Negotiation. Task created: call Friday 10:00." },
+          { actor: "CRM", text: "Pipeline updated — £31.5k now sitting in Negotiation." },
+        ],
+        result: "Same answers over WhatsApp and Telegram, without opening the dashboard.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample session — a month's sales turned into a report you can send.",
+      scene: {
+        label: "CRM assistant",
+        steps: [
+          { actor: "You", text: "Summarise March and tell me what changed." },
+          { actor: "CRM", text: "Closed £48,200 across 21 deals — up 14% on February." },
+          { actor: "CRM", text: "Win rate 31%. Average deal size fell from £2,600 to £2,295." },
+          { actor: "CRM", text: "Referrals converted best (46%); paid search worst (12%)." },
+          { actor: "You", text: "Turn that into slides for Monday." },
+          { actor: "CRM", text: "Six-slide deck built from live CRM data — ready to download." },
+        ],
+        result: "No exports, no spreadsheets — the assistant reads the records directly.",
+      },
+    },
+  ],
+  "ai-social-media-agent": [
+    {
+      kind: "scene",
+      caption: "Sample run — a month of posts planned, written and scheduled on its own.",
+      scene: {
+        label: "Monthly plan · 4 accounts",
+        steps: [
+          { actor: "Brief", text: "Sustainable skincare brand, 3 posts a week, warm and plain-spoken" },
+          { actor: "Plan", text: "12 posts mapped across the month — 4 education, 4 product, 4 community" },
+          { actor: "Write", text: "Captions, hashtags and image directions drafted for each" },
+          { actor: "Schedule", text: "Instagram Tue 18:40, TikTok Thu 20:10, LinkedIn Wed 08:15" },
+          { actor: "Learn", text: "Week 2: reels beat carousels 3:1 — the plan shifts to more reels" },
+        ],
+        result: "Calendar filled for the month; you approve or edit anything before it goes out.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample run — the agent reacting to what performed and changing the plan.",
+      scene: {
+        label: "Weekly review",
+        steps: [
+          { actor: "Read", text: "Last week: 41.2k views, 2,180 engagements, 96 profile taps" },
+          { actor: "Spot", text: "Behind-the-scenes clips out-performed product shots by 240%" },
+          { actor: "Spot", text: "Posts after 20:00 got half the reach of the 18:30 slot" },
+          { actor: "Adjust", text: "Next week: 4 behind-the-scenes, all posts moved to 18:30" },
+          { actor: "Queue", text: "7 posts written and queued, waiting on your approval" },
+        ],
+        result: "The strategy changes with the numbers, week after week.",
+      },
+    },
+  ],
+  "ai-blogger-agent": [
+    {
+      kind: "scene",
+      caption: "Sample run — a month of researched posts published straight to WordPress.",
+      scene: {
+        label: "Bulk run · 12 posts",
+        steps: [
+          { actor: "Input", text: "Topic: home EV charging. 12 posts, one every Tuesday." },
+          { actor: "Research", text: "Pulled 38 live sources; picked 12 keywords with real demand" },
+          { actor: "Outline", text: "Each post mapped to one search intent, no overlap between them" },
+          { actor: "Write", text: "Drafted 12 articles, 1,400–1,900 words, internal links between them" },
+          { actor: "Publish", text: "Post 1 live now, posts 2–12 scheduled weekly to WordPress" },
+        ],
+        result: "Titles, meta descriptions, headings and image alt text handled automatically.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample run — one scheduled post going live overnight.",
+      scene: {
+        label: "Scheduled post · 06:00",
+        steps: [
+          { actor: "Pick", text: "Next in queue: \"How much does it cost to charge an EV at home?\"" },
+          { actor: "Check", text: "Refreshed the tariff figures against current sources" },
+          { actor: "Write", text: "1,620 words, comparison table, 6 FAQs, 3 internal links" },
+          { actor: "SEO", text: "Title 54 chars, meta 148 chars, one H1, keyword in two H2s" },
+          { actor: "Publish", text: "Live on the blog at 06:00 with a featured image" },
+        ],
+        result: "You wake up to a finished post, not a draft to fix.",
+      },
+    },
+  ],
 };
+
 
 
 /** @deprecated use `toolDemoMedia` */
