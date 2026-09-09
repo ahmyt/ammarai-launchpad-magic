@@ -35,6 +35,8 @@ import shootInSkincare from "@/assets/shoot-in-skincare.jpg";
 import shootOutSkincare from "@/assets/shoot-out-skincare.jpg";
 import tryonInBlazer from "@/assets/tryon-in-blazer.jpg";
 import tryonOutBlazer from "@/assets/tryon-out-blazer.jpg";
+import tryonInStripedShirt from "@/assets/tryon-in-striped-shirt.jpg";
+import tryonOutStripedShirt from "@/assets/tryon-out-striped-shirt.jpg";
 import creativeBrandKit from "@/assets/creative-out-brandkit.jpg";
 import creativeCampaign from "@/assets/creative-out-campaign.jpg";
 import seoReportUrlAudit from "@/assets/seo-report-url-audit.jpg";
@@ -260,6 +262,13 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
       inputImage: tryonInBlazer,
       inputImageAlt: "Uploaded flat lay: an olive green linen blazer on a white background",
       caption: "Sample try-on — the same blazer worn on a model, linen creasing and lapels intact.",
+    },
+    {
+      kind: "image",
+      url: tryonOutStripedShirt,
+      inputImage: tryonInStripedShirt,
+      inputImageAlt: "Uploaded flat lay: a blue and white striped T-shirt on a white background",
+      caption: "Sample try-on — the striped T-shirt worn on a model, with its colour, stripe pattern and chest emblem preserved.",
     },
   ],
   "ai-creative-suite": [
