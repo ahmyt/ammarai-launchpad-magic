@@ -97,24 +97,60 @@ concrete rather than generic.
 31. **Pricing page update** — shared credits pool (one balance across every tool, with cost
     shown before each generation) and discounts.
 
-## Group 8 — Smaller generators on the live demo we don't cover
+## Group 8 — Custom Templates: every tab compared with AmmarAI
 
-From the working demo's template library, these are quick wins because each is one more
-indexable page with real search demand:
+I opened all 16 tabs of the demo's Custom Templates section and matched each template against
+our 67 pages. Below is only what we are missing, tab by tab. Nothing else from the demo is
+included here.
 
-32. **Testimonial & Review Generator**
-33. **Pros & Cons Generator**
-34. **Email Answer Generator** (reply to an incoming email)
-35. **YouTube Video to Blog Post**
-36. **RSS Feed to Content**
-37. **Article Wizard** (guided long-form builder)
-38. **File Analyzer** for PDF, CSV, DOC and DOCX
-39. **TL;DR Summarizer**
+**Blog:** Article Wizard, Blog Ideas, Blog Outline, Blog Section, AI Content Detector,
+Web Page Chat (analyse any URL), Chat Image, Realtime Voice Chat.
 
-The demo also sells platform-level facts the site never mentions: 30-language voiceover,
-multi-lingual generation and auto-translate, unlimited custom prompt templates, a support
-ticket desk, a usage/analytics dashboard, and multiple payment methods. These belong on the
-homepage and the features section rather than as tool pages.
+**Ecommerce:** Testimonial & Review Generator, Product Name Ideas, Why Choose This Product,
+Product Reviews, Review Responder.
+
+**Social media:** Instagram Reel Script, TikTok Video Caption, Facebook Post, Facebook Video
+Script, X Thread, YouTube Video to Blog Post, Video Idea, Video Description, Viral Tweet Idea,
+Clickbait Titles, AMA Post, Trending Post, Viral Ideas, Storytelling.
+
+**Website:** Sitemap, Tagline, UX Ideas, Design Ideas, Services Page, Features Page, Keyword
+Generator, Keyword Extractor, Website Testimonials, Landing Page Copy, Website Copy, Call to
+Action, Privacy Policy, Terms and Conditions.
+
+**Advertising:** TV Ads, YouTube Ads, Ad Script, Advertising Ideas, App & SMS Notifications,
+AIDA Framework, PAS Framework, Marketing Plan, Sales Pitch.
+
+**Business:** Job Description, Resume Builder, LinkedIn Profile, LinkedIn Post, Startup Ideas,
+Business Strategy, Personal Bio, Cost Benefit Analysis, Brainstorming.
+
+**Academic:** Cover Letter, Application Letter, Math Question Solver, Bullet Point Answer,
+Thesis Statement, Proofreading, Rephrase, Content Improver, Career Advice.
+
+**Email:** Welcome Email, Invitation Email, Reply Email, Apology Email.
+
+**Development:** Bug Fix, Explain Code, Teach Code, Changelog Creator.
+
+**Languages:** Translate, List Synonyms, Learn New Words.
+
+**Customer service:** Social Media Reply, Support Ticket Reply.
+
+**Entertainment:** Song Lyrics, Jokes, Event Planner, Travel Planner, Gift Ideas.
+
+**Fitness & health:** Workout Plan, Meal Plan.
+
+**Writer:** eBook Generator, Book Ideas, Explain to a Child, News From a Journalist's View,
+Generate From RSS Feed, Undetectable AI, Pros and Cons, Real Estate Listing, Prompt Generator.
+
+**Misc:** AI Voice Isolator, AI Video to Video.
+
+That is roughly 95 new pages. They reuse existing categories except three new ones worth
+adding: "AI Career", "AI Lifestyle" and "AI Legal" (for privacy policy and terms).
+Already covered and needing no new page: product description, product features, Amazon
+listings, blog article/intro/conclusion, paragraph, grammar, TL;DR, rewriter, plagiarism,
+vision, file analyzer, speech to text, FAQ, meta description, keyword rewrite, SEO content,
+Facebook/Google ads, Instagram captions and hashtags, tweets, TikTok script, YouTube title/
+description/tags, newsletter, cold email, follow-up email, press release, story, video script.
+
 
 ## What already exists and only needs its wording aligned
 
