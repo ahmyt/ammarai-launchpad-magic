@@ -30,9 +30,18 @@ import seoReportTextAnalysis from "@/assets/seo-report-text-analysis.jpg";
 import seoReportKeywords from "@/assets/seo-report-keywords.jpg";
 
 
+export type ToolDemoScene = {
+  /** Small label above the animated scene, e.g. "Live call". */
+  label: string;
+  /** Steps revealed one by one while the demo plays. */
+  steps: { actor: string; text: string; meta?: string }[];
+  /** Closing summary line under the scene. */
+  result?: string;
+};
+
 export type ToolDemoMedia = {
   /** Output media kind. Omit for tools whose real output is text. */
-  kind?: "video" | "audio" | "image" | "code";
+  kind?: "video" | "audio" | "image" | "code" | "scene";
   /** Output media URL (video, audio or image). Omit for text/code output. */
   url?: string;
   caption?: string;
@@ -40,6 +49,8 @@ export type ToolDemoMedia = {
   code?: string;
   /** Language label shown on the code block. */
   language?: string;
+  /** Animated step-by-step scene for tools with no single file output (kind: "scene"). */
+  scene?: ToolDemoScene;
   /** Optional source still shown alongside the prompt (image-led tools). */
   inputImage?: string;
   inputImageAlt?: string;
@@ -49,6 +60,7 @@ export type ToolDemoMedia = {
   /** Optional attached-file chip shown alongside the prompt (document tools). */
   inputFileLabel?: string;
 };
+
 
 
 /**
