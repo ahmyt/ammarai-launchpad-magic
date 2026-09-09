@@ -611,6 +611,6 @@ export const visualTools: Tool[] = [
         a: "Yes — each piece can be regenerated on its own and still inherits the saved style.",
       },
     ],
-    related: ["ai-image-generator", "ai-image-editor", "ai-photoshoot", "ai-logo-generator", "ai-ad-generator"],
+    related: ["ai-image-generator", "ai-image-editor", "ai-photoshoot", "ai-ad-generator", "ai-social-media-agent"],
   },
 ];
