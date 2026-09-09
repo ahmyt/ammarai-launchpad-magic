@@ -96,6 +96,7 @@ export function AnimatedExample({
   useEffect(() => {
     setTyped("");
     setWritten("");
+    setRevealed(0);
     setPhase("typing");
   }, [index]);
 
@@ -106,10 +107,12 @@ export function AnimatedExample({
     if (reduced) {
       setTyped(example.input);
       setWritten(demoCode?.code ?? example.output);
+      setRevealed(demoScene?.steps.length ?? 0);
       setPhase("resting");
       return;
     }
     if (!active) return;
+
 
     if (phase === "typing") {
       if (typed.length >= example.input.length) {
