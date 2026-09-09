@@ -363,11 +363,11 @@ export const visualTools: Tool[] = [
           "The same blazer worn open on a model against a warm neutral wall — linen creasing correctly, lapels and buttons intact, plus a three-quarter and a detail crop.",
       },
       {
-        label: "One sample, six colourways",
+        label: "Flat T-shirt to model shot",
         input:
-          "One photographed t-shirt sample plus a list of six colours in the range.",
+          "A cobalt blue T-shirt with thin white stripes and a small wave emblem, photographed flat. Direction: warm neutral studio, soft daylight, relaxed pose.",
         output:
-          "Six on-model images with identical model, pose and lighting, differing only in garment colour — a consistent product grid before the stock even lands.",
+          "The same striped T-shirt worn naturally on a model, with the collar, cotton texture, stripe spacing and chest emblem preserved in a polished lookbook shot.",
       },
     ],
     capabilities: [
