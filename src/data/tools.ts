@@ -33,6 +33,8 @@ export const categoryOrder: ToolCategory[] = [
   "AI Agents",
   "AI Sales & CRM",
   "AI Writing",
+  "AI Chat",
+
 
   "AI Marketing",
   "AI SEO",
