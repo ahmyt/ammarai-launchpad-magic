@@ -128,6 +128,15 @@ export function AnimatedExample({
       return () => clearTimeout(t);
     }
 
+    if (phase === "writing" && demoScene) {
+      if (revealed >= demoScene.steps.length) {
+        const t = setTimeout(() => setPhase("resting"), 1800);
+        return () => clearTimeout(t);
+      }
+      const t = setTimeout(() => setRevealed((r) => r + 1), revealed === 0 ? 300 : 950);
+      return () => clearTimeout(t);
+    }
+
     if (phase === "writing" && demoCode) {
       const full = demoCode.code ?? "";
       if (written.length >= full.length) {
@@ -161,19 +170,34 @@ export function AnimatedExample({
       setIndex((i) => (i + 1) % examples.length);
     }, REST_MS);
     return () => clearTimeout(t);
-  }, [active, reduced, phase, typed, written, example, outputWords, examples.length, demoVideo, demoCode]);
+  }, [
+    active,
+    reduced,
+    phase,
+    typed,
+    written,
+    revealed,
+    example,
+    outputWords,
+    examples.length,
+    demoVideo,
+    demoCode,
+    demoScene,
+  ]);
 
   if (!example) return null;
 
-  const outputKind = demoCode
-    ? "code"
-    : demoVideo?.kind === "audio"
-      ? "audio"
-      : demoVideo?.kind === "image"
-        ? "image"
-        : demoVideo
-          ? "video"
-          : "text";
+  const outputKind = demoScene
+    ? "scene"
+    : demoCode
+      ? "code"
+      : demoVideo?.kind === "audio"
+        ? "audio"
+        : demoVideo?.kind === "image"
+          ? "image"
+          : demoVideo
+            ? "video"
+            : "text";
 
   const outputVerb =
     outputKind === "code"
@@ -182,7 +206,9 @@ export function AnimatedExample({
         ? "AmmarAI speaks"
         : outputKind === "image" || outputKind === "video"
           ? "AmmarAI renders"
-          : "AmmarAI writes";
+          : outputKind === "scene"
+            ? "AmmarAI works"
+            : "AmmarAI writes";
 
   const inputVerb = media?.inputImage
     ? "You upload + type"
@@ -190,7 +216,9 @@ export function AnimatedExample({
       ? "You record"
       : media?.inputFileLabel
         ? "You attach + ask"
-        : "You type";
+        : outputKind === "scene"
+          ? "You set it up"
+          : "You type";
 
   const progress =
     phase === "typing"
@@ -198,13 +226,17 @@ export function AnimatedExample({
       : phase === "thinking"
         ? 0.42
         : phase === "writing"
-          ? demoCode
-            ? 0.45 + (written.length / Math.max((demoCode.code ?? "").length, 1)) * 0.5
-            : demoVideo
-              ? 0.7
-              : 0.45 +
-                ((written ? written.split(" ").length : 0) / Math.max(outputWords.length, 1)) * 0.5
+          ? demoScene
+            ? 0.45 + (revealed / Math.max(demoScene.steps.length, 1)) * 0.5
+            : demoCode
+              ? 0.45 + (written.length / Math.max((demoCode.code ?? "").length, 1)) * 0.5
+              : demoVideo
+                ? 0.7
+                : 0.45 +
+                  ((written ? written.split(" ").length : 0) / Math.max(outputWords.length, 1)) *
+                    0.5
           : 1;
+
 
   const statusLabel =
     phase === "typing"
