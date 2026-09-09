@@ -25,6 +25,14 @@ import imageOutWorkbench from "@/assets/imggen-out-workbench.jpg";
 import imageOutCyclist from "@/assets/imggen-out-cyclist.jpg";
 import visionBikeWheel from "@/assets/vision-in-bike-wheel.jpg";
 import visionRevenueChart from "@/assets/vision-in-revenue-chart.jpg";
+import editInMug from "@/assets/edit-in-mug.jpg";
+import editOutMug from "@/assets/edit-out-mug.jpg";
+import shootInSneakers from "@/assets/shoot-in-sneakers.jpg";
+import shootOutSneakers from "@/assets/shoot-out-sneakers.jpg";
+import tryonInBlazer from "@/assets/tryon-in-blazer.jpg";
+import tryonOutBlazer from "@/assets/tryon-out-blazer.jpg";
+import creativeBrandKit from "@/assets/creative-out-brandkit.jpg";
+import creativeCampaign from "@/assets/creative-out-campaign.jpg";
 import seoReportUrlAudit from "@/assets/seo-report-url-audit.jpg";
 import seoReportTextAnalysis from "@/assets/seo-report-text-analysis.jpg";
 import seoReportKeywords from "@/assets/seo-report-keywords.jpg";
@@ -207,6 +215,59 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
       kind: "image",
       url: imageOutCyclist,
       caption: "Sample output — a 4:5 concept scene with negative space in the lower third for a caption.",
+    },
+  ],
+  "ai-image-editor": [
+    {
+      kind: "image",
+      url: editOutMug,
+      inputImage: editInMug,
+      inputImageAlt: "Uploaded phone photo: a ceramic mug on a cluttered kitchen counter",
+      caption: "Sample edit — same mug, moved onto a clean beige studio backdrop with soft light and a natural shadow.",
+    },
+    {
+      kind: "image",
+      url: shootOutSneakers,
+      inputImage: shootInSneakers,
+      inputImageAlt: "Uploaded phone photo: white leather sneakers on a wooden floor at home",
+      caption: "Sample edit — background replaced and the shot relit, with the sneakers themselves untouched.",
+    },
+  ],
+  "ai-photoshoot": [
+    {
+      kind: "image",
+      url: shootOutSneakers,
+      inputImage: shootInSneakers,
+      inputImageAlt: "Source photo: white leather sneakers photographed on a wooden floor",
+      caption: "Sample shoot — the same sneakers on a sunlit concrete plinth with soft plant shadows.",
+    },
+    {
+      kind: "image",
+      url: editOutMug,
+      inputImage: editInMug,
+      inputImageAlt: "Source photo: a ceramic mug on a kitchen counter",
+      caption: "Sample shoot — clean e-commerce sweep generated from an ordinary phone snapshot.",
+    },
+  ],
+  "ai-virtual-try-on": [
+    {
+      kind: "image",
+      url: tryonOutBlazer,
+      inputImage: tryonInBlazer,
+      inputImageAlt: "Uploaded flat lay: an olive green linen blazer on a white background",
+      caption: "Sample try-on — the same blazer worn on a model, linen creasing and lapels intact.",
+    },
+  ],
+  "ai-creative-suite": [
+    {
+      kind: "image",
+      url: creativeBrandKit,
+      caption: "Sample set — a coffee roastery brand kit: mark, palette, card, packaging and social tiles in one style.",
+    },
+    {
+      kind: "image",
+      url: creativeCampaign,
+      caption: "Sample set — three skincare ad creatives sharing one palette and layout logic.",
     },
   ],
   "ai-vision": [
