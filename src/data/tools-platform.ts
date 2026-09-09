@@ -131,64 +131,93 @@ export const platformTools: Tool[] = [
     name: "External Chatbot Builder",
     category: "AI Chat",
     summary:
-      "Create and deploy customizable chatbots for your website, trained on your content, with brand styling and conversation analytics.",
-    title: "External Chatbot: AI Support on Your Website | AmmarAI",
+      "Deploy a branded AI assistant on your website and messaging channels — trained on your content, able to take actions, capture leads and hand hard cases to a human.",
+    title: "External Chatbot Builder: AI Agent on Your Site | AmmarAI",
     description:
-      "Create and deploy customizable chatbots for websites with brand styling, training on your content, and conversation analytics.",
+      "Build and embed a branded AI chatbot trained on your own content. It answers in any language, captures leads, takes real actions, escalates to a human and reports on every conversation.",
     h1: "Put a trained AI assistant on your own website",
-    lede: "Build a chatbot that answers visitor questions using your content, styled to match your brand, and deployed on your site with an embed — then read the analytics to see what customers actually ask.",
+    lede:
+      "Build a chatbot that answers from your own content, matches your brand, speaks your customers' languages and knows when to fetch a human. Embed it in one line, connect it to your messaging channels, and read exactly what visitors ask.",
     ctaLabel: "Build your chatbot",
     what: [
-      "The External Chatbot Builder lets you create an AI assistant that lives on your website rather than inside AmmarAI. You train it on your own material — pages, documents, help articles, product information — so its answers come from your knowledge base instead of general knowledge.",
-      "The widget is styled to your brand: colours, position, greeting and tone are all configurable, so it reads as part of your site rather than a bolted-on third-party box. Once embedded, every conversation is logged, and the analytics view shows volumes, common questions and the queries the bot could not answer — which is a direct map of what your site fails to explain.",
+      "The External Chatbot Builder creates an AI assistant that lives on your website rather than inside AmmarAI. You train it on your own material — pages, PDFs, help articles, product data, a sitemap crawl — so its answers come from your knowledge base instead of general internet knowledge, and it says it does not know rather than inventing an answer.",
+      "It is more than a question-answering box. The bot can capture a name and email mid-conversation, qualify a visitor with a few questions, run defined actions like checking an order or booking a slot, and escalate to a human the moment a conversation looks like a complaint or a serious buying signal — carrying the full transcript with it.",
+      "The widget is yours: colours, avatar, greeting, position, launcher style, tone and the languages it replies in. Embed it with one snippet, or run the same trained bot on your messaging channels so the answers stay identical everywhere. Every conversation lands in the Smart Inbox, and analytics show volumes, top questions and — most usefully — the questions it could not answer.",
     ],
     canDo: [
-      "Train a chatbot on your pages, documents and help content",
-      "Customise colours, greeting, tone and widget position to match your brand",
-      "Deploy on any website with a small embed snippet",
-      "Review conversation logs and analytics on common questions",
-      "Update the training content as your product or policies change",
-      "Set fallback behaviour for questions outside the bot's knowledge",
+      "Train on website pages, a full site crawl, PDFs, documents, FAQs and product data",
+      "Customise colours, avatar, launcher, greeting, position and tone to match your brand",
+      "Embed on any site with one snippet — no plugin, no developer",
+      "Reply in the visitor's own language automatically",
+      "Capture names, emails and phone numbers inside the conversation",
+      "Qualify visitors with scripted questions before handing over a lead",
+      "Run defined actions: check an order, book a slot, open a ticket, pass data to your systems",
+      "Escalate to a human with the full transcript when rules or sentiment say so",
+      "Feed every conversation into the Smart Inbox and your CRM",
+      "Read analytics on volume, resolution rate, top intents and unanswered questions",
     ],
     how: [
       {
-        title: "Create a bot and add your content",
-        body: "Point it at your website pages and upload the documents, FAQs and product information it should answer from.",
+        title: "Create a bot and feed it your content",
+        body: "Crawl your site, upload documents and paste the FAQs it should answer from. It indexes the material and answers only from it.",
       },
       {
-        title: "Style the widget",
-        body: "Set brand colours, the greeting message, the assistant's tone and where the widget sits on the page.",
+        title: "Style it and set its voice",
+        body: "Brand colours, avatar, launcher, greeting, position, tone and reply languages. It should look like part of your site, not a third-party box.",
       },
       {
-        title: "Test the hard questions",
-        body: "Ask it the awkward, specific questions customers actually ask, and add content where the answers fall short.",
+        title: "Set rules and actions",
+        body: "Decide what it may answer alone, what triggers a human handover, when to ask for an email, and which actions it can run.",
       },
       {
-        title: "Embed and monitor",
-        body: "Paste the snippet into your site, then watch the analytics to see what visitors ask and where the bot needs more training.",
+        title: "Embed, then improve weekly",
+        body: "Paste one snippet into your site. Then read the unanswered-questions report and feed the gaps back into training.",
       },
     ],
     examples: [
       {
         label: "Storefront support bot",
         input:
-          "Train on shipping policy, returns page and 40 product FAQs. Greeting: 'Hi — ask me anything about orders, shipping or returns.'",
+          "Train on shipping policy, returns and 40 product FAQs. Capture email after two questions. Escalate anything mentioning 'damaged' or 'refund'.",
         output:
-          "A branded chat widget that resolves order-status and returns questions instantly, with analytics showing 'international shipping' as the top new query this week.",
+          "A branded widget resolving stock, shipping and fit questions out of hours, collecting emails on qualified chats, and routing damage complaints straight to a person with the transcript attached.",
+      },
+      {
+        label: "Lead-qualifying bot for a service business",
+        input:
+          "Ask project type, timeline and budget range before offering the calendar. Answer scope questions from our services pages.",
+        output:
+          "Visitors are qualified in four messages; matching leads get a booking link, the rest get an honest 'not a fit' and a resource — with every lead written to the CRM.",
       },
     ],
     capabilities: [
       {
-        title: "Trained on your content",
-        body: "Answers are grounded in the pages and documents you provide, not generic internet knowledge.",
+        title: "Trained on your content only",
+        body: "Answers are grounded in your pages, documents and product data. Outside that, it says it does not know instead of guessing.",
       },
       {
-        title: "Brand styling",
-        body: "Colours, greeting, tone and placement are configurable so the widget matches your site.",
+        title: "Full brand control",
+        body: "Colours, avatar, launcher, greeting, position and tone — configurable enough that it reads as part of your own site.",
       },
       {
-        title: "Conversation analytics",
-        body: "See volumes, top questions and unanswered queries, which doubles as customer research.",
+        title: "Speaks your visitors' languages",
+        body: "It detects the language of the message and replies in it, from one set of training content.",
+      },
+      {
+        title: "Lead capture and qualification",
+        body: "Collect contact details and ask qualifying questions inside the chat, then push the lead to the CRM.",
+      },
+      {
+        title: "Actions, not just answers",
+        body: "Check an order, book a slot or open a ticket during the conversation rather than telling the visitor to email someone.",
+      },
+      {
+        title: "Human handover with context",
+        body: "Sentiment and topic rules decide when a person takes over — and they arrive with the whole transcript, not a summary.",
+      },
+      {
+        title: "Analytics that double as research",
+        body: "Volume, resolution rate, top intents and the queries it could not answer: a direct map of what your site fails to explain.",
       },
     ],
     audiences: [
