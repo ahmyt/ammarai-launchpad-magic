@@ -168,7 +168,7 @@ pointed at the new platform's models and capabilities.
 - **Phase 3:** Image Pro, image editing, Creative Suite, Photoshoot, Fashion/Try-On.
 - **Phase 4:** Video Pro, Video Editor, Captions, Dubbing, UGC, YouTube publishing, Music Pro.
 - **Phase 5:** Chat Pro, personas and skills, command search, models page, pricing update.
-- **Phase 6:** the smaller demo generators in Group 8.
+- **Phase 6:** the ~95 missing Custom Templates in Group 8, built tab by tab.
 
 ## Technical notes
 
