@@ -9,10 +9,12 @@ import { commerceSeoTools } from "./tools-commerce-seo";
 import { platformTools } from "./tools-platform";
 import { agentTools } from "./tools-agents";
 import { engagementTools } from "./tools-engagement";
+import { visualTools } from "./tools-visual";
 
 export const tools: Tool[] = [
   ...agentTools,
   ...engagementTools,
+  ...visualTools,
   ...coreToolsA,
   ...coreToolsB,
   ...seoAnalyzerTools,
@@ -129,6 +131,16 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
       "ai-transcription",
       "ai-speech-to-text",
       "video-script-generator",
+    ],
+  },
+  {
+    keywords: ["edit photo", "background", "remove object", "retouch", "upscale", "photoshoot", "product photo", "try on", "clothing", "fashion", "mockup", "brand kit", "creative"],
+    slugs: [
+      "ai-image-editor",
+      "ai-photoshoot",
+      "ai-virtual-try-on",
+      "ai-creative-suite",
+      "ai-image-generator",
     ],
   },
   {
