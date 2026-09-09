@@ -7,8 +7,10 @@ import { writingTools } from "./tools-writing";
 import { marketingTools } from "./tools-marketing";
 import { commerceSeoTools } from "./tools-commerce-seo";
 import { platformTools } from "./tools-platform";
+import { agentTools } from "./tools-agents";
 
 export const tools: Tool[] = [
+  ...agentTools,
   ...coreToolsA,
   ...coreToolsB,
   ...seoAnalyzerTools,
@@ -18,6 +20,7 @@ export const tools: Tool[] = [
   ...marketingTools,
   ...commerceSeoTools,
 ];
+
 
 
 export const toolBySlug = new Map(tools.map((t) => [t.slug, t]));
