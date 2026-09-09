@@ -181,7 +181,7 @@ export const coreToolsA: Tool[] = [
     popular: true,
     what: [
       "AI Chat is the conversational front door to AmmarAI. It behaves the way you expect a capable assistant to behave: it holds the thread, remembers the constraints you set twenty messages ago, and lets you attach files so the answers are grounded in your material rather than general knowledge.",
-      "What makes it different from a standalone chatbot is where the conversation goes next. When you land on a headline you like, you can move straight into the AI Writer with the context attached. When you describe a scene, you can generate it in the AI Image Generator without re-explaining. Chat is the reasoning layer; the specialist tools do the production.",
+      "What makes it different from a standalone chatbot is where the conversation goes next. When you land on a headline you like, you can move straight into the AI Writer with the context attached. When you describe a scene, you can generate it in AI Image Pro without re-explaining. Chat is the reasoning layer; the specialist tools do the production.",
       "It is genuinely useful for thinking, comparing options, drafting quickly and explaining unfamiliar material. It is not a search engine and it is not a source of record. When accuracy matters, attach the document that contains the answer and ask it to work from that.",
     ],
     canDo: [
@@ -208,7 +208,7 @@ export const coreToolsA: Tool[] = [
       },
       {
         title: "Hand off to a production tool",
-        body: "When the thinking is done, send the result to AI Writer, the AI Image Generator or the AI Code Generator rather than trying to finish everything in the chat window.",
+        body: "When the thinking is done, send the result to AI Writer, AI Image Pro or the AI Code Generator rather than trying to finish everything in the chat window.",
       },
     ],
     examples: [
