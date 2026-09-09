@@ -58,6 +58,7 @@ export function AnimatedExample({
   const [phase, setPhase] = useState<Phase>("typing");
   const [typed, setTyped] = useState("");
   const [written, setWritten] = useState("");
+  const [revealed, setRevealed] = useState(0);
   const [playing, setPlaying] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -76,7 +77,9 @@ export function AnimatedExample({
     : undefined;
   const demoVideo = media?.url ? media : undefined;
   const demoCode = media?.code ? media : undefined;
+  const demoScene = media?.scene ? media.scene : undefined;
   const outputWords = useMemo(() => (example?.output ?? "").split(" "), [example?.output]);
+
 
   useEffect(() => {
     const node = containerRef.current;
