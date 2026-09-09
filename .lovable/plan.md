@@ -97,11 +97,31 @@ concrete rather than generic.
 31. **Pricing page update** — shared credits pool (one balance across every tool, with cost
     shown before each generation) and discounts.
 
+## Group 8 — Smaller generators on the live demo we don't cover
+
+From the working demo's template library, these are quick wins because each is one more
+indexable page with real search demand:
+
+32. **Testimonial & Review Generator**
+33. **Pros & Cons Generator**
+34. **Email Answer Generator** (reply to an incoming email)
+35. **YouTube Video to Blog Post**
+36. **RSS Feed to Content**
+37. **Article Wizard** (guided long-form builder)
+38. **File Analyzer** for PDF, CSV, DOC and DOCX
+39. **TL;DR Summarizer**
+
+The demo also sells platform-level facts the site never mentions: 30-language voiceover,
+multi-lingual generation and auto-translate, unlimited custom prompt templates, a support
+ticket desk, a usage/analytics dashboard, and multiple payment methods. These belong on the
+homepage and the features section rather than as tool pages.
+
 ## What already exists and only needs its wording aligned
 
 Writing, SEO, ads, e-commerce copy, transcription, text-to-speech, voice cloning, presentation
 maker, code, vision, document analysis, image and video generation. These stay; the copy gets
 pointed at the new platform's models and capabilities.
+
 
 ## Suggested build order
 
@@ -112,6 +132,7 @@ pointed at the new platform's models and capabilities.
 - **Phase 3:** Image Pro, image editing, Creative Suite, Photoshoot, Fashion/Try-On.
 - **Phase 4:** Video Pro, Video Editor, Captions, Dubbing, UGC, YouTube publishing, Music Pro.
 - **Phase 5:** Chat Pro, personas and skills, command search, models page, pricing update.
+- **Phase 6:** the smaller demo generators in Group 8.
 
 ## Technical notes
 
