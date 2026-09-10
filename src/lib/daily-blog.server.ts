@@ -341,7 +341,7 @@ function buildHtml(
       );
     }
   }
-  return sanitizeHtml(parts.join("\n"), {
+  const html = sanitizeHtml(parts.join("\n"), {
     allowedTags: [
       ...sanitizeHtml.defaults.allowedTags,
       "h2",
@@ -355,6 +355,7 @@ function buildHtml(
       img: ["src", "alt", "loading", "width", "height"],
     },
   });
+  return readableLinks(html);
 }
 
 
@@ -389,7 +390,7 @@ export async function writeDailyPost(
       ``,
       `Structure: an engaging intro (2-3 sentences), 5-7 sections with H2 headings, short paragraphs,`,
       `at least two sections with practical bullet lists, and 5 frequently asked questions with 2-4 sentence answers.`,
-      `Mention AmmarAI naturally and reference the tool page at ${SITE.url}/${tool.slug}.`,
+      `Mention AmmarAI naturally and link the tool page as a Markdown link with descriptive anchor text, e.g. [${tool.name}](${SITE.url}/${tool.slug}) — never paste a bare URL as the visible text.`,
       `Do not invent statistics, prices, customer names or guarantees. No emojis.`,
     ].join("\n");
   } else {
@@ -399,7 +400,7 @@ export async function writeDailyPost(
       `Primary keyword: ${tool.name.toLowerCase()}. Search intent: people looking for how to do this with AI.`,
       `Structure: an engaging intro (2-3 sentences), 5-7 sections with H2 headings, short paragraphs,`,
       `at least two sections with practical bullet lists, and 5 frequently asked questions with 2-4 sentence answers.`,
-      `Mention AmmarAI naturally and reference the tool page at ${SITE.url}/${tool.slug}.`,
+      `Mention AmmarAI naturally and link the tool page as a Markdown link with descriptive anchor text, e.g. [${tool.name}](${SITE.url}/${tool.slug}) — never paste a bare URL as the visible text.`,
       `Do not invent statistics, prices, customer names or guarantees. No emojis.`,
       `The title must be under 60 characters and include the primary keyword.`,
       `The metaDescription must be under 155 characters.`,
@@ -453,7 +454,7 @@ export async function writeDailyPost(
     slug,
     external_id: `daily:${tool.slug}`,
     title: post.title,
-    content_html: buildHtml(post, tool.name, inline ?? image, hero && inline ? null : null),
+    content_html: buildHtml(post, tool.name, inline ?? fallback),
     content_markdown: null,
     meta_description: post.metaDescription,
     hero_image_url: image,
