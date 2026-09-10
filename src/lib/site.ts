@@ -25,6 +25,7 @@ export type StaticPath =
   | "/features"
   | "/use-cases"
   | "/pricing"
+  | "/ai-models"
   | "/resources"
   | "/blog"
   | "/faq"
