@@ -117,9 +117,9 @@ export const plans = [
     blurb: "For marketers, creators and small teams shipping work every day.",
     features: [
       "Everything in Starter",
-      "Advanced models for writing, image and video",
+      "Every model — switch freely in chat, image and video",
       "Voice generation and long-form transcription",
-      "Custom AI assistants and templates",
+      "Custom AI assistants, personas, skills and templates",
       "Priority processing",
     ],
     cta: "Choose Professional",
