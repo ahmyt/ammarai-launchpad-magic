@@ -521,7 +521,7 @@ export const coreToolsA: Tool[] = [
     featured: true,
     what: [
       "AI Video Pro produces short-form video end to end. You supply a script or a prompt, choose a visual approach, and the tool assembles scenes, pacing, a generated voiceover and burned-in captions into a finished cut in the ratio you need.",
-      "It sits above the two narrower tools. Text-to-video creates a clip from a written description of a shot. Image-to-video animates a still you already have. The video generator orchestrates them: it breaks a script into scenes, decides what visual each scene needs, and stitches the result together with audio and timing.",
+      "Text to video now lives here too: describe a shot — subject, action, camera, light, duration — and get a clip back, with no source footage involved. Use it for B-roll, concept films and abstract beats, then assemble those clips into the finished cut in the same place. Image-to-video animates a still you already have. The video generator orchestrates them: it breaks a script into scenes, decides what visual each scene needs, and stitches the result together with audio and timing.",
       "Expect short-form quality, which is the honest framing. This is built for fifteen to ninety second pieces: social posts, product explainers, ad variants, course intros. It is not a replacement for a filmed brand piece with a director and a crew, and long unbroken generated footage still shows its seams.",
     ],
     canDo: [
@@ -532,6 +532,8 @@ export const coreToolsA: Tool[] = [
       "Animate your own uploaded images or generated stills",
       "Swap a single scene without rebuilding the whole video",
       "Generate several hook variants of the same video for testing",
+      "Generate standalone clips from a written shot description when no footage exists",
+      "Direct camera movement, lens feel and lighting straight from the prompt",
     ],
     how: [
       {
@@ -569,6 +571,20 @@ export const coreToolsA: Tool[] = [
           "Same script, three punchy opening hooks. Kinetic captions, fast jump cuts, warm brand palette, 16:9 and 9:16.",
         output:
           "Six polished ad cuts — three hooks in two ratios — with animated captions and matching pacing, ready to run against each other.",
+      },
+      {
+        label: "Text to video: luxury beauty shot",
+        input:
+          "Extreme macro, slow motion: a drop of molten gold falls into a black mirror pool and blooms into a glowing crown of light. Deep black background, cinematic rim light, slow push in. 5 seconds.",
+        output:
+          "A premium hero clip generated from the prompt alone, ready to open an ad or a launch title card.",
+      },
+      {
+        label: "Text to video: neon city hyperlapse",
+        input:
+          "Cinematic hyperlapse gliding through a rain-slick neon Tokyo street at night, reflections in the asphalt, light trails, teal and magenta grade, anamorphic flares. 5 seconds.",
+        output:
+          "Scroll-stopping B-roll that would otherwise need a location shoot, generated from one line of text.",
       },
     ],
     capabilities: [
@@ -627,6 +643,8 @@ export const coreToolsA: Tool[] = [
       "Use your own screenshots and photos where possible; real assets beat generated footage for credibility.",
       "Say the call to action out loud and show it on screen at the same time.",
       "Check caption placement against each platform's UI overlay before exporting.",
+      "For generated clips, write the prompt like a shot list and prefer wide or medium shots; close-ups of faces expose artefacts fastest.",
+      "Do not ask generated footage for on-screen text. Add real typography afterwards.",
     ],
     mistakes: [
       "Starting with a prompt instead of a script, which produces pretty footage with nothing to say.",
