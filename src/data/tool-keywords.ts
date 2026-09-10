@@ -479,25 +479,6 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "article-wizard": {
-    primaryKeyword: "ai blog generator",
-    searchVolume: 390,
-    difficulty: 46,
-    relatedKeywords: [
-      { keyword: "blog generator", volume: 1900 },
-      { keyword: "blog title generator", volume: 1600 },
-      { keyword: "ai blog writer", volume: 1300 },
-      { keyword: "topic generator", volume: 2400 },
-      { keyword: "idea generator", volume: 4400 },
-    ],
-    questions: [
-      "how to generate high-quality blog posts using ai tools",
-      "how to schedule and publish ai-generated blog content",
-      "how ai helps generate quality blog content",
-      "does hubspot ai generate full blog posts",
-      "how to humanize ai generated content for blogs",
-    ],
-  },
 
   "blog-ideas-generator": {
     primaryKeyword: "blog title generator",
@@ -537,64 +518,8 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "blog-section-writer": {
-    primaryKeyword: "blog conclusion generator",
-    searchVolume: 20,
-    difficulty: 0,
-    relatedKeywords: [
-      { keyword: "blog generator", volume: 1900 },
-      { keyword: "ai blog writer", volume: 1300 },
-      { keyword: "ai blog generator", volume: 390 },
-    ],
-    questions: [
-      "how to write a blog conclusion",
-      "how to end a blog post",
-      "how to write a call to action in a blog",
-      "what makes a good blog conclusion",
-      "how to wrap up a blog post",
-    ],
-  },
 
-  "ai-rephraser": {
-    primaryKeyword: "ai content rewriter",
-    searchVolume: 90,
-    difficulty: 64,
-    relatedKeywords: [
-      { keyword: "ai rewriter", volume: 49500 },
-      { keyword: "sentence rewriter", volume: 40500 },
-      { keyword: "paragraph rewriter", volume: 27100 },
-      { keyword: "rewrite ai", volume: 22200 },
-      { keyword: "rewriter", volume: 18100 },
-      { keyword: "rewrite paragraph", volume: 14800 },
-    ],
-    questions: [
-      "how to rewrite ai content",
-      "how to rewrite ai generated content",
-      "how to use ai rewriters for blog content refresh",
-      "can ai rewrite content for better seo",
-      "how to refresh blog content using ai rewriters",
-    ],
-  },
 
-  "blog-section-writer": {
-    primaryKeyword: "ai paragraph generator",
-    searchVolume: 22200,
-    difficulty: 69,
-    relatedKeywords: [
-      { keyword: "ai text generator", volume: 33100 },
-      { keyword: "paragraph generator", volume: 22200 },
-      { keyword: "ai sentence generator", volume: 9900 },
-      { keyword: "ai text", volume: 8100 },
-      { keyword: "ai generator text", volume: 14800 },
-    ],
-    questions: [
-      "is this paragraph ai generated",
-      "how to tell if a paragraph is ai generated",
-      "how to generate a paragraph with ai",
-      "what is the best ai paragraph generator",
-      "can ai write a paragraph for me",
-    ],
-  },
 
   "bullet-point-answer-generator": {
     primaryKeyword: "ai summary generator",
@@ -636,24 +561,6 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "welcome-email-generator": {
-    primaryKeyword: "cold email generator",
-    searchVolume: 260,
-    difficulty: 19,
-    relatedKeywords: [
-      { keyword: "email writer", volume: 3600 },
-      { keyword: "ai cold email generator", volume: 210 },
-      { keyword: "ai email personalization", volume: 210 },
-      { keyword: "mailmeteor ai email writer", volume: 720 },
-    ],
-    questions: [
-      "how to generate leads using cold email",
-      "can ai write effective cold emails for b2b lead generation",
-      "how to use cold email for lead generation",
-      "how to write a cold email",
-      "what is the best cold email generator",
-    ],
-  },
 
   "reply-email-generator": {
     primaryKeyword: "follow up email",
@@ -675,25 +582,6 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "welcome-email-generator": {
-    primaryKeyword: "email subject line generator",
-    searchVolume: 720,
-    difficulty: 33,
-    relatedKeywords: [
-      { keyword: "email subject line", volume: 1300 },
-      { keyword: "subject line email", volume: 880 },
-      { keyword: "best eblast subject lines", volume: 720 },
-      { keyword: "email subject", volume: 720 },
-      { keyword: "playful subject line generator", volume: 2400 },
-    ],
-    questions: [
-      "how to generate email subject lines",
-      "what makes a good email subject line",
-      "how to write subject lines that get opened",
-      "how to create an email subject line generator gpt",
-      "what is the best email subject line generator",
-    ],
-  },
 
   "journalist-news-generator": {
     primaryKeyword: "press release generator",
@@ -834,23 +722,6 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-rephraser": {
-    primaryKeyword: "ai tone changer",
-    searchVolume: 20,
-    difficulty: 0,
-    relatedKeywords: [
-      { keyword: "ai rewriter", volume: 49500 },
-      { keyword: "rewrite ai", volume: 22200 },
-      { keyword: "ai tone changer tool", volume: 20 },
-    ],
-    questions: [
-      "how to change the tone of text with ai",
-      "how to rewrite text in a different tone",
-      "what is the best ai tone changer",
-      "how to make text sound more professional with ai",
-      "how to change text from formal to casual",
-    ],
-  },
 
   "ad-script-generator": {
     primaryKeyword: "ad copy generator",
@@ -969,24 +840,6 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "facebook-post-generator": {
-    primaryKeyword: "social media post generator",
-    searchVolume: 1000,
-    difficulty: 59,
-    relatedKeywords: [
-      { keyword: "ai social media", volume: 3600 },
-      { keyword: "social media post", volume: 2900 },
-      { keyword: "instagram post", volume: 18100 },
-      { keyword: "how to make a post on instagram", volume: 2400 },
-    ],
-    questions: [
-      "what percentage of social media posts are ai generated",
-      "do ai-generated posts perform well on social media",
-      "how to generate images for social media posts",
-      "can ai generate social media posts automatically",
-      "how to create social media posts with ai",
-    ],
-  },
 
   "video-description-generator": {
     primaryKeyword: "youtube description generator",
@@ -1047,64 +900,8 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "instagram-reel-script-generator": {
-    primaryKeyword: "tiktok script generator",
-    searchVolume: 720,
-    difficulty: 24,
-    relatedKeywords: [
-      { keyword: "tiktok transcript", volume: 6600 },
-      { keyword: "tokscript", volume: 3600 },
-      { keyword: "tiktok transcript generator", volume: 2400 },
-      { keyword: "tiktok transcripts", volume: 1900 },
-      { keyword: "tiktok video transcript", volume: 1600 },
-    ],
-    questions: [
-      "how to generate tiktok video from script",
-      "how to write a tiktok script",
-      "what is the best tiktok script generator",
-      "how to write tiktok scripts with ai",
-      "how to generate tiktok video ideas",
-    ],
-  },
 
-  "ad-script-generator": {
-    primaryKeyword: "video script generator",
-    searchVolume: 720,
-    difficulty: 64,
-    relatedKeywords: [
-      { keyword: "transcript generator", volume: 9900 },
-      { keyword: "video transcription", volume: 9900 },
-      { keyword: "transcribe video to text", volume: 9900 },
-      { keyword: "capcut ai video generator", volume: 9900 },
-    ],
-    questions: [
-      "how to generate script from youtube video",
-      "how to generate script from video",
-      "how to generate video from script",
-      "how to write a video script with ai",
-      "how to generate a script from a video",
-    ],
-  },
 
-  "welcome-email-generator": {
-    primaryKeyword: "newsletter generator",
-    searchVolume: 210,
-    difficulty: 46,
-    relatedKeywords: [
-      { keyword: "ai newsletter", volume: 2400 },
-      { keyword: "email newsletter", volume: 2900 },
-      { keyword: "canva newsletter", volume: 2400 },
-      { keyword: "free newsletter", volume: 3600 },
-      { keyword: "easy newsletter", volume: 2900 },
-    ],
-    questions: [
-      "how to automate newsletter generation with ai",
-      "how to generate a newsletter",
-      "how to write a newsletter with ai",
-      "what is the best ai newsletter generator",
-      "how to create an email newsletter with ai",
-    ],
-  },
 
   "why-choose-this-product": {
     primaryKeyword: "product description generator",
@@ -1125,80 +922,9 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "why-choose-this-product": {
-    primaryKeyword: "amazon product description",
-    searchVolume: 260,
-    difficulty: 28,
-    relatedKeywords: [
-      { keyword: "amazon product listing", volume: 1000 },
-      { keyword: "amazon product page", volume: 390 },
-      { keyword: "amazon listing optimization", volume: 1600 },
-      { keyword: "amazon naming", volume: 720 },
-      { keyword: "amazon product detail page", volume: 320 },
-    ],
-    questions: [
-      "how to write engaging amazon product description",
-      "can you use html in amazon product description",
-      "how to add bullet points to amazon product description",
-      "how to write amazon product descriptions",
-      "how to optimize amazon product listings",
-    ],
-  },
 
-  "product-name-generator": {
-    primaryKeyword: "amazon product title",
-    searchVolume: 50,
-    difficulty: 24,
-    relatedKeywords: [
-      { keyword: "amazon listing optimization", volume: 1600 },
-      { keyword: "amazon product listing", volume: 1000 },
-      { keyword: "seo friendly product title best practices", volume: 2400 },
-      { keyword: "amazon naming", volume: 720 },
-    ],
-    questions: [
-      "how to write amazon product title",
-      "how to optimize your amazon product title",
-      "how to write product title for amazon",
-      "how to write engaging amazon product titles",
-      "what are best practices for amazon product titles",
-    ],
-  },
 
-  "why-choose-this-product": {
-    primaryKeyword: "product benefits generator",
-    searchVolume: 0,
-    difficulty: 0,
-    relatedKeywords: [
-      { keyword: "product description generator", volume: 1600 },
-      { keyword: "product description", volume: 1600 },
-      { keyword: "ai product description generator", volume: 1000 },
-    ],
-    questions: [
-      "how to write product benefits",
-      "how to translate features into benefits",
-      "what are product benefits vs features",
-      "how to write product benefits with ai",
-      "how to highlight product benefits in copy",
-    ],
-  },
 
-  "why-choose-this-product": {
-    primaryKeyword: "product features generator",
-    searchVolume: 0,
-    difficulty: 0,
-    relatedKeywords: [
-      { keyword: "product description generator", volume: 1600 },
-      { keyword: "product description", volume: 1600 },
-      { keyword: "ai product description generator", volume: 1000 },
-    ],
-    questions: [
-      "how to write product features",
-      "how to describe product features clearly",
-      "what are product features vs benefits",
-      "how to write product features with ai",
-      "how to organize product features in copy",
-    ],
-  },
 
   "product-review-generator": {
     primaryKeyword: "product comparison generator",
@@ -1217,25 +943,6 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "keyword-generator": {
-    primaryKeyword: "seo content generator",
-    searchVolume: 260,
-    difficulty: 73,
-    relatedKeywords: [
-      { keyword: "ai seo", volume: 9900 },
-      { keyword: "blog seo", volume: 6600 },
-      { keyword: "seo content writing", volume: 6600 },
-      { keyword: "seo writing", volume: 4400 },
-      { keyword: "ai for seo", volume: 3600 },
-    ],
-    questions: [
-      "is ai generated content good for seo",
-      "does ai generated content hurt seo",
-      "does ai generated content affect seo",
-      "how to generate seo content with ai",
-      "does ai generated content impact seo",
-    ],
-  },
 
   "landing-page-copy-generator": {
     primaryKeyword: "meta description generator",
@@ -1277,59 +984,8 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "article-wizard": {
-    primaryKeyword: "seo blog generator",
-    searchVolume: 20,
-    difficulty: 0,
-    relatedKeywords: [
-      { keyword: "ai blog generator", volume: 390 },
-      { keyword: "blog generator", volume: 1900 },
-      { keyword: "ai blog writer", volume: 1300 },
-    ],
-    questions: [
-      "how to edit ai-generated blog content for seo",
-      "does hubspot ai blog generator create seo optimized content",
-      "how to write seo blog posts with ai",
-      "what is the best seo blog generator",
-      "how to generate seo-optimized blog posts",
-    ],
-  },
 
-  "ai-rephraser": {
-    primaryKeyword: "seo content rewriter",
-    searchVolume: 20,
-    difficulty: 0,
-    relatedKeywords: [
-      { keyword: "ai rewriter", volume: 49500 },
-      { keyword: "ai content rewriter", volume: 90 },
-      { keyword: "rewrite ai", volume: 22200 },
-    ],
-    questions: [
-      "can ai rewrite content for better seo",
-      "how to rewrite content for seo",
-      "how to refresh blog content for seo",
-      "do seo companies rewrite your content",
-      "how to use ai to rewrite content for seo",
-    ],
-  },
 
-  "ai-rephraser": {
-    primaryKeyword: "keyword based rewriter",
-    searchVolume: 0,
-    difficulty: 0,
-    relatedKeywords: [
-      { keyword: "ai rewriter", volume: 49500 },
-      { keyword: "paraphrase tool", volume: 135000 },
-      { keyword: "paraphrasing tool", volume: 90500 },
-    ],
-    questions: [
-      "how to rewrite content with target keywords",
-      "how to add keywords to existing content",
-      "how to rewrite content for seo keywords",
-      "how to naturally incorporate keywords in content",
-      "what is keyword-based rewriting",
-    ],
-  },
 };
 
 /** Look up keyword data for a tool slug. Returns undefined if not found. */
