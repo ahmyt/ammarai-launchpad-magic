@@ -47,6 +47,8 @@ import creativeCampaign from "@/assets/creative-out-campaign.jpg";
 import seoReportUrlAudit from "@/assets/seo-report-url-audit.jpg";
 import seoReportTextAnalysis from "@/assets/seo-report-text-analysis.jpg";
 import seoReportKeywords from "@/assets/seo-report-keywords.jpg";
+import chatImgMenu from "@/assets/chatimg-in-menu.jpg";
+import chatImgWhiteboard from "@/assets/chatimg-in-whiteboard.jpg";
 
 
 export type ToolDemoScene = {
