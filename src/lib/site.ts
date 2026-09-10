@@ -43,6 +43,7 @@ export const footerNav: { heading: string; links: SiteLink[] }[] = [
       { label: "AI Tools directory", to: "/ai-tools" },
       { label: "Features", to: "/features" },
       { label: "Pricing", to: "/pricing" },
+      { label: "AI models", to: "/ai-models" },
       { label: "FAQ", to: "/faq" },
     ],
   },
