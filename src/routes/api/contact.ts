@@ -339,7 +339,7 @@ export const Route = createFileRoute("/api/contact")({
           confirmation_response: confirmationResponse,
           confirmation_error: confirmationErrorText,
           confirmation_attempted_at: new Date().toISOString(),
-        });
+        }, supabase);
 
         return Response.json({
           ok: true,
