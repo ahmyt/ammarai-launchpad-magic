@@ -316,7 +316,7 @@ export const Route = createFileRoute("/api/contact")({
               .join(" / ")
               .slice(0, 500),
             confirmation_attempted_at: new Date().toISOString(),
-          });
+          }, supabase);
           return Response.json(
             {
               saved: true,
