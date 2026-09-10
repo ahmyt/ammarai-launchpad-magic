@@ -19,6 +19,15 @@ import transcriptionInterview from "@/assets/demo-transcription-interview.mp3.as
 import transcriptionWalkthrough from "@/assets/demo-transcription-walkthrough.mp3.asset.json";
 import musicAdBed from "@/assets/demo-music-ad-bed.mp3.asset.json";
 import musicAmbientBed from "@/assets/demo-music-ambient-bed.mp3.asset.json";
+import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
+import videoEditorSource from "@/assets/demo-video-editor-source.mp4.asset.json";
+import captionsDemo from "@/assets/demo-ai-captions.mp4.asset.json";
+import captionsSource from "@/assets/demo-ai-captions-source.mp4.asset.json";
+import dubbingDemo from "@/assets/demo-ai-dubbing.mp4.asset.json";
+import dubbingSource from "@/assets/demo-ai-dubbing-source.mp4.asset.json";
+import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
+import youtubeDemo from "@/assets/demo-youtube-publisher.mp4.asset.json";
+import youtubeSource from "@/assets/demo-youtube-source.mp4.asset.json";
 import sourceSneaker from "@/assets/i2v-source-sneaker.jpg";
 import sourceMountains from "@/assets/i2v-source-mountains.jpg";
 import imageOutWorkbench from "@/assets/imggen-out-workbench.jpg";
@@ -71,6 +80,9 @@ export type ToolDemoMedia = {
   /** Optional source recording shown alongside the prompt (audio-led tools). */
   inputAudio?: string;
   inputAudioLabel?: string;
+  /** Optional source clip shown alongside the prompt (video-led tools). */
+  inputVideo?: string;
+  inputVideoLabel?: string;
   /** Optional attached-file chip shown alongside the prompt (document tools). */
   inputFileLabel?: string;
 };
@@ -132,6 +144,49 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
       kind: "video",
       url: videoGeneratorDemo2.url,
       caption: "Sample output — a punchy ad cut with kinetic captions, ready to run as a paid variant.",
+    },
+  ],
+  "ai-video-editor": [
+    {
+      kind: "video",
+      inputVideo: videoEditorSource.url,
+      inputVideoLabel: "raw-skincare-take.mp4",
+      url: videoEditorDemo.url,
+      caption: "Sample output — the source clip recut, colour-graded and paced as a polished product spot.",
+    },
+  ],
+  "ai-captions": [
+    {
+      kind: "video",
+      inputVideo: captionsSource.url,
+      inputVideoLabel: "founder-talking-head.mp4",
+      url: captionsDemo.url,
+      caption: "Sample output — the spoken clip prepared as a captioned vertical social video.",
+    },
+  ],
+  "ai-dubbing": [
+    {
+      kind: "video",
+      inputVideo: dubbingSource.url,
+      inputVideoLabel: "travel-presenter-english.mp4",
+      url: dubbingDemo.url,
+      caption: "Sample output — the presenter localised with matched timing and natural on-camera delivery.",
+    },
+  ],
+  "ai-ugc-generator": [
+    {
+      kind: "video",
+      url: ugcDemo.url,
+      caption: "Sample output — an original vertical creator-style skincare video generated from the campaign brief.",
+    },
+  ],
+  "ai-youtube-publisher": [
+    {
+      kind: "video",
+      inputVideo: youtubeSource.url,
+      inputVideoLabel: "raw-taco-recipe.mp4",
+      url: youtubeDemo.url,
+      caption: "Sample output — the source recipe clip turned into a finished vertical Short ready for publishing.",
     },
   ],
   "ai-url-to-video": [

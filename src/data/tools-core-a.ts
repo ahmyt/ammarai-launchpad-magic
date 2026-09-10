@@ -508,19 +508,19 @@ export const coreToolsA: Tool[] = [
   },
   {
     slug: "ai-video-generator",
-    name: "AI Video Generator",
+    name: "AI Video Pro",
     category: "AI Video",
     summary:
       "Create short videos from text prompts or still images. Includes text-to-video, image-to-video, smooth transitions, and options for captions and voiceover.",
-    title: "AI Video Generator: Short Video From a Script | AmmarAI",
+    title: "AI Video Pro: Create Complete AI Videos | AmmarAI",
     description:
       "Create short videos from text prompts or still images, with text-to-video, image-to-video, smooth transitions, and caption and voiceover options.",
-    h1: "Short video, from script to finished cut",
+    h1: "AI Video Pro, from script to finished cut",
     lede: "The AI Video Generator is the assembly layer: it takes your script, visuals and voice and produces a short video you can post, rather than an isolated clip you still have to edit.",
     ctaLabel: "Generate a video",
     featured: true,
     what: [
-      "AI Video Generator produces short-form video end to end. You supply a script or a prompt, choose a visual approach, and the tool assembles scenes, pacing, a generated voiceover and burned-in captions into a finished cut in the ratio you need.",
+      "AI Video Pro produces short-form video end to end. You supply a script or a prompt, choose a visual approach, and the tool assembles scenes, pacing, a generated voiceover and burned-in captions into a finished cut in the ratio you need.",
       "It sits above the two narrower tools. Text-to-video creates a clip from a written description of a shot. Image-to-video animates a still you already have. The video generator orchestrates them: it breaks a script into scenes, decides what visual each scene needs, and stitches the result together with audio and timing.",
       "Expect short-form quality, which is the honest framing. This is built for fifteen to ninety second pieces: social posts, product explainers, ad variants, course intros. It is not a replacement for a filmed brand piece with a director and a crew, and long unbroken generated footage still shows its seams.",
     ],
@@ -662,6 +662,11 @@ export const coreToolsA: Tool[] = [
       "video-script-generator",
       "ai-voice-generator",
       "tiktok-script-generator",
+      "ai-video-editor",
+      "ai-captions",
+      "ai-dubbing",
+      "ai-ugc-generator",
+      "ai-youtube-publisher",
     ],
   },
   {

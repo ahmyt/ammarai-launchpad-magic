@@ -34,7 +34,15 @@ function resolveDemoVideos(tool: Tool): (ToolDemoMedia | undefined)[] | undefine
     const override = urls[i];
     if (!override && !base) return undefined;
     const media: ToolDemoMedia = { ...base };
-    if (override) {
+    const overrideFilename = override?.split("/").pop();
+    const fallbackFilename = base?.url?.split("/").pop();
+    const overrideDuplicatesBundledAsset = Boolean(
+      override?.includes("/media/") &&
+        base?.url &&
+        overrideFilename &&
+        overrideFilename === fallbackFilename,
+    );
+    if (override && !overrideDuplicatesBundledAsset) {
       media.url = override;
       media.kind = base?.kind ?? (/\.(mp3|wav|m4a|ogg)$/i.test(override) ? "audio" : /\.(png|jpe?g|webp|avif|gif)$/i.test(override) ? "image" : "video");
     }

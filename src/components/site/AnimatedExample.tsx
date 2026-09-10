@@ -358,6 +358,23 @@ export function AnimatedExample({
                 />
               </div>
             ) : null}
+            {media?.inputVideo ? (
+              <div className="mb-3 overflow-hidden rounded-xl bg-secondary/60 p-2 ring-1 ring-border/70">
+                <p className="mb-2 truncate text-xs font-semibold text-foreground">
+                  {media.inputVideoLabel ?? "Source video attached"}
+                </p>
+                <video
+                  key={media.inputVideo}
+                  src={media.inputVideo}
+                  controls
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="max-h-48 w-full rounded-lg bg-ink object-contain"
+                  aria-label={`${toolName} sample input video`}
+                />
+              </div>
+            ) : null}
             {media?.inputFileLabel ? (
               <p className="mb-3 inline-flex items-center gap-2 rounded-lg bg-secondary/70 px-2.5 py-1.5 text-xs font-semibold text-foreground ring-1 ring-border/70">
                 <span aria-hidden="true">📄</span>
