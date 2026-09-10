@@ -27,6 +27,13 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
+type ContactResponse = {
+  error?: string;
+  saved?: boolean;
+  confirmationSent?: boolean;
+  emailError?: { code?: string; command?: string; responseCode?: number };
+};
+
 function Contact() {
   const [sent, setSent] = useState(false);
   const [confirmationSent, setConfirmationSent] = useState(true);
@@ -100,14 +107,13 @@ function Contact() {
                           message: String(data.get("message") ?? ""),
                         }),
                       });
-                      const payload = (await res.json().catch(() => null)) as
-                        | {
-                            error?: string;
-                            saved?: boolean;
-                            confirmationSent?: boolean;
-                            emailError?: { code?: string; command?: string; responseCode?: number };
-                          }
-                        | null;
+                      const raw = await res.text();
+                      let payload: ContactResponse | null = null;
+                      try {
+                        payload = JSON.parse(raw) as ContactResponse;
+                      } catch {
+                        payload = null;
+                      }
                       if (!res.ok) {
                         const detail = payload?.emailError
                           ? [
@@ -118,10 +124,9 @@ function Contact() {
                               .filter((part) => part !== undefined)
                               .join(" / ")
                           : "";
+                        const fallback = `Something went wrong (server error ${res.status}). Please email support@ammarai.com directly.`;
                         setError(
-                          (payload?.error ??
-                            "Something went wrong. Please email support@ammarai.com directly.") +
-                            (detail ? ` (SMTP: ${detail})` : ""),
+                          (payload?.error ?? fallback) + (detail ? ` (SMTP: ${detail})` : ""),
                         );
                         return;
                       }
