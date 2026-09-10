@@ -62,25 +62,25 @@ const videoLibrary = [
     title: "From brief to finished video",
     label: "AI Video Pro",
     slug: "ai-video-generator",
-    src: videoProDemo.url,
+    src: assetUrl(videoProDemo.url),
   },
   {
     title: "A polished product edit",
     label: "AI Video Editor",
     slug: "ai-video-editor",
-    src: videoEditorDemo.url,
+    src: assetUrl(videoEditorDemo.url),
   },
   {
     title: "Creator-style campaign video",
     label: "AI UGC Generator",
     slug: "ai-ugc-generator",
-    src: ugcDemo.url,
+    src: assetUrl(ugcDemo.url),
   },
   {
     title: "A talking avatar presentation",
     label: "AI Avatar Video Generator",
     slug: "ai-avatar-generator",
-    src: avatarDemo.url,
+    src: assetUrl(avatarDemo.url),
   },
 ];
 
