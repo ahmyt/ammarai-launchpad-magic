@@ -86,7 +86,20 @@ export function toolsByCategory(category: ToolCategory) {
   return tools.filter((t) => t.category === category);
 }
 
-export const featuredTools = tools.filter((t) => t.featured).slice(0, 7);
+const flagshipSlugs = [
+  "ai-writer",
+  "ai-chat",
+  "ai-image-generator",
+  "ai-video-generator",
+  "ai-avatar-generator",
+  "ai-transcription",
+  "ai-seo-analyzer",
+];
+
+export const featuredTools = flagshipSlugs.flatMap((slug) => {
+  const tool = toolBySlug.get(slug);
+  return tool ? [tool] : [];
+});
 export const popularTools = tools.filter((t) => t.popular).slice(0, 8);
 export const recentTools = tools.filter((t) => t.recent).slice(0, 6);
 
