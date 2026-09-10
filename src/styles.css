@@ -37,6 +37,8 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -83,6 +85,10 @@
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0.006 88);
+
+  /* Positive status — muted studio green */
+  --success: oklch(0.55 0.115 152);
+  --success-foreground: oklch(0.985 0.006 88);
 
   --border: oklch(0.895 0.01 82);
   --input: oklch(0.895 0.01 82);
