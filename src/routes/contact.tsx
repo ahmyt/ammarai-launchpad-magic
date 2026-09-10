@@ -27,6 +27,13 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
+type ContactResponse = {
+  error?: string;
+  saved?: boolean;
+  confirmationSent?: boolean;
+  emailError?: { code?: string; command?: string; responseCode?: number };
+};
+
 function Contact() {
   const [sent, setSent] = useState(false);
   const [confirmationSent, setConfirmationSent] = useState(true);
