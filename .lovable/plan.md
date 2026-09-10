@@ -76,6 +76,8 @@ The 99 template pages all move under AI Templates.
   grouped by `templateGroup` with a heading per group; other filters keep the flat grid.
 - Categories left empty (for example AI Email) disappear from the filter bar via
   `usedCategories`; adjust the page's intro copy and tool count wording.
+- Create the AI Content Detector page (slug `ai-content-detector`) in the Writing
+  templates group with full metadata, related-tool links and search mapping.
 - Update `roadmap.md` with this reorganisation and cleanup task.
 
 ## Verification
