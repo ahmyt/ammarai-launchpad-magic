@@ -36,3 +36,8 @@
 - [x] Removed 46 DaVinci-era generator pages (tools-writing/tools-marketing/tools-commerce-seo + ai-article-generator/ai-rewriter); 301 redirects in src/data/retired-tools.ts
 - [x] Kept ai-plagiarism-detector as-is; ai-content-detector lives in AI Templates (Writing group)
 - [x] Cross-links, search intent map, footer, keyword data updated; no DaVinci persona gallery added
+
+## Homepage alignment (done)
+- [x] Feature the actual seven flagship tools and align the section description with them
+- [x] Expand the opening description with named flagship tools and supporting capabilities
+- [x] Add a curated homepage library of existing Video Pro, Editor, UGC, and Avatar samples

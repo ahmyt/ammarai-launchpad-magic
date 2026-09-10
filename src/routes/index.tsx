@@ -11,6 +11,10 @@ import { Container, Section, SectionHeading, Card } from "@/components/site/prim
 import { ToolCard } from "@/components/site/ToolCard";
 import { ExternalButton, ButtonLink } from "@/components/site/Button";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
+import videoProDemo from "@/assets/demo-video-generator.mp4.asset.json";
+import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
+import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
+import avatarDemo from "@/assets/demo-avatar-video.mp4.asset.json";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
 const description =
@@ -50,6 +54,33 @@ const ammarAi = [
   "Voiceover & transcription",
   "Shared brand voice and history",
   "One subscription. One workspace.",
+];
+
+const videoLibrary = [
+  {
+    title: "From brief to finished video",
+    label: "AI Video Pro",
+    slug: "ai-video-generator",
+    src: videoProDemo.url,
+  },
+  {
+    title: "A polished product edit",
+    label: "AI Video Editor",
+    slug: "ai-video-editor",
+    src: videoEditorDemo.url,
+  },
+  {
+    title: "Creator-style campaign video",
+    label: "AI UGC Generator",
+    slug: "ai-ugc-generator",
+    src: ugcDemo.url,
+  },
+  {
+    title: "A talking avatar presentation",
+    label: "AI Avatar Video Generator",
+    slug: "ai-avatar-generator",
+    src: avatarDemo.url,
+  },
 ];
 
 export const Route = createFileRoute("/")({
@@ -124,9 +155,10 @@ export function Home() {
                 One AI for everything you create
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-                Write, chat, generate images and video, produce voiceovers, transcribe recordings,
-                read documents and ship code. All of it in one workspace that keeps your brand voice
-                and your history in one place.
+                Draft with AI Writer, think with Chat Pro, create with Image Pro and Video Pro,
+                build talking avatars, transcribe recordings and audit SEO. Add agents, CRM,
+                voiceovers, document analysis and code tools — all in one workspace that keeps your
+                brand voice and history together.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3">
                 <ExternalButton href={REGISTER_URL} size="lg">
@@ -219,7 +251,7 @@ export function Home() {
           <SectionHeading
             eyebrow="Flagship tools"
             title="Seven flagship tools, one workspace"
-            intro="Writing, chat, images, video, talking avatars, transcription and SEO analysis — the core of the platform, each with a full guide on what it does well and how to brief it properly."
+            intro="AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video, Transcription and SEO Analyzer form the core of AmmarAI — seven focused tools for creating, understanding and improving your work."
 
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -230,8 +262,46 @@ export function Home() {
         </Container>
       </Section>
 
-      {/* Categories */}
+      {/* Video library */}
       <Section>
+        <Container>
+          <SectionHeading
+            eyebrow="Video library"
+            title="See what the video tools can make"
+            intro="Watch real samples from four different workflows, then open the tool behind each result."
+          />
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            {videoLibrary.map((item) => (
+              <Card key={item.slug} className="overflow-hidden p-0">
+                <video
+                  controls
+                  muted
+                  playsInline
+                  preload="metadata"
+                  src={item.src}
+                  aria-label={`${item.label} sample video`}
+                  className="aspect-video w-full bg-ink object-cover"
+                />
+                <div className="p-5">
+                  <p className="eyebrow">{item.label}</p>
+                  <h3 className="mt-2 text-xl leading-snug">
+                    <Link
+                      to="/$slug"
+                      params={{ slug: item.slug }}
+                      className="text-foreground transition-colors hover:text-accent"
+                    >
+                      {item.title} <span aria-hidden="true" className="text-accent">→</span>
+                    </Link>
+                  </h3>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Categories */}
+      <Section tone="sand">
         <Container>
           <SectionHeading
             eyebrow="The library"
