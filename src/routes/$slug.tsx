@@ -1,5 +1,6 @@
 import { renderInline } from "@/components/cms/RichTextArea";
-import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect, Link } from "@tanstack/react-router";
+import { retiredToolRedirects } from "@/data/retired-tools";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import type { Tool, UseCase } from "@/data/types";
 import { siteContentQuery } from "@/lib/content";
@@ -64,6 +65,10 @@ function useToolMap() {
 export const Route = createFileRoute("/$slug")({
   staticData: { sitemap: true },
   loader: async ({ params, context }) => {
+    const redirectTarget = retiredToolRedirects[params.slug];
+    if (redirectTarget) {
+      throw redirect({ to: "/$slug", params: { slug: redirectTarget }, statusCode: 301 });
+    }
     const content = await context.queryClient.ensureQueryData(siteContentQuery);
     const tool = content.tools.find((t) => t.slug === params.slug);
     if (tool) return { kind: "tool" as const, tool };
