@@ -27,12 +27,12 @@ export const useCases: UseCase[] = [
       { title: "Localization and repurposing", body: "Take one flagship piece of content and use AmmarAI to rewrite it into different tones for different channels — the same launch news written for a formal LinkedIn post and a casual Instagram caption." }
     ],
     toolkit: [
-      { slug: "ai-ad-generator", why: "Marketing teams need multiple ad angles fast, and this generates variants for testing instead of a single one-shot draft." },
-      { slug: "ai-email-generator", why: "Nurture sequences and launch emails are a constant, recurring need, and drafting them from a campaign brief saves the slowest part of email marketing." },
-      { slug: "social-media-post-generator", why: "Every campaign needs a social presence, and this turns one core message into platform-appropriate posts without a separate writer for each channel." },
-      { slug: "meta-description-generator", why: "Landing pages and blog posts ship faster when the SEO metadata isn't an afterthought left for someone to remember later." },
-      { slug: "ai-tone-changer", why: "Keeping brand voice consistent across contributors is easier when drafts can be adjusted to match a house tone before they go out." },
-      { slug: "ai-blog-generator", why: "Campaign announcements and thought-leadership posts need a first draft a strategist can shape, not an empty doc and a deadline." }
+      { slug: "ad-script-generator", why: "Marketing teams need multiple ad angles fast, and this generates variants for testing instead of a single one-shot draft." },
+      { slug: "welcome-email-generator", why: "Nurture sequences and launch emails are a constant, recurring need, and drafting them from a campaign brief saves the slowest part of email marketing." },
+      { slug: "facebook-post-generator", why: "Every campaign needs a social presence, and this turns one core message into platform-appropriate posts without a separate writer for each channel." },
+      { slug: "landing-page-copy-generator", why: "Landing pages and blog posts ship faster when the SEO metadata isn't an afterthought left for someone to remember later." },
+      { slug: "ai-rephraser", why: "Keeping brand voice consistent across contributors is easier when drafts can be adjusted to match a house tone before they go out." },
+      { slug: "article-wizard", why: "Campaign announcements and thought-leadership posts need a first draft a strategist can shape, not an empty doc and a deadline." }
     ],
     outcomes: [
       "Campaign briefs turn into a full set of assets — ads, email, social, landing copy — in one sitting instead of across a week of separate writing tasks.",
@@ -74,12 +74,12 @@ export const useCases: UseCase[] = [
       { title: "Batch content for a slow week", body: "Use a lighter week to draft scripts and captions for several upcoming uploads at once, so a busy week doesn't force you to skip a publish date." }
     ],
     toolkit: [
-      { slug: "video-script-generator", why: "The script is the backbone of most creator content, and starting from a structured draft saves the hardest part of production." },
-      { slug: "youtube-title-generator", why: "Titles directly affect click-through, and testing several options is far more realistic than only ever writing one." },
-      { slug: "youtube-description-generator", why: "Descriptions matter for discovery but are the task creators most often skip when time is tight, so having a fast draft keeps them from being an afterthought." },
-      { slug: "instagram-caption-generator", why: "Every upload needs a caption tailored to Instagram's shorter, punchier style, separate from the main script." },
-      { slug: "tiktok-script-generator", why: "Repurposing a longer video into a TikTok-native script format is a constant, recurring task for creators active on multiple platforms." },
-      { slug: "instagram-hashtag-generator", why: "Relevant hashtags support discovery, and generating a fresh, on-topic set per post beats reusing the same stale list every time." }
+      { slug: "ad-script-generator", why: "The script is the backbone of most creator content, and starting from a structured draft saves the hardest part of production." },
+      { slug: "clickbait-title-generator", why: "Titles directly affect click-through, and testing several options is far more realistic than only ever writing one." },
+      { slug: "video-description-generator", why: "Descriptions matter for discovery but are the task creators most often skip when time is tight, so having a fast draft keeps them from being an afterthought." },
+      { slug: "instagram-reel-script-generator", why: "Every upload needs a caption tailored to Instagram's shorter, punchier style, separate from the main script." },
+      { slug: "instagram-reel-script-generator", why: "Repurposing a longer video into a TikTok-native script format is a constant, recurring task for creators active on multiple platforms." },
+      { slug: "trending-post-generator", why: "Relevant hashtags support discovery, and generating a fresh, on-topic set per post beats reusing the same stale list every time." }
     ],
     outcomes: [
       "One recorded idea becomes a full set of platform-specific assets in the same sitting instead of spread across several days.",
@@ -121,11 +121,11 @@ export const useCases: UseCase[] = [
       { title: "Seasonal promotion cycle", body: "Business bio update -> seasonal ad copy -> email announcement -> social captions, repeated each time a new season or local event calls for fresh messaging." }
     ],
     toolkit: [
-      { slug: "ai-company-bio-generator", why: "A clear, professional business bio is one of the first things customers read, and most owners never have time to write one they're happy with." },
-      { slug: "ai-product-description-generator", why: "Every product or service needs a description that actually sells it, and writing dozens of these by hand is the task most likely to get skipped." },
-      { slug: "google-ads-generator", why: "Running local ads without an agency means writing the ad copy yourself, and getting a usable draft quickly matters when the budget is tight." },
-      { slug: "ai-email-generator", why: "Customer follow-ups and promotional emails are easy to plan and hard to actually sit down and write during a busy week." },
-      { slug: "ai-business-name-generator", why: "Owners launching a new product line or side offer often need naming help fast, without hiring a branding consultant." }
+      { slug: "personal-bio-generator", why: "A clear, professional business bio is one of the first things customers read, and most owners never have time to write one they're happy with." },
+      { slug: "why-choose-this-product", why: "Every product or service needs a description that actually sells it, and writing dozens of these by hand is the task most likely to get skipped." },
+      { slug: "youtube-ads-generator", why: "Running local ads without an agency means writing the ad copy yourself, and getting a usable draft quickly matters when the budget is tight." },
+      { slug: "welcome-email-generator", why: "Customer follow-ups and promotional emails are easy to plan and hard to actually sit down and write during a busy week." },
+      { slug: "product-name-generator", why: "Owners launching a new product line or side offer often need naming help fast, without hiring a branding consultant." }
     ],
     outcomes: [
       "Website and product copy gets written and published instead of staying on the to-do list indefinitely.",
@@ -167,11 +167,11 @@ export const useCases: UseCase[] = [
       { title: "Investor or customer update", body: "Draft a progress update email using the same core facts, adjusted in tone for investors versus early customers, instead of writing two updates from scratch." }
     ],
     toolkit: [
-      { slug: "ai-business-name-generator", why: "Naming decisions often happen under a tight deadline, and having several strong options quickly beats staring at a blank list." },
-      { slug: "ai-company-bio-generator", why: "A clear bio is needed almost immediately for a landing page, a pitch deck, or a social profile, and it needs to sound credible on day one." },
-      { slug: "ai-cold-email-generator", why: "Founders doing their own outreach need to send a meaningful volume of personalized emails without a dedicated sales writer." },
-      { slug: "ai-follow-up-email-generator", why: "Follow-ups after a first pitch or demo are where deals are actually won, but they're easy to delay when writing them takes real effort." },
-      { slug: "ai-press-release-generator", why: "A launch or funding announcement often needs a press release fast, and founders rarely have PR support to draft one." }
+      { slug: "product-name-generator", why: "Naming decisions often happen under a tight deadline, and having several strong options quickly beats staring at a blank list." },
+      { slug: "personal-bio-generator", why: "A clear bio is needed almost immediately for a landing page, a pitch deck, or a social profile, and it needs to sound credible on day one." },
+      { slug: "welcome-email-generator", why: "Founders doing their own outreach need to send a meaningful volume of personalized emails without a dedicated sales writer." },
+      { slug: "reply-email-generator", why: "Follow-ups after a first pitch or demo are where deals are actually won, but they're easy to delay when writing them takes real effort." },
+      { slug: "journalist-news-generator", why: "A launch or funding announcement often needs a press release fast, and founders rarely have PR support to draft one." }
     ],
     outcomes: [
       "New ideas reach a testable landing page or pitch in hours instead of days.",
@@ -213,11 +213,11 @@ export const useCases: UseCase[] = [
       { title: "Study session structuring", body: "Summarize dense material into shorter review notes ahead of an exam, then quiz yourself on the original material rather than only re-reading the summary." }
     ],
     toolkit: [
-      { slug: "ai-summary-generator", why: "Turning a long reading into key points helps you review efficiently before class, as long as you've actually engaged with the source material." },
-      { slug: "ai-grammar-checker", why: "Catching sentence-level errors in a draft you wrote yourself protects your grade without changing your ideas or argument." },
-      { slug: "ai-essay-writer", why: "Best used for structure and brainstorming — generating an outline or opening angle you then develop and write in your own voice, not a finished submission." },
-      { slug: "ai-paragraph-generator", why: "Useful for seeing one way a paragraph might be structured around an idea, which you then rewrite rather than copy directly into your assignment." },
-      { slug: "ai-text-extender", why: "Helpful for seeing how a thin paragraph could be developed further, which points to where your own writing needs more explanation or evidence." }
+      { slug: "bullet-point-answer-generator", why: "Turning a long reading into key points helps you review efficiently before class, as long as you've actually engaged with the source material." },
+      { slug: "ai-proofreader", why: "Catching sentence-level errors in a draft you wrote yourself protects your grade without changing your ideas or argument." },
+      { slug: "thesis-statement-generator", why: "Best used for structure and brainstorming — generating an outline or opening angle you then develop and write in your own voice, not a finished submission." },
+      { slug: "blog-section-writer", why: "Useful for seeing one way a paragraph might be structured around an idea, which you then rewrite rather than copy directly into your assignment." },
+      { slug: "content-improver", why: "Helpful for seeing how a thin paragraph could be developed further, which points to where your own writing needs more explanation or evidence." }
     ],
     outcomes: [
       "Dense readings become manageable to review before class, without skipping the actual assigned material.",
@@ -261,9 +261,9 @@ export const useCases: UseCase[] = [
     toolkit: [
       { slug: "ai-code-generator", why: "Boilerplate and common patterns don't need to be typed from scratch every time, freeing time for the logic that actually needs a developer's judgment." },
       { slug: "ai-document-analyzer", why: "Reviewing long technical specs or third-party API docs quickly helps developers extract what actually matters before writing integration code." },
-      { slug: "ai-summary-generator", why: "Turning a sprint's worth of tickets or commits into a short summary saves the awkward translation work of a status update." },
+      { slug: "bullet-point-answer-generator", why: "Turning a sprint's worth of tickets or commits into a short summary saves the awkward translation work of a status update." },
       { slug: "ai-writer", why: "Drafting documentation, onboarding notes, and internal wikis is writing work that competes with coding time, and a fast draft removes the excuse to skip it." },
-      { slug: "ai-grammar-checker", why: "Technical writing still needs to be clear and error-free, especially in public-facing docs and READMEs that reflect on the project." }
+      { slug: "ai-proofreader", why: "Technical writing still needs to be clear and error-free, especially in public-facing docs and READMEs that reflect on the project." }
     ],
     outcomes: [
       "Documentation actually gets written instead of being permanently postponed.",
@@ -306,11 +306,11 @@ export const useCases: UseCase[] = [
     ],
     toolkit: [
       { slug: "ai-writer", why: "Agencies produce a high volume of varied written deliverables across accounts, and a flexible drafting tool covers most of that recurring workload." },
-      { slug: "ai-tone-changer", why: "Switching between distinct client voices within the same day is easier when drafts can be adjusted toward each account's specific tone." },
-      { slug: "social-media-post-generator", why: "Social content calendars are one of the most common recurring deliverables across client accounts, and volume is the main challenge." },
-      { slug: "ai-ad-generator", why: "Paid campaigns need multiple ad variants per client, and producing those at scale across several accounts is a real time sink without help." },
-      { slug: "ai-summary-generator", why: "Monthly client reports need campaign activity distilled into something a non-marketer can read quickly." },
-      { slug: "ai-company-bio-generator", why: "New client onboarding often starts with getting the client's own bio and positioning right before any campaign work begins." }
+      { slug: "ai-rephraser", why: "Switching between distinct client voices within the same day is easier when drafts can be adjusted toward each account's specific tone." },
+      { slug: "facebook-post-generator", why: "Social content calendars are one of the most common recurring deliverables across client accounts, and volume is the main challenge." },
+      { slug: "ad-script-generator", why: "Paid campaigns need multiple ad variants per client, and producing those at scale across several accounts is a real time sink without help." },
+      { slug: "bullet-point-answer-generator", why: "Monthly client reports need campaign activity distilled into something a non-marketer can read quickly." },
+      { slug: "personal-bio-generator", why: "New client onboarding often starts with getting the client's own bio and positioning right before any campaign work begins." }
     ],
     outcomes: [
       "More client accounts can be supported by the same team without a proportional increase in production hours.",
@@ -352,12 +352,12 @@ export const useCases: UseCase[] = [
       { title: "Seasonal refresh", body: "Update descriptions and titles for seasonal keywords and promotions ahead of key shopping periods, instead of leaving listings static year-round." }
     ],
     toolkit: [
-      { slug: "ai-product-description-generator", why: "This is the core, highest-volume writing task for any catalog, and manual writing simply doesn't scale to hundreds of SKUs." },
-      { slug: "amazon-product-title-generator", why: "Amazon titles follow specific conventions that differ from a general product description, and getting them right affects both search visibility and conversion." },
-      { slug: "amazon-product-description-generator", why: "Amazon listings benefit from format-specific copy distinct from a store's own product page, and sellers on the platform need both." },
-      { slug: "product-comparison-generator", why: "Helping shoppers compare similar SKUs in a listing or category page supports purchase decisions and reduces returns from mismatched expectations." },
-      { slug: "product-features-generator", why: "Feature bullet points need to be scannable and specific, and drafting them per product at catalog scale is faster with a starting structure." },
-      { slug: "product-benefits-generator", why: "Descriptions that convert usually lead with benefits rather than specs, and translating a feature list into benefit language for every SKU takes real time by hand." }
+      { slug: "why-choose-this-product", why: "This is the core, highest-volume writing task for any catalog, and manual writing simply doesn't scale to hundreds of SKUs." },
+      { slug: "product-name-generator", why: "Amazon titles follow specific conventions that differ from a general product description, and getting them right affects both search visibility and conversion." },
+      { slug: "why-choose-this-product", why: "Amazon listings benefit from format-specific copy distinct from a store's own product page, and sellers on the platform need both." },
+      { slug: "product-review-generator", why: "Helping shoppers compare similar SKUs in a listing or category page supports purchase decisions and reduces returns from mismatched expectations." },
+      { slug: "why-choose-this-product", why: "Feature bullet points need to be scannable and specific, and drafting them per product at catalog scale is faster with a starting structure." },
+      { slug: "why-choose-this-product", why: "Descriptions that convert usually lead with benefits rather than specs, and translating a feature list into benefit language for every SKU takes real time by hand." }
     ],
     outcomes: [
       "Full catalogs get unique, professional descriptions instead of relying on generic manufacturer copy.",
@@ -399,11 +399,11 @@ export const useCases: UseCase[] = [
       { title: "Multi-account management", body: "Move between different brand or client accounts within the same session, adjusting tone for each, to batch content across several accounts without losing a full day per account." }
     ],
     toolkit: [
-      { slug: "social-media-post-generator", why: "This is the core recurring task for the role, and having a fast draft for each platform is what keeps the calendar full week over week." },
-      { slug: "instagram-caption-generator", why: "Instagram's caption style is distinct enough from other platforms that a dedicated draft saves rewriting time on the highest-volume platform for many brands." },
-      { slug: "instagram-hashtag-generator", why: "Hashtag research is the task most likely to get skipped under deadline pressure, so generating a relevant set alongside the caption keeps it from being dropped." },
-      { slug: "tiktok-script-generator", why: "Short-form video scripts need a different structure than a static post caption, and this covers that format specifically." },
-      { slug: "ai-tone-changer", why: "Managing multiple accounts means shifting tone constantly, and adjusting a draft toward each brand's voice is faster than rewriting from scratch each time." }
+      { slug: "facebook-post-generator", why: "This is the core recurring task for the role, and having a fast draft for each platform is what keeps the calendar full week over week." },
+      { slug: "instagram-reel-script-generator", why: "Instagram's caption style is distinct enough from other platforms that a dedicated draft saves rewriting time on the highest-volume platform for many brands." },
+      { slug: "trending-post-generator", why: "Hashtag research is the task most likely to get skipped under deadline pressure, so generating a relevant set alongside the caption keeps it from being dropped." },
+      { slug: "instagram-reel-script-generator", why: "Short-form video scripts need a different structure than a static post caption, and this covers that format specifically." },
+      { slug: "ai-rephraser", why: "Managing multiple accounts means shifting tone constantly, and adjusting a draft toward each brand's voice is faster than rewriting from scratch each time." }
     ],
     outcomes: [
       "Content calendars stay full through the whole month instead of running dry after the first two weeks.",
@@ -445,12 +445,12 @@ export const useCases: UseCase[] = [
       { title: "Content refresh cycle", body: "Rewrite underperforming or outdated content sections to better match current search intent, using the existing page as a base rather than starting over." }
     ],
     toolkit: [
-      { slug: "seo-blog-generator", why: "This is the core content production tool that lets a keyword list actually turn into published articles at a workable pace." },
-      { slug: "meta-description-generator", why: "Metadata is a small but constant task across every page, and it's the first thing to fall behind when a site grows faster than the content team." },
-      { slug: "faq-generator", why: "FAQ sections targeting long-tail, question-based queries need per-topic thought, and this speeds up producing them without resorting to copy-pasted generic questions." },
-      { slug: "seo-content-rewriter", why: "Refreshing older content to better match current search intent is often more valuable than writing something new, and this speeds up that specific task." },
-      { slug: "keyword-based-rewriter", why: "Working a target keyword naturally into existing or new content without over-stuffing it takes a careful pass, which this supports directly." },
-      { slug: "ai-blog-title-generator", why: "Titles carry significant weight for both click-through and keyword targeting, and testing several options beats settling for the first draft." }
+      { slug: "article-wizard", why: "This is the core content production tool that lets a keyword list actually turn into published articles at a workable pace." },
+      { slug: "landing-page-copy-generator", why: "Metadata is a small but constant task across every page, and it's the first thing to fall behind when a site grows faster than the content team." },
+      { slug: "website-copy-generator", why: "FAQ sections targeting long-tail, question-based queries need per-topic thought, and this speeds up producing them without resorting to copy-pasted generic questions." },
+      { slug: "ai-rephraser", why: "Refreshing older content to better match current search intent is often more valuable than writing something new, and this speeds up that specific task." },
+      { slug: "ai-rephraser", why: "Working a target keyword naturally into existing or new content without over-stuffing it takes a careful pass, which this supports directly." },
+      { slug: "blog-ideas-generator", why: "Titles carry significant weight for both click-through and keyword targeting, and testing several options beats settling for the first draft." }
     ],
     outcomes: [
       "More of the identified keyword opportunities actually get targeted with published content instead of sitting on a research spreadsheet.",
@@ -492,11 +492,11 @@ export const useCases: UseCase[] = [
       { title: "End-of-day cleanup", body: "Batch the day's small unanswered emails and notes into one drafting session at the end of the day, instead of letting them interrupt focus time throughout." }
     ],
     toolkit: [
-      { slug: "ai-email-generator", why: "Routine email replies are one of the most consistent time drains in a busy schedule, and drafting them quickly frees up meaningful time each day." },
-      { slug: "ai-summary-generator", why: "Getting through long documents and reports under time pressure is faster when the key points are pulled out first." },
-      { slug: "ai-follow-up-email-generator", why: "Follow-up notes are easy to postpone precisely because they feel low-priority, and a fast draft makes it easier to actually send them." },
-      { slug: "ai-rewriter", why: "Turning a rough set of notes into a clear, sendable message is a common small task that adds up across a day of communication." },
-      { slug: "ai-grammar-checker", why: "Quick messages sent under time pressure benefit from a fast check before sending, without needing a careful manual proofread every time." }
+      { slug: "welcome-email-generator", why: "Routine email replies are one of the most consistent time drains in a busy schedule, and drafting them quickly frees up meaningful time each day." },
+      { slug: "bullet-point-answer-generator", why: "Getting through long documents and reports under time pressure is faster when the key points are pulled out first." },
+      { slug: "reply-email-generator", why: "Follow-up notes are easy to postpone precisely because they feel low-priority, and a fast draft makes it easier to actually send them." },
+      { slug: "ai-rephraser", why: "Turning a rough set of notes into a clear, sendable message is a common small task that adds up across a day of communication." },
+      { slug: "ai-proofreader", why: "Quick messages sent under time pressure benefit from a fast check before sending, without needing a careful manual proofread every time." }
     ],
     outcomes: [
       "Email backlogs clear faster, leaving more of the workday for tasks that require real focus.",

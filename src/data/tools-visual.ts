@@ -458,7 +458,7 @@ export const visualTools: Tool[] = [
         a: "Yes, worn accessories, bags and footwear work the same way; for pure product scenes use the Product Photoshoot tool.",
       },
     ],
-    related: ["ai-photoshoot", "ai-image-editor", "ai-image-generator", "ai-creative-suite", "ai-product-description-generator"],
+    related: ["ai-photoshoot", "ai-image-editor", "ai-image-generator", "ai-creative-suite", "why-choose-this-product"],
   },
   {
     slug: "ai-creative-suite",
@@ -611,6 +611,6 @@ export const visualTools: Tool[] = [
         a: "Yes — each piece can be regenerated on its own and still inherits the saved style.",
       },
     ],
-    related: ["ai-image-generator", "ai-image-editor", "ai-photoshoot", "ai-ad-generator", "ai-social-media-agent"],
+    related: ["ai-image-generator", "ai-image-editor", "ai-photoshoot", "ad-script-generator", "ai-social-media-agent"],
   },
 ];

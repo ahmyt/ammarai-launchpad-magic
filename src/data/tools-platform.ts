@@ -123,7 +123,7 @@ export const platformTools: Tool[] = [
         a: "Yes. Paste the text or upload the file and the scan runs across the full document, reported passage by passage.",
       },
     ],
-    related: ["ai-content-rewriter", "ai-grammar-checker", "ai-writer", "ai-article-generator"],
+    related: ["ai-rephraser", "ai-proofreader", "ai-writer", "article-wizard"],
     hideDemoVideo: true,
   },
   {
@@ -383,7 +383,7 @@ export const platformTools: Tool[] = [
         a: "Yes. Layouts include visuals matched to each slide's content, and you can swap in your own images before export.",
       },
     ],
-    related: ["ai-writer", "ai-image-generator", "ai-summary-generator", "ai-document-analyzer"],
+    related: ["ai-writer", "ai-image-generator", "bullet-point-answer-generator", "ai-document-analyzer"],
     hideDemoVideo: true,
   },
   {
@@ -517,8 +517,8 @@ export const platformTools: Tool[] = [
       "ai-avatar-generator",
       "ai-video-generator",
       "ai-voice-generator",
-      "video-script-generator",
-      "ai-ad-generator",
+      "ad-script-generator",
+      "ad-script-generator",
     ],
   },
   {
@@ -751,7 +751,7 @@ export const platformTools: Tool[] = [
         a: "Yes. Send the track to Sound Studio and mix it under any voiceover generated on the platform or uploaded yourself.",
       },
     ],
-    related: ["sound-studio", "ai-voice-generator", "ai-video-generator", "ai-ad-generator"],
+    related: ["sound-studio", "ai-voice-generator", "ai-video-generator", "ad-script-generator"],
 
   },
 ];

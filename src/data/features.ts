@@ -67,7 +67,7 @@ export const features: Feature[] = [
         body: "Keep separate voices for different brands, products or clients and switch between them.",
       },
     ],
-    tools: ["ai-writer", "ai-tone-changer", "ai-rewriter", "social-media-post-generator"],
+    tools: ["ai-writer", "ai-rephraser", "ai-rephraser", "facebook-post-generator"],
     faqs: [
       {
         q: "How many examples does it need?",
@@ -106,7 +106,7 @@ export const features: Feature[] = [
         body: "Team plans share templates so quality does not depend on who happens to be writing.",
       },
     ],
-    tools: ["ai-article-generator", "ai-email-generator", "ai-ad-generator", "newsletter-generator"],
+    tools: ["article-wizard", "welcome-email-generator", "ad-script-generator", "welcome-email-generator"],
     faqs: [
       {
         q: "Can I edit the built-in templates?",
@@ -146,9 +146,9 @@ export const features: Feature[] = [
       },
     ],
     tools: [
-      "ai-product-description-generator",
-      "meta-description-generator",
-      "amazon-product-title-generator",
+      "why-choose-this-product",
+      "landing-page-copy-generator",
+      "product-name-generator",
       "ai-vision",
     ],
     faqs: [
@@ -189,7 +189,7 @@ export const features: Feature[] = [
         body: "Recordings for transcription, then straight into summaries and repurposed content.",
       },
     ],
-    tools: ["ai-document-analyzer", "ai-vision", "ai-transcription", "ai-summary-generator"],
+    tools: ["ai-document-analyzer", "ai-vision", "ai-transcription", "bullet-point-answer-generator"],
     faqs: [
       {
         q: "What are the size limits?",
@@ -228,7 +228,7 @@ export const features: Feature[] = [
         body: "Publish an assistant to your workspace so colleagues use the same briefed helper.",
       },
     ],
-    tools: ["ai-chat", "ai-writer", "ai-document-analyzer", "ai-tone-changer"],
+    tools: ["ai-chat", "ai-writer", "ai-document-analyzer", "ai-rephraser"],
     faqs: [
       {
         q: "How is an assistant different from a template?",
@@ -267,7 +267,7 @@ export const features: Feature[] = [
         body: "Agencies can keep client workspaces separate while sharing internal templates.",
       },
     ],
-    tools: ["ai-writer", "ai-tone-changer", "ai-article-generator", "social-media-post-generator"],
+    tools: ["ai-writer", "ai-rephraser", "article-wizard", "facebook-post-generator"],
     faqs: [
       {
         q: "Which plans include team features?",
@@ -306,7 +306,7 @@ export const features: Feature[] = [
         body: "Return to any earlier version and continue from there.",
       },
     ],
-    tools: ["ai-writer", "ai-chat", "ai-image-generator", "ai-rewriter"],
+    tools: ["ai-writer", "ai-chat", "ai-image-generator", "ai-rephraser"],
     faqs: [
       {
         q: "How long is history kept?",
@@ -345,7 +345,7 @@ export const features: Feature[] = [
         body: "Bulk output returns in the same column structure you uploaded.",
       },
     ],
-    tools: ["ai-article-generator", "ai-voice-generator", "ai-video-generator", "ai-transcription"],
+    tools: ["article-wizard", "ai-voice-generator", "ai-video-generator", "ai-transcription"],
     faqs: [
       {
         q: "Does exported HTML carry junk markup?",

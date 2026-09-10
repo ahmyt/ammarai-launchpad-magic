@@ -158,8 +158,8 @@ export const seoAnalyzerTools: Tool[] = [
       },
     ],
     related: [
-      "ai-seo-content-generator",
-      "meta-description-generator",
+      "keyword-generator",
+      "landing-page-copy-generator",
       "ai-writer",
       "ai-plagiarism-detector",
     ],

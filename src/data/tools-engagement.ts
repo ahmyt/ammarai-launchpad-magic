@@ -316,8 +316,8 @@ export const engagementTools: Tool[] = [
     ],
     related: [
       "ai-social-media-agent",
-      "ai-ad-generator",
-      "ai-email-generator",
+      "ad-script-generator",
+      "welcome-email-generator",
       "ai-blogger-agent",
       "ai-smart-inbox",
     ],

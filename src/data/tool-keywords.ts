@@ -282,7 +282,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-article-generator": {
+  "article-wizard": {
     primaryKeyword: "ai article generator",
     searchVolume: 480,
     difficulty: 60,
@@ -302,7 +302,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-rewriter": {
+  "ai-rephraser": {
     primaryKeyword: "ai rewriter",
     searchVolume: 49500,
     difficulty: 78,
@@ -479,7 +479,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-blog-generator": {
+  "article-wizard": {
     primaryKeyword: "ai blog generator",
     searchVolume: 390,
     difficulty: 46,
@@ -499,7 +499,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-blog-title-generator": {
+  "blog-ideas-generator": {
     primaryKeyword: "blog title generator",
     searchVolume: 1600,
     difficulty: 56,
@@ -519,7 +519,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-blog-intro-generator": {
+  "blog-section-writer": {
     primaryKeyword: "blog intro generator",
     searchVolume: 20,
     difficulty: 0,
@@ -537,7 +537,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-blog-conclusion-generator": {
+  "blog-section-writer": {
     primaryKeyword: "blog conclusion generator",
     searchVolume: 20,
     difficulty: 0,
@@ -555,7 +555,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-content-rewriter": {
+  "ai-rephraser": {
     primaryKeyword: "ai content rewriter",
     searchVolume: 90,
     difficulty: 64,
@@ -576,7 +576,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-paragraph-generator": {
+  "blog-section-writer": {
     primaryKeyword: "ai paragraph generator",
     searchVolume: 22200,
     difficulty: 69,
@@ -596,7 +596,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-summary-generator": {
+  "bullet-point-answer-generator": {
     primaryKeyword: "ai summary generator",
     searchVolume: 1600,
     difficulty: 74,
@@ -616,7 +616,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-email-generator": {
+  "welcome-email-generator": {
     primaryKeyword: "ai email generator",
     searchVolume: 14800,
     difficulty: 68,
@@ -636,7 +636,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-cold-email-generator": {
+  "welcome-email-generator": {
     primaryKeyword: "cold email generator",
     searchVolume: 260,
     difficulty: 19,
@@ -655,7 +655,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-follow-up-email-generator": {
+  "reply-email-generator": {
     primaryKeyword: "follow up email",
     searchVolume: 3600,
     difficulty: 52,
@@ -675,7 +675,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-email-subject-line-generator": {
+  "welcome-email-generator": {
     primaryKeyword: "email subject line generator",
     searchVolume: 720,
     difficulty: 33,
@@ -695,7 +695,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-press-release-generator": {
+  "journalist-news-generator": {
     primaryKeyword: "press release generator",
     searchVolume: 110,
     difficulty: 19,
@@ -715,7 +715,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-company-bio-generator": {
+  "personal-bio-generator": {
     primaryKeyword: "company bio generator",
     searchVolume: 20,
     difficulty: 0,
@@ -733,7 +733,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-business-name-generator": {
+  "product-name-generator": {
     primaryKeyword: "business name generator",
     searchVolume: 40500,
     difficulty: 89,
@@ -753,7 +753,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-story-generator": {
+  "storytelling-generator": {
     primaryKeyword: "ai story generator",
     searchVolume: 74000,
     difficulty: 79,
@@ -773,7 +773,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-essay-writer": {
+  "thesis-statement-generator": {
     primaryKeyword: "ai essay writer",
     searchVolume: 9900,
     difficulty: 79,
@@ -793,7 +793,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-grammar-checker": {
+  "ai-proofreader": {
     primaryKeyword: "grammar checker",
     searchVolume: 450000,
     difficulty: 98,
@@ -813,7 +813,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-text-extender": {
+  "content-improver": {
     primaryKeyword: "ai text expander",
     searchVolume: 260,
     difficulty: 36,
@@ -834,7 +834,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-tone-changer": {
+  "ai-rephraser": {
     primaryKeyword: "ai tone changer",
     searchVolume: 20,
     difficulty: 0,
@@ -852,7 +852,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-ad-generator": {
+  "ad-script-generator": {
     primaryKeyword: "ad copy generator",
     searchVolume: 390,
     difficulty: 41,
@@ -871,7 +871,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "facebook-ad-generator": {
+  "facebook-post-generator": {
     primaryKeyword: "facebook ad generator",
     searchVolume: 260,
     difficulty: 42,
@@ -890,7 +890,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "google-ads-generator": {
+  "youtube-ads-generator": {
     primaryKeyword: "google ads generator",
     searchVolume: 210,
     difficulty: 35,
@@ -909,7 +909,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "linkedin-ad-generator": {
+  "linkedin-post-generator": {
     primaryKeyword: "linkedin ad generator",
     searchVolume: 70,
     difficulty: 20,
@@ -929,7 +929,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "instagram-caption-generator": {
+  "instagram-reel-script-generator": {
     primaryKeyword: "instagram caption generator",
     searchVolume: 6600,
     difficulty: 46,
@@ -949,7 +949,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "instagram-hashtag-generator": {
+  "trending-post-generator": {
     primaryKeyword: "instagram hashtag generator",
     searchVolume: 1900,
     difficulty: 74,
@@ -969,7 +969,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "social-media-post-generator": {
+  "facebook-post-generator": {
     primaryKeyword: "social media post generator",
     searchVolume: 1000,
     difficulty: 59,
@@ -988,7 +988,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "youtube-description-generator": {
+  "video-description-generator": {
     primaryKeyword: "youtube description generator",
     searchVolume: 2900,
     difficulty: 42,
@@ -1007,7 +1007,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "youtube-title-generator": {
+  "clickbait-title-generator": {
     primaryKeyword: "youtube title generator",
     searchVolume: 2400,
     difficulty: 31,
@@ -1027,7 +1027,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "youtube-tag-generator": {
+  "keyword-generator": {
     primaryKeyword: "youtube tags generator",
     searchVolume: 1900,
     difficulty: 32,
@@ -1047,7 +1047,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "tiktok-script-generator": {
+  "instagram-reel-script-generator": {
     primaryKeyword: "tiktok script generator",
     searchVolume: 720,
     difficulty: 24,
@@ -1067,7 +1067,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "video-script-generator": {
+  "ad-script-generator": {
     primaryKeyword: "video script generator",
     searchVolume: 720,
     difficulty: 64,
@@ -1086,7 +1086,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "newsletter-generator": {
+  "welcome-email-generator": {
     primaryKeyword: "newsletter generator",
     searchVolume: 210,
     difficulty: 46,
@@ -1106,7 +1106,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-product-description-generator": {
+  "why-choose-this-product": {
     primaryKeyword: "product description generator",
     searchVolume: 1600,
     difficulty: 39,
@@ -1125,7 +1125,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "amazon-product-description-generator": {
+  "why-choose-this-product": {
     primaryKeyword: "amazon product description",
     searchVolume: 260,
     difficulty: 28,
@@ -1145,7 +1145,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "amazon-product-title-generator": {
+  "product-name-generator": {
     primaryKeyword: "amazon product title",
     searchVolume: 50,
     difficulty: 24,
@@ -1164,7 +1164,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "product-benefits-generator": {
+  "why-choose-this-product": {
     primaryKeyword: "product benefits generator",
     searchVolume: 0,
     difficulty: 0,
@@ -1182,7 +1182,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "product-features-generator": {
+  "why-choose-this-product": {
     primaryKeyword: "product features generator",
     searchVolume: 0,
     difficulty: 0,
@@ -1200,7 +1200,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "product-comparison-generator": {
+  "product-review-generator": {
     primaryKeyword: "product comparison generator",
     searchVolume: 0,
     difficulty: 0,
@@ -1217,7 +1217,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-seo-content-generator": {
+  "keyword-generator": {
     primaryKeyword: "seo content generator",
     searchVolume: 260,
     difficulty: 73,
@@ -1237,7 +1237,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "meta-description-generator": {
+  "landing-page-copy-generator": {
     primaryKeyword: "meta description generator",
     searchVolume: 1300,
     difficulty: 39,
@@ -1258,7 +1258,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "faq-generator": {
+  "website-copy-generator": {
     primaryKeyword: "faq generator",
     searchVolume: 140,
     difficulty: 25,
@@ -1277,7 +1277,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "seo-blog-generator": {
+  "article-wizard": {
     primaryKeyword: "seo blog generator",
     searchVolume: 20,
     difficulty: 0,
@@ -1295,7 +1295,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "seo-content-rewriter": {
+  "ai-rephraser": {
     primaryKeyword: "seo content rewriter",
     searchVolume: 20,
     difficulty: 0,
@@ -1313,7 +1313,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "keyword-based-rewriter": {
+  "ai-rephraser": {
     primaryKeyword: "keyword based rewriter",
     searchVolume: 0,
     difficulty: 0,
