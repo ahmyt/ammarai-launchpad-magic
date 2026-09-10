@@ -25,3 +25,8 @@
    Cloud > Auth Settings > Google; paste Client ID + Secret there; add https://ammarai.com/** to Redirect URLs.
    See SELF_HOSTING.md section 4. Email/password login already works.
 4. Optional: submit https://ammarai.com/sitemap.xml in Google Search Console after redeploy.
+
+## Follow-ups
+- [x] Search: Phase 4 tools (video editor, captions, dubbing, UGC, YouTube publisher) now matched by plain-language searches
+- [x] Footer: AI Video Editor added to the Create column
+- [ ] Decide whether AI Video Pro and AI Text to Video should be merged or clearly differentiated
