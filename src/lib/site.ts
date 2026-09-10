@@ -25,6 +25,7 @@ export type StaticPath =
   | "/features"
   | "/use-cases"
   | "/pricing"
+  | "/ai-models"
   | "/resources"
   | "/blog"
   | "/faq"
@@ -42,6 +43,7 @@ export const footerNav: { heading: string; links: SiteLink[] }[] = [
       { label: "AI Tools directory", to: "/ai-tools" },
       { label: "Features", to: "/features" },
       { label: "Pricing", to: "/pricing" },
+      { label: "AI models", to: "/ai-models" },
       { label: "FAQ", to: "/faq" },
     ],
   },
@@ -88,7 +90,7 @@ export const plans = [
     features: [
       "Access to the AI tool library",
       "Monthly allowance of words, images and audio",
-      "AI chat with the standard model",
+      "AI Chat Pro with the standard model",
       "Basic transcription and document reading",
       "Single workspace, one seat",
     ],
@@ -104,7 +106,7 @@ export const plans = [
       "Everything in Free",
       "Higher monthly word and image allowance",
       "Longer documents and transcripts",
-      "Saved brand tone and reusable prompts",
+      "Saved personas, brand tone and reusable skills",
       "Export to common document formats",
     ],
     cta: "Choose Starter",
@@ -117,9 +119,9 @@ export const plans = [
     blurb: "For marketers, creators and small teams shipping work every day.",
     features: [
       "Everything in Starter",
-      "Advanced models for writing, image and video",
+      "Every model — switch freely in chat, image and video",
       "Voice generation and long-form transcription",
-      "Custom AI assistants and templates",
+      "Custom AI assistants, personas, skills and templates",
       "Priority processing",
     ],
     cta: "Choose Professional",
@@ -133,7 +135,7 @@ export const plans = [
     features: [
       "Everything in Professional",
       "Highest allowances across every tool",
-      "Team collaboration and shared workspaces",
+      "Team seats with a shared credit pool and shared personas",
       "Bulk generation workflows",
       "Extended file uploads and document analysis",
     ],

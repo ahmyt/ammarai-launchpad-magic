@@ -167,16 +167,16 @@ export const coreToolsA: Tool[] = [
   },
   {
     slug: "ai-chat",
-    name: "AI Chat",
+    name: "AI Chat Pro",
     category: "AI Chat",
     summary:
-      "A conversational AI that keeps context, answers questions, researches topics, and can hand work off to other tools in the platform. Supports multi-model chat and document-based conversations.",
-    title: "AI Chat: Think, Plan and Solve With Context | AmmarAI",
+      "A multi-model chat with personas, reusable skills, smart memory, live web search, file uploads and organised folders — and it hands finished work to the rest of the platform.",
+    title: "AI Chat Pro: Multi-Model Chat With Memory and Skills | AmmarAI",
     description:
-      "A conversational AI that keeps context, answers questions and researches topics, with multi-model chat, document-based conversations and handoff to the platform's writing, image and code tools.",
-    h1: "A conversation that keeps everything you have already said",
-    lede: "AI Chat is where you think out loud: plan a launch, debug an idea, interrogate a document, then push the result into the tool that finishes it.",
-    ctaLabel: "Open AI Chat",
+      "Chat with several leading AI models in one thread, add personas and reusable skills, search the live web, upload files, keep smart memory across conversations and organise everything in folders.",
+    h1: "One chat window, every model, and a memory that carries over",
+    lede: "AI Chat Pro is where you think out loud: pick the model that suits the job, give it a persona and a skill, let it search the live web or read your files, and keep the useful parts in memory for next time.",
+    ctaLabel: "Open AI Chat Pro",
     featured: true,
     popular: true,
     what: [
@@ -230,6 +230,22 @@ export const coreToolsA: Tool[] = [
       {
         title: "Persistent thread context",
         body: "Constraints, tone and decisions set earlier in the conversation carry forward, so you stop re-explaining yourself.",
+      },
+      {
+        title: "Switch models mid-thread",
+        body: "Move the same conversation between reasoning, fast and creative models when the task changes, without losing what has already been said.",
+      },
+      {
+        title: "Personas and reusable skills",
+        body: "Give the conversation a role and attach saved skills — a house tone, a review checklist, an output format — instead of pasting the same instructions every time.",
+      },
+      {
+        title: "Smart memory and folders",
+        body: "Facts worth keeping are remembered across threads, and conversations sit in folders per client or project rather than one endless list.",
+      },
+      {
+        title: "Live web search",
+        body: "Ask it to look something up and it reads current pages, then answers with the sources it used.",
       },
       {
         title: "File-grounded answers",
