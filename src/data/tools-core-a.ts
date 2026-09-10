@@ -232,6 +232,22 @@ export const coreToolsA: Tool[] = [
         body: "Constraints, tone and decisions set earlier in the conversation carry forward, so you stop re-explaining yourself.",
       },
       {
+        title: "Switch models mid-thread",
+        body: "Move the same conversation between reasoning, fast and creative models when the task changes, without losing what has already been said.",
+      },
+      {
+        title: "Personas and reusable skills",
+        body: "Give the conversation a role and attach saved skills — a house tone, a review checklist, an output format — instead of pasting the same instructions every time.",
+      },
+      {
+        title: "Smart memory and folders",
+        body: "Facts worth keeping are remembered across threads, and conversations sit in folders per client or project rather than one endless list.",
+      },
+      {
+        title: "Live web search",
+        body: "Ask it to look something up and it reads current pages, then answers with the sources it used.",
+      },
+      {
         title: "File-grounded answers",
         body: "Attach documents, sheets and images and ask questions that are answered from that material.",
       },
