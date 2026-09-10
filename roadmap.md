@@ -4,10 +4,10 @@
 - [x] Phase 1: Agent Builder, Phone Call Agents, AI CRM, Social Media Agent, Blogger Agent + "AI Agents" and "AI Sales & CRM" categories + animated scene samples
 - [x] Phase 2: External chatbot rewrite (v3), AI Smart Inbox, AI Marketing Bot + animated scene samples
 - [x] Phase 3: Image Pro, AI Image Editor, AI Product Photoshoot, AI Fashion Try-On, AI Creative Suite (image in/out samples)
-- [ ] Phase 4: Video Pro, Video Editor, Captions, Dubbing, UGC, YouTube publishing, Music Pro
+- [x] Phase 4: Video Pro, Video Editor, Captions, Dubbing, UGC, YouTube publishing, Music Pro
 - [ ] Phase 5: Chat Pro, personas and skills, command search, models page, pricing update
 - [ ] Phase 6: ~95 missing Custom Templates (Group 8)
-- [ ] Every tool page sample must match its medium (video out for video tools, audio for audio, image for image, animated scene for agents)
+- [x] Completed tools use matching media samples; keep this strict requirement for Phases 5–6
 
 
 ## Done

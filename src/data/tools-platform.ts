@@ -639,18 +639,18 @@ export const platformTools: Tool[] = [
   },
   {
     slug: "ai-music-generator",
-    name: "AI Music Generator",
+    name: "AI Music Pro",
     category: "AI Audio",
     summary:
       "Generate original music and background tracks for videos, ads, podcasts and presentations.",
-    title: "AI Music Generator: Original Tracks on Demand | AmmarAI",
+    title: "AI Music Pro: Original Tracks on Demand | AmmarAI",
     description:
       "Generate original music and background tracks for videos, ads, podcasts and presentations, matched to mood, genre and length.",
     h1: "Background music that fits, without the licensing maze",
     lede: "Describe the mood, genre and length, and AI Music generates an original track for your video, ad, podcast or presentation — ready to drop into Sound Studio or your edit.",
     ctaLabel: "Generate music",
     what: [
-      "The AI Music Generator creates original music and background tracks from a written description. Name the mood, the genre and the duration, and you get a track that fits the content it sits under — without searching stock libraries or negotiating licences.",
+      "AI Music Pro creates original music and background tracks from a written description. Name the mood, genre and duration, and you get a playable track that fits the content it sits under — without searching stock libraries or negotiating licences.",
       "It is built for functional music: the bed under a voiceover, the opener for a podcast, the energy under a product ad. Generate a few variants, pick the one that supports the content, and pull it into Sound Studio to balance it against your narration.",
     ],
     canDo: [

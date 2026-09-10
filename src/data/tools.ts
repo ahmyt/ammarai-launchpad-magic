@@ -10,11 +10,13 @@ import { platformTools } from "./tools-platform";
 import { agentTools } from "./tools-agents";
 import { engagementTools } from "./tools-engagement";
 import { visualTools } from "./tools-visual";
+import { videoTools } from "./tools-video";
 
 export const tools: Tool[] = [
   ...agentTools,
   ...engagementTools,
   ...visualTools,
+  ...videoTools,
   ...coreToolsA,
   ...coreToolsB,
   ...seoAnalyzerTools,
@@ -117,6 +119,11 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
     keywords: ["video", "reel", "short", "youtube", "tiktok"],
     slugs: [
       "ai-video-generator",
+      "ai-video-editor",
+      "ai-captions",
+      "ai-dubbing",
+      "ai-ugc-generator",
+      "ai-youtube-publisher",
       "ai-text-to-video",
       "ai-image-to-video",
       "video-script-generator",
