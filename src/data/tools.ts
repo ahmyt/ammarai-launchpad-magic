@@ -101,8 +101,8 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
       "welcome-email-generator",
       "ai-content-detector",
       "ad-script-generator",
-      "resume-builder-placeholder-none",
-    ].filter((s) => s !== "resume-builder-placeholder-none"),
+      "ai-resume-builder",
+    ],
   },
   {
     keywords: ["agent", "agents", "automation", "automate", "workflow", "autonomous", "assistant that works"],
