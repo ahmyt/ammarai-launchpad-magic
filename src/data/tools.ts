@@ -3,9 +3,6 @@ import { coreToolsA } from "./tools-core-a";
 import { coreToolsB } from "./tools-core-b";
 import { seoAnalyzerTools } from "./tools-seo-analyzer";
 import { chatbotTools } from "./tools-chatbots";
-import { writingTools } from "./tools-writing";
-import { marketingTools } from "./tools-marketing";
-import { commerceSeoTools } from "./tools-commerce-seo";
 import { platformTools } from "./tools-platform";
 import { agentTools } from "./tools-agents";
 import { engagementTools } from "./tools-engagement";
@@ -34,9 +31,6 @@ export const tools: Tool[] = [
   ...seoAnalyzerTools,
   ...platformTools,
   ...chatbotTools,
-  ...writingTools,
-  ...marketingTools,
-  ...commerceSeoTools,
   ...blogTemplateTools,
   ...ecommerceTemplateTools,
   ...socialTemplateTools,
@@ -58,6 +52,7 @@ export function getTool(slug: string): Tool | undefined {
 }
 
 export const categoryOrder: ToolCategory[] = [
+  "AI Templates",
   "AI Agents",
   "AI Sales & CRM",
   "AI Writing",
