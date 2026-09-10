@@ -169,6 +169,38 @@ function escapeHtml(value: string): string {
     .replace(/>/g, "&gt;");
 }
 
+/** Human label for an AmmarAI URL, e.g. "AI Event Planner" instead of the raw address. */
+export function linkLabelFor(url: string): string | null {
+  const site = SITE.url.replace(/\/$/, "");
+  if (!url.startsWith(site)) return null;
+  const path = url.slice(site.length).replace(/^\/|\/$/g, "").split(/[?#]/)[0] ?? "";
+  if (!path) return SITE.name;
+
+  const known = tools.find((tool) => tool.slug === path);
+  if (known) return known.name;
+
+  const last = path.split("/").pop() ?? path;
+  return last
+    .split("-")
+    .map((word) => (word.length <= 2 ? word.toUpperCase() : word[0]!.toUpperCase() + word.slice(1)))
+    .join(" ");
+}
+
+/**
+ * Replaces links whose visible text is the raw URL with a readable label,
+ * so articles read "AI Event Planner" instead of "https://ammarai.com/event-planner".
+ */
+export function readableLinks(html: string): string {
+  return html.replace(
+    /<a href="(https?:\/\/[^"]+)"([^>]*)>\s*(https?:\/\/[^<]+?)\s*<\/a>/gi,
+    (match, href: string, attrs: string, text: string) => {
+      if (href.replace(/\/$/, "") !== text.replace(/\/$/, "")) return match;
+      const label = linkLabelFor(href);
+      return label ? `<a href="${href}"${attrs}>${escapeHtml(label)}</a>` : match;
+    },
+  );
+}
+
 /**
  * The model sometimes returns Markdown emphasis inside plain-text fields.
  * Convert it to real HTML so readers never see stray ** or __ markers.
@@ -186,7 +218,8 @@ function inlineMarkdown(value: string): string {
     // Turn any remaining bare URL into a real link (skips ones already inside an <a href="...">).
     .replace(
       /(^|[\s(])(https?:\/\/[^\s<>"')]*[^\s<>"').,;:!?])/g,
-      '$1<a href="$2">$2</a>',
+      (_m, lead: string, url: string) =>
+        `${lead}<a href="${url}">${escapeHtml(linkLabelFor(url) ?? url)}</a>`,
     );
 }
 
@@ -222,7 +255,66 @@ function figure(src: string, alt: string, caption: string): string {
   );
 }
 
-function buildHtml(post: GeneratedPost, toolName: string, image: string): string {
+const IMAGE_URL = "https://api.openai.com/v1/images/generations";
+
+/**
+ * Creates an illustration that matches this specific article and stores it,
+ * so every post gets its own picture instead of the shared category image.
+ */
+async function createArticleImage(
+  supabase: SupabaseClient<Database>,
+  slug: string,
+  index: number,
+  scene: string,
+): Promise<string | null> {
+  const key = process.env["OPENAI_API_KEY"];
+  if (!key) return null;
+
+  try {
+    const response = await fetch(IMAGE_URL, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "gpt-image-1",
+        prompt:
+          `Editorial illustration for a blog article. ${scene}. ` +
+          `Light high-key studio photography style, warm cream and soft beige palette, ` +
+          `clean minimal composition, subtle abstract connective line accents, no text, no logos, no watermarks.`,
+        size: "1536x1024",
+        quality: "medium",
+        n: 1,
+      }),
+    });
+    if (!response.ok) {
+      console.error(`[daily-blog] image generation failed (${response.status})`);
+      return null;
+    }
+    const payload = (await response.json()) as { data?: { b64_json?: string }[] };
+    const b64 = payload.data?.[0]?.b64_json;
+    if (!b64) return null;
+
+    const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+    const name = `${slug}-${index}-${Date.now()}.png`;
+    const { error } = await supabase.storage
+      .from("blog-images")
+      .upload(name, bytes, { contentType: "image/png", upsert: true });
+    if (error) {
+      console.error(`[daily-blog] image upload failed: ${error.message}`);
+      return null;
+    }
+    return `/api/public/blog-image/${name}`;
+  } catch (error) {
+    console.error("[daily-blog] image generation error", error);
+    return null;
+  }
+}
+
+function buildHtml(
+  post: GeneratedPost,
+  toolName: string,
+  image: string,
+  secondImage?: string | null,
+): string {
   const parts: string[] = [`<p>${inlineMarkdown(post.intro)}</p>`];
   post.sections.forEach((section, index) => {
     parts.push(`<h2>${inlineMarkdown(section.heading)}</h2>`);
@@ -235,6 +327,11 @@ function buildHtml(post: GeneratedPost, toolName: string, image: string): string
     if (index === 1) {
       parts.push(figure(image, `${toolName} in AmmarAI`, `${toolName} inside AmmarAI.`));
     }
+    if (index === 3 && secondImage) {
+      parts.push(
+        figure(secondImage, `${post.title} illustration`, `Putting ${toolName} to work.`),
+      );
+    }
   });
   if (post.faqs.length) {
     parts.push(`<h2>Frequently asked questions</h2>`);
@@ -244,7 +341,7 @@ function buildHtml(post: GeneratedPost, toolName: string, image: string): string
       );
     }
   }
-  return sanitizeHtml(parts.join("\n"), {
+  const html = sanitizeHtml(parts.join("\n"), {
     allowedTags: [
       ...sanitizeHtml.defaults.allowedTags,
       "h2",
@@ -258,6 +355,7 @@ function buildHtml(post: GeneratedPost, toolName: string, image: string): string
       img: ["src", "alt", "loading", "width", "height"],
     },
   });
+  return readableLinks(html);
 }
 
 
@@ -292,7 +390,7 @@ export async function writeDailyPost(
       ``,
       `Structure: an engaging intro (2-3 sentences), 5-7 sections with H2 headings, short paragraphs,`,
       `at least two sections with practical bullet lists, and 5 frequently asked questions with 2-4 sentence answers.`,
-      `Mention AmmarAI naturally and reference the tool page at ${SITE.url}/${tool.slug}.`,
+      `Mention AmmarAI naturally and link the tool page as a Markdown link with descriptive anchor text, e.g. [${tool.name}](${SITE.url}/${tool.slug}) — never paste a bare URL as the visible text.`,
       `Do not invent statistics, prices, customer names or guarantees. No emojis.`,
     ].join("\n");
   } else {
@@ -302,7 +400,7 @@ export async function writeDailyPost(
       `Primary keyword: ${tool.name.toLowerCase()}. Search intent: people looking for how to do this with AI.`,
       `Structure: an engaging intro (2-3 sentences), 5-7 sections with H2 headings, short paragraphs,`,
       `at least two sections with practical bullet lists, and 5 frequently asked questions with 2-4 sentence answers.`,
-      `Mention AmmarAI naturally and reference the tool page at ${SITE.url}/${tool.slug}.`,
+      `Mention AmmarAI naturally and link the tool page as a Markdown link with descriptive anchor text, e.g. [${tool.name}](${SITE.url}/${tool.slug}) — never paste a bare URL as the visible text.`,
       `Do not invent statistics, prices, customer names or guarantees. No emojis.`,
       `The title must be under 60 characters and include the primary keyword.`,
       `The metaDescription must be under 155 characters.`,
@@ -336,12 +434,27 @@ export async function writeDailyPost(
     : null;
 
   const now = new Date().toISOString();
-  const image = imageFor(tool.category);
+  const fallback = imageFor(tool.category);
+  const [hero, inline] = await Promise.all([
+    createArticleImage(
+      supabase,
+      slug,
+      1,
+      `Cover image for an article titled "${post.title}" about ${tool.name}: ${tool.summary}`,
+    ),
+    createArticleImage(
+      supabase,
+      slug,
+      2,
+      `Supporting scene for an article about ${tool.name} (${tool.category}): ${post.sections[1]?.heading ?? tool.summary}`,
+    ),
+  ]);
+  const image = hero ?? fallback;
   const row = {
     slug,
     external_id: `daily:${tool.slug}`,
     title: post.title,
-    content_html: buildHtml(post, tool.name, image),
+    content_html: buildHtml(post, tool.name, inline ?? fallback),
     content_markdown: null,
     meta_description: post.metaDescription,
     hero_image_url: image,
