@@ -157,7 +157,7 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
       inputVideo: "/media/demo-ai-captions-source.mp4",
       inputVideoLabel: "founder-talking-head.mp4",
       url: "/media/demo-ai-captions.mp4",
-      caption: "Sample output — the spoken clip prepared as a captioned vertical social video.",
+      caption: "Sample output — the same founder clip with word-timed English captions burned in.",
     },
   ],
   "ai-dubbing": [
