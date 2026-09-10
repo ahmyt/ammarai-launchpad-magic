@@ -101,16 +101,9 @@ function Contact() {
                         }),
                       });
                       const raw = await res.text();
-                      let payload:
-                        | {
-                            error?: string;
-                            saved?: boolean;
-                            confirmationSent?: boolean;
-                            emailError?: { code?: string; command?: string; responseCode?: number };
-                          }
-                        | null = null;
+                      let payload: ContactResponse | null = null;
                       try {
-                        payload = JSON.parse(raw) as typeof payload;
+                        payload = JSON.parse(raw) as ContactResponse;
                       } catch {
                         payload = null;
                       }
