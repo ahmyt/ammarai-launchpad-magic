@@ -11,6 +11,7 @@ import { agentTools } from "./tools-agents";
 import { engagementTools } from "./tools-engagement";
 import { visualTools } from "./tools-visual";
 import { videoTools } from "./tools-video";
+import { chatWorkspaceTools } from "./tools-chat";
 
 export const tools: Tool[] = [
   ...agentTools,
