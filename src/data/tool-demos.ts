@@ -430,6 +430,70 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
     { inputFileLabel: "service-agreement.pdf — 41 pages" },
     { inputFileLabel: "6 research PDFs — 148 pages total" },
   ],
+  "ai-personas": [
+    {
+      kind: "scene",
+      caption: "Sample run — the saved brand editor persona reviewing a draft the way it always does.",
+      scene: {
+        label: "Persona · Brand editor",
+        steps: [
+          { actor: "Loaded", text: "Role, style guide and banned-words list applied", meta: "0.0s" },
+          { actor: "Skill 1", text: "Clarity pass — 4 sentences shortened, 2 rewritten", meta: "1.2s" },
+          { actor: "Skill 2", text: "Claims check — \"fastest on the market\" flagged, no evidence", meta: "2.4s" },
+          { actor: "Rules", text: "British English applied, 3 exclamation marks removed", meta: "3.0s" },
+          { actor: "Output", text: "Edited draft returned with a change log", meta: "3.4s" },
+        ],
+        result: "Same persona, same rules — every draft, every writer, every day.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample run — the support persona answering inside policy and updating the record.",
+      scene: {
+        label: "Persona · Support specialist",
+        steps: [
+          { actor: "Question", text: "\"I was charged twice this month — can I get a refund?\"", meta: "0.0s" },
+          { actor: "Knowledge", text: "Matched the billing policy and the duplicate-charge rule", meta: "1.1s" },
+          { actor: "Guardrail", text: "Refund allowed under policy — no escalation needed", meta: "1.6s" },
+          { actor: "Reply", text: "Apology, refund confirmed, timeline given in plain language", meta: "2.9s" },
+          { actor: "Skill", text: "Two-line summary written to the customer record", meta: "3.3s" },
+        ],
+        result: "Policy-safe answers regardless of who is on shift.",
+      },
+    },
+  ],
+  "ai-command-search": [
+    {
+      kind: "scene",
+      caption: "Sample search — a plain-language request resolved to the right tool in one step.",
+      scene: {
+        label: "Command search · \"add subtitles to my founder clip\"",
+        steps: [
+          { actor: "Typed", text: "add subtitles to my founder clip", meta: "0.0s" },
+          { actor: "Match 1", text: "AI Captions — best fit, opens on the upload step", meta: "0.2s" },
+          { actor: "Match 2", text: "AI Video Editor — recut and reframe", meta: "0.2s" },
+          { actor: "Match 3", text: "AI Transcription — text only", meta: "0.2s" },
+          { actor: "Opened", text: "AI Captions launched with English captions preselected", meta: "0.6s" },
+        ],
+        result: "No menus, no tool names — one phrase and you are working.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample search — finding past work by describing it instead of scrolling history.",
+      scene: {
+        label: "Command search · \"the pricing page rewrite from last week\"",
+        steps: [
+          { actor: "Typed", text: "the pricing page rewrite from last week", meta: "0.0s" },
+          { actor: "Document", text: "\"Pricing page v3\" — edited 6 days ago", meta: "0.3s" },
+          { actor: "Chat", text: "\"Pricing objections\" — 41 messages", meta: "0.3s" },
+          { actor: "Persona", text: "Brand editor — used on that draft", meta: "0.3s" },
+          { actor: "Opened", text: "Document reopened at the last edit", meta: "0.7s" },
+        ],
+        result: "Your own work is searchable in the same box as the tools.",
+      },
+    },
+  ],
   "ai-agent-builder": [
     {
       kind: "scene",
