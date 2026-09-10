@@ -52,23 +52,23 @@ type ConfirmationOutcome = {
 const recordConfirmationOutcome = async (
   messageId: string,
   outcome: ConfirmationOutcome,
+  fallbackClient: { rpc: unknown },
 ): Promise<string | null> => {
   // Fully fault-proof: the message is already stored and the team has already
   // been notified by the time this runs. Nothing in here may ever throw, so a
-  // missing service-role key on a self-hosted server (e.g. Plesk) degrades to
-  // "tracking unavailable" instead of failing the visitor's submission.
+  // failure here degrades to "tracking unavailable" instead of failing the
+  // visitor's submission.
   try {
-    // The delivery write-back runs server-side with privileged credentials only.
-    // The public/anon role must never be able to call this routine.
-    if (!process.env["SUPABASE_SERVICE_ROLE_KEY"]) {
-      console.warn("Delivery outcome write skipped: service role key not configured", {
-        messageId,
-      });
-      return "delivery tracking unavailable (service role key not configured)";
+    // Prefer privileged credentials when available; otherwise fall back to the
+    // public client, which may call the narrowly scoped database routine that
+    // only records an outcome once, for a message created minutes ago.
+    let client: { rpc: unknown } = fallbackClient;
+    if (process.env["SUPABASE_SERVICE_ROLE_KEY"]) {
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+      client = supabaseAdmin as unknown as { rpc: unknown };
     }
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data, error } = await (
-      supabaseAdmin.rpc as unknown as (
+      client.rpc as unknown as (
         fn: string,
         args: Record<string, unknown>,
       ) => Promise<{ data: boolean | null; error: { message: string } | null }>
