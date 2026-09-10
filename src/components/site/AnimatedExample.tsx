@@ -73,6 +73,7 @@ export function AnimatedExample({
         url: rawMedia.url ? assetUrl(rawMedia.url) : rawMedia.url,
         inputImage: rawMedia.inputImage ? assetUrl(rawMedia.inputImage) : rawMedia.inputImage,
         inputAudio: rawMedia.inputAudio ? assetUrl(rawMedia.inputAudio) : rawMedia.inputAudio,
+        inputVideo: rawMedia.inputVideo ? assetUrl(rawMedia.inputVideo) : rawMedia.inputVideo,
       }
     : undefined;
   const demoVideo = media?.url ? media : undefined;
