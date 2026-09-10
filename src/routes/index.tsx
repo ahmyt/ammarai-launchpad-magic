@@ -11,6 +11,7 @@ import { Container, Section, SectionHeading, Card } from "@/components/site/prim
 import { ToolCard } from "@/components/site/ToolCard";
 import { ExternalButton, ButtonLink } from "@/components/site/Button";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
+import { assetUrl } from "@/lib/asset-url";
 import videoProDemo from "@/assets/demo-video-generator.mp4.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
@@ -61,25 +62,25 @@ const videoLibrary = [
     title: "From brief to finished video",
     label: "AI Video Pro",
     slug: "ai-video-generator",
-    src: videoProDemo.url,
+    src: assetUrl(videoProDemo.url),
   },
   {
     title: "A polished product edit",
     label: "AI Video Editor",
     slug: "ai-video-editor",
-    src: videoEditorDemo.url,
+    src: assetUrl(videoEditorDemo.url),
   },
   {
     title: "Creator-style campaign video",
     label: "AI UGC Generator",
     slug: "ai-ugc-generator",
-    src: ugcDemo.url,
+    src: assetUrl(ugcDemo.url),
   },
   {
     title: "A talking avatar presentation",
     label: "AI Avatar Video Generator",
     slug: "ai-avatar-generator",
-    src: avatarDemo.url,
+    src: assetUrl(avatarDemo.url),
   },
 ];
 
