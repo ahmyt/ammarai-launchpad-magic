@@ -21,8 +21,6 @@ import musicAdBed from "@/assets/demo-music-ad-bed.mp3.asset.json";
 import musicAmbientBed from "@/assets/demo-music-ambient-bed.mp3.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import videoEditorSource from "@/assets/demo-video-editor-source.mp4.asset.json";
-import captionsDemo from "@/assets/demo-ai-captions.mp4.asset.json";
-import captionsSource from "@/assets/demo-ai-captions-source.mp4.asset.json";
 import dubbingDemo from "@/assets/demo-ai-dubbing.mp4.asset.json";
 import dubbingSource from "@/assets/demo-ai-dubbing-source.mp4.asset.json";
 import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
@@ -156,10 +154,10 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
   "ai-captions": [
     {
       kind: "video",
-      inputVideo: captionsSource.url,
+      inputVideo: "/media/demo-ai-captions-source.mp4",
       inputVideoLabel: "founder-talking-head.mp4",
-      url: captionsDemo.url,
-      caption: "Sample output — the spoken clip prepared as a captioned vertical social video.",
+      url: "/media/demo-ai-captions.mp4",
+      caption: "Sample output — the same founder clip with word-timed English captions burned in.",
     },
   ],
   "ai-dubbing": [
