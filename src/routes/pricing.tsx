@@ -117,6 +117,11 @@ function Pricing() {
           </div>
           <p className="mt-6 text-xs text-muted-foreground">
             Prices shown in USD. Annual billing reduces the effective monthly rate on paid plans.
+            Every plan opens the whole{" "}
+            <Link to="/ai-models" className="underline underline-offset-2 hover:text-foreground">
+              model library
+            </Link>
+            ; your plan sets the allowance, not which models you may use.
           </p>
         </Container>
       </Section>
