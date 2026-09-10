@@ -21,7 +21,7 @@ These older generator pages go away entirely:
 
 - Writing: Blog Generator, Blog Title, Blog Intro, Blog Conclusion, Content
   Rewriter, Paragraph, Summary, Story, Essay, Grammar Checker, Text Extender,
-  Tone Changer, Article Generator, Rewriter, Plagiarism Detector
+  Tone Changer, Article Generator, Rewriter
 - Email: Email, Cold Email, Follow-Up Email, Subject Line, Newsletter
 - Business: Press Release, Company Bio, Business Name
 - Ads: Ad Generator, Facebook Ad, Google Ads, LinkedIn Ad
