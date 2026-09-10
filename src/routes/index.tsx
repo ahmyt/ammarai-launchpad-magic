@@ -11,6 +11,7 @@ import { Container, Section, SectionHeading, Card } from "@/components/site/prim
 import { ToolCard } from "@/components/site/ToolCard";
 import { ExternalButton, ButtonLink } from "@/components/site/Button";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
+import { assetUrl } from "@/lib/asset-url";
 import videoProDemo from "@/assets/demo-video-generator.mp4.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
