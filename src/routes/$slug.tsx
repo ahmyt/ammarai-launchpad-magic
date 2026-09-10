@@ -42,7 +42,7 @@ function resolveDemoVideos(tool: Tool): (ToolDemoMedia | undefined)[] | undefine
         overrideFilename &&
         overrideFilename === fallbackFilename,
     );
-    if (override && !overrideDuplicatesBundledAsset) {
+    if (override && !base?.inputVideo && !overrideDuplicatesBundledAsset) {
       media.url = override;
       media.kind = base?.kind ?? (/\.(mp3|wav|m4a|ogg)$/i.test(override) ? "audio" : /\.(png|jpe?g|webp|avif|gif)$/i.test(override) ? "image" : "video");
     }
