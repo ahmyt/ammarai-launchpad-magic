@@ -173,7 +173,6 @@ export const visualTools: Tool[] = [
       "This tool needs one usable photo of the item. It isolates the product, keeps its shape, texture, label and proportions exactly, then builds new scenes around it with matching light, shadow and reflection.",
       "You pick the direction — clean e-commerce white, warm lifestyle, moody editorial, festive — and get a set of images in every ratio you need, consistent enough to run as a campaign.",
     ],
-    ],
     canDo: [
       "Generate studio sweeps in any backdrop colour",
       "Place a product into lifestyle scenes: kitchens, desks, cafés, bathrooms, outdoors",
@@ -306,6 +305,7 @@ export const visualTools: Tool[] = [
         a: "Most accept lifestyle imagery as secondary images and require a plain main image, which the tool also produces.",
       },
     ],
+    related: ["ai-image-editor", "ai-image-generator", "ai-virtual-try-on", "ai-creative-suite", "ai-image-to-video"],
   },
   {
     slug: "ai-virtual-try-on",
@@ -325,7 +325,6 @@ export const visualTools: Tool[] = [
       "Apparel sells on being worn. A folded flat lay tells a shopper nothing about fit, length or drape, and every model shoot means casting, studio, styling and a wait — repeated for each colourway.",
       "The try-on tool takes the garment photo you already have and renders it worn: sleeve length in the right place, fabric behaving like the fabric it is, print and seams intact, shadows sitting where a real garment would create them.",
       "Because the model is generated, you can show the same piece on different body types, ages and skin tones — the range of customers you actually sell to, not the one model you could afford.",
-    ],
     ],
     canDo: [
       "Render a flat-lay garment worn on a model",
@@ -479,7 +478,6 @@ export const visualTools: Tool[] = [
       "The hard part of brand visuals is not making one good image, it is making twenty that look related. Colours drift, styles wander, and a feed ends up looking like five different companies.",
       "The Creative Suite starts with a brand brief: palette, mood, audience, the words you would and would not use. That brief is applied to everything it makes, so an ad, a story tile and a packaging mockup share a visual language.",
       "Ask for a campaign and you get the set: hero image, three ad variants, matching social tiles in every ratio, a banner, and mockups showing how it looks in the real world.",
-    ],
     ],
     canDo: [
       "Generate a brand starter kit: mark, palette, type direction, textures",

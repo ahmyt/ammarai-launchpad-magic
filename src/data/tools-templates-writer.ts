@@ -83,7 +83,6 @@ export const writerTemplateTools: Tool[] = [
       "The Book Ideas Generator produces concept starters for fiction and nonfiction alike — a one-line premise, the angle that makes it distinct, and who it's written for. It's meant for the earliest stage of a project, before there's a plot or an outline, when you just need enough of a spark to know if an idea is worth developing.",
       "Instead of one idea to accept or reject, you get a spread — different angles on the same theme — so you can compare directions before committing months of writing to any single one.",
     ],
-    ],
     canDo: [
       "Generate multiple book concepts from a genre or theme",
       "Suggest a distinct angle or hook for each idea",
@@ -134,6 +133,7 @@ export const writerTemplateTools: Tool[] = [
       { q: "Can it help name the book too?", a: "Yes, each concept can include a suggested working title." },
       { q: "Will it write the full book?", a: "No, this tool generates concepts only — pair it with the eBook Generator for full drafting." },
     ],
+    related: ["ebook-generator", "storytelling-generator", "product-name-generator", "ai-writer", "blog-ideas-generator"],
   },
   {
     slug: "explain-to-a-child",
@@ -149,7 +149,6 @@ export const writerTemplateTools: Tool[] = [
     what: [
       "Explain to a Child takes a complicated subject — a scientific concept, a financial term, a piece of technology — and rewrites it using short sentences, everyday words, and comparisons a young child would recognize, like toys, animals, or food. It strips out jargon without stripping out the actual idea.",
       "It's useful well beyond literal children's content: the same techniques that make an explanation click for a ten-year-old — concrete analogies, short sentences, no assumed background knowledge — are exactly what makes a confusing topic click for an adult too.",
-    ],
     ],
     canDo: [
       "Rewrite technical or abstract topics in simple, plain language",
@@ -218,7 +217,6 @@ export const writerTemplateTools: Tool[] = [
       "News From a Journalist's View is a structuring and drafting aid for people who have already done the reporting. You provide the verified facts, quotes, and sources, and it organizes them into the shape of a news article — a lede that leads with the most important fact, a nut graf that gives context, and body paragraphs in order of relevance.",
       "It does not do the reporting for you, and it never invents facts, quotes, sources, or events. Every fact, name, date, and quotation in the output must come from what you provide and must be verified by you before publication — this tool only helps with structure and phrasing, not sourcing.",
     ],
-    ],
     canDo: [
       "Organize your reported facts into a standard news-article structure",
       "Draft a lede that leads with the most newsworthy detail you supply",
@@ -285,7 +283,6 @@ export const writerTemplateTools: Tool[] = [
     what: [
       "Generate From RSS Feed takes items pulled from an RSS feed — headlines, links, and article snippets — and turns them into new written content: a short summary of each item, a roundup post pulling several items together, or an expanded article based on one entry. It's built for anyone running a content stream that draws on other sources.",
       "The output is a starting draft, not a finished, publication-ready piece — feed content varies in quality and completeness, so you should review each generated summary against the original source before publishing, and always attribute the original where appropriate.",
-    ],
     ],
     canDo: [
       "Summarize individual feed items into short blurbs",
@@ -354,7 +351,6 @@ export const writerTemplateTools: Tool[] = [
       "The Undetectable AI Humanizer rewrites text that reads as stiff, repetitive, or overly formal — the kind of phrasing that's common in early AI drafts — into something with more natural rhythm, varied sentence length, and a conversational tone. The goal is writing that sounds like a person wrote it, because after your review and edits, a person did.",
       "This tool is about voice and readability, not about defeating plagiarism or AI-detection systems, and it should never be used to misrepresent authorship in academic, professional, or any other context where honest disclosure is required. Use it to make your own legitimate drafts read better, not to pass off unedited AI output as something it isn't.",
     ],
-    ],
     canDo: [
       "Vary sentence structure and length to reduce robotic-sounding repetition",
       "Replace generic, templated phrasing with more specific, natural wording",
@@ -421,7 +417,6 @@ export const writerTemplateTools: Tool[] = [
     what: [
       "The Pros and Cons Generator takes a decision — a career move, a purchase, a business choice, a life question — and lays out the real advantages and disadvantages side by side. Instead of one-line generic points, it aims for specific, relevant considerations tied to the actual situation you describe.",
       "It's a thinking aid, not a decision-maker. The list gives you a structured starting point so you're not trying to hold every angle in your head at once, but the actual weighing and choosing is still yours to do.",
-    ],
     ],
     canDo: [
       "Generate a balanced pros and cons list for any decision or comparison",
@@ -490,7 +485,6 @@ export const writerTemplateTools: Tool[] = [
       "The Real Estate Listing Generator turns raw property details — square footage, bedrooms, key features, neighborhood highlights — into a written listing description that reads like it was crafted by an experienced agent, not just a spec sheet. It leads with what makes the property stand out and works in the practical details buyers actually search for.",
       "Good listings balance emotional appeal with accurate, searchable specifics. This tool is built to do both: an inviting opening line, then clear detail on layout, features, and location, so the listing performs well whether a buyer is skimming or reading closely.",
     ],
-    ],
     canDo: [
       "Turn a list of property features into a full listing description",
       "Lead with the property's strongest selling point",
@@ -557,7 +551,6 @@ export const writerTemplateTools: Tool[] = [
     what: [
       "The AI Prompt Generator takes a rough, half-formed idea of what you want — 'write me something about my product' — and turns it into a specific, well-structured prompt with context, format, tone, and constraints spelled out. Most disappointing AI outputs trace back to a vague prompt, and this tool exists to close that gap.",
       "It works for any downstream AI tool — writing, image generation, coding assistants, or chat — by focusing on the universal elements of a strong prompt: clear goal, relevant context, desired format, and any constraints that matter, so whatever tool receives it has enough to work with.",
-    ],
     ],
     canDo: [
       "Turn a vague request into a specific, detailed prompt",
@@ -626,7 +619,6 @@ export const writerTemplateTools: Tool[] = [
       "The AI Voice Isolator takes a recording where speech is mixed with unwanted sound — traffic noise, background music, room echo, crowd chatter — and separates the voice from everything else, producing a clean audio file of just the speech. It's built for recordings made in less-than-ideal conditions where re-recording isn't an option.",
       "The output is an audio file, not a transcript: same spoken content, same voice, but with the surrounding noise stripped away so the speech is clear and usable on its own or ready to layer into a new mix.",
     ],
-    ],
     canDo: [
       "Remove background music from a recording while keeping speech intact",
       "Strip ambient noise like traffic, wind, or room hum from voice recordings",
@@ -693,7 +685,6 @@ export const writerTemplateTools: Tool[] = [
     what: [
       "AI Video to Video takes an existing clip as its starting point and generates a new version of it based on your instructions — a different visual style, an enhanced look, or a reimagined setting, while keeping the underlying motion and structure of the original footage. It's built for people who have usable footage but want a different look than what the camera captured.",
       "Unlike text-to-video generation, this tool always starts from real source footage, which keeps motion and timing grounded in something real while giving you creative control over the final visual style. You upload a video, describe the transformation, and get a finished video clip back.",
-    ],
     ],
     canDo: [
       "Restyle a video's visual look while preserving the original motion",

@@ -160,9 +160,9 @@ export const coreToolsA: Tool[] = [
     related: [
       "article-wizard",
       "ai-rephraser",
+      "ai-rephraser",
       "bullet-point-answer-generator",
       "ai-proofreader",
-    ],
     ],
   },
   {
@@ -333,7 +333,6 @@ export const coreToolsA: Tool[] = [
       "ai-document-analyzer",
       "ai-code-generator",
       "ai-vision",
-    ],
     ],
   },
   {
@@ -522,7 +521,6 @@ export const coreToolsA: Tool[] = [
       "instagram-reel-script-generator",
       "ai-vision",
     ],
-    ],
   },
   {
     slug: "ai-video-generator",
@@ -703,7 +701,6 @@ export const coreToolsA: Tool[] = [
       "ai-ugc-generator",
       "ai-youtube-publisher",
     ],
-    ],
   },
   {
     slug: "ai-voice-generator",
@@ -856,7 +853,6 @@ export const coreToolsA: Tool[] = [
       "ai-transcription",
       "ai-avatar-generator",
     ],
-    ],
   },
   {
     slug: "ai-text-to-speech",
@@ -999,7 +995,6 @@ export const coreToolsA: Tool[] = [
       "bullet-point-answer-generator",
       "ai-document-analyzer",
       "article-wizard",
-    ],
     ],
   },
   {
@@ -1144,7 +1139,6 @@ export const coreToolsA: Tool[] = [
       "bullet-point-answer-generator",
       "ai-text-to-speech",
       "ai-chat",
-    ],
     ],
   },
   {
@@ -1305,7 +1299,6 @@ export const coreToolsA: Tool[] = [
       "ai-document-analyzer",
       "ai-video-generator",
       "ai-text-to-speech",
-    ],
     ],
   },
 ];

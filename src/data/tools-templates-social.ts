@@ -69,6 +69,7 @@ export const socialTemplateTools: Tool[] = [
     related: ["tiktok-caption-generator", "video-idea-generator", "instagram-reel-script-generator", "trending-post-generator", "ad-script-generator"],
   },
   {
+    slug: "tiktok-caption-generator",
     name: "TikTok Video Caption Generator",
     category: "AI Templates",
     templateGroup: "Social",
@@ -81,7 +82,6 @@ export const socialTemplateTools: Tool[] = [
     what: [
       "The TikTok Caption Generator writes short, platform-native captions to go with a video you've already filmed or planned. TikTok captions work differently from other platforms — they're often a punchline, a question, or a continuation of the hook rather than a full explanation, and this tool is tuned for that style.",
       "It takes a description of your video's content and tone and returns a caption option (or several) along with relevant hashtags, so you're not left typing something generic right before you hit post.",
-    ],
     ],
     canDo: [
       "Generate short, scroll-friendly captions from a video description",
@@ -133,6 +133,7 @@ export const socialTemplateTools: Tool[] = [
       { q: "Does it work for trending sounds or formats?", a: "Yes, describe the trend or format and it will tailor the caption to it." },
       { q: "Is there a character limit?", a: "Captions are generated with TikTok's practical length in mind, but you can request shorter versions." },
     ],
+    related: ["instagram-reel-script-generator", "trending-post-generator", "video-idea-generator", "viral-tweet-generator", "trending-post-generator"],
   },
   {
     slug: "facebook-post-generator",
@@ -148,7 +149,6 @@ export const socialTemplateTools: Tool[] = [
     what: [
       "The Facebook Post Generator writes posts suited to how people actually use the platform — a mix of businesses, community groups, and personal pages where tone tends to be more conversational and less polished than other channels. It handles announcements, promotions, event updates, and everyday engagement posts.",
       "Rather than repurposing a tweet or an Instagram caption, this tool writes with Facebook's slightly longer, more discussion-oriented format in mind, including prompts that invite comments where that fits the goal.",
-    ],
     ],
     canDo: [
       "Write announcement posts for new products, events, or updates",
@@ -217,7 +217,6 @@ export const socialTemplateTools: Tool[] = [
       "The Facebook Video Script Generator writes scripts for a platform where most videos autoplay muted in a feed full of distractions. That means the opening seconds and on-screen text carry more weight than they would on a platform with sound-on habits, and this tool structures scripts accordingly.",
       "It produces a script with a strong visual or verbal hook, a body that holds attention through short segments, and a clear closing message — whether that's a product page, a comment prompt, or a shared link.",
     ],
-    ],
     canDo: [
       "Write a hook designed for muted autoplay viewing",
       "Structure the script into short, digestible segments",
@@ -284,7 +283,6 @@ export const socialTemplateTools: Tool[] = [
     what: [
       "The X Thread Generator takes an idea, opinion, or lesson and structures it into a multi-tweet thread: an opening hook designed to earn the first click, a series of body tweets that each carry one point, and a closing tweet that wraps up or prompts engagement. Threads live or die on the first line, and this tool treats that as the priority.",
       "It's built for people who have something worth saying but don't naturally think in the choppy, punchy rhythm that makes threads readable. You give it the substance; it handles the pacing and structure.",
-    ],
     ],
     canDo: [
       "Write a hook tweet designed to earn clicks on 'show more'",
@@ -353,7 +351,6 @@ export const socialTemplateTools: Tool[] = [
       "The YouTube Video to Blog Post tool takes what you've already said on camera — a transcript, summary, or set of talking points — and restructures it into a written article with headings, an introduction, and a conclusion. Spoken content and written content aren't the same thing, so this isn't a copy-paste job; it reorganizes rambling or conversational material into something that reads well.",
       "It's built for creators and teams who already put in the work to make a video and don't want that content living in only one format. One recorded video becomes a blog post that can rank in search, get linked to, and reach people who'd rather read than watch.",
     ],
-    ],
     canDo: [
       "Convert a transcript into a structured article with headings",
       "Summarize a long video into a shorter written recap",
@@ -420,7 +417,6 @@ export const socialTemplateTools: Tool[] = [
     what: [
       "The Video Idea Generator solves the specific problem of staring at a content calendar with nothing to fill it. Give it your niche, target platform, and audience, and it returns a list of specific, filmable video concepts rather than broad category suggestions like 'talk about your industry.'",
       "It's designed to keep ideas grounded — each suggestion comes with enough of an angle that you could start scripting or filming right away, instead of getting a topic so generic it needs another round of brainstorming.",
-    ],
     ],
     canDo: [
       "Generate a batch of video ideas for a specific niche",
@@ -489,7 +485,6 @@ export const socialTemplateTools: Tool[] = [
       "The Video Description Generator writes the text block that sits under your video — a part of publishing that's easy to rush but does real work for discoverability and viewer next steps. It's built with search in mind, weaving in relevant keywords naturally rather than stuffing them in.",
       "Beyond search, a good description also tells someone scanning the page what they'll get from the video and gives them a next action — subscribe, visit a link, or check the timestamps. This tool covers both jobs at once.",
     ],
-    ],
     canDo: [
       "Write a keyword-aware description for search visibility",
       "Summarize the video's content in the opening lines",
@@ -556,7 +551,6 @@ export const socialTemplateTools: Tool[] = [
     what: [
       "The Viral Tweet Idea Generator focuses on tweet patterns that tend to spread: sharp opinions, relatable observations, contrarian takes, and simple truths stated well. It doesn't guarantee virality — nothing can — but it gives you tweet drafts shaped around the structures that consistently perform better than a flat status update.",
       "It works from a topic or a rough thought and returns several tweet options in different styles, so you can pick the angle that best matches your voice and the moment.",
-    ],
     ],
     canDo: [
       "Generate tweet ideas in an opinion, observation, or contrarian-take style",
@@ -625,7 +619,6 @@ export const socialTemplateTools: Tool[] = [
       "The Clickbait Title Generator borrows the attention-earning techniques of classic clickbait — curiosity gaps, specific numbers, surprising claims — but keeps every title accountable to the actual content. The goal is a title that makes someone want to know more, and then delivers exactly that when they click.",
       "This distinction matters because titles that overpromise damage trust and hurt long-term engagement even when they win a short-term click. This tool is built to find the honest version of a compelling hook, not the deceptive one.",
     ],
-    ],
     canDo: [
       "Generate curiosity-driven titles based on your actual content",
       "Avoid overpromising or misleading claims in generated titles",
@@ -693,7 +686,6 @@ export const socialTemplateTools: Tool[] = [
       "The AMA Post Generator writes the announcement that kicks off an Ask Me Anything session — the post that tells your audience who's answering questions, when, and why it's worth showing up for. It also generates a handful of starter questions, since AMAs can stall in the first few minutes without early activity.",
       "Whether it's a founder AMA in a community, a Reddit-style session, or a live Q&A on social media, the announcement needs to build enough interest that people actually show up with questions. This tool handles both the announcement and the ice-breaker questions that get things moving.",
     ],
-    ],
     canDo: [
       "Write an AMA announcement post with time, host, and topic details",
       "Generate starter questions to seed engagement early",
@@ -747,6 +739,7 @@ export const socialTemplateTools: Tool[] = [
     related: ["trending-post-generator", "facebook-post-generator", "website-copy-generator", "facebook-post-generator", "welcome-email-generator"],
   },
   {
+    slug: "trending-post-generator",
     name: "Trending Post Generator",
     category: "AI Templates",
     templateGroup: "Social",
@@ -759,7 +752,6 @@ export const socialTemplateTools: Tool[] = [
     what: [
       "The Trending Post Generator takes a current trend, meme, or news moment and helps you connect it to your niche in a way that feels natural rather than tacked on. A lot of trend-jacking fails because the connection is a stretch — this tool is built to find the version of the connection that actually holds together.",
       "It works from the trend and your niche or brand context, returning post drafts that reference the trend while staying clearly relevant to your audience, so the post reads as timely rather than desperate.",
-    ],
     ],
     canDo: [
       "Connect a trending topic to your specific niche or brand",
@@ -828,7 +820,6 @@ export const socialTemplateTools: Tool[] = [
       "The Viral Ideas Generator looks at your niche and returns content concepts across formats — video, single posts, threads — built around structures that tend to spread: relatable pain points, surprising facts, strong opinions, and useful frameworks people want to save and pass along. It's a broader idea tool than a single-format generator, useful when you're planning across multiple channels at once.",
       "It won't promise virality, since no tool can, but it consistently returns ideas with a sharper hook than a generic brainstorm would produce, saving you the step of filtering ordinary ideas down to the ones worth pursuing.",
     ],
-    ],
     canDo: [
       "Generate content ideas across multiple formats from one niche input",
       "Mix idea types: relatable, surprising, opinion-based, and useful",
@@ -895,7 +886,6 @@ export const socialTemplateTools: Tool[] = [
     what: [
       "The Storytelling Generator takes a plain fact, lesson, or experience — the kind of thing that would normally come out as a flat statement — and shapes it into a short narrative with a beginning, a moment of tension or change, and a resolution. Stories consistently hold attention longer than direct statements because they create a small question the reader wants answered.",
       "It's built for social posts and captions where you have something true and worth sharing but it's coming out as a summary instead of a story. You give it the raw material; it finds the narrative shape.",
-    ],
     ],
     canDo: [
       "Turn a plain fact or lesson into a short narrative arc",

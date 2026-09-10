@@ -69,6 +69,7 @@ export const businessTemplateTools: Tool[] = [
     related: ["ai-resume-builder", "linkedin-profile-generator", "personal-bio-generator", "business-strategy-generator"],
   },
   {
+    slug: "ai-resume-builder",
     name: "AI Resume Builder",
     category: "AI Templates",
     templateGroup: "Business",
@@ -81,7 +82,6 @@ export const businessTemplateTools: Tool[] = [
     what: [
       "The AI Resume Builder takes your work history — job titles, companies, dates, and rough notes on what you did — and turns it into a polished resume with a professional summary, achievement-oriented bullet points, and a skills section. It's designed for anyone who knows their experience but struggles to phrase it in a way that reads well to a hiring manager or applicant tracking system.",
       "It doesn't invent your experience — it organizes and sharpens what you give it. Vague notes like 'handled customer accounts' become specific, results-oriented bullets when you add numbers or outcomes. The tool works best when you feed it real details; it turns those details into resume-ready language.",
-    ],
     ],
     canDo: [
       "Turn rough job notes into polished, achievement-focused bullet points",
@@ -136,6 +136,7 @@ export const businessTemplateTools: Tool[] = [
     related: ["linkedin-profile-generator", "personal-bio-generator", "job-description-generator", "welcome-email-generator"],
   },
   {
+    slug: "linkedin-profile-generator",
     name: "LinkedIn Profile Generator",
     category: "AI Templates",
     templateGroup: "Business",
@@ -148,7 +149,6 @@ export const businessTemplateTools: Tool[] = [
     what: [
       "The LinkedIn Profile Generator focuses on the sections of a profile people spend the most time on: the headline, the about section, and experience bullet points. Feed it your current role, background, and what you want to be known for, and it produces copy that's specific rather than generic — avoiding the vague 'passionate professional' language that makes most profiles blend together.",
       "It's built around the fact that a LinkedIn profile serves two audiences at once — humans skimming for relevance and LinkedIn's own search ranking, which rewards clear keywords. The tool balances both: readable, human copy that still surfaces the terms recruiters and connections search for.",
-    ],
     ],
     canDo: [
       "Write a headline that's specific instead of a generic job title",
@@ -217,7 +217,6 @@ export const businessTemplateTools: Tool[] = [
       "The LinkedIn Post Generator takes a rough idea — a lesson learned, a milestone, an opinion on your industry — and shapes it into a post with the structure that performs well on the platform: a hook in the first line, short paragraphs that are easy to skim, and a closing line that invites comments. It's built for professionals who have things worth sharing but don't naturally write in LinkedIn's particular format.",
       "It's not built to manufacture fake expertise or hollow engagement bait. The tool works best when you bring a real experience or opinion — it handles the structuring and phrasing, turning a rough paragraph of thoughts into something that reads cleanly on a feed.",
     ],
-    ],
     canDo: [
       "Turn a rough idea into a structured post with hook, body, and closing",
       "Match different post styles — personal story, industry take, list format",
@@ -285,7 +284,6 @@ export const businessTemplateTools: Tool[] = [
       "The Startup Ideas Generator takes an industry, a personal skill set, or a problem you've noticed and produces a set of concrete startup concepts — not vague categories like 'an app for fitness,' but specific ideas with a target customer and a reason the problem is worth solving. It's meant for the early, exploratory stage of thinking about a new venture.",
       "It won't validate a market for you or guarantee an idea works — that still takes research and talking to real potential customers. What it does is widen the field of options quickly, so you're choosing between several concrete directions instead of staring at a blank page trying to think of just one.",
     ],
-    ],
     canDo: [
       "Generate startup ideas from an industry or interest area",
       "Suggest ideas based on a specific skill set or background",
@@ -339,6 +337,7 @@ export const businessTemplateTools: Tool[] = [
     related: ["business-strategy-generator", "brainstorming-generator", "cost-benefit-analysis-generator", "product-name-generator"],
   },
   {
+    slug: "business-strategy-generator",
     name: "Business Strategy Generator",
     category: "AI Templates",
     templateGroup: "Business",
@@ -351,7 +350,6 @@ export const businessTemplateTools: Tool[] = [
     what: [
       "The Business Strategy Generator takes a description of your business, a specific goal — like entering a new market, increasing retention, or launching a product line — and your constraints, and produces a structured outline: strategic priorities, key actions under each one, and risks to watch. It's meant for the planning stage, when you need a clear framework to react to and refine, not a finished 40-page plan.",
       "It works from what you tell it about your business and market, so the quality of the strategy depends on how much real context you provide. It won't replace deep market research or financial modeling, but it gives you a structured starting point that would otherwise take hours to draft from scratch.",
-    ],
     ],
     canDo: [
       "Turn a business goal into a structured set of strategic priorities",
@@ -420,7 +418,6 @@ export const businessTemplateTools: Tool[] = [
       "The Personal Bio Generator turns your role, background, and a handful of achievements into a bio written for a specific context — a short one-liner for a social profile, a paragraph for a company website, or a longer version for a speaker page or press kit. It's built for the fact that most people need several versions of their bio and rewrite the same information awkwardly each time.",
       "It works from real details you provide, structuring them into a bio that reads naturally rather than like a list of credentials stitched together. You control the facts; the tool handles the phrasing, length, and tone so each version fits its intended platform.",
     ],
-    ],
     canDo: [
       "Generate short, medium, and long versions of the same bio",
       "Adjust tone from formal and corporate to casual and personal",
@@ -488,7 +485,6 @@ export const businessTemplateTools: Tool[] = [
       "The Cost Benefit Analysis Generator takes a decision — hiring a new role, adopting a new tool, launching a project — and organizes it into a structured breakdown: direct and indirect costs, expected benefits (financial and non-financial), a rough timeline for payoff, and risks or trade-offs to weigh. It's designed to bring structure to a decision you might otherwise reason through informally.",
       "It doesn't have access to your actual books or market data, so the numbers you get back are a framework to fill in with your own figures, not final calculations. What it does well is make sure you're not missing a category of cost or benefit that's easy to overlook when weighing a decision quickly.",
     ],
-    ],
     canDo: [
       "Break a decision into cost categories, direct and indirect",
       "List expected benefits, including non-financial ones like time saved",
@@ -555,7 +551,6 @@ export const businessTemplateTools: Tool[] = [
     what: [
       "The Brainstorming Generator takes a prompt — a problem to solve, a theme to explore, a decision to think through — and produces a wide list of ideas quickly, the way a good brainstorming session with a group would. It's built for the moment when staring at a blank page is slower than reacting to a list of options, even imperfect ones.",
       "It's not meant to hand you the final answer — brainstorming rarely works that way. It's meant to break the inertia of having no ideas at all, giving you enough raw material that your own judgment can take over: combining two ideas, rejecting most of them, and refining the one that sticks.",
-    ],
     ],
     canDo: [
       "Generate a wide list of ideas from a single prompt or problem",

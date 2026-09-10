@@ -69,6 +69,7 @@ export const commsTemplateTools: Tool[] = [
     related: ["invitation-email-generator", "reply-email-generator", "apology-email-generator", "welcome-email-generator", "welcome-email-generator"],
   },
   {
+    slug: "invitation-email-generator",
     name: "Invitation Email Generator",
     category: "AI Templates",
     templateGroup: "Communications",
@@ -81,7 +82,6 @@ export const commsTemplateTools: Tool[] = [
     what: [
       "The Invitation Email Generator turns event details — what, when, where, and why someone should attend — into a complete invitation email. It handles the structure that gets overlooked under deadline pressure: a compelling opening line, the logistics laid out clearly, and an RSVP call to action that's easy to act on.",
       "Whether it's a webinar, product launch, team meeting, or in-person event, the tool adjusts tone and formality to match. It's built so you spend your time on the guest list and the event itself, not wordsmithing the fifth invitation email this quarter.",
-    ],
     ],
     canDo: [
       "Generate a full invitation from event name, date, and audience",
@@ -133,6 +133,7 @@ export const commsTemplateTools: Tool[] = [
       { q: "Can I set a formal tone for a corporate event?", a: "Yes, tone is adjustable from formal to casual." },
       { q: "Can I include a registration link?", a: "Yes, add your link and it will be placed in the call-to-action section." },
     ],
+    related: ["welcome-email-generator", "reply-email-generator", "welcome-email-generator", "welcome-email-generator", "welcome-email-generator"],
   },
   {
     slug: "reply-email-generator",
@@ -148,7 +149,6 @@ export const commsTemplateTools: Tool[] = [
     what: [
       "The Reply Email Generator reads the incoming message you paste in, along with a short note on what you want to say, and produces a complete reply. It handles the parts that eat up time: matching the sender's tone, addressing every point they raised, and closing with the right next step.",
       "It's built for the everyday grind of inbox management — replying to a client question, a vendor follow-up, or an internal request — where you know what you want to say but not how to phrase it quickly. You keep control over the final content; the tool just removes the blank-page delay.",
-    ],
     ],
     canDo: [
       "Draft a reply from a pasted incoming email and your intended response",
@@ -200,6 +200,7 @@ export const commsTemplateTools: Tool[] = [
       { q: "Can I set the tone separately from the original email?", a: "Yes, you can override the tone if you want a different register than the incoming message." },
       { q: "Is it useful for customer support at scale?", a: "Yes, many teams use it to speed up first-draft replies to common questions." },
     ],
+    related: ["welcome-email-generator", "apology-email-generator", "support-ticket-reply-generator", "welcome-email-generator", "reply-email-generator"],
   },
   {
     slug: "apology-email-generator",
@@ -215,7 +216,6 @@ export const commsTemplateTools: Tool[] = [
     what: [
       "The Apology Email Generator takes the situation — a shipping delay, a service outage, a billing error, a missed deadline — and produces an apology email that acknowledges the issue directly, explains what happened without excessive excuse-making, and states what's being done to fix it.",
       "A bad apology email can do more damage than the original mistake. This tool is built to avoid the common traps: vague non-apologies, over-explaining, or defensive framing. Instead it produces a direct acknowledgment, a clear resolution, and a tone that matches the seriousness of the issue.",
-    ],
     ],
     canDo: [
       "Generate an apology from a short description of what went wrong",
@@ -284,7 +284,6 @@ export const commsTemplateTools: Tool[] = [
       "The AI Bug Fix Assistant takes a code snippet, the error message or unexpected behavior you're seeing, and the language or framework, then diagnoses the likely cause and returns a corrected version of the code. It's built for the moment when you've been staring at a stack trace for ten minutes and need a second set of eyes.",
       "It doesn't just paste a fix — it explains what was wrong, so you understand the root cause instead of blindly copying a patch. That matters for learning and for catching similar bugs elsewhere in your codebase before they cause the same problem again.",
     ],
-    ],
     canDo: [
       "Diagnose the cause of an error message or stack trace",
       "Return a corrected version of the broken code",
@@ -338,6 +337,7 @@ export const commsTemplateTools: Tool[] = [
     related: ["explain-code", "teach-code", "changelog-generator", "ai-code-generator", "ai-document-analyzer"],
   },
   {
+    slug: "explain-code",
     name: "Explain Code",
     category: "AI Templates",
     templateGroup: "Communications",
@@ -350,7 +350,6 @@ export const commsTemplateTools: Tool[] = [
     what: [
       "Explain Code takes any snippet — a function, a class, a config file, a regex — and breaks down what it does in plain language. It can walk through the logic step by step or give a higher-level summary, depending on what you need: a quick gist or a detailed line-by-line breakdown.",
       "It's useful for onboarding onto an unfamiliar codebase, reviewing a pull request from someone else, or simply understanding a piece of code you wrote months ago and no longer remember. The goal is to turn dense syntax into a clear narrative of intent and behavior.",
-    ],
     ],
     canDo: [
       "Summarize what a function or file does at a high level",
@@ -419,7 +418,6 @@ export const commsTemplateTools: Tool[] = [
       "Teach Me to Code takes a topic — loops, recursion, async/await, how APIs work — and explains it as a lesson: a plain-language definition, a simple example, and a slightly more advanced example to build on. You set your current level so the explanation doesn't assume knowledge you don't have or bore you with basics you've mastered.",
       "It's designed for the self-directed learner who's working through a course, a bug in their own project, or just curiosity about how something works. Rather than a wall of documentation, it produces a short, structured lesson you can actually absorb and apply immediately.",
     ],
-    ],
     canDo: [
       "Explain any programming concept at a beginner, intermediate, or advanced level",
       "Provide a simple example followed by a more advanced one",
@@ -486,7 +484,6 @@ export const commsTemplateTools: Tool[] = [
     what: [
       "The Changelog Generator takes raw commit messages, ticket titles, or a rough bullet list of updates and turns them into a structured changelog entry: grouped by feature, fix, or improvement, written in language your users will actually understand rather than internal engineering shorthand.",
       "Most commit histories are written for other developers, full of ticket numbers and terse phrasing. This tool bridges that gap, producing release notes that communicate value to end users while still being accurate about what changed.",
-    ],
     ],
     canDo: [
       "Convert raw commit messages into user-facing release notes",
@@ -555,7 +552,6 @@ export const commsTemplateTools: Tool[] = [
       "The AI Translator converts text from one language into another while preserving tone, idiom, and intent rather than translating word for word. It's built to handle everything from a single sentence to a full paragraph, keeping the meaning and register — formal, casual, technical — intact across languages.",
       "Literal translation tools often produce technically correct but awkward output. This tool aims for text that a native speaker would actually write, which matters whether you're translating a customer email, a product description, or a short piece of marketing copy.",
     ],
-    ],
     canDo: [
       "Translate text between a wide range of language pairs",
       "Preserve tone — formal, casual, or technical — during translation",
@@ -609,6 +605,7 @@ export const commsTemplateTools: Tool[] = [
     related: ["synonyms-generator", "learn-new-words", "ai-proofreader", "ai-rephraser", "ai-rephraser"],
   },
   {
+    slug: "synonyms-generator",
     name: "Synonyms Generator",
     category: "AI Templates",
     templateGroup: "Communications",
@@ -621,7 +618,6 @@ export const commsTemplateTools: Tool[] = [
     what: [
       "The Synonyms Generator suggests alternative words based on the word and its surrounding context, not just a flat thesaurus list. A word like 'fast' means something different in 'a fast car' versus 'a fast decision', and the tool accounts for that so the suggestions actually fit your sentence.",
       "It's built for writers who know a word is close but not quite right — too repetitive, too formal, too plain — and need options that match the register of what they're writing, whether that's a casual blog post or a formal report.",
-    ],
     ],
     canDo: [
       "Suggest synonyms based on the full sentence, not just the isolated word",
@@ -690,7 +686,6 @@ export const commsTemplateTools: Tool[] = [
       "Learn New Words takes a specific word — or a general area like 'business vocabulary' or 'words for describing emotions' — and produces a mini vocabulary lesson: a clear definition, two or three natural example sentences, related words, and a memory hook where useful.",
       "Flashcard apps and dictionaries give you a definition in isolation, which is hard to retain. This tool builds words into context, showing how they're actually used, so they're easier to recall later when you need them in your own writing or conversation.",
     ],
-    ],
     canDo: [
       "Explain a word's meaning in plain, simple language",
       "Provide natural example sentences showing real usage",
@@ -758,7 +753,6 @@ export const commsTemplateTools: Tool[] = [
       "The Social Media Reply Generator takes an incoming comment, DM, or mention along with a short note on your intent, and produces a reply that fits both your brand voice and the tone of the original message — playful for a joke, sincere for a complaint, brief for a quick compliment.",
       "Community and social teams often reply to dozens or hundreds of comments a day, and consistency is hard to maintain manually. This tool keeps replies fast without making them feel copy-pasted, adjusting tone per comment rather than using one template for everything.",
     ],
-    ],
     canDo: [
       "Generate a reply from a pasted comment and your intended response",
       "Match tone to the comment — playful, sincere, or matter-of-fact",
@@ -825,7 +819,6 @@ export const commsTemplateTools: Tool[] = [
     what: [
       "The Support Ticket Reply Generator takes a customer's support message along with the resolution or answer you want to give, and produces a complete reply: an acknowledgment of the issue, a clear explanation of the fix or answer, and next steps if any are needed.",
       "Support teams juggle volume and tone at the same time — every reply needs to feel personal even on ticket two hundred of the day. This tool keeps replies clear and empathetic without requiring an agent to write each one from scratch, while still leaving room to adjust specifics before sending.",
-    ],
     ],
     canDo: [
       "Draft a reply from a customer message and your intended resolution",

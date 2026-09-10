@@ -83,7 +83,6 @@ export const ecommerceTemplateTools: Tool[] = [
       "The Product Name Generator takes a short description of your product — its category, key feature, and target customer — and produces a set of name candidates across different styles: descriptive, invented, playful, and premium-sounding. It's built for the moment when you know what the product does but staring at a blank naming doc isn't getting you anywhere.",
       "Good product names balance memorability with clarity about what the thing actually is. This tool gives you range on purpose, so instead of fixating on one idea too early, you can compare a dozen directions and narrow down from there — then check availability and trademark status yourself before committing.",
     ],
-    ],
     canDo: [
       "Generate name ideas from a product description or feature list",
       "Mix styles: literal/descriptive, invented, and evocative names",
@@ -150,7 +149,6 @@ export const ecommerceTemplateTools: Tool[] = [
     what: [
       "The Why Choose This Product tool writes the section of a product page that answers a shopper's unspoken question after they've read the features: so what, and why this one? It takes your product's real advantages — quality, price, guarantee, materials, service — and turns them into a short, confident section that gives someone a reason to pick you over an alternative.",
       "It's meant to work from facts you provide, not invent claims about your product. The stronger and more specific the input — actual materials, actual turnaround times, actual guarantees — the more convincing and defensible the output will be. Vague inputs produce vague, generic copy that could apply to anyone.",
-    ],
     ],
     canDo: [
       "Turn a list of real product advantages into persuasive copy",
@@ -219,7 +217,6 @@ export const ecommerceTemplateTools: Tool[] = [
       "The Product Review Generator writes full-length review articles — the kind that cover setup, real-world use, pros and cons, and a final verdict — based on the specs and impressions you provide. It's built for reviewers and content teams who've actually used or tested a product and need help structuring their notes into a readable, well-organized article.",
       "Like any review tool, its value depends on honest input. It works best when you give it real observations, both good and bad, rather than only positive talking points. A balanced, specific review builds more reader trust than a one-sided draft, and it's your job to make sure the published piece reflects an accurate, tested opinion.",
     ],
-    ],
     canDo: [
       "Structure a full review with intro, features, pros/cons, and verdict sections",
       "Turn rough testing notes into readable, organized paragraphs",
@@ -270,6 +267,7 @@ export const ecommerceTemplateTools: Tool[] = [
       { q: "Can it include a pros and cons list?", a: "Yes, it can structure a dedicated pros and cons section based on your notes." },
       { q: "Should I disclose AI assistance in the review?", a: "Follow your platform's and region's disclosure requirements for affiliate or sponsored content." },
     ],
+    related: ["testimonial-generator", "review-responder", "product-review-generator", "article-wizard", "article-wizard"],
   },
   {
     slug: "review-responder",
@@ -285,7 +283,6 @@ export const ecommerceTemplateTools: Tool[] = [
     what: [
       "The Review Responder reads a customer review and drafts a reply that matches its tone and content — thanking a happy customer for a specific detail they mentioned, or addressing a complaint calmly and offering a path to resolve it. It saves the time spent staring at a review deciding how to phrase a response that sounds human, not templated.",
       "Replies are meant to be reviewed before posting, especially for negative reviews where tone and specific facts matter. The tool drafts a strong starting point based on what the customer actually wrote; you confirm the details are accurate and add anything specific to the resolution before it goes live.",
-    ],
     ],
     canDo: [
       "Draft a reply matched to a review's tone — positive, negative, or mixed",
@@ -337,5 +334,6 @@ export const ecommerceTemplateTools: Tool[] = [
       { q: "Can I generate multiple options for one review?", a: "Yes, you can request a few draft variations and pick the one that fits best." },
       { q: "Does it work across review platforms?", a: "Yes, it drafts general-purpose replies you can post to any review platform your store uses." },
     ],
+    related: ["testimonial-generator", "product-review-generator", "ai-smart-inbox", "website-copy-generator", "ai-crm"],
   },
 ];

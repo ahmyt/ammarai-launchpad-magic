@@ -83,7 +83,6 @@ export const websiteTemplateTools: Tool[] = [
       "The Tagline Generator produces short, memorable lines that capture what your business does or how it makes people feel, based on a description of your product, audience, and tone. Instead of staring at a blank line under your logo, you get a batch of options across different styles: benefit-led, clever, descriptive, and bold.",
       "A good tagline earns its place through repetition and clarity, not cleverness alone. This tool is built to give you a wide first pass — some safe, some more daring — so you can find the direction that fits your brand before narrowing it down with your team.",
     ],
-    ],
     canDo: [
       "Generate a batch of tagline options from a brand description",
       "Produce different styles: punchy, descriptive, benefit-led, or playful",
@@ -151,7 +150,6 @@ export const websiteTemplateTools: Tool[] = [
       "The UX Ideas Generator takes a description of a page, user flow, or feature and returns a list of concrete improvement ideas — things like reducing form fields, adding progress indicators, clarifying error states, or reordering steps to reduce drop-off. It's built for the moment when you know something feels off but need a second perspective on what to change.",
       "It doesn't replace user research or testing, but it gives you a fast set of directions to consider before you invest time in mockups. Treat the output as a checklist of ideas worth evaluating against your own users and data, not a prescription to follow blindly.",
     ],
-    ],
     canDo: [
       "Generate improvement ideas for a specific page or screen",
       "Suggest ways to simplify multi-step flows like checkout or onboarding",
@@ -205,6 +203,7 @@ export const websiteTemplateTools: Tool[] = [
     related: ["design-ideas-generator", "ai-seo-analyzer", "landing-page-copy-generator", "website-copy-generator"],
   },
   {
+    slug: "design-ideas-generator",
     name: "Design Ideas Generator",
     category: "AI Templates",
     templateGroup: "Website",
@@ -217,7 +216,6 @@ export const websiteTemplateTools: Tool[] = [
     what: [
       "The Design Ideas Generator takes a brief description of a page, brand, or campaign and returns a set of visual direction ideas: layout approaches, color and typography moods, imagery styles, and reference points to explore. It's built for the early brainstorming stage, before you open a design tool and commit to pixels.",
       "It won't produce final designs, but it gives you language and direction to work from — useful when you're facing a blank canvas or need to explain a visual concept to a client or teammate before mockups exist.",
-    ],
     ],
     canDo: [
       "Generate multiple visual direction ideas from a project brief",
@@ -286,7 +284,6 @@ export const websiteTemplateTools: Tool[] = [
       "The Services Page Generator takes a list of what your business offers and turns it into structured page copy: a short intro, a clear description for each service, supporting benefit points, and a call to action. It's built for businesses that know exactly what they do but struggle to describe it in a way that reads well on a website.",
       "Many services pages fail because they list features without explaining outcomes. This tool focuses each description on what the client actually gets, so the page reads as a reason to book or buy rather than a dry inventory of offerings.",
     ],
-    ],
     canDo: [
       "Generate an intro paragraph for a services page",
       "Write a clear description for each individual service",
@@ -340,6 +337,7 @@ export const websiteTemplateTools: Tool[] = [
     related: ["features-page-generator", "website-copy-generator", "landing-page-copy-generator", "why-choose-this-product"],
   },
   {
+    slug: "features-page-generator",
     name: "Features Page Generator",
     category: "AI Templates",
     templateGroup: "Website",
@@ -352,7 +350,6 @@ export const websiteTemplateTools: Tool[] = [
     what: [
       "The Features Page Generator takes a list of product features and turns them into page copy: a short intro, a clear explanation for each feature, and the benefit it delivers to the user. It's built for product and SaaS teams who know their feature set well but need help translating it into language a first-time visitor understands.",
       "Feature pages often fail because they describe functionality without saying why it matters. This tool pairs every feature with its outcome, so a visitor scanning the page understands not just what the product does, but what it does for them.",
-    ],
     ],
     canDo: [
       "Generate an intro paragraph for a product features page",
@@ -421,7 +418,6 @@ export const websiteTemplateTools: Tool[] = [
       "The Keyword Generator takes a topic, product, or page description and returns a list of related keyword ideas grouped by search intent — informational, commercial, and navigational. It's built for the planning stage of SEO and content work, when you need a starting list of terms before writing a single page.",
       "It doesn't pull live search volume data, but it gives you a wide, relevant set of phrasing and angle variations based on how people actually talk about a topic. Pair the output with your own keyword research tools for volume and competition data, and use it to make sure you're not missing obvious angles.",
     ],
-    ],
     canDo: [
       "Generate keyword ideas from a topic or product description",
       "Group keywords by informational, commercial, or navigational intent",
@@ -475,6 +471,7 @@ export const websiteTemplateTools: Tool[] = [
     related: ["keyword-extractor", "article-wizard", "ai-seo-analyzer", "landing-page-copy-generator"],
   },
   {
+    slug: "keyword-extractor",
     name: "Keyword Extractor",
     category: "AI Templates",
     templateGroup: "Website",
@@ -487,7 +484,6 @@ export const websiteTemplateTools: Tool[] = [
     what: [
       "The Keyword Extractor analyzes a piece of text — a webpage, article, or document — and returns the key terms and phrases that best represent its content. It's built for cases where you already have text and need to understand or tag what it's really about, rather than starting from a blank topic.",
       "This is the reverse workflow of keyword planning: instead of generating ideas before writing, you're reading the signal out of something that already exists. That makes it useful for auditing existing pages, tagging content, or checking whether a draft actually covers the terms it's supposed to target.",
-    ],
     ],
     canDo: [
       "Extract the main keywords and phrases from any block of text",
@@ -556,7 +552,6 @@ export const websiteTemplateTools: Tool[] = [
       "The Website Testimonials Generator takes real customer feedback — reviews, survey responses, support emails, or interview notes — and formats it into clean, on-site testimonial blocks: a trimmed quote, attribution, and optional context like role or company. It works strictly from feedback you provide; it does not invent quotes, names, or reviews.",
       "Raw customer feedback is often too long, repetitive, or oddly worded to publish as-is. This tool trims filler while keeping the customer's actual words and meaning intact, so what ends up on your page is still their genuine feedback — just easier to read.",
     ],
-    ],
     canDo: [
       "Trim long customer feedback into a publishable testimonial length",
       "Format quotes with consistent structure for name, role, and company",
@@ -624,7 +619,6 @@ export const websiteTemplateTools: Tool[] = [
       "The Landing Page Copy Generator takes a short brief about your product, offer, or campaign and produces a full set of landing page copy: a headline, supporting subhead, benefit or feature sections, social proof placeholders, and calls to action. It's built for the moment you need a page live fast — a launch, an ad campaign, or a new offer — without waiting on a full copywriting cycle.",
       "Landing pages live or die on clarity and a clear next step, not clever wording. This tool structures copy around a single goal — getting the visitor to act — so every section supports the CTA instead of just describing the product in the abstract.",
     ],
-    ],
     canDo: [
       "Generate a full landing page copy set from one product brief",
       "Write a headline and subhead focused on the core value proposition",
@@ -678,6 +672,7 @@ export const websiteTemplateTools: Tool[] = [
     related: ["website-copy-generator", "call-to-action-generator", "website-testimonials-generator", "facebook-post-generator"],
   },
   {
+    slug: "website-copy-generator",
     name: "Website Copy Generator",
     category: "AI Templates",
     templateGroup: "Website",
@@ -690,7 +685,6 @@ export const websiteTemplateTools: Tool[] = [
     what: [
       "The Website Copy Generator takes a description of your business and a page type — home, about, product, or another common page — and produces structured copy suited to that page's purpose. A home page draft includes a hero section and value proposition; an about page includes your story and mission; a product page includes descriptions and benefits.",
       "It's built to handle the general-purpose writing that every website needs but that specialized tools like a services or features page generator don't cover. Use it as the flexible option for any page type not already served by a dedicated tool.",
-    ],
     ],
     canDo: [
       "Generate copy for home, about, product, and other common page types",
@@ -759,7 +753,6 @@ export const websiteTemplateTools: Tool[] = [
       "The Call to Action Generator produces short, action-driving lines for buttons, emails, ads, and landing pages based on the specific action you want someone to take. Rather than defaulting to generic phrases like 'Click Here' or 'Learn More,' it generates options tied to the actual value the visitor gets by acting.",
       "A CTA is often the single line that determines whether an entire campaign converts, yet it's usually written last and with the least thought. This tool treats the CTA as its own piece of copy worth iterating on, giving you a batch of phrasing options to test against each other.",
     ],
-    ],
     canDo: [
       "Generate CTA options for a specific goal, like signing up or buying",
       "Produce short button-length CTAs and longer email or page CTAs",
@@ -827,7 +820,6 @@ export const websiteTemplateTools: Tool[] = [
       "The Privacy Policy Generator takes details about your business — what data you collect, how you use it, who you share it with, and what tools or third parties you rely on — and produces a structured starting draft covering the sections a privacy policy typically needs: data collection, usage, cookies, third-party sharing, user rights, and contact information.",
       "This tool produces a draft, not legal advice, and it is not a substitute for review by a qualified attorney. Privacy law varies by jurisdiction and by the specific data you handle, so treat the output as a first pass to speed up drafting, then have it reviewed and finalized by someone qualified to confirm it meets the legal requirements that apply to your business.",
     ],
-    ],
     canDo: [
       "Generate a structured starting draft covering standard privacy policy sections",
       "Include sections on data collection, use, storage, and sharing based on your input",
@@ -881,6 +873,7 @@ export const websiteTemplateTools: Tool[] = [
     related: ["terms-and-conditions-generator", "website-copy-generator", "ai-document-analyzer", "website-copy-generator"],
   },
   {
+    slug: "terms-and-conditions-generator",
     name: "Terms and Conditions Generator",
     category: "AI Templates",
     templateGroup: "Website",
@@ -893,7 +886,6 @@ export const websiteTemplateTools: Tool[] = [
     what: [
       "The Terms and Conditions Generator takes details about your business, product, or service and produces a structured starting draft covering the sections most terms pages include: acceptance of terms, use of service, user responsibilities, payment and refund terms, limitation of liability, and termination. It's built to speed up the first pass of drafting, not to finalize a legal document.",
       "This tool produces a draft, not legal advice, and it is not a substitute for review by a qualified attorney. The right terms for your business depend on your specific product, jurisdiction, and risk exposure, so treat the output as a structured starting point to hand to counsel for review before it goes live on your site.",
-    ],
     ],
     canDo: [
       "Generate a structured starting draft covering standard terms and conditions sections",
