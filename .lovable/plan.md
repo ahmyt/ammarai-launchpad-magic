@@ -40,7 +40,9 @@ results still land somewhere useful instead of an error page.
 ## Pages that stay
 
 The AI Plagiarism Detector page also stays as-is in AI Writing (kept per your
-decision); no AI detector page is added.
+decision). A new **AI Content Detector** page is added as well — the site has no
+such page today — under the new AI Templates category, with a text-in/verdict-out
+sample and a clear note that detector scores are indicative, not proof.
 
 All flagship workspaces stay in their functional categories: AI Writer, AI Chat Pro,
 AI Personas & Skills, AI Command Search, AI Chat Bots, External Chatbot Builder,
@@ -74,6 +76,8 @@ The 99 template pages all move under AI Templates.
   grouped by `templateGroup` with a heading per group; other filters keep the flat grid.
 - Categories left empty (for example AI Email) disappear from the filter bar via
   `usedCategories`; adjust the page's intro copy and tool count wording.
+- Create the AI Content Detector page (slug `ai-content-detector`) in the Writing
+  templates group with full metadata, related-tool links and search mapping.
 - Update `roadmap.md` with this reorganisation and cleanup task.
 
 ## Verification
