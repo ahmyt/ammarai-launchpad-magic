@@ -163,7 +163,7 @@ export const chatbotTools: Tool[] = [
     related: [
       "ai-chat",
       "ai-writer",
-      "ai-avatar-video-generator",
+      "ai-avatar-generator",
       "ai-image-generator",
       "ai-summary-generator",
     ],

@@ -109,7 +109,7 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
   },
   {
     keywords: ["crm", "pipeline", "deal", "deals", "lead", "leads", "sales", "follow up", "follow-up"],
-    slugs: ["ai-crm", "ai-phone-agent", "ai-agent-builder", "ai-email-writer", "ai-chat-bots"],
+    slugs: ["ai-crm", "ai-phone-agent", "ai-agent-builder", "ai-email-generator", "ai-chat-bots"],
   },
   {
     keywords: ["phone", "call", "calls", "voice agent", "answering", "receptionist", "booking"],

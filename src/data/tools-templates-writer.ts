@@ -527,7 +527,7 @@ export const writerTemplateTools: Tool[] = [
       { q: "Will it invent property features I didn't list?", a: "No, it works from the details and features you provide — always give accurate specs." },
       { q: "Can I generate a few different versions?", a: "Yes, you can request multiple variations to A/B test across platforms." },
     ],
-    related: ["product-description-generator", "ai-ad-generator", "social-media-post-generator", "meta-description-generator", "ai-writer"],
+    related: ["ai-product-description-generator", "ai-ad-generator", "social-media-post-generator", "meta-description-generator", "ai-writer"],
   },
   {
     slug: "prompt-generator",
