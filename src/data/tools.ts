@@ -205,7 +205,6 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
       "ai-dubbing",
       "ai-ugc-generator",
       "ai-youtube-publisher",
-      "ai-text-to-video",
       "ai-image-to-video",
       "video-script-generator",
       "youtube-title-generator",

@@ -122,18 +122,6 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
       inputImageAlt: "Source still: snow-capped mountain ridges at golden sunrise",
     },
   ],
-  "ai-text-to-video": [
-    {
-      kind: "video",
-      url: textToVideoDemo.url,
-      caption: "Sample output — a macro gold-splash beauty shot generated from the prompt alone.",
-    },
-    {
-      kind: "video",
-      url: textToVideoDemo2.url,
-      caption: "Sample output — a neon hyperlapse through rain-slick Tokyo streets, no footage required.",
-    },
-  ],
   "ai-video-generator": [
     {
       kind: "video",
@@ -144,6 +132,16 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
       kind: "video",
       url: videoGeneratorDemo2.url,
       caption: "Sample output — a punchy ad cut with kinetic captions, ready to run as a paid variant.",
+    },
+    {
+      kind: "video",
+      url: textToVideoDemo.url,
+      caption: "Sample output — text to video: a macro gold-splash beauty shot generated from the prompt alone.",
+    },
+    {
+      kind: "video",
+      url: textToVideoDemo2.url,
+      caption: "Sample output — text to video: a neon hyperlapse through rain-slick Tokyo streets, no footage required.",
     },
   ],
   "ai-video-editor": [
