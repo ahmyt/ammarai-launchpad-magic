@@ -88,7 +88,7 @@ export const plans = [
     features: [
       "Access to the AI tool library",
       "Monthly allowance of words, images and audio",
-      "AI chat with the standard model",
+      "AI Chat Pro with the standard model",
       "Basic transcription and document reading",
       "Single workspace, one seat",
     ],
