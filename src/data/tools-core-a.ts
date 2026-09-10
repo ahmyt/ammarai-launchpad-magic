@@ -157,13 +157,7 @@ export const coreToolsA: Tool[] = [
         a: "Every plan includes it, including Free. Higher plans raise the monthly word allowance and unlock advanced models, saved tone profiles and longer documents.",
       },
     ],
-    related: [
-      "article-wizard",
-      "ai-rephraser",
-      "ai-rephraser",
-      "bullet-point-answer-generator",
-      "ai-proofreader",
-    ],
+    related: ["article-wizard", "ai-rephraser", "bullet-point-answer-generator", "ai-proofreader"],
   },
   {
     slug: "ai-chat",

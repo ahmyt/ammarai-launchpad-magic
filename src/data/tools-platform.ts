@@ -513,13 +513,7 @@ export const platformTools: Tool[] = [
         a: "No. Influencer-style avatar presenters are generated, and you can choose the avatar that fits your brand.",
       },
     ],
-    related: [
-      "ai-avatar-generator",
-      "ai-video-generator",
-      "ai-voice-generator",
-      "ad-script-generator",
-      "ad-script-generator",
-    ],
+    related: ["ai-avatar-generator", "ai-video-generator", "ai-voice-generator", "ad-script-generator"],
   },
   {
     slug: "sound-studio",

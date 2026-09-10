@@ -66,7 +66,7 @@ export const blogTemplateTools: Tool[] = [
       { q: "Does it work for very long articles?", a: "Yes, the staged approach is built specifically for long-form pieces where a single-shot draft is harder to manage." },
       { q: "Can I regenerate just one section?", a: "Yes, each section can be rewritten on its own without affecting the rest of the article." },
     ],
-    related: ["article-wizard", "blog-outline-generator", "blog-section-writer", "article-wizard", "article-wizard"],
+    related: ["blog-outline-generator", "blog-section-writer"],
   },
   {
     slug: "blog-ideas-generator",
@@ -133,7 +133,7 @@ export const blogTemplateTools: Tool[] = [
       { q: "Does it work for niche industries?", a: "Yes, the more specific your niche description, the more specific the ideas returned." },
       { q: "What do I do after I pick an idea?", a: "Send it to the Blog Outline Generator or Article Wizard to move straight into drafting." },
     ],
-    related: ["blog-outline-generator", "blog-ideas-generator", "article-wizard", "article-wizard", "article-wizard"],
+    related: ["blog-outline-generator", "article-wizard"],
   },
   {
     slug: "blog-outline-generator",
@@ -200,7 +200,7 @@ export const blogTemplateTools: Tool[] = [
       { q: "Can it include keywords I need for SEO?", a: "Yes, list them and the outline will build dedicated sections around them where it makes sense." },
       { q: "Can I edit the outline before writing?", a: "Yes, it's meant to be adjusted — reorder, cut, or add sections freely before drafting." },
     ],
-    related: ["blog-ideas-generator", "blog-section-writer", "article-wizard", "article-wizard", "blog-ideas-generator"],
+    related: ["blog-ideas-generator", "blog-section-writer", "article-wizard"],
   },
   {
     slug: "blog-section-writer",
@@ -267,7 +267,7 @@ export const blogTemplateTools: Tool[] = [
       { q: "Can I set a word count per section?", a: "Yes, specify a target length and the section will be written to fit it." },
       { q: "Is this different from the Article Wizard?", a: "Yes — the wizard runs a full guided flow from topic to finished article, while this tool writes one section at a time on demand." },
     ],
-    related: ["blog-outline-generator", "article-wizard", "blog-ideas-generator", "article-wizard", "ai-rephraser"],
+    related: ["blog-outline-generator", "article-wizard", "blog-ideas-generator", "ai-rephraser"],
   },
   {
     slug: "ai-content-detector",
@@ -334,7 +334,7 @@ export const blogTemplateTools: Tool[] = [
       { q: "Does editing the flagged parts actually help?", a: "Usually, yes — adding specifics, examples, and a distinct voice tends to lower the score on recheck." },
       { q: "Can I use it on text that's just AI-assisted, not fully generated?", a: "Yes, it works on any text and will generally score partially AI-assisted writing lower than fully generated text." },
     ],
-    related: ["ai-rephraser", "ai-plagiarism-detector", "ai-proofreader", "ai-rephraser", "blog-section-writer"],
+    related: ["ai-rephraser", "ai-plagiarism-detector", "ai-proofreader", "blog-section-writer"],
   },
   {
     slug: "web-page-chat",

@@ -133,7 +133,7 @@ export const ecommerceTemplateTools: Tool[] = [
       { q: "Can it match my brand's existing naming style?", a: "Yes, describe your existing product names or brand tone and it will follow that direction." },
       { q: "Can it suggest a tagline too?", a: "Yes, once you've shortlisted a name you can ask for a matching tagline." },
     ],
-    related: ["product-name-generator", "why-choose-this-product", "product-name-generator", "why-choose-this-product", "why-choose-this-product"],
+    related: ["why-choose-this-product"],
   },
   {
     slug: "why-choose-this-product",
@@ -200,7 +200,7 @@ export const ecommerceTemplateTools: Tool[] = [
       { q: "How long should this section be?", a: "Short bullets work well on product pages; longer paragraphs suit dedicated landing pages." },
       { q: "Can I use this for multiple products at once?", a: "Yes, run it separately for each product using that product's specific advantages." },
     ],
-    related: ["why-choose-this-product", "why-choose-this-product", "product-review-generator", "why-choose-this-product", "product-name-generator"],
+    related: ["product-review-generator", "product-name-generator"],
   },
   {
     slug: "product-review-generator",
@@ -267,7 +267,7 @@ export const ecommerceTemplateTools: Tool[] = [
       { q: "Can it include a pros and cons list?", a: "Yes, it can structure a dedicated pros and cons section based on your notes." },
       { q: "Should I disclose AI assistance in the review?", a: "Follow your platform's and region's disclosure requirements for affiliate or sponsored content." },
     ],
-    related: ["testimonial-generator", "review-responder", "product-review-generator", "article-wizard", "article-wizard"],
+    related: ["testimonial-generator", "review-responder", "article-wizard"],
   },
   {
     slug: "review-responder",

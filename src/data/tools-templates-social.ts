@@ -66,7 +66,7 @@ export const socialTemplateTools: Tool[] = [
       { q: "Does it write the caption too?", a: "Yes, a caption and suggested hashtags are generated alongside the script." },
       { q: "Can I change the tone after generating?", a: "Yes, you can regenerate the same idea in a different tone without starting over." },
     ],
-    related: ["tiktok-caption-generator", "video-idea-generator", "instagram-reel-script-generator", "trending-post-generator", "ad-script-generator"],
+    related: ["tiktok-caption-generator", "video-idea-generator", "trending-post-generator", "ad-script-generator"],
   },
   {
     slug: "tiktok-caption-generator",
@@ -133,7 +133,7 @@ export const socialTemplateTools: Tool[] = [
       { q: "Does it work for trending sounds or formats?", a: "Yes, describe the trend or format and it will tailor the caption to it." },
       { q: "Is there a character limit?", a: "Captions are generated with TikTok's practical length in mind, but you can request shorter versions." },
     ],
-    related: ["instagram-reel-script-generator", "trending-post-generator", "video-idea-generator", "viral-tweet-generator", "trending-post-generator"],
+    related: ["instagram-reel-script-generator", "trending-post-generator", "video-idea-generator", "viral-tweet-generator"],
   },
   {
     slug: "facebook-post-generator",
@@ -200,7 +200,7 @@ export const socialTemplateTools: Tool[] = [
       { q: "Can I generate a series of related posts?", a: "Yes, describe the sequence — like an announcement followed by a reminder — and generate each one." },
       { q: "Is it good for community groups, not just businesses?", a: "Yes, it can write engagement-focused posts suited to group admins as well." },
     ],
-    related: ["facebook-post-generator", "facebook-post-generator", "facebook-video-script-generator", "trending-post-generator", "instagram-reel-script-generator"],
+    related: ["facebook-video-script-generator", "trending-post-generator", "instagram-reel-script-generator"],
   },
   {
     slug: "facebook-video-script-generator",
@@ -267,7 +267,7 @@ export const socialTemplateTools: Tool[] = [
       { q: "Does it also write the caption?", a: "This tool focuses on the script; pair it with the Facebook Post Generator for the caption." },
       { q: "Is it suited for ads as well as organic posts?", a: "It works well for organic video content; for paid campaigns, the Facebook Ad Generator is built specifically for that." },
     ],
-    related: ["facebook-post-generator", "ad-script-generator", "facebook-post-generator", "video-idea-generator", "video-description-generator"],
+    related: ["facebook-post-generator", "ad-script-generator", "video-idea-generator", "video-description-generator"],
   },
   {
     slug: "x-thread-generator",
@@ -401,7 +401,7 @@ export const socialTemplateTools: Tool[] = [
       { q: "Can it suggest a blog title?", a: "Yes, it generates a title suited for written search rather than reusing the video's title." },
       { q: "Does it work for long videos?", a: "Yes, longer transcripts are condensed and organized into a readable post length." },
     ],
-    related: ["article-wizard", "bullet-point-answer-generator", "video-description-generator", "article-wizard", "ai-transcription"],
+    related: ["article-wizard", "bullet-point-answer-generator", "video-description-generator", "ai-transcription"],
   },
   {
     slug: "video-idea-generator",
@@ -535,7 +535,7 @@ export const socialTemplateTools: Tool[] = [
       { q: "Can I use this for platforms other than YouTube?", a: "Yes, description length and style can be adjusted for other video platforms." },
       { q: "Can it rewrite an existing description?", a: "Yes, paste your current description and it will suggest a more structured, search-friendly version." },
     ],
-    related: ["video-description-generator", "keyword-generator", "clickbait-title-generator", "video-idea-generator", "ai-seo-analyzer"],
+    related: ["keyword-generator", "clickbait-title-generator", "video-idea-generator", "ai-seo-analyzer"],
   },
   {
     slug: "viral-tweet-generator",
@@ -669,7 +669,7 @@ export const socialTemplateTools: Tool[] = [
       { q: "Can it work for video titles too?", a: "Yes, it adjusts style for YouTube, blog, and social title conventions." },
       { q: "What if I want a bolder title than it suggests?", a: "You can push the tone further, but consider whether the content can actually back up the claim before publishing." },
     ],
-    related: ["blog-ideas-generator", "clickbait-title-generator", "viral-tweet-generator", "trending-post-generator", "blog-section-writer"],
+    related: ["blog-ideas-generator", "viral-tweet-generator", "trending-post-generator", "blog-section-writer"],
   },
   {
     slug: "ama-post-generator",
@@ -736,7 +736,7 @@ export const socialTemplateTools: Tool[] = [
       { q: "Is this suited for Reddit-style AMAs specifically?", a: "Yes, and it also works for community forums, social media Q&As, and live video sessions." },
       { q: "Can it write a recap post after the AMA?", a: "Yes, share the key questions and answers and it will draft a recap summarizing the session." },
     ],
-    related: ["trending-post-generator", "facebook-post-generator", "website-copy-generator", "facebook-post-generator", "welcome-email-generator"],
+    related: ["trending-post-generator", "facebook-post-generator", "website-copy-generator", "welcome-email-generator"],
   },
   {
     slug: "trending-post-generator",
@@ -803,7 +803,7 @@ export const socialTemplateTools: Tool[] = [
       { q: "Does it work across platforms?", a: "Yes, you can request platform-specific versions of the same trending post." },
       { q: "How fast can I get a usable draft?", a: "Drafts generate immediately, which matters since trend relevance is time-sensitive." },
     ],
-    related: ["viral-tweet-generator", "viral-ideas-generator", "facebook-post-generator", "facebook-post-generator", "trending-post-generator"],
+    related: ["viral-tweet-generator", "viral-ideas-generator", "facebook-post-generator"],
   },
   {
     slug: "viral-ideas-generator",
@@ -937,6 +937,6 @@ export const socialTemplateTools: Tool[] = [
       { q: "Can this be used for a thread instead of a single post?", a: "Yes, request a longer version suited to a multi-part thread format." },
       { q: "Will it exaggerate my story to make it more dramatic?", a: "No, it shapes the structure and pacing but works from the facts and details you provide." },
     ],
-    related: ["viral-ideas-generator", "x-thread-generator", "instagram-reel-script-generator", "storytelling-generator", "trending-post-generator"],
+    related: ["viral-ideas-generator", "x-thread-generator", "instagram-reel-script-generator", "trending-post-generator"],
   },
 ];

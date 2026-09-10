@@ -401,7 +401,7 @@ export const websiteTemplateTools: Tool[] = [
       { q: "Can it group features into sections?", a: "Yes, it suggests section headings that cluster related features together." },
       { q: "Is this different from the Services Page Generator?", a: "Yes — this one is built for product features, while the services page tool is built for service offerings." },
     ],
-    related: ["services-page-generator", "why-choose-this-product", "why-choose-this-product", "website-copy-generator"],
+    related: ["services-page-generator", "why-choose-this-product", "website-copy-generator"],
   },
   {
     slug: "keyword-generator",
@@ -602,7 +602,7 @@ export const websiteTemplateTools: Tool[] = [
       { q: "Can it shorten a long piece of feedback?", a: "Yes, it trims filler while keeping the customer's original meaning and wording intact." },
       { q: "Can it group testimonials by theme?", a: "Yes, it can sort real testimonials by topics like support, pricing, or ease of use." },
     ],
-    related: ["website-copy-generator", "landing-page-copy-generator", "why-choose-this-product", "website-copy-generator"],
+    related: ["website-copy-generator", "landing-page-copy-generator", "why-choose-this-product"],
   },
   {
     slug: "landing-page-copy-generator",
@@ -870,7 +870,7 @@ export const websiteTemplateTools: Tool[] = [
       { q: "Can I update the policy later?", a: "Yes, regenerate or edit sections whenever your data practices change." },
       { q: "Does it cover cookie disclosures?", a: "Yes, if you describe using cookies or tracking tools, a relevant section will be included in the draft." },
     ],
-    related: ["terms-and-conditions-generator", "website-copy-generator", "ai-document-analyzer", "website-copy-generator"],
+    related: ["terms-and-conditions-generator", "website-copy-generator", "ai-document-analyzer"],
   },
   {
     slug: "terms-and-conditions-generator",
@@ -937,6 +937,6 @@ export const websiteTemplateTools: Tool[] = [
       { q: "Can I update the terms later?", a: "Yes, regenerate or edit sections whenever your business model or policies change." },
       { q: "Does it cover subscription billing terms?", a: "Yes, if you describe a subscription model, billing and cancellation sections will be included in the draft." },
     ],
-    related: ["privacy-policy-generator", "website-copy-generator", "ai-document-analyzer", "website-copy-generator"],
+    related: ["privacy-policy-generator", "website-copy-generator", "ai-document-analyzer"],
   },
 ];

@@ -66,7 +66,7 @@ export const commsTemplateTools: Tool[] = [
       { q: "Can I get multiple tone options?", a: "Yes, regenerate with a different tone setting to compare versions." },
       { q: "Is the output ready to send as-is?", a: "It's a strong draft — review names, links, and brand details before sending." },
     ],
-    related: ["invitation-email-generator", "reply-email-generator", "apology-email-generator", "welcome-email-generator", "welcome-email-generator"],
+    related: ["invitation-email-generator", "reply-email-generator", "apology-email-generator"],
   },
   {
     slug: "invitation-email-generator",
@@ -133,7 +133,7 @@ export const commsTemplateTools: Tool[] = [
       { q: "Can I set a formal tone for a corporate event?", a: "Yes, tone is adjustable from formal to casual." },
       { q: "Can I include a registration link?", a: "Yes, add your link and it will be placed in the call-to-action section." },
     ],
-    related: ["welcome-email-generator", "reply-email-generator", "welcome-email-generator", "welcome-email-generator", "welcome-email-generator"],
+    related: ["welcome-email-generator", "reply-email-generator"],
   },
   {
     slug: "reply-email-generator",
@@ -200,7 +200,7 @@ export const commsTemplateTools: Tool[] = [
       { q: "Can I set the tone separately from the original email?", a: "Yes, you can override the tone if you want a different register than the incoming message." },
       { q: "Is it useful for customer support at scale?", a: "Yes, many teams use it to speed up first-draft replies to common questions." },
     ],
-    related: ["welcome-email-generator", "apology-email-generator", "support-ticket-reply-generator", "welcome-email-generator", "reply-email-generator"],
+    related: ["welcome-email-generator", "apology-email-generator", "support-ticket-reply-generator"],
   },
   {
     slug: "apology-email-generator",
@@ -267,7 +267,7 @@ export const commsTemplateTools: Tool[] = [
       { q: "Can I use it for internal apologies, not just customer-facing ones?", a: "Yes, it works for both external and internal situations." },
       { q: "Does it avoid legal risk language?", a: "It focuses on sincere, clear communication — for sensitive legal situations, have your team review before sending." },
     ],
-    related: ["reply-email-generator", "support-ticket-reply-generator", "welcome-email-generator", "welcome-email-generator", "reply-email-generator"],
+    related: ["reply-email-generator", "support-ticket-reply-generator", "welcome-email-generator"],
   },
   {
     slug: "bug-fix-assistant",
@@ -602,7 +602,7 @@ export const commsTemplateTools: Tool[] = [
       { q: "Which languages does it support?", a: "It covers a wide range of common language pairs used in business and everyday communication." },
       { q: "Should I still have a native speaker review it?", a: "For important public-facing content, a quick native-speaker check is a good final step." },
     ],
-    related: ["synonyms-generator", "learn-new-words", "ai-proofreader", "ai-rephraser", "ai-rephraser"],
+    related: ["synonyms-generator", "learn-new-words", "ai-proofreader", "ai-rephraser"],
   },
   {
     slug: "synonyms-generator",
@@ -669,7 +669,7 @@ export const commsTemplateTools: Tool[] = [
       { q: "Does it also give antonyms?", a: "Yes, you can request opposite-meaning words when that's what you need." },
       { q: "Is this useful for essay writing?", a: "Yes, it's commonly used to vary vocabulary and avoid repetition in essays and reports." },
     ],
-    related: ["ai-translator", "learn-new-words", "ai-proofreader", "ai-rephraser", "ai-rephraser"],
+    related: ["ai-translator", "learn-new-words", "ai-proofreader", "ai-rephraser"],
   },
   {
     slug: "learn-new-words",

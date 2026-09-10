@@ -66,7 +66,7 @@ export const writerTemplateTools: Tool[] = [
       { q: "Can I edit individual chapters after generating?", a: "Yes, each chapter can be regenerated or edited independently." },
       { q: "Does it design the eBook layout too?", a: "No, it generates the written content — you'll still need a design tool for layout and formatting." },
     ],
-    related: ["article-wizard", "article-wizard", "book-ideas-generator", "ai-writer", "storytelling-generator"],
+    related: ["article-wizard", "book-ideas-generator", "ai-writer", "storytelling-generator"],
   },
   {
     slug: "book-ideas-generator",
@@ -267,7 +267,7 @@ export const writerTemplateTools: Tool[] = [
       { q: "Is this a replacement for editorial review?", a: "No, every draft still needs human fact-checking and editing before publication." },
       { q: "Can it match a specific publication's style?", a: "Yes, describe the house style or tone and it will adapt the draft's phrasing." },
     ],
-    related: ["journalist-news-generator", "article-wizard", "article-wizard", "rss-feed-generator", "ai-writer"],
+    related: ["article-wizard", "rss-feed-generator", "ai-writer"],
   },
   {
     slug: "rss-feed-generator",
@@ -401,7 +401,7 @@ export const writerTemplateTools: Tool[] = [
       { q: "Will it change the facts in my draft?", a: "No, it's built to preserve meaning and facts while reworking sentence style and rhythm." },
       { q: "Can I set a specific tone?", a: "Yes, choose a target tone like conversational or professional-but-warm before generating." },
     ],
-    related: ["ai-rephraser", "ai-rephraser", "ai-rephraser", "ai-proofreader", "ai-rephraser"],
+    related: ["ai-rephraser", "ai-proofreader"],
   },
   {
     slug: "pros-and-cons-generator",

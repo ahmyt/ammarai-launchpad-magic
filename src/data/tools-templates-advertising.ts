@@ -66,7 +66,7 @@ export const advertisingTemplateTools: Tool[] = [
       { q: "Can I generate multiple concepts from one brief?", a: "Yes, ask for variations and compare different tones or angles side by side." },
       { q: "Is the script ready to film as-is?", a: "It's a strong production-ready draft, but a director will still adapt it for casting, locations, and shots." },
     ],
-    related: ["youtube-ads-generator", "ad-script-generator", "ad-script-generator", "advertising-ideas-generator"],
+    related: ["youtube-ads-generator", "ad-script-generator", "advertising-ideas-generator"],
   },
   {
     slug: "youtube-ads-generator",
@@ -133,7 +133,7 @@ export const advertisingTemplateTools: Tool[] = [
       { q: "Does it include a call to action?", a: "Every generated script ends with a specific action tied to your campaign goal." },
       { q: "Can I use this for bumper ads?", a: "Yes, it can produce tight 6-second scripts built around a single message." },
     ],
-    related: ["tv-ad-script-generator", "ad-script-generator", "ad-script-generator", "youtube-ads-generator"],
+    related: ["tv-ad-script-generator", "ad-script-generator"],
   },
   {
     slug: "ad-script-generator",
@@ -200,7 +200,7 @@ export const advertisingTemplateTools: Tool[] = [
       { q: "Can I get multiple angles for the same product?", a: "Yes, request variations and compare different hooks or approaches." },
       { q: "Is this different from the TV or YouTube ad tools?", a: "This is the general-purpose version for any channel; the TV and YouTube tools are tuned specifically for those formats." },
     ],
-    related: ["tv-ad-script-generator", "youtube-ads-generator", "advertising-ideas-generator", "ad-script-generator"],
+    related: ["tv-ad-script-generator", "youtube-ads-generator", "advertising-ideas-generator"],
   },
   {
     slug: "advertising-ideas-generator",
@@ -334,7 +334,7 @@ export const advertisingTemplateTools: Tool[] = [
       { q: "Can I get variations to A/B test?", a: "Yes, request multiple versions of the same message for testing." },
       { q: "Does it work for both iOS and Android push formatting?", a: "Yes, the copy itself is platform-agnostic and fits within general push notification limits." },
     ],
-    related: ["welcome-email-generator", "facebook-post-generator", "welcome-email-generator", "welcome-email-generator"],
+    related: ["welcome-email-generator", "facebook-post-generator"],
   },
   {
     slug: "aida-framework-generator",

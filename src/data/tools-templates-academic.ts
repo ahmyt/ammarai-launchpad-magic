@@ -66,7 +66,7 @@ export const academicTemplateTools: Tool[] = [
       { q: "Should I edit the output before sending?", a: "Yes — treat it as a strong first draft and add a personal detail before you send it." },
       { q: "Can it match a specific tone?", a: "Yes, you can request formal, conversational, or industry-specific tones." },
     ],
-    related: ["application-letter-generator", "career-advice-generator", "welcome-email-generator", "welcome-email-generator", "content-improver"],
+    related: ["application-letter-generator", "career-advice-generator", "welcome-email-generator", "content-improver"],
   },
   {
     slug: "application-letter-generator",
@@ -267,7 +267,7 @@ export const academicTemplateTools: Tool[] = [
       { q: "Can it summarize longer readings?", a: "Yes, paste in a passage or describe the topic and it will condense the key points." },
       { q: "Is the information always accurate?", a: "Always verify important facts against your course materials, especially for exams." },
     ],
-    related: ["math-question-solver", "thesis-statement-generator", "bullet-point-answer-generator", "content-improver", "ai-proofreader"],
+    related: ["math-question-solver", "thesis-statement-generator", "content-improver", "ai-proofreader"],
   },
   {
     slug: "thesis-statement-generator",
@@ -334,7 +334,7 @@ export const academicTemplateTools: Tool[] = [
       { q: "Can it help if I already have a thesis but it feels weak?", a: "Yes, paste your draft and it will suggest sharper, more specific alternatives." },
       { q: "Does it write the rest of the essay?", a: "No, it focuses on the thesis statement — the essay's argument and evidence are still yours to build." },
     ],
-    related: ["bullet-point-answer-generator", "math-question-solver", "thesis-statement-generator", "content-improver", "ai-proofreader"],
+    related: ["bullet-point-answer-generator", "math-question-solver", "content-improver", "ai-proofreader"],
   },
   {
     slug: "ai-proofreader",
@@ -401,7 +401,7 @@ export const academicTemplateTools: Tool[] = [
       { q: "Does it work for academic writing?", a: "Yes, you can set a formal tone appropriate for essays and academic submissions." },
       { q: "Should I still read the text myself afterward?", a: "Yes — always do a final read-through since context and meaning are still your responsibility." },
     ],
-    related: ["ai-rephraser", "content-improver", "ai-proofreader", "thesis-statement-generator", "thesis-statement-generator"],
+    related: ["ai-rephraser", "content-improver", "thesis-statement-generator"],
   },
   {
     slug: "ai-rephraser",
@@ -468,7 +468,7 @@ export const academicTemplateTools: Tool[] = [
       { q: "How is this different from a full rewriter?", a: "It stays closer to your original structure and meaning rather than reimagining the piece." },
       { q: "Can I get more than one option?", a: "Yes, you can request multiple rephrasing options for the same input." },
     ],
-    related: ["ai-proofreader", "content-improver", "ai-rephraser", "ai-rephraser", "ai-rephraser"],
+    related: ["ai-proofreader", "content-improver"],
   },
   {
     slug: "content-improver",
@@ -535,7 +535,7 @@ export const academicTemplateTools: Tool[] = [
       { q: "Can it help with essays and professional writing?", a: "Yes, it works for academic essays, articles, reports, and business writing." },
       { q: "Does it rewrite the whole piece for me?", a: "It gives targeted suggestions rather than a full rewrite, so you stay in control of the final draft." },
     ],
-    related: ["ai-rephraser", "ai-proofreader", "ai-rephraser", "thesis-statement-generator", "thesis-statement-generator"],
+    related: ["ai-rephraser", "ai-proofreader", "thesis-statement-generator"],
   },
   {
     slug: "career-advice-generator",

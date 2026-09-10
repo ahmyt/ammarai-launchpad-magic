@@ -687,12 +687,6 @@ export const agentTools: Tool[] = [
         a: "Yes. Run a separate agent per site, each with its own topic, tone, cadence and publishing target.",
       },
     ],
-    related: [
-      "article-wizard",
-      "ai-social-media-agent",
-      "ai-agent-builder",
-      "keyword-generator",
-      "article-wizard",
-    ],
+    related: ["article-wizard", "ai-social-media-agent", "ai-agent-builder", "keyword-generator"],
   },
 ];

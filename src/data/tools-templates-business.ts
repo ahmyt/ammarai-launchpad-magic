@@ -468,7 +468,7 @@ export const businessTemplateTools: Tool[] = [
       { q: "Can I use it for a speaker or press bio?", a: "Yes, it's well suited for longer, credential-forward bios as well as short social ones." },
       { q: "Will it sound like generic AI text?", a: "It gives you a strong draft — adding specific personal details keeps it distinct and real." },
     ],
-    related: ["linkedin-profile-generator", "ai-resume-builder", "personal-bio-generator", "job-description-generator"],
+    related: ["linkedin-profile-generator", "ai-resume-builder", "job-description-generator"],
   },
   {
     slug: "cost-benefit-analysis-generator",
