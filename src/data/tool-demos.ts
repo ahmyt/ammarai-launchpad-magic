@@ -21,8 +21,6 @@ import musicAdBed from "@/assets/demo-music-ad-bed.mp3.asset.json";
 import musicAmbientBed from "@/assets/demo-music-ambient-bed.mp3.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import videoEditorSource from "@/assets/demo-video-editor-source.mp4.asset.json";
-import dubbingDemo from "@/assets/demo-ai-dubbing.mp4.asset.json";
-import dubbingSource from "@/assets/demo-ai-dubbing-source.mp4.asset.json";
 import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
 import youtubeDemo from "@/assets/demo-youtube-publisher.mp4.asset.json";
 import youtubeSource from "@/assets/demo-youtube-source.mp4.asset.json";
@@ -163,10 +161,10 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
   "ai-dubbing": [
     {
       kind: "video",
-      inputVideo: dubbingSource.url,
+      inputVideo: "/media/demo-ai-dubbing-source.mp4",
       inputVideoLabel: "travel-presenter-english.mp4",
-      url: dubbingDemo.url,
-      caption: "Sample output — the presenter localised with matched timing and natural on-camera delivery.",
+      url: "/media/demo-ai-dubbing.mp4",
+      caption: "Sample output — the same presenter dubbed into Spanish with matched timing and on-screen subtitles.",
     },
   ],
   "ai-ugc-generator": [
