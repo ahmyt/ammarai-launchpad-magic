@@ -180,7 +180,7 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
       "talking head ad",
       "spokesperson",
     ],
-    slugs: ["ai-ugc-generator", "ai-avatar-video-generator", "ai-video-editor", "ai-url-to-video"],
+    slugs: ["ai-ugc-generator", "ai-avatar-generator", "ai-video-editor", "ai-url-to-video"],
   },
   {
     keywords: [
