@@ -93,6 +93,18 @@ export const recentTools = tools.filter((t) => t.recent).slice(0, 6);
 /** Frontend-only intent matcher used by the discovery search. No AI backend. */
 const intentMap: { keywords: string[]; slugs: string[] }[] = [
   {
+    keywords: ["template", "templates", "generator", "generators", "quick copy", "short copy", "framework"],
+    slugs: [
+      "article-wizard",
+      "facebook-post-generator",
+      "why-choose-this-product",
+      "welcome-email-generator",
+      "ai-content-detector",
+      "ad-script-generator",
+      "resume-builder-placeholder-none",
+    ].filter((s) => s !== "resume-builder-placeholder-none"),
+  },
+  {
     keywords: ["agent", "agents", "automation", "automate", "workflow", "autonomous", "assistant that works"],
     slugs: [
       "ai-agent-builder",
