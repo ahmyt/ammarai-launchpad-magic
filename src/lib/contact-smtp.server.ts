@@ -88,6 +88,7 @@ export const getSmtpDiagnostic = (): SmtpDiagnostic => {
     port: config.port,
     secure: config.secure,
     authEnabled: !config.authDisabled,
+    from: envValue("SMTP_FROM") ?? config.user,
   };
 };
 
