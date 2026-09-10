@@ -42,4 +42,4 @@
 - [x] Expand the opening description with named flagship tools and supporting capabilities
 - [x] Add a curated homepage library of existing Video Pro, Editor, UGC, and Avatar samples
 
-- [ ] Diagnose attached bounce showing old SMTP server after hosting change.
+- [x] Diagnose attached bounce: production is still sending through plesk-steve.zap.cloud / 185.223.31.164.
