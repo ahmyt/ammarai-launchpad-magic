@@ -47,6 +47,8 @@ import creativeCampaign from "@/assets/creative-out-campaign.jpg";
 import seoReportUrlAudit from "@/assets/seo-report-url-audit.jpg";
 import seoReportTextAnalysis from "@/assets/seo-report-text-analysis.jpg";
 import seoReportKeywords from "@/assets/seo-report-keywords.jpg";
+import chatImgMenu from "@/assets/chatimg-in-menu.jpg";
+import chatImgWhiteboard from "@/assets/chatimg-in-whiteboard.jpg";
 
 
 export type ToolDemoScene = {
@@ -340,6 +342,46 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
     {
       inputImage: visionRevenueChart,
       inputImageAlt: "Uploaded screenshot: a quarterly revenue bar chart rising through Q3 then dipping in Q4",
+    },
+  ],
+  "chat-with-image": [
+    {
+      inputImage: chatImgMenu,
+      inputImageAlt: "Uploaded photo: a printed restaurant menu card on a wooden table",
+    },
+    {
+      inputImage: chatImgWhiteboard,
+      inputImageAlt: "Uploaded photo: a whiteboard with a hand-drawn product flow diagram",
+    },
+  ],
+  "realtime-voice-chat": [
+    {
+      kind: "audio",
+      url: voiceCourse.url,
+      caption: "Sample output — the assistant answering out loud in a natural speaking voice.",
+    },
+    {
+      kind: "audio",
+      url: ttsStudy.url,
+      caption: "Sample output — a spoken follow-up answer in the same live conversation.",
+    },
+  ],
+  "ai-voice-isolator": [
+    {
+      kind: "audio",
+      inputAudio: "/media/demo-voice-isolator-source.mp3",
+      inputAudioLabel: "walkthrough-with-background-music.mp3",
+      url: "/media/demo-voice-isolator.mp3",
+      caption: "Sample output — the same recording with the background bed removed and the voice evened out.",
+    },
+  ],
+  "ai-video-to-video": [
+    {
+      kind: "video",
+      inputVideo: "/media/demo-video-to-video-source.mp4",
+      inputVideoLabel: "raw-camera-take.mp4",
+      url: "/media/demo-video-to-video.mp4",
+      caption: "Sample output — the same take restyled with a cinematic grade, sharper detail and a soft vignette.",
     },
   ],
   "ai-code-generator": [

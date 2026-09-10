@@ -409,7 +409,7 @@ export const agentTools: Tool[] = [
         a: "They are generated from your live deals and contacts at the moment you ask, not from a stale export.",
       },
     ],
-    related: ["ai-phone-agent", "ai-agent-builder", "ai-chat-bots", "ai-email-writer", "ai-chat"],
+    related: ["ai-phone-agent", "ai-agent-builder", "ai-chat-bots", "ai-email-generator", "ai-chat"],
   },
   {
     slug: "ai-social-media-agent",

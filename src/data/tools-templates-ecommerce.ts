@@ -65,7 +65,7 @@ export const ecommerceTemplateTools: Tool[] = [
       { q: "Can it shorten a long piece of feedback?", a: "Yes, you can request a short pull-quote or a slightly longer testimonial paragraph." },
       { q: "Should I still get customer permission?", a: "Yes, always confirm the customer is comfortable with their feedback being published, ideally with attribution." },
     ],
-    related: ["product-review-generator", "review-responder", "product-description-generator", "ai-social-media-agent", "faq-generator"],
+    related: ["product-review-generator", "review-responder", "ai-product-description-generator", "ai-social-media-agent", "faq-generator"],
   },
   {
     slug: "product-name-generator",
@@ -131,7 +131,7 @@ export const ecommerceTemplateTools: Tool[] = [
       { q: "Can it match my brand's existing naming style?", a: "Yes, describe your existing product names or brand tone and it will follow that direction." },
       { q: "Can it suggest a tagline too?", a: "Yes, once you've shortlisted a name you can ask for a matching tagline." },
     ],
-    related: ["ai-business-name-generator", "product-description-generator", "amazon-product-title-generator", "product-features-generator", "why-choose-this-product"],
+    related: ["ai-business-name-generator", "ai-product-description-generator", "amazon-product-title-generator", "product-features-generator", "why-choose-this-product"],
   },
   {
     slug: "why-choose-this-product",
@@ -197,7 +197,7 @@ export const ecommerceTemplateTools: Tool[] = [
       { q: "How long should this section be?", a: "Short bullets work well on product pages; longer paragraphs suit dedicated landing pages." },
       { q: "Can I use this for multiple products at once?", a: "Yes, run it separately for each product using that product's specific advantages." },
     ],
-    related: ["product-benefits-generator", "product-description-generator", "product-comparison-generator", "product-features-generator", "product-name-generator"],
+    related: ["product-benefits-generator", "ai-product-description-generator", "product-comparison-generator", "product-features-generator", "product-name-generator"],
   },
   {
     slug: "product-review-generator",
