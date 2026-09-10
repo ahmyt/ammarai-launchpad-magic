@@ -51,6 +51,8 @@ type SmtpConfig = {
 
 export type SmtpDiagnostic = Pick<SmtpConfig, "host" | "port" | "secure"> & {
   authEnabled: boolean;
+  /** Visible sender address, so delivery problems can be traced to a domain. */
+  from: string;
 };
 
 const getSmtpConfig = (): SmtpConfig => {
@@ -86,6 +88,7 @@ export const getSmtpDiagnostic = (): SmtpDiagnostic => {
     port: config.port,
     secure: config.secure,
     authEnabled: !config.authDisabled,
+    from: envValue("SMTP_FROM") ?? config.user,
   };
 };
 

@@ -10,13 +10,13 @@ export const Route = createFileRoute("/admin/messages")({
 });
 
 const STATUS_STYLES: Record<string, string> = {
-  sent: "bg-accent/10 text-accent ring-accent/30",
+  sent: "bg-success/10 text-success ring-success/30",
   failed: "bg-destructive/10 text-destructive ring-destructive/30",
   not_sent: "bg-muted text-muted-foreground ring-border",
 };
 
 const STATUS_LABELS: Record<string, string> = {
-  sent: "Accepted by mail server",
+  sent: "Confirmation sent",
   failed: "Confirmation failed",
   not_sent: "No delivery recorded (old build)",
 };
@@ -82,8 +82,9 @@ function AdminMessages() {
         <p className="mt-1 text-sm text-muted-foreground">
           Every contact-form submission is stored here, even when email delivery fails. The badge
           shows what happened when the visitor's confirmation email was handed to the mail server.
-          "Accepted by mail server" means the mail server took the message — use the reference below
-          to trace the rest of the journey in the mail log.
+          "Confirmation sent" means the mail server accepted and queued it; whether it lands in the
+          inbox still depends on the recipient's provider — use the reference below to trace the
+          rest of the journey in the mail log.
         </p>
       </div>
 
