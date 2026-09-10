@@ -53,40 +53,49 @@ const recordConfirmationOutcome = async (
   messageId: string,
   outcome: ConfirmationOutcome,
 ): Promise<string | null> => {
-  // The delivery write-back runs server-side with privileged credentials only.
-  // The public/anon role must never be able to call this routine.
-  let supabaseAdmin: { rpc: unknown };
+  // Fully fault-proof: the message is already stored and the team has already
+  // been notified by the time this runs. Nothing in here may ever throw, so a
+  // missing service-role key on a self-hosted server (e.g. Plesk) degrades to
+  // "tracking unavailable" instead of failing the visitor's submission.
   try {
-    ({ supabaseAdmin } = await import("@/integrations/supabase/client.server"));
-  } catch (importError) {
-    console.error("Delivery outcome write skipped: privileged client unavailable", {
-      messageId,
-      error: importError instanceof Error ? importError.message : "unknown",
+    // The delivery write-back runs server-side with privileged credentials only.
+    // The public/anon role must never be able to call this routine.
+    if (!process.env["SUPABASE_SERVICE_ROLE_KEY"]) {
+      console.warn("Delivery outcome write skipped: service role key not configured", {
+        messageId,
+      });
+      return "delivery tracking unavailable (service role key not configured)";
+    }
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data, error } = await (
+      supabaseAdmin.rpc as unknown as (
+        fn: string,
+        args: Record<string, unknown>,
+      ) => Promise<{ data: boolean | null; error: { message: string } | null }>
+    )("record_contact_confirmation", {
+      _id: messageId,
+      _status: outcome.confirmation_status,
+      _message_id: outcome.confirmation_message_id,
+      _response: outcome.confirmation_response,
+      _error: outcome.confirmation_error,
+      _attempted_at: outcome.confirmation_attempted_at,
     });
-    return "privileged database client unavailable";
+    if (error) {
+      console.error("Failed to record contact delivery outcome", { messageId, error });
+      return error.message;
+    }
+    if (data !== true) {
+      console.error("Delivery outcome write matched no rows", { messageId });
+      return "delivery outcome write matched no rows";
+    }
+    return null;
+  } catch (writeError) {
+    console.error("Delivery outcome write failed", {
+      messageId,
+      error: writeError instanceof Error ? writeError.message : "unknown",
+    });
+    return writeError instanceof Error ? writeError.message : "delivery tracking failed";
   }
-  const { data, error } = await (
-    supabaseAdmin.rpc as unknown as (
-      fn: string,
-      args: Record<string, unknown>,
-    ) => Promise<{ data: boolean | null; error: { message: string } | null }>
-  )("record_contact_confirmation", {
-    _id: messageId,
-    _status: outcome.confirmation_status,
-    _message_id: outcome.confirmation_message_id,
-    _response: outcome.confirmation_response,
-    _error: outcome.confirmation_error,
-    _attempted_at: outcome.confirmation_attempted_at,
-  });
-  if (error) {
-    console.error("Failed to record contact delivery outcome", { messageId, error });
-    return error.message;
-  }
-  if (data !== true) {
-    console.error("Delivery outcome write matched no rows", { messageId });
-    return "delivery outcome write matched no rows";
-  }
-  return null;
 };
 
 // Bumped whenever the contact endpoint changes, so a deployed server can be
