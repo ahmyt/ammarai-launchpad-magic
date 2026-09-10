@@ -657,7 +657,6 @@ export const coreToolsA: Tool[] = [
       },
     ],
     related: [
-      "ai-text-to-video",
       "ai-image-to-video",
       "video-script-generator",
       "ai-voice-generator",

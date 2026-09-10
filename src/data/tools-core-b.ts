@@ -152,7 +152,6 @@ export const coreToolsB: Tool[] = [
     ],
     related: [
       "ai-video-generator",
-      "ai-text-to-video",
       "ai-image-to-video",
       "ai-voice-generator",
       "video-script-generator",
@@ -301,7 +300,6 @@ export const coreToolsB: Tool[] = [
       },
     ],
     related: [
-      "ai-text-to-video",
       "ai-image-generator",
       "ai-video-generator",
       "ai-avatar-generator",

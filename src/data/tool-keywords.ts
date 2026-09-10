@@ -224,25 +224,6 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
-  "ai-text-to-video": {
-    primaryKeyword: "text to video ai",
-    searchVolume: 8100,
-    difficulty: 76,
-    relatedKeywords: [
-      { keyword: "ai video generator", volume: 165000 },
-      { keyword: "free ai video generator", volume: 74000 },
-      { keyword: "ai video maker", volume: 27100 },
-      { keyword: "ai video", volume: 22200 },
-    ],
-    questions: [
-      "how to convert text into video using ai",
-      "what is the best text to video ai generator",
-      "what is the best free text to video ai generator",
-      "how to create ai videos from text",
-      "what are the differences between text-to-video and image-to-video ai models",
-    ],
-  },
-
   "ai-code-generator": {
     primaryKeyword: "ai code generator",
     searchVolume: 4400,
