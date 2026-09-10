@@ -163,10 +163,10 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
   "ai-dubbing": [
     {
       kind: "video",
-      inputVideo: dubbingSource.url,
+      inputVideo: "/media/demo-ai-dubbing-source.mp4",
       inputVideoLabel: "travel-presenter-english.mp4",
-      url: dubbingDemo.url,
-      caption: "Sample output — the presenter localised with matched timing and natural on-camera delivery.",
+      url: "/media/demo-ai-dubbing.mp4",
+      caption: "Sample output — the same presenter dubbed into Spanish with matched timing and on-screen subtitles.",
     },
   ],
   "ai-ugc-generator": [
