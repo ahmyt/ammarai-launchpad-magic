@@ -69,7 +69,6 @@ export const academicTemplateTools: Tool[] = [
     related: ["application-letter-generator", "career-advice-generator", "welcome-email-generator", "welcome-email-generator", "content-improver"],
   },
   {
-    slug: "application-letter-generator",
     name: "Application Letter Generator",
     category: "AI Templates",
     templateGroup: "Academic",
@@ -82,6 +81,7 @@ export const academicTemplateTools: Tool[] = [
     what: [
       "The Application Letter Generator produces formal letters for situations beyond a standard job cover letter — applying to a program, a membership, a scholarship, or an internal role. Give it the context (what you're applying for, your qualifications, why you're interested) and it returns a properly structured letter with the formality the situation calls for.",
       "These letters have their own conventions: a clear statement of purpose up front, a case for why you qualify, and a respectful close. The tool follows that structure so you're not guessing at formatting while also trying to write persuasively.",
+    ],
     ],
     canDo: [
       "Generate application letters for jobs, programs, scholarships, or memberships",
@@ -133,7 +133,6 @@ export const academicTemplateTools: Tool[] = [
       { q: "Can I use it for academic applications?", a: "Yes, it can produce formal academic-style letters for fellowships, programs, and scholarships." },
       { q: "Do I need to edit the output?", a: "Yes — always review for accuracy and add specific details before submitting." },
     ],
-    related: ["cover-letter-generator", "career-advice-generator", "content-improver", "ai-proofreader", "ai-rephraser"],
   },
   {
     slug: "math-question-solver",
@@ -149,6 +148,7 @@ export const academicTemplateTools: Tool[] = [
     what: [
       "The Math Question Solver takes a problem — from basic arithmetic to algebra, calculus, or word problems — and shows the full working, not just a final number. Each step is laid out so you can see how the solution was reached and where a particular rule or method applies.",
       "This is a learning aid, not a shortcut for graded work. It's built to help you understand a method you're stuck on, verify your own answer, or see a worked example before attempting similar problems yourself. Submitting AI-solved work as your own unchecked answer defeats the purpose and can violate your school's academic integrity policy — use it to learn the steps, then solve the next one on your own.",
+    ],
     ],
     canDo: [
       "Show full step-by-step working for a math problem, not just the final answer",
@@ -203,7 +203,6 @@ export const academicTemplateTools: Tool[] = [
     related: ["bullet-point-answer-generator", "thesis-statement-generator", "ai-proofreader", "content-improver", "career-advice-generator"],
   },
   {
-    slug: "bullet-point-answer-generator",
     name: "Bullet Point Answer Generator",
     category: "AI Templates",
     templateGroup: "Academic",
@@ -216,6 +215,7 @@ export const academicTemplateTools: Tool[] = [
     what: [
       "The Bullet Point Answer Generator takes a question or topic and breaks the answer into short, scannable points instead of dense paragraphs. It's suited to review sessions, flashcard-style studying, or quickly seeing the key ideas behind a concept before you write your own full answer.",
       "It's meant as a study aid to help you understand and organize information — not a way to produce a finished assignment answer to submit directly. If you're preparing a written response for graded work, use the bullets to understand the material and then write the answer in your own words.",
+    ],
     ],
     canDo: [
       "Break a study question into concise, organized bullet points",
@@ -284,6 +284,7 @@ export const academicTemplateTools: Tool[] = [
       "The Thesis Statement Generator takes your essay topic, and if you have one, a rough position or argument, and turns it into a clear, specific thesis statement — the kind that gives an essay direction instead of leaving it vague. A strong thesis states a position that can actually be argued, not just a topic restated as a sentence.",
       "This tool gives you a starting point for your own writing, not a finished essay to submit. A generated thesis still needs to reflect your own argument and understanding of the material — use it to get unstuck on phrasing or focus, then build your essay's actual analysis and evidence yourself.",
     ],
+    ],
     canDo: [
       "Turn a broad topic into a specific, arguable thesis statement",
       "Sharpen a vague draft thesis into a clearer claim",
@@ -351,6 +352,7 @@ export const academicTemplateTools: Tool[] = [
       "The AI Proofreader checks a piece of writing for the errors a careful human editor would catch: misspellings, subject-verb agreement, misplaced commas, and inconsistent punctuation. It returns a corrected version alongside an explanation of what changed, so you can learn from the fixes rather than just accept them blindly.",
       "It's a final-pass tool — meant for the stage right before you send an email, submit an assignment, or publish a post. It won't rewrite your ideas or restructure your argument; it focuses narrowly on making the sentences you already wrote correct and clean.",
     ],
+    ],
     canDo: [
       "Flag spelling and typo errors across a full document",
       "Fix grammar issues like subject-verb agreement and tense consistency",
@@ -404,7 +406,6 @@ export const academicTemplateTools: Tool[] = [
     related: ["ai-rephraser", "content-improver", "ai-proofreader", "thesis-statement-generator", "thesis-statement-generator"],
   },
   {
-    slug: "ai-rephraser",
     name: "AI Rephraser",
     category: "AI Templates",
     templateGroup: "Academic",
@@ -417,6 +418,7 @@ export const academicTemplateTools: Tool[] = [
     what: [
       "The AI Rephraser takes text that's awkward, repetitive, or just not saying what you mean clearly, and rewrites it while keeping the original meaning intact. It's useful when you know what you want to say but the sentence on the page isn't saying it well.",
       "It can shift formality, simplify complex phrasing, vary sentence structure to avoid repetition, or just offer a cleaner alternative to a clunky sentence. Unlike a full rewrite tool, it stays close to your original meaning and structure rather than reimagining the piece.",
+    ],
     ],
     canDo: [
       "Rephrase a sentence or paragraph while preserving its meaning",
@@ -485,6 +487,7 @@ export const academicTemplateTools: Tool[] = [
       "The Content Improver reviews a piece of writing and points out where it's weak — vague sentences, unclear transitions, a structure that doesn't build logically, or a conclusion that trails off — and suggests specific improvements. It's broader than a proofreader, which only checks for errors, and more focused than a full rewrite, which changes everything.",
       "It's built for the stage where a draft technically works but doesn't feel strong yet. You get concrete, actionable feedback on structure and clarity so you can revise with intent rather than guessing at what to fix.",
     ],
+    ],
     canDo: [
       "Identify unclear or weak sentences and suggest sharper alternatives",
       "Flag structural issues, like a section that doesn't flow logically",
@@ -552,6 +555,7 @@ export const academicTemplateTools: Tool[] = [
       "The Career Advice Generator takes a description of your current situation — your role, experience, goals, and whatever's making you feel stuck — and returns practical guidance rather than generic platitudes. Whether you're deciding between two paths, trying to close a skill gap, or weighing a career change, it works from the specifics you give it.",
       "It's a sounding board, not a career counselor replacing real research or mentorship. Use it to organize your thinking, get a structured way to weigh options, and identify concrete next steps — then validate bigger decisions with people who know your industry or situation directly.",
     ],
+    ],
     canDo: [
       "Suggest next steps based on your current role and goals",
       "Identify skill gaps for a target role or industry",
@@ -602,6 +606,5 @@ export const academicTemplateTools: Tool[] = [
       { q: "Can it help with a career change into a new industry?", a: "Yes, it can identify skill gaps and suggest how to reposition your existing experience." },
       { q: "Does it give the same advice to everyone?", a: "No, the guidance is based on the specific details you provide about your situation and goals." },
     ],
-    related: ["cover-letter-generator", "application-letter-generator", "content-improver", "ai-proofreader", "ai-rephraser"],
   },
 ];

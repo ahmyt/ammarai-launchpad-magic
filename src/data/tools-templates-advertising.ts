@@ -69,7 +69,6 @@ export const advertisingTemplateTools: Tool[] = [
     related: ["youtube-ads-generator", "ad-script-generator", "ad-script-generator", "advertising-ideas-generator"],
   },
   {
-    slug: "youtube-ads-generator",
     name: "YouTube Ads Generator",
     category: "AI Templates",
     templateGroup: "Advertising",
@@ -82,6 +81,7 @@ export const advertisingTemplateTools: Tool[] = [
     what: [
       "The YouTube Ads Generator writes scripts specifically for video ad formats — skippable in-stream, non-skippable, and 6-second bumpers — where the first few seconds decide whether anyone keeps watching. It front-loads the hook, then builds out the message and a clear call to action sized to the format.",
       "YouTube ads live or die on completion rate and skip behavior, so the structure matters as much as the words. This tool keeps that structure front and center: open strong, deliver the point fast, close with an action, instead of drafting something built for a different medium and hoping it survives the cut.",
+    ],
     ],
     canDo: [
       "Write scripts for skippable, non-skippable, and 6-second bumper formats",
@@ -133,7 +133,6 @@ export const advertisingTemplateTools: Tool[] = [
       { q: "Does it include a call to action?", a: "Every generated script ends with a specific action tied to your campaign goal." },
       { q: "Can I use this for bumper ads?", a: "Yes, it can produce tight 6-second scripts built around a single message." },
     ],
-    related: ["tv-ad-script-generator", "ad-script-generator", "ad-script-generator", "youtube-ads-generator"],
   },
   {
     slug: "ad-script-generator",
@@ -149,6 +148,7 @@ export const advertisingTemplateTools: Tool[] = [
     what: [
       "The Ad Script Generator is a general-purpose tool for writing ad copy that's meant to be spoken or performed — video ads, podcast reads, radio spots, or social video — rather than static banner or display copy. It structures every script around a hook, a core message, and a close, then adjusts tone and length to the channel.",
       "Different channels reward different pacing: a podcast host-read ad sounds conversational, a radio spot needs to work with audio alone, a social video ad needs a fast visual hook. This tool keeps those differences in mind instead of handing back the same generic script no matter where it's meant to run.",
+    ],
     ],
     canDo: [
       "Generate scripts for video, audio, podcast, and social ad formats",
@@ -200,7 +200,6 @@ export const advertisingTemplateTools: Tool[] = [
       { q: "Can I get multiple angles for the same product?", a: "Yes, request variations and compare different hooks or approaches." },
       { q: "Is this different from the TV or YouTube ad tools?", a: "This is the general-purpose version for any channel; the TV and YouTube tools are tuned specifically for those formats." },
     ],
-    related: ["tv-ad-script-generator", "youtube-ads-generator", "advertising-ideas-generator", "ad-script-generator"],
   },
   {
     slug: "advertising-ideas-generator",
@@ -216,6 +215,7 @@ export const advertisingTemplateTools: Tool[] = [
     what: [
       "The Advertising Ideas Generator sits upstream of scriptwriting and copy — it's for the brainstorming stage, when you need several genuinely different creative directions to react to rather than one script to edit. Give it a product and a goal, and it returns a handful of distinct concepts: different emotional angles, different hooks, different ways to frame the same offer.",
       "Most campaigns don't fail because the execution was bad — they fail because everyone converged on the first obvious idea in the room. This tool is built to widen that first pass, giving a creative team or a solo marketer more raw directions to choose from before anyone commits time to a script or a shoot.",
+    ],
     ],
     canDo: [
       "Generate multiple distinct campaign concepts from one product brief",
@@ -284,6 +284,7 @@ export const advertisingTemplateTools: Tool[] = [
       "The App & SMS Notification Generator writes very short, high-pressure copy: push notifications and text messages that live or die in a single line on a lock screen. It works within real character limits and focuses on the specific job these messages do — get noticed in a crowded notification tray and earn a tap.",
       "This is a different writing problem than a blog post or an email: there's no room for a slow build, and every character competes with a dozen other apps for the same few seconds of attention. The tool is tuned to write tight, specific, action-oriented lines instead of shortened versions of longer copy.",
     ],
+    ],
     canDo: [
       "Write push notifications within platform character limits",
       "Generate SMS copy sized for single or multi-segment messages",
@@ -351,6 +352,7 @@ export const advertisingTemplateTools: Tool[] = [
       "The AIDA Framework Generator writes marketing copy using one of the oldest and most reliable structures in advertising: grab Attention, build Interest, create Desire, and prompt Action. Rather than leaving you to reverse-engineer that structure from a blank page, it builds each section explicitly and labels the four beats so you can see the logic behind the copy.",
       "AIDA works because it mirrors how people actually decide to act on an ad or email — they need to notice it, care about it, want it, and know what to do next. This tool applies that structure to your specific product and offer instead of handing back a generic template with the blanks filled in.",
     ],
+    ],
     canDo: [
       "Generate copy structured explicitly around Attention, Interest, Desire, Action",
       "Adapt the framework for ads, emails, landing pages, or sales pages",
@@ -404,7 +406,6 @@ export const advertisingTemplateTools: Tool[] = [
     related: ["pas-framework-generator", "sales-pitch-generator", "ad-script-generator", "welcome-email-generator"],
   },
   {
-    slug: "pas-framework-generator",
     name: "PAS Framework Generator",
     category: "AI Templates",
     templateGroup: "Advertising",
@@ -417,6 +418,7 @@ export const advertisingTemplateTools: Tool[] = [
     what: [
       "The PAS Framework Generator writes copy using a three-part structure: name the reader's Problem, Agitate it by making the cost of inaction clear, then present your product as the Solution. It's a shorter, more direct arc than AIDA and works especially well when the problem itself is the strongest hook you have.",
       "PAS works because it meets readers where they already are — frustrated, stuck, or annoyed by something — instead of trying to manufacture excitement from nothing. This tool writes each of the three stages specifically for your product, so the agitation feels real and the solution feels earned rather than tacked on.",
+    ],
     ],
     canDo: [
       "Generate copy structured explicitly around Problem, Agitation, Solution",
@@ -485,6 +487,7 @@ export const advertisingTemplateTools: Tool[] = [
       "The Marketing Plan Generator takes a business goal — launch a product, grow leads, enter a new market — and produces a structured plan: recommended channels, a rough timeline, key messages, and priority order. It's built for the planning stage before individual campaigns get written, when you need the shape of a quarter, not just one piece of copy.",
       "A marketing plan doesn't need to be a fifty-page document to be useful; it needs to answer what you're doing, in what order, and why. This tool produces that kind of working plan — something you can review with a team, adjust based on real budget and headcount, and turn into an actual calendar of campaigns.",
     ],
+    ],
     canDo: [
       "Generate a channel mix recommendation based on your goal and audience",
       "Produce a rough timeline broken into phases or months",
@@ -551,6 +554,7 @@ export const advertisingTemplateTools: Tool[] = [
     what: [
       "The Sales Pitch Generator writes the core pitch you'd give on a call, in a deck, or in an email: a short opening that earns attention, a handful of value points tailored to the buyer, objection-aware framing, and a close that asks for something specific. It's built for the moment before a deal — when you need to say the right thing in the first sixty seconds.",
       "A good pitch isn't a feature list; it's an argument for why this specific buyer should care right now. This tool keeps that focus, tailoring value points to the stated audience and goal instead of producing a generic rundown of everything the product does.",
+    ],
     ],
     canDo: [
       "Generate a full pitch with opening hook, value points, and close",

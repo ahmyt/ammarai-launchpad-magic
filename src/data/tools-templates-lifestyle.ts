@@ -83,6 +83,7 @@ export const lifestyleTemplateTools: Tool[] = [
       "The Joke Generator produces short-form comedy — one-liners, puns, and setup-punchline jokes — based on a topic, occasion, or style you give it. It's built for the moment you need something funny fast: an opener for a speech, a caption for a photo, or a line to break the ice before a meeting.",
       "Comedy timing and delivery are still yours to control, but coming up with the actual joke is often the hardest part. This tool gives you several options at once so you can pick the one that lands with your specific audience instead of staring at a blank line trying to be funny on command.",
     ],
+    ],
     canDo: [
       "Generate jokes on a specific topic, from coffee to Mondays to office life",
       "Write puns built around a name, product, or event",
@@ -150,6 +151,7 @@ export const lifestyleTemplateTools: Tool[] = [
       "The AI Event Planner takes basic details — event type, guest count, budget range, and date — and produces a structured plan: a countdown timeline of what to do and when, a task checklist broken into categories like venue, catering, and invitations, and a rough budget breakdown. It's built for the early planning stage, when the list of things you haven't thought of yet feels longer than the list you have.",
       "It won't book your venue or call your caterer, but it turns 'I'm hosting a birthday party in six weeks' into an organized plan you can actually follow, with nothing important forgotten until the week before.",
     ],
+    ],
     canDo: [
       "Generate a countdown timeline from today until the event date",
       "Break tasks into categories: venue, food, decor, invitations, logistics",
@@ -203,7 +205,6 @@ export const lifestyleTemplateTools: Tool[] = [
     related: ["travel-planner", "ai-agent-builder", "welcome-email-generator", "ai-presentation-maker"],
   },
   {
-    slug: "travel-planner",
     name: "AI Travel Planner",
     category: "AI Templates",
     templateGroup: "Lifestyle",
@@ -216,6 +217,7 @@ export const lifestyleTemplateTools: Tool[] = [
     what: [
       "The AI Travel Planner takes a destination, trip length, budget range, and the kind of traveler you are — relaxed, adventurous, food-focused, culture-heavy — and builds a day-by-day itinerary. Each day gets a rough structure: morning, afternoon, and evening activities, with enough variety that the trip doesn't feel like a checklist of tourist stops crammed into every hour.",
       "It's a planning starting point, not a booking service. You still confirm opening hours, book tickets, and check current travel advisories, but you skip the hours of scattered research trying to figure out how to structure your days in a new city.",
+    ],
     ],
     canDo: [
       "Generate a full day-by-day itinerary for a given destination and trip length",
@@ -284,6 +286,7 @@ export const lifestyleTemplateTools: Tool[] = [
       "The Gift Ideas Generator takes details about a person — their interests, age range, relationship to you, and the occasion — along with a budget, and returns a shortlist of specific gift ideas rather than a broad category. Instead of 'something for a coffee lover,' you get named products, experiences, or gift types matched to what you described.",
       "It's built for the moment shopping fatigue sets in: you've scrolled gift guides, nothing feels personal, and the occasion is close. This tool narrows the field fast, giving you a workable list to shop from instead of starting research from zero.",
     ],
+    ],
     canDo: [
       "Generate a shortlist of specific gift ideas based on interests and budget",
       "Adjust suggestions for occasions — birthdays, holidays, anniversaries, graduations",
@@ -351,6 +354,7 @@ export const lifestyleTemplateTools: Tool[] = [
       "The Workout Plan Generator takes your goal — strength, general fitness, endurance, or muscle building — along with your experience level and available equipment, and produces a weekly training schedule: which days to train, which muscle groups or activities to focus on each day, and suggested sets, reps, or durations. It's meant to give structure to people who know they want to work out consistently but aren't sure how to organize a week.",
       "This tool provides general fitness guidance only, not medical or professional training advice. It doesn't know your injury history, current health conditions, or physical limitations. Anyone with an existing injury, a medical condition, or who is new to exercise after a long break should check with a doctor or qualified trainer before starting a new program.",
     ],
+    ],
     canDo: [
       "Generate a weekly training split based on your goal and experience level",
       "Suggest specific exercises, sets, and reps for each training day",
@@ -404,7 +408,6 @@ export const lifestyleTemplateTools: Tool[] = [
     related: ["meal-plan-generator", "ai-agent-builder", "event-planner", "travel-planner"],
   },
   {
-    slug: "meal-plan-generator",
     name: "Meal Plan Generator",
     category: "AI Templates",
     templateGroup: "Lifestyle",
@@ -417,6 +420,7 @@ export const lifestyleTemplateTools: Tool[] = [
     what: [
       "The Meal Plan Generator takes your goal — general healthy eating, weight management, muscle support, or a specific dietary style like vegetarian or low-carb — and produces a weekly plan with meal ideas for breakfast, lunch, dinner, and snacks. It's for people who know roughly what they want to eat more or less of but don't want to plan every meal from scratch each week.",
       "This tool provides general meal planning guidance only, not dietary or medical advice. It does not account for allergies, intolerances, or medical conditions unless you clearly state them, and even then it cannot replace a doctor or registered dietitian. Anyone with a food allergy, a diagnosed condition like diabetes, or other dietary restrictions tied to a health condition should consult a qualified professional before following any generated plan.",
+    ],
     ],
     canDo: [
       "Generate a 7-day meal plan with breakfast, lunch, dinner, and snacks",

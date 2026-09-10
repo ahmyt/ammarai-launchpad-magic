@@ -66,7 +66,6 @@ export const blogTemplateTools: Tool[] = [
       { q: "Does it work for very long articles?", a: "Yes, the staged approach is built specifically for long-form pieces where a single-shot draft is harder to manage." },
       { q: "Can I regenerate just one section?", a: "Yes, each section can be rewritten on its own without affecting the rest of the article." },
     ],
-    related: ["article-wizard", "blog-outline-generator", "blog-section-writer", "article-wizard", "article-wizard"],
   },
   {
     slug: "blog-ideas-generator",
@@ -82,6 +81,7 @@ export const blogTemplateTools: Tool[] = [
     what: [
       "The Blog Ideas Generator solves the moment before the moment of writing: staring at an empty content calendar with no idea what to cover next. Describe your niche, audience, or a broad subject area, and it returns a list of specific, publishable post ideas rather than vague themes like 'tips for success.'",
       "It's useful whether you're planning a month of content at once or just need one more idea to fill this week's slot. Each idea is phrased close to a real title, so you can move straight from the list into outlining or drafting without another brainstorming step.",
+    ],
     ],
     canDo: [
       "Generate a batch of blog post ideas from a niche or topic",
@@ -136,7 +136,6 @@ export const blogTemplateTools: Tool[] = [
     related: ["blog-outline-generator", "blog-ideas-generator", "article-wizard", "article-wizard", "article-wizard"],
   },
   {
-    slug: "blog-outline-generator",
     name: "Blog Outline Generator",
     category: "AI Templates",
     templateGroup: "Blog",
@@ -149,6 +148,7 @@ export const blogTemplateTools: Tool[] = [
     what: [
       "The Blog Outline Generator produces the structural layer of a post: a working title, a sequence of H2 and H3 headings, and short notes on what each section should cover. It's the step between having a topic and having a full draft, and it's often the step people skip — which is why so many posts wander.",
       "Because the outline arrives before any full paragraphs are written, it's cheap to reorder sections, cut ones that don't belong, or add an angle you hadn't considered. Writers use it to plan their own drafts; teams use it to brief freelancers without writing the whole post themselves.",
+    ],
     ],
     canDo: [
       "Generate a full heading structure from a single topic",
@@ -217,6 +217,7 @@ export const blogTemplateTools: Tool[] = [
       "The Blog Section Writer takes a single heading, a short note on what it should cover, and any surrounding context, and returns a complete, well-formed paragraph or two — not a summary, not bullet points, actual finished prose you can drop into a draft. It's built for the workflow where you already have an outline and want to fill it in section by section rather than generate a whole post at once.",
       "This is especially useful when a post is mostly done but one section is weak, missing, or needs a different angle than the rest. Instead of regenerating the entire article and risking a completely different draft, you write — or rewrite — just the part that needs it.",
     ],
+    ],
     canDo: [
       "Write a full section from a heading and a short brief",
       "Match the tone and depth of surrounding sections you paste in for context",
@@ -283,6 +284,7 @@ export const blogTemplateTools: Tool[] = [
     what: [
       "The AI Content Detector analyzes writing patterns — sentence rhythm, phrasing habits, repetition — that tend to show up in AI-generated text, and returns an overall confidence score along with the specific sections most likely to read as machine-written. It's a diagnostic tool, not a legal verdict: no detector can guarantee origin with certainty, and this one is upfront about that.",
       "It exists for a very practical reason: a lot of content today is AI-assisted, and publishers, teachers, and editors increasingly want a sense of how much a piece leans on generated phrasing before it goes out under someone's name. Use it as a second pair of eyes on your own drafts, or as a first pass before publishing anything you didn't write entirely yourself.",
+    ],
     ],
     canDo: [
       "Score a piece of text on how likely it is to read as AI-generated",
@@ -351,6 +353,7 @@ export const blogTemplateTools: Tool[] = [
       "Web Page Chat reads a webpage you link to and lets you ask questions about it in plain conversation — 'what's the main argument here,' 'what does this say about pricing,' 'summarize the third section.' It reads the page once and holds it in context, so every follow-up question gets answered against the actual content instead of a general guess.",
       "It's for the moments when reading an entire long page isn't worth it for the two facts you actually need, or when you want to compare claims across several pages without keeping all of them open and cross-referencing by hand.",
     ],
+    ],
     canDo: [
       "Summarize a webpage's content on request",
       "Answer specific questions about facts, figures, or claims on the page",
@@ -418,6 +421,7 @@ export const blogTemplateTools: Tool[] = [
       "Chat With Image lets you upload a picture and have a real conversation about it: identify objects, read and explain text in a screenshot, describe a scene, or answer a specific question like 'what's the total on this receipt.' It looks at the actual pixels you upload, not a generic guess based on a text description.",
       "It's built for the everyday moments where a picture holds information faster than typing it out would — a whiteboard photo, a confusing error screenshot, a diagram, a menu in another language — and you want a direct answer rather than transcribing it yourself first.",
     ],
+    ],
     canDo: [
       "Describe what's shown in an uploaded image",
       "Read and explain text found inside a photo or screenshot",
@@ -484,6 +488,7 @@ export const blogTemplateTools: Tool[] = [
     what: [
       "Realtime Voice Chat is a spoken conversation with AI: you talk, it listens, and it replies out loud with minimal delay, back and forth, without either side typing. It's built for situations where talking is faster or more natural than typing — thinking out loud, practicing something verbally, or just wanting a hands-free way to get questions answered.",
       "It behaves like a live call rather than a chatbot with a microphone bolted on: you can interrupt, pause, change direction mid-thought, and it responds to the flow of a real conversation, not just a queued sequence of messages.",
+    ],
     ],
     canDo: [
       "Hold a live, spoken back-and-forth conversation in real time",

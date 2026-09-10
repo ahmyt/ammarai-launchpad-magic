@@ -1,4 +1,5 @@
 export type ToolCategory =
+  | "AI Templates"
   | "AI Agents"
   | "AI Sales & CRM"
   | "AI Writing"
@@ -35,6 +36,8 @@ export interface Tool {
   slug: string;
   name: string;
   category: ToolCategory;
+  /** Topic group used to sub-divide the AI Templates category */
+  templateGroup?: string;
   /** Card description in the directory — one clear sentence. */
   summary: string;
   /** SEO */

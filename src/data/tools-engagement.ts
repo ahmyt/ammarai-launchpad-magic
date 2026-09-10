@@ -177,6 +177,7 @@ export const engagementTools: Tool[] = [
       "You brief it once on your business: product, price point, audience, competitors, tone, the channels you actually use. That brief persists, so every later request is answered in the context of your business rather than a generic marketing template.",
       "Ask it for a launch plan, a slow-month rescue, a Black Friday sequence or a way to sell more of one stuck SKU, and it returns a structured plan: objective, audience segments, offer, angles ranked by likely performance, a channel-by-channel calendar, and the copy for each placement.",
     ],
+    ],
     canDo: [
       "Build a full campaign plan from an objective and a budget",
       "Generate audience segments and the message that fits each one",
@@ -319,7 +320,7 @@ export const engagementTools: Tool[] = [
       "ad-script-generator",
       "welcome-email-generator",
       "ai-blogger-agent",
-      "ai-smart-inbox",
+    ],
     ],
   },
 ];

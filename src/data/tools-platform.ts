@@ -144,6 +144,7 @@ export const platformTools: Tool[] = [
       "It is more than a question-answering box. The bot can capture a name and email mid-conversation, qualify a visitor with a few questions, run defined actions like checking an order or booking a slot, and escalate to a human the moment a conversation looks like a complaint or a serious buying signal — carrying the full transcript with it.",
       "The widget is yours: colours, avatar, greeting, position, launcher style, tone and the languages it replies in. Embed it with one snippet, or run the same trained bot on your messaging channels so the answers stay identical everywhere. Every conversation lands in the Smart Inbox, and analytics show volumes, top questions and — most usefully — the questions it could not answer.",
     ],
+    ],
     canDo: [
       "Train on website pages, a full site crawl, PDFs, documents, FAQs and product data",
       "Customise colours, avatar, launcher, greeting, position and tone to match your brand",
@@ -286,6 +287,7 @@ export const platformTools: Tool[] = [
       "The AI Presentation Maker turns a topic or short brief into a complete slide deck. It handles the two slowest parts of presentation work at once: structuring the content into a logical sequence of slides, and applying professional layouts so the deck looks designed rather than defaulted.",
       "The output is a real starting deck, not an outline you still have to build. Titles, body content, speaker-ready structure and visuals come together, and the whole thing exports to PPTX for refining in whatever your company already uses.",
     ],
+    ],
     canDo: [
       "Generate a full deck from a topic, brief or pasted document",
       "Choose the deck length and level of detail",
@@ -401,6 +403,7 @@ export const platformTools: Tool[] = [
     what: [
       "AI URL to Video removes the blank-timeline problem from video advertising. Paste a product page URL and the platform reads the page — the product, the benefits, the imagery — and generates a complete video ad: a script, a voiceover, captions and an avatar presenter, assembled and ready to post.",
       "The same toolset covers the two other formats that dominate social video. Long-to-short clipping takes a podcast, webinar or YouTube video and cuts the moments most likely to hold attention into vertical clips with captions. Influencer-style avatar videos put a realistic presenter in the frame delivering your script, so product marketing gets a human face without booking one.",
+    ],
     ],
     canDo: [
       "Paste a product URL and generate a complete video ad automatically",
@@ -518,7 +521,7 @@ export const platformTools: Tool[] = [
       "ai-video-generator",
       "ai-voice-generator",
       "ad-script-generator",
-      "ad-script-generator",
+    ],
     ],
   },
   {
@@ -653,6 +656,7 @@ export const platformTools: Tool[] = [
       "AI Music Pro creates original music and background tracks from a written description. Name the mood, genre and duration, and you get a playable track that fits the content it sits under — without searching stock libraries or negotiating licences.",
       "It is built for functional music: the bed under a voiceover, the opener for a podcast, the energy under a product ad. Generate a few variants, pick the one that supports the content, and pull it into Sound Studio to balance it against your narration.",
     ],
+    ],
     canDo: [
       "Generate original tracks from a mood, genre and length description",
       "Create background music for videos, ads, podcasts and presentations",
@@ -751,7 +755,6 @@ export const platformTools: Tool[] = [
         a: "Yes. Send the track to Sound Studio and mix it under any voiceover generated on the platform or uploaded yourself.",
       },
     ],
-    related: ["sound-studio", "ai-voice-generator", "ai-video-generator", "ad-script-generator"],
 
   },
 ];

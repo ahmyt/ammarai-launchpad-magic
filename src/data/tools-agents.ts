@@ -157,6 +157,7 @@ export const agentTools: Tool[] = [
       "Missed calls are missed revenue, and most of them are the same handful of questions: opening hours, availability, price, where you are. The phone agent handles those in a natural voice, at any hour, without a queue and without a menu tree.",
       "It works both directions. Inbound, it answers, understands what the caller wants and completes the task. Outbound, it calls a list — follow-ups, reminders, qualification — and passes anything real to a person. Every call ends with a transcript, a summary and the record updated.",
     ],
+    ],
     canDo: [
       "Answer inbound calls in a natural voice, with no phone menu",
       "Book, move and cancel appointments in your live calendar",
@@ -276,7 +277,6 @@ export const agentTools: Tool[] = [
     related: ["ai-crm", "ai-agent-builder", "ai-chat-bots", "ai-voice-generator", "ai-transcription"],
   },
   {
-    slug: "ai-crm",
     name: "AI CRM",
     category: "AI Sales & CRM",
     summary:
@@ -292,6 +292,7 @@ export const agentTools: Tool[] = [
     what: [
       "Most CRMs fail for the same reason: keeping them updated is work, so nobody does it, and then the data is not worth reading. This one is built to be updated by talking to it — say what happened and the record changes.",
       "The same assistant answers questions about what is in there. Which deals went quiet, what closed last month, where the pipeline is stuck, which source converts. You get the answer directly, and you can ask it from the dashboard or from WhatsApp and Telegram while you are out.",
+    ],
     ],
     canDo: [
       "Track contacts, companies, deals and pipeline stages",
@@ -429,6 +430,7 @@ export const agentTools: Tool[] = [
       "Consistency is what makes social media work, and consistency is exactly what busy people run out of. The Social Media Agent takes the whole cycle — plan, write, schedule, review — and runs it on repeat.",
       "It is not a bulk caption generator. It maps out a month with a mix of themes, writes each post for the platform it is going on, spaces them sensibly, and then reads the results. Posts that work shape next week's plan; posts that do not, quietly stop appearing.",
     ],
+    ],
     canDo: [
       "Build a monthly content calendar from your brand and goals",
       "Write captions and hashtags tailored per platform",
@@ -547,10 +549,10 @@ export const agentTools: Tool[] = [
     ],
     related: [
       "ai-blogger-agent",
-      "ai-agent-builder",
       "instagram-reel-script-generator",
       "ai-image-generator",
       "ad-script-generator",
+    ],
     ],
   },
   {
@@ -692,7 +694,7 @@ export const agentTools: Tool[] = [
       "ai-social-media-agent",
       "ai-agent-builder",
       "keyword-generator",
-      "article-wizard",
+    ],
     ],
   },
 ];
