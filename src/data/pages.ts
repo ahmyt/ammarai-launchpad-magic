@@ -41,7 +41,7 @@ export const pages: Page[] = [
     name: "Home",
     title: "AmmarAI: One AI Platform for Writing, Video, Voice and Code",
     description:
-      "60+ AI tools in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.",
+      "130+ AI tools and templates in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.",
     eyebrow: "Home",
     h1: "One AI for everything you create",
     lede: "",
