@@ -104,7 +104,7 @@ export const plans = [
       "Everything in Free",
       "Higher monthly word and image allowance",
       "Longer documents and transcripts",
-      "Saved brand tone and reusable prompts",
+      "Saved personas, brand tone and reusable skills",
       "Export to common document formats",
     ],
     cta: "Choose Starter",
