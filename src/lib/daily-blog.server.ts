@@ -255,7 +255,66 @@ function figure(src: string, alt: string, caption: string): string {
   );
 }
 
-function buildHtml(post: GeneratedPost, toolName: string, image: string): string {
+const IMAGE_URL = "https://api.openai.com/v1/images/generations";
+
+/**
+ * Creates an illustration that matches this specific article and stores it,
+ * so every post gets its own picture instead of the shared category image.
+ */
+async function createArticleImage(
+  supabase: SupabaseClient<Database>,
+  slug: string,
+  index: number,
+  scene: string,
+): Promise<string | null> {
+  const key = process.env["OPENAI_API_KEY"];
+  if (!key) return null;
+
+  try {
+    const response = await fetch(IMAGE_URL, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "gpt-image-1",
+        prompt:
+          `Editorial illustration for a blog article. ${scene}. ` +
+          `Light high-key studio photography style, warm cream and soft beige palette, ` +
+          `clean minimal composition, subtle abstract connective line accents, no text, no logos, no watermarks.`,
+        size: "1536x1024",
+        quality: "medium",
+        n: 1,
+      }),
+    });
+    if (!response.ok) {
+      console.error(`[daily-blog] image generation failed (${response.status})`);
+      return null;
+    }
+    const payload = (await response.json()) as { data?: { b64_json?: string }[] };
+    const b64 = payload.data?.[0]?.b64_json;
+    if (!b64) return null;
+
+    const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+    const name = `${slug}-${index}-${Date.now()}.png`;
+    const { error } = await supabase.storage
+      .from("blog-images")
+      .upload(name, bytes, { contentType: "image/png", upsert: true });
+    if (error) {
+      console.error(`[daily-blog] image upload failed: ${error.message}`);
+      return null;
+    }
+    return `/api/public/blog-image/${name}`;
+  } catch (error) {
+    console.error("[daily-blog] image generation error", error);
+    return null;
+  }
+}
+
+function buildHtml(
+  post: GeneratedPost,
+  toolName: string,
+  image: string,
+  secondImage?: string | null,
+): string {
   const parts: string[] = [`<p>${inlineMarkdown(post.intro)}</p>`];
   post.sections.forEach((section, index) => {
     parts.push(`<h2>${inlineMarkdown(section.heading)}</h2>`);
@@ -267,6 +326,11 @@ function buildHtml(post: GeneratedPost, toolName: string, image: string): string
     }
     if (index === 1) {
       parts.push(figure(image, `${toolName} in AmmarAI`, `${toolName} inside AmmarAI.`));
+    }
+    if (index === 3 && secondImage) {
+      parts.push(
+        figure(secondImage, `${post.title} illustration`, `Putting ${toolName} to work.`),
+      );
     }
   });
   if (post.faqs.length) {
