@@ -154,7 +154,7 @@ export const coreToolsB: Tool[] = [
       "ai-video-generator",
       "ai-image-to-video",
       "ai-voice-generator",
-      "video-script-generator",
+      "ad-script-generator",
     ],
   },
 
@@ -303,7 +303,7 @@ export const coreToolsB: Tool[] = [
       "ai-image-generator",
       "ai-video-generator",
       "ai-avatar-generator",
-      "video-script-generator",
+      "ad-script-generator",
     ],
   },
   {
@@ -462,7 +462,7 @@ export const coreToolsB: Tool[] = [
       "ai-document-analyzer",
       "ai-writer",
       "ai-vision",
-      "ai-summary-generator",
+      "bullet-point-answer-generator",
     ],
   },
   {
@@ -616,7 +616,7 @@ export const coreToolsB: Tool[] = [
       "ai-document-analyzer",
       "ai-chat",
       "ai-image-generator",
-      "ai-product-description-generator",
+      "why-choose-this-product",
       "ai-transcription",
     ],
   },
@@ -772,328 +772,10 @@ export const coreToolsB: Tool[] = [
     ],
     related: [
       "ai-vision",
-      "ai-summary-generator",
+      "bullet-point-answer-generator",
       "ai-chat",
       "ai-transcription",
       "ai-writer",
-    ],
-  },
-  {
-    slug: "ai-article-generator",
-    name: "AI Article Generator",
-    category: "AI Writing",
-    summary:
-      "Produce full, structured articles built around a topic and a search intent, headings included.",
-    title: "AI Article Generator: Full Structured Articles | AmmarAI",
-    description:
-      "Generate complete articles with a real structure: outline, headings, examples and a meta description you can edit.",
-    h1: "A complete article, structured before it is written",
-    lede: "Give it a topic and an audience and get a full article with a defensible structure, headings, examples and a meta description ready to edit.",
-    ctaLabel: "Generate an article",
-    popular: true,
-    what: [
-      "The AI Article Generator produces long-form articles end to end. Unlike an open writing surface, it works structurally: it establishes what question the article answers, builds an outline with headings that match how people actually search, then writes each section against that plan. The result is a piece with a spine rather than a thousand words of pleasant drift.",
-      "It sits between two neighbours. AI Writer is the open editor you use when the format is undefined. The AI Blog Generator is tuned for the conventions of blog publishing, including a personal register and a content calendar workflow. The article generator is for the substantial reference piece: the guide, the explainer, the comparison, the how-to that has to answer the question completely.",
-      "It gives you a strong draft, not a finished publication. The examples need to become your examples, the claims need checking, and the parts only you know from doing the work are what will make the piece worth reading.",
-    ],
-    canDo: [
-      "Generate a full article from a topic, audience and intent",
-      "Produce an editable outline before committing to prose",
-      "Write with a logical H2 and H3 hierarchy",
-      "Include worked examples, comparisons and step sequences",
-      "Draft a meta description and title options alongside the body",
-      "Suggest internal links to related pieces you already have",
-      "Adjust depth and length section by section",
-    ],
-    how: [
-      {
-        title: "Define the question the article answers",
-        body: "A single clear question produces a coherent article. \"How should a small e-commerce team choose between flat-rate and calculated shipping?\" beats \"shipping\".",
-      },
-      {
-        title: "Approve the outline",
-        body: "Read the proposed headings and fix the structure first. Every structural problem you leave in the outline gets multiplied in the draft.",
-      },
-      {
-        title: "Generate section by section",
-        body: "Write the piece in parts: keep the sections that landed, rework the weak ones, leave the rest alone.",
-      },
-      {
-        title: "Add what only you have",
-        body: "Insert your own examples, numbers, screenshots and hard-won caveats. This is the difference between a page worth publishing and one that is not.",
-      },
-      {
-        title: "Finish the metadata",
-        body: "Edit the generated title and meta description so they promise exactly what the page delivers.",
-      },
-    ],
-    examples: [
-      {
-        label: "Comparison guide",
-        input:
-          "Topic: flat-rate vs calculated shipping for small stores. Audience: owner-operators shipping under 200 orders a month. Intent: decide.",
-        output:
-          "An outline covering how each model works, cost behaviour at low volume, the effect on cart abandonment, when to switch, and a decision checklist, followed by the drafted sections.",
-      },
-      {
-        label: "How-to",
-        input: "Topic: setting up a weekly content review. Audience: two-person marketing teams.",
-        output:
-          "A step-structured article with a worked weekly schedule, the three meetings that are worth keeping, and the failure modes of each…",
-      },
-    ],
-    capabilities: [
-      {
-        title: "Outline-first workflow",
-        body: "Structure is agreed before prose is written, which is where article quality is actually decided.",
-      },
-      {
-        title: "Intent alignment",
-        body: "The format follows the intent: comparisons get tables, how-tos get steps, definitions get clear explanation.",
-      },
-      {
-        title: "Metadata generation",
-        body: "Title options and a meta description are produced with the article rather than as an afterthought.",
-      },
-      {
-        title: "Internal link suggestions",
-        body: "Recommends where to link to related pieces using descriptive anchor text.",
-      },
-      {
-        title: "Section-level regeneration",
-        body: "Rework a single section without disturbing the rest of the article.",
-      },
-    ],
-    audiences: [
-      {
-        who: "Content marketers",
-        why: "Produce the substantial pieces that carry a content programme, faster.",
-      },
-      {
-        who: "Solo founders",
-        why: "Publish a real guide about your domain without losing a full day to it.",
-      },
-      {
-        who: "Agencies",
-        why: "Get a consistent structural baseline across writers and clients.",
-      },
-      {
-        who: "Subject experts",
-        why: "Get the scaffolding written so your attention goes into the parts only you can write.",
-      },
-    ],
-    useCases: [
-      {
-        title: "Pillar page production",
-        body: "Generate the comprehensive guide, add your own data and screenshots, then link out to the narrower pieces around it.",
-      },
-      {
-        title: "Refreshing an old article",
-        body: "Feed in the existing piece, generate a better structure, and rebuild it around what has changed since publication.",
-      },
-      {
-        title: "Turning a talk into an article",
-        body: "Paste the transcript, ask for an article structure that keeps the argument, and edit it into a written register.",
-      },
-    ],
-    tips: [
-      "Fix the outline properly. Ten minutes there saves an hour of rewriting.",
-      "Name the audience precisely; \"marketers\" and \"two-person B2B marketing teams\" produce very different articles.",
-      "Replace generic examples with your own before publishing. Generic examples are the clearest tell of unedited output.",
-      "Cut ruthlessly. Most generated drafts are twenty percent longer than the argument requires.",
-      "Verify every statistic, quotation and product claim.",
-    ],
-    mistakes: [
-      "Publishing the draft unedited, which produces a page nobody would miss if it vanished.",
-      "Chasing a word count rather than answering the question completely.",
-      "Generating dozens of near-identical articles on the same topic with different keywords.",
-      "Skipping the meta description and letting search engines invent one.",
-    ],
-    faqs: [
-      {
-        q: "How long are the generated articles?",
-        a: "Typically 1,000 to 2,500 words depending on the topic, and you can set the target. Length should follow the question, not the other way around.",
-      },
-      {
-        q: "Will the content be original?",
-        a: "The text is generated rather than copied, but generated writing is only as distinctive as the input. Adding your own examples and experience is what makes a page genuinely original.",
-      },
-      {
-        q: "Is this different from the AI Blog Generator?",
-        a: "Yes. The blog generator is tuned for blog conventions and a publishing cadence. The article generator is aimed at substantial reference pieces with a fuller structure.",
-      },
-      {
-        q: "Can it write about my niche?",
-        a: "It can structure and draft almost any topic, but depth in a specialist niche comes from the context you provide. Feed it your notes, docs and data.",
-      },
-      {
-        q: "Does it help with SEO?",
-        a: "It helps with structure, coverage and metadata, which are within your control. No tool can promise rankings, and any that does is not being straight with you.",
-      },
-    ],
-    related: [
-      "ai-blog-generator",
-      "ai-rewriter",
-      "meta-description-generator",
-      "faq-generator",
-      "ai-writer",
-    ],
-  },
-  {
-    slug: "ai-rewriter",
-    name: "AI Rewriter",
-    category: "AI Writing",
-    summary:
-      "Rework existing text: change tone, tighten, simplify or restructure while keeping the meaning.",
-    title: "AI Rewriter: Rework Text Without Losing Meaning | AmmarAI",
-    description:
-      "Rewrite existing text to change tone, length, clarity or structure while keeping the original meaning intact.",
-    h1: "You already wrote it. This makes it better.",
-    lede: "Paste text that is nearly right and rework it: shorter, clearer, warmer, more formal, better structured, without losing what it actually said.",
-    ctaLabel: "Rewrite text",
-    popular: true,
-    what: [
-      "AI Rewriter starts from text that already exists. You paste it, say what should change, and get a version that keeps the meaning while altering tone, length, complexity or structure. Because the source carries the facts, rewriting is usually more reliable than generating from scratch: there is less room for the model to invent things.",
-      "The library has several rewriting tools and they are genuinely different. AI Rewriter is the general-purpose one for any text and any goal. The AI Content Rewriter is aimed at marketing content and repurposing across channels. The SEO Content Rewriter is aimed at published pages where search intent and internal structure need to be preserved. Start here when the job is simply making a piece of writing better.",
-      "One thing it will not do is launder someone else's work. Rewriting a competitor's article to avoid plagiarism detection is still copying the substance, and it produces a page with nothing of your own in it. Rewrite your own material, or material you have the right to use.",
-    ],
-    canDo: [
-      "Shorten text to a target length without dropping key points",
-      "Shift register between formal, plain, warm, technical or persuasive",
-      "Simplify dense writing for a non-specialist reader",
-      "Restructure a rambling passage into a clear sequence",
-      "Remove hedging, jargon and filler",
-      "Adapt one piece for a different audience or channel",
-      "Improve rhythm and sentence variety in text that reads flat",
-    ],
-    how: [
-      {
-        title: "Paste the source",
-        body: "Bring in the paragraph, section or full document you want reworked. More context produces better decisions about what to keep.",
-      },
-      {
-        title: "Say what should change and what must not",
-        body: "\"Half the length, keep every number and the warning about data loss, plainer language\" is a rewriting brief. \"Make it better\" is not.",
-      },
-      {
-        title: "Compare against the original",
-        body: "Read the two side by side and check that nothing important quietly disappeared. Compression is where meaning gets lost.",
-      },
-      {
-        title: "Iterate on the parts that missed",
-        body: "Rewrite individual passages again rather than accepting a whole-document version that is eighty percent right.",
-      },
-    ],
-    examples: [
-      {
-        label: "Simplify for a general reader",
-        input:
-          "Rewrite for a non-technical customer: 'Authentication tokens are invalidated upon credential rotation, necessitating re-authentication across active sessions.'",
-        output:
-          "When you change your password, everyone signed in on your account gets signed out and will need to log in again.",
-      },
-      {
-        label: "Compress a section",
-        input: "Cut this 380-word update to 150 words. Keep both dates and the migration warning.",
-        output:
-          "A 148-word version retaining both dates and the warning, with the background paragraph and the repeated apology removed.",
-      },
-    ],
-    capabilities: [
-      {
-        title: "Meaning preservation",
-        body: "Rewrites work from your source, so facts and specifics stay anchored to what you wrote.",
-      },
-      {
-        title: "Targeted length control",
-        body: "Compress or expand to a specific target while protecting the content you flag as essential.",
-      },
-      {
-        title: "Register shifting",
-        body: "Change formality and warmth without rewriting the substance underneath.",
-      },
-      {
-        title: "Structural rework",
-        body: "Reorder an argument into a sequence a reader can follow.",
-      },
-      {
-        title: "Side-by-side review",
-        body: "Compare the original and the rewrite so nothing important is lost silently.",
-      },
-    ],
-    audiences: [
-      {
-        who: "Editors",
-        why: "Handle a first pass on tone and length so human editing goes to substance.",
-      },
-      {
-        who: "Support and product teams",
-        why: "Turn internally written explanations into something a customer will understand.",
-      },
-      {
-        who: "Non-native English writers",
-        why: "Keep your own argument and ideas while smoothing phrasing and rhythm.",
-      },
-      {
-        who: "Marketers",
-        why: "Adapt one strong piece for different audiences without rewriting from zero.",
-      },
-    ],
-    useCases: [
-      {
-        title: "Internal doc to customer doc",
-        body: "Take the engineering-written explanation, rewrite it for customers, and check that no internal detail leaked through.",
-      },
-      {
-        title: "Cutting to fit",
-        body: "Compress an approved 800-word piece into the 300 words the newsletter slot allows, protecting the specifics.",
-      },
-      {
-        title: "Tone repair",
-        body: "Rework a reply that reads defensive into one that reads accountable, without changing the facts of what happened.",
-      },
-    ],
-    tips: [
-      "State explicitly what must survive the rewrite. Numbers, names and warnings are the usual casualties.",
-      "Rewrite in sections for long documents; whole-document rewrites drift.",
-      "Ask for two versions with different degrees of change and pick between them.",
-      "Read the rewrite aloud. Awkward rhythm is easier to hear than to see.",
-      "Keep the original. You will sometimes want to go back.",
-    ],
-    mistakes: [
-      "Rewriting someone else's article and treating the result as your own content.",
-      "Compressing aggressively without checking which details vanished.",
-      "Running the same text through repeated rewrites until all the specificity is gone.",
-      "Using a rewrite to hide that the underlying argument is weak.",
-    ],
-    faqs: [
-      {
-        q: "Does rewriting change the meaning?",
-        a: "It should not, and it usually does not, but compression is the risky operation. Always compare against the source and flag the details that must survive.",
-      },
-      {
-        q: "How is this different from the AI Content Rewriter?",
-        a: "AI Rewriter is general purpose for any text and any goal. The AI Content Rewriter focuses on marketing content and repurposing a piece across channels and formats.",
-      },
-      {
-        q: "Can I use it to avoid plagiarism?",
-        a: "No, and you should not try. Rewording someone else's work is still using their work. Rewrite material you wrote or have the right to use.",
-      },
-      {
-        q: "Will it fix grammar too?",
-        a: "Yes as a side effect, though the AI Grammar Checker is the better tool when correctness is the only thing you want changed.",
-      },
-      {
-        q: "Can it rewrite in another language?",
-        a: "Yes, it can rework and translate at the same time, keeping the structure of the original intact.",
-      },
-    ],
-    related: [
-      "ai-content-rewriter",
-      "seo-content-rewriter",
-      "ai-tone-changer",
-      "ai-grammar-checker",
-      "ai-summary-generator",
     ],
   },
 ];

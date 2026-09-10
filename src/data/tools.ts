@@ -3,9 +3,6 @@ import { coreToolsA } from "./tools-core-a";
 import { coreToolsB } from "./tools-core-b";
 import { seoAnalyzerTools } from "./tools-seo-analyzer";
 import { chatbotTools } from "./tools-chatbots";
-import { writingTools } from "./tools-writing";
-import { marketingTools } from "./tools-marketing";
-import { commerceSeoTools } from "./tools-commerce-seo";
 import { platformTools } from "./tools-platform";
 import { agentTools } from "./tools-agents";
 import { engagementTools } from "./tools-engagement";
@@ -34,9 +31,6 @@ export const tools: Tool[] = [
   ...seoAnalyzerTools,
   ...platformTools,
   ...chatbotTools,
-  ...writingTools,
-  ...marketingTools,
-  ...commerceSeoTools,
   ...blogTemplateTools,
   ...ecommerceTemplateTools,
   ...socialTemplateTools,
@@ -58,6 +52,7 @@ export function getTool(slug: string): Tool | undefined {
 }
 
 export const categoryOrder: ToolCategory[] = [
+  "AI Templates",
   "AI Agents",
   "AI Sales & CRM",
   "AI Writing",
@@ -98,6 +93,18 @@ export const recentTools = tools.filter((t) => t.recent).slice(0, 6);
 /** Frontend-only intent matcher used by the discovery search. No AI backend. */
 const intentMap: { keywords: string[]; slugs: string[] }[] = [
   {
+    keywords: ["template", "templates", "generator", "generators", "quick copy", "short copy", "framework"],
+    slugs: [
+      "article-wizard",
+      "facebook-post-generator",
+      "why-choose-this-product",
+      "welcome-email-generator",
+      "ai-content-detector",
+      "ad-script-generator",
+      "ai-resume-builder",
+    ],
+  },
+  {
     keywords: ["agent", "agents", "automation", "automate", "workflow", "autonomous", "assistant that works"],
     slugs: [
       "ai-agent-builder",
@@ -109,7 +116,7 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
   },
   {
     keywords: ["crm", "pipeline", "deal", "deals", "lead", "leads", "sales", "follow up", "follow-up"],
-    slugs: ["ai-crm", "ai-phone-agent", "ai-agent-builder", "ai-email-generator", "ai-chat-bots"],
+    slugs: ["ai-crm", "ai-phone-agent", "ai-agent-builder", "welcome-email-generator", "ai-chat-bots"],
   },
   {
     keywords: ["phone", "call", "calls", "voice agent", "answering", "receptionist", "booking"],
@@ -118,7 +125,7 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
 
   {
     keywords: ["chatbot", "chat bot", "assistant", "coach", "counselor", "advisor", "expert"],
-    slugs: ["ai-chat-bots", "ai-chat", "ai-personas", "ai-writer", "ai-summary-generator"],
+    slugs: ["ai-chat-bots", "ai-chat", "ai-personas", "ai-writer", "bullet-point-answer-generator"],
   },
   {
     keywords: [
@@ -171,21 +178,21 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
   {
     keywords: ["social", "ad", "advert", "campaign", "promo"],
     slugs: [
-      "facebook-ad-generator",
-      "instagram-caption-generator",
-      "ai-ad-generator",
+      "facebook-post-generator",
+      "instagram-reel-script-generator",
+      "ad-script-generator",
       "ai-image-generator",
-      "video-script-generator",
+      "ad-script-generator",
     ],
   },
   {
     keywords: ["blog", "article", "post", "write", "essay"],
     slugs: [
-      "ai-article-generator",
-      "ai-blog-generator",
+      "article-wizard",
+      "article-wizard",
       "ai-writer",
-      "meta-description-generator",
-      "ai-blog-title-generator",
+      "landing-page-copy-generator",
+      "blog-ideas-generator",
     ],
   },
   {
@@ -267,7 +274,7 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
       "video seo",
       "thumbnail title description",
     ],
-    slugs: ["ai-youtube-publisher", "ai-video-editor", "ai-captions", "youtube-title-generator", "ai-video-generator"],
+    slugs: ["ai-youtube-publisher", "ai-video-editor", "ai-captions", "clickbait-title-generator", "ai-video-generator"],
   },
   {
     keywords: ["video", "reel", "short", "youtube", "tiktok"],
@@ -279,8 +286,8 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
       "ai-ugc-generator",
       "ai-youtube-publisher",
       "ai-image-to-video",
-      "video-script-generator",
-      "youtube-title-generator",
+      "ad-script-generator",
+      "clickbait-title-generator",
     ],
   },
 
@@ -291,7 +298,7 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
       "ai-text-to-speech",
       "ai-transcription",
       "ai-speech-to-text",
-      "video-script-generator",
+      "ad-script-generator",
     ],
   },
   {
@@ -311,16 +318,16 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
       "ai-avatar-generator",
       "ai-image-to-video",
       "ai-vision",
-      "instagram-caption-generator",
+      "instagram-reel-script-generator",
     ],
   },
   {
     keywords: ["product", "shop", "store", "ecommerce", "amazon", "listing"],
     slugs: [
-      "ai-product-description-generator",
-      "amazon-product-title-generator",
-      "product-benefits-generator",
-      "product-comparison-generator",
+      "why-choose-this-product",
+      "product-name-generator",
+      "why-choose-this-product",
+      "product-review-generator",
       "ai-image-generator",
     ],
   },
@@ -328,26 +335,26 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
     keywords: ["seo", "keyword", "rank", "search", "meta"],
     slugs: [
       "ai-seo-analyzer",
-      "ai-seo-content-generator",
-      "meta-description-generator",
-      "faq-generator",
-      "seo-blog-generator",
-      "keyword-based-rewriter",
+      "keyword-generator",
+      "landing-page-copy-generator",
+      "website-copy-generator",
+      "article-wizard",
+      "ai-rephraser",
     ],
   },
   {
     keywords: ["audit", "seo score", "site score", "readability", "difficulty", "search volume", "analyze url", "analyse url"],
-    slugs: ["ai-seo-analyzer", "ai-seo-content-generator", "meta-description-generator"],
+    slugs: ["ai-seo-analyzer", "keyword-generator", "landing-page-copy-generator"],
   },
 
   {
     keywords: ["email", "newsletter", "outreach", "cold", "subject"],
     slugs: [
-      "ai-email-generator",
-      "ai-cold-email-generator",
-      "ai-email-subject-line-generator",
-      "newsletter-generator",
-      "ai-follow-up-email-generator",
+      "welcome-email-generator",
+      "welcome-email-generator",
+      "welcome-email-generator",
+      "welcome-email-generator",
+      "reply-email-generator",
     ],
   },
   {
@@ -358,7 +365,7 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
     keywords: ["document", "pdf", "contract", "report", "summar", "transcript"],
     slugs: [
       "ai-document-analyzer",
-      "ai-summary-generator",
+      "bullet-point-answer-generator",
       "ai-transcription",
       "ai-vision",
       "ai-chat",
@@ -366,7 +373,7 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
   },
   {
     keywords: ["plagiarism", "original", "copied", "duplicate", "ai detector", "detect"],
-    slugs: ["ai-plagiarism-detector", "ai-content-rewriter", "ai-grammar-checker"],
+    slugs: ["ai-plagiarism-detector", "ai-rephraser", "ai-proofreader"],
   },
   {
     keywords: ["present", "slides", "slide", "deck", "powerpoint", "pptx", "keynote"],
@@ -386,7 +393,7 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
   },
   {
     keywords: ["marketing", "strategy", "campaign plan", "launch", "go to market", "offer", "positioning"],
-    slugs: ["ai-marketing-bot", "ai-ad-generator", "ai-social-media-agent", "ai-email-generator"],
+    slugs: ["ai-marketing-bot", "ad-script-generator", "ai-social-media-agent", "welcome-email-generator"],
   },
   {
     keywords: ["url", "product link", "influencer", "clip", "repurpose", "shorts"],

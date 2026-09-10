@@ -157,13 +157,7 @@ export const coreToolsA: Tool[] = [
         a: "Every plan includes it, including Free. Higher plans raise the monthly word allowance and unlock advanced models, saved tone profiles and longer documents.",
       },
     ],
-    related: [
-      "ai-article-generator",
-      "ai-rewriter",
-      "ai-tone-changer",
-      "ai-summary-generator",
-      "ai-grammar-checker",
-    ],
+    related: ["article-wizard", "ai-rephraser", "bullet-point-answer-generator", "ai-proofreader"],
   },
   {
     slug: "ai-chat",
@@ -518,7 +512,7 @@ export const coreToolsA: Tool[] = [
       "ai-image-to-video",
       "ai-avatar-generator",
       "ai-video-generator",
-      "instagram-caption-generator",
+      "instagram-reel-script-generator",
       "ai-vision",
     ],
   },
@@ -692,9 +686,9 @@ export const coreToolsA: Tool[] = [
     ],
     related: [
       "ai-image-to-video",
-      "video-script-generator",
+      "ad-script-generator",
       "ai-voice-generator",
-      "tiktok-script-generator",
+      "instagram-reel-script-generator",
       "ai-video-editor",
       "ai-captions",
       "ai-dubbing",
@@ -849,7 +843,7 @@ export const coreToolsA: Tool[] = [
     related: [
       "ai-text-to-speech",
       "ai-video-generator",
-      "video-script-generator",
+      "ad-script-generator",
       "ai-transcription",
       "ai-avatar-generator",
     ],
@@ -992,9 +986,9 @@ export const coreToolsA: Tool[] = [
     related: [
       "ai-voice-generator",
       "ai-transcription",
-      "ai-summary-generator",
+      "bullet-point-answer-generator",
       "ai-document-analyzer",
-      "ai-article-generator",
+      "article-wizard",
     ],
   },
   {
@@ -1136,7 +1130,7 @@ export const coreToolsA: Tool[] = [
     related: [
       "ai-transcription",
       "ai-writer",
-      "ai-summary-generator",
+      "bullet-point-answer-generator",
       "ai-text-to-speech",
       "ai-chat",
     ],
@@ -1295,7 +1289,7 @@ export const coreToolsA: Tool[] = [
     ],
     related: [
       "ai-speech-to-text",
-      "ai-summary-generator",
+      "bullet-point-answer-generator",
       "ai-document-analyzer",
       "ai-video-generator",
       "ai-text-to-speech",

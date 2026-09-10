@@ -9,9 +9,9 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { SITE, REGISTER_URL } from "@/lib/site";
 
-const title = "All AI Tools: 60+ Generators in One Workspace | AmmarAI";
+const title = "All AI Tools: 130+ Tools & Templates in One Workspace | AmmarAI";
 const description =
-  "Browse every AmmarAI tool: writing, chat, images, video, voice, transcription, vision, documents, SEO, e-commerce and code.";
+  "Browse every AmmarAI tool and template: writing, chat, images, video, voice, transcription, vision, documents, SEO, e-commerce, code and 99 ready-made templates.";
 
 export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },
@@ -51,6 +51,24 @@ function ToolsDirectory() {
     if (query.trim()) return suggestions;
     return category === "All" ? tools : tools.filter((t) => t.category === category);
   }, [query, category, suggestions, tools]);
+
+  // When browsing (not searching), AI Templates render grouped by topic.
+  const browsing = !query.trim();
+  const regularTools = filtered.filter((t) => t.category !== "AI Templates");
+  const templateGroups = useMemo(() => {
+    const order: string[] = [];
+    const byGroup = new Map<string, typeof tools>();
+    for (const t of filtered) {
+      if (t.category !== "AI Templates") continue;
+      const g = t.templateGroup ?? "More";
+      if (!byGroup.has(g)) {
+        byGroup.set(g, []);
+        order.push(g);
+      }
+      byGroup.get(g)!.push(t);
+    }
+    return order.map((g) => ({ group: g, tools: byGroup.get(g)! }));
+  }, [filtered, tools]);
 
   return (
     <div>
@@ -133,11 +151,35 @@ function ToolsDirectory() {
               “voiceover” or “product photo”.
             </p>
           ) : (
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((tool) => (
-                <ToolCard key={tool.slug} tool={tool} />
-              ))}
-            </div>
+            <>
+              {regularTools.length > 0 && (
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {regularTools.map((tool) => (
+                    <ToolCard key={tool.slug} tool={tool} />
+                  ))}
+                </div>
+              )}
+              {browsing &&
+                templateGroups.map(({ group, tools: groupTools }) => (
+                  <div key={group} className="mt-12">
+                    <h2 className="text-xl font-semibold tracking-tight">
+                      {category === "AI Templates" ? group : `${group} templates`}
+                    </h2>
+                    <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {groupTools.map((tool) => (
+                        <ToolCard key={tool.slug} tool={tool} />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              {!browsing && templateGroups.length > 0 && (
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {templateGroups.flatMap((g) =>
+                    g.tools.map((tool) => <ToolCard key={tool.slug} tool={tool} />),
+                  )}
+                </div>
+              )}
+            </>
           )}
         </Container>
       </Section>

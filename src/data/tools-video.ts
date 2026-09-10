@@ -105,7 +105,7 @@ export const videoTools: Tool[] = [
     tips: sharedTips,
     mistakes: ["Writing claims the product cannot support", "Making the delivery too polished to feel authentic", "Showing a product different from the real item"],
     faqs: [{ q: "Is the output a real video?", a: "Yes. Each sample and finished generation is a playable vertical video." }, { q: "Can I generate several hooks?", a: "Yes. Keep the body constant and vary the opening for testing." }],
-    related: ["ai-video-generator", "ai-avatar-generator", "ai-captions", "ai-ad-generator"],
+    related: ["ai-video-generator", "ai-avatar-generator", "ai-captions", "ad-script-generator"],
   },
   {
     slug: "ai-youtube-publisher",
@@ -128,6 +128,6 @@ export const videoTools: Tool[] = [
     tips: sharedTips,
     mistakes: ["Writing metadata unrelated to the actual clip", "Publishing without checking the first frame", "Letting captions sit under platform controls"],
     faqs: [{ q: "Does it edit the video too?", a: "Yes. It can create the finished cut before preparing the publishing package." }, { q: "Does it publish automatically?", a: "Only after approval; you choose whether to publish now or schedule it." }],
-    related: ["ai-video-editor", "ai-captions", "youtube-title-generator", "youtube-description-generator"],
+    related: ["ai-video-editor", "ai-captions", "clickbait-title-generator", "video-description-generator"],
   },
 ];

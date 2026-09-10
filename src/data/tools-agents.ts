@@ -409,7 +409,7 @@ export const agentTools: Tool[] = [
         a: "They are generated from your live deals and contacts at the moment you ask, not from a stale export.",
       },
     ],
-    related: ["ai-phone-agent", "ai-agent-builder", "ai-chat-bots", "ai-email-generator", "ai-chat"],
+    related: ["ai-phone-agent", "ai-agent-builder", "ai-chat-bots", "welcome-email-generator", "ai-chat"],
   },
   {
     slug: "ai-social-media-agent",
@@ -548,9 +548,9 @@ export const agentTools: Tool[] = [
     related: [
       "ai-blogger-agent",
       "ai-agent-builder",
-      "instagram-caption-generator",
+      "instagram-reel-script-generator",
       "ai-image-generator",
-      "video-script-generator",
+      "ad-script-generator",
     ],
   },
   {
@@ -687,12 +687,6 @@ export const agentTools: Tool[] = [
         a: "Yes. Run a separate agent per site, each with its own topic, tone, cadence and publishing target.",
       },
     ],
-    related: [
-      "ai-article-generator",
-      "ai-social-media-agent",
-      "ai-agent-builder",
-      "ai-seo-content-generator",
-      "ai-blog-generator",
-    ],
+    related: ["article-wizard", "ai-social-media-agent", "ai-agent-builder", "keyword-generator"],
   },
 ];

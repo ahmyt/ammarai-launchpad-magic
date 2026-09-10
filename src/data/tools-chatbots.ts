@@ -165,7 +165,7 @@ export const chatbotTools: Tool[] = [
       "ai-writer",
       "ai-avatar-generator",
       "ai-image-generator",
-      "ai-summary-generator",
+      "bullet-point-answer-generator",
     ],
   },
 ];
