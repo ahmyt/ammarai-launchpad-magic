@@ -39,6 +39,9 @@ results still land somewhere useful instead of an error page.
 
 ## Pages that stay
 
+The AI Plagiarism Detector page also stays as-is in AI Writing (kept per your
+decision); no AI detector page is added.
+
 All flagship workspaces stay in their functional categories: AI Writer, AI Chat Pro,
 AI Personas & Skills, AI Command Search, AI Chat Bots, External Chatbot Builder,
 AI Image Pro, AI Image Editor, AI Photoshoot, AI Virtual Try-On, AI Creative Suite,
