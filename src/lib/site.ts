@@ -133,7 +133,7 @@ export const plans = [
     features: [
       "Everything in Professional",
       "Highest allowances across every tool",
-      "Team collaboration and shared workspaces",
+      "Team seats with a shared credit pool and shared personas",
       "Bulk generation workflows",
       "Extended file uploads and document analysis",
     ],
