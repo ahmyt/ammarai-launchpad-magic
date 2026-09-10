@@ -15,6 +15,7 @@ import { chatWorkspaceTools } from "./tools-chat";
 
 export const tools: Tool[] = [
   ...agentTools,
+  ...chatWorkspaceTools,
   ...engagementTools,
   ...visualTools,
   ...videoTools,
