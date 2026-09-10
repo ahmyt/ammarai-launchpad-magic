@@ -1,32 +1,23 @@
-# Fix Google `redirect_uri_mismatch`
+# Restore "Sync now" and "Write today's post" in the studio
 
-## Confirmed diagnosis
-- The screenshot is still Google's `Error 400: redirect_uri_mismatch`.
-- The current AmmarAI backend sends this exact callback to Google:
-  `https://ibaacwfkyipgzyvfpjsw.supabase.co/auth/v1/callback`
-- The backend already trusts `https://ammarai.com/**` and uses `https://ammarai.com` as its main site URL.
-- Therefore, this is now entirely a Google Cloud OAuth-client configuration mismatch—not a website code or AmmarAI redirect-list issue.
+## What's happening
 
-## Fix in Google Cloud Console
-1. Retry Google sign-in and open **Error details** on Google's error page.
-2. Note the displayed **client_id** and **redirect_uri**. The redirect URI must be exactly:
-   `https://ibaacwfkyipgzyvfpjsw.supabase.co/auth/v1/callback`
-3. In Google Cloud Console, open **APIs & Services → Credentials**.
-4. Open the **Web application** OAuth client whose Client ID exactly matches the `client_id` from Error details. This is important: adding the callback to a different OAuth client will not resolve the error.
-5. Under **Authorized redirect URIs**, add the exact callback above:
-   - HTTPS
-   - no spaces
-   - no wildcard
-   - no trailing slash
-6. Save and allow several minutes for Google’s configuration to propagate.
-7. Ensure the Client ID and its matching Client Secret from that same OAuth client are saved under **Backend → Users → Authentication Settings → Google**.
+The two buttons still exist on the **Synced articles** page of the studio, but they only appear for admin accounts. Right now the site cannot read anyone's access level, so even your admin account is treated as a normal user and the whole Synced articles tab stays hidden.
 
-## Verify
-- Retry from a private/incognito window at `https://ammarai.com/auth`.
-- Google should show the account/consent screen instead of `redirect_uri_mismatch`.
-- After authorization, the browser should return to AmmarAI and open `/admin`.
+Two separate causes, both confirmed:
 
-## If the next error changes
-- `Unable to exchange external code` means the redirect mismatch is fixed, but the backend has a Client Secret that does not match the configured Client ID. Replace both together from the same Google OAuth client.
+1. The access-level table has no read permission granted to signed-in users, so the site always sees "no roles" — verified: zero grants exist on that table.
+2. Your Google account (the one you signed in with a few minutes ago) has no admin access recorded; only the email/password account `ahmed@atntechnology.net` does.
 
-No website code change is required.
+## Fix
+
+1. Grant signed-in users permission to read the access-level table (and full access for backend/service code). Existing security rules already restrict each person to their own row, so this does not expose anyone else's data.
+2. Give admin access to the Google account as well, so signing in either way lands you in the studio with full rights.
+3. Reload the studio and confirm the **Synced articles** tab appears with the auto-sync selector, **Write today's post** and **Sync now** buttons.
+
+## Technical detail
+
+- Migration: `GRANT SELECT ON public.user_roles TO authenticated;` and `GRANT ALL ON public.user_roles TO service_role;` (RLS policies `Users can read their own roles` and `Admins manage roles` already exist and stay unchanged).
+- Insert an `admin` row in `public.user_roles` for the Google-provider user, idempotent via the existing `unique (user_id, role)` constraint.
+- No frontend changes: `src/hooks/useAuth.ts`, `src/routes/admin.tsx` and `src/routes/admin.articles.tsx` already implement the sync interval, `syncBabyLoveGrowthArticles` and `writeDailyBlogPost` actions.
+- Note: "Write today's post" runs against OpenAI, which is keyed only in the Plesk environment, so that button will work on the live site rather than in the preview.
