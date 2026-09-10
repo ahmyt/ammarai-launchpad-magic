@@ -40,7 +40,9 @@ results still land somewhere useful instead of an error page.
 ## Pages that stay
 
 The AI Plagiarism Detector page also stays as-is in AI Writing (kept per your
-decision); no AI detector page is added.
+decision). A new **AI Content Detector** page is added as well — the site has no
+such page today — under the new AI Templates category, with a text-in/verdict-out
+sample and a clear note that detector scores are indicative, not proof.
 
 All flagship workspaces stay in their functional categories: AI Writer, AI Chat Pro,
 AI Personas & Skills, AI Command Search, AI Chat Bots, External Chatbot Builder,
