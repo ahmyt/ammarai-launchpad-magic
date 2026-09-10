@@ -156,10 +156,10 @@ export function Home() {
                 One AI for everything you create
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-                Draft with AI Writer, think with Chat Pro, create with Image Pro and Video Pro,
-                build talking avatars, transcribe recordings and audit SEO. Add agents, CRM,
-                voiceovers, document analysis and code tools — all in one workspace that keeps your
-                brand voice and history together.
+                Build autonomous AI Agents, draft with AI Writer, think with Chat Pro, create with
+                Image Pro and Video Pro, build talking avatars, transcribe recordings and audit SEO.
+                Add CRM, voiceovers, document analysis and code tools — all in one workspace that
+                keeps your brand voice and history together.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3">
                 <ExternalButton href={REGISTER_URL} size="lg">
@@ -251,9 +251,8 @@ export function Home() {
         <Container>
           <SectionHeading
             eyebrow="Flagship tools"
-            title="Seven flagship tools, one workspace"
-            intro="AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video, Transcription and SEO Analyzer form the core of AmmarAI — seven focused tools for creating, understanding and improving your work."
-
+            title="Eight flagship tools, one workspace"
+            intro="AI Agent Builder, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video, Transcription and SEO Analyzer form the core of AmmarAI — eight focused tools for creating, understanding and improving your work."
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {featuredTools.map((tool) => (

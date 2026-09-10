@@ -87,6 +87,7 @@ export function toolsByCategory(category: ToolCategory) {
 }
 
 const flagshipSlugs = [
+  "ai-agent-builder",
   "ai-writer",
   "ai-chat",
   "ai-image-generator",
