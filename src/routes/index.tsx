@@ -14,7 +14,7 @@ import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
 const description =
-  "60+ AI tools in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.";
+  "130+ AI tools and templates in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.";
 
 const homeFaqs = [
   {

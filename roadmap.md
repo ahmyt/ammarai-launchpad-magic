@@ -30,3 +30,9 @@
 - [x] Search: Phase 4 tools (video editor, captions, dubbing, UGC, YouTube publisher) now matched by plain-language searches
 - [x] Footer: AI Video Editor added to the Create column
 - [ ] Decide whether AI Video Pro and AI Text to Video should be merged or clearly differentiated
+
+## AI Templates reorganization (done)
+- [x] Dedicated "AI Templates" category with templateGroup sub-grouping (Blog, Ecommerce, Social, Website, Advertising, Business, Academic, Communications, Lifestyle, Writing) on /ai-tools
+- [x] Removed 46 DaVinci-era generator pages (tools-writing/tools-marketing/tools-commerce-seo + ai-article-generator/ai-rewriter); 301 redirects in src/data/retired-tools.ts
+- [x] Kept ai-plagiarism-detector as-is; ai-content-detector lives in AI Templates (Writing group)
+- [x] Cross-links, search intent map, footer, keyword data updated; no DaVinci persona gallery added
