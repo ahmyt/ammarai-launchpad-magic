@@ -21,7 +21,7 @@ These older generator pages go away entirely:
 
 - Writing: Blog Generator, Blog Title, Blog Intro, Blog Conclusion, Content
   Rewriter, Paragraph, Summary, Story, Essay, Grammar Checker, Text Extender,
-  Tone Changer, Article Generator, Rewriter, Plagiarism Detector
+  Tone Changer, Article Generator, Rewriter
 - Email: Email, Cold Email, Follow-Up Email, Subject Line, Newsletter
 - Business: Press Release, Company Bio, Business Name
 - Ads: Ad Generator, Facebook Ad, Google Ads, LinkedIn Ad
@@ -38,6 +38,9 @@ or to the tool library when there is no close match, so existing links and searc
 results still land somewhere useful instead of an error page.
 
 ## Pages that stay
+
+The AI Plagiarism Detector page also stays as-is in AI Writing (kept per your
+decision); no AI detector page is added.
 
 All flagship workspaces stay in their functional categories: AI Writer, AI Chat Pro,
 AI Personas & Skills, AI Command Search, AI Chat Bots, External Chatbot Builder,
@@ -58,7 +61,7 @@ The 99 template pages all move under AI Templates.
 - Add optional `templateGroup?: string` to `Tool`; set it on every entry in the ten
   `tools-templates-*.ts` files and switch their `category` to `"AI Templates"`.
 - Delete the legacy entries from `tools-writing.ts`, `tools-marketing.ts`,
-  `tools-commerce-seo.ts`, and the plagiarism entry in `tools-platform.ts`;
+  `tools-commerce-seo.ts` (the plagiarism entry in `tools-platform.ts` stays);
   remove the now-empty files from the `tools.ts` imports.
 - Sweep every `related: [...]` array, `intentMap` slug list, `src/data/features.ts`,
   `src/data/use-cases.ts`, `src/data/posts.ts`, footer links and CMS overrides for
