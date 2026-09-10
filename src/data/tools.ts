@@ -12,6 +12,16 @@ import { engagementTools } from "./tools-engagement";
 import { visualTools } from "./tools-visual";
 import { videoTools } from "./tools-video";
 import { chatWorkspaceTools } from "./tools-chat";
+import { blogTemplateTools } from "./tools-templates-blog";
+import { ecommerceTemplateTools } from "./tools-templates-ecommerce";
+import { socialTemplateTools } from "./tools-templates-social";
+import { websiteTemplateTools } from "./tools-templates-website";
+import { advertisingTemplateTools } from "./tools-templates-advertising";
+import { businessTemplateTools } from "./tools-templates-business";
+import { academicTemplateTools } from "./tools-templates-academic";
+import { commsTemplateTools } from "./tools-templates-comms";
+import { lifestyleTemplateTools } from "./tools-templates-lifestyle";
+import { writerTemplateTools } from "./tools-templates-writer";
 
 export const tools: Tool[] = [
   ...agentTools,
@@ -27,6 +37,16 @@ export const tools: Tool[] = [
   ...writingTools,
   ...marketingTools,
   ...commerceSeoTools,
+  ...blogTemplateTools,
+  ...ecommerceTemplateTools,
+  ...socialTemplateTools,
+  ...websiteTemplateTools,
+  ...advertisingTemplateTools,
+  ...businessTemplateTools,
+  ...academicTemplateTools,
+  ...commsTemplateTools,
+  ...lifestyleTemplateTools,
+  ...writerTemplateTools,
 ];
 
 
