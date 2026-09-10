@@ -59,6 +59,9 @@ export const categoryOrder: ToolCategory[] = [
   "AI Documents",
   "AI Code",
   "AI Education",
+  "AI Career",
+  "AI Lifestyle",
+  "AI Legal",
   "AI Productivity",
 ];
 
