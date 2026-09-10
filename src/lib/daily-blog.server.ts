@@ -169,6 +169,38 @@ function escapeHtml(value: string): string {
     .replace(/>/g, "&gt;");
 }
 
+/** Human label for an AmmarAI URL, e.g. "AI Event Planner" instead of the raw address. */
+export function linkLabelFor(url: string): string | null {
+  const site = SITE.url.replace(/\/$/, "");
+  if (!url.startsWith(site)) return null;
+  const path = url.slice(site.length).replace(/^\/|\/$/g, "").split(/[?#]/)[0] ?? "";
+  if (!path) return SITE.name;
+
+  const known = tools.find((tool) => tool.slug === path);
+  if (known) return known.name;
+
+  const last = path.split("/").pop() ?? path;
+  return last
+    .split("-")
+    .map((word) => (word.length <= 2 ? word.toUpperCase() : word[0]!.toUpperCase() + word.slice(1)))
+    .join(" ");
+}
+
+/**
+ * Replaces links whose visible text is the raw URL with a readable label,
+ * so articles read "AI Event Planner" instead of "https://ammarai.com/event-planner".
+ */
+export function readableLinks(html: string): string {
+  return html.replace(
+    /<a href="(https?:\/\/[^"]+)"([^>]*)>\s*(https?:\/\/[^<]+?)\s*<\/a>/gi,
+    (match, href: string, attrs: string, text: string) => {
+      if (href.replace(/\/$/, "") !== text.replace(/\/$/, "")) return match;
+      const label = linkLabelFor(href);
+      return label ? `<a href="${href}"${attrs}>${escapeHtml(label)}</a>` : match;
+    },
+  );
+}
+
 /**
  * The model sometimes returns Markdown emphasis inside plain-text fields.
  * Convert it to real HTML so readers never see stray ** or __ markers.
@@ -186,7 +218,8 @@ function inlineMarkdown(value: string): string {
     // Turn any remaining bare URL into a real link (skips ones already inside an <a href="...">).
     .replace(
       /(^|[\s(])(https?:\/\/[^\s<>"')]*[^\s<>"').,;:!?])/g,
-      '$1<a href="$2">$2</a>',
+      (_m, lead: string, url: string) =>
+        `${lead}<a href="${url}">${escapeHtml(linkLabelFor(url) ?? url)}</a>`,
     );
 }
 
