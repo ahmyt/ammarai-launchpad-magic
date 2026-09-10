@@ -100,7 +100,7 @@ const recordConfirmationOutcome = async (
 
 // Bumped whenever the contact endpoint changes, so a deployed server can be
 // identified from GET /api/contact without guessing.
-const CONTACT_BUILD = "contact-tracking-v2";
+const CONTACT_BUILD = "contact-tracking-v3";
 
 export const Route = createFileRoute("/api/contact")({
   staticData: { sitemap: false },
