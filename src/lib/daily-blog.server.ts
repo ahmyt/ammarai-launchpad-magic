@@ -433,12 +433,27 @@ export async function writeDailyPost(
     : null;
 
   const now = new Date().toISOString();
-  const image = imageFor(tool.category);
+  const fallback = imageFor(tool.category);
+  const [hero, inline] = await Promise.all([
+    createArticleImage(
+      supabase,
+      slug,
+      1,
+      `Cover image for an article titled "${post.title}" about ${tool.name}: ${tool.summary}`,
+    ),
+    createArticleImage(
+      supabase,
+      slug,
+      2,
+      `Supporting scene for an article about ${tool.name} (${tool.category}): ${post.sections[1]?.heading ?? tool.summary}`,
+    ),
+  ]);
+  const image = hero ?? fallback;
   const row = {
     slug,
     external_id: `daily:${tool.slug}`,
     title: post.title,
-    content_html: buildHtml(post, tool.name, image),
+    content_html: buildHtml(post, tool.name, inline ?? image, hero && inline ? null : null),
     content_markdown: null,
     meta_description: post.metaDescription,
     hero_image_url: image,
