@@ -61,7 +61,7 @@ The 99 template pages all move under AI Templates.
 - Add optional `templateGroup?: string` to `Tool`; set it on every entry in the ten
   `tools-templates-*.ts` files and switch their `category` to `"AI Templates"`.
 - Delete the legacy entries from `tools-writing.ts`, `tools-marketing.ts`,
-  `tools-commerce-seo.ts`, and the plagiarism entry in `tools-platform.ts`;
+  `tools-commerce-seo.ts` (the plagiarism entry in `tools-platform.ts` stays);
   remove the now-empty files from the `tools.ts` imports.
 - Sweep every `related: [...]` array, `intentMap` slug list, `src/data/features.ts`,
   `src/data/use-cases.ts`, `src/data/posts.ts`, footer links and CMS overrides for
