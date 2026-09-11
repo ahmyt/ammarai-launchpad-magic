@@ -115,7 +115,7 @@ function AdminArticles() {
         <div>
           <h2 className="text-xl font-semibold">Synced articles</h2>
           <p className="mt-1 text-sm text-muted-foreground">
-            Articles pulled in automatically and published on the blog.
+            Articles pulled from BabyLoveGrowth or written by the daily AI blogger.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
