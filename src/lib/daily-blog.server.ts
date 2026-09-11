@@ -4,6 +4,7 @@
 import sanitizeHtml from "sanitize-html";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
+import { writerFromClient, type ArticleWriter } from "@/lib/cron-db.server";
 import { tools } from "@/data/tools";
 import { SITE } from "@/lib/site";
 import { getToolKeywords } from "@/data/tool-keywords";
@@ -262,7 +263,7 @@ const IMAGE_URL = "https://api.openai.com/v1/images/generations";
  * so every post gets its own picture instead of the shared category image.
  */
 async function createArticleImage(
-  supabase: SupabaseClient<Database>,
+  writer: ArticleWriter,
   slug: string,
   index: number,
   scene: string,
@@ -295,14 +296,7 @@ async function createArticleImage(
 
     const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
     const name = `${slug}-${index}-${Date.now()}.png`;
-    const { error } = await supabase.storage
-      .from("blog-images")
-      .upload(name, bytes, { contentType: "image/png", upsert: true });
-    if (error) {
-      console.error(`[daily-blog] image upload failed: ${error.message}`);
-      return null;
-    }
-    return `/api/public/blog-image/${name}`;
+    return writer.storeImage(name, "image/png", bytes);
   } catch (error) {
     console.error("[daily-blog] image generation error", error);
     return null;
@@ -361,7 +355,9 @@ function buildHtml(
 
 export async function writeDailyPost(
   supabase: SupabaseClient<Database>,
+  articleWriter?: ArticleWriter,
 ): Promise<DailyBlogResult> {
+  const writer = articleWriter ?? writerFromClient(supabase);
   const tool = await pickTool(supabase);
 
   const kw = getToolKeywords(tool.slug);
@@ -437,13 +433,13 @@ export async function writeDailyPost(
   const fallback = imageFor(tool.category);
   const [hero, inline] = await Promise.all([
     createArticleImage(
-      supabase,
+      writer,
       slug,
       1,
       `Cover image for an article titled "${post.title}" about ${tool.name}: ${tool.summary}`,
     ),
     createArticleImage(
-      supabase,
+      writer,
       slug,
       2,
       `Supporting scene for an article about ${tool.name} (${tool.category}): ${post.sections[1]?.heading ?? tool.summary}`,
@@ -475,10 +471,8 @@ export async function writeDailyPost(
     is_hidden: false,
   };
 
-  const { error } = await supabase
-    .from("syndicated_articles")
-    .upsert(row as never, { onConflict: "slug" });
-  if (error) throw new Error(error.message);
+  const { error } = await writer.upsertArticle(row);
+  if (error) throw new Error(error);
 
   return { slug, title: post.title, toolSlug: tool.slug };
 }
