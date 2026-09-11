@@ -4,6 +4,7 @@ import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { contentKinds, contentRowsQuery, staticItems } from "@/lib/content";
+import { allSyndicatedArticlesQuery } from "@/lib/articles";
 
 export const Route = createFileRoute("/admin/")({
   staticData: { sitemap: false },
