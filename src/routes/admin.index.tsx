@@ -4,6 +4,7 @@ import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { contentKinds, contentRowsQuery, staticItems } from "@/lib/content";
+import { allSyndicatedArticlesQuery } from "@/lib/articles";
 
 export const Route = createFileRoute("/admin/")({
   staticData: { sitemap: false },
@@ -14,6 +15,7 @@ function AdminOverview() {
   const { isAdmin, isEditor, refreshRoles } = useAuth();
   const queryClient = useQueryClient();
   const { data: rows = [] } = useQuery({ ...contentRowsQuery, enabled: isEditor });
+  const { data: articles = [] } = useQuery({ ...allSyndicatedArticlesQuery, enabled: isAdmin });
   const [claiming, setClaiming] = useState(false);
   const [claimMessage, setClaimMessage] = useState<string | null>(null);
 
@@ -56,9 +58,16 @@ function AdminOverview() {
       {isEditor ? (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {contentKinds.map((k) => {
-            const base = staticItems(k.kind).length;
+            const staticList = staticItems(k.kind);
             const custom = rows.filter((r) => r.kind === k.kind && !r.is_hidden).length;
-            const hidden = rows.filter((r) => r.kind === k.kind && r.is_hidden).length;
+            let hidden = rows.filter((r) => r.kind === k.kind && r.is_hidden).length;
+            let base = staticList.length;
+            if (k.kind === "post") {
+              const staticSlugs = new Set(staticList.map((i) => String(i["slug"])));
+              const extra = articles.filter((a) => !staticSlugs.has(a.slug));
+              base += extra.filter((a) => !a.is_hidden).length;
+              hidden += extra.filter((a) => a.is_hidden).length;
+            }
             return (
               <Link
                 key={k.kind}
