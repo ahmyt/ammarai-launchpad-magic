@@ -205,6 +205,15 @@ function AdminArticles() {
                   /blog/{article.slug} · {articleDate(article)}
                 </p>
               </div>
+              <span
+                className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ring-1 ${
+                  articleSource(article) === "Daily Writer"
+                    ? "bg-accent/10 text-accent ring-accent/30"
+                    : "bg-muted text-muted-foreground ring-border"
+                }`}
+              >
+                {articleSource(article)}
+              </span>
               <div className="flex items-center gap-3">
                 <span
                   className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ring-1 ${
