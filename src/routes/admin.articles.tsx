@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
-import { allSyndicatedArticlesQuery, articleDate } from "@/lib/articles";
+import { allSyndicatedArticlesQuery, articleDate, articleSource } from "@/lib/articles";
 import {
   getSyncSettings,
   setSyncInterval,
@@ -29,6 +29,7 @@ function AdminArticles() {
   const { isAdmin } = useAuth();
   const queryClient = useQueryClient();
   const [query, setQuery] = useState("");
+  const [sourceFilter, setSourceFilter] = useState<"all" | "BabyLoveGrowth" | "Daily Writer">("all");
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState<string | null>(null);
 
@@ -92,11 +93,13 @@ function AdminArticles() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return articles;
-    return articles.filter(
-      (a) => a.title.toLowerCase().includes(q) || a.slug.toLowerCase().includes(q),
-    );
-  }, [articles, query]);
+    return articles.filter((a) => {
+      const matchesQuery =
+        !q || a.title.toLowerCase().includes(q) || a.slug.toLowerCase().includes(q);
+      const matchesSource = sourceFilter === "all" || articleSource(a) === sourceFilter;
+      return matchesQuery && matchesSource;
+    });
+  }, [articles, query, sourceFilter]);
 
   const pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const current = Math.min(page, pages);
@@ -112,7 +115,7 @@ function AdminArticles() {
         <div>
           <h2 className="text-xl font-semibold">Synced articles</h2>
           <p className="mt-1 text-sm text-muted-foreground">
-            Articles pulled in automatically and published on the blog.
+            Articles pulled from BabyLoveGrowth or written by the daily AI blogger.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
@@ -160,16 +163,30 @@ function AdminArticles() {
 
       {status ? <p className="mt-3 text-sm text-muted-foreground">{status}</p> : null}
 
-      <input
-        type="search"
-        value={query}
-        onChange={(event) => {
-          setQuery(event.target.value);
-          setPage(1);
-        }}
-        placeholder="Search by title or slug"
-        className="mt-5 w-full rounded-md border border-border bg-background px-3 py-2 text-sm"
-      />
+      <div className="mt-5 flex flex-wrap items-center gap-3">
+        <input
+          type="search"
+          value={query}
+          onChange={(event) => {
+            setQuery(event.target.value);
+            setPage(1);
+          }}
+          placeholder="Search by title or slug"
+          className="flex-1 rounded-md border border-border bg-background px-3 py-2 text-sm"
+        />
+        <select
+          value={sourceFilter}
+          onChange={(event) => {
+            setSourceFilter(event.target.value as "all" | "BabyLoveGrowth" | "Daily Writer");
+            setPage(1);
+          }}
+          className="rounded-md border border-border bg-background px-3 py-2 text-sm"
+        >
+          <option value="all">All sources</option>
+          <option value="BabyLoveGrowth">BabyLoveGrowth</option>
+          <option value="Daily Writer">Daily Writer</option>
+        </select>
+      </div>
 
       {isLoading ? (
         <p className="mt-6 text-sm text-muted-foreground">Loading articles…</p>
@@ -188,7 +205,16 @@ function AdminArticles() {
                   /blog/{article.slug} · {articleDate(article)}
                 </p>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
+                <span
+                  className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ring-1 ${
+                    articleSource(article) === "Daily Writer"
+                      ? "bg-accent/10 text-accent ring-accent/30"
+                      : "bg-muted text-muted-foreground ring-border"
+                  }`}
+                >
+                  {articleSource(article)}
+                </span>
                 <span
                   className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ring-1 ${
                     article.is_hidden
