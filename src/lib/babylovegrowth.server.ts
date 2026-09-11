@@ -4,6 +4,7 @@ import sanitizeHtml from "sanitize-html";
 import { z } from "zod";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
+import { writerFromClient, type ArticleWriter } from "@/lib/cron-db.server";
 import { SITE } from "@/lib/site";
 
 // BabyLoveGrowth baked absolute URLs into article HTML while the site lived on
