@@ -303,38 +303,67 @@ async function createArticleImage(
   }
 }
 
+function headingId(text: string, used: Set<string>): string {
+  const base = slugify(text.replace(/<[^>]+>/g, "")) || "section";
+  let id = base;
+  let n = 2;
+  while (used.has(id)) id = `${base}-${n++}`;
+  used.add(id);
+  return id;
+}
+
 function buildHtml(
   post: GeneratedPost,
   toolName: string,
   image: string,
   secondImage?: string | null,
 ): string {
-  const parts: string[] = [`<p>${inlineMarkdown(post.intro)}</p>`];
+  const used = new Set<string>();
+  const toc: { id: string; label: string }[] = [];
+  const body: string[] = [];
+
   post.sections.forEach((section, index) => {
-    parts.push(`<h2>${inlineMarkdown(section.heading)}</h2>`);
-    for (const paragraph of section.paragraphs) parts.push(`<p>${inlineMarkdown(paragraph)}</p>`);
+    const heading = inlineMarkdown(section.heading);
+    const id = headingId(section.heading, used);
+    toc.push({ id, label: heading });
+    body.push(`<h2 id="${id}">${heading}</h2>`);
+    for (const paragraph of section.paragraphs) body.push(`<p>${inlineMarkdown(paragraph)}</p>`);
     if (section.bullets?.length) {
-      parts.push(
+      body.push(
         `<ul>${section.bullets.map((b) => `<li>${inlineMarkdown(b)}</li>`).join("")}</ul>`,
       );
     }
     if (index === 1) {
-      parts.push(figure(image, `${toolName} in AmmarAI`, `${toolName} inside AmmarAI.`));
+      body.push(figure(image, `${toolName} in AmmarAI`, `${toolName} inside AmmarAI.`));
     }
     if (index === 3 && secondImage) {
-      parts.push(
+      body.push(
         figure(secondImage, `${post.title} illustration`, `Putting ${toolName} to work.`),
       );
     }
   });
+
   if (post.faqs.length) {
-    parts.push(`<h2>Frequently asked questions</h2>`);
+    const id = headingId("frequently-asked-questions", used);
+    toc.push({ id, label: "Frequently asked questions" });
+    body.push(`<h2 id="${id}">Frequently asked questions</h2>`);
     for (const faq of post.faqs) {
-      parts.push(
+      body.push(
         `<h3>${inlineMarkdown(faq.question)}</h3><p>${inlineMarkdown(faq.answer)}</p>`,
       );
     }
   }
+
+  const parts: string[] = [`<p>${inlineMarkdown(post.intro)}</p>`];
+  if (toc.length > 2) {
+    parts.push(
+      `<nav class="article-toc"><h2 id="table-of-contents">Table of Contents</h2><ul>` +
+        toc.map((item) => `<li><a href="#${item.id}">${item.label}</a></li>`).join("") +
+        `</ul></nav>`,
+    );
+  }
+  parts.push(...body);
+
   const html = sanitizeHtml(parts.join("\n"), {
     allowedTags: [
       ...sanitizeHtml.defaults.allowedTags,
@@ -343,10 +372,14 @@ function buildHtml(
       "img",
       "figure",
       "figcaption",
+      "nav",
     ],
     allowedAttributes: {
       a: ["href", "rel", "target"],
       img: ["src", "alt", "loading", "width", "height"],
+      h2: ["id"],
+      h3: ["id"],
+      nav: ["class"],
     },
   });
   return readableLinks(html);
