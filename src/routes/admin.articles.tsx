@@ -93,11 +93,13 @@ function AdminArticles() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return articles;
-    return articles.filter(
-      (a) => a.title.toLowerCase().includes(q) || a.slug.toLowerCase().includes(q),
-    );
-  }, [articles, query]);
+    return articles.filter((a) => {
+      const matchesQuery =
+        !q || a.title.toLowerCase().includes(q) || a.slug.toLowerCase().includes(q);
+      const matchesSource = sourceFilter === "all" || articleSource(a) === sourceFilter;
+      return matchesQuery && matchesSource;
+    });
+  }, [articles, query, sourceFilter]);
 
   const pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const current = Math.min(page, pages);
