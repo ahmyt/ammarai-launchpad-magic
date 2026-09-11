@@ -15,6 +15,7 @@ function AdminOverview() {
   const { isAdmin, isEditor, refreshRoles } = useAuth();
   const queryClient = useQueryClient();
   const { data: rows = [] } = useQuery({ ...contentRowsQuery, enabled: isEditor });
+  const { data: articles = [] } = useQuery({ ...allSyndicatedArticlesQuery, enabled: isAdmin });
   const [claiming, setClaiming] = useState(false);
   const [claimMessage, setClaimMessage] = useState<string | null>(null);
 
