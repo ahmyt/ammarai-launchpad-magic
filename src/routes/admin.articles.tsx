@@ -29,6 +29,7 @@ function AdminArticles() {
   const { isAdmin } = useAuth();
   const queryClient = useQueryClient();
   const [query, setQuery] = useState("");
+  const [sourceFilter, setSourceFilter] = useState<"all" | "BabyLoveGrowth" | "Daily Writer">("all");
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState<string | null>(null);
 
