@@ -163,16 +163,30 @@ function AdminArticles() {
 
       {status ? <p className="mt-3 text-sm text-muted-foreground">{status}</p> : null}
 
-      <input
-        type="search"
-        value={query}
-        onChange={(event) => {
-          setQuery(event.target.value);
-          setPage(1);
-        }}
-        placeholder="Search by title or slug"
-        className="mt-5 w-full rounded-md border border-border bg-background px-3 py-2 text-sm"
-      />
+      <div className="mt-5 flex flex-wrap items-center gap-3">
+        <input
+          type="search"
+          value={query}
+          onChange={(event) => {
+            setQuery(event.target.value);
+            setPage(1);
+          }}
+          placeholder="Search by title or slug"
+          className="flex-1 rounded-md border border-border bg-background px-3 py-2 text-sm"
+        />
+        <select
+          value={sourceFilter}
+          onChange={(event) => {
+            setSourceFilter(event.target.value as "all" | "BabyLoveGrowth" | "Daily Writer");
+            setPage(1);
+          }}
+          className="rounded-md border border-border bg-background px-3 py-2 text-sm"
+        >
+          <option value="all">All sources</option>
+          <option value="BabyLoveGrowth">BabyLoveGrowth</option>
+          <option value="Daily Writer">Daily Writer</option>
+        </select>
+      </div>
 
       {isLoading ? (
         <p className="mt-6 text-sm text-muted-foreground">Loading articles…</p>
