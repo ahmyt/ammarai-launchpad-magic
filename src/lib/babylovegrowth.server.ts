@@ -146,8 +146,10 @@ export interface SyncResult {
 }
 
 export async function syncArticles(
-  supabase: SupabaseClient<Database>,
+  target: SupabaseClient<Database> | ArticleWriter,
 ): Promise<SyncResult> {
+  const writer: ArticleWriter =
+    "upsertArticle" in target ? (target as ArticleWriter) : writerFromClient(target);
   const result: SyncResult = { fetched: 0, upserted: 0, errors: [] };
 
   for (let page = 0; page < MAX_PAGES; page += 1) {
