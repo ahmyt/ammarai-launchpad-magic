@@ -5,6 +5,7 @@ export interface SyndicatedArticle {
   id: string;
   slug: string;
   title: string;
+  external_id: string | null;
   content_html: string | null;
   content_markdown: string | null;
   meta_description: string | null;
@@ -18,7 +19,7 @@ export interface SyndicatedArticle {
 }
 
 const COLUMNS =
-  "id, slug, title, content_html, content_markdown, meta_description, hero_image_url, json_ld, faq_json_ld, language_code, published_at, synced_at, is_hidden";
+  "id, slug, title, external_id, content_html, content_markdown, meta_description, hero_image_url, json_ld, faq_json_ld, language_code, published_at, synced_at, is_hidden";
 
 export async function fetchSyndicatedArticles(): Promise<SyndicatedArticle[]> {
   const { data, error } = await supabase
@@ -60,6 +61,11 @@ export function articleDate(article: SyndicatedArticle): string {
 
 export function articleExcerpt(article: SyndicatedArticle): string {
   return article.meta_description ?? "";
+}
+
+/** Source of the article: BabyLoveGrowth sync or the daily AI blog writer. */
+export function articleSource(article: SyndicatedArticle): "BabyLoveGrowth" | "Daily Writer" {
+  return article.external_id?.startsWith("daily:") ? "Daily Writer" : "BabyLoveGrowth";
 }
 
 /**
