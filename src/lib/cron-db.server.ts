@@ -69,7 +69,7 @@ type Rpc = (fn: string, args: Record<string, unknown>) => Promise<{
 export async function verifyCronToken(id: string, token: string): Promise<boolean> {
   try {
     const client = createPublicClient();
-    const { data, error } = await (client.rpc as unknown as Rpc)("cron_verify_token", {
+    const { data, error } = await (client.rpc.bind(client) as unknown as Rpc)("cron_verify_token", {
       _id: id,
       _token: token,
     });
@@ -82,7 +82,7 @@ export async function verifyCronToken(id: string, token: string): Promise<boolea
 /** Database access for a scheduled job, authorised by its trigger token. */
 export function createCronDb(id: string, token: string): CronDb {
   const client = createPublicClient();
-  const rpc = client.rpc as unknown as Rpc;
+  const rpc = client.rpc.bind(client) as unknown as Rpc;
 
   return {
     client,
