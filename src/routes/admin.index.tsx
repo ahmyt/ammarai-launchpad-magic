@@ -63,7 +63,7 @@ function AdminOverview() {
             let hidden = rows.filter((r) => r.kind === k.kind && r.is_hidden).length;
             let base = staticList.length;
             if (k.kind === "post") {
-              const staticSlugs = new Set(staticList.map((i) => i.slug));
+              const staticSlugs = new Set(staticList.map((i) => String(i["slug"])));
               const extra = articles.filter((a) => !staticSlugs.has(a.slug));
               base += extra.filter((a) => !a.is_hidden).length;
               hidden += extra.filter((a) => a.is_hidden).length;
