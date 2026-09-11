@@ -58,9 +58,16 @@ function AdminOverview() {
       {isEditor ? (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {contentKinds.map((k) => {
-            const base = staticItems(k.kind).length;
+            const staticList = staticItems(k.kind);
             const custom = rows.filter((r) => r.kind === k.kind && !r.is_hidden).length;
-            const hidden = rows.filter((r) => r.kind === k.kind && r.is_hidden).length;
+            let hidden = rows.filter((r) => r.kind === k.kind && r.is_hidden).length;
+            let base = staticList.length;
+            if (k.kind === "post") {
+              const staticSlugs = new Set(staticList.map((i) => i.slug));
+              const extra = articles.filter((a) => !staticSlugs.has(a.slug));
+              base += extra.filter((a) => !a.is_hidden).length;
+              hidden += extra.filter((a) => a.is_hidden).length;
+            }
             return (
               <Link
                 key={k.kind}
