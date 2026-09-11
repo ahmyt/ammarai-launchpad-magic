@@ -43,3 +43,5 @@
 - [x] Add a curated homepage library of existing Video Pro, Editor, UGC, and Avatar samples
 
 - [x] Diagnose attached bounce: production is still sending through plesk-steve.zap.cloud / 185.223.31.164.
+
+- [x] Automation runs without the private database key (token-checked database functions) so it can run on Plesk.

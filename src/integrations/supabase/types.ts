@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      blog_images: {
+        Row: {
+          content_type: string
+          created_at: string
+          data: string
+          name: string
+        }
+        Insert: {
+          content_type?: string
+          created_at?: string
+          data: string
+          name: string
+        }
+        Update: {
+          content_type?: string
+          created_at?: string
+          data?: string
+          name?: string
+        }
+        Relationships: []
+      }
       contact_messages: {
         Row: {
           confirmation_attempted_at: string | null
@@ -206,6 +227,35 @@ export type Database = {
     }
     Functions: {
       claim_first_admin: { Args: never; Returns: boolean }
+      cron_get_settings: {
+        Args: { _id: string; _token: string }
+        Returns: {
+          interval_hours: number
+          last_run_at: string
+        }[]
+      }
+      cron_mark_run: {
+        Args: { _id: string; _token: string }
+        Returns: undefined
+      }
+      cron_store_blog_image: {
+        Args: {
+          _content_type: string
+          _data: string
+          _id: string
+          _name: string
+          _token: string
+        }
+        Returns: undefined
+      }
+      cron_upsert_article: {
+        Args: { _id: string; _row: Json; _token: string }
+        Returns: undefined
+      }
+      cron_verify_token: {
+        Args: { _id: string; _token: string }
+        Returns: boolean
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]

@@ -4,6 +4,7 @@ import sanitizeHtml from "sanitize-html";
 import { z } from "zod";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
+import { writerFromClient, type ArticleWriter } from "@/lib/cron-db.server";
 import { SITE } from "@/lib/site";
 
 // BabyLoveGrowth baked absolute URLs into article HTML while the site lived on
@@ -146,8 +147,10 @@ export interface SyncResult {
 }
 
 export async function syncArticles(
-  supabase: SupabaseClient<Database>,
+  target: SupabaseClient<Database> | ArticleWriter,
 ): Promise<SyncResult> {
+  const writer: ArticleWriter =
+    "upsertArticle" in target ? (target as ArticleWriter) : writerFromClient(target);
   const result: SyncResult = { fetched: 0, upserted: 0, errors: [] };
 
   for (let page = 0; page < MAX_PAGES; page += 1) {
@@ -175,11 +178,9 @@ export async function syncArticles(
           published_at: article.publishedAt ?? article.created_at ?? null,
           synced_at: new Date().toISOString(),
         };
-        const { error } = await supabase
-          .from("syndicated_articles")
-          .upsert(row as never, { onConflict: "slug" });
+        const { error } = await writer.upsertArticle(row);
         if (error) {
-          result.errors.push(`${article.slug}: ${error.message}`);
+          result.errors.push(`${article.slug}: ${error}`);
         } else {
           result.upserted += 1;
         }
