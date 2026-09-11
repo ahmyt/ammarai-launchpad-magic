@@ -177,11 +177,9 @@ export async function syncArticles(
           published_at: article.publishedAt ?? article.created_at ?? null,
           synced_at: new Date().toISOString(),
         };
-        const { error } = await supabase
-          .from("syndicated_articles")
-          .upsert(row as never, { onConflict: "slug" });
+        const { error } = await writer.upsertArticle(row);
         if (error) {
-          result.errors.push(`${article.slug}: ${error.message}`);
+          result.errors.push(`${article.slug}: ${error}`);
         } else {
           result.upserted += 1;
         }
