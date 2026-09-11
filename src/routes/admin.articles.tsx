@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
-import { allSyndicatedArticlesQuery, articleDate } from "@/lib/articles";
+import { allSyndicatedArticlesQuery, articleDate, articleSource } from "@/lib/articles";
 import {
   getSyncSettings,
   setSyncInterval,
