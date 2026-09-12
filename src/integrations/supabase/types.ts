@@ -35,6 +35,33 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_sync_runs: {
+        Row: {
+          created_at: string
+          id: string
+          job_id: string
+          message: string | null
+          source: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          job_id: string
+          message?: string | null
+          source?: string
+          status: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          job_id?: string
+          message?: string | null
+          source?: string
+          status?: string
+        }
+        Relationships: []
+      }
       contact_messages: {
         Row: {
           confirmation_attempted_at: string | null
@@ -127,18 +154,21 @@ export type Database = {
           id: string
           interval_hours: number
           last_run_at: string | null
+          run_time_utc: string
           updated_at: string
         }
         Insert: {
           id: string
           interval_hours?: number
           last_run_at?: string | null
+          run_time_utc?: string
           updated_at?: string
         }
         Update: {
           id?: string
           interval_hours?: number
           last_run_at?: string | null
+          run_time_utc?: string
           updated_at?: string
         }
         Relationships: []
@@ -226,13 +256,32 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      admin_mark_sync_run: {
+        Args: { _id: string; _message?: string; _status: string }
+        Returns: undefined
+      }
+      admin_set_sync_time: {
+        Args: { _id: string; _run_time: string }
+        Returns: string
+      }
       claim_first_admin: { Args: never; Returns: boolean }
       cron_get_settings: {
         Args: { _id: string; _token: string }
         Returns: {
           interval_hours: number
           last_run_at: string
+          run_time_utc: string
         }[]
+      }
+      cron_log_run: {
+        Args: {
+          _id: string
+          _message?: string
+          _source?: string
+          _status: string
+          _token: string
+        }
+        Returns: undefined
       }
       cron_mark_run: {
         Args: { _id: string; _token: string }
