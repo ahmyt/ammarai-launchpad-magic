@@ -208,10 +208,15 @@ function AdminArticles() {
         </div>
       ) : null}
 
-      {runLog.length > 0 ? (
-        <details className="mt-4 rounded-xl bg-card p-4 ring-1 ring-border">
-          <summary className="cursor-pointer text-sm font-semibold">Recent automatic runs</summary>
-          <ul className="mt-3 space-y-2">
+      <details className="mt-4 rounded-xl bg-card p-4 ring-1 ring-border">
+        <summary className="cursor-pointer text-sm font-semibold">Recent automatic runs</summary>
+        {runLog.length === 0 ? (
+          <p className="mt-3 text-xs text-muted-foreground">
+            No automatic runs recorded yet — runs will appear here after the next scheduled sync at
+            your set time.
+          </p>
+        ) : null}
+        <ul className="mt-3 space-y-2">
             {runLog.map((run, index) => (
               <li
                 key={`${run.created_at}-${index}`}
@@ -236,11 +241,10 @@ function AdminArticles() {
                 {run.message ? (
                   <span className="w-full text-muted-foreground">{run.message}</span>
                 ) : null}
-              </li>
-            ))}
-          </ul>
-        </details>
-      ) : null}
+            </li>
+          ))}
+        </ul>
+      </details>
 
       {status ? <p className="mt-3 text-sm text-muted-foreground">{status}</p> : null}
 
