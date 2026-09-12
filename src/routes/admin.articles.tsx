@@ -6,11 +6,17 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { allSyndicatedArticlesQuery, articleDate, articleSource } from "@/lib/articles";
 import {
+  getSyncRunLog,
   getSyncSettings,
   setSyncInterval,
   syncBabyLoveGrowthArticles,
   writeDailyBlogPost,
 } from "@/lib/babylovegrowth.functions";
+
+const JOB_LABEL: Record<string, string> = {
+  babylovegrowth: "Article sync",
+  "daily-blog": "Daily writer",
+};
 
 const INTERVAL_OPTIONS = [1, 6, 12, 24, 48, 72] as const;
 
@@ -42,7 +48,15 @@ function AdminArticles() {
   const { data: settings } = useQuery({
     queryKey: ["sync-settings"],
     queryFn: () => fetchSettings(),
+      enabled: isAdmin,
+  });
+
+  const fetchRunLog = useServerFn(getSyncRunLog);
+  const { data: runLog = [] } = useQuery({
+    queryKey: ["sync-run-log"],
+    queryFn: () => fetchRunLog(),
     enabled: isAdmin,
+    refetchInterval: 60_000,
   });
 
   const saveInterval = useServerFn(setSyncInterval);
