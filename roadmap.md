@@ -45,3 +45,4 @@
 - [x] Diagnose attached bounce: production is still sending through plesk-steve.zap.cloud / 185.223.31.164.
 
 - [x] Automation runs without the private database key (token-checked database functions) so it can run on Plesk.
+- [ ] Rework daily writer scheduling: fixed 14:00 UTC daily run + run log table (approved plan)
