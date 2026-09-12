@@ -201,7 +201,10 @@ function AdminArticles() {
               ? `Last daily post: ${new Date(settings.dailyLastRunAt).toLocaleString()}`
               : "No daily post has run yet."}
           </p>
-          <p>Automatic runs: daily at 14:00 UTC.</p>
+          <p>
+            Automatic runs: daily at {settings.dailyRunTimeUtc} UTC (daily writer, then the article
+            sync).
+          </p>
         </div>
       ) : null}
 
