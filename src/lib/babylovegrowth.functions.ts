@@ -88,20 +88,21 @@ export const getSyncSettings = createServerFn({ method: "GET" })
   .handler(async ({ context }) => {
     const supabase = await requireAdmin(context as unknown as AdminContext);
     const query = supabase.from("sync_settings") as {
-      select: (cols: string) => {
-        eq: (
-          col: string,
-          val: string,
-        ) => { maybeSingle: () => Promise<{ data: unknown; error: { message: string } | null }> };
-      };
+      select: (cols: string) => Promise<{
+        data: { id: string; interval_hours: number; last_run_at: string | null }[] | null;
+        error: { message: string } | null;
+      }>;
     };
-    const { data, error } = await query
-      .select("interval_hours, last_run_at")
-      .eq("id", SETTINGS_ID)
-      .maybeSingle();
+    const { data, error } = await query.select("id, interval_hours, last_run_at");
     if (error) throw new Error(error.message);
-    const row = data as { interval_hours: number; last_run_at: string | null } | null;
-    return { intervalHours: row?.interval_hours ?? 24, lastRunAt: row?.last_run_at ?? null };
+    const rows = data ?? [];
+    const sync = rows.find((r) => r.id === SETTINGS_ID);
+    const daily = rows.find((r) => r.id === "daily-blog");
+    return {
+      intervalHours: sync?.interval_hours ?? 24,
+      lastRunAt: sync?.last_run_at ?? null,
+      dailyLastRunAt: daily?.last_run_at ?? null,
+    };
   });
 
 export const setSyncInterval = createServerFn({ method: "POST" })
