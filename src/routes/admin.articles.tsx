@@ -168,11 +168,53 @@ function AdminArticles() {
       </div>
 
       {settings ? (
-        <p className="mt-2 text-xs text-muted-foreground">
-          {settings.lastRunAt
-            ? `Last automatic sync: ${new Date(settings.lastRunAt).toLocaleString()}`
-            : "No automatic sync has run yet."}
-        </p>
+        <div className="mt-2 space-y-1 text-xs text-muted-foreground">
+          <p>
+            {settings.lastRunAt
+              ? `Last article sync: ${new Date(settings.lastRunAt).toLocaleString()}`
+              : "No article sync has run yet."}
+          </p>
+          <p>
+            {settings.dailyLastRunAt
+              ? `Last daily post: ${new Date(settings.dailyLastRunAt).toLocaleString()}`
+              : "No daily post has run yet."}
+          </p>
+          <p>Automatic runs: daily at 14:00 UTC.</p>
+        </div>
+      ) : null}
+
+      {runLog.length > 0 ? (
+        <details className="mt-4 rounded-xl bg-card p-4 ring-1 ring-border">
+          <summary className="cursor-pointer text-sm font-semibold">Recent automatic runs</summary>
+          <ul className="mt-3 space-y-2">
+            {runLog.map((run, index) => (
+              <li
+                key={`${run.created_at}-${index}`}
+                className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs"
+              >
+                <span
+                  className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ring-1 ${
+                    run.status === "success"
+                      ? "bg-accent/10 text-accent ring-accent/30"
+                      : run.status === "error"
+                        ? "bg-destructive/10 text-destructive ring-destructive/30"
+                        : "bg-muted text-muted-foreground ring-border"
+                  }`}
+                >
+                  {run.status}
+                </span>
+                <span className="font-semibold">{JOB_LABEL[run.job_id] ?? run.job_id}</span>
+                <span className="text-muted-foreground">
+                  {new Date(run.created_at).toLocaleString()}
+                  {run.source === "manual" ? " · manual" : ""}
+                </span>
+                {run.message ? (
+                  <span className="w-full text-muted-foreground">{run.message}</span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </details>
       ) : null}
 
       {status ? <p className="mt-3 text-sm text-muted-foreground">{status}</p> : null}
