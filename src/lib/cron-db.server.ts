@@ -52,6 +52,8 @@ export interface CronDb extends ArticleWriter {
   client: SupabaseClient<Database>;
   getSettings(): Promise<{ intervalHours: number; lastRunAt: string | null }>;
   markRun(): Promise<void>;
+  /** Appends an entry to the automation run log (fire-and-forget safe). */
+  logRun(status: string, message?: string): Promise<void>;
 }
 
 function toBase64(bytes: Uint8Array): string {
@@ -97,6 +99,16 @@ export function createCronDb(id: string, token: string): CronDb {
     async markRun() {
       const { error } = await rpc("cron_mark_run", { _id: id, _token: token });
       if (error) throw new Error(error.message);
+    },
+    async logRun(status, message) {
+      const { error } = await rpc("cron_log_run", {
+        _id: id,
+        _token: token,
+        _status: status,
+        _message: message ?? null,
+        _source: "cron",
+      });
+      if (error) console.error(`[cron] run log failed: ${error.message}`);
     },
     async upsertArticle(row) {
       const { error } = await rpc("cron_upsert_article", { _id: id, _token: token, _row: row });
