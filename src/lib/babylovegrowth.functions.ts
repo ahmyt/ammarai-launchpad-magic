@@ -27,18 +27,60 @@ async function requireAdmin(context: AdminContext) {
 export const syncBabyLoveGrowthArticles = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    await requireAdmin(context as unknown as AdminContext);
+    const supabase = await requireAdmin(context as unknown as AdminContext);
     const { syncArticles } = await import("@/lib/babylovegrowth.server");
-    return syncArticles(context.supabase);
+    const result = await syncArticles(supabase);
+    await supabase.rpc("admin_mark_sync_run", {
+      _id: SETTINGS_ID,
+      _status: "success",
+      _message: `Synced ${result.upserted} of ${result.fetched}${
+        result.errors.length ? ` · ${result.errors.length} failed` : ""
+      }`,
+    });
+    return result;
   });
 
 /** Writes today's AI blog post about one of our tools. */
 export const writeDailyBlogPost = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    await requireAdmin(context as unknown as AdminContext);
+    const supabase = await requireAdmin(context as unknown as AdminContext);
     const { writeDailyPost } = await import("@/lib/daily-blog.server");
-    return writeDailyPost(context.supabase);
+    const result = await writeDailyPost(supabase);
+    await supabase.rpc("admin_mark_sync_run", {
+      _id: "daily-blog",
+      _status: "success",
+      _message: `Published "${result.title}" (${result.slug})`,
+    });
+    return result;
+  });
+
+/** Recent automation runs for the Studio articles page. */
+export const getSyncRunLog = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const supabase = await requireAdmin(context as unknown as AdminContext);
+    const query = supabase.from("blog_sync_runs") as {
+      select: (cols: string) => {
+        order: (
+          col: string,
+          opts: { ascending: boolean },
+        ) => {
+          limit: (
+            n: number,
+          ) => Promise<{
+            data: { job_id: string; status: string; message: string | null; source: string; created_at: string }[] | null;
+            error: { message: string } | null;
+          }>;
+        };
+      };
+    };
+    const { data, error } = await query
+      .select("job_id, status, message, source, created_at")
+      .order("created_at", { ascending: false })
+      .limit(8);
+    if (error) throw new Error(error.message);
+    return data ?? [];
   });
 
 export const getSyncSettings = createServerFn({ method: "GET" })
