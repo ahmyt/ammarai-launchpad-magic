@@ -93,7 +93,7 @@ export const getSyncSettings = createServerFn({ method: "GET" })
         error: { message: string } | null;
       }>;
     };
-    const { data, error } = await query.select("id, interval_hours, last_run_at");
+    const { data, error } = await query.select("id, interval_hours, last_run_at, run_time_utc");
     if (error) throw new Error(error.message);
     const rows = data ?? [];
     const sync = rows.find((r) => r.id === SETTINGS_ID);
