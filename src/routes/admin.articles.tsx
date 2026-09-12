@@ -38,6 +38,7 @@ function AdminArticles() {
   const [query, setQuery] = useState("");
   const [sourceFilter, setSourceFilter] = useState<"all" | "BabyLoveGrowth" | "Daily Writer">("all");
   const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
   const [status, setStatus] = useState<string | null>(null);
 
   const { data: articles = [], isLoading } = useQuery({
