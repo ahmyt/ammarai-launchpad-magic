@@ -15,7 +15,7 @@ Two real problems behind this:
 ## Plan
 
 1. **Run at a fixed daily time instead of "24 hours since last run".**
-   Switch the daily writer's schedule check from an elapsed-hours test to a calendar-day test: if a run has already been recorded for today (UTC), skip; otherwise run. Combined with a single daily cron time (proposed: 05:10 UTC) the post lands at the same time each day, and a manual run only suppresses the rest of that same day.
+   Switch the daily writer's schedule check from an elapsed-hours test to a calendar-day test: if a run has already been recorded for today (UTC), skip; otherwise run. Combined with a single daily cron time of 14:00 UTC the post lands at the same time each day, and a manual run only suppresses the rest of that same day.
 
 2. **Keep a run log.**
    Add a small `sync_runs` table (job id, started/finished time, outcome, message) written by both cron endpoints on every attempt, including skips and failures. Surface the last few entries on the Studio articles page under the "last automatic sync" line, so a silent failure is visible.
