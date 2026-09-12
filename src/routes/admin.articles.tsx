@@ -6,11 +6,18 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { allSyndicatedArticlesQuery, articleDate, articleSource } from "@/lib/articles";
 import {
+  getSyncRunLog,
   getSyncSettings,
   setSyncInterval,
+  setSyncTime,
   syncBabyLoveGrowthArticles,
   writeDailyBlogPost,
 } from "@/lib/babylovegrowth.functions";
+
+const JOB_LABEL: Record<string, string> = {
+  babylovegrowth: "Article sync",
+  "daily-blog": "Daily writer",
+};
 
 const INTERVAL_OPTIONS = [1, 6, 12, 24, 48, 72] as const;
 
@@ -42,7 +49,15 @@ function AdminArticles() {
   const { data: settings } = useQuery({
     queryKey: ["sync-settings"],
     queryFn: () => fetchSettings(),
+      enabled: isAdmin,
+  });
+
+  const fetchRunLog = useServerFn(getSyncRunLog);
+  const { data: runLog = [] } = useQuery({
+    queryKey: ["sync-run-log"],
+    queryFn: () => fetchRunLog(),
     enabled: isAdmin,
+    refetchInterval: 60_000,
   });
 
   const saveInterval = useServerFn(setSyncInterval);
@@ -50,6 +65,16 @@ function AdminArticles() {
     mutationFn: (intervalHours: number) => saveInterval({ data: { intervalHours } }),
     onSuccess: (result) => {
       setStatus(`Automatic sync set to ${intervalLabel(result.intervalHours).toLowerCase()}.`);
+      void queryClient.invalidateQueries({ queryKey: ["sync-settings"] });
+    },
+    onError: (error: Error) => setStatus(error.message),
+  });
+
+  const saveTime = useServerFn(setSyncTime);
+  const timeMutation = useMutation({
+    mutationFn: (runTimeUtc: string) => saveTime({ data: { jobId: "daily-blog", runTimeUtc } }),
+    onSuccess: (result) => {
+      setStatus(`Automatic runs moved to ${result.runTimeUtc} UTC daily.`);
       void queryClient.invalidateQueries({ queryKey: ["sync-settings"] });
     },
     onError: (error: Error) => setStatus(error.message),
@@ -134,6 +159,17 @@ function AdminArticles() {
               ))}
             </select>
           </label>
+          <label className="flex items-center gap-2 text-xs font-semibold">
+            <span className="text-muted-foreground">Daily at</span>
+            <input
+              type="time"
+              value={settings?.dailyRunTimeUtc ?? "14:00"}
+              disabled={timeMutation.isPending}
+              onChange={(event) => timeMutation.mutate(event.target.value)}
+              className="rounded-md border border-border bg-background px-2 py-1.5 text-xs font-semibold"
+            />
+            <span className="text-muted-foreground">UTC</span>
+          </label>
           <button
             type="button"
             onClick={() => writePost.mutate()}
@@ -154,11 +190,56 @@ function AdminArticles() {
       </div>
 
       {settings ? (
-        <p className="mt-2 text-xs text-muted-foreground">
-          {settings.lastRunAt
-            ? `Last automatic sync: ${new Date(settings.lastRunAt).toLocaleString()}`
-            : "No automatic sync has run yet."}
-        </p>
+        <div className="mt-2 space-y-1 text-xs text-muted-foreground">
+          <p>
+            {settings.lastRunAt
+              ? `Last article sync: ${new Date(settings.lastRunAt).toLocaleString()}`
+              : "No article sync has run yet."}
+          </p>
+          <p>
+            {settings.dailyLastRunAt
+              ? `Last daily post: ${new Date(settings.dailyLastRunAt).toLocaleString()}`
+              : "No daily post has run yet."}
+          </p>
+          <p>
+            Automatic runs: daily at {settings.dailyRunTimeUtc} UTC (daily writer, then the article
+            sync).
+          </p>
+        </div>
+      ) : null}
+
+      {runLog.length > 0 ? (
+        <details className="mt-4 rounded-xl bg-card p-4 ring-1 ring-border">
+          <summary className="cursor-pointer text-sm font-semibold">Recent automatic runs</summary>
+          <ul className="mt-3 space-y-2">
+            {runLog.map((run, index) => (
+              <li
+                key={`${run.created_at}-${index}`}
+                className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs"
+              >
+                <span
+                  className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ring-1 ${
+                    run.status === "success"
+                      ? "bg-accent/10 text-accent ring-accent/30"
+                      : run.status === "error"
+                        ? "bg-destructive/10 text-destructive ring-destructive/30"
+                        : "bg-muted text-muted-foreground ring-border"
+                  }`}
+                >
+                  {run.status}
+                </span>
+                <span className="font-semibold">{JOB_LABEL[run.job_id] ?? run.job_id}</span>
+                <span className="text-muted-foreground">
+                  {new Date(run.created_at).toLocaleString()}
+                  {run.source === "manual" ? " · manual" : ""}
+                </span>
+                {run.message ? (
+                  <span className="w-full text-muted-foreground">{run.message}</span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </details>
       ) : null}
 
       {status ? <p className="mt-3 text-sm text-muted-foreground">{status}</p> : null}

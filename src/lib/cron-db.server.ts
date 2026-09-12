@@ -50,8 +50,10 @@ export interface ArticleWriter {
 export interface CronDb extends ArticleWriter {
   /** Read client for plain public queries. */
   client: SupabaseClient<Database>;
-  getSettings(): Promise<{ intervalHours: number; lastRunAt: string | null }>;
+  getSettings(): Promise<{ intervalHours: number; lastRunAt: string | null; runTimeUtc: string }>;
   markRun(): Promise<void>;
+  /** Appends an entry to the automation run log (fire-and-forget safe). */
+  logRun(status: string, message?: string): Promise<void>;
 }
 
 function toBase64(bytes: Uint8Array): string {
@@ -90,13 +92,27 @@ export function createCronDb(id: string, token: string): CronDb {
       const { data, error } = await rpc("cron_get_settings", { _id: id, _token: token });
       if (error) throw new Error(error.message);
       const row = (Array.isArray(data) ? data[0] : data) as
-        | { interval_hours: number; last_run_at: string | null }
+        | { interval_hours: number; last_run_at: string | null; run_time_utc: string | null }
         | undefined;
-      return { intervalHours: row?.interval_hours ?? 24, lastRunAt: row?.last_run_at ?? null };
+      return {
+        intervalHours: row?.interval_hours ?? 24,
+        lastRunAt: row?.last_run_at ?? null,
+        runTimeUtc: row?.run_time_utc ?? "14:00",
+      };
     },
     async markRun() {
       const { error } = await rpc("cron_mark_run", { _id: id, _token: token });
       if (error) throw new Error(error.message);
+    },
+    async logRun(status, message) {
+      const { error } = await rpc("cron_log_run", {
+        _id: id,
+        _token: token,
+        _status: status,
+        _message: message ?? null,
+        _source: "cron",
+      });
+      if (error) console.error(`[cron] run log failed: ${error.message}`);
     },
     async upsertArticle(row) {
       const { error } = await rpc("cron_upsert_article", { _id: id, _token: token, _row: row });
