@@ -53,7 +53,7 @@ export interface CronDb extends ArticleWriter {
   getSettings(): Promise<{ intervalHours: number; lastRunAt: string | null; runTimeUtc: string }>;
   markRun(): Promise<void>;
   /** Appends an entry to the automation run log (fire-and-forget safe). */
-  logRun(status: string, message?: string): Promise<void>;
+  logRun(status: string, message?: string): Promise<string | null>;
 }
 
 function toBase64(bytes: Uint8Array): string {
@@ -112,7 +112,11 @@ export function createCronDb(id: string, token: string): CronDb {
         _message: message ?? null,
         _source: "cron",
       });
-      if (error) console.error(`[cron] run log failed: ${error.message}`);
+      if (error) {
+        console.error(`[cron] run log failed: ${error.message}`);
+        return `run log failed: ${error.message}`;
+      }
+      return null;
     },
     async upsertArticle(row) {
       const { error } = await rpc("cron_upsert_article", { _id: id, _token: token, _row: row });
