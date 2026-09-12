@@ -31,7 +31,7 @@ export const syncBabyLoveGrowthArticles = createServerFn({ method: "POST" })
   .handler(async ({ context }) => {
     const supabase = await requireAdmin(context as unknown as AdminContext);
     const { syncArticles } = await import("@/lib/babylovegrowth.server");
-    const result = await syncArticles(supabase);
+    const result = await syncArticles(supabase as unknown as SupabaseClient<Database>);
     await supabase.rpc("admin_mark_sync_run", {
       _id: SETTINGS_ID,
       _status: "success",
@@ -48,7 +48,7 @@ export const writeDailyBlogPost = createServerFn({ method: "POST" })
   .handler(async ({ context }) => {
     const supabase = await requireAdmin(context as unknown as AdminContext);
     const { writeDailyPost } = await import("@/lib/daily-blog.server");
-    const result = await writeDailyPost(supabase);
+    const result = await writeDailyPost(supabase as unknown as SupabaseClient<Database>);
     await supabase.rpc("admin_mark_sync_run", {
       _id: "daily-blog",
       _status: "success",
