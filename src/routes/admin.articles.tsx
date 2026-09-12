@@ -159,6 +159,17 @@ function AdminArticles() {
               ))}
             </select>
           </label>
+          <label className="flex items-center gap-2 text-xs font-semibold">
+            <span className="text-muted-foreground">Daily at</span>
+            <input
+              type="time"
+              value={settings?.dailyRunTimeUtc ?? "14:00"}
+              disabled={timeMutation.isPending}
+              onChange={(event) => timeMutation.mutate(event.target.value)}
+              className="rounded-md border border-border bg-background px-2 py-1.5 text-xs font-semibold"
+            />
+            <span className="text-muted-foreground">UTC</span>
+          </label>
           <button
             type="button"
             onClick={() => writePost.mutate()}
