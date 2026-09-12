@@ -9,6 +9,7 @@ import {
   getSyncRunLog,
   getSyncSettings,
   setSyncInterval,
+  setSyncTime,
   syncBabyLoveGrowthArticles,
   writeDailyBlogPost,
 } from "@/lib/babylovegrowth.functions";
@@ -64,6 +65,16 @@ function AdminArticles() {
     mutationFn: (intervalHours: number) => saveInterval({ data: { intervalHours } }),
     onSuccess: (result) => {
       setStatus(`Automatic sync set to ${intervalLabel(result.intervalHours).toLowerCase()}.`);
+      void queryClient.invalidateQueries({ queryKey: ["sync-settings"] });
+    },
+    onError: (error: Error) => setStatus(error.message),
+  });
+
+  const saveTime = useServerFn(setSyncTime);
+  const timeMutation = useMutation({
+    mutationFn: (runTimeUtc: string) => saveTime({ data: { jobId: "daily-blog", runTimeUtc } }),
+    onSuccess: (result) => {
+      setStatus(`Automatic runs moved to ${result.runTimeUtc} UTC daily.`);
       void queryClient.invalidateQueries({ queryKey: ["sync-settings"] });
     },
     onError: (error: Error) => setStatus(error.message),
