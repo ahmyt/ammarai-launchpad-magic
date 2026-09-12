@@ -30,7 +30,7 @@ export const Route = createFileRoute("/admin/articles")({
   component: AdminArticles,
 });
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE_OPTIONS = [10, 20, 50] as const;
 
 function AdminArticles() {
   const { isAdmin } = useAuth();
