@@ -36,22 +36,22 @@ export const Route = createFileRoute("/api/public/cron/babylovegrowth")({
           // Honour the admin-chosen interval: skip if the last run is still fresh.
           const { intervalHours, lastRunAt } = await db.getSettings();
           if (shouldSkip(lastRunAt, intervalHours)) {
-            await db.logRun("skipped", `Interval ${intervalHours}h not elapsed`);
-            return Response.json({ ok: true, skipped: true, intervalHours });
+            const logWarning = await db.logRun("skipped", `Interval ${intervalHours}h not elapsed`);
+            return Response.json({ ok: true, skipped: true, intervalHours, logWarning });
           }
 
           const { syncArticles } = await import("@/lib/babylovegrowth.server");
           const result = await syncArticles(db);
 
           await db.markRun();
-          await db.logRun(
+          const logWarning = await db.logRun(
             "success",
             `Synced ${result.upserted} of ${result.fetched}${
               result.errors.length ? ` · ${result.errors.length} failed` : ""
             }`,
           );
 
-          return Response.json({ ok: true, skipped: false, ...result });
+          return Response.json({ ok: true, skipped: false, logWarning, ...result });
         } catch (error) {
           console.error("[babylovegrowth] sync failed", error);
           const message = error instanceof Error ? error.message : "Sync failed";

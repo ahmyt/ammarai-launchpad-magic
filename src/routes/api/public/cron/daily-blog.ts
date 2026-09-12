@@ -34,17 +34,17 @@ export const Route = createFileRoute("/api/public/cron/daily-blog")({
 
           const { intervalHours, lastRunAt } = await db.getSettings();
           if (shouldSkip(lastRunAt, intervalHours)) {
-            await db.logRun("skipped", `Interval ${intervalHours}h not elapsed`);
-            return Response.json({ ok: true, skipped: true, intervalHours });
+            const logWarning = await db.logRun("skipped", `Interval ${intervalHours}h not elapsed`);
+            return Response.json({ ok: true, skipped: true, intervalHours, logWarning });
           }
 
           const { writeDailyPost } = await import("@/lib/daily-blog.server");
           const result = await writeDailyPost(db.client, db);
 
           await db.markRun();
-          await db.logRun("success", `Published "${result.title}" (${result.slug})`);
+          const logWarning = await db.logRun("success", `Published "${result.title}" (${result.slug})`);
 
-          return Response.json({ ok: true, skipped: false, ...result });
+          return Response.json({ ok: true, skipped: false, logWarning, ...result });
         } catch (error) {
           console.error("[daily-blog] generation failed", error);
           const message = error instanceof Error ? error.message : "Generation failed";
