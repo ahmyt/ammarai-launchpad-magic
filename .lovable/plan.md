@@ -31,5 +31,5 @@ Two real problems behind this:
 
 - `sync_settings` keeps `interval_hours`; the endpoints will treat `last_run_at` on a same-UTC-day basis rather than an elapsed-millisecond comparison in `src/routes/api/public/cron/daily-blog.ts` and `.../babylovegrowth.ts`.
 - New table `public.blog_sync_runs` with grants, RLS (admin read, no client write) and a token-checked `cron_log_run(_id, _token, _status, _message)` security-definer function, matching the existing `cron_*` token pattern so it works from the Plesk deployment without the private key.
-- `pg_cron` jobs `ammarai-daily-blog` / `ammarai-sync-articles` re-scheduled to one call per day (`10 5 * * *` and `40 5 * * *`) instead of hourly, cutting 46 wasted calls per day.
+- `pg_cron` jobs `ammarai-daily-blog` / `ammarai-sync-articles` re-scheduled to one call per day (`10 14 * * *` and `40 14 * * *` — 14:00 UTC, as you requested) instead of hourly, cutting 46 wasted calls per day.
 - No change to article content, images, table of contents, or the writer prompt.
