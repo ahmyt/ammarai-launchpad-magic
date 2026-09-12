@@ -8,6 +8,15 @@ function bearer(request: Request): string | null {
   return match?.[1] ?? null;
 }
 
+/** Runs due or not, without clock drift: daily+ intervals compare UTC calendar days. */
+function shouldSkip(lastRunAt: string | null, intervalHours: number): boolean {
+  if (!lastRunAt) return false;
+  if (intervalHours >= 24) {
+    return new Date(lastRunAt).toISOString().slice(0, 10) === new Date().toISOString().slice(0, 10);
+  }
+  return Date.now() < new Date(lastRunAt).getTime() + intervalHours * 3_600_000;
+}
+
 export const Route = createFileRoute("/api/public/cron/daily-blog")({
   staticData: { sitemap: false },
   server: {
@@ -24,25 +33,27 @@ export const Route = createFileRoute("/api/public/cron/daily-blog")({
           const db = createCronDb(SETTINGS_ID, token ?? "");
 
           const { intervalHours, lastRunAt } = await db.getSettings();
-          if (lastRunAt) {
-            const nextDue = new Date(lastRunAt).getTime() + intervalHours * 3_600_000;
-            if (Date.now() < nextDue) {
-              return Response.json({ ok: true, skipped: true, intervalHours });
-            }
+          if (shouldSkip(lastRunAt, intervalHours)) {
+            await db.logRun("skipped", `Interval ${intervalHours}h not elapsed`);
+            return Response.json({ ok: true, skipped: true, intervalHours });
           }
 
           const { writeDailyPost } = await import("@/lib/daily-blog.server");
           const result = await writeDailyPost(db.client, db);
 
           await db.markRun();
+          await db.logRun("success", `Published "${result.title}" (${result.slug})`);
 
           return Response.json({ ok: true, skipped: false, ...result });
         } catch (error) {
           console.error("[daily-blog] generation failed", error);
-          return Response.json(
-            { ok: false, error: error instanceof Error ? error.message : "Generation failed" },
-            { status: 500 },
-          );
+          const message = error instanceof Error ? error.message : "Generation failed";
+          try {
+            await createCronDb(SETTINGS_ID, token ?? "").logRun("error", message);
+          } catch {
+            /* logging is best-effort */
+          }
+          return Response.json({ ok: false, error: message }, { status: 500 });
         }
       },
     },
