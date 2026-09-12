@@ -241,11 +241,10 @@ function AdminArticles() {
                 {run.message ? (
                   <span className="w-full text-muted-foreground">{run.message}</span>
                 ) : null}
-              </li>
-            ))}
-          </ul>
-        </details>
-      ) : null}
+            </li>
+          ))}
+        </ul>
+      </details>
 
       {status ? <p className="mt-3 text-sm text-muted-foreground">{status}</p> : null}
 
