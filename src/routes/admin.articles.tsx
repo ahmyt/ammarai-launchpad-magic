@@ -127,9 +127,9 @@ function AdminArticles() {
     });
   }, [articles, query, sourceFilter]);
 
-  const pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const pages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const current = Math.min(page, pages);
-  const visible = filtered.slice((current - 1) * PAGE_SIZE, current * PAGE_SIZE);
+  const visible = filtered.slice((current - 1) * pageSize, current * pageSize);
 
   if (!isAdmin) {
     return <p className="text-sm text-muted-foreground">Only admins can manage synced articles.</p>;
