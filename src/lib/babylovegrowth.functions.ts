@@ -95,14 +95,41 @@ export const getSyncSettings = createServerFn({ method: "GET" })
     };
     const { data, error } = await query.select("id, interval_hours, last_run_at, run_time_utc");
     if (error) throw new Error(error.message);
-    const rows = data ?? [];
+    const rows = (data ?? []) as {
+      id: string;
+      interval_hours: number;
+      last_run_at: string | null;
+      run_time_utc: string | null;
+    }[];
     const sync = rows.find((r) => r.id === SETTINGS_ID);
     const daily = rows.find((r) => r.id === "daily-blog");
     return {
       intervalHours: sync?.interval_hours ?? 24,
       lastRunAt: sync?.last_run_at ?? null,
       dailyLastRunAt: daily?.last_run_at ?? null,
+      dailyRunTimeUtc: daily?.run_time_utc ?? "14:00",
     };
+  });
+
+/** Sets the daily run time (UTC) for the automatic jobs; also re-schedules the cron. */
+export const setSyncTime = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data) =>
+    z
+      .object({
+        jobId: z.enum(["babylovegrowth", "daily-blog"]),
+        runTimeUtc: z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/, "Use HH:MM (UTC)"),
+      })
+      .parse(data),
+  )
+  .handler(async ({ context, data }) => {
+    const supabase = await requireAdmin(context as unknown as AdminContext);
+    const { data: schedule, error } = await supabase.rpc("admin_set_sync_time", {
+      _id: data.jobId,
+      _run_time: data.runTimeUtc,
+    });
+    if (error) throw new Error(error.message);
+    return { runTimeUtc: data.runTimeUtc, schedule: schedule as string };
   });
 
 export const setSyncInterval = createServerFn({ method: "POST" })
