@@ -15,7 +15,7 @@ Two real problems behind this:
 ## Plan
 
 1. **Run at a fixed daily time instead of "24 hours since last run".**
-   Switch the daily writer's schedule check from an elapsed-hours test to a calendar-day test: if a run has already been recorded for today (UTC), skip; otherwise run. Combined with a single daily cron time (proposed: 05:10 UTC) the post lands at the same time each day, and a manual run only suppresses the rest of that same day.
+   Switch the daily writer's schedule check from an elapsed-hours test to a calendar-day test: if a run has already been recorded for today (UTC), skip; otherwise run. Combined with a single daily cron time of 14:00 UTC the post lands at the same time each day, and a manual run only suppresses the rest of that same day.
 
 2. **Keep a run log.**
    Add a small `sync_runs` table (job id, started/finished time, outcome, message) written by both cron endpoints on every attempt, including skips and failures. Surface the last few entries on the Studio articles page under the "last automatic sync" line, so a silent failure is visible.
@@ -31,5 +31,5 @@ Two real problems behind this:
 
 - `sync_settings` keeps `interval_hours`; the endpoints will treat `last_run_at` on a same-UTC-day basis rather than an elapsed-millisecond comparison in `src/routes/api/public/cron/daily-blog.ts` and `.../babylovegrowth.ts`.
 - New table `public.blog_sync_runs` with grants, RLS (admin read, no client write) and a token-checked `cron_log_run(_id, _token, _status, _message)` security-definer function, matching the existing `cron_*` token pattern so it works from the Plesk deployment without the private key.
-- `pg_cron` jobs `ammarai-daily-blog` / `ammarai-sync-articles` re-scheduled to one call per day (`10 5 * * *` and `40 5 * * *`) instead of hourly, cutting 46 wasted calls per day.
+- `pg_cron` jobs `ammarai-daily-blog` / `ammarai-sync-articles` re-scheduled to one call per day (`10 14 * * *` and `40 14 * * *` — 14:00 UTC, as you requested) instead of hourly, cutting 46 wasted calls per day.
 - No change to article content, images, table of contents, or the writer prompt.
