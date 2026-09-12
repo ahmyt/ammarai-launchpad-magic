@@ -30,7 +30,7 @@ export const Route = createFileRoute("/admin/articles")({
   component: AdminArticles,
 });
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE_OPTIONS = [10, 20, 50] as const;
 
 function AdminArticles() {
   const { isAdmin } = useAuth();
@@ -38,6 +38,7 @@ function AdminArticles() {
   const [query, setQuery] = useState("");
   const [sourceFilter, setSourceFilter] = useState<"all" | "BabyLoveGrowth" | "Daily Writer">("all");
   const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
   const [status, setStatus] = useState<string | null>(null);
 
   const { data: articles = [], isLoading } = useQuery({
@@ -126,9 +127,9 @@ function AdminArticles() {
     });
   }, [articles, query, sourceFilter]);
 
-  const pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const pages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const current = Math.min(page, pages);
-  const visible = filtered.slice((current - 1) * PAGE_SIZE, current * PAGE_SIZE);
+  const visible = filtered.slice((current - 1) * pageSize, current * pageSize);
 
   if (!isAdmin) {
     return <p className="text-sm text-muted-foreground">Only admins can manage synced articles.</p>;
@@ -324,27 +325,63 @@ function AdminArticles() {
         </ul>
       )}
 
-      {pages > 1 ? (
-        <div className="mt-6 flex items-center gap-3 text-xs">
-          <button
-            type="button"
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
-            disabled={current === 1}
-            className="rounded-md px-3 py-1.5 font-semibold ring-1 ring-border disabled:opacity-50"
-          >
-            Previous
-          </button>
-          <span className="text-muted-foreground">
-            Page {current} of {pages}
-          </span>
-          <button
-            type="button"
-            onClick={() => setPage((p) => Math.min(pages, p + 1))}
-            disabled={current === pages}
-            className="rounded-md px-3 py-1.5 font-semibold ring-1 ring-border disabled:opacity-50"
-          >
-            Next
-          </button>
+      {filtered.length > 0 ? (
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-3">
+            <span className="text-muted-foreground">{filtered.length} records</span>
+            <label className="flex items-center gap-2">
+              <span className="text-muted-foreground">Per page</span>
+              <select
+                value={pageSize}
+                onChange={(event) => {
+                  setPageSize(Number(event.target.value));
+                  setPage(1);
+                }}
+                className="rounded-md border border-border bg-background px-2 py-1.5 text-xs font-semibold"
+              >
+                {PAGE_SIZE_OPTIONS.map((size) => (
+                  <option key={size} value={size}>
+                    {size}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              disabled={current === 1}
+              className="rounded-md px-3 py-1.5 font-semibold ring-1 ring-border disabled:opacity-50"
+            >
+              Previous
+            </button>
+
+            {Array.from({ length: pages }, (_, index) => index + 1).map((pageNumber) => (
+              <button
+                key={pageNumber}
+                type="button"
+                onClick={() => setPage(pageNumber)}
+                className={`min-w-[2rem] rounded-md px-2 py-1.5 font-semibold ring-1 ${
+                  pageNumber === current
+                    ? "bg-ink text-ink-foreground ring-ink"
+                    : "ring-border hover:bg-background"
+                }`}
+              >
+                {pageNumber}
+              </button>
+            ))}
+
+            <button
+              type="button"
+              onClick={() => setPage((p) => Math.min(pages, p + 1))}
+              disabled={current === pages}
+              className="rounded-md px-3 py-1.5 font-semibold ring-1 ring-border disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
         </div>
       ) : null}
     </div>
