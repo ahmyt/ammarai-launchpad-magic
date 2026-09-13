@@ -413,7 +413,6 @@ export function Home() {
               </div>
             </div>
           </div>
-          </div>
         </Container>
       </Section>
 
@@ -450,6 +449,7 @@ export function Home() {
                 </p>
               </Card>
             ))}
+          </div>
           </div>
         </Container>
       </Section>
