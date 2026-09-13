@@ -134,6 +134,155 @@ export type Database = {
         }
         Relationships: []
       }
+      customer_reviews: {
+        Row: {
+          approved_at: string | null
+          created_at: string
+          display_order: number
+          featured: boolean
+          id: string
+          rating: number
+          review_date: string
+          review_text: string
+          review_title: string
+          reviewer_name: string
+          source: string
+          source_url: string | null
+          status: string
+          submission_id: string | null
+          updated_at: string
+          verified: boolean
+        }
+        Insert: {
+          approved_at?: string | null
+          created_at?: string
+          display_order?: number
+          featured?: boolean
+          id?: string
+          rating: number
+          review_date: string
+          review_text: string
+          review_title: string
+          reviewer_name: string
+          source?: string
+          source_url?: string | null
+          status?: string
+          submission_id?: string | null
+          updated_at?: string
+          verified?: boolean
+        }
+        Update: {
+          approved_at?: string | null
+          created_at?: string
+          display_order?: number
+          featured?: boolean
+          id?: string
+          rating?: number
+          review_date?: string
+          review_text?: string
+          review_title?: string
+          reviewer_name?: string
+          source?: string
+          source_url?: string | null
+          status?: string
+          submission_id?: string | null
+          updated_at?: string
+          verified?: boolean
+        }
+        Relationships: [
+          {
+            foreignKeyName: "customer_reviews_submission_id_fkey"
+            columns: ["submission_id"]
+            isOneToOne: true
+            referencedRelation: "review_submissions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      review_settings: {
+        Row: {
+          date_from: string | null
+          date_to: string | null
+          display_count: number
+          featured_first: boolean
+          id: string
+          min_rating: number
+          sort_order: string
+          updated_at: string
+        }
+        Insert: {
+          date_from?: string | null
+          date_to?: string | null
+          display_count?: number
+          featured_first?: boolean
+          id?: string
+          min_rating?: number
+          sort_order?: string
+          updated_at?: string
+        }
+        Update: {
+          date_from?: string | null
+          date_to?: string | null
+          display_count?: number
+          featured_first?: boolean
+          id?: string
+          min_rating?: number
+          sort_order?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      review_submissions: {
+        Row: {
+          admin_notes: string | null
+          consent: boolean
+          created_at: string
+          email: string
+          id: string
+          rating: number
+          review_date: string
+          review_text: string
+          review_title: string
+          reviewer_name: string
+          source: string
+          source_url: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          admin_notes?: string | null
+          consent?: boolean
+          created_at?: string
+          email: string
+          id?: string
+          rating: number
+          review_date?: string
+          review_text: string
+          review_title: string
+          reviewer_name: string
+          source?: string
+          source_url?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          admin_notes?: string | null
+          consent?: boolean
+          created_at?: string
+          email?: string
+          id?: string
+          rating?: number
+          review_date?: string
+          review_text?: string
+          review_title?: string
+          reviewer_name?: string
+          source?: string
+          source_url?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       sync_cron_tokens: {
         Row: {
           id: string
@@ -259,6 +408,15 @@ export type Database = {
       admin_mark_sync_run: {
         Args: { _id: string; _message?: string; _status: string }
         Returns: undefined
+      }
+      admin_moderate_review: {
+        Args: {
+          _featured?: boolean
+          _status: string
+          _submission_id: string
+          _verified?: boolean
+        }
+        Returns: string
       }
       admin_set_sync_time: {
         Args: { _id: string; _run_time: string }

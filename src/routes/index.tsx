@@ -12,6 +12,8 @@ import { ToolCard } from "@/components/site/ToolCard";
 import { ExternalButton, ButtonLink } from "@/components/site/Button";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { assetUrl } from "@/lib/asset-url";
+import { TrustLogoStrip } from "@/components/site/TrustLogoStrip";
+import { CustomerReviews } from "@/components/site/CustomerReviews";
 import videoProDemo from "@/assets/demo-video-generator.mp4.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
@@ -246,6 +248,8 @@ export function Home() {
         </Container>
       </Section>
 
+      <TrustLogoStrip />
+
       {/* Featured */}
       <Section tone="sand">
         <Container>
@@ -461,6 +465,8 @@ export function Home() {
           </div>
         </Container>
       </Section>
+
+      <CustomerReviews />
 
       {/* Use cases */}
       <Section>
