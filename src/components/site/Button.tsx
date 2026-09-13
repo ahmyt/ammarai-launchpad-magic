@@ -6,13 +6,13 @@ type Variant = "primary" | "ink" | "outline" | "ghost" | "onInk";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-md font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-50";
+  "inline-flex items-center justify-center gap-2 rounded-md font-semibold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-accent text-accent-foreground ring-1 ring-accent hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-12px_var(--color-accent)]",
+    "bg-accent text-accent-foreground ring-1 ring-accent hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-16px_var(--color-accent)] active:translate-y-0",
   ink: "bg-ink text-ink-foreground hover:bg-ink/90 hover:-translate-y-0.5",
-  outline: "text-foreground ring-1 ring-border hover:bg-secondary",
+  outline: "bg-background/30 text-foreground ring-1 ring-border backdrop-blur-md hover:-translate-y-0.5 hover:bg-secondary hover:ring-foreground/20 active:translate-y-0",
   ghost: "text-muted-foreground hover:text-foreground",
   onInk: "bg-ink-foreground text-ink hover:opacity-90 hover:-translate-y-0.5",
 };

@@ -28,7 +28,7 @@ export function Header() {
 
   return (
     <header className={isHome ? "home-header sticky top-0 z-40" : "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur"}>
-      <div className={isHome ? "mx-auto my-3 flex w-[calc(100%-2rem)] max-w-7xl items-center justify-between gap-6 rounded-xl border border-border bg-background/80 px-5 py-3 backdrop-blur-xl sm:px-7" : "mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8"}>
+      <div className={isHome ? "home-header-frame mx-auto my-2.5 flex w-[calc(100%-1.25rem)] max-w-7xl items-center justify-between gap-6 rounded-lg border border-border bg-background/70 px-4 py-2.5 backdrop-blur-xl sm:w-[calc(100%-2rem)] sm:px-6" : "mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8"}>
         <Link to="/" aria-label={`${SITE.name} home`} className="flex items-baseline gap-2">
           <Wordmark />
           <span className="sr-only">{SITE.name}</span>
@@ -39,7 +39,7 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-[0.8125rem] font-medium text-muted-foreground transition-colors hover:text-foreground"
               activeProps={{ className: "text-foreground" }}
             >
               {item.label}
@@ -50,7 +50,7 @@ export function Header() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href={LOGIN_URL}
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-[0.8125rem] font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             Login
           </a>
