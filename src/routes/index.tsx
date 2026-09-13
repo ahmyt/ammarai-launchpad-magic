@@ -302,6 +302,7 @@ export function Home() {
             {featuredTools.map((tool, index) => (
               <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "lg:col-span-2 min-h-48 justify-end" : ""} />
             ))}
+          </div>
         </Container>
       </Section>
 
@@ -339,7 +340,6 @@ export function Home() {
                 </div>
               </Card>
             ))}
-          </div>
         </Container>
       </Section>
 
