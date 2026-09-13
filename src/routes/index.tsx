@@ -150,18 +150,18 @@ export function Home() {
       />
 
       {/* Hero */}
-      <section className="luxe-hero relative pb-16 pt-16 sm:pb-24 sm:pt-24 lg:pt-28">
+      <section className="luxe-hero relative pb-16 pt-24 sm:pb-20 sm:pt-32">
         <Container size="wide" className="relative z-10">
-          <div className="max-w-5xl lg:pl-8">
-            <p className="luxe-kicker"><Sparkles className="size-3.5" /> {tools.length} tools. One intelligent workspace.</p>
-            <h1 className="mt-8 max-w-5xl text-balance text-5xl font-bold leading-[0.94] sm:text-7xl lg:text-[5.75rem]">
+          <div className="mx-auto max-w-5xl text-center">
+            <p className="luxe-kicker mx-auto"><Sparkles className="size-3.5" /> {tools.length} tools. One intelligent workspace.</p>
+            <h1 className="mt-7 text-balance text-5xl font-bold leading-[0.98] sm:text-7xl lg:text-[5.75rem]">
               Everything you create,<br className="hidden sm:block" /> amplified by <span className="luxe-text">AmmarAI</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mx-auto mt-7 max-w-3xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
               Build autonomous AI Agents, write with precision, and turn ideas into remarkable images,
               videos, voice, and campaigns — all in one workspace that remembers how your brand works.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <ExternalButton href={REGISTER_URL} size="lg" className="w-full sm:w-auto">
                 Start creating free <ArrowRight className="size-4" />
               </ExternalButton>
@@ -169,10 +169,10 @@ export function Home() {
                 Explore {tools.length} tools
               </ButtonLink>
             </div>
-            <p className="mt-4 text-[0.6875rem] text-muted-foreground">No card required. Upgrade only when you need more.</p>
+            <p className="mt-4 text-xs text-muted-foreground">No card required. Upgrade only when you need more.</p>
           </div>
 
-          <div className="luxe-workspace mx-auto mt-16 max-w-6xl rise sm:mt-20">
+          <div className="luxe-workspace mx-auto mt-14 max-w-6xl rise">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
                 <span className="grid size-9 place-items-center rounded-md bg-accent/15 text-accent"><WandSparkles className="size-4" /></span>
@@ -262,7 +262,7 @@ export function Home() {
       <TrustLogoStrip />
 
       {/* Featured */}
-      <Section tone="sand" className="luxe-flagships home-section">
+      <Section tone="sand" className="luxe-flagships">
         <Container>
           <SectionHeading
             eyebrow="Flagship tools"
@@ -278,14 +278,14 @@ export function Home() {
       </Section>
 
       {/* Video library */}
-      <Section className="home-section">
+      <Section>
         <Container>
           <SectionHeading
             eyebrow="Video library"
             title="See what the video tools can make"
             intro="Watch real samples from four different workflows, then open the tool behind each result."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {videoLibrary.map((item) => (
               <Card key={item.slug} className="overflow-hidden p-0">
                 <video

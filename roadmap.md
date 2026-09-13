@@ -59,7 +59,3 @@
 - [x] Upgrade the hero into a product-led tool discovery experience
 - [x] Restyle the trust strip, flagship grid, media, reviews, and remaining sections
 - [x] Verify interactions, media, accessibility, and responsive layouts
-
-## Homepage brightness refinement
-- [x] Lighten the homepage while preserving its premium structure and accent identity
-- [x] Verify desktop and mobile contrast, spacing, and overflow
