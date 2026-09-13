@@ -49,7 +49,7 @@
 - [x] Make daily run time editable in the Studio (sync_settings.run_time_utc)
 
 ## Homepage trust and reviews (approved)
-- [ ] Add approved-company scrolling logo strip
-- [ ] Add genuine public review submission and homepage review browser
-- [ ] Add Studio review moderation, import, and display controls
-- [ ] Verify access rules, interactions, and responsive layouts
+- [x] Add approved-company scrolling logo strip
+- [x] Add genuine public review submission and homepage review browser
+- [x] Add Studio review moderation, import, and display controls
+- [x] Verify access rules, interactions, and responsive layouts
