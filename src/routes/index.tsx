@@ -181,7 +181,7 @@ export function Home() {
       />
 
       {/* Hero */}
-      <section className="premium-hero relative border-b border-border pb-16 pt-14 sm:pb-24 sm:pt-24 lg:min-h-[calc(100svh-65px)] lg:pb-28 lg:pt-28">
+      <section className="premium-hero relative border-b border-border pb-16 pt-14 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28">
         <Container size="wide" className="relative z-10">
           <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 xl:gap-20">
             <div className="premium-hero-copy">

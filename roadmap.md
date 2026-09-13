@@ -67,5 +67,5 @@
 - [x] Verify search, navigation, videos, reviews, FAQ, metadata, and responsive layouts
 
 ## Premium editorial homepage refinement
-- [ ] Apply the selected premium light visual direction without changing homepage structure or content
-- [ ] Verify hero, interactions, and responsive layouts
+- [x] Apply the selected premium light visual direction without changing homepage structure or content
+- [x] Verify hero, interactions, and responsive layouts
