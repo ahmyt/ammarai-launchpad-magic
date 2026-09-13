@@ -70,7 +70,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "py-16 sm:py-24",
+        "py-20 sm:py-28",
         tone === "sand" && "bg-sand",
         tone === "ink" && "bg-ink text-ink-foreground",
         className,
@@ -93,8 +93,8 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-xl bg-card p-5 ring-1 ring-border",
-        interactive && "transition-all duration-200 hover:-translate-y-0.5 hover:ring-accent/50",
+        "rounded-lg bg-card p-5 ring-1 ring-border",
+        interactive && "transition-all duration-300 hover:-translate-y-1 hover:ring-accent/60 hover:shadow-xl",
         className,
       )}
     >

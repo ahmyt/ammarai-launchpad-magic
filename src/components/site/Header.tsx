@@ -26,8 +26,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8">
+    <header className="sticky top-0 z-40 border-b border-border bg-ink/95 text-ink-foreground backdrop-blur-xl">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-8">
         <Link to="/" aria-label={`${SITE.name} home`} className="flex items-baseline gap-2">
           <Wordmark />
           <span className="sr-only">{SITE.name}</span>
@@ -38,8 +38,8 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
+              className="text-sm font-medium text-ink-foreground/65 transition-colors hover:text-ink-foreground"
+              activeProps={{ className: "text-ink-foreground" }}
             >
               {item.label}
             </Link>
@@ -49,7 +49,7 @@ export function Header() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href={LOGIN_URL}
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-medium text-ink-foreground/65 transition-colors hover:text-ink-foreground"
           >
             Login
           </a>
@@ -63,7 +63,7 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Toggle navigation menu"
-          className="flex size-9 items-center justify-center rounded-md ring-1 ring-border md:hidden"
+          className="flex size-10 items-center justify-center rounded-md text-ink-foreground ring-1 ring-ink-foreground/20 md:hidden"
         >
           <span aria-hidden="true" className="text-lg leading-none">
             {open ? "×" : "≡"}
@@ -72,14 +72,14 @@ export function Header() {
       </div>
 
       {open ? (
-        <div className="border-t border-border bg-background md:hidden">
+        <div className="border-t border-ink-foreground/10 bg-ink md:hidden">
           <nav aria-label="Mobile" className="mx-auto flex max-w-6xl flex-col px-5 py-3">
             {primaryNav.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="border-b border-border py-3 text-sm font-medium text-foreground last:border-0"
+                className="border-b border-ink-foreground/10 py-3 text-sm font-medium text-ink-foreground last:border-0"
               >
                 {item.label}
               </Link>
