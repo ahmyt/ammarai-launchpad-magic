@@ -1,10 +1,11 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { footerNav, SITE } from "@/lib/site";
 import { Wordmark } from "./Header";
 
 export function Footer() {
+  const isHome = useLocation().pathname === "/";
   return (
-    <footer className="border-t border-border bg-sand">
+    <footer className={isHome ? "home-footer border-t border-border bg-sand" : "border-t border-border bg-sand"}>
       <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
         <div className="grid gap-10 md:grid-cols-[1.2fr_repeat(4,1fr)]">
           <div>

@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useState } from "react";
 import { primaryNav, SITE, REGISTER_URL, LOGIN_URL } from "@/lib/site";
 import { ExternalButton } from "./Button";
@@ -24,10 +24,11 @@ export function Wordmark({ className }: { className?: string }) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const isHome = useLocation().pathname === "/";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8">
+    <header className={isHome ? "home-header sticky top-0 z-40" : "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur"}>
+      <div className={isHome ? "mx-auto my-3 flex w-[calc(100%-2rem)] max-w-7xl items-center justify-between gap-6 rounded-xl border border-border bg-background/80 px-5 py-3 backdrop-blur-xl sm:px-7" : "mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8"}>
         <Link to="/" aria-label={`${SITE.name} home`} className="flex items-baseline gap-2">
           <Wordmark />
           <span className="sr-only">{SITE.name}</span>
@@ -53,7 +54,7 @@ export function Header() {
           >
             Login
           </a>
-          <ExternalButton href={REGISTER_URL} variant="ink" size="sm">
+          <ExternalButton href={REGISTER_URL} variant={isHome ? "primary" : "ink"} size="sm">
             Start Free
           </ExternalButton>
         </div>

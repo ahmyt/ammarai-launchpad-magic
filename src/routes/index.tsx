@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { ArrowRight, Bot, Image, Search, Sparkles, Video, WandSparkles } from "lucide-react";
 import { siteContentQuery } from "@/lib/content";
 import { tools, featuredTools, popularTools, recentTools, usedCategories, suggestTools, toolsByCategory } from "@/data/tools";
 import { useCases } from "@/data/use-cases";
@@ -138,7 +139,7 @@ export function Home() {
   );
 
   return (
-    <div>
+    <div className="home-luxe overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -149,52 +150,61 @@ export function Home() {
       />
 
       {/* Hero */}
-      <Section className="pb-14 pt-16 sm:pb-20 sm:pt-24">
-        <Container>
-          <div className="grid gap-14 lg:grid-cols-[1.15fr_1fr] lg:items-center">
-            <div>
-              <p className="eyebrow">{tools.length} tools · one subscription</p>
-              <h1 className="mt-5 text-balance text-5xl leading-[1.02] sm:text-6xl">
-                One AI for everything you create
-              </h1>
-              <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-                Build autonomous AI Agents, draft with AI Writer, think with Chat Pro, create with
-                Image Pro and Video Pro, build talking avatars, transcribe recordings and audit SEO.
-                Add CRM, voiceovers, document analysis and code tools — all in one workspace that
-                keeps your brand voice and history together.
-              </p>
-              <div className="mt-9 flex flex-wrap items-center gap-3">
-                <ExternalButton href={REGISTER_URL} size="lg">
-                  Start creating free
-                </ExternalButton>
-                <ButtonLink to="/ai-tools" variant="outline" size="lg">
-                  Explore {tools.length} tools
-                </ButtonLink>
-              </div>
-              <p className="mt-4 text-xs text-muted-foreground">
-                No card required on the free plan. Cancel a paid plan any time.
-              </p>
+      <section className="luxe-hero relative pb-16 pt-24 sm:pb-20 sm:pt-32">
+        <Container size="wide" className="relative z-10">
+          <div className="mx-auto max-w-5xl text-center">
+            <p className="luxe-kicker mx-auto"><Sparkles className="size-3.5" /> {tools.length} tools. One intelligent workspace.</p>
+            <h1 className="mt-7 text-balance text-5xl font-bold leading-[0.98] sm:text-7xl lg:text-[5.75rem]">
+              Everything you create,<br className="hidden sm:block" /> amplified by <span className="luxe-text">AmmarAI</span>
+            </h1>
+            <p className="mx-auto mt-7 max-w-3xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+              Build autonomous AI Agents, write with precision, and turn ideas into remarkable images,
+              videos, voice, and campaigns — all in one workspace that remembers how your brand works.
+            </p>
+            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <ExternalButton href={REGISTER_URL} size="lg" className="w-full sm:w-auto">
+                Start creating free <ArrowRight className="size-4" />
+              </ExternalButton>
+              <ButtonLink to="/ai-tools" variant="outline" size="lg" className="w-full sm:w-auto">
+                Explore {tools.length} tools
+              </ButtonLink>
             </div>
+            <p className="mt-4 text-xs text-muted-foreground">No card required. Upgrade only when you need more.</p>
+          </div>
 
-            {/* Discovery panel */}
-            <Card className="p-6 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.45)]">
-              <p className="eyebrow">Find the right tool</p>
-              <label htmlFor="home-search" className="sr-only">
-                Describe what you want to make
-              </label>
-              <input
-                id="home-search"
-                type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Describe what you want to make…"
-                className="mt-4 w-full rounded-md bg-background px-4 py-3 text-sm text-foreground ring-1 ring-border placeholder:text-muted-foreground focus:outline-2 focus:outline-offset-2 focus:outline-ring"
-              />
-              <div className="mt-4 min-h-[13rem]">
+          <div className="luxe-workspace mx-auto mt-14 max-w-6xl rise">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-7">
+              <div className="flex items-center gap-3">
+                <span className="grid size-9 place-items-center rounded-md bg-accent/15 text-accent"><WandSparkles className="size-4" /></span>
+                <div><p className="text-sm font-semibold text-foreground">AmmarAI Workspace</p><p className="text-xs text-muted-foreground">Choose a tool or describe your goal</p></div>
+              </div>
+              <div className="hidden items-center gap-2 sm:flex">
+                {[Bot, Image, Video].map((Icon, index) => <span key={index} className="grid size-8 place-items-center rounded-md border border-border text-muted-foreground"><Icon className="size-3.5" /></span>)}
+              </div>
+            </div>
+            <div className="grid lg:grid-cols-[0.72fr_1.28fr]">
+              <div className="border-b border-border p-5 sm:p-7 lg:border-b-0 lg:border-r">
+                <p className="eyebrow">Flagship workflows</p>
+                <div className="mt-5 space-y-2">
+                  {featuredTools.slice(0, 5).map((tool, index) => (
+                    <Link key={tool.slug} to="/$slug" params={{ slug: tool.slug }} className={`luxe-tool-row ${index === 0 ? "is-active" : ""}`}>
+                      <span className="text-xs tabular-nums">0{index + 1}</span><span>{tool.name}</span><ArrowRight className="ml-auto size-3.5" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <div className="p-5 sm:p-7">
+                <label htmlFor="home-search" className="sr-only">Describe what you want to make</label>
+                <div className="luxe-search flex items-center gap-3 px-4">
+                  <Search className="size-4 shrink-0 text-accent" />
+                  <input id="home-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="What do you want to create today?" className="h-14 min-w-0 flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground" />
+                  <span className="hidden rounded border border-border px-2 py-1 text-[10px] text-muted-foreground sm:block">⌘ K</span>
+                </div>
+                <div className="mt-5 min-h-[12rem]">
                 {query.trim() === "" ? (
                   <div>
-                    <p className="text-xs text-muted-foreground">Try one of these:</p>
-                    <div className="mt-3 flex flex-wrap gap-2">
+                    <p className="text-xs font-medium text-muted-foreground">Popular starting points</p>
+                    <div className="mt-3 grid gap-2 sm:grid-cols-2">
                       {[
                         "a blog post about pricing",
                         "product descriptions",
@@ -206,7 +216,7 @@ export function Home() {
                           key={s}
                           type="button"
                           onClick={() => setQuery(s)}
-                          className="rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground ring-1 ring-border transition-colors hover:text-foreground"
+                          className="rounded-md border border-border bg-secondary/40 px-3 py-2.5 text-left text-xs font-medium text-muted-foreground transition-colors hover:border-accent/50 hover:text-foreground"
                         >
                           {s}
                         </button>
@@ -218,9 +228,9 @@ export function Home() {
                     Nothing matched. Try plainer words, like “video”, “email” or “photo”.
                   </p>
                 ) : (
-                  <ul className="divide-y divide-border">
+                  <ul className="grid gap-2">
                     {suggestions.map((tool) => (
-                      <li key={tool.slug} className="py-2.5">
+                      <li key={tool.slug} className="rounded-md border border-border bg-secondary/30 p-3">
                         <Link
                           to="/$slug"
                           params={{ slug: tool.slug }}
@@ -243,24 +253,24 @@ export function Home() {
                   </ul>
                 )}
               </div>
-            </Card>
+            </div>
           </div>
         </Container>
-      </Section>
+      </section>
 
       <TrustLogoStrip />
 
       {/* Featured */}
-      <Section tone="sand">
+      <Section tone="sand" className="luxe-flagships">
         <Container>
           <SectionHeading
             eyebrow="Flagship tools"
             title="Eight flagship tools, one workspace"
             intro="AI Agent Builder, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video, Transcription and SEO Analyzer form the core of AmmarAI — eight focused tools for creating, understanding and improving your work."
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredTools.map((tool) => (
-              <ToolCard key={tool.slug} tool={tool} />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {featuredTools.map((tool, index) => (
+              <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "lg:col-span-2 luxe-featured-card" : ""} />
             ))}
           </div>
         </Container>
