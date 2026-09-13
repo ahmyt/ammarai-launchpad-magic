@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { ArrowRight, Bot, Image, Search, Sparkles, Video, WandSparkles } from "lucide-react";
+import { ArrowRight, Bot, Check, Files, History, Layers3, Search, Sparkles, SwatchBook, WandSparkles } from "lucide-react";
 import { siteContentQuery } from "@/lib/content";
 import { tools, featuredTools, popularTools, recentTools, usedCategories, suggestTools, toolsByCategory } from "@/data/tools";
 import { useCases } from "@/data/use-cases";
@@ -10,7 +10,7 @@ import { posts } from "@/data/posts";
 import { SITE, organizationJsonLd, REGISTER_URL } from "@/lib/site";
 import { Container, Section, SectionHeading, Card } from "@/components/site/primitives";
 import { ToolCard } from "@/components/site/ToolCard";
-import { ExternalButton, ButtonLink } from "@/components/site/Button";
+import { ActionButton, ExternalButton, ButtonLink } from "@/components/site/Button";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { assetUrl } from "@/lib/asset-url";
 import { TrustLogoStrip } from "@/components/site/TrustLogoStrip";
@@ -22,7 +22,26 @@ import avatarDemo from "@/assets/demo-avatar-video.mp4.asset.json";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
 const description =
-  "130+ AI tools and templates in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.";
+  "138 AI tools and templates in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.";
+
+const goalPrompts = [
+  "Write a blog post about pricing",
+  "Create a product description",
+  "Make a promotional video",
+  "Generate a voiceover",
+  "Transcribe an interview",
+  "Create an Instagram ad",
+  "Build an AI agent",
+];
+
+const workspaceBenefits = [
+  { label: "One account", icon: Check },
+  { label: "Shared history", icon: History },
+  { label: "Brand voice", icon: SwatchBook },
+  { label: "Files & templates", icon: Files },
+  { label: "Multiple AI models", icon: Layers3 },
+  { label: "Assistants & agents", icon: Bot },
+];
 
 const homeFaqs = [
   {
@@ -126,7 +145,19 @@ export function Home() {
     secondaryLabel: page?.comparisonSecondaryLabel || "Compare plans",
   };
   const [query, setQuery] = useState("");
+  const searchRef = useRef<HTMLInputElement>(null);
   const suggestions = useMemo(() => suggestTools(query).slice(0, 5), [query]);
+
+  useEffect(() => {
+    const focusSearch = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        searchRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", focusSearch);
+    return () => window.removeEventListener("keydown", focusSearch);
+  }, []);
 
   const categoryPreview = useMemo(
     () =>
@@ -139,7 +170,7 @@ export function Home() {
   );
 
   return (
-    <div className="home-luxe overflow-hidden">
+    <div className="overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -150,76 +181,73 @@ export function Home() {
       />
 
       {/* Hero */}
-      <section className="luxe-hero relative pb-16 pt-24 sm:pb-20 sm:pt-32">
+      <section className="relative border-b border-border pb-16 pt-16 sm:pb-20 sm:pt-24">
         <Container size="wide" className="relative z-10">
-          <div className="mx-auto max-w-5xl text-center">
-            <p className="luxe-kicker mx-auto"><Sparkles className="size-3.5" /> {tools.length} tools. One intelligent workspace.</p>
-            <h1 className="mt-7 text-balance text-5xl font-bold leading-[0.98] sm:text-7xl lg:text-[5.75rem]">
-              Everything you create,<br className="hidden sm:block" /> amplified by <span className="luxe-text">AmmarAI</span>
-            </h1>
-            <p className="mx-auto mt-7 max-w-3xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-              Build autonomous AI Agents, write with precision, and turn ideas into remarkable images,
-              videos, voice, and campaigns — all in one workspace that remembers how your brand works.
-            </p>
-            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="grid items-center gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16">
+            <div>
+              <p className="eyebrow flex items-center gap-2"><Sparkles className="size-3.5" /> {tools.length} tools · one intelligent workspace</p>
+              <h1 className="mt-6 max-w-3xl text-balance text-5xl leading-[1.02] sm:text-6xl lg:text-7xl">
+                One AI for everything you create
+              </h1>
+              <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Build autonomous AI Agents, draft with AI Writer, think with Chat Pro, create with Image Pro
+                and Video Pro, build talking avatars, transcribe recordings and audit SEO. Add CRM,
+                voiceovers, document analysis and code tools — all in one workspace that keeps your brand
+                voice, files and history together.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ExternalButton href={REGISTER_URL} size="lg" className="w-full sm:w-auto">
                 Start creating free <ArrowRight className="size-4" />
               </ExternalButton>
               <ButtonLink to="/ai-tools" variant="outline" size="lg" className="w-full sm:w-auto">
                 Explore {tools.length} tools
               </ButtonLink>
+              </div>
+              <p className="mt-4 text-xs text-muted-foreground">No card required on the free plan. Cancel a paid plan any time.</p>
             </div>
-            <p className="mt-4 text-xs text-muted-foreground">No card required. Upgrade only when you need more.</p>
-          </div>
 
-          <div className="luxe-workspace mx-auto mt-14 max-w-6xl rise">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-7">
+          <div className="overflow-hidden rounded-xl bg-card ring-1 ring-border shadow-[0_28px_70px_-48px_var(--color-foreground)] rise">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-6">
               <div className="flex items-center gap-3">
                 <span className="grid size-9 place-items-center rounded-md bg-accent/15 text-accent"><WandSparkles className="size-4" /></span>
-                <div><p className="text-sm font-semibold text-foreground">AmmarAI Workspace</p><p className="text-xs text-muted-foreground">Choose a tool or describe your goal</p></div>
+                <div><p className="text-sm font-semibold text-foreground">Find the right tool</p><p className="text-xs text-muted-foreground">Choose a tool or describe your goal</p></div>
               </div>
-              <div className="hidden items-center gap-2 sm:flex">
-                {[Bot, Image, Video].map((Icon, index) => <span key={index} className="grid size-8 place-items-center rounded-md border border-border text-muted-foreground"><Icon className="size-3.5" /></span>)}
-              </div>
+              <span className="rounded-md bg-secondary px-2.5 py-1 text-[11px] font-medium text-muted-foreground">Real tool matching</span>
             </div>
-            <div className="grid lg:grid-cols-[0.72fr_1.28fr]">
-              <div className="border-b border-border p-5 sm:p-7 lg:border-b-0 lg:border-r">
-                <p className="eyebrow">Flagship workflows</p>
-                <div className="mt-5 space-y-2">
+            <div className="grid md:grid-cols-[0.78fr_1.22fr]">
+              <div className="border-b border-border bg-secondary/35 p-5 sm:p-6 md:border-b-0 md:border-r">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Select a flagship</p>
+                <div className="mt-4 space-y-1">
                   {featuredTools.slice(0, 5).map((tool, index) => (
-                    <Link key={tool.slug} to="/$slug" params={{ slug: tool.slug }} className={`luxe-tool-row ${index === 0 ? "is-active" : ""}`}>
-                      <span className="text-xs tabular-nums">0{index + 1}</span><span>{tool.name}</span><ArrowRight className="ml-auto size-3.5" />
+                    <Link key={tool.slug} to="/$slug" params={{ slug: tool.slug }} className="group flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-card hover:text-foreground">
+                      <span className="text-xs tabular-nums text-accent">0{index + 1}</span><span>{tool.name}</span><ArrowRight className="ml-auto size-3.5 transition-transform group-hover:translate-x-0.5" />
                     </Link>
                   ))}
                 </div>
               </div>
-              <div className="p-5 sm:p-7">
+              <div className="p-5 sm:p-6">
                 <label htmlFor="home-search" className="sr-only">Describe what you want to make</label>
-                <div className="luxe-search flex items-center gap-3 px-4">
+                <div className="flex items-center gap-3 rounded-md border border-input bg-background px-4 transition-shadow focus-within:border-accent focus-within:ring-4 focus-within:ring-accent/10">
                   <Search className="size-4 shrink-0 text-accent" />
-                  <input id="home-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="What do you want to create today?" className="h-14 min-w-0 flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground" />
+                  <input ref={searchRef} id="home-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="What do you want to create?" className="h-14 min-w-0 flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground" />
                   <span className="hidden rounded border border-border px-2 py-1 text-[10px] text-muted-foreground sm:block">⌘ K</span>
                 </div>
-                <div className="mt-5 min-h-[12rem]">
+                <div className="mt-5 min-h-[13rem]">
                 {query.trim() === "" ? (
                   <div>
                     <p className="text-xs font-medium text-muted-foreground">Popular starting points</p>
-                    <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                      {[
-                        "a blog post about pricing",
-                        "product descriptions",
-                        "a voiceover for a reel",
-                        "transcribe an interview",
-                        "an ad for Instagram",
-                      ].map((s) => (
-                        <button
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {goalPrompts.map((prompt) => (
+                        <ActionButton
                           key={s}
                           type="button"
-                          onClick={() => setQuery(s)}
-                          className="rounded-md border border-border bg-secondary/40 px-3 py-2.5 text-left text-xs font-medium text-muted-foreground transition-colors hover:border-accent/50 hover:text-foreground"
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setQuery(prompt)}
+                          className="h-auto justify-start py-2 text-left text-xs font-medium text-muted-foreground hover:text-foreground"
                         >
-                          {s}
-                        </button>
+                          {prompt}
+                        </ActionButton>
                       ))}
                     </div>
                   </div>
@@ -262,7 +290,7 @@ export function Home() {
       <TrustLogoStrip />
 
       {/* Featured */}
-      <Section tone="sand" className="luxe-flagships">
+      <Section tone="sand">
         <Container>
           <SectionHeading
             eyebrow="Flagship tools"
@@ -271,7 +299,7 @@ export function Home() {
           />
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {featuredTools.map((tool, index) => (
-              <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "lg:col-span-2 luxe-featured-card" : ""} />
+              <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "lg:col-span-2 min-h-48 justify-end" : ""} />
             ))}
           </div>
         </Container>
@@ -292,7 +320,7 @@ export function Home() {
                   controls
                   muted
                   playsInline
-                  preload="metadata"
+                  preload="none"
                   src={item.src}
                   aria-label={`${item.label} sample video`}
                   className="aspect-video w-full bg-ink object-cover"
@@ -394,7 +422,16 @@ export function Home() {
           <SectionHeading
             eyebrow="Why one workspace"
             title="What makes 138 tools feel like one product"
+            intro="One account and subscription connect your history, brand voice, files, templates, AI models and assistants across every workflow."
           />
+          <ul className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-3" aria-label="Connected workspace benefits">
+            {workspaceBenefits.map(({ label, icon: Icon }) => (
+              <li key={label} className="flex items-center gap-3 border-t border-border py-3 text-sm font-medium text-foreground">
+                <Icon className="size-4 text-accent" aria-hidden="true" />
+                {label}
+              </li>
+            ))}
+          </ul>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {features.slice(0, 6).map((f) => (
               <Card key={f.slug} interactive className="p-6">
