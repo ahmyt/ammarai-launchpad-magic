@@ -180,62 +180,59 @@ export function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(homeFaqs)) }}
       />
 
-      {/* Hero */}
-      <section className="premium-hero relative border-b border-border pb-16 pt-14 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28">
+      <section className="studio-hero relative border-b border-border pb-16 pt-12 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
         <Container size="wide" className="relative z-10">
-          <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 xl:gap-20">
-            <div className="premium-hero-copy">
-              <p className="premium-kicker"><Sparkles className="size-3.5" /> {tools.length} tools · one intelligent workspace</p>
-              <h1 className="mt-7 max-w-3xl text-balance text-[3.25rem] font-extrabold leading-[0.98] sm:text-6xl lg:text-[4.75rem]">
-                One AI for everything <span className="premium-accent-text">you create</span>
-              </h1>
-              <p className="mt-7 max-w-xl text-pretty text-base leading-[1.75] text-muted-foreground sm:text-lg">
-                Build autonomous AI Agents, draft with AI Writer, think with Chat Pro, create with Image Pro
-                and Video Pro, build talking avatars, transcribe recordings and audit SEO. Add CRM,
-                voiceovers, document analysis and code tools — all in one workspace that keeps your brand
-                voice, files and history together.
-              </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ExternalButton href={REGISTER_URL} size="lg" className="premium-primary-cta w-full sm:w-auto">
+          <div className="mx-auto max-w-5xl text-center">
+            <p className="studio-kicker"><Sparkles className="size-3.5" /> {tools.length} tools · one intelligent workspace</p>
+            <h1 className="mx-auto mt-7 max-w-5xl text-balance text-[3.35rem] font-bold leading-[0.96] sm:text-7xl lg:text-[5.75rem]">
+              One AI for everything <span className="studio-accent-text">you create</span>
+            </h1>
+            <p className="mx-auto mt-7 max-w-3xl text-pretty text-base leading-[1.75] text-muted-foreground sm:text-lg">
+              Build autonomous AI Agents, draft with AI Writer, think with Chat Pro, create with Image Pro
+              and Video Pro, build talking avatars, transcribe recordings and audit SEO. Add CRM,
+              voiceovers, document analysis and code tools — all in one connected workspace.
+            </p>
+            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+              <ExternalButton href={REGISTER_URL} size="lg" className="studio-primary-cta w-full sm:w-auto">
                 Start creating free <ArrowRight className="size-4" />
               </ExternalButton>
               <ButtonLink to="/ai-tools" variant="outline" size="lg" className="w-full sm:w-auto">
                 Explore {tools.length} tools
               </ButtonLink>
-              </div>
-              <p className="mt-5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required on the free plan. Cancel a paid plan any time.</p>
             </div>
+            <p className="mt-5 flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required. Every tool included.</p>
+          </div>
 
-          <div className="premium-finder overflow-hidden rounded-xl bg-card ring-1 ring-border rise">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-5 sm:px-6">
+          <div className="studio-command mx-auto mt-12 max-w-6xl overflow-hidden rounded-2xl bg-card ring-1 ring-border sm:mt-16">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
-                <span className="premium-finder-icon grid size-10 place-items-center rounded-md bg-accent/10 text-accent"><WandSparkles className="size-4" /></span>
-                <div><p className="text-sm font-semibold text-foreground">Find the right tool</p><p className="text-xs text-muted-foreground">Choose a tool or describe your goal</p></div>
+                <span className="studio-command-icon grid size-10 place-items-center rounded-xl bg-accent text-accent-foreground"><WandSparkles className="size-4" /></span>
+                <div className="text-left"><p className="text-sm font-semibold text-foreground">AmmarAI command center</p><p className="text-xs text-muted-foreground">Choose a flagship tool or describe your goal</p></div>
               </div>
-              <span className="rounded-full border border-border bg-background px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">Real tool matching</span>
+              <span className="studio-status"><span className="size-1.5 rounded-full bg-success" /> All tools ready</span>
             </div>
-            <div className="grid md:grid-cols-[0.78fr_1.22fr]">
-               <div className="premium-finder-sidebar border-b border-border bg-secondary/35 p-5 sm:p-6 md:border-b-0 md:border-r">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Select a flagship</p>
-                <div className="mt-4 space-y-1">
-                  {featuredTools.slice(0, 5).map((tool, index) => (
-                    <Link key={tool.slug} to="/$slug" params={{ slug: tool.slug }} className="group flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-card hover:text-foreground">
-                      <span className="text-xs tabular-nums text-accent">0{index + 1}</span><span>{tool.name}</span><ArrowRight className="ml-auto size-3.5 transition-transform group-hover:translate-x-0.5" />
+            <div className="grid lg:grid-cols-[0.68fr_1.32fr]">
+              <div className="studio-command-sidebar border-b border-border p-5 sm:p-7 lg:border-b-0 lg:border-r">
+                <p className="studio-label">Flagship workspace</p>
+                <div className="mt-4 grid gap-1 sm:grid-cols-2 lg:grid-cols-1">
+                  {featuredTools.slice(0, 6).map((tool, index) => (
+                    <Link key={tool.slug} to="/$slug" params={{ slug: tool.slug }} className="studio-tool-row group">
+                      <span className="studio-tool-index">0{index + 1}</span><span>{tool.name}</span><ArrowRight className="ml-auto size-3.5 transition-transform group-hover:translate-x-1" />
                     </Link>
                   ))}
                 </div>
               </div>
-              <div className="p-5 sm:p-6">
+              <div className="p-5 sm:p-7 lg:p-8">
                 <label htmlFor="home-search" className="sr-only">Describe what you want to make</label>
-                 <div className="premium-search flex items-center gap-3 rounded-lg border border-input bg-background px-4 transition-shadow focus-within:border-accent focus-within:ring-4 focus-within:ring-accent/10">
+                <div className="studio-search flex items-center gap-3 rounded-xl border border-input bg-background px-4 focus-within:border-accent focus-within:ring-4 focus-within:ring-accent/10">
                   <Search className="size-4 shrink-0 text-accent" />
-                  <input ref={searchRef} id="home-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="What do you want to create?" className="h-14 min-w-0 flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground" />
-                  <span className="hidden rounded border border-border px-2 py-1 text-[10px] text-muted-foreground sm:block">⌘ K</span>
+                  <input ref={searchRef} id="home-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="What do you want to create?" className="h-16 min-w-0 flex-1 bg-transparent text-sm font-medium text-foreground outline-none placeholder:text-muted-foreground" />
+                  <span className="hidden rounded-md border border-border bg-secondary px-2 py-1 text-[10px] text-muted-foreground sm:block">⌘ K</span>
                 </div>
-                <div className="mt-5 min-h-[13rem]">
+                <div className="mt-6 min-h-[13rem]">
                 {query.trim() === "" ? (
                   <div>
-                    <p className="text-xs font-medium text-muted-foreground">Popular starting points</p>
+                    <p className="studio-label">Popular starting points</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {goalPrompts.map((prompt) => (
                         <ActionButton
@@ -244,7 +241,7 @@ export function Home() {
                           variant="outline"
                           size="sm"
                           onClick={() => setQuery(prompt)}
-                          className="h-auto justify-start py-2 text-left text-xs font-medium text-muted-foreground hover:text-foreground"
+                          className="h-auto justify-start rounded-full py-2 text-left text-xs font-medium text-muted-foreground hover:text-foreground"
                         >
                           {prompt}
                         </ActionButton>
@@ -258,7 +255,7 @@ export function Home() {
                 ) : (
                   <ul className="grid gap-2">
                     {suggestions.map((tool) => (
-                      <li key={tool.slug} className="rounded-md border border-border bg-secondary/30 p-3">
+                      <li key={tool.slug} className="rounded-lg border border-border bg-secondary/40 p-3 transition-colors hover:bg-secondary">
                         <Link
                           to="/$slug"
                           params={{ slug: tool.slug }}
@@ -282,8 +279,8 @@ export function Home() {
                 )}
               </div>
             </div>
-          </div>
-          </div>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
@@ -291,23 +288,23 @@ export function Home() {
       <TrustLogoStrip />
 
       {/* Featured */}
-       <Section tone="sand" className="premium-section premium-flagships">
+       <Section tone="sand" className="studio-section studio-flagships">
         <Container>
           <SectionHeading
             eyebrow="Flagship tools"
             title="Eight flagship tools, one workspace"
             intro="AI Agent Builder, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video, Transcription and SEO Analyzer form the core of AmmarAI — eight focused tools for creating, understanding and improving your work."
           />
-          <div className="premium-card-grid mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="studio-card-grid mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {featuredTools.map((tool, index) => (
-              <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "lg:col-span-2 min-h-48 justify-end" : ""} />
+              <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "studio-featured-card lg:col-span-2 min-h-52 justify-end" : "min-h-52"} />
             ))}
           </div>
         </Container>
       </Section>
 
       {/* Video library */}
-       <Section className="premium-section">
+       <Section className="studio-section studio-video-section">
         <Container>
           <SectionHeading
             eyebrow="Video library"
@@ -316,7 +313,7 @@ export function Home() {
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {videoLibrary.map((item) => (
-              <Card key={item.slug} className="overflow-hidden p-0">
+              <Card key={item.slug} className="studio-video-card overflow-hidden p-0">
                 <video
                   controls
                   muted
@@ -345,7 +342,7 @@ export function Home() {
       </Section>
 
       {/* Categories */}
-       <Section tone="sand" className="premium-section">
+       <Section tone="sand" className="studio-section">
         <Container>
           <SectionHeading
             eyebrow="The library"
@@ -383,7 +380,7 @@ export function Home() {
       </Section>
 
       {/* Popular + recent */}
-       <Section tone="sand" className="premium-section premium-ranked-lists">
+       <Section className="studio-section studio-ranked-lists">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
@@ -418,7 +415,7 @@ export function Home() {
       </Section>
 
       {/* Features */}
-       <Section className="premium-section">
+       <Section tone="sand" className="studio-section studio-workspace-section">
         <Container>
           <SectionHeading
             eyebrow="Why one workspace"
@@ -427,8 +424,8 @@ export function Home() {
           />
           <ul className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-3" aria-label="Connected workspace benefits">
             {workspaceBenefits.map(({ label, icon: Icon }) => (
-              <li key={label} className="flex items-center gap-3 border-t border-border py-3 text-sm font-medium text-foreground">
-                <Icon className="size-4 text-accent" aria-hidden="true" />
+              <li key={label} className="studio-benefit flex items-center gap-3 rounded-xl border border-border bg-card p-4 text-sm font-semibold text-foreground">
+                <span className="grid size-8 place-items-center rounded-lg bg-accent/10"><Icon className="size-4 text-accent" aria-hidden="true" /></span>
                 {label}
               </li>
             ))}
@@ -455,12 +452,12 @@ export function Home() {
       </Section>
 
       {/* Value comparison */}
-       <Section tone="sand" className="premium-section">
+       <Section className="studio-section studio-comparison">
         <Container>
           <SectionHeading eyebrow={cmp.eyebrow} title={cmp.title} intro={cmp.intro} />
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {/* The old way */}
-            <div className="flex flex-col rounded-xl bg-card p-6 ring-1 ring-border">
+            <div className="studio-comparison-card flex flex-col rounded-xl bg-card p-7 ring-1 ring-border">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 {cmp.oldLabel}
               </p>
@@ -486,7 +483,7 @@ export function Home() {
             </div>
 
             {/* AmmarAI */}
-            <div className="flex flex-col rounded-xl bg-ink p-6 text-ink-foreground shadow-[0_24px_60px_-40px_rgba(0,0,0,0.55)]">
+            <div className="studio-comparison-card studio-comparison-winner flex flex-col rounded-xl bg-ink p-7 text-ink-foreground">
               <p className="eyebrow">{cmp.newLabel}</p>
               <ul className="mt-5 flex flex-1 flex-col gap-3">
                 {cmp.newItems.map((item) => (
@@ -518,7 +515,7 @@ export function Home() {
       <CustomerReviews />
 
       {/* Use cases */}
-       <Section className="premium-section">
+       <Section tone="sand" className="studio-section">
         <Container>
           <SectionHeading eyebrow="Use cases" title="Built around how people actually work" />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -549,7 +546,7 @@ export function Home() {
       </Section>
 
       {/* Blog */}
-       <Section tone="sand" className="premium-section">
+       <Section className="studio-section">
         <Container>
           <SectionHeading eyebrow="From the blog" title="Guides worth your time" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -575,14 +572,14 @@ export function Home() {
       </Section>
 
       {/* FAQ */}
-       <Section className="premium-section">
+       <Section tone="sand" className="studio-section">
         <Container size="narrow">
           <FaqAccordion heading="Common questions" items={homeFaqs} />
         </Container>
       </Section>
 
       {/* CTA */}
-       <Section tone="ink" className="premium-final-cta py-20 sm:py-28">
+       <Section tone="ink" className="studio-final-cta py-20 sm:py-28">
         <Container className="text-center">
           <h2 className="text-balance text-4xl leading-tight sm:text-5xl">
             Start with the free plan
