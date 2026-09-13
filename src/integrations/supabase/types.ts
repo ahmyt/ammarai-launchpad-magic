@@ -409,6 +409,15 @@ export type Database = {
         Args: { _id: string; _message?: string; _status: string }
         Returns: undefined
       }
+      admin_moderate_review: {
+        Args: {
+          _featured?: boolean
+          _status: string
+          _submission_id: string
+          _verified?: boolean
+        }
+        Returns: string
+      }
       admin_set_sync_time: {
         Args: { _id: string; _run_time: string }
         Returns: string
