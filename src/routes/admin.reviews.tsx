@@ -59,24 +59,27 @@ function parseCsvLine(line: string) {
 function parseCsv(text: string): ImportRow[] {
   const lines = text.replace(/\r/g, "").split("\n").filter((line) => line.trim());
   if (lines.length < 2) return [];
-  const headers = parseCsvLine(lines[0]).map((header) => header.toLowerCase());
+  const headerLine = lines[0];
+  if (!headerLine) return [];
+  const headers = parseCsvLine(headerLine).map((header) => header.toLowerCase());
   return lines.slice(1).map((line) => {
     const values = parseCsvLine(line);
     const raw = Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""]));
-    const rating = Number(raw.rating);
-    const status = ["approved", "pending", "rejected"].includes(raw.status) ? raw.status as ImportRow["status"] : "approved";
+    const rating = Number(raw["rating"] ?? "");
+    const rawStatus = raw["status"] ?? "";
+    const status = ["approved", "pending", "rejected"].includes(rawStatus) ? rawStatus as ImportRow["status"] : "approved";
     const row: ImportRow = {
-      reviewer_name: raw.reviewer_name,
-      review_title: raw.review_title,
-      review_text: raw.review_text,
+      reviewer_name: raw["reviewer_name"] ?? "",
+      review_title: raw["review_title"] ?? "",
+      review_text: raw["review_text"] ?? "",
       rating,
-      review_date: raw.review_date,
-      source: raw.source || "Imported review",
-      source_url: raw.source_url || null,
+      review_date: raw["review_date"] ?? "",
+      source: raw["source"] || "Imported review",
+      source_url: raw["source_url"] || null,
       status,
-      featured: raw.featured?.toLowerCase() === "true",
-      verified: raw.verified?.toLowerCase() === "true",
-      display_order: Number(raw.display_order || 0),
+      featured: raw["featured"]?.toLowerCase() === "true",
+      verified: raw["verified"]?.toLowerCase() === "true",
+      display_order: Number(raw["display_order"] || 0),
     };
     if (!row.reviewer_name || !row.review_title || row.review_text.length < 20) row.error = "Missing name, title, or a review of at least 20 characters.";
     else if (!Number.isInteger(rating) || rating < 1 || rating > 5) row.error = "Rating must be a whole number from 1 to 5.";
@@ -199,7 +202,7 @@ function AdminReviews() {
     <div className="space-y-6">
       <div><h2 className="text-xl font-semibold">Customer reviews</h2><p className="mt-1 text-sm text-muted-foreground">Moderate genuine submissions, import existing feedback, and control the homepage display.</p></div>
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="Review management">
-        {(["submissions", "published", "settings", "import"] as const).map((value) => <ActionButton key={value} type="button" size="sm" variant={tab === value ? "ink" : "outline"} onClick={() => { setTab(value); setPage(1); }}>{value[0].toUpperCase() + value.slice(1)}</ActionButton>)}
+        {(["submissions", "published", "settings", "import"] as const).map((value) => <ActionButton key={value} type="button" size="sm" variant={tab === value ? "ink" : "outline"} onClick={() => { setTab(value); setPage(1); }}>{value.charAt(0).toUpperCase() + value.slice(1)}</ActionButton>)}
       </div>
       {notice ? <p role="status" className="rounded-md bg-muted px-4 py-3 text-sm text-muted-foreground">{notice}</p> : null}
 
@@ -222,7 +225,7 @@ function AdminReviews() {
       ) : (
         <>
           <div className="flex flex-wrap gap-3"><label className="relative min-w-56 flex-1"><Search className="absolute left-3 top-2.5 size-4 text-muted-foreground" /><input className={`${fieldClass} w-full pl-9`} value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Search reviews" /></label><select className={fieldClass} value={rating} onChange={(event) => { setRating(Number(event.target.value)); setPage(1); }}><option value="0">All ratings</option>{[5,4,3,2,1].map((value) => <option key={value} value={value}>{value} stars</option>)}</select></div>
-          {visible.length === 0 ? <p className="text-sm text-muted-foreground">No reviews match these filters.</p> : <ul className="space-y-3">{visible.map((item) => <li key={item.id} className="rounded-xl bg-card p-5 ring-1 ring-border"><div className="flex flex-wrap items-start justify-between gap-4"><div className="min-w-0 flex-1"><div className="flex flex-wrap items-center gap-2"><strong>{item.reviewer_name}</strong><span className="inline-flex items-center gap-1 text-xs text-accent"><Star className="size-3" fill="currentColor" />{item.rating}</span>{"status" in item ? <span className="rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">{item.status}</span> : null}{"verified" in item && item.verified ? <span className="inline-flex items-center gap-1 text-xs font-semibold text-success"><ShieldCheck className="size-4" />Verified</span> : null}</div><h3 className="mt-2 text-base font-semibold">{item.review_title}</h3><p className="mt-2 whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">{item.review_text}</p><p className="mt-3 text-xs text-muted-foreground">{item.review_date}{"email" in item ? ` · ${item.email}` : ` · ${item.source}`}</p></div><div className="flex flex-wrap gap-2">{tab === "submissions" ? <><ActionButton size="sm" type="button" onClick={() => moderate.mutate({ id: item.id, status: "approved", verified: true })}><CheckCircle2 className="size-4" />Approve verified</ActionButton><ActionButton size="sm" variant="outline" type="button" onClick={() => moderate.mutate({ id: item.id, status: "approved" })}>Approve</ActionButton><ActionButton size="sm" variant="ghost" type="button" onClick={() => moderate.mutate({ id: item.id, status: "rejected" })}>Reject</ActionButton></> : <><ActionButton size="sm" variant="outline" type="button" onClick={() => updateReview.mutate({ id: item.id, values: { featured: !item.featured } })}>{item.featured ? "Unfeature" : "Feature"}</ActionButton><ActionButton size="sm" variant="outline" type="button" onClick={() => updateReview.mutate({ id: item.id, values: { verified: !item.verified } })}>{item.verified ? "Remove verification" : "Mark verified"}</ActionButton><ActionButton size="sm" variant="ghost" type="button" onClick={() => updateReview.mutate({ id: item.id, values: { status: item.status === "approved" ? "rejected" : "approved" } })}>{item.status === "approved" ? "Unpublish" : "Publish"}</ActionButton></>}</div></div></li>)}</ul>}
+          {visible.length === 0 ? <p className="text-sm text-muted-foreground">No reviews match these filters.</p> : tab === "submissions" ? <ul className="space-y-3">{submissions.filter((item) => visible.some((row) => row.id === item.id)).map((item) => <li key={item.id} className="rounded-xl bg-card p-5 ring-1 ring-border"><div className="flex flex-wrap items-start justify-between gap-4"><div className="min-w-0 flex-1"><div className="flex flex-wrap items-center gap-2"><strong>{item.reviewer_name}</strong><span className="inline-flex items-center gap-1 text-xs text-accent"><Star className="size-3" fill="currentColor" />{item.rating}</span><span className="rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">{item.status}</span></div><h3 className="mt-2 text-base font-semibold">{item.review_title}</h3><p className="mt-2 whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">{item.review_text}</p><p className="mt-3 text-xs text-muted-foreground">{item.review_date} · {item.email}</p></div><div className="flex flex-wrap gap-2"><ActionButton size="sm" type="button" onClick={() => moderate.mutate({ id: item.id, status: "approved", verified: true })}><CheckCircle2 className="size-4" />Approve verified</ActionButton><ActionButton size="sm" variant="outline" type="button" onClick={() => moderate.mutate({ id: item.id, status: "approved" })}>Approve</ActionButton><ActionButton size="sm" variant="ghost" type="button" onClick={() => moderate.mutate({ id: item.id, status: "rejected" })}>Reject</ActionButton></div></div></li>)}</ul> : <ul className="space-y-3">{reviews.filter((item) => visible.some((row) => row.id === item.id)).map((item) => <li key={item.id} className="rounded-xl bg-card p-5 ring-1 ring-border"><div className="flex flex-wrap items-start justify-between gap-4"><div className="min-w-0 flex-1"><div className="flex flex-wrap items-center gap-2"><strong>{item.reviewer_name}</strong><span className="inline-flex items-center gap-1 text-xs text-accent"><Star className="size-3" fill="currentColor" />{item.rating}</span><span className="rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">{item.status}</span>{item.verified ? <span className="inline-flex items-center gap-1 text-xs font-semibold text-success"><ShieldCheck className="size-4" />Verified</span> : null}</div><h3 className="mt-2 text-base font-semibold">{item.review_title}</h3><p className="mt-2 whitespace-pre-wrap text-sm leading-relaxed text-muted-foreground">{item.review_text}</p><p className="mt-3 text-xs text-muted-foreground">{item.review_date} · {item.source}</p></div><div className="flex flex-wrap gap-2"><ActionButton size="sm" variant="outline" type="button" onClick={() => updateReview.mutate({ id: item.id, values: { featured: !item.featured } })}>{item.featured ? "Unfeature" : "Feature"}</ActionButton><ActionButton size="sm" variant="outline" type="button" onClick={() => updateReview.mutate({ id: item.id, values: { verified: !item.verified } })}>{item.verified ? "Remove verification" : "Mark verified"}</ActionButton><ActionButton size="sm" variant="ghost" type="button" onClick={() => updateReview.mutate({ id: item.id, values: { status: item.status === "approved" ? "rejected" : "approved" } })}>{item.status === "approved" ? "Unpublish" : "Publish"}</ActionButton></div></div></li>)}</ul>}
           {filtered.length ? <div className="flex flex-wrap items-center justify-between gap-3 text-xs"><label className="text-muted-foreground">Per page <select className={`${fieldClass} ml-2 py-1.5`} value={pageSize} onChange={(event) => { setPageSize(Number(event.target.value)); setPage(1); }}>{PAGE_SIZES.map((value) => <option key={value} value={value}>{value}</option>)}</select></label><div className="flex items-center gap-3"><ActionButton size="sm" variant="outline" disabled={current === 1} onClick={() => setPage((value) => value - 1)}>Previous</ActionButton><span>Page {current} of {pages}</span><ActionButton size="sm" variant="outline" disabled={current === pages} onClick={() => setPage((value) => value + 1)}>Next</ActionButton></div></div> : null}
         </>
       )}
