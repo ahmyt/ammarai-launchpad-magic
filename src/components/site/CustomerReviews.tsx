@@ -1,4 +1,4 @@
-import { useMemo, useState, type FormEvent } from "react";
+import { useMemo, useState, type FormEvent, type ReactNode } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { BadgeCheck, Star } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -195,6 +195,16 @@ function ReviewForm() {
   );
 }
 
+function ReviewDialog({ children }: { children: ReactNode }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>{children}</DialogTrigger>
+      {open ? <ReviewForm key={String(open)} /> : null}
+    </Dialog>
+  );
+}
+
 export function CustomerReviews() {
   const { data, isLoading } = useQuery(publicReviewsQuery);
   const reviews = data?.reviews ?? [];
@@ -211,7 +221,7 @@ export function CustomerReviews() {
         {isLoading ? <p className="mt-8 text-sm text-muted-foreground">Loading reviews…</p> : reviews.length === 0 ? (
           <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-y border-border py-8">
             <div><p className="text-lg font-semibold">Genuine reviews coming soon</p><p className="mt-1 text-sm text-muted-foreground">Be among the first customers to share an experience.</p></div>
-            <Dialog><DialogTrigger asChild><ActionButton>Write a review</ActionButton></DialogTrigger><ReviewForm /></Dialog>
+<ReviewDialog><ActionButton>Write a review</ActionButton></ReviewDialog>
           </div>
         ) : (
           <>
@@ -220,7 +230,7 @@ export function CustomerReviews() {
               <div className="space-y-2">{distribution.map((row) => <div key={row.value} className="grid grid-cols-[3rem_1fr_2rem] items-center gap-3 text-xs"><span>{row.value} star</span><span className="h-1.5 overflow-hidden rounded-full bg-muted"><span className="block h-full bg-accent" style={{ width: `${reviews.length ? (row.count / reviews.length) * 100 : 0}%` }} /></span><span className="text-right tabular-nums text-muted-foreground">{row.count}</span></div>)}</div>
             </div>
             <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{selected.map((review) => <ReviewCard key={review.id} review={review} />)}</div>
-            <div className="mt-8 flex flex-wrap gap-3"><Dialog><DialogTrigger asChild><ActionButton>Write a review</ActionButton></DialogTrigger><ReviewForm /></Dialog><Dialog><DialogTrigger asChild><ActionButton variant="outline">Read all {reviews.length} reviews</ActionButton></DialogTrigger><ReviewBrowser reviews={reviews} /></Dialog></div>
+            <div className="mt-8 flex flex-wrap gap-3"><ReviewDialog><ActionButton>Write a review</ActionButton></ReviewDialog><Dialog><DialogTrigger asChild><ActionButton variant="outline">Read all {reviews.length} reviews</ActionButton></DialogTrigger><ReviewBrowser reviews={reviews} /></Dialog></div>
           </>
         )}
       </Container>
