@@ -413,6 +413,7 @@ export function Home() {
               </div>
             </div>
           </div>
+          </div>
         </Container>
       </Section>
 
