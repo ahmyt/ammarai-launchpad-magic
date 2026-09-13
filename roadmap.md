@@ -47,3 +47,9 @@
 - [x] Automation runs without the private database key (token-checked database functions) so it can run on Plesk.
 - [x] Rework daily writer scheduling: fixed 14:00 UTC daily run + run log table (approved plan)
 - [x] Make daily run time editable in the Studio (sync_settings.run_time_utc)
+
+## Homepage trust and reviews (approved)
+- [ ] Add approved-company scrolling logo strip
+- [ ] Add genuine public review submission and homepage review browser
+- [ ] Add Studio review moderation, import, and display controls
+- [ ] Verify access rules, interactions, and responsive layouts
