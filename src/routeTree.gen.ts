@@ -27,6 +27,7 @@ import { Route as UseCasesRouteImport } from './routes/use-cases'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminArticlesRouteImport } from './routes/admin.articles'
 import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
+import { Route as AdminReviewsRouteImport } from './routes/admin.reviews'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -128,6 +129,11 @@ const AdminMessagesRoute = AdminMessagesRouteImport.update({
   path: '/messages',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminReviewsRoute = AdminReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => AdminRoute,
+} as any)
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
   path: '/api/contact',
@@ -198,6 +204,7 @@ export interface FileRoutesByFullPath {
   '/use-cases': typeof UseCasesRoute
   '/admin/articles': typeof AdminArticlesRoute
   '/admin/messages': typeof AdminMessagesRoute
+  '/admin/reviews': typeof AdminReviewsRoute
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
@@ -227,6 +234,7 @@ export interface FileRoutesByTo {
   '/use-cases': typeof UseCasesRoute
   '/admin/articles': typeof AdminArticlesRoute
   '/admin/messages': typeof AdminMessagesRoute
+  '/admin/reviews': typeof AdminReviewsRoute
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
@@ -258,6 +266,7 @@ export interface FileRoutesById {
   '/use-cases': typeof UseCasesRoute
   '/admin/articles': typeof AdminArticlesRoute
   '/admin/messages': typeof AdminMessagesRoute
+  '/admin/reviews': typeof AdminReviewsRoute
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
@@ -290,6 +299,7 @@ export interface FileRouteTypes {
     | '/use-cases'
     | '/admin/articles'
     | '/admin/messages'
+    | '/admin/reviews'
     | '/api/contact'
     | '/blog/$slug'
     | '/features/$slug'
@@ -319,6 +329,7 @@ export interface FileRouteTypes {
     | '/use-cases'
     | '/admin/articles'
     | '/admin/messages'
+    | '/admin/reviews'
     | '/api/contact'
     | '/blog/$slug'
     | '/features/$slug'
@@ -349,6 +360,7 @@ export interface FileRouteTypes {
     | '/use-cases'
     | '/admin/articles'
     | '/admin/messages'
+    | '/admin/reviews'
     | '/api/contact'
     | '/blog/$slug'
     | '/features/$slug'
@@ -516,6 +528,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminMessagesRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/reviews': {
+      id: '/admin/reviews'
+      path: '/reviews'
+      fullPath: '/admin/reviews'
+      preLoaderRoute: typeof AdminReviewsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/api/contact': {
       id: '/api/contact'
       path: '/api/contact'
@@ -592,6 +611,7 @@ declare module '@tanstack/react-router' {
 interface AdminRouteChildren {
   AdminArticlesRoute: typeof AdminArticlesRoute
   AdminMessagesRoute: typeof AdminMessagesRoute
+  AdminReviewsRoute: typeof AdminReviewsRoute
   AdminIndexRoute: typeof AdminIndexRoute
   AdminKindSlugRoute: typeof AdminKindSlugRoute
   AdminKindIndexRoute: typeof AdminKindIndexRoute
@@ -600,6 +620,7 @@ interface AdminRouteChildren {
 const AdminRouteChildren: AdminRouteChildren = {
   AdminArticlesRoute: AdminArticlesRoute,
   AdminMessagesRoute: AdminMessagesRoute,
+  AdminReviewsRoute: AdminReviewsRoute,
   AdminIndexRoute: AdminIndexRoute,
   AdminKindSlugRoute: AdminKindSlugRoute,
   AdminKindIndexRoute: AdminKindIndexRoute,
