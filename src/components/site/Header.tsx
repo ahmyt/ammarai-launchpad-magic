@@ -1,4 +1,4 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { primaryNav, SITE, REGISTER_URL, LOGIN_URL } from "@/lib/site";
 import { ExternalButton } from "./Button";
@@ -24,7 +24,6 @@ export function Wordmark({ className }: { className?: string }) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  useLocation();
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
