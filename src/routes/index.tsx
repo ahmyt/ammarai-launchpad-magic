@@ -149,7 +149,7 @@ export function Home() {
       />
 
       {/* Hero */}
-      <Section className="home-hero min-h-[calc(100svh-65px)] pb-16 pt-14 sm:pb-20 sm:pt-20">
+      <Section className="home-hero pb-20 pt-14 sm:pb-24 sm:pt-20">
         <Container size="wide" className="relative z-10">
           <div className="mx-auto max-w-4xl text-center">
             <div>
