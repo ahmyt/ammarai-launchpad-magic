@@ -53,9 +53,3 @@
 - [x] Add genuine public review submission and homepage review browser
 - [x] Add Studio review moderation, import, and display controls
 - [x] Verify access rules, interactions, and responsive layouts
-
-## Premium obsidian homepage redesign (done)
-- [x] Apply the obsidian and refined orange visual system across the homepage
-- [x] Elevate navigation, opening search, trust strip, flagship tools, videos, and supporting sections
-- [x] Preserve all messaging, links, media, review flows, and reduced-motion behavior
-- [x] Verify desktop and mobile layouts and core interactions

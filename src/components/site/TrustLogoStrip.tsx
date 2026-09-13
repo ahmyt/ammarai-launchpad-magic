@@ -29,7 +29,7 @@ function LogoTrack({ duplicate = false }: { duplicate?: boolean }) {
 
 export function TrustLogoStrip() {
   return (
-    <section aria-labelledby="trusted-companies-heading" className="border-y border-border bg-ink py-11">
+    <section aria-labelledby="trusted-companies-heading" className="border-y border-border bg-paper py-9">
       <h2
         id="trusted-companies-heading"
         className="mb-7 text-center font-sans text-xs font-semibold uppercase text-muted-foreground"

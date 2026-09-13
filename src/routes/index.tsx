@@ -138,7 +138,7 @@ export function Home() {
   );
 
   return (
-    <div className="home-obsidian">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -149,21 +149,21 @@ export function Home() {
       />
 
       {/* Hero */}
-      <Section className="home-hero pb-20 pt-14 sm:pb-24 sm:pt-20">
-        <Container size="wide" className="relative z-10">
-          <div className="mx-auto max-w-4xl text-center">
+      <Section className="pb-14 pt-16 sm:pb-20 sm:pt-24">
+        <Container>
+          <div className="grid gap-14 lg:grid-cols-[1.15fr_1fr] lg:items-center">
             <div>
               <p className="eyebrow">{tools.length} tools · one subscription</p>
-              <h1 className="mt-6 text-balance text-5xl leading-[0.98] sm:text-7xl lg:text-8xl">
-                One AI for everything <span className="text-accent">you create</span>
+              <h1 className="mt-5 text-balance text-5xl leading-[1.02] sm:text-6xl">
+                One AI for everything you create
               </h1>
-              <p className="mx-auto mt-7 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+              <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
                 Build autonomous AI Agents, draft with AI Writer, think with Chat Pro, create with
                 Image Pro and Video Pro, build talking avatars, transcribe recordings and audit SEO.
                 Add CRM, voiceovers, document analysis and code tools — all in one workspace that
                 keeps your brand voice and history together.
               </p>
-              <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+              <div className="mt-9 flex flex-wrap items-center gap-3">
                 <ExternalButton href={REGISTER_URL} size="lg">
                   Start creating free
                 </ExternalButton>
@@ -177,11 +177,8 @@ export function Home() {
             </div>
 
             {/* Discovery panel */}
-            <Card className="premium-panel mx-auto mt-12 max-w-3xl p-3 text-left sm:p-4">
-              <div className="flex items-center justify-between gap-3 px-2 pb-3">
-                <p className="eyebrow">Find the right tool</p>
-                <span className="text-[10px] font-semibold uppercase text-muted-foreground">Search {tools.length} tools</span>
-              </div>
+            <Card className="p-6 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.45)]">
+              <p className="eyebrow">Find the right tool</p>
               <label htmlFor="home-search" className="sr-only">
                 Describe what you want to make
               </label>
@@ -191,9 +188,9 @@ export function Home() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Describe what you want to make…"
-                className="w-full rounded-md bg-ink px-5 py-4 text-base text-foreground ring-1 ring-border placeholder:text-muted-foreground focus:outline-2 focus:outline-offset-2 focus:outline-ring"
+                className="mt-4 w-full rounded-md bg-background px-4 py-3 text-sm text-foreground ring-1 ring-border placeholder:text-muted-foreground focus:outline-2 focus:outline-offset-2 focus:outline-ring"
               />
-              <div className="mt-3 min-h-[9.5rem] rounded-md bg-background/45 p-4 ring-1 ring-border/60">
+              <div className="mt-4 min-h-[13rem]">
                 {query.trim() === "" ? (
                   <div>
                     <p className="text-xs text-muted-foreground">Try one of these:</p>
@@ -209,7 +206,7 @@ export function Home() {
                           key={s}
                           type="button"
                           onClick={() => setQuery(s)}
-                          className="rounded-md bg-secondary/40 px-3 py-2 text-xs font-medium text-muted-foreground ring-1 ring-border transition-colors hover:bg-secondary hover:text-foreground hover:ring-accent/50"
+                          className="rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground ring-1 ring-border transition-colors hover:text-foreground"
                         >
                           {s}
                         </button>
@@ -254,36 +251,32 @@ export function Home() {
       <TrustLogoStrip />
 
       {/* Featured */}
-      <Section tone="sand" className="section-rule">
+      <Section tone="sand">
         <Container>
           <SectionHeading
             eyebrow="Flagship tools"
             title="Eight flagship tools, one workspace"
             intro="AI Agent Builder, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video, Transcription and SEO Analyzer form the core of AmmarAI — eight focused tools for creating, understanding and improving your work."
           />
-           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-             {featuredTools.map((tool, index) => (
-               <ToolCard
-                 key={tool.slug}
-                 tool={tool}
-                 className={index === 0 || index === 5 ? "lg:col-span-2 lg:min-h-56 lg:justify-end" : "lg:min-h-56"}
-               />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredTools.map((tool) => (
+              <ToolCard key={tool.slug} tool={tool} />
             ))}
           </div>
         </Container>
       </Section>
 
       {/* Video library */}
-      <Section className="section-rule">
+      <Section>
         <Container>
           <SectionHeading
             eyebrow="Video library"
             title="See what the video tools can make"
             intro="Watch real samples from four different workflows, then open the tool behind each result."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {videoLibrary.map((item) => (
-              <Card key={item.slug} className="group overflow-hidden bg-elevated p-0 shadow-2xl">
+              <Card key={item.slug} className="overflow-hidden p-0">
                 <video
                   controls
                   muted
@@ -291,7 +284,7 @@ export function Home() {
                   preload="metadata"
                   src={item.src}
                   aria-label={`${item.label} sample video`}
-                  className="aspect-video w-full bg-ink object-cover opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+                  className="aspect-video w-full bg-ink object-cover"
                 />
                 <div className="p-5">
                   <p className="eyebrow">{item.label}</p>
@@ -312,15 +305,15 @@ export function Home() {
       </Section>
 
       {/* Categories */}
-      <Section tone="sand" className="section-rule">
+      <Section tone="sand">
         <Container>
           <SectionHeading
             eyebrow="The library"
             title="Organised by the job, not by the technology"
           />
-           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-             {categoryPreview.map((group, index) => (
-               <Card key={group.category} className={index === 0 ? "bg-elevated p-7 sm:col-span-2" : "p-7"}>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {categoryPreview.map((group) => (
+              <Card key={group.category} className="p-6">
                 <div className="flex items-baseline justify-between gap-2">
                   <h3 className="text-base font-semibold text-foreground">{group.category}</h3>
                   <span className="text-xs tabular-nums text-muted-foreground">{group.count}</span>
@@ -350,7 +343,7 @@ export function Home() {
       </Section>
 
       {/* Popular + recent */}
-      <Section className="section-rule">
+      <Section tone="sand">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
@@ -385,7 +378,7 @@ export function Home() {
       </Section>
 
       {/* Features */}
-      <Section tone="sand" className="section-rule">
+      <Section>
         <Container>
           <SectionHeading
             eyebrow="Why one workspace"
@@ -413,12 +406,12 @@ export function Home() {
       </Section>
 
       {/* Value comparison */}
-      <Section className="section-rule">
+      <Section tone="sand">
         <Container>
           <SectionHeading eyebrow={cmp.eyebrow} title={cmp.title} intro={cmp.intro} />
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {/* The old way */}
-            <div className="flex flex-col rounded-lg bg-card p-7 ring-1 ring-border">
+            <div className="flex flex-col rounded-xl bg-card p-6 ring-1 ring-border">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 {cmp.oldLabel}
               </p>
@@ -444,7 +437,7 @@ export function Home() {
             </div>
 
             {/* AmmarAI */}
-            <div className="premium-panel flex flex-col rounded-lg bg-elevated p-7 text-foreground ring-1 ring-accent/35">
+            <div className="flex flex-col rounded-xl bg-ink p-6 text-ink-foreground shadow-[0_24px_60px_-40px_rgba(0,0,0,0.55)]">
               <p className="eyebrow">{cmp.newLabel}</p>
               <ul className="mt-5 flex flex-1 flex-col gap-3">
                 {cmp.newItems.map((item) => (
@@ -456,7 +449,7 @@ export function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 border-t border-border pt-4">
+              <div className="mt-6 border-t border-ink-foreground/20 pt-4">
                 <p className="text-xs opacity-70">{cmp.newTotalLabel}</p>
                 <p className="font-display text-2xl font-semibold">{cmp.newTotal}</p>
               </div>
@@ -476,7 +469,7 @@ export function Home() {
       <CustomerReviews />
 
       {/* Use cases */}
-      <Section className="section-rule">
+      <Section>
         <Container>
           <SectionHeading eyebrow="Use cases" title="Built around how people actually work" />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -507,7 +500,7 @@ export function Home() {
       </Section>
 
       {/* Blog */}
-      <Section tone="sand" className="section-rule">
+      <Section tone="sand">
         <Container>
           <SectionHeading eyebrow="From the blog" title="Guides worth your time" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -533,14 +526,14 @@ export function Home() {
       </Section>
 
       {/* FAQ */}
-      <Section className="section-rule">
+      <Section>
         <Container size="narrow">
           <FaqAccordion heading="Common questions" items={homeFaqs} />
         </Container>
       </Section>
 
       {/* CTA */}
-      <Section tone="ink" className="section-rule relative overflow-hidden py-24 sm:py-32">
+      <Section tone="ink" className="py-20">
         <Container className="text-center">
           <h2 className="text-balance text-4xl leading-tight sm:text-5xl">
             Start with the free plan

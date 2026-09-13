@@ -4,8 +4,8 @@ import { Wordmark } from "./Header";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-ink text-ink-foreground">
-      <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8">
+    <footer className="border-t border-border bg-sand">
+      <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
         <div className="grid gap-10 md:grid-cols-[1.2fr_repeat(4,1fr)]">
           <div>
             <Link to="/" className="inline-block">
@@ -19,7 +19,7 @@ export function Footer() {
 
           {footerNav.map((group) => (
             <nav key={group.heading} aria-label={group.heading}>
-              <h2 className="font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-foreground">
+              <h2 className="font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">
                 {group.heading}
               </h2>
               <ul className="mt-4 flex flex-col gap-2.5">
@@ -29,14 +29,14 @@ export function Footer() {
                       <Link
                         to="/$slug"
                         params={{ slug: link.slug }}
-                        className="text-sm text-ink-foreground/60 transition-colors hover:text-ink-foreground"
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.label}
                       </Link>
                     ) : (
                       <Link
                         to={link.to}
-                        className="text-sm text-ink-foreground/60 transition-colors hover:text-ink-foreground"
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.label}
                       </Link>
