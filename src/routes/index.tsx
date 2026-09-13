@@ -451,7 +451,6 @@ export function Home() {
               </Card>
             ))}
           </div>
-          </div>
         </Container>
       </Section>
 
