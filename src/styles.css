@@ -316,6 +316,49 @@
   background-size: 22px 22px;
 }
 
+@keyframes trust-logo-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.trust-logo-marquee {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.trust-logo-track {
+  display: flex;
+  min-width: max-content;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 3rem;
+  padding-right: 3rem;
+  animation: trust-logo-scroll 34s linear infinite;
+}
+
+.trust-logo-item {
+  display: grid;
+  width: 13rem;
+  height: 5rem;
+  place-items: center;
+  filter: grayscale(1);
+  opacity: 0.62;
+  transition: filter 200ms ease, opacity 200ms ease;
+}
+
+.trust-logo-item:hover,
+.trust-logo-item:focus-within {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.trust-logo-marquee:hover .trust-logo-track,
+.trust-logo-marquee:focus-within .trust-logo-track {
+  animation-play-state: paused;
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -326,6 +369,20 @@
   *::after {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
+  }
+  .trust-logo-marquee {
+    flex-wrap: wrap;
+    justify-content: center;
+    mask-image: none;
+  }
+  .trust-logo-track {
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 1rem;
+  }
+  .trust-logo-track[aria-hidden="true"] {
+    display: none;
   }
 }
 

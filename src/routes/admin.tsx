@@ -106,6 +106,12 @@ function AdminLayout() {
               >
                 Messages
               </Link>
+              <Link
+                to="/admin/reviews"
+                className="rounded-full px-3.5 py-1.5 text-xs font-semibold text-muted-foreground ring-1 ring-border hover:text-foreground [&.active]:bg-ink [&.active]:text-ink-foreground"
+              >
+                Reviews
+              </Link>
             </>
           ) : null}
         </nav>
