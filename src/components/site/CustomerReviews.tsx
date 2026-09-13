@@ -37,7 +37,7 @@ function ReviewCard({ review }: { review: CustomerReview }) {
         ) : null}
       </div>
       <h3 className="mt-5 text-lg font-semibold leading-snug">{review.review_title}</h3>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{review.review_text}</p>
+      <p className="mt-3 flex-1 whitespace-pre-line text-sm leading-relaxed text-muted-foreground">{review.review_text}</p>
       <div className="mt-6 border-t border-border pt-4">
         <p className="text-sm font-semibold text-foreground">{review.reviewer_name}</p>
         <p className="mt-1 text-xs text-muted-foreground">
