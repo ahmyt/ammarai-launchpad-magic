@@ -6,11 +6,11 @@ type Variant = "primary" | "ink" | "outline" | "ghost" | "onInk";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-md font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-50";
+  "inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-accent text-accent-foreground ring-1 ring-accent hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-12px_var(--color-accent)]",
+    "bg-accent text-accent-foreground ring-1 ring-accent hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-14px_var(--color-accent)]",
   ink: "bg-ink text-ink-foreground hover:bg-ink/90 hover:-translate-y-0.5",
   outline: "text-foreground ring-1 ring-border hover:bg-secondary",
   ghost: "text-muted-foreground hover:text-foreground",

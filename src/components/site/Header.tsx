@@ -26,8 +26,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8">
+    <header className="site-header sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8">
         <Link to="/" aria-label={`${SITE.name} home`} className="flex items-baseline gap-2">
           <Wordmark />
           <span className="sr-only">{SITE.name}</span>

@@ -170,7 +170,7 @@ export function Home() {
   );
 
   return (
-    <div className="overflow-hidden">
+    <div className="home-premium overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -181,41 +181,41 @@ export function Home() {
       />
 
       {/* Hero */}
-      <section className="relative border-b border-border pb-16 pt-16 sm:pb-20 sm:pt-24">
+      <section className="premium-hero relative border-b border-border pb-16 pt-14 sm:pb-24 sm:pt-24 lg:min-h-[calc(100svh-65px)] lg:pb-28 lg:pt-28">
         <Container size="wide" className="relative z-10">
-          <div className="grid items-center gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16">
-            <div>
-              <p className="eyebrow flex items-center gap-2"><Sparkles className="size-3.5" /> {tools.length} tools · one intelligent workspace</p>
-              <h1 className="mt-6 max-w-3xl text-balance text-5xl leading-[1.02] sm:text-6xl lg:text-7xl">
-                One AI for everything you create
+          <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 xl:gap-20">
+            <div className="premium-hero-copy">
+              <p className="premium-kicker"><Sparkles className="size-3.5" /> {tools.length} tools · one intelligent workspace</p>
+              <h1 className="mt-7 max-w-3xl text-balance text-[3.25rem] font-extrabold leading-[0.98] sm:text-6xl lg:text-[4.75rem]">
+                One AI for everything <span className="premium-accent-text">you create</span>
               </h1>
-              <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+              <p className="mt-7 max-w-xl text-pretty text-base leading-[1.75] text-muted-foreground sm:text-lg">
                 Build autonomous AI Agents, draft with AI Writer, think with Chat Pro, create with Image Pro
                 and Video Pro, build talking avatars, transcribe recordings and audit SEO. Add CRM,
                 voiceovers, document analysis and code tools — all in one workspace that keeps your brand
                 voice, files and history together.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ExternalButton href={REGISTER_URL} size="lg" className="w-full sm:w-auto">
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <ExternalButton href={REGISTER_URL} size="lg" className="premium-primary-cta w-full sm:w-auto">
                 Start creating free <ArrowRight className="size-4" />
               </ExternalButton>
               <ButtonLink to="/ai-tools" variant="outline" size="lg" className="w-full sm:w-auto">
                 Explore {tools.length} tools
               </ButtonLink>
               </div>
-              <p className="mt-4 text-xs text-muted-foreground">No card required on the free plan. Cancel a paid plan any time.</p>
+              <p className="mt-5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required on the free plan. Cancel a paid plan any time.</p>
             </div>
 
-          <div className="overflow-hidden rounded-xl bg-card ring-1 ring-border shadow-[0_28px_70px_-48px_var(--color-foreground)] rise">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-6">
+          <div className="premium-finder overflow-hidden rounded-xl bg-card ring-1 ring-border rise">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-5 sm:px-6">
               <div className="flex items-center gap-3">
-                <span className="grid size-9 place-items-center rounded-md bg-accent/15 text-accent"><WandSparkles className="size-4" /></span>
+                <span className="premium-finder-icon grid size-10 place-items-center rounded-md bg-accent/10 text-accent"><WandSparkles className="size-4" /></span>
                 <div><p className="text-sm font-semibold text-foreground">Find the right tool</p><p className="text-xs text-muted-foreground">Choose a tool or describe your goal</p></div>
               </div>
-              <span className="rounded-md bg-secondary px-2.5 py-1 text-[11px] font-medium text-muted-foreground">Real tool matching</span>
+              <span className="rounded-full border border-border bg-background px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">Real tool matching</span>
             </div>
             <div className="grid md:grid-cols-[0.78fr_1.22fr]">
-              <div className="border-b border-border bg-secondary/35 p-5 sm:p-6 md:border-b-0 md:border-r">
+               <div className="premium-finder-sidebar border-b border-border bg-secondary/35 p-5 sm:p-6 md:border-b-0 md:border-r">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Select a flagship</p>
                 <div className="mt-4 space-y-1">
                   {featuredTools.slice(0, 5).map((tool, index) => (
@@ -227,7 +227,7 @@ export function Home() {
               </div>
               <div className="p-5 sm:p-6">
                 <label htmlFor="home-search" className="sr-only">Describe what you want to make</label>
-                <div className="flex items-center gap-3 rounded-md border border-input bg-background px-4 transition-shadow focus-within:border-accent focus-within:ring-4 focus-within:ring-accent/10">
+                 <div className="premium-search flex items-center gap-3 rounded-lg border border-input bg-background px-4 transition-shadow focus-within:border-accent focus-within:ring-4 focus-within:ring-accent/10">
                   <Search className="size-4 shrink-0 text-accent" />
                   <input ref={searchRef} id="home-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="What do you want to create?" className="h-14 min-w-0 flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground" />
                   <span className="hidden rounded border border-border px-2 py-1 text-[10px] text-muted-foreground sm:block">⌘ K</span>
@@ -291,14 +291,14 @@ export function Home() {
       <TrustLogoStrip />
 
       {/* Featured */}
-      <Section tone="sand">
+       <Section tone="sand" className="premium-section premium-flagships">
         <Container>
           <SectionHeading
             eyebrow="Flagship tools"
             title="Eight flagship tools, one workspace"
             intro="AI Agent Builder, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video, Transcription and SEO Analyzer form the core of AmmarAI — eight focused tools for creating, understanding and improving your work."
           />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="premium-card-grid mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {featuredTools.map((tool, index) => (
               <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "lg:col-span-2 min-h-48 justify-end" : ""} />
             ))}
@@ -307,7 +307,7 @@ export function Home() {
       </Section>
 
       {/* Video library */}
-      <Section>
+       <Section className="premium-section">
         <Container>
           <SectionHeading
             eyebrow="Video library"
@@ -345,7 +345,7 @@ export function Home() {
       </Section>
 
       {/* Categories */}
-      <Section tone="sand">
+       <Section tone="sand" className="premium-section">
         <Container>
           <SectionHeading
             eyebrow="The library"
@@ -383,7 +383,7 @@ export function Home() {
       </Section>
 
       {/* Popular + recent */}
-      <Section tone="sand">
+       <Section tone="sand" className="premium-section premium-ranked-lists">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
@@ -418,7 +418,7 @@ export function Home() {
       </Section>
 
       {/* Features */}
-      <Section>
+       <Section className="premium-section">
         <Container>
           <SectionHeading
             eyebrow="Why one workspace"
@@ -455,7 +455,7 @@ export function Home() {
       </Section>
 
       {/* Value comparison */}
-      <Section tone="sand">
+       <Section tone="sand" className="premium-section">
         <Container>
           <SectionHeading eyebrow={cmp.eyebrow} title={cmp.title} intro={cmp.intro} />
           <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -518,7 +518,7 @@ export function Home() {
       <CustomerReviews />
 
       {/* Use cases */}
-      <Section>
+       <Section className="premium-section">
         <Container>
           <SectionHeading eyebrow="Use cases" title="Built around how people actually work" />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -549,7 +549,7 @@ export function Home() {
       </Section>
 
       {/* Blog */}
-      <Section tone="sand">
+       <Section tone="sand" className="premium-section">
         <Container>
           <SectionHeading eyebrow="From the blog" title="Guides worth your time" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -575,14 +575,14 @@ export function Home() {
       </Section>
 
       {/* FAQ */}
-      <Section>
+       <Section className="premium-section">
         <Container size="narrow">
           <FaqAccordion heading="Common questions" items={homeFaqs} />
         </Container>
       </Section>
 
       {/* CTA */}
-      <Section tone="ink" className="py-20">
+       <Section tone="ink" className="premium-final-cta py-20 sm:py-28">
         <Container className="text-center">
           <h2 className="text-balance text-4xl leading-tight sm:text-5xl">
             Start with the free plan

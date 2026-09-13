@@ -9,7 +9,7 @@ export function ToolCard({ tool, className }: { tool: Tool; className?: string }
       params={{ slug: tool.slug }}
 
       className={cn(
-        "group flex flex-col rounded-xl bg-card p-5 ring-1 ring-border transition-all duration-200 hover:-translate-y-0.5 hover:ring-accent/50",
+        "group flex flex-col rounded-xl bg-card p-6 ring-1 ring-border transition-all duration-200 hover:-translate-y-1 hover:ring-accent/40",
         className,
       )}
     >

@@ -4,8 +4,8 @@ import { Wordmark } from "./Header";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-sand">
-      <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
+    <footer className="site-footer border-t border-border bg-sand">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8">
         <div className="grid gap-10 md:grid-cols-[1.2fr_repeat(4,1fr)]">
           <div>
             <Link to="/" className="inline-block">

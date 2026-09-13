@@ -65,3 +65,7 @@
 - [x] Bring the connected-workspace finder and flagship shortcuts into the production opening
 - [x] Strengthen the shared workspace, flagship, video, category, trust, review, and value messaging
 - [x] Verify search, navigation, videos, reviews, FAQ, metadata, and responsive layouts
+
+## Premium editorial homepage refinement
+- [ ] Apply the selected premium light visual direction without changing homepage structure or content
+- [ ] Verify hero, interactions, and responsive layouts
