@@ -1,4 +1,4 @@
-import { useMemo, useState, type FormEvent } from "react";
+import { useMemo, useState, type FormEvent, type ReactNode } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { BadgeCheck, Star } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -192,6 +192,16 @@ function ReviewForm() {
         <ActionButton type="submit" disabled={pending}>{pending ? "Submitting…" : "Submit review"}</ActionButton>
       </form>
     </DialogContent>
+  );
+}
+
+function ReviewDialog({ children }: { children: ReactNode }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>{children}</DialogTrigger>
+      {open ? <ReviewForm key={String(open)} /> : null}
+    </Dialog>
   );
 }
 
