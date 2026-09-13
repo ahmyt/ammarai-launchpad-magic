@@ -55,7 +55,7 @@
 - [x] Verify access rules, interactions, and responsive layouts
 
 ## Cyber-luxe homepage redesign (approved)
-- [ ] Apply the selected dark premium visual system to the complete homepage
-- [ ] Upgrade the hero into a product-led tool discovery experience
-- [ ] Restyle the trust strip, flagship grid, media, reviews, and remaining sections
-- [ ] Verify interactions, media, accessibility, and responsive layouts
+- [x] Apply the selected dark premium visual system to the complete homepage
+- [x] Upgrade the hero into a product-led tool discovery experience
+- [x] Restyle the trust strip, flagship grid, media, reviews, and remaining sections
+- [x] Verify interactions, media, accessibility, and responsive layouts
