@@ -59,3 +59,9 @@
 - [x] Upgrade the hero into a product-led tool discovery experience
 - [x] Restyle the trust strip, flagship grid, media, reviews, and remaining sections
 - [x] Verify interactions, media, accessibility, and responsive layouts
+
+## Selective production homepage upgrade (approved)
+- [x] Preserve the production light identity, headline, SEO copy, navigation, and all content sections
+- [x] Bring the connected-workspace finder and flagship shortcuts into the production opening
+- [x] Strengthen the shared workspace, flagship, video, category, trust, review, and value messaging
+- [ ] Verify search, navigation, videos, reviews, FAQ, metadata, and responsive layouts

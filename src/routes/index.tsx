@@ -239,7 +239,7 @@ export function Home() {
                     <div className="mt-3 flex flex-wrap gap-2">
                       {goalPrompts.map((prompt) => (
                         <ActionButton
-                          key={s}
+                          key={prompt}
                           type="button"
                           variant="outline"
                           size="sm"
