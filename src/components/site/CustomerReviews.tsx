@@ -7,6 +7,7 @@ import { ActionButton } from "@/components/site/Button";
 import { Card, Container, Section, SectionHeading } from "@/components/site/primitives";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
