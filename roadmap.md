@@ -71,7 +71,7 @@
 - [x] Verify hero, interactions, and responsive layouts
 
 ## Sophisticated light homepage rebuild (approved)
-- [ ] Rebuild the opening and tool finder around the selected product-led direction
-- [ ] Recompose every homepage section with the new typography, surfaces, and spacing system
-- [ ] Refine homepage navigation, trust, videos, reviews, comparison, and conversion areas
-- [ ] Verify search, media, dialogs, FAQ, accessibility, and responsive layouts
+- [x] Rebuild the opening and tool finder around the selected product-led direction
+- [x] Recompose every homepage section with the new typography, surfaces, and spacing system
+- [x] Refine homepage navigation, trust, videos, reviews, comparison, and conversion areas
+- [x] Verify search, media, dialogs, FAQ, accessibility, and responsive layouts
