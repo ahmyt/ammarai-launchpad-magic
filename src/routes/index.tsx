@@ -182,7 +182,7 @@ export function Home() {
 
       <section className="studio-hero relative border-b border-border pb-16 pt-12 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
         <Container size="wide" className="relative z-10">
-          <div className="mx-auto max-w-5xl text-center">
+          <div className="studio-hero-copy mx-auto max-w-5xl text-center">
             <p className="studio-kicker"><Sparkles className="size-3.5" /> {tools.length} tools · one intelligent workspace</p>
             <h1 className="mx-auto mt-7 max-w-5xl text-balance text-[3.35rem] font-bold leading-[0.96] sm:text-7xl lg:text-[5.75rem]">
               One AI for everything <span className="studio-accent-text">you create</span>
@@ -192,7 +192,7 @@ export function Home() {
               and Video Pro, build talking avatars, transcribe recordings and audit SEO. Add CRM,
               voiceovers, document analysis and code tools — all in one connected workspace.
             </p>
-            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            <div className="studio-hero-actions mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <ExternalButton href={REGISTER_URL} size="lg" className="studio-primary-cta w-full sm:w-auto">
                 Start creating free <ArrowRight className="size-4" />
               </ExternalButton>
@@ -200,7 +200,7 @@ export function Home() {
                 Explore {tools.length} tools
               </ButtonLink>
             </div>
-            <p className="mt-5 flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required. Every tool included.</p>
+            <p className="studio-hero-note mt-5 flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required. Every tool included.</p>
           </div>
 
           <div className="studio-command mx-auto mt-12 max-w-6xl overflow-hidden rounded-2xl bg-card ring-1 ring-border sm:mt-16">
@@ -222,7 +222,7 @@ export function Home() {
                   ))}
                 </div>
               </div>
-              <div className="p-5 sm:p-7 lg:p-8">
+              <div className="studio-command-main p-5 sm:p-7 lg:p-8">
                 <label htmlFor="home-search" className="sr-only">Describe what you want to make</label>
                 <div className="studio-search flex items-center gap-3 rounded-xl border border-input bg-background px-4 focus-within:border-accent focus-within:ring-4 focus-within:ring-accent/10">
                   <Search className="size-4 shrink-0 text-accent" />
