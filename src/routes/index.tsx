@@ -340,6 +340,7 @@ export function Home() {
                 </div>
               </Card>
             ))}
+          </div>
         </Container>
       </Section>
 
