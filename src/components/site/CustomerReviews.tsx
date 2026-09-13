@@ -7,6 +7,7 @@ import { ActionButton } from "@/components/site/Button";
 import { Card, Container, Section, SectionHeading } from "@/components/site/primitives";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -118,15 +119,17 @@ function ReviewForm() {
   const queryClient = useQueryClient();
   const [status, setStatus] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
+  const [done, setDone] = useState(false);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formEl = event.currentTarget;
     setPending(true);
     setStatus(null);
-    const form = new FormData(event.currentTarget);
+    const form = new FormData(formEl);
     if (String(form.get("website") ?? "")) {
-      setStatus("Thanks. Your review was received.");
       setPending(false);
+      setDone(true);
       return;
     }
     const { error } = await supabase.from("review_submissions").insert({
@@ -141,14 +144,33 @@ function ReviewForm() {
     });
     if (error) setStatus(error.code === "23505" ? "This review has already been submitted." : error.message);
     else {
-      event.currentTarget.reset();
-      setStatus("Thank you. Your review is awaiting moderation.");
+      formEl.reset();
+      setDone(true);
       void queryClient.invalidateQueries({ queryKey: ["review-submissions"] });
     }
     setPending(false);
   }
 
   const fieldClass = "mt-1 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground";
+
+  if (done) {
+    return (
+      <DialogContent className="max-h-[88vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle>Thank you for your review</DialogTitle>
+          <DialogDescription>
+            Your review was received and is awaiting moderation. It will appear publicly once approved.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="flex justify-end">
+          <DialogClose asChild>
+            <ActionButton>Close</ActionButton>
+          </DialogClose>
+        </div>
+      </DialogContent>
+    );
+  }
+
   return (
     <DialogContent className="max-h-[88vh] overflow-y-auto">
       <DialogHeader>
@@ -166,7 +188,7 @@ function ReviewForm() {
         <label className="block text-sm font-semibold">Review title<input className={fieldClass} name="title" minLength={3} maxLength={140} required /></label>
         <label className="block text-sm font-semibold">Your review<textarea className={`${fieldClass} min-h-32`} name="review" minLength={20} maxLength={4000} required /></label>
         <label className="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground"><input name="consent" type="checkbox" required className="mt-0.5" />I confirm this reflects my genuine experience and consent to publication of my name and review.</label>
-        {status ? <p role="status" className="text-sm text-muted-foreground">{status}</p> : null}
+        {status ? <p role="status" className="text-sm text-destructive">{status}</p> : null}
         <ActionButton type="submit" disabled={pending}>{pending ? "Submitting…" : "Submit review"}</ActionButton>
       </form>
     </DialogContent>
