@@ -33,7 +33,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "best ai video generator",
     volume: 14800,
     difficulty: 61,
-    links: ["/ai-video-pro", "/ai-text-to-video", "/ai-video-editor"],
+    links: ["/ai-video-generator", "/ai-text-to-video", "/ai-video-editor"],
     cluster: "video",
     brief:
       "Category page comparing the leading AI video generators by output quality, length limits, avatars, editing and price. Include an evaluation-criteria section, a comparison table, a 'best for' line per tool and an Our Pick verdict split by user type.",
@@ -46,7 +46,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "best ai image generator",
     volume: 27100,
     difficulty: 55,
-    links: ["/ai-image-pro", "/ai-image-editor", "/ai-product-photoshoot"],
+    links: ["/ai-image-generator", "/ai-image-editor", "/ai-photoshoot"],
     cluster: "image",
     brief:
       "Category page on AI image generators: photoreal quality, text rendering, editing and commercial licensing. Comparison table near the top, honest notes on where each is weak, and a verdict by use case.",
@@ -59,7 +59,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "best ai marketing tools",
     volume: 1300,
     difficulty: 40,
-    links: ["/ai-marketing-bot", "/ai-ad-copy-generator", "/ai-social-media-agent"],
+    links: ["/ai-marketing-bot", "/ad-script-generator", "/ai-social-media-agent"],
     cluster: "marketing",
     brief:
       "Category page grouped by marketing job (campaign planning, ad copy, social, email, analytics) with a comparison table and a pick per job rather than one overall winner.",
@@ -100,7 +100,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "ai content creation tools",
     volume: 1900,
     difficulty: 55,
-    links: ["/ai-writer", "/ai-video-pro", "/ai-image-pro"],
+    links: ["/ai-writer", "/ai-video-generator", "/ai-image-generator"],
     cluster: "content",
     brief:
       "Cover the whole content pipeline: idea, script, draft, visuals, video, repurposing. Table by stage, and a section on where stitching several point tools costs more than one workspace.",
@@ -113,7 +113,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "best ai music generator",
     volume: 2900,
     difficulty: 69,
-    links: ["/ai-music-pro", "/ai-voice-generator"],
+    links: ["/ai-music-generator", "/ai-voice-generator"],
     cluster: "audio",
     brief:
       "Compare music generators on output length, stems, vocals, and above all commercial licensing terms. Be precise about what each licence actually permits.",
@@ -139,7 +139,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "best ai tools for seo",
     volume: 590,
     difficulty: 55,
-    links: ["/ai-seo-analyzer", "/ai-writer", "/blog/ai-seo-guide"],
+    links: ["/ai-seo-analyzer", "/ai-writer", "/blog/how-to-use-ai-for-seo"],
     cluster: "seo",
     brief:
       "Split by SEO job: research, briefs, drafting, on-page audits, internal linking. Say plainly which jobs AI should not own.",
@@ -165,7 +165,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "chatgpt alternatives",
     volume: 5400,
     difficulty: 64,
-    links: ["/ai-chat-pro", "/ai-writer", "/ai-models"],
+    links: ["/ai-chat", "/ai-writer", "/ai-models"],
     cluster: "writing",
     brief:
       "Written for people who like ChatGPT but need brand voice, templates and multi-format output. Must include a section on where ChatGPT remains stronger.",
@@ -203,7 +203,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "ai agents for business automation",
     volume: 90,
     difficulty: 1,
-    links: ["/ai-agent-builder", "/ai-phone-call-agents", "/ai-crm"],
+    links: ["/ai-agent-builder", "/ai-phone-agent", "/ai-crm"],
     cluster: "automation",
     brief:
       "What an AI agent actually automates in a small business, three worked examples, and the setup steps. Be clear about the tasks agents still get wrong.",
@@ -242,7 +242,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "best ai tools for youtube",
     volume: 30,
     difficulty: 43,
-    links: ["/ai-youtube-publishing", "/ai-captions", "/ai-video-editor"],
+    links: ["/ai-youtube-publisher", "/ai-captions", "/ai-video-editor"],
     cluster: "video",
     brief: "Scripting, editing, captions, thumbnails, publishing. Note YouTube's disclosure rules for synthetic media.",
   },
@@ -266,7 +266,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "best ai tools for social media",
     volume: 140,
     difficulty: 34,
-    links: ["/ai-social-media-agent", "/ai-image-pro", "/ai-captions"],
+    links: ["/ai-social-media-agent", "/ai-image-generator", "/ai-captions"],
     cluster: "marketing",
     brief: "Planning, writing, visuals, scheduling. Table by platform need, verdict by team size.",
   },
@@ -278,7 +278,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "ai video workflow",
     volume: 50,
     difficulty: 18,
-    links: ["/ai-video-pro", "/ai-video-editor", "/ai-captions"],
+    links: ["/ai-video-generator", "/ai-video-editor", "/ai-captions"],
     cluster: "video",
     brief: "End-to-end tutorial from brief to published cut, with the review steps that stop bad output going live.",
   },
