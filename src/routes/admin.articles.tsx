@@ -317,7 +317,44 @@ function AdminArticles() {
                 <p className="mt-1 text-xs text-muted-foreground">
                   /blog/{article.slug} · {articleDate(article)}
                 </p>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <select
+                    aria-label="Category"
+                    value={articleCategory(article)}
+                    onChange={(event) =>
+                      updateTaxonomy.mutate({
+                        id: article.id,
+                        patch: { category: event.target.value },
+                      })
+                    }
+                    className="rounded-md border border-border bg-background px-2 py-1 text-xs font-semibold"
+                  >
+                    {BLOG_CATEGORIES.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    aria-label="Format"
+                    value={articleContentType(article)}
+                    onChange={(event) =>
+                      updateTaxonomy.mutate({
+                        id: article.id,
+                        patch: { content_type: event.target.value },
+                      })
+                    }
+                    className="rounded-md border border-border bg-background px-2 py-1 text-xs font-semibold"
+                  >
+                    {CONTENT_TYPES.map((type) => (
+                      <option key={type.id} value={type.id}>
+                        {type.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
+
               <div className="flex flex-wrap items-center gap-3">
                 <span
                   className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ring-1 ${
