@@ -21,8 +21,11 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as LlmsDottxtRouteImport } from './routes/llms[.]txt'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as UseCasesRouteImport } from './routes/use-cases'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminArticlesRouteImport } from './routes/admin.articles'
@@ -99,6 +102,16 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundPolicyRoute = RefundPolicyRouteImport.update({
+  id: '/refund-policy',
+  path: '/refund-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResourcesRoute = ResourcesRouteImport.update({
   id: '/resources',
   path: '/resources',
@@ -107,6 +120,11 @@ const ResourcesRoute = ResourcesRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UseCasesRoute = UseCasesRouteImport.update({
@@ -199,8 +217,11 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/llms.txt': typeof LlmsDottxtRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/use-cases': typeof UseCasesRoute
   '/admin/articles': typeof AdminArticlesRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -229,8 +250,11 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/llms.txt': typeof LlmsDottxtRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/use-cases': typeof UseCasesRoute
   '/admin/articles': typeof AdminArticlesRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -261,8 +285,11 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/llms.txt': typeof LlmsDottxtRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/use-cases': typeof UseCasesRoute
   '/admin/articles': typeof AdminArticlesRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -294,8 +321,11 @@ export interface FileRouteTypes {
     | '/faq'
     | '/llms.txt'
     | '/pricing'
+    | '/privacy'
+    | '/refund-policy'
     | '/resources'
     | '/sitemap.xml'
+    | '/terms'
     | '/use-cases'
     | '/admin/articles'
     | '/admin/messages'
@@ -324,8 +354,11 @@ export interface FileRouteTypes {
     | '/faq'
     | '/llms.txt'
     | '/pricing'
+    | '/privacy'
+    | '/refund-policy'
     | '/resources'
     | '/sitemap.xml'
+    | '/terms'
     | '/use-cases'
     | '/admin/articles'
     | '/admin/messages'
@@ -355,8 +388,11 @@ export interface FileRouteTypes {
     | '/faq'
     | '/llms.txt'
     | '/pricing'
+    | '/privacy'
+    | '/refund-policy'
     | '/resources'
     | '/sitemap.xml'
+    | '/terms'
     | '/use-cases'
     | '/admin/articles'
     | '/admin/messages'
@@ -387,8 +423,11 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   LlmsDottxtRoute: typeof LlmsDottxtRoute
   PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  RefundPolicyRoute: typeof RefundPolicyRoute
   ResourcesRoute: typeof ResourcesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   UseCasesRoute: typeof UseCasesRoute
   ApiContactRoute: typeof ApiContactRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -486,6 +525,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund-policy': {
+      id: '/refund-policy'
+      path: '/refund-policy'
+      fullPath: '/refund-policy'
+      preLoaderRoute: typeof RefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/resources': {
       id: '/resources'
       path: '/resources'
@@ -498,6 +551,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/use-cases': {
@@ -641,8 +701,11 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   LlmsDottxtRoute: LlmsDottxtRoute,
   PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
+  RefundPolicyRoute: RefundPolicyRoute,
   ResourcesRoute: ResourcesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   UseCasesRoute: UseCasesRoute,
   ApiContactRoute: ApiContactRoute,
   BlogSlugRoute: BlogSlugRoute,
