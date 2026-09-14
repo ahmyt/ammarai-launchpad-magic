@@ -456,53 +456,94 @@ export function AnimatedExample({
                     {Math.min(revealed, demoScene.steps.length)}/{demoScene.steps.length} steps
                   </span>
                 </div>
-                <ol className="mt-3 space-y-2">
+
+                {/* Connector rail */}
+                {demoScene.connectors && demoScene.connectors.length > 0 ? (
+                  <div className="agent-flow-rail mt-4">
+                    <div className="agent-flow-connectors">
+                      {demoScene.connectors.map((connector, i) => {
+                        const active =
+                          revealed > 0 &&
+                          demoScene.steps.slice(0, revealed).some((s) => s.connector === connector.id);
+                        const current =
+                          revealed > 0 &&
+                          demoScene.steps[Math.min(revealed - 1, demoScene.steps.length - 1)].connector === connector.id;
+                        return (
+                          <div key={connector.id} className="agent-flow-connector">
+                            <span
+                              className={cn(
+                                "agent-flow-tile",
+                                active && "agent-flow-tile-active",
+                                current && "agent-flow-tile-current",
+                              )}
+                              aria-hidden="true"
+                            >
+                              <ConnectorIcon id={connector.id} />
+                            </span>
+                            <span className={cn("agent-flow-label", active && "agent-flow-label-active")}>
+                              {connector.label}
+                            </span>
+                            {connector.note ? (
+                              <span
+                                className={cn(
+                                  "agent-flow-note",
+                                  active && "agent-flow-note-active",
+                                )}
+                              >
+                                {connector.note}
+                              </span>
+                            ) : null}
+                            {i < demoScene.connectors.length - 1 ? (
+                              <span
+                                className={cn(
+                                  "agent-flow-line",
+                                  active && "agent-flow-line-active",
+                                )}
+                                aria-hidden="true"
+                              />
+                            ) : null}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ) : null}
+
+                {/* Steps */}
+                <ol className="agent-flow-steps mt-4">
                   {demoScene.steps.map((step, i) => {
                     const shown = i < revealed;
                     return (
                       <li
                         key={`${step.actor}-${i}`}
                         className={cn(
-                          "flex items-start gap-3 rounded-xl px-3 py-2.5 ring-1 transition-all duration-500",
-                          shown
-                            ? "bg-secondary/60 opacity-100 ring-border/70"
-                            : "bg-secondary/20 opacity-30 ring-transparent",
+                          "agent-flow-step",
+                          shown ? "agent-flow-step-shown" : "agent-flow-step-hidden",
                         )}
                       >
-                        <span
-                          className={cn(
-                            "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ring-1",
-                            shown
-                              ? "bg-accent text-accent-foreground ring-accent"
-                              : "bg-card text-muted-foreground ring-border",
-                          )}
-                          aria-hidden="true"
-                        >
+                        <span className="agent-flow-step-marker" aria-hidden="true">
                           {i + 1}
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                            {step.actor}
-                          </span>
-                          <span className="block text-pretty text-sm leading-relaxed text-foreground/85">
-                            {step.text}
-                          </span>
+                          <span className="agent-flow-step-actor">{step.actor}</span>
+                          <span className="agent-flow-step-text">{step.text}</span>
                         </span>
                         {step.meta ? (
-                          <span className="shrink-0 text-[11px] tabular-nums text-muted-foreground">
-                            {step.meta}
-                          </span>
+                          <span className="agent-flow-step-meta">{step.meta}</span>
                         ) : null}
                       </li>
                     );
                   })}
                 </ol>
+
+                {/* Result panel */}
                 {demoScene.result && revealed >= demoScene.steps.length ? (
-                  <p className="mt-3 text-pretty text-sm font-medium leading-relaxed text-foreground/85">
-                    {demoScene.result}
-                  </p>
+                  <div className="agent-flow-result">
+                    <span className="agent-flow-result-label">Result</span>
+                    <p className="agent-flow-result-text">{demoScene.result}</p>
+                  </div>
                 ) : null}
-                <p className="mt-1.5 text-pretty text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-pretty text-xs leading-relaxed text-muted-foreground">
                   {media?.caption ?? example.output}
                 </p>
               </div>
