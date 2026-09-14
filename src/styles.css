@@ -2480,6 +2480,224 @@ body:has(.home-swiss) .site-footer-back:hover span {
   border-radius: 0;
 }
 
+/* Agent flow: connector rail + steps + result panel */
+.agent-flow-rail {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--secondary);
+}
+
+.agent-flow-connectors {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.agent-flow-connector {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+
+.agent-flow-connector:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: calc(50% + 1rem);
+  width: calc(100% - 2rem);
+  height: 1px;
+  background: var(--border);
+}
+
+.agent-flow-tile {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted-foreground);
+  transition: all 300ms ease;
+}
+
+.agent-flow-tile-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.agent-flow-tile-current {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+.agent-flow-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  transition: color 300ms ease;
+}
+
+.agent-flow-label-active {
+  color: var(--foreground);
+}
+
+.agent-flow-note {
+  display: none;
+  font-size: 0.6rem;
+  color: var(--muted-foreground);
+}
+
+.agent-flow-note-active {
+  color: var(--accent);
+}
+
+.agent-flow-line {
+  position: absolute;
+  top: 1rem;
+  left: calc(50% + 1rem);
+  width: calc(100% - 2rem);
+  height: 1px;
+  background: var(--border);
+  transition: background 300ms ease;
+}
+
+.agent-flow-line-active {
+  background: var(--accent);
+}
+
+.agent-flow-steps {
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.agent-flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border: 1px solid transparent;
+  padding: 0.6rem 0.75rem;
+  transition: all 500ms ease;
+}
+
+.agent-flow-step-shown {
+  border-color: var(--border);
+  background: var(--secondary);
+  opacity: 1;
+}
+
+.agent-flow-step-hidden {
+  background: color-mix(in oklab, var(--secondary) 40%, transparent);
+  opacity: 0.35;
+}
+
+.agent-flow-step-marker {
+  margin-top: 0.1rem;
+  display: flex;
+  height: 1.25rem;
+  width: 1.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--muted-foreground);
+}
+
+.agent-flow-step-shown .agent-flow-step-marker {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.agent-flow-step-actor {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.agent-flow-step-text {
+  display: block;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--foreground);
+  overflow-wrap: anywhere;
+}
+
+.agent-flow-step-meta {
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted-foreground);
+}
+
+.agent-flow-result {
+  margin-top: 0.75rem;
+  border: 1px solid var(--accent);
+  background: color-mix(in oklab, var(--accent) 8%, var(--background));
+  padding: 0.75rem 1rem;
+}
+
+.agent-flow-result-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.agent-flow-result-text {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .agent-flow-note {
+    display: block;
+  }
+
+  .agent-flow-rail {
+    padding: 1rem;
+  }
+
+  .agent-flow-tile {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  .agent-flow-connector:not(:last-child)::after {
+    top: 1.125rem;
+  }
+
+  .agent-flow-line {
+    top: 1.125rem;
+  }
+}
+
+
 .site-shell > main > .site-section:only-child > .site-container.max-w-md,
 .site-shell > main > .site-section:only-child > .site-container.max-w-lg {
   border: 2px solid var(--foreground);
