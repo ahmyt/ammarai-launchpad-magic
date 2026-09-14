@@ -2,7 +2,7 @@ import type { Faq } from "@/data/types";
 
 export function FaqAccordion({ items, heading }: { items: Faq[]; heading?: string }) {
   return (
-    <div>
+    <div className="site-faq">
       {heading ? <h2 className="text-2xl sm:text-3xl">{heading}</h2> : null}
       <div className="mt-6 divide-y divide-border border-y border-border">
         {items.map((item) => (

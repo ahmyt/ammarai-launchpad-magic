@@ -252,7 +252,7 @@ export function AnimatedExample({
     <div
       ref={containerRef}
       className={cn(
-        "group/demo overflow-hidden rounded-3xl bg-card shadow-[0_28px_70px_-42px_rgba(60,40,20,0.42)] ring-1 ring-border",
+        "site-demo group/demo overflow-hidden rounded-3xl bg-card ring-1 ring-border",
         className,
       )}
     >

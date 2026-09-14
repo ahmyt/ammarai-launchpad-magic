@@ -63,7 +63,7 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Toggle navigation menu"
-          className="flex size-9 items-center justify-center rounded-md ring-1 ring-border md:hidden"
+          className="site-menu-toggle flex size-10 items-center justify-center ring-1 ring-border md:hidden"
         >
           <span aria-hidden="true" className="text-lg leading-none">
             {open ? "×" : "≡"}
@@ -72,8 +72,8 @@ export function Header() {
       </div>
 
       {open ? (
-        <div className="border-t border-border bg-background md:hidden">
-          <nav aria-label="Mobile" className="mx-auto flex max-w-6xl flex-col px-5 py-3">
+        <div className="site-mobile-menu border-t border-border bg-background md:hidden">
+          <nav aria-label="Mobile" className="mx-auto flex max-w-6xl flex-col px-5 py-4">
             {primaryNav.map((item) => (
               <Link
                 key={item.to}

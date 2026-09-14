@@ -107,3 +107,9 @@
 ## Neo-Swiss footer refinement
 - [x] Bring the footer into the bold editorial system with stronger hierarchy and mobile balance
 - [x] Verify desktop and mobile footer presentation
+
+## Full-site Neo-Swiss redesign
+- [x] Promote the homepage visual system into the shared site shell and components
+- [x] Redesign public directories, detail pages, articles, forms, pricing, and authentication
+- [x] Redesign the Studio shell, navigation, panels, controls, lists, and editors
+- [x] Verify representative public and Studio pages across desktop and mobile
