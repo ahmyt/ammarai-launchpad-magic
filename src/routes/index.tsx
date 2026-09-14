@@ -170,7 +170,7 @@ export function Home() {
   );
 
   return (
-    <div className="home-premium overflow-hidden">
+    <div className="home-premium home-swiss overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -180,33 +180,40 @@ export function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(homeFaqs)) }}
       />
 
-      <section className="studio-hero relative border-b border-border pb-16 pt-12 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
+      <section className="studio-hero relative border-b border-border pb-14 pt-8 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-16">
         <Container size="wide" className="relative z-10">
-          <div className="studio-hero-copy mx-auto max-w-6xl text-center">
+          <div className="studio-hero-copy">
+            <div className="studio-hero-index" aria-hidden="true">A/01</div>
             <p className="studio-kicker"><Sparkles className="size-3.5" /> {tools.length} tools · one intelligent workspace</p>
-            <h1 className="mx-auto mt-8 max-w-6xl text-balance text-[3.35rem] font-bold leading-[0.92] sm:text-7xl lg:text-[6.75rem]">
-              One AI for everything <span className="studio-accent-text">you create</span>
-            </h1>
-            <p className="mx-auto mt-7 max-w-3xl text-pretty text-base leading-[1.75] text-muted-foreground sm:text-lg">
-              Build autonomous AI Agents, draft with AI Writer, think with Chat Pro, create with Image Pro
-              and Video Pro, build talking avatars, transcribe recordings and audit SEO. Add CRM,
-              voiceovers, document analysis and code tools — all in one connected workspace.
-            </p>
-            <div className="studio-hero-actions mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-              <ExternalButton href={REGISTER_URL} size="lg" className="studio-primary-cta w-full sm:w-auto">
-                Start creating free <ArrowRight className="size-4" />
-              </ExternalButton>
-              <ButtonLink to="/ai-tools" variant="outline" size="lg" className="w-full sm:w-auto">
-                Explore {tools.length} tools
-              </ButtonLink>
+            <div className="studio-hero-grid">
+              <h1>
+                <span>One AI for</span>
+                <span>everything</span>
+                <span className="studio-accent-text">you create</span>
+              </h1>
+              <div className="studio-hero-aside">
+                <p className="text-pretty text-base leading-[1.7] text-muted-foreground sm:text-lg">
+                  Build autonomous AI Agents, draft with AI Writer, think with Chat Pro, create with Image Pro
+                  and Video Pro, build talking avatars, transcribe recordings and audit SEO. Add CRM,
+                  voiceovers, document analysis and code tools — all in one connected workspace.
+                </p>
+                <div className="studio-hero-actions mt-8 flex flex-col gap-3 sm:flex-row">
+                  <ExternalButton href={REGISTER_URL} size="lg" className="studio-primary-cta w-full sm:w-auto">
+                    Start creating free <ArrowRight className="size-4" />
+                  </ExternalButton>
+                  <ButtonLink to="/ai-tools" variant="outline" size="lg" className="w-full sm:w-auto">
+                    Explore {tools.length} tools
+                  </ButtonLink>
+                </div>
+                <p className="studio-hero-note mt-5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required. Every tool included.</p>
+              </div>
             </div>
-            <p className="studio-hero-note mt-5 flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required. Every tool included.</p>
           </div>
 
-          <div className="studio-command mx-auto mt-14 max-w-7xl overflow-hidden rounded-2xl bg-card ring-1 ring-border sm:mt-20">
+          <div className="studio-command mx-auto mt-10 max-w-7xl overflow-hidden bg-card ring-1 ring-border sm:mt-16">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
-                <span className="studio-command-icon grid size-10 place-items-center rounded-xl bg-accent text-accent-foreground"><WandSparkles className="size-4" /></span>
+                <span className="studio-command-icon grid size-10 place-items-center bg-accent text-accent-foreground"><WandSparkles className="size-4" /></span>
                 <div className="text-left"><p className="text-sm font-semibold text-foreground">AmmarAI command center</p><p className="text-xs text-muted-foreground">Choose a flagship tool or describe your goal</p></div>
               </div>
               <span className="studio-status"><span className="size-1.5 rounded-full bg-success" /> All tools ready</span>
@@ -224,7 +231,7 @@ export function Home() {
               </div>
               <div className="studio-command-main p-5 sm:p-7 lg:p-8">
                 <label htmlFor="home-search" className="sr-only">Describe what you want to make</label>
-                <div className="studio-search flex items-center gap-3 rounded-xl border border-input bg-background px-4 focus-within:border-accent focus-within:ring-4 focus-within:ring-accent/10">
+                <div className="studio-search flex items-center gap-3 border border-input bg-background px-4 focus-within:border-accent focus-within:ring-4 focus-within:ring-accent/10">
                   <Search className="size-4 shrink-0 text-accent" />
                   <input ref={searchRef} id="home-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="What do you want to create?" className="h-16 min-w-0 flex-1 bg-transparent text-sm font-medium text-foreground outline-none placeholder:text-muted-foreground" />
                   <span className="hidden rounded-md border border-border bg-secondary px-2 py-1 text-[10px] text-muted-foreground sm:block">⌘ K</span>

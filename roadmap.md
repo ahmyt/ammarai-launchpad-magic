@@ -88,3 +88,8 @@
 - [x] Recompose the full homepage with distinct section hierarchies and premium visual rhythm
 - [x] Elevate the Command Center, flagship showcase, media, comparison, reviews, and conversion areas
 - [x] Verify the complete experience across desktop and mobile
+
+## Neo-Swiss Editorial homepage rebuild
+- [ ] Replace the current visual system with the selected bold editorial grid
+- [ ] Recompose the opening, Command Center, and every section with distinct hierarchy
+- [ ] Verify interactions, media, reviews, and responsive layouts
