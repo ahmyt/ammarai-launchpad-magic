@@ -7,6 +7,7 @@
 
 - [x] Retrained the daily writer against the Part 7 brief (topic queue, 20-article type rotation, tables, internal links, banned filler, stored category/format)
 - [x] Match daily-writer tables of contents to the bordered, numbered editorial article style
+- [ ] Verify the next automatic daily-writer post on ammarai.com after the latest Plesk deployment
 - [ ] Video and Image pillars, then remaining clusters
 
 
