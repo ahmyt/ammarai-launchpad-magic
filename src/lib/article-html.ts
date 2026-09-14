@@ -37,6 +37,72 @@ export function collapsibleFaqs(html: string): string {
 }
 
 /**
+ * Syndicated articles ship an unstyled nest of <div>s promoting AmmarAI.
+ * Rebuild it as a proper editorial card so it reads as a callout, not stray text.
+ */
+function blockEnd(html: string, start: number): number {
+  const token = /<div\b[^>]*>|<\/div\s*>/gi;
+  token.lastIndex = start;
+  let depth = 0;
+  let found: RegExpExecArray | null;
+  while ((found = token.exec(html)) !== null) {
+    depth += found[0].startsWith("</") ? -1 : 1;
+    if (depth === 0) return found.index + found[0].length;
+  }
+  return -1;
+}
+
+function renderCta(block: string): string {
+  const anchor = /<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i.exec(block);
+  if (!anchor) return block;
+  const href = anchor[1]!;
+  const label = anchor[2]!.replace(/<[^>]+>/g, "").trim() || "Explore AmmarAI";
+
+  const texts: string[] = [];
+  const leaf = /<(?:div|span|p|strong|em)\b[^>]*>([^<]*)<\/(?:div|span|p|strong|em)\s*>/gi;
+  let found: RegExpExecArray | null;
+  while ((found = leaf.exec(block)) !== null) {
+    const text = found[1]!.replace(/\s+/g, " ").trim();
+    if (!text) continue;
+    if (/^(https?:\/\/)?(www\.)?ammarai\.com\/?$/i.test(text)) continue;
+    if (!texts.includes(text)) texts.push(text);
+  }
+  if (texts.length === 0) return block;
+
+  const eyebrow = texts.length > 2 ? texts.shift()! : "AmmarAI";
+  const heading = texts.shift()!;
+  const body = texts.join(" ");
+
+  return [
+    '<aside class="article-cta">',
+    `<p class="article-cta-eyebrow">${eyebrow}</p>`,
+    `<p class="article-cta-title">${heading}</p>`,
+    body ? `<p class="article-cta-body">${body}</p>` : "",
+    `<a class="article-cta-link" href="${href}" rel="noopener noreferrer">${label}</a>`,
+    "</aside>",
+  ].join("");
+}
+
+export function brandCta(html: string): string {
+  if (!html || !/ammarai\.com/i.test(html)) return html;
+  const open = /<div\b[^>]*>/gi;
+  let out = "";
+  let cursor = 0;
+  let match: RegExpExecArray | null;
+  while ((match = open.exec(html)) !== null) {
+    if (match.index < cursor) continue;
+    const end = blockEnd(html, match.index);
+    if (end < 0) continue;
+    const block = html.slice(match.index, end);
+    if (!/href="https?:\/\/(www\.)?ammarai\.com[^"]*"/i.test(block)) continue;
+    out += html.slice(cursor, match.index) + renderCta(block);
+    cursor = end;
+    open.lastIndex = end;
+  }
+  return cursor === 0 ? html : out + html.slice(cursor);
+}
+
+/**
  * Wraps bare <table> elements in a horizontally scrollable container so wide
  * comparison tables never push the page sideways on phones.
  */
