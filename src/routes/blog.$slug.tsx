@@ -425,16 +425,20 @@ function StaticPostView({ post }: { post: Post }) {
       {post.faqs && post.faqs.length > 0 ? (
         <Section className="py-8">
           <Container size="narrow">
-            <h2 className="text-2xl sm:text-3xl">Frequently asked questions</h2>
-            <div className="mt-6 border-t border-border">
-              {post.faqs.map((faq) => (
-                <div key={faq.q} className="border-b border-border py-5">
-                  <h3 className="text-base font-semibold">{faq.q}</h3>
-                  <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
-                    {faq.a}
-                  </p>
-                </div>
-              ))}
+            <h2 id="frequently-asked-questions" className="scroll-mt-24 text-2xl sm:text-3xl">
+              Frequently asked questions
+            </h2>
+            <div className="prose-editorial mt-6">
+              <div className="faq-list">
+                {post.faqs.map((faq) => (
+                  <details key={faq.q} className="faq-item">
+                    <summary>{faq.q}</summary>
+                    <div className="faq-answer">
+                      <p>{faq.a}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
             </div>
           </Container>
         </Section>
@@ -442,35 +446,61 @@ function StaticPostView({ post }: { post: Post }) {
 
       <Section tone="sand">
         <Container size="narrow">
-          <h2 className="text-2xl sm:text-3xl">Takeaways</h2>
+          <h2 id="takeaways" className="scroll-mt-24 text-2xl sm:text-3xl">
+            Takeaways
+          </h2>
           <BulletList items={post.takeaways} className="mt-5" />
         </Container>
       </Section>
 
-
-      {related.length > 0 ? (
+      {related.length > 0 || relatedTools.length > 0 ? (
         <Section>
           <Container size="narrow">
-            <h2 className="text-2xl sm:text-3xl">Keep reading</h2>
-            <ul className="mt-5 border-t border-border">
-              {related.map((r) => (
-                <li key={r.slug} className="border-b border-border py-4">
-                  <Link
-                    to="/blog/$slug"
-                    params={{ slug: r.slug }}
-                    className="text-base font-semibold text-foreground transition-colors hover:text-accent"
-                  >
-                    {r.title}
-                  </Link>
-                  <p className="mt-1.5 text-pretty text-sm leading-relaxed text-muted-foreground">
-                    {r.excerpt}
-                  </p>
-                </li>
-              ))}
-            </ul>
+            <h2 className="text-2xl sm:text-3xl">Recommended for you</h2>
+            {related.length > 0 ? (
+              <ul className="mt-5 border-t border-border">
+                {related.map((r) => (
+                  <li key={r.slug} className="border-b border-border py-4">
+                    <Link
+                      to="/blog/$slug"
+                      params={{ slug: r.slug }}
+                      className="text-base font-semibold text-foreground transition-colors hover:text-accent"
+                    >
+                      {r.title}
+                    </Link>
+                    <p className="mt-1.5 text-pretty text-sm leading-relaxed text-muted-foreground">
+                      {r.excerpt}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+
+            {relatedTools.length > 0 ? (
+              <>
+                <h3 className="mt-10 text-lg font-semibold">Tools to try next</h3>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+                  {relatedTools.map((tool) => (
+                    <li key={tool.slug} className="border border-border bg-card p-4">
+                      <Link
+                        to="/$slug"
+                        params={{ slug: tool.slug }}
+                        className="text-sm font-semibold text-foreground transition-colors hover:text-accent"
+                      >
+                        {tool.name}
+                      </Link>
+                      <p className="mt-1.5 text-pretty text-xs leading-relaxed text-muted-foreground">
+                        {tool.summary}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
           </Container>
         </Section>
       ) : null}
+
 
       <Section tone="ink" className="py-16">
         <Container className="text-center">
