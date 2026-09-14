@@ -1608,6 +1608,127 @@ body:has(.home-swiss) .site-header button {
   letter-spacing: 0.12em;
 }
 
+/* Neo-Swiss footer — a decisive close to the homepage system. */
+body:has(.home-swiss) .site-footer {
+  position: relative;
+  overflow: hidden;
+  border-top: 0;
+  background: var(--foreground);
+  color: var(--ink-foreground);
+}
+
+body:has(.home-swiss) .site-footer::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-image: linear-gradient(to right, color-mix(in oklab, var(--ink-foreground) 11%, transparent) 1px, transparent 1px);
+  background-size: 12.5% 100%;
+  pointer-events: none;
+}
+
+body:has(.home-swiss) .site-footer-inner {
+  position: relative;
+}
+
+body:has(.home-swiss) .site-footer-main {
+  padding-block: clamp(4.5rem, 8vw, 7.5rem);
+}
+
+body:has(.home-swiss) .site-footer-brand {
+  position: relative;
+  padding-top: 1.5rem;
+  border-top: 4px solid var(--accent);
+}
+
+body:has(.home-swiss) .site-footer-index,
+body:has(.home-swiss) .site-footer-nav-index,
+body:has(.home-swiss) .site-footer-signoff {
+  font-family: "Space Grotesk", var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+body:has(.home-swiss) .site-footer-index {
+  position: absolute;
+  top: 1.75rem;
+  right: 0;
+  color: color-mix(in oklab, var(--ink-foreground) 46%, transparent);
+}
+
+body:has(.home-swiss) .site-footer-wordmark {
+  color: var(--ink-foreground);
+}
+
+body:has(.home-swiss) .site-footer-wordmark img {
+  box-shadow: 3px 3px 0 color-mix(in oklab, var(--accent) 62%, transparent);
+}
+
+body:has(.home-swiss) .site-footer-copy,
+body:has(.home-swiss) .site-footer a,
+body:has(.home-swiss) .site-footer-bottom p {
+  color: color-mix(in oklab, var(--ink-foreground) 66%, transparent);
+}
+
+body:has(.home-swiss) .site-footer-signoff {
+  max-width: 19rem;
+  color: var(--ink-foreground);
+  line-height: 1.7;
+}
+
+body:has(.home-swiss) .site-footer-nav {
+  border-top: 1px solid color-mix(in oklab, var(--ink-foreground) 32%, transparent);
+}
+
+body:has(.home-swiss) .site-footer-nav nav {
+  padding-top: 1.25rem;
+}
+
+body:has(.home-swiss) .site-footer-nav-index {
+  margin-bottom: 1.75rem;
+  color: var(--accent);
+}
+
+body:has(.home-swiss) .site-footer-nav h2 {
+  color: var(--ink-foreground);
+  font-family: "Space Grotesk", var(--font-sans);
+}
+
+body:has(.home-swiss) .site-footer-nav a {
+  display: inline-block;
+  line-height: 1.45;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3rem;
+}
+
+body:has(.home-swiss) .site-footer-nav a:hover,
+body:has(.home-swiss) .site-footer-nav a:focus-visible,
+body:has(.home-swiss) .site-footer-back:hover,
+body:has(.home-swiss) .site-footer-back:focus-visible {
+  color: var(--ink-foreground);
+  text-decoration-line: underline;
+  text-decoration-color: var(--accent);
+}
+
+body:has(.home-swiss) .site-footer-bottom {
+  min-height: 5rem;
+  padding-block: 1.25rem;
+  border-color: color-mix(in oklab, var(--ink-foreground) 32%, transparent);
+  font-family: "Space Grotesk", var(--font-sans);
+  text-transform: uppercase;
+}
+
+body:has(.home-swiss) .site-footer-back span {
+  display: inline-block;
+  margin-left: 0.4rem;
+  color: var(--accent);
+  transition: transform 160ms ease;
+}
+
+body:has(.home-swiss) .site-footer-back:hover span {
+  transform: translateY(-2px);
+}
+
 @media (min-width: 900px) {
   .studio-hero-grid {
     grid-template-columns: minmax(0, 1.48fr) minmax(21rem, 0.52fr);
@@ -1639,6 +1760,23 @@ body:has(.home-swiss) .site-header button {
 @media (max-width: 639px) {
   body:has(.home-swiss) .site-header > div {
     min-height: 4rem;
+  }
+
+  body:has(.home-swiss) .site-footer-main {
+    padding-block: 4rem;
+  }
+
+  body:has(.home-swiss) .site-footer-brand {
+    padding-top: 1.25rem;
+  }
+
+  body:has(.home-swiss) .site-footer-copy {
+    max-width: 21rem;
+    font-size: 0.9375rem;
+  }
+
+  body:has(.home-swiss) .site-footer-nav {
+    gap-block: 3rem;
   }
 
   .home-swiss .studio-hero::before {
