@@ -55,7 +55,9 @@ export type ToolDemoScene = {
   /** Small label above the animated scene, e.g. "Live call". */
   label: string;
   /** Steps revealed one by one while the demo plays. */
-  steps: { actor: string; text: string; meta?: string }[];
+  steps: { actor: string; text: string; meta?: string; connector?: string }[];
+  /** Connector tiles shown in the animated flow. */
+  connectors?: { id: string; label: string; note?: string }[];
   /** Closing summary line under the scene. */
   result?: string;
 };
