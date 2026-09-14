@@ -357,7 +357,11 @@ function StaticPostView({ post }: { post: Post }) {
       <Section className="py-8">
         <Container size="narrow">
           {post.sections.map((section) => (
-            <section key={section.heading} className="mt-10 first:mt-0">
+            <section
+              key={section.heading}
+              id={headingId(section.heading)}
+              className="mt-10 scroll-mt-24 first:mt-0"
+            >
               <h2 className="text-balance text-2xl sm:text-3xl">{section.heading}</h2>
               <div className="prose-editorial mt-4">
                 {section.paragraphs.map((p) => (
