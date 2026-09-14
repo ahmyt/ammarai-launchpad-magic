@@ -668,3 +668,141 @@ function Dot({ delay }: { delay: string }) {
     />
   );
 }
+
+/**
+ * Simple monochrome glyphs for connector tiles.
+ * These are intentionally abstract, not copied brand logos.
+ */
+function ConnectorIcon({ id }: { id: string }) {
+  const icons: Record<string, React.ReactNode> = {
+    gmail: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 4h16v16H4z" />
+        <path d="M4 4l8 6 8-6" />
+      </svg>
+    ),
+    calendar: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" />
+        <path d="M16 2v4M8 2v4M3 10h18" />
+      </svg>
+    ),
+    slack: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14.5 10c-.8 0-1.5-.7-1.5-1.5V4c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v4.5c0 .8-.7 1.5-1.5 1.5z" />
+        <path d="M19.5 10h-1.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h1.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5z" />
+        <path d="M10 14.5c0 .8-.7 1.5-1.5 1.5H4c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h4.5c.8 0 1.5.7 1.5 1.5z" />
+        <path d="M10 19.5v-1.5c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v1.5c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5z" />
+        <path d="M14 9.5c.8 0 1.5.7 1.5 1.5v4.5c0 .8-.7 1.5-1.5 1.5s-1.5-.7-1.5-1.5V11c0-.8.7-1.5 1.5-1.5z" />
+        <path d="M9.5 14h1.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5H9.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5z" />
+      </svg>
+    ),
+    telegram: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21.7 3.3 2.5 10.7l7.1 3.1 3.1 7.1 9-14.6z" />
+        <path d="m10.5 14.5 8.2-8.2" />
+      </svg>
+    ),
+    docs: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+      </svg>
+    ),
+    phone: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6 2 2 0 0 1 2-2.2h3a2 2 0 0 1 2 1.7c.2 1.3.6 2.6 1.1 3.7a2 2 0 0 1-.5 2.1L7.1 9.1a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c1.2.5 2.4.9 3.7 1.1a2 2 0 0 1 1.7 2z" />
+      </svg>
+    ),
+    sms: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 11.5a8.4 8.4 0 0 1-1.2 4.3 8.5 8.5 0 0 1-7.3 4.2 8.4 8.4 0 0 1-4.3-1.2L3 21l2.2-5.2A8.4 8.4 0 0 1 4 11.5a8.5 8.5 0 0 1 4.2-7.3A8.4 8.4 0 0 1 12.5 3h.5a8.5 8.5 0 0 1 8 8v.5z" />
+      </svg>
+    ),
+    crm: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8" />
+      </svg>
+    ),
+    whatsapp: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 11.5a8.4 8.4 0 0 1-1.2 4.3 8.5 8.5 0 0 1-7.3 4.2 8.4 8.4 0 0 1-4.3-1.2L3 21l2.2-5.2A8.4 8.4 0 0 1 4 11.5a8.5 8.5 0 0 1 4.2-7.3A8.4 8.4 0 0 1 12.5 3h.5a8.5 8.5 0 0 1 8 8v.5z" />
+        <path d="M9 12.5s1.5-1 3-1 3 1 3 1M8 14.5s2-1.5 4-1.5 4 1.5 4 1.5" />
+      </svg>
+    ),
+    slides: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M7 7h10M7 12h10M7 17h6" />
+      </svg>
+    ),
+    instagram: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="18" cy="6" r="1.5" fill="currentColor" />
+      </svg>
+    ),
+    tiktok: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 12a4 4 0 1 0 4 4V4h4" />
+        <path d="M15 8a5 5 0 0 0 4-2" />
+      </svg>
+    ),
+    linkedin: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    ),
+    search: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.3-4.3" />
+      </svg>
+    ),
+    wordpress: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 6c4.4 0 7.5 3 7.5 6.5S16.4 19 12 19s-7.5-3-7.5-6.5S7.6 6 12 6z" />
+        <path d="M7.5 17.5 12 6l4.5 11.5" />
+      </svg>
+    ),
+    chat: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 11.5a8.4 8.4 0 0 1-1.2 4.3 8.5 8.5 0 0 1-7.3 4.2 8.4 8.4 0 0 1-4.3-1.2L3 21l2.2-5.2A8.4 8.4 0 0 1 4 11.5a8.5 8.5 0 0 1 4.2-7.3A8.4 8.4 0 0 1 12.5 3h.5a8.5 8.5 0 0 1 8 8v.5z" />
+      </svg>
+    ),
+    comments: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 11.5a8.4 8.4 0 0 1-1.2 4.3 8.5 8.5 0 0 1-7.3 4.2 8.4 8.4 0 0 1-4.3-1.2L3 21l2.2-5.2A8.4 8.4 0 0 1 4 11.5a8.5 8.5 0 0 1 4.2-7.3A8.4 8.4 0 0 1 12.5 3h.5a8.5 8.5 0 0 1 8 8v.5z" />
+        <path d="M8 12h8M8 16h5" />
+      </svg>
+    ),
+    youtube: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22.5 6.4a2.8 2.8 0 0 0-2-2C18.6 3.7 12 3.7 12 3.7s-6.6 0-8.5.7a2.8 2.8 0 0 0-2 2C.8 8.3.8 12 .8 12s0 3.7.7 5.6a2.8 2.8 0 0 0 2 2c1.9.7 8.5.7 8.5.7s6.6 0 8.5-.7a2.8 2.8 0 0 0 2-2c.7-1.9.7-5.6.7-5.6s0-3.7-.7-5.6z" />
+        <polygon points="9.8,15.6 15.8,12 9.8,8.4" />
+      </svg>
+    ),
+    facebook: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      </svg>
+    ),
+  };
+
+  return (
+    <span className="flex h-4 w-4 items-center justify-center">
+      {icons[id] ?? (
+        <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 8v8M8 12h8" />
+        </svg>
+      )}
+    </span>
+  );
+}
