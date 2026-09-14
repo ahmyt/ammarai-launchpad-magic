@@ -881,7 +881,7 @@ export const agentTools: Tool[] = [
       {
         label: "Competitor feature comparison",
         input:
-          "Compare the AI agent features of Magic AI, Jasper and Copy.ai as of September 2026. Cite sources.",
+          "Compare the AI agent features of AmmarAI, Jasper and Copy.ai as of September 2026. Cite sources.",
         output:
           "Compared 14 features across 3 vendors using 23 live sources. Produced a table with citations and a one-paragraph verdict per tool.",
       },

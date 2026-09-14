@@ -847,7 +847,7 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
           { id: "docs", label: "Docs", note: "Compile report" },
         ],
         steps: [
-          { actor: "Query", text: "Compare AI agent features of Magic AI, Jasper and Copy.ai. Cite sources.", meta: "0.0s" },
+          { actor: "Query", text: "Compare AI agent features of AmmarAI, Jasper and Copy.ai. Cite sources.", meta: "0.0s" },
           { actor: "Search", text: "Ran 12 live searches across the three vendors", meta: "2.1s", connector: "search" },
           { actor: "Read", text: "Opened 23 pages and extracted feature claims and pricing", meta: "5.4s", connector: "search" },
           { actor: "Compare", text: "Built a 14-row feature table with source links", meta: "8.7s" },
