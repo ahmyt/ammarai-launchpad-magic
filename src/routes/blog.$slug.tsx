@@ -9,7 +9,7 @@ import {
   syndicatedArticlesQuery,
   type SyndicatedArticle,
 } from "@/lib/articles";
-import { tools } from "@/data/tools";
+import { tools, featuredTools } from "@/data/tools";
 import { collapsibleFaqs, wrapTables } from "@/lib/article-html";
 import { Container, Section, BulletList } from "@/components/site/primitives";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/Breadcrumbs";
@@ -65,6 +65,24 @@ function BlogPost() {
   return <StaticPostView post={post!} />;
 }
 
+/**
+ * Picks up to three tools for the "Tools to try next" row. Blog categories
+ * (e.g. "AI Guides", "AI Automation") don't always match a tool category, so we
+ * fall back to matching tool names against the article text, then to flagships.
+ */
+function pickRelatedTools(category: string, text: string) {
+  const haystack = text.toLowerCase();
+  const byCategory = tools.filter((tool) => tool.category === category);
+  const byMention = tools.filter(
+    (tool) => !byCategory.includes(tool) && haystack.includes(tool.name.toLowerCase()),
+  );
+  const picked = [...byCategory, ...byMention];
+  const fallback = featuredTools.filter((tool) => !picked.includes(tool));
+  return [...picked, ...fallback]
+    .slice(0, 3)
+    .map((tool) => ({ slug: tool.slug, name: tool.name, summary: tool.summary }));
+}
+
 function RecommendedReading({ article }: { article: SyndicatedArticle }) {
   const { data: articles } = useSuspenseQuery(syndicatedArticlesQuery);
   const category = articleCategory(article);
@@ -73,10 +91,10 @@ function RecommendedReading({ article }: { article: SyndicatedArticle }) {
   const sameCategory = others.filter((a) => articleCategory(a) === category);
   const posts = [...sameCategory, ...others.filter((a) => !sameCategory.includes(a))].slice(0, 3);
 
-  const relatedTools = tools
-    .filter((tool) => tool.category === category)
-    .slice(0, 3)
-    .map((tool) => ({ slug: tool.slug, name: tool.name, summary: tool.summary }));
+  const relatedTools = pickRelatedTools(
+    category,
+    `${article.title ?? ""} ${article.meta_description ?? ""} ${(article.content_html ?? "").replace(/<[^>]+>/g, " ").slice(0, 4000)}`,
+  );
 
   if (posts.length === 0 && relatedTools.length === 0) return null;
 
@@ -245,7 +263,10 @@ function StaticPostView({ post }: { post: Post }) {
     .filter((p): p is Post => Boolean(p) && p!.slug !== post.slug)
     .slice(0, 3);
 
-  const relatedTools = tools.filter((tool) => tool.category === post.category).slice(0, 3);
+  const relatedTools = pickRelatedTools(
+    post.category,
+    `${post.title} ${post.excerpt} ${post.intro.join(" ")}`,
+  );
 
   const toc = [
     ...post.sections.map((section) => ({
