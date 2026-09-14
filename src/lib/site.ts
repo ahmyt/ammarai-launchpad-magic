@@ -31,6 +31,9 @@ export type StaticPath =
   | "/faq"
   | "/about"
   | "/contact"
+  | "/privacy"
+  | "/terms"
+  | "/refund-policy"
   | "/auth";
 
 export type SiteLink = { label: string; to: StaticPath } | { label: string; slug: string };
