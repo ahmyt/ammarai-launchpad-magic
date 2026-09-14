@@ -1,5 +1,14 @@
 # Roadmap
 
+## Blog commercial content strategy (audit delivered)
+- [x] Audit all 29 existing articles, content map, gap analysis, prioritized roadmap (docs/blog-content-strategy.md)
+- [ ] Stored category + content type on articles, /blog filter navigation
+- [ ] Writing cluster: Jasper/Writesonic/Copy.ai/Rytr alternatives + Best AI Writing Tools pillar
+- [ ] Retrain the daily writer against the Part 7 brief
+- [ ] Video and Image pillars, then remaining clusters
+
+
+
 ## Magic AI feature build (approved plan)
 - [x] Phase 1: Agent Builder, Phone Call Agents, AI CRM, Social Media Agent, Blogger Agent + "AI Agents" and "AI Sales & CRM" categories + animated scene samples
 - [x] Phase 2: External chatbot rewrite (v3), AI Smart Inbox, AI Marketing Bot + animated scene samples
