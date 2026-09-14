@@ -16,10 +16,12 @@ export interface SyndicatedArticle {
   published_at: string | null;
   synced_at: string;
   is_hidden: boolean;
+  category: string | null;
+  content_type: string | null;
 }
 
 const COLUMNS =
-  "id, slug, title, external_id, content_html, content_markdown, meta_description, hero_image_url, json_ld, faq_json_ld, language_code, published_at, synced_at, is_hidden";
+  "id, slug, title, external_id, content_html, content_markdown, meta_description, hero_image_url, json_ld, faq_json_ld, language_code, published_at, synced_at, is_hidden, category, content_type";
 
 export async function fetchSyndicatedArticles(): Promise<SyndicatedArticle[]> {
   const { data, error } = await supabase
