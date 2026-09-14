@@ -15,7 +15,8 @@ function LogoTrack({ duplicate = false }: { duplicate?: boolean }) {
         <div key={company.name} className="trust-logo-item">
           <img
             src={company.src}
-            alt={duplicate ? "" : `${company.name} logo`}
+            alt={`${company.name} company logo`}
+            title={company.name}
             width={360}
             height={112}
             loading="lazy"
@@ -26,6 +27,7 @@ function LogoTrack({ duplicate = false }: { duplicate?: boolean }) {
     </div>
   );
 }
+
 
 export function TrustLogoStrip() {
   return (
