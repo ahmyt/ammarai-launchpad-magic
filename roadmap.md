@@ -113,3 +113,4 @@
 - [x] Redesign public directories, detail pages, articles, forms, pricing, and authentication
 - [x] Redesign the Studio shell, navigation, panels, controls, lists, and editors
 - [x] Verify representative public and Studio pages across desktop and mobile
+- [x] Keep every tool sample visible, with reliable video preview frames and playback controls
