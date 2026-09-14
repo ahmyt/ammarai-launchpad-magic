@@ -13,7 +13,7 @@ export function Container({
   return (
     <div
       className={cn(
-        "mx-auto w-full px-5 sm:px-8",
+        "site-container mx-auto w-full px-5 sm:px-8",
         size === "narrow" && "max-w-3xl",
         size === "default" && "max-w-6xl",
         size === "wide" && "max-w-7xl",
@@ -47,7 +47,7 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}>
+    <div className={cn("site-section-heading max-w-2xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow ? <Eyebrow className="mb-4">{eyebrow}</Eyebrow> : null}
       <As
         className={cn(
@@ -79,7 +79,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "py-20 sm:py-28",
+        "site-section py-20 sm:py-28",
         tone === "sand" && "bg-sand",
         tone === "ink" && "bg-ink text-ink-foreground",
         className,
@@ -102,7 +102,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-xl bg-card p-5 ring-1 ring-border",
+        "site-card rounded-xl bg-card p-5 ring-1 ring-border",
         interactive && "transition-all duration-200 hover:-translate-y-1 hover:ring-accent/40",
         className,
       )}

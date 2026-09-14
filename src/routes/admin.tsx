@@ -52,7 +52,7 @@ function AdminLayout() {
   }
 
   return (
-    <Section className="py-10">
+    <Section className="admin-studio py-10">
       <Container>
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-6">
           <div>
