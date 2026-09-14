@@ -124,12 +124,13 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
     {
       kind: "video",
       url: videoGeneratorDemo.url,
-      caption: "Sample output — a vertical product explainer cut from the written brief.",
+      caption: "Sample output — a clean product explainer shot generated from the written brief.",
     },
     {
       kind: "video",
       url: videoGeneratorDemo2.url,
-      caption: "Sample output — a punchy ad cut with kinetic captions, ready to run as a paid variant.",
+      caption: "Sample output — a warm lifestyle ad variant generated from the same product brief.",
+
     },
     {
       kind: "video",
