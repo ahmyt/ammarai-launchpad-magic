@@ -458,56 +458,59 @@ export function AnimatedExample({
                 </div>
 
                 {/* Connector rail */}
-                {demoScene.connectors && demoScene.connectors.length > 0 ? (
-                  <div className="agent-flow-rail mt-4">
-                    <div className="agent-flow-connectors">
-                      {demoScene.connectors.map((connector, i) => {
-                        const active =
-                          revealed > 0 &&
-                          demoScene.steps.slice(0, revealed).some((s) => s.connector === connector.id);
-                        const current =
-                          revealed > 0 &&
-                          demoScene.steps[Math.min(revealed - 1, demoScene.steps.length - 1)].connector === connector.id;
-                        return (
-                          <div key={connector.id} className="agent-flow-connector">
-                            <span
-                              className={cn(
-                                "agent-flow-tile",
-                                active && "agent-flow-tile-active",
-                                current && "agent-flow-tile-current",
-                              )}
-                              aria-hidden="true"
-                            >
-                              <ConnectorIcon id={connector.id} />
-                            </span>
-                            <span className={cn("agent-flow-label", active && "agent-flow-label-active")}>
-                              {connector.label}
-                            </span>
-                            {connector.note ? (
+                {(() => {
+                  const connectors = demoScene.connectors;
+                  if (!connectors || connectors.length === 0) return null;
+                  return (
+                    <div className="agent-flow-rail mt-4">
+                      <div className="agent-flow-connectors">
+                        {connectors.map((connector, i) => {
+                          const active =
+                            revealed > 0 &&
+                            demoScene.steps.slice(0, revealed).some((s) => s.connector === connector.id);
+                          const currentStep = demoScene.steps[Math.min(revealed - 1, demoScene.steps.length - 1)];
+                          const current = revealed > 0 && currentStep?.connector === connector.id;
+                          return (
+                            <div key={connector.id} className="agent-flow-connector">
                               <span
                                 className={cn(
-                                  "agent-flow-note",
-                                  active && "agent-flow-note-active",
-                                )}
-                              >
-                                {connector.note}
-                              </span>
-                            ) : null}
-                            {i < demoScene.connectors.length - 1 ? (
-                              <span
-                                className={cn(
-                                  "agent-flow-line",
-                                  active && "agent-flow-line-active",
+                                  "agent-flow-tile",
+                                  active && "agent-flow-tile-active",
+                                  current && "agent-flow-tile-current",
                                 )}
                                 aria-hidden="true"
-                              />
-                            ) : null}
-                          </div>
-                        );
-                      })}
+                              >
+                                <ConnectorIcon id={connector.id} />
+                              </span>
+                              <span className={cn("agent-flow-label", active && "agent-flow-label-active")}>
+                                {connector.label}
+                              </span>
+                              {connector.note ? (
+                                <span
+                                  className={cn(
+                                    "agent-flow-note",
+                                    active && "agent-flow-note-active",
+                                  )}
+                                >
+                                  {connector.note}
+                                </span>
+                              ) : null}
+                              {i < connectors.length - 1 ? (
+                                <span
+                                  className={cn(
+                                    "agent-flow-line",
+                                    active && "agent-flow-line-active",
+                                  )}
+                                  aria-hidden="true"
+                                />
+                              ) : null}
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                ) : null}
+                  );
+                })()}
 
                 {/* Steps */}
                 <ol className="agent-flow-steps mt-4">

@@ -737,14 +737,14 @@ export const agentTools: Tool[] = [
       {
         label: "Instagram DM lead capture",
         input:
-          "When someone DMs us "price" on Instagram, send the pricing link and ask for their email.",
+          "When someone DMs us \"price\" on Instagram, send the pricing link and ask for their email.",
         output:
           "Replied in 4 seconds with the pricing page, asked for the email, stored the lead, and queued a follow-up email for the next morning.",
       },
       {
         label: "YouTube comment campaign",
         input:
-          "Reply to every YouTube comment that mentions "checklist" with a download link and add the user to the nurture list.",
+          "Reply to every YouTube comment that mentions \"checklist\" with a download link and add the user to the nurture list.",
         output:
           "Detected 23 matching comments, replied with the checklist link, collected 19 emails, and added them to the email sequence.",
       },
