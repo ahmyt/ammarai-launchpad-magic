@@ -98,3 +98,8 @@
 - [x] Rebalance spacing, hierarchy, and depth while preserving the bold editorial direction
 - [x] Refine section rhythm, surface hierarchy, interactions, and mobile composition
 - [x] Verify desktop, mobile, search, media, reviews, FAQ, and reduced-motion behavior
+
+## Neo-Swiss craft refinement
+- [x] Tune proportions, alignment, and spacing without changing the visual direction
+- [x] Refine Command Center, controls, typography, and restrained depth
+- [x] Verify desktop, mobile, interactions, and build stability

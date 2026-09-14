@@ -211,7 +211,7 @@ export function Home() {
           </div>
 
           <div className="studio-command mx-auto mt-10 max-w-7xl overflow-hidden bg-card ring-1 ring-border sm:mt-16">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-7">
+            <div className="studio-command-header flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
                 <span className="studio-command-icon grid size-10 place-items-center bg-accent text-accent-foreground"><WandSparkles className="size-4" /></span>
                 <div className="text-left"><p className="text-sm font-semibold text-foreground">AmmarAI command center</p><p className="text-xs text-muted-foreground">Choose a flagship tool or describe your goal</p></div>
@@ -236,7 +236,7 @@ export function Home() {
                   <input ref={searchRef} id="home-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="What do you want to create?" className="h-16 min-w-0 flex-1 bg-transparent text-sm font-medium text-foreground outline-none placeholder:text-muted-foreground" />
                   <span className="hidden rounded-md border border-border bg-secondary px-2 py-1 text-[10px] text-muted-foreground sm:block">⌘ K</span>
                 </div>
-                <div className="mt-6 min-h-[13rem]">
+                <div className={`studio-command-results mt-6 ${query.trim() === "" ? "studio-command-results-prompts" : "studio-command-results-active"}`}>
                 {query.trim() === "" ? (
                   <div>
                     <p className="studio-label">Popular starting points</p>
@@ -488,7 +488,7 @@ export function Home() {
               </ul>
               <div className="mt-6 border-t border-border pt-4">
                 <p className="text-xs text-muted-foreground">{cmp.oldTotalLabel}</p>
-                <p className="font-display text-2xl font-semibold text-foreground">
+                <p className="font-display text-2xl font-semibold tabular-nums text-foreground">
                   {cmp.oldTotal}
                 </p>
               </div>
@@ -509,7 +509,7 @@ export function Home() {
               </ul>
               <div className="mt-6 border-t border-ink-foreground/20 pt-4">
                 <p className="text-xs opacity-70">{cmp.newTotalLabel}</p>
-                <p className="font-display text-2xl font-semibold">{cmp.newTotal}</p>
+                <p className="font-display text-2xl font-semibold tabular-nums">{cmp.newTotal}</p>
               </div>
             </div>
           </div>
@@ -605,7 +605,7 @@ export function Home() {
             <ExternalButton href={REGISTER_URL} variant="onInk" size="lg">
               Start creating free
             </ExternalButton>
-            <ButtonLink to="/pricing" variant="ghost" size="lg" className="text-ink-foreground">
+            <ButtonLink to="/pricing" variant="ghost" size="lg" className="studio-final-secondary text-ink-foreground">
               Compare plans
             </ButtonLink>
           </div>
