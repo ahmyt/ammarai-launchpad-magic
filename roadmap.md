@@ -112,4 +112,4 @@
 - [x] Promote the homepage visual system into the shared site shell and components
 - [x] Redesign public directories, detail pages, articles, forms, pricing, and authentication
 - [x] Redesign the Studio shell, navigation, panels, controls, lists, and editors
-- [ ] Verify representative public and Studio pages across desktop and mobile
+- [x] Verify representative public and Studio pages across desktop and mobile
