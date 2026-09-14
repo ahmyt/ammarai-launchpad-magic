@@ -11,7 +11,7 @@ const sections: LegalSection[] = [
   {
     heading: "Who we are",
     paragraphs: [
-      "AmmarAI is an all-in-one AI creation workspace covering writing, chat, images, video, voice, transcription, vision, documents and code. This policy explains what we collect when you visit ammarai.com or use the AmmarAI application at app.ammarai.com, why we collect it and what control you have over it.",
+      "AmmarAI is operated by Mobile Unlocking LLC, a company incorporated in the United States. AmmarAI is an all-in-one AI creation workspace covering writing, chat, images, video, voice, transcription, vision, documents and code. This policy explains what we collect when you visit ammarai.com or use the AmmarAI application at app.ammarai.com, why we collect it and what control you have over it.",
       "For any privacy question, or to exercise any right described below, contact us at support@ammarai.com. We answer privacy requests within 30 days.",
     ],
   },

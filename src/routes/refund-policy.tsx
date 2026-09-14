@@ -11,6 +11,7 @@ const sections: LegalSection[] = [
   {
     heading: "The short version",
     paragraphs: [
+      "AmmarAI is operated by Mobile Unlocking LLC, a company incorporated in the United States.",
       "If your first paid subscription is not what you expected, email support@ammarai.com within 7 days of the charge and we will refund it in full, provided you have used no more than 20% of that period's credit allowance.",
       "After that window, subscriptions are non-refundable for the period already started, but you can cancel at any time to stop the next renewal. There is a free plan so you can test the tools before paying.",
     ],

@@ -11,7 +11,7 @@ const sections: LegalSection[] = [
   {
     heading: "Agreement to these terms",
     paragraphs: [
-      "These Terms of Service govern your use of the AmmarAI website at ammarai.com and the AmmarAI application at app.ammarai.com. By creating an account or using any tool, you accept these terms. If you are accepting on behalf of a company, you confirm you are authorised to bind it.",
+      "These Terms of Service govern your use of the AmmarAI website at ammarai.com and the AmmarAI application at app.ammarai.com. AmmarAI is operated by Mobile Unlocking LLC, a company incorporated in the United States. By creating an account or using any tool, you accept these terms. If you are accepting on behalf of a company, you confirm you are authorised to bind it.",
       "If you do not agree with these terms, do not use the service.",
     ],
   },
