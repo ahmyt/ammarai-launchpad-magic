@@ -20,6 +20,8 @@
 - [x] Phase 5: Chat Pro (multi-model, memory, folders, web search), AI Personas & Skills, AI Command Search, /ai-models page, pricing/plan updates
 - [x] Phase 6: 99 missing Custom Templates (Group 8)
 - [x] Completed tools use matching media samples; keep this strict requirement for Phases 5–6
+- [x] Phase 7: DM & Comment Agent + AI Deep Research pages added to AI Agents; all agent/CRM demos now show a connector rail flow (prompt → connectors → result) with abstract monochrome glyphs
+
 
 
 ## Done
