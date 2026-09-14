@@ -35,6 +35,7 @@ export function SectionHeading({
   intro,
   as: As = "h2",
   align = "left",
+  scale = "default",
   className,
 }: {
   eyebrow?: string;
@@ -42,12 +43,20 @@ export function SectionHeading({
   intro?: ReactNode;
   as?: "h1" | "h2" | "h3";
   align?: "left" | "center";
+  scale?: "default" | "large";
   className?: string;
 }) {
   return (
     <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow ? <Eyebrow className="mb-4">{eyebrow}</Eyebrow> : null}
-      <As className="text-balance text-3xl leading-[1.08] sm:text-4xl">{title}</As>
+      <As
+        className={cn(
+          "text-balance text-3xl leading-[1.08] sm:text-4xl",
+          scale === "large" && "text-4xl leading-[0.98] sm:text-5xl lg:text-6xl",
+        )}
+      >
+        {title}
+      </As>
       {intro ? (
         <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground">{intro}</p>
       ) : null}

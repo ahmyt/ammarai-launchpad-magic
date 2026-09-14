@@ -182,9 +182,9 @@ export function Home() {
 
       <section className="studio-hero relative border-b border-border pb-16 pt-12 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
         <Container size="wide" className="relative z-10">
-          <div className="studio-hero-copy mx-auto max-w-5xl text-center">
+          <div className="studio-hero-copy mx-auto max-w-6xl text-center">
             <p className="studio-kicker"><Sparkles className="size-3.5" /> {tools.length} tools · one intelligent workspace</p>
-            <h1 className="mx-auto mt-7 max-w-5xl text-balance text-[3.35rem] font-bold leading-[0.96] sm:text-7xl lg:text-[5.75rem]">
+            <h1 className="mx-auto mt-8 max-w-6xl text-balance text-[3.35rem] font-bold leading-[0.92] sm:text-7xl lg:text-[6.75rem]">
               One AI for everything <span className="studio-accent-text">you create</span>
             </h1>
             <p className="mx-auto mt-7 max-w-3xl text-pretty text-base leading-[1.75] text-muted-foreground sm:text-lg">
@@ -203,7 +203,7 @@ export function Home() {
             <p className="studio-hero-note mt-5 flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required. Every tool included.</p>
           </div>
 
-          <div className="studio-command mx-auto mt-12 max-w-6xl overflow-hidden rounded-2xl bg-card ring-1 ring-border sm:mt-16">
+          <div className="studio-command mx-auto mt-14 max-w-7xl overflow-hidden rounded-2xl bg-card ring-1 ring-border sm:mt-20">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
                 <span className="studio-command-icon grid size-10 place-items-center rounded-xl bg-accent text-accent-foreground"><WandSparkles className="size-4" /></span>
@@ -211,7 +211,7 @@ export function Home() {
               </div>
               <span className="studio-status"><span className="size-1.5 rounded-full bg-success" /> All tools ready</span>
             </div>
-            <div className="grid lg:grid-cols-[0.68fr_1.32fr]">
+             <div className="grid lg:grid-cols-[0.62fr_1.38fr]">
               <div className="studio-command-sidebar border-b border-border p-5 sm:p-7 lg:border-b-0 lg:border-r">
                 <p className="studio-label">Flagship workspace</p>
                 <div className="mt-4 grid gap-1 sm:grid-cols-2 lg:grid-cols-1">
@@ -287,12 +287,14 @@ export function Home() {
       <TrustLogoStrip />
 
       {/* Featured */}
-       <Section tone="sand" className="studio-section studio-flagships">
-        <Container>
+        <Section tone="sand" className="studio-section studio-flagships">
+         <Container size="wide">
           <SectionHeading
             eyebrow="Flagship tools"
             title="Eight flagship tools, one workspace"
             intro="AI Agent Builder, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video, Transcription and SEO Analyzer form the core of AmmarAI — eight focused tools for creating, understanding and improving your work."
+             scale="large"
+             className="studio-heading-wide"
           />
           <div className="studio-card-grid mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {featuredTools.map((tool, index) => (
@@ -304,15 +306,17 @@ export function Home() {
 
       {/* Video library */}
        <Section className="studio-section studio-video-section">
-        <Container>
+         <Container size="wide">
           <SectionHeading
             eyebrow="Video library"
             title="See what the video tools can make"
             intro="Watch real samples from four different workflows, then open the tool behind each result."
+             scale="large"
+             className="studio-heading-wide"
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
-            {videoLibrary.map((item) => (
-              <Card key={item.slug} className="studio-video-card overflow-hidden p-0">
+             {videoLibrary.map((item, index) => (
+               <Card key={item.slug} className={`studio-video-card overflow-hidden p-0 ${index === 0 ? "studio-video-lead sm:col-span-2 lg:col-span-1 lg:row-span-2" : ""}`}>
                 <video
                   controls
                   muted
@@ -341,7 +345,7 @@ export function Home() {
       </Section>
 
       {/* Categories */}
-       <Section tone="sand" className="studio-section">
+        <Section tone="sand" className="studio-section studio-library-section">
         <Container>
           <SectionHeading
             eyebrow="The library"
@@ -349,7 +353,7 @@ export function Home() {
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {categoryPreview.map((group) => (
-              <Card key={group.category} className="p-6">
+              <Card key={group.category} className="studio-category-card p-6">
                 <div className="flex items-baseline justify-between gap-2">
                   <h3 className="text-base font-semibold text-foreground">{group.category}</h3>
                   <span className="text-xs tabular-nums text-muted-foreground">{group.count}</span>
@@ -379,10 +383,10 @@ export function Home() {
       </Section>
 
       {/* Popular + recent */}
-       <Section className="studio-section studio-ranked-lists">
+       <Section className="studio-section studio-ranked-lists studio-section-compact">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
+           <div className="studio-ranked-shell grid gap-12 lg:grid-cols-2">
+             <div className="studio-popular-panel">
               <SectionHeading eyebrow="Popular" title="Used most this month" />
               <ul className="mt-6 border-t border-border">
                 {popularTools.slice(0, 6).map((tool) => (
@@ -401,7 +405,7 @@ export function Home() {
                 ))}
               </ul>
             </div>
-            <div>
+             <div className="studio-recent-panel">
               <SectionHeading eyebrow="New" title="Recently added" />
               <div className="mt-6 grid gap-4">
                 {recentTools.slice(0, 3).map((tool) => (
@@ -420,6 +424,8 @@ export function Home() {
             eyebrow="Why one workspace"
             title="What makes 138 tools feel like one product"
             intro="One account and subscription connect your history, brand voice, files, templates, AI models and assistants across every workflow."
+             scale="large"
+             className="studio-heading-wide"
           />
           <ul className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-3" aria-label="Connected workspace benefits">
             {workspaceBenefits.map(({ label, icon: Icon }) => (
@@ -452,11 +458,11 @@ export function Home() {
 
       {/* Value comparison */}
        <Section className="studio-section studio-comparison">
-        <Container>
-          <SectionHeading eyebrow={cmp.eyebrow} title={cmp.title} intro={cmp.intro} />
+         <Container size="wide">
+           <SectionHeading eyebrow={cmp.eyebrow} title={cmp.title} intro={cmp.intro} align="center" scale="large" className="studio-comparison-heading" />
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {/* The old way */}
-            <div className="studio-comparison-card flex flex-col rounded-xl bg-card p-7 ring-1 ring-border">
+            <div className="studio-comparison-card studio-comparison-old flex flex-col rounded-xl bg-card p-7 ring-1 ring-border">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 {cmp.oldLabel}
               </p>
@@ -500,7 +506,7 @@ export function Home() {
               </div>
             </div>
           </div>
-          <div className="mt-9 flex flex-wrap gap-3">
+           <div className="mt-12 flex flex-wrap justify-center gap-3">
             <ExternalButton href={REGISTER_URL} size="lg">
               {cmp.ctaLabel}
             </ExternalButton>
@@ -514,12 +520,12 @@ export function Home() {
       <CustomerReviews />
 
       {/* Use cases */}
-       <Section tone="sand" className="studio-section">
+       <Section tone="sand" className="studio-section studio-usecases-section">
         <Container>
           <SectionHeading eyebrow="Use cases" title="Built around how people actually work" />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {useCases.slice(0, 6).map((uc) => (
-              <Card key={uc.slug} interactive className="p-6">
+              <Card key={uc.slug} interactive className="studio-usecase-card p-6">
                 <p className="eyebrow">{uc.audience}</p>
                 <h3 className="mt-3 text-base font-semibold">
                   <Link
@@ -545,12 +551,12 @@ export function Home() {
       </Section>
 
       {/* Blog */}
-       <Section className="studio-section">
+       <Section className="studio-section studio-journal-section">
         <Container>
           <SectionHeading eyebrow="From the blog" title="Guides worth your time" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {posts.slice(0, 3).map((post) => (
-              <Card key={post.slug} interactive className="p-6">
+              <Card key={post.slug} interactive className="studio-journal-card p-6">
                 <p className="eyebrow">{post.category}</p>
                 <h3 className="mt-3 text-balance text-base font-semibold leading-snug">
                   <Link
@@ -571,7 +577,7 @@ export function Home() {
       </Section>
 
       {/* FAQ */}
-       <Section tone="sand" className="studio-section">
+       <Section tone="sand" className="studio-section studio-faq-section">
         <Container size="narrow">
           <FaqAccordion heading="Common questions" items={homeFaqs} />
         </Container>
@@ -579,8 +585,9 @@ export function Home() {
 
       {/* CTA */}
        <Section tone="ink" className="studio-final-cta py-20 sm:py-28">
-        <Container className="text-center">
-          <h2 className="text-balance text-4xl leading-tight sm:text-5xl">
+         <Container className="text-center">
+           <p className="studio-final-kicker">Your complete AI workspace</p>
+           <h2 className="mx-auto max-w-4xl text-balance text-5xl leading-[0.95] sm:text-7xl">
             Start with the free plan
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed opacity-80">

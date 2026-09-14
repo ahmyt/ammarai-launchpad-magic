@@ -27,7 +27,7 @@ function Stars({ rating, label }: { rating: number; label?: string }) {
 
 function ReviewCard({ review }: { review: CustomerReview }) {
   return (
-    <Card className="flex h-full flex-col p-6">
+    <Card className="studio-review-card flex h-full flex-col p-6">
       <div className="flex items-center justify-between gap-3">
         <Stars rating={review.rating} />
         {review.verified ? (
@@ -215,9 +215,9 @@ export function CustomerReviews() {
   const distribution = [5, 4, 3, 2, 1].map((value) => ({ value, count: reviews.filter((review) => review.rating === value).length }));
 
   return (
-    <Section tone="sand" id="customer-reviews">
+    <Section tone="sand" id="customer-reviews" className="studio-section studio-reviews-section">
       <Container>
-        <SectionHeading eyebrow="Customer reviews" title="What customers say about AmmarAI" intro="Published feedback is reviewed before it appears here. Verified badges are applied only after validation." />
+        <SectionHeading eyebrow="Customer reviews" title="What customers say about AmmarAI" intro="Published feedback is reviewed before it appears here. Verified badges are applied only after validation." scale="large" className="studio-heading-wide" />
         {isLoading ? <p className="mt-8 text-sm text-muted-foreground">Loading reviews…</p> : reviews.length === 0 ? (
           <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-y border-border py-8">
             <div><p className="text-lg font-semibold">Genuine reviews coming soon</p><p className="mt-1 text-sm text-muted-foreground">Be among the first customers to share an experience.</p></div>
