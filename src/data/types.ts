@@ -115,6 +115,8 @@ export interface Post {
   metaTitle: string;
   description: string;
   category: string;
+  /** Article format: guide | best-of | comparison | alternatives | tutorial | use-case */
+  contentType?: string;
   date: string;
   readingTime: string;
   excerpt: string;
