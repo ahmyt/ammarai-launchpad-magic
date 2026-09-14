@@ -302,6 +302,14 @@ function imageFor(category: string): string {
   return CATEGORY_IMAGES[category] ?? "/media/blog-cat-business.jpg";
 }
 
+/** A stock picture that is guaranteed not to repeat the hero image. */
+function altImageFor(category: string, avoid: string): string {
+  const pool = [
+    ...new Set([imageFor(category), ...Object.values(CATEGORY_IMAGES)]),
+  ].filter((src) => src !== avoid);
+  return pool[0] ?? "/media/blog-cat-writing.jpg";
+}
+
 function figure(src: string, alt: string, caption: string): string {
   return (
     `<figure><img src="${src}" alt="${escapeHtml(alt)}" loading="lazy" width="1280" height="720" />` +
@@ -630,21 +638,26 @@ export async function writeDailyPost(
       writer,
       slug,
       1,
-      `Cover image for an article titled "${post.title}": ${subjectSummary}`,
+      `Wide cover image for an article titled "${post.title}": ${subjectSummary}. ` +
+        `Show the overall theme as a calm establishing shot from a slight distance.`,
     ),
     createArticleImage(
       writer,
       slug,
       2,
-      `Supporting scene for an article about ${subjectName} (${category}): ${post.sections[1]?.heading ?? subjectSummary}`,
+      `A visibly different, closer supporting scene for the same article — do not repeat the cover. ` +
+        `Illustrate this specific section: "${post.sections[3]?.heading ?? post.sections[1]?.heading ?? subjectSummary}" ` +
+        `for ${subjectName} (${category}), using a different camera angle, objects and composition than a cover shot.`,
     ),
   ]);
+  // The two pictures must never be identical, even when generation is unavailable.
   const image = hero ?? fallback;
+  const bodyImage = inline ?? altImageFor(category, image);
   const row = {
     slug,
     external_id: externalId,
     title: post.title,
-    content_html: buildHtml(post, subjectName, inline ?? fallback),
+    content_html: buildHtml(post, subjectName, bodyImage),
     content_markdown: null,
     meta_description: post.metaDescription,
     hero_image_url: image,

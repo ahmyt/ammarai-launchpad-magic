@@ -35,3 +35,15 @@ export function collapsibleFaqs(html: string): string {
 
   return `${head}<div class="faq-list">${items.join("")}</div>${tail}`;
 }
+
+/**
+ * Wraps bare <table> elements in a horizontally scrollable container so wide
+ * comparison tables never push the page sideways on phones.
+ */
+export function wrapTables(html: string): string {
+  if (!html || !html.includes("<table")) return html;
+  return html.replace(
+    /<table[\s\S]*?<\/table>/gi,
+    (table) => `<div class="table-scroll">${table}</div>`,
+  );
+}
