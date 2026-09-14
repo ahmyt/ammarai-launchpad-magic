@@ -1,10 +1,15 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { siteContentQuery } from "@/lib/content";
 import {
+  CONTENT_TYPES,
   articleCategory,
+  articleContentType,
   articleDate,
   articleReadingTime,
+  contentTypeLabel,
+  inferContentType,
   syndicatedArticlesQuery,
 } from "@/lib/articles";
 import { Container, Section } from "@/components/site/primitives";
