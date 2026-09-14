@@ -2540,7 +2540,17 @@ body:has(.home-swiss) .site-footer-back:hover span {
 }
 
 .admin-studio {
+  width: 100%;
+  max-width: 100%;
+  overflow: clip;
   padding-block: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.admin-studio > .site-container,
+.admin-studio .admin-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .admin-studio > .site-container > div:first-child {
@@ -2648,15 +2658,48 @@ body:has(.home-swiss) .site-footer-back:hover span {
     width: 100%;
   }
 
-  .admin-studio nav {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-    scrollbar-width: thin;
+  .admin-studio {
+    padding-block: 2rem 3rem;
   }
 
-  .admin-studio nav > a {
-    flex: 0 0 auto;
+  .admin-studio .admin-heading {
+    align-items: flex-start;
+  }
+
+  .admin-studio .admin-account {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .admin-studio .admin-account > span {
+    max-width: calc(100% - 5.5rem);
+  }
+
+  .admin-studio .admin-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .admin-studio .admin-nav > a {
+    display: flex;
+    min-width: 0;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.625rem;
+    text-align: center;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+
+  .admin-studio .admin-content > div,
+  .admin-studio .admin-content form,
+  .admin-studio .admin-content ul,
+  .admin-studio .admin-content li {
+    max-width: 100%;
+    min-width: 0;
   }
 }
 

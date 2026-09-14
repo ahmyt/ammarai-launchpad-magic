@@ -114,3 +114,4 @@
 - [x] Redesign the Studio shell, navigation, panels, controls, lists, and editors
 - [x] Verify representative public and Studio pages across desktop and mobile
 - [x] Keep every tool sample visible, with reliable video preview frames and playback controls
+- [x] Keep the Studio header, navigation, cards, and footer within the mobile viewport

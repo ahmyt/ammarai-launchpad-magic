@@ -54,13 +54,13 @@ function AdminLayout() {
   return (
     <Section className="admin-studio py-10">
       <Container>
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-6">
-          <div>
+        <div className="admin-heading flex flex-wrap items-center justify-between gap-4 border-b border-border pb-6">
+          <div className="min-w-0">
             <p className="eyebrow">Content studio</p>
             <h1 className="mt-2 text-2xl">AmmarAI CMS</h1>
           </div>
-          <div className="flex items-center gap-4 text-sm">
-            <span className="text-muted-foreground">{session.user.email}</span>
+          <div className="admin-account flex min-w-0 items-center gap-4 text-sm">
+            <span className="min-w-0 truncate text-muted-foreground">{session.user.email}</span>
             <button
               type="button"
               onClick={async () => {
@@ -74,7 +74,7 @@ function AdminLayout() {
           </div>
         </div>
 
-        <nav className="mt-6 flex flex-wrap gap-2">
+        <nav className="admin-nav mt-6 flex flex-wrap gap-2">
           <Link
             to="/admin"
             activeOptions={{ exact: true }}
@@ -126,7 +126,7 @@ function AdminLayout() {
           </div>
         ) : null}
 
-        <div className="mt-8">
+        <div className="admin-content mt-8 min-w-0">
           <Outlet />
         </div>
       </Container>
