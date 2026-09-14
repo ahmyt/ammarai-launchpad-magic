@@ -82,4 +82,4 @@
 
 ## Neo-glass precision homepage refinement
 - [x] Apply the selected neo-glass visual language without changing homepage content or behavior
-- [ ] Verify the refined homepage across desktop and mobile
+- [x] Verify the refined homepage across desktop and mobile
