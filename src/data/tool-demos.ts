@@ -55,7 +55,9 @@ export type ToolDemoScene = {
   /** Small label above the animated scene, e.g. "Live call". */
   label: string;
   /** Steps revealed one by one while the demo plays. */
-  steps: { actor: string; text: string; meta?: string }[];
+  steps: { actor: string; text: string; meta?: string; connector?: string }[];
+  /** Connector tiles shown in the animated flow. */
+  connectors?: { id: string; label: string; note?: string }[];
   /** Closing summary line under the scene. */
   result?: string;
 };
@@ -543,12 +545,17 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample run — the morning briefing agent working through its steps on schedule.",
       scene: {
         label: "Agent run · 07:00 daily",
+        connectors: [
+          { id: "gmail", label: "Gmail", note: "Read inbox" },
+          { id: "calendar", label: "Calendar", note: "Check meetings" },
+          { id: "slack", label: "Slack", note: "Post briefing" },
+        ],
         steps: [
           { actor: "Trigger", text: "Schedule fired — daily at 07:00", meta: "0.0s" },
-          { actor: "Step 1", text: "Read 34 unread emails, kept 6 that need a reply", meta: "3.1s" },
-          { actor: "Step 2", text: "Pulled today's calendar — 4 meetings, one clash at 14:00", meta: "4.8s" },
+          { actor: "Step 1", text: "Read 34 unread emails, kept 6 that need a reply", meta: "3.1s", connector: "gmail" },
+          { actor: "Step 2", text: "Pulled today's calendar — 4 meetings, one clash at 14:00", meta: "4.8s", connector: "calendar" },
           { actor: "Step 3", text: "Checked yesterday's sales: 18 orders, £2,140", meta: "6.2s" },
-          { actor: "Step 4", text: "Wrote the briefing and posted it to #team-daily", meta: "8.9s" },
+          { actor: "Step 4", text: "Wrote the briefing and posted it to #team-daily", meta: "8.9s", connector: "slack" },
         ],
         result: "Delivered to Slack at 07:00:09 — no human involved.",
       },
@@ -558,12 +565,17 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample run — the inbox agent drafting a reply the moment a message lands.",
       scene: {
         label: "Agent run · on new email",
+        connectors: [
+          { id: "gmail", label: "Gmail", note: "New email" },
+          { id: "docs", label: "Docs", note: "Read policy" },
+          { id: "telegram", label: "Telegram", note: "Notify you" },
+        ],
         steps: [
-          { actor: "Trigger", text: "New email from a customer: \"Can I change my plan?\"", meta: "0.0s" },
+          { actor: "Trigger", text: "New email from a customer: \"Can I change my plan?\"", meta: "0.0s", connector: "gmail" },
           { actor: "Step 1", text: "Looked up the account — Pro plan, renews 3 May", meta: "1.4s" },
-          { actor: "Step 2", text: "Matched the billing policy in the knowledge base", meta: "2.6s" },
+          { actor: "Step 2", text: "Matched the billing policy in the knowledge base", meta: "2.6s", connector: "docs" },
           { actor: "Step 3", text: "Drafted a reply with the two upgrade options", meta: "4.5s" },
-          { actor: "Step 4", text: "Held it for approval and pinged you on Telegram", meta: "4.9s" },
+          { actor: "Step 4", text: "Held it for approval and pinged you on Telegram", meta: "4.9s", connector: "telegram" },
         ],
         result: "One tap to send. The agent never sends money-related replies on its own.",
       },
@@ -575,13 +587,19 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample call — an inbound booking answered and confirmed without a human.",
       scene: {
         label: "Inbound call · 00:41",
+        connectors: [
+          { id: "phone", label: "Phone", note: "Answer call" },
+          { id: "calendar", label: "Calendar", note: "Book slot" },
+          { id: "sms", label: "SMS", note: "Confirm" },
+          { id: "crm", label: "CRM", note: "Log summary" },
+        ],
         steps: [
-          { actor: "Ring", text: "Incoming call — answered on the second ring", meta: "00:02" },
+          { actor: "Ring", text: "Incoming call — answered on the second ring", meta: "00:02", connector: "phone" },
           { actor: "Agent", text: "Good afternoon, Marlow Dental. How can I help?", meta: "00:04" },
           { actor: "Caller", text: "I'd like to book a check-up, ideally Thursday morning.", meta: "00:09" },
           { actor: "Agent", text: "I have 9:20 or 11:05 on Thursday. Which suits you?", meta: "00:15" },
           { actor: "Caller", text: "Nine twenty, please.", meta: "00:22" },
-          { actor: "Agent", text: "Booked for Thursday 9:20. I've texted you the confirmation.", meta: "00:31" },
+          { actor: "Agent", text: "Booked for Thursday 9:20. I've texted you the confirmation.", meta: "00:31", connector: "calendar" },
         ],
         result: "Appointment written to the calendar, SMS sent, call summary saved to the CRM.",
       },
@@ -591,13 +609,18 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample call — an outbound follow-up that qualifies the lead and books the demo.",
       scene: {
         label: "Outbound call · 01:12",
+        connectors: [
+          { id: "phone", label: "Phone", note: "Dial lead" },
+          { id: "calendar", label: "Calendar", note: "Book demo" },
+          { id: "crm", label: "CRM", note: "Log deal" },
+        ],
         steps: [
-          { actor: "Dial", text: "Calling a lead who downloaded the pricing guide", meta: "00:00" },
+          { actor: "Dial", text: "Calling a lead who downloaded the pricing guide", meta: "00:00", connector: "phone" },
           { actor: "Agent", text: "Hi Sam — you looked at our pricing yesterday. Is now a bad time?", meta: "00:06" },
           { actor: "Caller", text: "Two minutes is fine.", meta: "00:11" },
           { actor: "Agent", text: "How many people would be using it?", meta: "00:14" },
           { actor: "Caller", text: "About twelve, in support.", meta: "00:19" },
-          { actor: "Agent", text: "That's our Team plan. I can put 30 minutes in with Aisha on Tuesday.", meta: "00:34" },
+          { actor: "Agent", text: "That's our Team plan. I can put 30 minutes in with Aisha on Tuesday.", meta: "00:34", connector: "calendar" },
         ],
         result: "Lead scored, demo booked, transcript and next step logged on the deal.",
       },
@@ -609,12 +632,17 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample session — asking the CRM a question and getting the record updated.",
       scene: {
         label: "CRM assistant",
+        connectors: [
+          { id: "whatsapp", label: "WhatsApp", note: "Ask CRM" },
+          { id: "crm", label: "CRM", note: "Read deals" },
+          { id: "calendar", label: "Calendar", note: "Set task" },
+        ],
         steps: [
-          { actor: "You", text: "Which deals have gone quiet for more than two weeks?" },
-          { actor: "CRM", text: "Five: Northgate £8.4k, Vella £3.2k, Orbit £12k, Farrow £1.9k, Pike £6k" },
+          { actor: "You", text: "Which deals have gone quiet for more than two weeks?", connector: "whatsapp" },
+          { actor: "CRM", text: "Five: Northgate £8.4k, Vella £3.2k, Orbit £12k, Farrow £1.9k, Pike £6k", connector: "crm" },
           { actor: "You", text: "Move Orbit to Negotiation and set a call for Friday." },
-          { actor: "CRM", text: "Orbit moved Proposal → Negotiation. Task created: call Friday 10:00." },
-          { actor: "CRM", text: "Pipeline updated — £31.5k now sitting in Negotiation." },
+          { actor: "CRM", text: "Orbit moved Proposal → Negotiation. Task created: call Friday 10:00.", connector: "crm" },
+          { actor: "CRM", text: "Pipeline updated — £31.5k now sitting in Negotiation.", connector: "calendar" },
         ],
         result: "Same answers over WhatsApp and Telegram, without opening the dashboard.",
       },
@@ -624,13 +652,18 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample session — a month's sales turned into a report you can send.",
       scene: {
         label: "CRM assistant",
+        connectors: [
+          { id: "telegram", label: "Telegram", note: "Ask" },
+          { id: "crm", label: "CRM", note: "Read data" },
+          { id: "slides", label: "Slides", note: "Build deck" },
+        ],
         steps: [
-          { actor: "You", text: "Summarise March and tell me what changed." },
-          { actor: "CRM", text: "Closed £48,200 across 21 deals — up 14% on February." },
-          { actor: "CRM", text: "Win rate 31%. Average deal size fell from £2,600 to £2,295." },
-          { actor: "CRM", text: "Referrals converted best (46%); paid search worst (12%)." },
+          { actor: "You", text: "Summarise March and tell me what changed.", connector: "telegram" },
+          { actor: "CRM", text: "Closed £48,200 across 21 deals — up 14% on February.", connector: "crm" },
+          { actor: "CRM", text: "Win rate 31%. Average deal size fell from £2,600 to £2,295.", connector: "crm" },
+          { actor: "CRM", text: "Referrals converted best (46%); paid search worst (12%).", connector: "crm" },
           { actor: "You", text: "Turn that into slides for Monday." },
-          { actor: "CRM", text: "Six-slide deck built from live CRM data — ready to download." },
+          { actor: "CRM", text: "Six-slide deck built from live CRM data — ready to download.", connector: "slides" },
         ],
         result: "No exports, no spreadsheets — the assistant reads the records directly.",
       },
@@ -642,12 +675,17 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample run — a month of posts planned, written and scheduled on its own.",
       scene: {
         label: "Monthly plan · 4 accounts",
+        connectors: [
+          { id: "instagram", label: "Instagram", note: "Schedule" },
+          { id: "tiktok", label: "TikTok", note: "Schedule" },
+          { id: "linkedin", label: "LinkedIn", note: "Schedule" },
+        ],
         steps: [
           { actor: "Brief", text: "Sustainable skincare brand, 3 posts a week, warm and plain-spoken" },
           { actor: "Plan", text: "12 posts mapped across the month — 4 education, 4 product, 4 community" },
           { actor: "Write", text: "Captions, hashtags and image directions drafted for each" },
-          { actor: "Schedule", text: "Instagram Tue 18:40, TikTok Thu 20:10, LinkedIn Wed 08:15" },
-          { actor: "Learn", text: "Week 2: reels beat carousels 3:1 — the plan shifts to more reels" },
+          { actor: "Schedule", text: "Instagram Tue 18:40, TikTok Thu 20:10, LinkedIn Wed 08:15", connector: "instagram" },
+          { actor: "Learn", text: "Week 2: reels beat carousels 3:1 — the plan shifts to more reels", connector: "tiktok" },
         ],
         result: "Calendar filled for the month; you approve or edit anything before it goes out.",
       },
@@ -657,10 +695,15 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample run — the agent reacting to what performed and changing the plan.",
       scene: {
         label: "Weekly review",
+        connectors: [
+          { id: "instagram", label: "Instagram", note: "Read stats" },
+          { id: "tiktok", label: "TikTok", note: "Read stats" },
+          { id: "linkedin", label: "LinkedIn", note: "Read stats" },
+        ],
         steps: [
-          { actor: "Read", text: "Last week: 41.2k views, 2,180 engagements, 96 profile taps" },
-          { actor: "Spot", text: "Behind-the-scenes clips out-performed product shots by 240%" },
-          { actor: "Spot", text: "Posts after 20:00 got half the reach of the 18:30 slot" },
+          { actor: "Read", text: "Last week: 41.2k views, 2,180 engagements, 96 profile taps", connector: "instagram" },
+          { actor: "Spot", text: "Behind-the-scenes clips out-performed product shots by 240%", connector: "tiktok" },
+          { actor: "Spot", text: "Posts after 20:00 got half the reach of the 18:30 slot", connector: "linkedin" },
           { actor: "Adjust", text: "Next week: 4 behind-the-scenes, all posts moved to 18:30" },
           { actor: "Queue", text: "7 posts written and queued, waiting on your approval" },
         ],
@@ -674,12 +717,16 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample run — a month of researched posts published straight to WordPress.",
       scene: {
         label: "Bulk run · 12 posts",
+        connectors: [
+          { id: "search", label: "Web Search", note: "Find keywords" },
+          { id: "wordpress", label: "WordPress", note: "Publish" },
+        ],
         steps: [
           { actor: "Input", text: "Topic: home EV charging. 12 posts, one every Tuesday." },
-          { actor: "Research", text: "Pulled 38 live sources; picked 12 keywords with real demand" },
+          { actor: "Research", text: "Pulled 38 live sources; picked 12 keywords with real demand", connector: "search" },
           { actor: "Outline", text: "Each post mapped to one search intent, no overlap between them" },
           { actor: "Write", text: "Drafted 12 articles, 1,400–1,900 words, internal links between them" },
-          { actor: "Publish", text: "Post 1 live now, posts 2–12 scheduled weekly to WordPress" },
+          { actor: "Publish", text: "Post 1 live now, posts 2–12 scheduled weekly to WordPress", connector: "wordpress" },
         ],
         result: "Titles, meta descriptions, headings and image alt text handled automatically.",
       },
@@ -689,12 +736,16 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample run — one scheduled post going live overnight.",
       scene: {
         label: "Scheduled post · 06:00",
+        connectors: [
+          { id: "search", label: "Web Search", note: "Refresh facts" },
+          { id: "wordpress", label: "WordPress", note: "Publish" },
+        ],
         steps: [
           { actor: "Pick", text: "Next in queue: \"How much does it cost to charge an EV at home?\"" },
-          { actor: "Check", text: "Refreshed the tariff figures against current sources" },
+          { actor: "Check", text: "Refreshed the tariff figures against current sources", connector: "search" },
           { actor: "Write", text: "1,620 words, comparison table, 6 FAQs, 3 internal links" },
           { actor: "SEO", text: "Title 54 chars, meta 148 chars, one H1, keyword in two H2s" },
-          { actor: "Publish", text: "Live on the blog at 06:00 with a featured image" },
+          { actor: "Publish", text: "Live on the blog at 06:00 with a featured image", connector: "wordpress" },
         ],
         result: "You wake up to a finished post, not a draft to fix.",
       },
@@ -706,12 +757,19 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample run — an overnight backlog triaged across four channels before you open it.",
       scene: {
         label: "Overnight triage · 31 messages",
+        connectors: [
+          { id: "chat", label: "Website Chat", note: "Collect" },
+          { id: "gmail", label: "Email", note: "Collect" },
+          { id: "instagram", label: "Instagram", note: "Collect" },
+          { id: "comments", label: "Comments", note: "Collect" },
+          { id: "crm", label: "CRM", note: "Route" },
+        ],
         steps: [
-          { actor: "Inbox", text: "31 new: 14 website chat, 9 email, 6 Instagram DM, 2 comments", meta: "07:58" },
+          { actor: "Inbox", text: "31 new: 14 website chat, 9 email, 6 Instagram DM, 2 comments", meta: "07:58", connector: "chat" },
           { actor: "Tag", text: "Sorted by intent — 18 support, 7 sales, 4 complaint, 2 spam", meta: "07:58" },
           { actor: "Auto", text: "22 routine questions answered in your tone and closed", meta: "07:59" },
           { actor: "Draft", text: "6 replies written, waiting for a one-click approval", meta: "07:59" },
-          { actor: "Escalate", text: "3 flagged: a refund, a bulk order, an angry review reply", meta: "08:00" },
+          { actor: "Escalate", text: "3 flagged: a refund, a bulk order, an angry review reply", meta: "08:00", connector: "crm" },
         ],
         result: "Zero unread. Median first response: 4 minutes, overnight, with nobody awake.",
       },
@@ -721,14 +779,100 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Sample run — a buying signal spotted in a DM and pushed into the pipeline.",
       scene: {
         label: "Instagram DM · high intent",
+        connectors: [
+          { id: "instagram", label: "Instagram", note: "DM arrives" },
+          { id: "crm", label: "CRM", note: "Create deal" },
+        ],
         steps: [
-          { actor: "DM", text: "\"do you do 200 units with our logo on them?\"", meta: "14:12" },
+          { actor: "DM", text: "\"do you do 200 units with our logo on them?\"", meta: "14:12", connector: "instagram" },
           { actor: "Read", text: "Tagged sales · high intent · English", meta: "14:12" },
           { actor: "Match", text: "Linked to an existing contact — enquired about samples in March", meta: "14:12" },
           { actor: "Draft", text: "Reply with MOQ, lead time and a link to the branding form", meta: "14:13" },
-          { actor: "CRM", text: "Deal created at Qualified, assigned to the sales owner", meta: "14:13" },
+          { actor: "CRM", text: "Deal created at Qualified, assigned to the sales owner", meta: "14:13", connector: "crm" },
         ],
         result: "The lead is in the pipeline before anyone opened the app.",
+      },
+    },
+  ],
+  "ai-dm-comment-agent": [
+    {
+      kind: "scene",
+      caption: "Sample run — an Instagram DM asking for price turns into a captured lead.",
+      scene: {
+        label: "Instagram DM · price request",
+        connectors: [
+          { id: "instagram", label: "Instagram", note: "DM arrives" },
+          { id: "facebook", label: "Facebook", note: "Cross-check" },
+          { id: "crm", label: "CRM", note: "Save lead" },
+        ],
+        steps: [
+          { actor: "DM", text: "\"how much is the pro plan?\"", meta: "0.0s", connector: "instagram" },
+          { actor: "Read", text: "Matched to pricing intent · brand tone applied", meta: "0.3s" },
+          { actor: "Reply", text: "Sent the pricing page and asked for their email", meta: "0.8s", connector: "facebook" },
+          { actor: "Capture", text: "Email collected and tagged as warm lead", meta: "1.2s" },
+          { actor: "Sync", text: "Lead added to CRM with source: Instagram DM", meta: "1.4s", connector: "crm" },
+        ],
+        result: "Replied in under a second and the lead is already in the pipeline.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample run — a YouTube comment campaign replies and collects emails at scale.",
+      scene: {
+        label: "YouTube comments · keyword campaign",
+        connectors: [
+          { id: "youtube", label: "YouTube", note: "Watch comments" },
+          { id: "tiktok", label: "TikTok", note: "Cross-post" },
+          { id: "crm", label: "CRM", note: "Add leads" },
+        ],
+        steps: [
+          { actor: "Watch", text: "Monitoring comments for the keyword \"checklist\"", meta: "0.0s", connector: "youtube" },
+          { actor: "Match", text: "23 matching comments found across YouTube and TikTok", meta: "0.2s", connector: "tiktok" },
+          { actor: "Reply", text: "Sent a personalised reply with the download link", meta: "0.6s" },
+          { actor: "Capture", text: "19 emails collected from clicks", meta: "1.0s" },
+          { actor: "Sync", text: "Added to nurture list with campaign tag", meta: "1.2s", connector: "crm" },
+        ],
+        result: "23 comments answered, 19 emails captured, zero manual work.",
+      },
+    },
+  ],
+  "ai-deep-research": [
+    {
+      kind: "scene",
+      caption: "Sample run — a competitor comparison built from live web sources.",
+      scene: {
+        label: "Competitor research · 3 vendors",
+        connectors: [
+          { id: "search", label: "Web Search", note: "Find sources" },
+          { id: "docs", label: "Docs", note: "Compile report" },
+        ],
+        steps: [
+          { actor: "Query", text: "Compare AI agent features of Magic AI, Jasper and Copy.ai. Cite sources.", meta: "0.0s" },
+          { actor: "Search", text: "Ran 12 live searches across the three vendors", meta: "2.1s", connector: "search" },
+          { actor: "Read", text: "Opened 23 pages and extracted feature claims and pricing", meta: "5.4s", connector: "search" },
+          { actor: "Compare", text: "Built a 14-row feature table with source links", meta: "8.7s" },
+          { actor: "Report", text: "Wrote verdict paragraphs for each tool type", meta: "10.2s", connector: "docs" },
+        ],
+        result: "A cited, structured comparison ready to share or publish.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample run — a market trend report pulled from current sources.",
+      scene: {
+        label: "Market research · UK phone agents",
+        connectors: [
+          { id: "search", label: "Web Search", note: "Find data" },
+          { id: "docs", label: "Docs", note: "Write report" },
+        ],
+        steps: [
+          { actor: "Query", text: "AI phone agents for UK small businesses: pricing and adoption barriers.", meta: "0.0s" },
+          { actor: "Search", text: "Searched 31 sources for pricing, reviews and case studies", meta: "3.2s", connector: "search" },
+          { actor: "Extract", text: "Pulled pricing from 6 providers and 4 adoption barriers", meta: "6.8s", connector: "search" },
+          { actor: "Synthesise", text: "Cross-checked claims and flagged contradictions", meta: "9.1s" },
+          { actor: "Report", text: "Produced a 1,200-word report with 8 citations", meta: "11.5s", connector: "docs" },
+        ],
+        result: "Current, sourced research without a day of tab-switching.",
       },
     },
   ],

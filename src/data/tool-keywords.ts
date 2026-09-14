@@ -1082,6 +1082,44 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     ],
   },
 
+  "ai-dm-comment-agent": {
+    primaryKeyword: "ai comment reply agent",
+    searchVolume: 880,
+    difficulty: 22,
+    relatedKeywords: [
+      { keyword: "auto reply instagram dm", volume: 5400 },
+      { keyword: "automated facebook comment replies", volume: 720 },
+      { keyword: "ai dm assistant", volume: 1300 },
+      { keyword: "youtube comment automation", volume: 1900 },
+      { keyword: "social media auto responder", volume: 1100 },
+    ],
+    questions: [
+      "Can AI reply to Instagram DMs?",
+      "How do you automate YouTube comments?",
+      "What is the best AI comment reply tool?",
+      "Can AI capture leads from social media comments?",
+    ],
+  },
+
+  "ai-deep-research": {
+    primaryKeyword: "ai deep research",
+    searchVolume: 3600,
+    difficulty: 28,
+    relatedKeywords: [
+      { keyword: "ai research agent", volume: 1400 },
+      { keyword: "automated web research ai", volume: 880 },
+      { keyword: "ai research assistant with citations", volume: 650 },
+      { keyword: "multi source research ai", volume: 320 },
+      { keyword: "ai market research tool", volume: 2900 },
+    ],
+    questions: [
+      "Can AI do deep research with live sources?",
+      "What is the best AI research agent?",
+      "How do you cite sources from AI research?",
+      "Can AI compare competitors from live web data?",
+    ],
+  },
+
   "ai-personas": {
     primaryKeyword: "ai personas",
     searchVolume: 2900,
