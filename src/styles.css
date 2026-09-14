@@ -2612,8 +2612,10 @@ body:has(.home-swiss) .site-footer-back:hover span {
   .site-shell > main > :not(.home-premium) > .site-section:first-child h1,
   .site-shell > main > article > .site-section:first-of-type h1,
   .site-shell > main .site-section:has(.site-breadcrumbs) h1 {
-    font-size: clamp(2.75rem, 13vw, 3.65rem);
-    line-height: 0.9;
+    max-width: 100%;
+    font-size: clamp(2.35rem, 10.5vw, 3rem);
+    line-height: 0.92;
+    overflow-wrap: anywhere;
   }
 
   .site-shell > main > :not(.home-premium) > .site-section:first-child .site-container::before,
