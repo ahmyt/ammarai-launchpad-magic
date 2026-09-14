@@ -297,7 +297,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
   {
     id: "ai-dm-comment-agent",
     workingTitle: "How to Automate DM and Comment Replies with AI",
-    contentType: "guide",
+    contentType: "tutorial",
     category: "AI Agents",
     primaryKeyword: "ai comment reply agent",
     volume: 880,
@@ -310,7 +310,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
   {
     id: "ai-deep-research",
     workingTitle: "How to Run AI Deep Research with Cited Sources",
-    contentType: "guide",
+    contentType: "tutorial",
     category: "AI Agents",
     primaryKeyword: "ai deep research",
     volume: 3600,
