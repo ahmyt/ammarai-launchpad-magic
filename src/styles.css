@@ -2488,6 +2488,21 @@ body:has(.home-swiss) .site-footer-back:hover span {
   box-shadow: 10px 10px 0 var(--accent);
 }
 
+.site-shell > main > .site-section:only-child {
+  min-height: calc(100svh - 4.75rem);
+  display: grid;
+  align-items: center;
+  background:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 9%, transparent) 1px, transparent 1px),
+    var(--sand);
+  background-size: 12.5% 100%;
+}
+
+.site-shell > main > .site-section:only-child h1 {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .prose-editorial {
   font-size: 1.02rem;
 }
