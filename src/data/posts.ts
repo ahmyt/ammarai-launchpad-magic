@@ -1,4 +1,5 @@
 import type { Post } from "./types";
+import { commercialPosts } from "./posts-commercial";
 
 export const posts: Post[] = [
   {
@@ -733,4 +734,5 @@ export const posts: Post[] = [
       "ai-productivity-workflows",
     ],
   },
+  ...commercialPosts,
 ];
