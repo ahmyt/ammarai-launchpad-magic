@@ -44,6 +44,7 @@ function BlogIndex() {
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const { data: articles } = useSuspenseQuery(syndicatedArticlesQuery);
   const staticSlugs = new Set(content.posts.map((p) => p.slug));
+  const [format, setFormat] = useState<string>("all");
 
   const entries = [
     ...articles
@@ -53,6 +54,7 @@ function BlogIndex() {
         title: a.title,
         excerpt: a.meta_description ?? "",
         category: articleCategory(a),
+        contentType: articleContentType(a) as string,
         readingTime: articleReadingTime(a),
         date: articleDate(a),
       })),
@@ -61,10 +63,25 @@ function BlogIndex() {
       title: p.title,
       excerpt: p.excerpt,
       category: p.category,
+      contentType: (p as { contentType?: string }).contentType ?? inferContentType(p.slug, p.title),
       readingTime: p.readingTime,
       date: p.date,
     })),
   ].sort((a, b) => (a.date < b.date ? 1 : -1));
+
+  const counts = new Map<string, number>();
+  for (const entry of entries) counts.set(entry.contentType, (counts.get(entry.contentType) ?? 0) + 1);
+
+  const filters = [
+    { id: "all", label: "All", count: entries.length },
+    ...CONTENT_TYPES.filter((t) => (counts.get(t.id) ?? 0) > 0).map((t) => ({
+      id: t.id as string,
+      label: t.label,
+      count: counts.get(t.id) ?? 0,
+    })),
+  ];
+
+  const visible = format === "all" ? entries : entries.filter((e) => e.contentType === format);
 
   return (
     <div>
@@ -86,11 +103,35 @@ function BlogIndex() {
 
       <Section className="pt-4">
         <Container size="narrow">
+          <nav aria-label="Filter articles by format" className="flex flex-wrap gap-2 pb-7">
+            {filters.map((filter) => {
+              const active = filter.id === format;
+              return (
+                <button
+                  key={filter.id}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => setFormat(filter.id)}
+                  className={`border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors ${
+                    active
+                      ? "border-foreground bg-foreground text-background"
+                      : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
+                  }`}
+                >
+                  {filter.label}
+                  <span className="ml-1.5 opacity-60">{filter.count}</span>
+                </button>
+              );
+            })}
+          </nav>
           <ul className="border-t border-border">
-            {entries.map((post) => (
+            {visible.map((post) => (
               <li key={post.slug} className="border-b border-border py-7">
                 <p className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                   <span className="text-accent">{post.category}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>{contentTypeLabel(post.contentType)}</span>
+
                   {post.readingTime ? (
                     <>
                       <span aria-hidden="true">·</span>
