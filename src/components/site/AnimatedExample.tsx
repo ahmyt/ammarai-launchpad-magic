@@ -11,6 +11,11 @@ const THINK_MS = 700;
 const WRITE_MS = 26;
 const REST_MS = 2600;
 
+function videoPoster(url?: string) {
+  if (!url || !/\.mp4(?:$|[?#])/i.test(url)) return undefined;
+  return url.replace(/\.mp4(?=$|[?#])/i, ".poster.jpg");
+}
+
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(false);
   useEffect(() => {
@@ -367,6 +372,7 @@ export function AnimatedExample({
                 <video
                   key={media.inputVideo}
                   src={media.inputVideo}
+                  poster={videoPoster(media.inputVideo)}
                   controls
                   muted
                   playsInline
@@ -548,12 +554,14 @@ export function AnimatedExample({
                       <video
                         key={demoVideo.url}
                         src={demoVideo.url}
-                        className="w-full"
+                        poster={videoPoster(demoVideo.url)}
+                        className="aspect-video w-full object-contain"
                         autoPlay
                         loop
                         muted
                         playsInline
                         preload="metadata"
+                        controls
                         aria-label={`${toolName} sample output video`}
                       />
                     )}
