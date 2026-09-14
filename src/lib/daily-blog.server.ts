@@ -33,24 +33,33 @@ function slugify(value: string): string {
     .slice(0, 80);
 }
 
-/** Pick the tool that has gone the longest without a generated post. */
-async function pickTool(supabase: SupabaseClient<Database>) {
+type Assignment =
+  | { kind: "topic"; topic: BlogTopic }
+  | { kind: "tool"; tool: (typeof tools)[number] };
+
+/** External ids of every article the daily writer has already produced. */
+async function publishedIds(supabase: SupabaseClient<Database>): Promise<string[]> {
   const { data } = await supabase
     .from("syndicated_articles")
     .select("external_id, published_at")
     .like("external_id", "daily:%")
     .order("published_at", { ascending: false });
-
-  const used: string[] = ((data ?? []) as { external_id: string | null }[])
-    .map((row) => (row.external_id ?? "").replace(/^daily:/, ""))
+  return ((data ?? []) as { external_id: string | null }[])
+    .map((row) => row.external_id ?? "")
     .filter(Boolean);
+}
+
+/** Pick the tool that has gone the longest without a generated post. */
+function pickTool(published: string[]) {
+  const used = published
+    .filter((id) => !id.startsWith("daily:topic:"))
+    .map((id) => id.replace(/^daily:/, ""));
   const usedSet = new Set(used);
 
   const fresh = tools.filter((tool) => !usedSet.has(tool.slug));
   if (fresh.length > 0) {
     return fresh[Math.floor(Math.random() * fresh.length)]!;
   }
-  // Everything covered: reuse the least-recently written-about tool.
   const oldestFirst = [...used].reverse();
   for (const slug of oldestFirst) {
     const tool = tools.find((t) => t.slug === slug);
@@ -59,11 +68,38 @@ async function pickTool(supabase: SupabaseClient<Database>) {
   return tools[0]!;
 }
 
+/**
+ * Decide what to write next: the roadmap queue drives commercial, comparison
+ * and use-case slots, while informational slots stay tool-led. The rotation
+ * holds the 30/30/25/15 content mix automatically.
+ */
+async function pickAssignment(supabase: SupabaseClient<Database>): Promise<Assignment> {
+  const published = await publishedIds(supabase);
+  const doneTopics = new Set(
+    published.filter((id) => id.startsWith("daily:topic:")).map((id) => id.slice("daily:topic:".length)),
+  );
+  const remaining = BLOG_TOPICS.filter((topic) => !doneTopics.has(topic.id));
+  const wanted = TYPE_ROTATION[published.length % TYPE_ROTATION.length]!;
+
+  if (wanted !== "informational") {
+    const match = remaining.find((topic) => bucketOf(topic) === wanted);
+    if (match) return { kind: "topic", topic: match };
+    const any = remaining.find((topic) => bucketOf(topic) !== "informational");
+    if (any) return { kind: "topic", topic: any };
+  }
+  return { kind: "tool", tool: pickTool(published) };
+}
+
 interface GeneratedPost {
   title: string;
   metaDescription: string;
   intro: string;
-  sections: { heading: string; paragraphs: string[]; bullets?: string[] }[];
+  sections: {
+    heading: string;
+    paragraphs: string[];
+    bullets?: string[];
+    table?: { caption?: string | null; head: string[]; rows: string[][] } | null;
+  }[];
   faqs: { question: string; answer: string }[];
 }
 
