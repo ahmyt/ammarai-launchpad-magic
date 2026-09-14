@@ -689,4 +689,292 @@ export const agentTools: Tool[] = [
     ],
     related: ["article-wizard", "ai-social-media-agent", "ai-agent-builder", "keyword-generator"],
   },
+  {
+    slug: "ai-dm-comment-agent",
+    name: "AI DM & Comment Agent",
+    category: "AI Agents",
+    summary:
+      "Auto-reply to Instagram, Facebook and YouTube comments and DMs, capture leads and run campaign promotions.",
+    title: "AI DM & Comment Agent: Auto-Reply to Social Messages | AmmarAI",
+    description:
+      "An AI agent that watches your Instagram, Facebook and YouTube comments and DMs, answers instantly, captures leads and runs campaign promotions.",
+    h1: "Never leave a comment or DM unanswered again",
+    lede: "Set the rules once and the agent replies to comments and DMs as they arrive, answers the same questions, collects lead details, sends follow-ups and flags anything that needs a human — across Instagram, Facebook, TikTok and YouTube.",
+    ctaLabel: "Set up replies",
+    featured: true,
+    recent: true,
+    what: [
+      "Social comments and DMs are where warm leads ask the same few questions before they buy. The longer they wait, the colder they get. The DM & Comment Agent replies instantly, 24 hours a day, in your brand voice, with the right link or next step.",
+      "It reads the message, checks whether it matches a campaign keyword or a common question, replies with the approved answer, and saves new leads to your CRM or inbox. Anything sensitive or unusual is held for a person.",
+    ],
+    canDo: [
+      "Reply to Instagram, Facebook, TikTok and YouTube comments and DMs automatically",
+      "Answer common questions using your approved responses",
+      "Capture lead details like email, phone and product interest",
+      "Trigger campaign flows from keywords in comments or DMs",
+      "Hand off complex or angry messages to a human",
+      "Log every interaction so you can see what the agent handled",
+    ],
+    how: [
+      {
+        title: "Connect the channels",
+        body: "Link the social accounts and pages you want the agent to monitor.",
+      },
+      {
+        title: "Write the reply rules",
+        body: "Set the tone, the answers to common questions, and what information to collect.",
+      },
+      {
+        title: "Add campaign keywords",
+        body: "Pick words that start a promotion flow, like a giveaway keyword or a product name.",
+      },
+      {
+        title: "Review and publish",
+        body: "Watch the agent in a safe mode, then let it reply automatically.",
+      },
+    ],
+    examples: [
+      {
+        label: "Instagram DM lead capture",
+        input:
+          "When someone DMs us "price" on Instagram, send the pricing link and ask for their email.",
+        output:
+          "Replied in 4 seconds with the pricing page, asked for the email, stored the lead, and queued a follow-up email for the next morning.",
+      },
+      {
+        label: "YouTube comment campaign",
+        input:
+          "Reply to every YouTube comment that mentions "checklist" with a download link and add the user to the nurture list.",
+        output:
+          "Detected 23 matching comments, replied with the checklist link, collected 19 emails, and added them to the email sequence.",
+      },
+    ],
+    capabilities: [
+      {
+        title: "Multi-channel inbox",
+        body: "One agent watches comments and DMs across Instagram, Facebook, TikTok and YouTube.",
+      },
+      {
+        title: "Keyword-triggered flows",
+        body: "Specific words start a campaign, promotion or lead-capture sequence automatically.",
+      },
+      {
+        title: "Lead capture",
+        body: "Collects contact details and interest before handing them to sales or email.",
+      },
+      {
+        title: "Human handoff",
+        body: "Escalates complaints, refunds and anything outside the script to the right person.",
+      },
+    ],
+    audiences: [
+      {
+        who: "E-commerce brands",
+        why: "Answer product questions in comments and DMs while the shopper is still interested.",
+      },
+      {
+        who: "Course creators",
+        why: "Capture leads from YouTube comments and Instagram DMs without manual work.",
+      },
+      {
+        who: "Agencies",
+        why: "Manage comment and DM replies for multiple clients from one place.",
+      },
+    ],
+    useCases: [
+      {
+        title: "Comment-to-lead",
+        body: "A YouTube viewer asks for a link; the agent sends it and collects their email.",
+      },
+      {
+        title: "DM auto-qualification",
+        body: "A shopper asks about sizing; the agent answers, asks for the product, and saves the lead.",
+      },
+      {
+        title: "Campaign promotion",
+        body: "A keyword in a comment triggers a discount code, demo link or giveaway entry.",
+      },
+    ],
+    tips: [
+      "Keep replies short — social users expect fast, casual answers.",
+      "Always offer a human handoff for complaints and refunds.",
+      "Test the agent on one channel before adding all of them.",
+      "Update replies when promotions, prices or links change.",
+    ],
+    mistakes: [
+      "Letting the agent reply to every comment without a blacklist.",
+      "Writing robotic replies that sound nothing like your brand.",
+      "Forgetting to capture the lead after answering the question.",
+      "Ignoring negative comments instead of escalating them quickly.",
+    ],
+    faqs: [
+      {
+        q: "Which platforms does it support?",
+        a: "Instagram, Facebook, TikTok and YouTube comments and DMs are supported today, with more channels added regularly.",
+      },
+      {
+        q: "Can it send links?",
+        a: "Yes. You can set which links it sends for which keywords or questions, and track clicks.",
+      },
+      {
+        q: "Does it replace my community manager?",
+        a: "No. It handles repetitive replies and lead capture so your community manager can focus on real conversations and strategy.",
+      },
+      {
+        q: "Can I review before it replies?",
+        a: "Yes. Start in approve-only mode, then switch to auto-reply once you trust the responses.",
+      },
+    ],
+    related: [
+      "ai-social-media-agent",
+      "ai-smart-inbox",
+      "ai-crm",
+      "ai-agent-builder",
+      "facebook-post-generator",
+    ],
+  },
+  {
+    slug: "ai-deep-research",
+    name: "AI Deep Research",
+    category: "AI Agents",
+    summary:
+      "Multi-source research runs with live web search, compiled into a clear, cited report.",
+    title: "AI Deep Research: Multi-Source Research Agent | AmmarAI",
+    description:
+      "Run deep research across live web sources. The agent searches, reads, compares and compiles everything into a cited report you can use.",
+    h1: "Research that reads the live web, not just the training data",
+    lede: "Give the agent a question or topic and it runs live searches, opens the relevant pages, extracts the key facts, compares sources and writes a structured report with citations — all without copying and pasting between tabs.",
+    ctaLabel: "Run research",
+    featured: true,
+    recent: true,
+    what: [
+      "Most AI answers stop at the model's training date. Deep Research keeps going: it searches the live web, reads the pages that matter, checks several sources against each other, and compiles the findings into one document with links back to where each fact came from.",
+      "It is built for questions where accuracy matters — market sizing, competitor moves, technology comparisons, regulatory changes, buyer trends — and where one source is never enough.",
+    ],
+    canDo: [
+      "Run live web searches on a topic you define",
+      "Open and read the most relevant pages automatically",
+      "Compare multiple sources and note where they disagree",
+      "Compile findings into a structured report with citations",
+      "Summarise long documents and extract key quotes",
+      "Refresh the research when sources go stale",
+    ],
+    how: [
+      {
+        title: "Ask the research question",
+        body: "Write what you need to know, the scope, and any sources you already trust.",
+      },
+      {
+        title: "Set the depth",
+        body: "Choose a quick scan, a balanced overview, or an exhaustive deep dive.",
+      },
+      {
+        title: "Let it search and read",
+        body: "The agent runs searches, opens pages, and extracts the relevant facts.",
+      },
+      {
+        title: "Get the report",
+        body: "Review the structured report with citations, then export or share it.",
+      },
+    ],
+    examples: [
+      {
+        label: "Competitor feature comparison",
+        input:
+          "Compare the AI agent features of Magic AI, Jasper and Copy.ai as of September 2026. Cite sources.",
+        output:
+          "Compared 14 features across 3 vendors using 23 live sources. Produced a table with citations and a one-paragraph verdict per tool.",
+      },
+      {
+        label: "Market trend report",
+        input:
+          "What is the current state of AI phone agents for small businesses in the UK? Include pricing and adoption barriers.",
+        output:
+          "Searched 31 sources, synthesised pricing from 6 providers, and produced a 1,200-word report with 8 citations and a barriers section.",
+      },
+    ],
+    capabilities: [
+      {
+        title: "Live web search",
+        body: "Sources are pulled from the live web, not from a static training cutoff.",
+      },
+      {
+        title: "Source comparison",
+        body: "The agent reads several sources and flags contradictions or weak claims.",
+      },
+      {
+        title: "Cited output",
+        body: "Every major claim links back to the page it came from.",
+      },
+      {
+        title: "Export-ready reports",
+        body: "Output as a structured document, table or slide-ready summary.",
+      },
+    ],
+    audiences: [
+      {
+        who: "Strategy teams",
+        why: "Get a fast, sourced picture of a market, competitor or trend.",
+      },
+      {
+        who: "Consultants",
+        why: "Produce research-backed briefs without spending a day in browser tabs.",
+      },
+      {
+        who: "Content teams",
+        why: "Ground articles and white papers in current, cited sources.",
+      },
+    ],
+    useCases: [
+      {
+        title: "Competitor tracking",
+        body: "Monitor what competitors are launching and how their pricing is changing.",
+      },
+      {
+        title: "Buyer research",
+        body: "Map the questions, pain points and alternatives your buyers are comparing.",
+      },
+      {
+        title: "Due diligence",
+        body: "Collect and compare public information before a decision or investment.",
+      },
+    ],
+    tips: [
+      "Start with a narrow question. Broad topics produce shallow answers.",
+      "Always check the citations, especially for numbers and quotes.",
+      "Ask the agent to compare sources when you suspect conflicting claims.",
+      "Save successful research prompts as reusable templates.",
+    ],
+    mistakes: [
+      "Trusting a single source for anything important.",
+      "Asking for a whole industry report in one go.",
+      "Forgetting to verify citations before sharing.",
+      "Using stale research for fast-moving topics.",
+    ],
+    faqs: [
+      {
+        q: "Can it access paywalled content?",
+        a: "It reads publicly available pages. Paywalled content is summarised only when a public snippet or summary is available.",
+      },
+      {
+        q: "How current are the sources?",
+        a: "It searches the live web at run time, so sources are as current as the search index allows.",
+      },
+      {
+        q: "Does it fabricate citations?",
+        a: "No. Every citation is linked to a real URL the agent visited during the run.",
+      },
+      {
+        q: "Can I export the report?",
+        a: "Yes. Reports can be exported as documents, tables or copied into slides.",
+      },
+    ],
+    related: [
+      "ai-agent-builder",
+      "ai-seo-analyzer",
+      "article-wizard",
+      "ai-chat",
+      "ai-writer",
+    ],
+  },
 ];
