@@ -301,10 +301,76 @@ function StaticPostView({ post }: { post: Post }) {
                 ))}
               </div>
               {section.bullets ? <BulletList items={section.bullets} className="mt-4" /> : null}
+              {section.table ? (
+                <div className="mt-6 overflow-x-auto border border-border">
+                  <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
+                    {section.table.caption ? (
+                      <caption className="border-b border-border bg-muted/40 px-4 py-2.5 text-left text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                        {section.table.caption}
+                      </caption>
+                    ) : null}
+                    <thead>
+                      <tr className="border-b border-border bg-muted/20">
+                        {section.table.head.map((cell) => (
+                          <th key={cell} scope="col" className="px-4 py-3 font-semibold">
+                            {cell}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {section.table.rows.map((row) => (
+                        <tr key={row.join("|")} className="border-b border-border last:border-b-0">
+                          {row.map((cell, index) => (
+                            <td
+                              key={`${cell}-${index}`}
+                              className="px-4 py-3 align-top text-muted-foreground"
+                            >
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : null}
+              {section.links ? (
+                <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                  {section.links.map((link) => (
+                    <li key={link.to}>
+                      <Link
+                        to={link.to}
+                        className="font-semibold text-accent underline underline-offset-4"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </section>
           ))}
         </Container>
       </Section>
+
+      {post.faqs && post.faqs.length > 0 ? (
+        <Section className="py-8">
+          <Container size="narrow">
+            <h2 className="text-2xl sm:text-3xl">Frequently asked questions</h2>
+            <div className="mt-6 border-t border-border">
+              {post.faqs.map((faq) => (
+                <div key={faq.q} className="border-b border-border py-5">
+                  <h3 className="text-base font-semibold">{faq.q}</h3>
+                  <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
       <Section tone="sand">
         <Container size="narrow">
@@ -312,6 +378,7 @@ function StaticPostView({ post }: { post: Post }) {
           <BulletList items={post.takeaways} className="mt-5" />
         </Container>
       </Section>
+
 
       {related.length > 0 ? (
         <Section>
