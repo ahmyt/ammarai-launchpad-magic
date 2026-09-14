@@ -93,3 +93,8 @@
 - [x] Replace the current visual system with the selected bold editorial grid
 - [x] Recompose the opening, Command Center, and every section with distinct hierarchy
 - [x] Verify interactions, media, reviews, and responsive layouts
+
+## Neo-Swiss premium refinement
+- [x] Rebalance spacing, hierarchy, and depth while preserving the bold editorial direction
+- [x] Refine section rhythm, surface hierarchy, interactions, and mobile composition
+- [ ] Verify desktop, mobile, search, media, reviews, FAQ, and reduced-motion behavior
