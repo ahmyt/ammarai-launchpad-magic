@@ -5,7 +5,7 @@
 - [x] Stored category + content type on articles, /blog filter navigation, Studio taxonomy controls
 - [x] Writing cluster: Jasper/Writesonic/Copy.ai/Rytr alternatives + Best AI Writing Tools pillar
 
-- [ ] Retrain the daily writer against the Part 7 brief
+- [x] Retrained the daily writer against the Part 7 brief (topic queue, 20-article type rotation, tables, internal links, banned filler, stored category/format)
 - [ ] Video and Image pillars, then remaining clusters
 
 

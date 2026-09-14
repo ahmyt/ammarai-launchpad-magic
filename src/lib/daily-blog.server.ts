@@ -8,6 +8,13 @@ import { writerFromClient, type ArticleWriter } from "@/lib/cron-db.server";
 import { tools } from "@/data/tools";
 import { SITE } from "@/lib/site";
 import { getToolKeywords } from "@/data/tool-keywords";
+import {
+  BANNED_PHRASES,
+  BLOG_TOPICS,
+  TYPE_ROTATION,
+  bucketOf,
+  type BlogTopic,
+} from "@/lib/blog-topics";
 
 const OPENAI_URL = "https://api.openai.com/v1/chat/completions";
 const DEFAULT_MODEL = "gpt-5.6-sol";
@@ -26,24 +33,33 @@ function slugify(value: string): string {
     .slice(0, 80);
 }
 
-/** Pick the tool that has gone the longest without a generated post. */
-async function pickTool(supabase: SupabaseClient<Database>) {
+type Assignment =
+  | { kind: "topic"; topic: BlogTopic }
+  | { kind: "tool"; tool: (typeof tools)[number] };
+
+/** External ids of every article the daily writer has already produced. */
+async function publishedIds(supabase: SupabaseClient<Database>): Promise<string[]> {
   const { data } = await supabase
     .from("syndicated_articles")
     .select("external_id, published_at")
     .like("external_id", "daily:%")
     .order("published_at", { ascending: false });
-
-  const used: string[] = ((data ?? []) as { external_id: string | null }[])
-    .map((row) => (row.external_id ?? "").replace(/^daily:/, ""))
+  return ((data ?? []) as { external_id: string | null }[])
+    .map((row) => row.external_id ?? "")
     .filter(Boolean);
+}
+
+/** Pick the tool that has gone the longest without a generated post. */
+function pickTool(published: string[]) {
+  const used = published
+    .filter((id) => !id.startsWith("daily:topic:"))
+    .map((id) => id.replace(/^daily:/, ""));
   const usedSet = new Set(used);
 
   const fresh = tools.filter((tool) => !usedSet.has(tool.slug));
   if (fresh.length > 0) {
     return fresh[Math.floor(Math.random() * fresh.length)]!;
   }
-  // Everything covered: reuse the least-recently written-about tool.
   const oldestFirst = [...used].reverse();
   for (const slug of oldestFirst) {
     const tool = tools.find((t) => t.slug === slug);
@@ -52,11 +68,38 @@ async function pickTool(supabase: SupabaseClient<Database>) {
   return tools[0]!;
 }
 
+/**
+ * Decide what to write next: the roadmap queue drives commercial, comparison
+ * and use-case slots, while informational slots stay tool-led. The rotation
+ * holds the 30/30/25/15 content mix automatically.
+ */
+async function pickAssignment(supabase: SupabaseClient<Database>): Promise<Assignment> {
+  const published = await publishedIds(supabase);
+  const doneTopics = new Set(
+    published.filter((id) => id.startsWith("daily:topic:")).map((id) => id.slice("daily:topic:".length)),
+  );
+  const remaining = BLOG_TOPICS.filter((topic) => !doneTopics.has(topic.id));
+  const wanted = TYPE_ROTATION[published.length % TYPE_ROTATION.length]!;
+
+  if (wanted !== "informational") {
+    const match = remaining.find((topic) => bucketOf(topic) === wanted);
+    if (match) return { kind: "topic", topic: match };
+    const any = remaining.find((topic) => bucketOf(topic) !== "informational");
+    if (any) return { kind: "topic", topic: any };
+  }
+  return { kind: "tool", tool: pickTool(published) };
+}
+
 interface GeneratedPost {
   title: string;
   metaDescription: string;
   intro: string;
-  sections: { heading: string; paragraphs: string[]; bullets?: string[] }[];
+  sections: {
+    heading: string;
+    paragraphs: string[];
+    bullets?: string[];
+    table?: { caption?: string | null; head: string[]; rows: string[][] } | null;
+  }[];
   faqs: { question: string; answer: string }[];
 }
 
@@ -109,11 +152,21 @@ async function generate(toolName: string, prompt: string): Promise<GeneratedPost
                 items: {
                   type: "object",
                   additionalProperties: false,
-                  required: ["heading", "paragraphs", "bullets"],
+                  required: ["heading", "paragraphs", "bullets", "table"],
                   properties: {
                     heading: { type: "string" },
                     paragraphs: { type: "array", items: { type: "string" } },
                     bullets: { type: "array", items: { type: "string" } },
+                    table: {
+                      type: ["object", "null"],
+                      additionalProperties: false,
+                      required: ["caption", "head", "rows"],
+                      properties: {
+                        caption: { type: ["string", "null"] },
+                        head: { type: "array", items: { type: "string" } },
+                        rows: { type: "array", items: { type: "array", items: { type: "string" } } },
+                      },
+                    },
                   },
                 },
               },
@@ -333,6 +386,16 @@ function buildHtml(
         `<ul>${section.bullets.map((b) => `<li>${inlineMarkdown(b)}</li>`).join("")}</ul>`,
       );
     }
+    const table = section.table;
+    if (table?.head?.length && table.rows?.length) {
+      const head = `<thead><tr>${table.head.map((c) => `<th>${inlineMarkdown(c)}</th>`).join("")}</tr></thead>`;
+      const rows = table.rows
+        .map((row) => `<tr>${row.map((c) => `<td>${inlineMarkdown(c)}</td>`).join("")}</tr>`)
+        .join("");
+      body.push(
+        `<table>${table.caption ? `<caption>${inlineMarkdown(table.caption)}</caption>` : ""}${head}<tbody>${rows}</tbody></table>`,
+      );
+    }
     if (index === 1) {
       body.push(figure(image, `${toolName} in AmmarAI`, `${toolName} inside AmmarAI.`));
     }
@@ -386,59 +449,157 @@ function buildHtml(
 }
 
 
+/** House rules every generated article follows (Part 7 of the content brief). */
+function houseRules(links: string[], siblings: string[]): string[] {
+  return [
+    ``,
+    `STRUCTURE (required):`,
+    `- The first 60 words must answer the question in the title directly, with no throat-clearing.`,
+    `- 5-7 H2 sections, short paragraphs, clear hierarchy.`,
+    `- Whenever two or more options, tools or approaches are discussed, put them in the section's "table" field (head + rows). One table minimum for comparison, alternatives and best-of articles.`,
+    `- Give a "best for" line and honest pros and cons for every option you name.`,
+    `- Finish with 5 FAQs, 2-4 sentence answers each.`,
+    ``,
+    `INTERNAL LINKS (required, Markdown links with varied natural anchor text — never the same anchor twice, never a bare URL as visible text):`,
+    ...links.map((path) => `- ${SITE.url}${path}`),
+    ...(siblings.length
+      ? [`- one of these existing articles:`, ...siblings.map((path) => `  - ${SITE.url}${path}`)]
+      : []),
+    ``,
+    `HONESTY:`,
+    `- No invented statistics, customer results, review quotes or guarantees.`,
+    `- Competitor pricing only if you state it as a list price with the date it was checked; otherwise say pricing changes and link the vendor's page.`,
+    `- Never claim AmmarAI is the number one or best tool outright; recommend it where it genuinely fits and say where a competitor is stronger.`,
+    ``,
+    `STYLE: direct and specific, written by someone who uses these tools. No emojis. Word count is not a goal.`,
+    `NEVER open with or use these phrases: ${BANNED_PHRASES.join("; ")}.`,
+  ];
+}
+
+function siblingLinks(cluster: string, exclude: string[]): string[] {
+  const byCluster: Record<string, string[]> = {
+    writing: ["/blog/best-ai-writing-tools", "/blog/how-to-write-a-blog-post-with-ai"],
+    video: ["/blog/how-to-create-ai-videos"],
+    image: ["/blog/how-to-use-ai-for-content-creation"],
+    marketing: ["/blog/ai-tools-for-marketers"],
+    business: ["/blog/ai-tools-for-small-businesses"],
+    content: ["/blog/how-to-use-ai-for-content-creation"],
+    audio: ["/blog/how-to-generate-ai-voiceovers"],
+    seo: ["/blog/how-to-use-ai-for-seo"],
+    automation: ["/blog/ai-productivity-workflows"],
+    platform: ["/blog/best-ai-writing-tools"],
+  };
+  return (byCluster[cluster] ?? ["/blog/how-to-use-ai-for-content-creation"]).filter(
+    (path) => !exclude.includes(path),
+  );
+}
+
 export async function writeDailyPost(
   supabase: SupabaseClient<Database>,
   articleWriter?: ArticleWriter,
 ): Promise<DailyBlogResult> {
   const writer = articleWriter ?? writerFromClient(supabase);
-  const tool = await pickTool(supabase);
+  const assignment = await pickAssignment(supabase);
 
-  const kw = getToolKeywords(tool.slug);
+  let subjectName: string;
+  let subjectSummary: string;
+  let externalId: string;
+  let category: string;
+  let contentType: string;
+  let fallbackSlug: string;
   let blogPrompt: string;
 
-  if (kw) {
-    const relatedList = kw.relatedKeywords
-      .slice(0, 6)
-      .map((r) => `${r.keyword} (${r.volume.toLocaleString()}/mo)`)
-      .join(", ");
-    const questionList = kw.questions.slice(0, 5).map((q) => `- ${q}`).join("\n");
+  if (assignment.kind === "topic") {
+    const topic = assignment.topic;
+    subjectName = topic.workingTitle;
+    subjectSummary = topic.brief;
+    externalId = `daily:topic:${topic.id}`;
+    category = topic.category;
+    contentType = topic.contentType;
+    fallbackSlug = topic.id;
+
+    const typeBrief: Record<string, string> = {
+      "best-of":
+        `This is a commercial category page. Open with the problem the reader is trying to solve, state your evaluation criteria, then compare the tools objectively with a table, pricing, and the ideal user for each. Close with an "Our pick" split by user type and a natural mention of where AmmarAI fits. It must read like a buyer's guide, not an advertisement.`,
+      alternatives:
+        `This is an alternatives page for people already using the named product. Put the comparison table near the top, cover why people look for alternatives, then each alternative with pros, cons and who it suits. A section on where the original product is still the stronger choice is mandatory.`,
+      comparison:
+        `This is a head-to-head comparison. Comparison table near the top, then feature-by-feature analysis, pricing, and a verdict split by user type. Name the cases where the competitor wins.`,
+      "use-case":
+        `This is a genuine step-by-step tutorial. Numbered steps the reader can follow today, what to check at each stage, and what the tools still get wrong.`,
+      tutorial: `This is a genuine step-by-step tutorial with numbered, followable steps.`,
+      guide: `This is a practical informational guide built around a real workflow.`,
+    };
 
     blogPrompt = [
-      `Write a 1,100-1,400 word SEO blog post about AmmarAI's "${tool.name}" tool.`,
-      `Tool summary: ${tool.summary}`,
+      `Write an article for the AmmarAI blog titled around "${topic.workingTitle}".`,
+      `Brief: ${topic.brief}`,
       ``,
-      `PRIMARY KEYWORD: "${kw.primaryKeyword}" (${kw.searchVolume.toLocaleString()} searches/month, difficulty ${kw.difficulty}/100).`,
-      `The title MUST include the primary keyword "${kw.primaryKeyword}" and be under 60 characters.`,
-      `The metaDescription MUST include the primary keyword and be under 155 characters.`,
-      `Use the primary keyword naturally in the intro, at least one H2 heading, and the conclusion — do not stuff.`,
-      ``,
-      `RELATED KEYWORDS (work these in naturally throughout the post): ${relatedList}.`,
-      ``,
-      `FAQ SECTION — answer these exact questions people search for (use them verbatim as the H3 question headings):`,
-      questionList,
-      ``,
-      `Structure: an engaging intro (2-3 sentences), 5-7 sections with H2 headings, short paragraphs,`,
-      `at least two sections with practical bullet lists, and 5 frequently asked questions with 2-4 sentence answers.`,
-      `Mention AmmarAI naturally and link the tool page as a Markdown link with descriptive anchor text, e.g. [${tool.name}](${SITE.url}/${tool.slug}) — never paste a bare URL as the visible text.`,
-      `Do not invent statistics, prices, customer names or guarantees. No emojis.`,
+      `PRIMARY KEYWORD: "${topic.primaryKeyword}"${topic.volume ? ` (${topic.volume.toLocaleString()} searches/month)` : ""}.`,
+      `The title MUST include the primary keyword and be under 60 characters. The metaDescription MUST include it and be under 155 characters.`,
+      typeBrief[topic.contentType] ?? "",
+      `AmmarAI is an all-in-one AI workspace with 138 tools on one subscription: writing, video, image, voice, agents, SEO and marketing.`,
+      ...houseRules(topic.links, siblingLinks(topic.cluster, topic.links)),
     ].join("\n");
   } else {
-    blogPrompt = [
-      `Write a 1,100-1,400 word SEO blog post about AmmarAI's "${tool.name}" tool.`,
+    const tool = assignment.tool;
+    subjectName = tool.name;
+    subjectSummary = tool.summary;
+    externalId = `daily:${tool.slug}`;
+    category = tool.category;
+    contentType = "guide";
+    fallbackSlug = `${tool.slug}-guide`;
+
+    const kw = getToolKeywords(tool.slug);
+    const base = [
+      `Write a practical informational guide for the AmmarAI blog about "${tool.name}".`,
       `Tool summary: ${tool.summary}`,
-      `Primary keyword: ${tool.name.toLowerCase()}. Search intent: people looking for how to do this with AI.`,
-      `Structure: an engaging intro (2-3 sentences), 5-7 sections with H2 headings, short paragraphs,`,
-      `at least two sections with practical bullet lists, and 5 frequently asked questions with 2-4 sentence answers.`,
-      `Mention AmmarAI naturally and link the tool page as a Markdown link with descriptive anchor text, e.g. [${tool.name}](${SITE.url}/${tool.slug}) — never paste a bare URL as the visible text.`,
-      `Do not invent statistics, prices, customer names or guarantees. No emojis.`,
-      `The title must be under 60 characters and include the primary keyword.`,
-      `The metaDescription must be under 155 characters.`,
-    ].join(" ");
+      `Focus on the real workflow — how the job gets done, where it breaks, and how to check the output. Not a feature list.`,
+    ];
+
+    if (kw) {
+      const relatedList = kw.relatedKeywords
+        .slice(0, 6)
+        .map((r) => `${r.keyword} (${r.volume.toLocaleString()}/mo)`)
+        .join(", ");
+      const questionList = kw.questions.slice(0, 5).map((q) => `- ${q}`).join("\n");
+      base.push(
+        ``,
+        `PRIMARY KEYWORD: "${kw.primaryKeyword}" (${kw.searchVolume.toLocaleString()} searches/month, difficulty ${kw.difficulty}/100).`,
+        `The title MUST include the primary keyword and be under 60 characters. The metaDescription MUST include it and be under 155 characters.`,
+        `Use the primary keyword naturally in the intro, at least one H2 heading and the closing section — do not stuff.`,
+        `RELATED KEYWORDS to work in naturally: ${relatedList}.`,
+        ``,
+        `Use these exact questions as the FAQ questions:`,
+        questionList,
+      );
+    } else {
+      base.push(
+        `Primary keyword: ${tool.name.toLowerCase()}. Title under 60 characters, metaDescription under 155.`,
+      );
+    }
+
+    const clusterByCategory: Record<string, string> = {
+      "AI Video": "video",
+      "AI Image": "image",
+      "AI Voice": "audio",
+      "AI Audio": "audio",
+      "AI SEO": "seo",
+      "AI Marketing": "marketing",
+      "AI Writing": "writing",
+    };
+    blogPrompt = [
+      ...base,
+      ...houseRules(
+        [`/${tool.slug}`, "/ai-tools"],
+        siblingLinks(clusterByCategory[tool.category] ?? "content", []),
+      ),
+    ].join("\n");
   }
 
-  const post = await generate(tool.name, blogPrompt);
+  const post = await generate(subjectName, blogPrompt);
 
-  const baseSlug = slugify(post.title) || `${tool.slug}-guide`;
+  const baseSlug = slugify(post.title) || fallbackSlug;
   let slug = baseSlug;
   for (let attempt = 0; attempt < 5; attempt += 1) {
     const { data: existing } = await supabase
@@ -463,30 +624,33 @@ export async function writeDailyPost(
     : null;
 
   const now = new Date().toISOString();
-  const fallback = imageFor(tool.category);
+  const fallback = imageFor(category);
   const [hero, inline] = await Promise.all([
     createArticleImage(
       writer,
       slug,
       1,
-      `Cover image for an article titled "${post.title}" about ${tool.name}: ${tool.summary}`,
+      `Cover image for an article titled "${post.title}": ${subjectSummary}`,
     ),
     createArticleImage(
       writer,
       slug,
       2,
-      `Supporting scene for an article about ${tool.name} (${tool.category}): ${post.sections[1]?.heading ?? tool.summary}`,
+      `Supporting scene for an article about ${subjectName} (${category}): ${post.sections[1]?.heading ?? subjectSummary}`,
     ),
   ]);
   const image = hero ?? fallback;
   const row = {
     slug,
-    external_id: `daily:${tool.slug}`,
+    external_id: externalId,
     title: post.title,
-    content_html: buildHtml(post, tool.name, inline ?? fallback),
+    content_html: buildHtml(post, subjectName, inline ?? fallback),
     content_markdown: null,
     meta_description: post.metaDescription,
     hero_image_url: image,
+    category,
+    content_type: contentType,
+
 
     json_ld: {
       "@context": "https://schema.org",
@@ -507,5 +671,9 @@ export async function writeDailyPost(
   const { error } = await writer.upsertArticle(row);
   if (error) throw new Error(error);
 
-  return { slug, title: post.title, toolSlug: tool.slug };
+  return {
+    slug,
+    title: post.title,
+    toolSlug: assignment.kind === "tool" ? assignment.tool.slug : assignment.topic.id,
+  };
 }
