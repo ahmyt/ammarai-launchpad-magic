@@ -79,3 +79,7 @@
 ## Premium Bold Light homepage refinement
 - [x] Strengthen the existing Command Center with bolder typography, layered depth, and sharper controls
 - [x] Refine homepage spacing, surfaces, and mobile hierarchy without changing content or functionality
+
+## Neo-glass precision homepage refinement
+- [x] Apply the selected neo-glass visual language without changing homepage content or behavior
+- [x] Verify the refined homepage across desktop and mobile
