@@ -103,3 +103,7 @@
 - [x] Tune proportions, alignment, and spacing without changing the visual direction
 - [x] Refine Command Center, controls, typography, and restrained depth
 - [x] Verify desktop, mobile, interactions, and build stability
+
+## Neo-Swiss footer refinement
+- [x] Bring the footer into the bold editorial system with stronger hierarchy and mobile balance
+- [x] Verify desktop and mobile footer presentation
