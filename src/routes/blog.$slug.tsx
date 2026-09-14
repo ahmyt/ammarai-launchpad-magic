@@ -91,10 +91,10 @@ function RecommendedReading({ article }: { article: SyndicatedArticle }) {
   const sameCategory = others.filter((a) => articleCategory(a) === category);
   const posts = [...sameCategory, ...others.filter((a) => !sameCategory.includes(a))].slice(0, 3);
 
-  const relatedTools = tools
-    .filter((tool) => tool.category === category)
-    .slice(0, 3)
-    .map((tool) => ({ slug: tool.slug, name: tool.name, summary: tool.summary }));
+  const relatedTools = pickRelatedTools(
+    category,
+    `${article.title ?? ""} ${article.meta_description ?? ""} ${(article.content_html ?? "").replace(/<[^>]+>/g, " ").slice(0, 4000)}`,
+  );
 
   if (posts.length === 0 && relatedTools.length === 0) return null;
 
