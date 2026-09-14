@@ -420,9 +420,9 @@ function buildHtml(
   const parts: string[] = [`<p>${inlineMarkdown(post.intro)}</p>`];
   if (toc.length > 2) {
     parts.push(
-      `<nav class="article-toc"><h2 id="table-of-contents">Table of Contents</h2><ul>` +
+      `<nav class="article-toc" aria-labelledby="table-of-contents"><h2 id="table-of-contents">Table of Contents</h2><ol>` +
         toc.map((item) => `<li><a href="#${item.id}">${item.label}</a></li>`).join("") +
-        `</ul></nav>`,
+        `</ol></nav>`,
     );
   }
   parts.push(...body);
