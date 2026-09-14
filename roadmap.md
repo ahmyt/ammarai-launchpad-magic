@@ -97,4 +97,4 @@
 ## Neo-Swiss premium refinement
 - [x] Rebalance spacing, hierarchy, and depth while preserving the bold editorial direction
 - [x] Refine section rhythm, surface hierarchy, interactions, and mobile composition
-- [ ] Verify desktop, mobile, search, media, reviews, FAQ, and reduced-motion behavior
+- [x] Verify desktop, mobile, search, media, reviews, FAQ, and reduced-motion behavior
