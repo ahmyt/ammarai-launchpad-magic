@@ -294,6 +294,32 @@ export const BLOG_TOPICS: BlogTopic[] = [
     cluster: "writing",
     brief: "Tutorial: gather source copy, define the voice, test it, and correct drift over time.",
   },
+  {
+    id: "ai-dm-comment-agent",
+    workingTitle: "How to Automate DM and Comment Replies with AI",
+    contentType: "tutorial",
+    category: "AI Agents",
+    primaryKeyword: "ai comment reply agent",
+    volume: 880,
+    difficulty: 22,
+    links: ["/ai-dm-comment-agent", "/smart-inbox", "/social-media-agent"],
+    cluster: "agents",
+    brief:
+      "Practical workflow for automating Instagram and Facebook DMs plus YouTube comment replies: triage rules, lead capture from comments, moderation guardrails and the handoff to a human. Cover YouTube comment automation explicitly.",
+  },
+  {
+    id: "ai-deep-research",
+    workingTitle: "How to Run AI Deep Research with Cited Sources",
+    contentType: "tutorial",
+    category: "AI Agents",
+    primaryKeyword: "ai deep research",
+    volume: 3600,
+    difficulty: 28,
+    links: ["/ai-deep-research", "/ai-agent-builder", "/ai-writer"],
+    cluster: "agents",
+    brief:
+      "Step-by-step deep-research workflow with live sources and citations: framing the question, multi-source gathering, competitor and market research use cases, and how to verify cited sources before trusting the report.",
+  },
 ];
 
 /**
