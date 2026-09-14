@@ -29,6 +29,13 @@
       "when": 1789360575720,
       "tag": "0003_article_category_and_content_type",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1789362124913,
+      "tag": "0004_cron_upsert_article_taxonomy",
+      "breakpoints": true
     }
   ]
 }
