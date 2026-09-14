@@ -2523,6 +2523,45 @@ body:has(.home-swiss) .site-footer-back:hover span {
   box-shadow: 7px 7px 0 var(--accent);
 }
 
+.prose-editorial table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin-block: 1.75rem;
+  font-size: 0.92rem;
+}
+
+.prose-editorial table caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  padding-bottom: 0.6rem;
+}
+
+.prose-editorial th,
+.prose-editorial td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose-editorial thead th {
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-color: var(--foreground);
+}
+
 .site-shell [class*="rounded-xl"][class*="ring-1"],
 .site-shell [class*="rounded-md"][class*="ring-1"] {
   border-radius: 0;
