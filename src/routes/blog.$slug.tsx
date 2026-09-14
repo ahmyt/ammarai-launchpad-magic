@@ -226,6 +226,15 @@ function SyndicatedArticleView({ article }: { article: SyndicatedArticle }) {
   );
 }
 
+function headingId(heading: string) {
+  return (
+    heading
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "section"
+  );
+}
+
 function StaticPostView({ post }: { post: Post }) {
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const postBySlug = new Map(content.posts.map((p) => [p.slug, p]));
@@ -233,6 +242,21 @@ function StaticPostView({ post }: { post: Post }) {
     .map((slug) => postBySlug.get(slug))
     .filter((p): p is Post => Boolean(p) && p!.slug !== post.slug)
     .slice(0, 3);
+
+  const relatedTools = tools.filter((tool) => tool.category === post.category).slice(0, 3);
+
+  const toc = [
+    ...post.sections.map((section) => ({
+      id: headingId(section.heading),
+      label: section.heading,
+    })),
+    ...(post.faqs && post.faqs.length > 0
+      ? [{ id: "frequently-asked-questions", label: "Frequently asked questions" }]
+      : []),
+    { id: "takeaways", label: "Takeaways" },
+  ];
+
+
 
   const articleJsonLd = {
     "@context": "https://schema.org",
