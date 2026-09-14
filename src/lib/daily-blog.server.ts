@@ -546,7 +546,7 @@ export async function writeDailyPost(
       `PRIMARY KEYWORD: "${topic.primaryKeyword}"${topic.volume ? ` (${topic.volume.toLocaleString()} searches/month)` : ""}.`,
       `The title MUST include the primary keyword and be under 60 characters. The metaDescription MUST include it and be under 155 characters.`,
       typeBrief[topic.contentType] ?? "",
-      `AmmarAI is an all-in-one AI workspace with 138 tools on one subscription: writing, video, image, voice, agents, SEO and marketing.`,
+      `AmmarAI is an all-in-one AI workspace with 140 tools on one subscription: writing, video, image, voice, agents, SEO and marketing.`,
       ...houseRules(topic.links, siblingLinks(topic.cluster, topic.links)),
     ].join("\n");
   } else {

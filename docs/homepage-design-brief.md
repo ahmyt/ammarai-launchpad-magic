@@ -1,22 +1,22 @@
-# Premium SaaS Homepage Design Brief — for AmmarAI (138-tool AI creation workspace)
+# Premium SaaS Homepage Design Brief — for AmmarAI (140-tool AI creation workspace)
 
 Synthesized from Linear [1](https://www.shadcn.io/design/linear) [2](https://linear.app/homepage), Jasper [3](https://www.shadcn.io/design/jasper) [4](https://bestsaaswebdesigns.com/site/jasper), Vercel [5](https://rauno.me/craft/vercel) [6](https://seedflip.co/blog/vercel-design-system) [7](https://designmd.cc/benchmarks/vercel), and Notion [8](https://www.saaspattern.com/en/website-breakdowns/notion-so) [9](https://roamp.it/report/notion.so).
 
 ## 1. Information Hierarchy
 - One sentence value prop above the fold, repeated verbatim in nav/hero/CTA copy so the promise never drifts — Notion anchors everything to a single phrase across nav, hero, and features [8](https://www.saaspattern.com/en/website-breakdowns/notion-so).
 - Order: promise → proof (live product) → breadth (tool grid/logos) → depth (use-case sections) → pricing/trust → final CTA.
-- For AmmarAI's 138 tools: **don't list them all up top**. Hero shows one flagship workflow; a searchable/filterable tool grid lives below the fold as the "breadth" proof, not the headline.
+- For AmmarAI's 140 tools: **don't list them all up top**. Hero shows one flagship workflow; a searchable/filterable tool grid lives below the fold as the "breadth" proof, not the headline.
 
 ## 2. Navigation
 - Slim, sticky, low-chrome bar: logo, 3–5 top-level links max, one primary CTA button. Linear and Vercel both keep nav nearly invisible until scroll/hover [1](https://www.shadcn.io/design/linear) [7](https://designmd.cc/benchmarks/vercel).
 - Secondary "Log in" as text link, primary "Start free / Try it" as filled button — consistent contrast pairing.
-- For a 138-tool product, add a lightweight mega-menu or command-K style search trigger in nav rather than cramming categories into links.
+- For a 140-tool product, add a lightweight mega-menu or command-K style search trigger in nav rather than cramming categories into links.
 
 ## 3. Hero Composition
 - Headline (36–64px, tight tracking, weight 600–700) + one-line subhead + single primary CTA + optional secondary ghost CTA.
 - Immediately show the *real product UI*, not illustration — Linear's hero is literally the live issue-tracker interface with real-looking data [2](https://linear.app/homepage). Jasper leans serif display type + navy-on-white for warmth/enterprise trust [3](https://www.shadcn.io/design/jasper).
 - Motion: subtle, physics-based micro-animation on load (fade/slide 8–16px, 200–400ms), not looping/attention-stealing — Vercel's ethos is "constraint in visual flair," animation only when it clarifies state [5](https://rauno.me/craft/vercel).
-- AmmarAI hero recommendation: split hero — left copy + CTA, right an interactive preview of one tool in action (e.g., prompt → output), with a rotating label ("138 tools" chip) rather than the whole grid.
+- AmmarAI hero recommendation: split hero — left copy + CTA, right an interactive preview of one tool in action (e.g., prompt → output), with a rotating label ("140 tools" chip) rather than the whole grid.
 
 ## 4. Product Proof
 - Real screenshots/interactive embeds > stock illustration or abstract gradients. Linear renders literal, plausible product data in the hero [2](https://linear.app/homepage).
@@ -54,14 +54,14 @@ Synthesized from Linear [1](https://www.shadcn.io/design/linear) [2](https://lin
 - CTA buttons ≥44px touch target; visible focus rings on all interactive elements.
 
 ## 11. Anti-Patterns to Avoid
-- Dumping all 138 tools as a giant uncategorized grid in the hero — causes decision paralysis; use progressive disclosure (categories → search → detail).
+- Dumping all 140 tools as a giant uncategorized grid in the hero — causes decision paralysis; use progressive disclosure (categories → search → detail).
 - Stock "AI robot/brain" illustrations — signals generic AI wrapper, undermines trust versus real product screenshots.
 - Overused gradient mesh backgrounds and glassmorphism as default — differentiate via typography/motion/real UI instead, per Vercel's reduction ethos [5](https://rauno.me/craft/vercel) [6](https://seedflip.co/blog/vercel-design-system).
 - Autoplaying looping hero videos with sound-adjacent motion; excessive parallax that hurts performance/accessibility.
 - Nav overload (10+ top links) — collapse into search/mega-menu.
 
 ## 12. AmmarAI-Specific Application Notes
-- **Fit for 138-tool breadth**: hero = one workflow demo + tool-count as a credibility chip, not a wall of icons. Use faceted/searchable grid section below fold with category filters (mirrors Notion/Jasper's structured feature sections).
+- **Fit for 140-tool breadth**: hero = one workflow demo + tool-count as a credibility chip, not a wall of icons. Use faceted/searchable grid section below fold with category filters (mirrors Notion/Jasper's structured feature sections).
 - **Trust build**: since AI tool platforms face skepticism, front-load logos + concrete outcome metrics before the full tool catalog.
 - **Motion budget**: given many tool previews, keep any autoplay content lightweight (static frame + play-on-hover) to protect performance — aligns with Vercel's performance-first design north star [5](https://rauno.me/craft/vercel).
-- **Visual identity**: pick one distinguishing motif (e.g., a signature accent color + monospace tag for tool categories, similar to Vercel's Geist Mono labels [7](https://designmd.cc/benchmarks/vercel)) to unify 138 disparate tool cards under one system.
+- **Visual identity**: pick one distinguishing motif (e.g., a signature accent color + monospace tag for tool categories, similar to Vercel's Geist Mono labels [7](https://designmd.cc/benchmarks/vercel)) to unify 140 disparate tool cards under one system.
