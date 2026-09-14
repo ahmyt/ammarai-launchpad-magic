@@ -125,6 +125,25 @@ function AdminArticles() {
     onError: (error: Error) => setStatus(error.message),
   });
 
+  const updateTaxonomy = useMutation({
+    mutationFn: async ({
+      id,
+      patch,
+    }: {
+      id: string;
+      patch: { category?: string; content_type?: string };
+    }) => {
+      const { error } = await supabase
+        .from("syndicated_articles")
+        .update(patch as never)
+        .eq("id", id);
+      if (error) throw new Error(error.message);
+    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["syndicated-articles"] }),
+    onError: (error: Error) => setStatus(error.message),
+  });
+
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return articles.filter((a) => {
