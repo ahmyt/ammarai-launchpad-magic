@@ -22,7 +22,7 @@ import avatarDemo from "@/assets/demo-avatar-video.mp4.asset.json";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
 const description =
-  "140 AI tools and templates in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.;
+  "140 AI tools and templates in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.";
 
 const goalPrompts = [
   "Write a blog post about pricing",
