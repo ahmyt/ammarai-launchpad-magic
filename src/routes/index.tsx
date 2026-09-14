@@ -329,6 +329,7 @@ export function Home() {
                   muted
                   playsInline
                   preload="none"
+                  poster={item.src.replace(/\.mp4$/, ".poster.jpg")}
                   src={item.src}
                   aria-label={`${item.label} sample video`}
                   className="aspect-video w-full bg-ink object-cover"
