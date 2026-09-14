@@ -90,6 +90,6 @@
 - [x] Verify the complete experience across desktop and mobile
 
 ## Neo-Swiss Editorial homepage rebuild
-- [ ] Replace the current visual system with the selected bold editorial grid
-- [ ] Recompose the opening, Command Center, and every section with distinct hierarchy
+- [x] Replace the current visual system with the selected bold editorial grid
+- [x] Recompose the opening, Command Center, and every section with distinct hierarchy
 - [ ] Verify interactions, media, reviews, and responsive layouts
