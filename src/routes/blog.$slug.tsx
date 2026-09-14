@@ -10,7 +10,7 @@ import {
   type SyndicatedArticle,
 } from "@/lib/articles";
 import { tools, featuredTools } from "@/data/tools";
-import { collapsibleFaqs, wrapTables } from "@/lib/article-html";
+import { brandCta, collapsibleFaqs, wrapTables } from "@/lib/article-html";
 import { Container, Section, BulletList } from "@/components/site/primitives";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
@@ -221,7 +221,7 @@ function SyndicatedArticleView({ article }: { article: SyndicatedArticle }) {
           <div
             className="prose-editorial syndicated-article"
             dangerouslySetInnerHTML={{
-              __html: wrapTables(collapsibleFaqs(article.content_html ?? "")),
+              __html: brandCta(wrapTables(collapsibleFaqs(article.content_html ?? ""))),
             }}
           />
         </Container>
