@@ -2210,6 +2210,395 @@ body:has(.home-swiss) .site-footer-back:hover span {
   }
 }
 
+/* Full-site Neo-Swiss system — the homepage is the visual source of truth. */
+.site-shell {
+  background:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px),
+    var(--background);
+  background-size: 12.5% 100%;
+  font-family: var(--font-sans);
+}
+
+.site-shell h1,
+.site-shell h2,
+.site-shell h3 {
+  font-family: "Inter", var(--font-sans);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.site-shell > main > :not(.home-premium),
+.site-shell > main > article {
+  background: var(--background);
+}
+
+.site-shell > main > :not(.home-premium) > .site-section:first-child,
+.site-shell > main > article > .site-section:first-of-type {
+  position: relative;
+  overflow: hidden;
+  min-height: 31rem;
+  padding-block: clamp(3.5rem, 7vw, 7rem);
+  border-bottom: 1px solid var(--foreground);
+  background:
+    linear-gradient(to right, transparent 0 67%, color-mix(in oklab, var(--foreground) 14%, transparent) 67% calc(67% + 1px), transparent calc(67% + 1px)),
+    var(--background);
+}
+
+.site-shell > main > :not(.home-premium) > .site-section:first-child::after,
+.site-shell > main > article > .site-section:first-of-type::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  content: "";
+  background: linear-gradient(90deg, var(--foreground) 0 60%, var(--accent) 60% 76%, var(--foreground) 76% 100%);
+}
+
+.site-shell > main > :not(.home-premium) > .site-section:first-child .site-container,
+.site-shell > main > article > .site-section:first-of-type .site-container {
+  position: relative;
+}
+
+.site-shell > main > :not(.home-premium) > .site-section:first-child .site-container::before,
+.site-shell > main > article > .site-section:first-of-type .site-container::before {
+  display: block;
+  width: max-content;
+  margin: 0 0 1.75rem auto;
+  content: "AMMARAI / FIELD NOTES";
+  color: var(--muted-foreground);
+  font-family: "Space Grotesk", var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.site-shell > main > :not(.home-premium) > .site-section:first-child h1,
+.site-shell > main > article > .site-section:first-of-type h1 {
+  max-width: 65rem;
+  font-size: clamp(3.4rem, 7.6vw, 7.6rem);
+  font-weight: 900;
+  line-height: 0.87;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.site-shell > main > :not(.home-premium) > .site-section:first-child h1 + p,
+.site-shell > main > article > .site-section:first-of-type h1 + p {
+  max-width: 44rem;
+  margin-top: 2rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.site-section {
+  position: relative;
+  padding-block: clamp(5rem, 8vw, 8rem);
+}
+
+.site-section.bg-sand {
+  border-block: 1px solid var(--foreground);
+  background-color: var(--sand);
+  background-image: linear-gradient(to right, color-mix(in oklab, var(--foreground) 9%, transparent) 1px, transparent 1px);
+  background-size: 12.5% 100%;
+}
+
+.site-section.bg-ink {
+  border-block: 1px solid var(--foreground);
+  background-color: var(--ink);
+  background-image: linear-gradient(to right, color-mix(in oklab, var(--ink-foreground) 13%, transparent) 1px, transparent 1px);
+  background-size: 12.5% 100%;
+}
+
+.site-section.bg-ink h2 {
+  font-size: clamp(2.75rem, 6vw, 5.75rem);
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.site-section-heading h1,
+.site-section-heading h2,
+.site-section-heading h3 {
+  font-weight: 900;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.site-section-heading.max-w-2xl {
+  max-width: 58rem;
+}
+
+.eyebrow,
+.site-breadcrumbs,
+.site-shell label,
+.site-shell th {
+  font-family: "Space Grotesk", var(--font-sans);
+  letter-spacing: 0.08em;
+}
+
+.site-breadcrumbs {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.site-breadcrumbs li:not(:last-child) span[aria-hidden="true"] {
+  color: var(--accent);
+}
+
+.site-card,
+.site-tool-card {
+  border: 1px solid var(--foreground);
+  border-radius: 0;
+  background: var(--paper);
+  box-shadow: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.site-card:hover,
+.site-tool-card:hover {
+  border-color: var(--foreground);
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 var(--accent);
+}
+
+.site-tool-card {
+  min-height: 13rem;
+  border-top-width: 4px;
+  border-top-color: var(--accent);
+}
+
+.site-tool-card h3 {
+  margin-top: 1rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.site-tool-card > span:first-child,
+.eyebrow {
+  font-family: "Space Grotesk", var(--font-sans);
+  font-weight: 700;
+}
+
+.site-button {
+  min-height: 3rem;
+  border-radius: 0;
+  font-family: "Space Grotesk", var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 color-mix(in oklab, var(--accent) 80%, var(--foreground));
+}
+
+.site-shell input:not([type="checkbox"]):not([type="radio"]),
+.site-shell textarea,
+.site-shell select {
+  min-height: 3rem;
+  border: 1px solid var(--foreground);
+  border-radius: 0;
+  background: var(--paper);
+  box-shadow: none;
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.site-shell textarea:focus,
+.site-shell select:focus,
+.site-shell input:not([type="checkbox"]):not([type="radio"]):focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 4px 4px 0 var(--accent);
+}
+
+.site-shell table {
+  border: 1px solid var(--foreground);
+  background: var(--paper);
+}
+
+.site-shell thead {
+  background: var(--foreground);
+  color: var(--ink-foreground);
+}
+
+.site-shell th {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+}
+
+.site-faq > div {
+  border-color: var(--foreground);
+}
+
+.site-faq details {
+  padding-block: 1.5rem;
+}
+
+.site-faq summary {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.site-faq summary span:last-child {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid var(--foreground);
+  color: var(--foreground);
+}
+
+.prose-editorial {
+  font-size: 1.02rem;
+}
+
+.prose-editorial h2,
+.prose-editorial h3,
+.prose-editorial h4 {
+  font-family: "Inter", var(--font-sans);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.prose-editorial figure img,
+.prose-editorial p > img,
+.syndicated-article img {
+  border: 1px solid var(--foreground);
+  border-radius: 0;
+  box-shadow: 7px 7px 0 var(--accent);
+}
+
+.site-shell [class*="rounded-xl"][class*="ring-1"],
+.site-shell [class*="rounded-md"][class*="ring-1"] {
+  border-radius: 0;
+}
+
+.site-shell > main > :not(.home-premium) ul.border-t > li,
+.site-shell > main > article ul.border-t > li {
+  transition: padding 160ms ease, background-color 160ms ease;
+}
+
+.site-shell > main > :not(.home-premium) ul.border-t > li:hover,
+.site-shell > main > article ul.border-t > li:hover {
+  padding-inline: 1rem;
+  background: var(--paper);
+}
+
+.admin-studio {
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.admin-studio > .site-container > div:first-child {
+  border-bottom-width: 2px;
+  border-color: var(--foreground);
+}
+
+.admin-studio > .site-container > div:first-child h1 {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 900;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.admin-studio nav > a {
+  border: 1px solid var(--foreground);
+  border-radius: 0;
+  font-family: "Space Grotesk", var(--font-sans);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.admin-studio nav > a.active {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.admin-studio [class*="rounded-xl"][class*="bg-card"] {
+  border: 1px solid var(--foreground);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.admin-studio [class*="rounded-xl"][class*="bg-card"]:hover {
+  transform: none;
+  box-shadow: 4px 4px 0 color-mix(in oklab, var(--accent) 45%, transparent);
+}
+
+.admin-studio button:not(.site-button),
+.admin-studio a[class*="font-semibold"] {
+  border-radius: 0;
+  font-family: "Space Grotesk", var(--font-sans);
+}
+
+.site-mobile-menu {
+  border-color: var(--foreground);
+  box-shadow: 0 20px 40px color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+
+.site-mobile-menu nav > a {
+  min-height: 3.25rem;
+  display: flex;
+  align-items: center;
+  border-color: var(--foreground);
+  font-family: "Space Grotesk", var(--font-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 639px) {
+  .site-shell > main > :not(.home-premium) > .site-section:first-child,
+  .site-shell > main > article > .site-section:first-of-type {
+    min-height: 0;
+    padding-block: 2.5rem 4.5rem;
+    background: var(--background);
+  }
+
+  .site-shell > main > :not(.home-premium) > .site-section:first-child h1,
+  .site-shell > main > article > .site-section:first-of-type h1 {
+    font-size: clamp(2.75rem, 13vw, 3.65rem);
+    line-height: 0.9;
+  }
+
+  .site-shell > main > :not(.home-premium) > .site-section:first-child .site-container::before,
+  .site-shell > main > article > .site-section:first-of-type .site-container::before {
+    margin-bottom: 1.25rem;
+  }
+
+  .site-section {
+    padding-block: 4.75rem;
+  }
+
+  .site-section.bg-ink h2 {
+    font-size: clamp(2.5rem, 11vw, 3.2rem);
+  }
+
+  .site-tool-card {
+    min-height: 0;
+  }
+
+  .site-shell table {
+    min-width: 38rem;
+  }
+
+  .site-shell table:only-child {
+    width: 100%;
+  }
+
+  .admin-studio nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+  }
+
+  .admin-studio nav > a {
+    flex: 0 0 auto;
+  }
+}
+
 /* Content protection: block casual selection/copying when enabled */
 body.no-select {
   -webkit-user-select: none;
