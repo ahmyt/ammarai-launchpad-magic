@@ -311,6 +311,20 @@ body:has(.home-premium) .site-header nav a:hover::after {
   padding-block: clamp(5.5rem, 9vw, 8.5rem);
 }
 
+.home-premium .studio-section-compact {
+  padding-block: clamp(4.5rem, 7vw, 6.5rem);
+}
+
+.studio-heading-wide {
+  max-width: 58rem;
+}
+
+.studio-heading-wide > p:last-child {
+  max-width: 44rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
 .home-premium .studio-section > div {
   position: relative;
 }
@@ -350,6 +364,31 @@ body:has(.home-premium) .site-header nav a:hover::after {
 
 .studio-card-grid {
   grid-auto-flow: dense;
+  counter-reset: flagship;
+}
+
+.studio-card-grid > a {
+  position: relative;
+  min-height: 16rem;
+  counter-increment: flagship;
+}
+
+.studio-card-grid > a::before {
+  position: absolute;
+  top: 1.35rem;
+  right: 1.4rem;
+  content: "0" counter(flagship);
+  color: color-mix(in oklab, currentColor 28%, transparent);
+  font-family: "Bricolage Grotesque", var(--font-sans);
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.studio-card-grid > a h3 {
+  max-width: 82%;
+  font-family: "Bricolage Grotesque", var(--font-sans);
+  font-size: 1.35rem;
 }
 
 .studio-featured-card {
@@ -387,6 +426,100 @@ body:has(.home-premium) .site-header nav a:hover::after {
   border-bottom: 1px solid var(--border);
 }
 
+.studio-video-section {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 12%, color-mix(in oklab, var(--accent) 7%, transparent), transparent 28rem),
+    var(--background);
+}
+
+.studio-video-section .studio-video-card {
+  position: relative;
+}
+
+.studio-video-section .studio-video-card::after {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  content: "";
+  background: linear-gradient(90deg, var(--accent), color-mix(in oklab, var(--accent) 30%, transparent));
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+
+.studio-video-section .studio-video-card:hover::after {
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .studio-video-section .grid {
+    grid-template-columns: 1.28fr 0.72fr;
+  }
+
+  .studio-video-lead video {
+    aspect-ratio: auto;
+    height: calc(100% - 6.25rem);
+    min-height: 31rem;
+  }
+}
+
+.studio-library-section {
+  background:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 2.5%, transparent) 1px, transparent 1px),
+    var(--sand);
+  background-size: 12.5% 100%;
+}
+
+.studio-category-card {
+  position: relative;
+  min-height: 13rem;
+  border-top: 2px solid color-mix(in oklab, var(--accent) 42%, var(--border));
+  background: color-mix(in oklab, var(--paper) 76%, transparent) !important;
+  box-shadow: none !important;
+}
+
+.studio-category-card > div > span {
+  font-family: "Bricolage Grotesque", var(--font-sans);
+  font-size: 2rem;
+  font-weight: 600;
+  color: color-mix(in oklab, var(--accent) 68%, var(--muted-foreground));
+}
+
+.studio-ranked-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  background: color-mix(in oklab, var(--paper) 86%, transparent);
+  box-shadow:
+    0 1px 0 var(--paper) inset,
+    0 40px 80px -58px color-mix(in oklab, var(--foreground) 42%, transparent);
+}
+
+.studio-popular-panel,
+.studio-recent-panel {
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.studio-recent-panel {
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 18rem),
+    var(--secondary);
+}
+
+.studio-ranked-lists .studio-ranked-shell > div:first-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.studio-ranked-lists li a {
+  transition: padding 180ms ease, color 180ms ease;
+}
+
+.studio-ranked-lists li a:hover {
+  padding-inline: 0.35rem;
+}
+
 .studio-benefit {
   background: color-mix(in oklab, var(--paper) 86%, transparent);
   backdrop-filter: blur(12px);
@@ -399,12 +532,127 @@ body:has(.home-premium) .site-header nav a:hover::after {
   min-height: 25rem;
 }
 
+.studio-comparison {
+  background:
+    radial-gradient(circle, color-mix(in oklab, var(--foreground) 8%, transparent) 0.7px, transparent 0.8px),
+    var(--background);
+  background-size: 26px 26px;
+}
+
+.studio-comparison-heading {
+  max-width: 62rem;
+}
+
+.studio-comparison-heading > p:last-child {
+  margin-inline: auto;
+  max-width: 45rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.studio-comparison-old {
+  margin-block: 1.5rem;
+  background: color-mix(in oklab, var(--secondary) 74%, transparent) !important;
+  box-shadow: none !important;
+}
+
 .studio-comparison-winner {
   position: relative;
   overflow: hidden;
   box-shadow:
     0 1px 0 color-mix(in oklab, var(--ink-foreground) 12%, transparent) inset,
     0 38px 82px -46px color-mix(in oklab, var(--accent) 58%, transparent);
+}
+
+@media (min-width: 768px) {
+  .studio-comparison-winner {
+    min-height: 30rem;
+    padding: 2.5rem;
+  }
+}
+
+.studio-reviews-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, color-mix(in oklab, var(--accent) 5%, var(--sand)), var(--sand) 58%),
+    var(--sand);
+}
+
+.studio-reviews-section::before {
+  position: absolute;
+  top: 0;
+  right: 8%;
+  width: 11rem;
+  height: 1px;
+  content: "";
+  background: var(--accent);
+}
+
+.studio-review-card {
+  border-top: 2px solid color-mix(in oklab, var(--accent) 46%, var(--border));
+}
+
+.studio-usecases-section .studio-usecase-card:nth-child(2n) {
+  transform: translateY(1.5rem);
+}
+
+.studio-usecase-card {
+  min-height: 15rem;
+}
+
+.studio-usecase-card .eyebrow::before {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  margin-right: 0.6rem;
+  vertical-align: middle;
+  content: "";
+  background: currentColor;
+}
+
+.studio-journal-section {
+  background:
+    linear-gradient(180deg, var(--background), color-mix(in oklab, var(--accent) 2%, var(--background)));
+}
+
+.studio-journal-card {
+  min-height: 18rem;
+  justify-content: flex-end;
+}
+
+.studio-journal-card h3 {
+  font-family: "Bricolage Grotesque", var(--font-sans);
+  font-size: 1.35rem;
+}
+
+.studio-journal-card:nth-child(2) {
+  background: var(--ink) !important;
+  color: var(--ink-foreground);
+}
+
+.studio-journal-card:nth-child(2) h3 a,
+.studio-journal-card:nth-child(2) p {
+  color: var(--ink-foreground);
+}
+
+.studio-journal-card:nth-child(2) > p:last-child {
+  opacity: 0.68;
+}
+
+.studio-faq-section {
+  background:
+    radial-gradient(circle at 50% 0%, color-mix(in oklab, var(--accent) 8%, transparent), transparent 26rem),
+    var(--sand);
+}
+
+.studio-final-kicker {
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .studio-comparison-winner::after {
@@ -498,12 +746,27 @@ body:has(.home-premium) .site-header nav a:hover::after {
     border-radius: 1.5rem;
   }
 
+  .studio-usecases-section .studio-usecase-card:nth-child(2n) {
+    transform: none;
+  }
+
+  .studio-card-grid > a {
+    min-height: 13.5rem;
+  }
+
   .home-premium .studio-section {
     padding-block: 5rem;
   }
 
   .studio-comparison-card {
     min-height: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .studio-ranked-lists .studio-ranked-shell > div:first-child {
+    border-right: 1px solid var(--border);
+    border-bottom: 0;
   }
 }
 

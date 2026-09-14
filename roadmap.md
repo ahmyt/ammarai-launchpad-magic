@@ -83,3 +83,8 @@
 ## Neo-glass precision homepage refinement
 - [x] Apply the selected neo-glass visual language without changing homepage content or behavior
 - [x] Verify the refined homepage across desktop and mobile
+
+## Major premium homepage upgrade
+- [x] Recompose the full homepage with distinct section hierarchies and premium visual rhythm
+- [x] Elevate the Command Center, flagship showcase, media, comparison, reviews, and conversion areas
+- [ ] Verify the complete experience across desktop and mobile
