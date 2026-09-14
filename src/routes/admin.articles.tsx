@@ -4,7 +4,15 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
-import { allSyndicatedArticlesQuery, articleDate, articleSource } from "@/lib/articles";
+import {
+  BLOG_CATEGORIES,
+  CONTENT_TYPES,
+  allSyndicatedArticlesQuery,
+  articleCategory,
+  articleContentType,
+  articleDate,
+  articleSource,
+} from "@/lib/articles";
 import {
   getSyncRunLog,
   getSyncSettings,
@@ -116,6 +124,25 @@ function AdminArticles() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["syndicated-articles"] }),
     onError: (error: Error) => setStatus(error.message),
   });
+
+  const updateTaxonomy = useMutation({
+    mutationFn: async ({
+      id,
+      patch,
+    }: {
+      id: string;
+      patch: { category?: string; content_type?: string };
+    }) => {
+      const { error } = await supabase
+        .from("syndicated_articles")
+        .update(patch as never)
+        .eq("id", id);
+      if (error) throw new Error(error.message);
+    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["syndicated-articles"] }),
+    onError: (error: Error) => setStatus(error.message),
+  });
+
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -290,7 +317,44 @@ function AdminArticles() {
                 <p className="mt-1 text-xs text-muted-foreground">
                   /blog/{article.slug} · {articleDate(article)}
                 </p>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <select
+                    aria-label="Category"
+                    value={articleCategory(article)}
+                    onChange={(event) =>
+                      updateTaxonomy.mutate({
+                        id: article.id,
+                        patch: { category: event.target.value },
+                      })
+                    }
+                    className="rounded-md border border-border bg-background px-2 py-1 text-xs font-semibold"
+                  >
+                    {BLOG_CATEGORIES.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    aria-label="Format"
+                    value={articleContentType(article)}
+                    onChange={(event) =>
+                      updateTaxonomy.mutate({
+                        id: article.id,
+                        patch: { content_type: event.target.value },
+                      })
+                    }
+                    className="rounded-md border border-border bg-background px-2 py-1 text-xs font-semibold"
+                  >
+                    {CONTENT_TYPES.map((type) => (
+                      <option key={type.id} value={type.id}>
+                        {type.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
+
               <div className="flex flex-wrap items-center gap-3">
                 <span
                   className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ring-1 ${

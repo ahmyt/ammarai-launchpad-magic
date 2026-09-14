@@ -324,8 +324,10 @@ export type Database = {
       }
       syndicated_articles: {
         Row: {
+          category: string | null
           content_html: string | null
           content_markdown: string | null
+          content_type: string | null
           created_at: string
           external_id: string | null
           faq_json_ld: Json | null
@@ -342,8 +344,10 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          category?: string | null
           content_html?: string | null
           content_markdown?: string | null
+          content_type?: string | null
           created_at?: string
           external_id?: string | null
           faq_json_ld?: Json | null
@@ -360,8 +364,10 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          category?: string | null
           content_html?: string | null
           content_markdown?: string | null
+          content_type?: string | null
           created_at?: string
           external_id?: string | null
           faq_json_ld?: Json | null

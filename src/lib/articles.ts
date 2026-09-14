@@ -16,10 +16,12 @@ export interface SyndicatedArticle {
   published_at: string | null;
   synced_at: string;
   is_hidden: boolean;
+  category: string | null;
+  content_type: string | null;
 }
 
 const COLUMNS =
-  "id, slug, title, external_id, content_html, content_markdown, meta_description, hero_image_url, json_ld, faq_json_ld, language_code, published_at, synced_at, is_hidden";
+  "id, slug, title, external_id, content_html, content_markdown, meta_description, hero_image_url, json_ld, faq_json_ld, language_code, published_at, synced_at, is_hidden, category, content_type";
 
 export async function fetchSyndicatedArticles(): Promise<SyndicatedArticle[]> {
   const { data, error } = await supabase
@@ -68,9 +70,66 @@ export function articleSource(article: SyndicatedArticle): "BabyLoveGrowth" | "D
   return article.external_id?.startsWith("daily:") ? "Daily Writer" : "BabyLoveGrowth";
 }
 
+/** Topical categories used across the blog. */
+export const BLOG_CATEGORIES = [
+  "AI Tools",
+  "AI Writing",
+  "AI Video",
+  "AI Image",
+  "AI Voice",
+  "AI Audio",
+  "AI Marketing",
+  "AI SEO",
+  "AI Automation",
+  "AI Agents",
+  "AI Productivity",
+  "AI for Business",
+  "AI for Agencies",
+  "AI for Content Creators",
+  "AI Comparisons",
+  "AI Alternatives",
+  "AI Tutorials",
+  "AI Use Cases",
+  "AI Social Media",
+  "AI E-commerce",
+  "AI Guides",
+] as const;
+
+/** Article formats, used for the blog filter row. */
+export const CONTENT_TYPES = [
+  { id: "guide", label: "Guides" },
+  { id: "best-of", label: "Best AI Tools" },
+  { id: "comparison", label: "Comparisons" },
+  { id: "alternatives", label: "Alternatives" },
+  { id: "tutorial", label: "Tutorials" },
+  { id: "use-case", label: "Use Cases" },
+] as const;
+
+export type ContentTypeId = (typeof CONTENT_TYPES)[number]["id"];
+
+export function contentTypeLabel(id: string): string {
+  return CONTENT_TYPES.find((t) => t.id === id)?.label ?? "Guides";
+}
+
+/** Derive a format from the slug/title when nothing is stored yet. */
+export function inferContentType(slug: string, title = ""): ContentTypeId {
+  const text = `${slug} ${title}`.toLowerCase();
+  if (/\balternatives?\b/.test(text)) return "alternatives";
+  if (/\bvs\b|\bcompared?\b|comparison/.test(text)) return "comparison";
+  if (/^best-|\bbest \b|top-\d/.test(text)) return "best-of";
+  if (/^how-to-|how to /.test(text)) return "tutorial";
+  return "guide";
+}
+
+export function articleContentType(article: SyndicatedArticle): ContentTypeId {
+  const stored = article.content_type;
+  if (stored && CONTENT_TYPES.some((t) => t.id === stored)) return stored as ContentTypeId;
+  return inferContentType(article.slug, article.title);
+}
+
 /**
- * Content-aware category derived from the article's title, description and
- * body. Falls back to "AI Guides" when nothing matches.
+ * Stored category when present, otherwise derived from the article's title,
+ * description and body. Falls back to "AI Guides" when nothing matches.
  */
 const CATEGORY_KEYWORDS: [string, string[]][] = [
   ["AI SEO", ["seo", "search engine", "ranking", "rank on google", "serp", "backlink", "keyword research", "organic traffic", "meta description", "schema markup"]],
@@ -86,6 +145,7 @@ const CATEGORY_KEYWORDS: [string, string[]][] = [
 ];
 
 export function articleCategory(article: SyndicatedArticle): string {
+  if (article.category) return article.category;
   const title = (article.title ?? "").toLowerCase();
   const description = (article.meta_description ?? "").toLowerCase();
   const bodySource = article.content_markdown ?? article.content_html ?? "";
