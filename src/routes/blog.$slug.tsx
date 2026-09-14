@@ -263,7 +263,10 @@ function StaticPostView({ post }: { post: Post }) {
     .filter((p): p is Post => Boolean(p) && p!.slug !== post.slug)
     .slice(0, 3);
 
-  const relatedTools = tools.filter((tool) => tool.category === post.category).slice(0, 3);
+  const relatedTools = pickRelatedTools(
+    post.category,
+    `${post.title} ${post.excerpt} ${post.intro.join(" ")}`,
+  );
 
   const toc = [
     ...post.sections.map((section) => ({
