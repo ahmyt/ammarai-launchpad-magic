@@ -386,6 +386,16 @@ function buildHtml(
         `<ul>${section.bullets.map((b) => `<li>${inlineMarkdown(b)}</li>`).join("")}</ul>`,
       );
     }
+    const table = section.table;
+    if (table?.head?.length && table.rows?.length) {
+      const head = `<thead><tr>${table.head.map((c) => `<th>${inlineMarkdown(c)}</th>`).join("")}</tr></thead>`;
+      const rows = table.rows
+        .map((row) => `<tr>${row.map((c) => `<td>${inlineMarkdown(c)}</td>`).join("")}</tr>`)
+        .join("");
+      body.push(
+        `<table>${table.caption ? `<caption>${inlineMarkdown(table.caption)}</caption>` : ""}${head}<tbody>${rows}</tbody></table>`,
+      );
+    }
     if (index === 1) {
       body.push(figure(image, `${toolName} in AmmarAI`, `${toolName} inside AmmarAI.`));
     }
