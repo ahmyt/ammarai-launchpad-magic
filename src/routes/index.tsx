@@ -303,7 +303,7 @@ export function Home() {
              scale="large"
              className="studio-heading-wide"
           />
-          <div className="studio-card-grid mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="studio-card-grid mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {featuredTools.map((tool, index) => (
               <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "studio-featured-card lg:col-span-2 min-h-52 justify-end" : "min-h-52"} />
             ))}
@@ -434,7 +434,7 @@ export function Home() {
              scale="large"
              className="studio-heading-wide"
           />
-          <ul className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-3" aria-label="Connected workspace benefits">
+           <ul className="studio-benefit-strip mt-10 grid gap-2 sm:grid-cols-2 lg:grid-cols-6" aria-label="Connected workspace benefits">
             {workspaceBenefits.map(({ label, icon: Icon }) => (
               <li key={label} className="studio-benefit flex items-center gap-3 rounded-xl border border-border bg-card p-4 text-sm font-semibold text-foreground">
                 <span className="grid size-8 place-items-center rounded-lg bg-accent/10"><Icon className="size-4 text-accent" aria-hidden="true" /></span>
@@ -442,7 +442,7 @@ export function Home() {
               </li>
             ))}
           </ul>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+           <div className="studio-feature-grid mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {features.slice(0, 6).map((f) => (
               <Card key={f.slug} interactive className="p-6">
                 <h3 className="text-base font-semibold">
@@ -469,7 +469,7 @@ export function Home() {
            <SectionHeading eyebrow={cmp.eyebrow} title={cmp.title} intro={cmp.intro} align="center" scale="large" className="studio-comparison-heading" />
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {/* The old way */}
-            <div className="studio-comparison-card studio-comparison-old flex flex-col rounded-xl bg-card p-7 ring-1 ring-border">
+            <div className="studio-comparison-card studio-comparison-old flex flex-col rounded-xl bg-card p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 {cmp.oldLabel}
               </p>

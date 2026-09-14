@@ -622,7 +622,7 @@ body:has(.home-premium) .site-header nav a:hover::after {
 }
 
 .studio-journal-card h3 {
-  font-family: "Bricolage Grotesque", var(--font-sans);
+  font-family: "Space Grotesk", var(--font-sans);
   font-size: 1.35rem;
 }
 
@@ -1241,6 +1241,152 @@ body:has(.home-swiss) .site-header button {
   border-radius: 0;
 }
 
+/* Neo-Swiss refinement — preserve impact while adding hierarchy and finish. */
+.home-swiss .studio-hero {
+  padding-top: clamp(3.5rem, 7vw, 6.75rem);
+  padding-bottom: clamp(5rem, 8vw, 7.5rem);
+}
+
+.home-swiss .studio-hero::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, var(--foreground) 0 50%, var(--accent) 50% 64%, var(--foreground) 64% 100%);
+  pointer-events: none;
+}
+
+.home-swiss .studio-hero-aside {
+  padding-top: 2rem;
+}
+
+.home-swiss .studio-command {
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  box-shadow:
+    10px 10px 0 var(--foreground),
+    18px 18px 0 color-mix(in oklab, var(--accent) 32%, transparent);
+}
+
+.home-swiss .studio-command > div:first-child {
+  background: color-mix(in oklab, var(--paper) 94%, var(--secondary));
+}
+
+.home-swiss .studio-command-main button {
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.home-swiss .studio-command-main button:hover {
+  transform: translateY(-1px);
+}
+
+.home-swiss .studio-section {
+  padding-block: clamp(6.25rem, 10vw, 10rem);
+}
+
+.home-swiss .studio-section-compact {
+  padding-block: clamp(5.25rem, 8vw, 7.5rem);
+}
+
+.home-swiss .studio-heading-wide > p:last-child,
+.home-swiss .studio-comparison-heading > p:last-child {
+  margin-top: 1.5rem;
+  max-width: 48rem;
+  color: color-mix(in oklab, var(--foreground) 68%, transparent);
+}
+
+.home-swiss .studio-card-grid > :first-child::before {
+  color: var(--accent-foreground);
+  opacity: 0.34;
+}
+
+.home-swiss .studio-card-grid > a {
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.home-swiss .studio-card-grid > a:hover {
+  z-index: 2;
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--accent);
+}
+
+.home-swiss .studio-video-card:hover,
+.home-swiss [class*="rounded-xl"][class*="bg-card"]:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--accent);
+}
+
+.home-swiss .studio-category-card {
+  padding: 1.75rem;
+  border-color: color-mix(in oklab, var(--foreground) 78%, transparent);
+  border-top-color: var(--accent);
+}
+
+.home-swiss .studio-ranked-shell {
+  box-shadow:
+    6px 6px 0 var(--foreground),
+    12px 12px 0 color-mix(in oklab, var(--accent) 24%, transparent);
+}
+
+.home-swiss .studio-benefit-strip {
+  border-top: 1px solid var(--foreground);
+  border-left: 1px solid var(--foreground);
+}
+
+.home-swiss .studio-benefit {
+  min-height: 7.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border-width: 0 1px 1px 0;
+  padding: 1rem;
+  font-family: "Space Grotesk", var(--font-sans);
+  line-height: 1.25;
+}
+
+.home-swiss .studio-feature-grid > div {
+  min-height: 13.5rem;
+  padding: 1.75rem;
+}
+
+.home-swiss .studio-comparison-card {
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+.home-swiss .studio-comparison-winner {
+  box-shadow:
+    6px 6px 0 var(--accent),
+    14px 14px 0 color-mix(in oklab, var(--foreground) 12%, transparent);
+}
+
+.home-swiss .studio-usecase-card,
+.home-swiss .studio-journal-card,
+.home-swiss .studio-review-card {
+  padding: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+.home-swiss .studio-usecase-card:nth-child(3n + 2),
+.home-swiss .studio-journal-card:nth-child(2) {
+  box-shadow: inset 0 5px 0 color-mix(in oklab, var(--accent-foreground) 36%, transparent);
+}
+
+.home-swiss .studio-faq-section details {
+  padding-block: 1.35rem;
+}
+
+.home-swiss .studio-final-cta {
+  padding-block: clamp(6rem, 10vw, 9rem);
+}
+
+.home-swiss .studio-final-cta::before {
+  background-image: repeating-linear-gradient(135deg, transparent 0 71px, color-mix(in oklab, var(--ink-foreground) 14%, transparent) 71px 72px);
+  background-size: auto;
+  opacity: 0.52;
+}
+
 @media (min-width: 900px) {
   .studio-hero-grid {
     grid-template-columns: minmax(0, 1.55fr) minmax(20rem, 0.45fr);
@@ -1248,6 +1394,23 @@ body:has(.home-swiss) .site-header button {
 
   .studio-hero-aside {
     padding-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1180px) {
+  .home-swiss .studio-hero h1 {
+    font-size: clamp(4.5rem, 8vw, 6rem);
+  }
+
+  .studio-hero-grid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(19rem, 0.65fr);
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .home-swiss .studio-video-lead video {
+    aspect-ratio: 16 / 7;
   }
 }
 
@@ -1267,27 +1430,46 @@ body:has(.home-swiss) .site-header button {
   }
 
   .studio-hero-index {
-    top: 0.1rem;
+    position: static;
+    width: max-content;
+    margin: 0 0 1.25rem auto;
+  }
+
+  .home-swiss .studio-kicker {
+    max-width: calc(100% - 0.25rem);
+    line-height: 1.35;
+  }
+
+  .home-swiss .studio-hero-grid {
+    gap: 2.25rem;
+    margin-top: 2.75rem;
+  }
+
+  .home-swiss .studio-hero-aside {
+    padding-top: 1.5rem;
+    border-top-width: 3px;
   }
 
   .home-swiss .studio-command {
     margin-inline: 0;
     border-radius: 0;
-    box-shadow: 7px 7px 0 var(--foreground);
+    box-shadow:
+      6px 6px 0 var(--foreground),
+      10px 10px 0 color-mix(in oklab, var(--accent) 26%, transparent);
   }
 
   .home-swiss .studio-command-main,
   .home-swiss .studio-command-sidebar {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
 
   .home-swiss .studio-section {
-    padding-block: 5rem;
+    padding-block: 5.5rem;
   }
 
   .home-swiss .studio-section h2 {
-    font-size: 3.15rem;
-    line-height: 0.9;
+    font-size: clamp(2.65rem, 12vw, 3.15rem);
+    line-height: 0.92;
   }
 
   .home-swiss .studio-card-grid > a {
@@ -1296,7 +1478,18 @@ body:has(.home-swiss) .site-header button {
 
   .home-swiss .studio-ranked-shell,
   .home-swiss .studio-comparison-winner {
-    box-shadow: 7px 7px 0 var(--foreground);
+    box-shadow: 5px 5px 0 var(--foreground);
+  }
+
+  .home-swiss .studio-benefit {
+    min-height: 6.25rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .home-swiss .studio-feature-grid {
+    margin-top: 3rem;
   }
 }
 
