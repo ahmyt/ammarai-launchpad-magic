@@ -152,11 +152,21 @@ async function generate(toolName: string, prompt: string): Promise<GeneratedPost
                 items: {
                   type: "object",
                   additionalProperties: false,
-                  required: ["heading", "paragraphs", "bullets"],
+                  required: ["heading", "paragraphs", "bullets", "table"],
                   properties: {
                     heading: { type: "string" },
                     paragraphs: { type: "array", items: { type: "string" } },
                     bullets: { type: "array", items: { type: "string" } },
+                    table: {
+                      type: ["object", "null"],
+                      additionalProperties: false,
+                      required: ["caption", "head", "rows"],
+                      properties: {
+                        caption: { type: ["string", "null"] },
+                        head: { type: "array", items: { type: "string" } },
+                        rows: { type: "array", items: { type: "array", items: { type: "string" } } },
+                      },
+                    },
                   },
                 },
               },
