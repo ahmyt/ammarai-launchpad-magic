@@ -8,6 +8,13 @@ import { writerFromClient, type ArticleWriter } from "@/lib/cron-db.server";
 import { tools } from "@/data/tools";
 import { SITE } from "@/lib/site";
 import { getToolKeywords } from "@/data/tool-keywords";
+import {
+  BANNED_PHRASES,
+  BLOG_TOPICS,
+  TYPE_ROTATION,
+  bucketOf,
+  type BlogTopic,
+} from "@/lib/blog-topics";
 
 const OPENAI_URL = "https://api.openai.com/v1/chat/completions";
 const DEFAULT_MODEL = "gpt-5.6-sol";
