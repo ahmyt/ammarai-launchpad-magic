@@ -671,5 +671,9 @@ export async function writeDailyPost(
   const { error } = await writer.upsertArticle(row);
   if (error) throw new Error(error);
 
-  return { slug, title: post.title, toolSlug: tool.slug };
+  return {
+    slug,
+    title: post.title,
+    toolSlug: assignment.kind === "tool" ? assignment.tool.slug : assignment.topic.id,
+  };
 }
