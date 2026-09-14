@@ -121,10 +121,18 @@ export interface Post {
   readingTime: string;
   excerpt: string;
   intro: string[];
-  sections: { heading: string; paragraphs: string[]; bullets?: string[] }[];
+  sections: {
+    heading: string;
+    paragraphs: string[];
+    bullets?: string[];
+    table?: { caption?: string; head: string[]; rows: string[][] };
+    links?: { label: string; to: string }[];
+  }[];
   takeaways: string[];
+  faqs?: Faq[];
   related: string[];
 }
+
 
 export interface Page {
   slug: string;
