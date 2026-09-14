@@ -328,7 +328,30 @@ function StaticPostView({ post }: { post: Post }) {
               </p>
             ))}
           </div>
+          {toc.length > 2 ? (
+            <nav aria-label="Table of contents" className="mt-8 border border-border p-5">
+              <h2 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                Table of contents
+              </h2>
+              <ol className="mt-3 space-y-1.5 text-sm">
+                {toc.map((item, index) => (
+                  <li key={item.id}>
+                    <a
+                      href={`#${item.id}`}
+                      className="text-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
+                    >
+                      <span className="mr-2 text-muted-foreground">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          ) : null}
         </Container>
+
       </Section>
 
       <Section className="py-8">
