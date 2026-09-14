@@ -106,4 +106,4 @@
 
 ## Neo-Swiss footer refinement
 - [x] Bring the footer into the bold editorial system with stronger hierarchy and mobile balance
-- [ ] Verify desktop and mobile footer presentation
+- [x] Verify desktop and mobile footer presentation
