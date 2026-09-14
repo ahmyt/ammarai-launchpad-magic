@@ -6,6 +6,7 @@
 - [x] Writing cluster: Jasper/Writesonic/Copy.ai/Rytr alternatives + Best AI Writing Tools pillar
 
 - [x] Retrained the daily writer against the Part 7 brief (topic queue, 20-article type rotation, tables, internal links, banned filler, stored category/format)
+- [x] Match daily-writer tables of contents to the bordered, numbered editorial article style
 - [ ] Video and Image pillars, then remaining clusters
 
 

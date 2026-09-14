@@ -2562,6 +2562,69 @@ body:has(.home-swiss) .site-footer-back:hover span {
   border-color: var(--foreground);
 }
 
+.syndicated-article .article-toc {
+  margin-block: 2.25rem 4rem;
+  padding: clamp(1.4rem, 5vw, 2.25rem);
+  border: 1px solid var(--foreground);
+  background: var(--background);
+}
+
+.syndicated-article .article-toc h2 {
+  margin: 0 0 1.25rem;
+  font-family: "Inter", var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.syndicated-article .article-toc ol,
+.syndicated-article .article-toc ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: article-toc;
+}
+
+.syndicated-article .article-toc li {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  padding-left: 2.7rem;
+  counter-increment: article-toc;
+}
+
+.syndicated-article .article-toc li::before {
+  content: counter(article-toc, decimal-leading-zero);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.syndicated-article .article-toc a {
+  display: block;
+  color: var(--foreground);
+  font-weight: 500;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.syndicated-article .article-toc a:hover {
+  color: var(--accent);
+}
+
+.syndicated-article .article-toc a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .site-shell [class*="rounded-xl"][class*="ring-1"],
 .site-shell [class*="rounded-md"][class*="ring-1"] {
   border-radius: 0;
