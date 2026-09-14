@@ -817,6 +817,13 @@ body:has(.home-swiss) .site-header {
   backdrop-filter: blur(18px);
 }
 
+.site-shell .site-header .font-display,
+.site-shell .site-footer .font-display {
+  font-family: "Inter", var(--font-sans);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 body:has(.home-swiss) .site-header > div {
   min-height: 4.75rem;
   padding-block: 0;
@@ -2233,7 +2240,8 @@ body:has(.home-swiss) .site-footer-back:hover span {
 }
 
 .site-shell > main > :not(.home-premium) > .site-section:first-child,
-.site-shell > main > article > .site-section:first-of-type {
+.site-shell > main > article > .site-section:first-of-type,
+.site-shell > main .site-section:has(.site-breadcrumbs) {
   position: relative;
   overflow: hidden;
   min-height: 31rem;
@@ -2245,7 +2253,8 @@ body:has(.home-swiss) .site-footer-back:hover span {
 }
 
 .site-shell > main > :not(.home-premium) > .site-section:first-child::after,
-.site-shell > main > article > .site-section:first-of-type::after {
+.site-shell > main > article > .site-section:first-of-type::after,
+.site-shell > main .site-section:has(.site-breadcrumbs)::after {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -2256,12 +2265,14 @@ body:has(.home-swiss) .site-footer-back:hover span {
 }
 
 .site-shell > main > :not(.home-premium) > .site-section:first-child .site-container,
-.site-shell > main > article > .site-section:first-of-type .site-container {
+.site-shell > main > article > .site-section:first-of-type .site-container,
+.site-shell > main .site-section:has(.site-breadcrumbs) .site-container {
   position: relative;
 }
 
 .site-shell > main > :not(.home-premium) > .site-section:first-child .site-container::before,
-.site-shell > main > article > .site-section:first-of-type .site-container::before {
+.site-shell > main > article > .site-section:first-of-type .site-container::before,
+.site-shell > main .site-section:has(.site-breadcrumbs) .site-container::before {
   display: block;
   width: max-content;
   margin: 0 0 1.75rem auto;
@@ -2274,7 +2285,8 @@ body:has(.home-swiss) .site-footer-back:hover span {
 }
 
 .site-shell > main > :not(.home-premium) > .site-section:first-child h1,
-.site-shell > main > article > .site-section:first-of-type h1 {
+.site-shell > main > article > .site-section:first-of-type h1,
+.site-shell > main .site-section:has(.site-breadcrumbs) h1 {
   max-width: 65rem;
   font-size: clamp(3.4rem, 7.6vw, 7.6rem);
   font-weight: 900;
@@ -2284,7 +2296,8 @@ body:has(.home-swiss) .site-footer-back:hover span {
 }
 
 .site-shell > main > :not(.home-premium) > .site-section:first-child h1 + p,
-.site-shell > main > article > .site-section:first-of-type h1 + p {
+.site-shell > main > article > .site-section:first-of-type h1 + p,
+.site-shell > main .site-section:has(.site-breadcrumbs) h1 + p {
   max-width: 44rem;
   margin-top: 2rem;
   font-size: clamp(1.05rem, 1.4vw, 1.25rem);
@@ -2451,6 +2464,30 @@ body:has(.home-swiss) .site-footer-back:hover span {
   color: var(--foreground);
 }
 
+.site-demo {
+  border: 2px solid var(--foreground);
+  border-radius: 0;
+  box-shadow: 10px 10px 0 var(--foreground), 16px 16px 0 color-mix(in oklab, var(--accent) 32%, transparent);
+}
+
+.site-demo > div:first-child {
+  border-color: var(--foreground);
+  background: var(--secondary);
+}
+
+.site-demo button,
+.site-demo [class*="rounded-full"] {
+  border-radius: 0;
+}
+
+.site-shell > main > .site-section:only-child > .site-container.max-w-md,
+.site-shell > main > .site-section:only-child > .site-container.max-w-lg {
+  border: 2px solid var(--foreground);
+  background: var(--paper);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  box-shadow: 10px 10px 0 var(--accent);
+}
+
 .prose-editorial {
   font-size: 1.02rem;
 }
@@ -2550,20 +2587,23 @@ body:has(.home-swiss) .site-footer-back:hover span {
 
 @media (max-width: 639px) {
   .site-shell > main > :not(.home-premium) > .site-section:first-child,
-  .site-shell > main > article > .site-section:first-of-type {
+  .site-shell > main > article > .site-section:first-of-type,
+  .site-shell > main .site-section:has(.site-breadcrumbs) {
     min-height: 0;
     padding-block: 2.5rem 4.5rem;
     background: var(--background);
   }
 
   .site-shell > main > :not(.home-premium) > .site-section:first-child h1,
-  .site-shell > main > article > .site-section:first-of-type h1 {
+  .site-shell > main > article > .site-section:first-of-type h1,
+  .site-shell > main .site-section:has(.site-breadcrumbs) h1 {
     font-size: clamp(2.75rem, 13vw, 3.65rem);
     line-height: 0.9;
   }
 
   .site-shell > main > :not(.home-premium) > .site-section:first-child .site-container::before,
-  .site-shell > main > article > .site-section:first-of-type .site-container::before {
+  .site-shell > main > article > .site-section:first-of-type .site-container::before,
+  .site-shell > main .site-section:has(.site-breadcrumbs) .site-container::before {
     margin-bottom: 1.25rem;
   }
 
@@ -2577,6 +2617,10 @@ body:has(.home-swiss) .site-footer-back:hover span {
 
   .site-tool-card {
     min-height: 0;
+  }
+
+  .site-demo {
+    box-shadow: 5px 5px 0 var(--foreground), 9px 9px 0 color-mix(in oklab, var(--accent) 28%, transparent);
   }
 
   .site-shell table {
