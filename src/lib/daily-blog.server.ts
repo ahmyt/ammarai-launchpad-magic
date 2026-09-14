@@ -302,6 +302,14 @@ function imageFor(category: string): string {
   return CATEGORY_IMAGES[category] ?? "/media/blog-cat-business.jpg";
 }
 
+/** A stock picture that is guaranteed not to repeat the hero image. */
+function altImageFor(category: string, avoid: string): string {
+  const pool = [
+    ...new Set([imageFor(category), ...Object.values(CATEGORY_IMAGES)]),
+  ].filter((src) => src !== avoid);
+  return pool[0] ?? "/media/blog-cat-writing.jpg";
+}
+
 function figure(src: string, alt: string, caption: string): string {
   return (
     `<figure><img src="${src}" alt="${escapeHtml(alt)}" loading="lazy" width="1280" height="720" />` +
