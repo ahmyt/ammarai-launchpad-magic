@@ -92,4 +92,4 @@
 ## Neo-Swiss Editorial homepage rebuild
 - [x] Replace the current visual system with the selected bold editorial grid
 - [x] Recompose the opening, Command Center, and every section with distinct hierarchy
-- [ ] Verify interactions, media, reviews, and responsive layouts
+- [x] Verify interactions, media, reviews, and responsive layouts
