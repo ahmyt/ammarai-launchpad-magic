@@ -65,6 +65,24 @@ function BlogPost() {
   return <StaticPostView post={post!} />;
 }
 
+/**
+ * Picks up to three tools for the "Tools to try next" row. Blog categories
+ * (e.g. "AI Guides", "AI Automation") don't always match a tool category, so we
+ * fall back to matching tool names against the article text, then to flagships.
+ */
+function pickRelatedTools(category: string, text: string) {
+  const haystack = text.toLowerCase();
+  const byCategory = tools.filter((tool) => tool.category === category);
+  const byMention = tools.filter(
+    (tool) => !byCategory.includes(tool) && haystack.includes(tool.name.toLowerCase()),
+  );
+  const picked = [...byCategory, ...byMention];
+  const fallback = featuredTools.filter((tool) => !picked.includes(tool));
+  return [...picked, ...fallback]
+    .slice(0, 3)
+    .map((tool) => ({ slug: tool.slug, name: tool.name, summary: tool.summary }));
+}
+
 function RecommendedReading({ article }: { article: SyndicatedArticle }) {
   const { data: articles } = useSuspenseQuery(syndicatedArticlesQuery);
   const category = articleCategory(article);
