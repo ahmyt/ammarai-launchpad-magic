@@ -2755,7 +2755,7 @@ export const tutorials: Tutorial[] = [
         ],
       },
     ],
-    relatedTools: ["ai-chat", "ai-writer", "ai-brand-voice"],
+    relatedTools: ["ai-writer", "ai-chat", "ai-content-manager"],
     relatedTutorials: ["how-to-use-the-content-manager", "how-to-use-ai-chat-pro"],
     cta: { toolName: "Team Workspaces", toolSlug: "team-workspaces", kind: "feature" },
   },
@@ -2773,6 +2773,7 @@ export function getTutorial(slug: string): Tutorial | undefined {
 
 export const tutorialByTool = new Map<string, Tutorial>();
 for (const tutorial of tutorials) {
+  if (tutorial.cta.kind === "feature") continue;
   tutorialByTool.set(tutorial.cta.toolSlug, tutorial);
 }
 
