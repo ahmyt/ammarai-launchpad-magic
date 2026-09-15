@@ -186,3 +186,13 @@ None of the Batch 13 captures contain a source wordmark or far-right profile ava
 | shared-credit-pool-system | — | Excluded | Entirely admin finance configuration. |
 | hubspot-crm-integration, ai-avatar-setup, seo-tools, access-to-rest-api, onboarding-pro, checkout-registration | — | Excluded | Provider API keys, server commands, or owner-side extension configuration. |
 | influencer-avatars | already covered | Skipped | Workflow is already in `how-to-create-ai-influencer-videos`. |
+
+## Batch 16
+
+| Reference page | AmmarAI equivalent | Decision | Notes |
+| --- | --- | --- | --- |
+| wordpress-integration (end-user half) | AI Blogger Agent (`ai-blogger-agent`) | Included — `how-to-publish-a-post-to-wordpress` | Kept: Integrations page, connecting the site, and the Share button on a finished document. Excluded: WordPress plugin installation, JWT/permalink configuration and the Marketplace extension install (owner setup). Images: Screenshot-2024-03-22-at-14.45.19 (1094x838) carries no source mark and is used unchanged; Screenshot-2024-03-22-at-14.48.02 (1334x738) had the sidebar wordmark measured at (17,14)-(99,37), the far-right profile avatar at (1244,11)-(1273,39) and the support bubble avatar at (1263,643)-(1307,687), each replaced with the AmmarAI logo at the exact measured centre and footprint with background sampled from adjacent pixels. The sample document body was off-topic non-English spam copy and was replaced with neutral English placeholder text. Native dimensions preserved; no pointers moved. |
+| social-media-suite-setup, social-media-suite-vs-ai-social-media-extension | — | Excluded | Entirely developer-app and provider credential setup (Meta, X, LinkedIn, TikTok, YouTube OAuth apps). |
+| ai-voice-bots-elevenlabs-conversational-ai | — | Excluded | Provider API-key setup only. |
+
+Note: `tutorialByTool` now keeps the first tutorial registered for a tool slug, so a second guide sharing a CTA tool does not displace the primary one.
