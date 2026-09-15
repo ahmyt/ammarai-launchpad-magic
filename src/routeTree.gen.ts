@@ -38,6 +38,7 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as FeaturesIndexRouteImport } from './routes/features.index'
 import { Route as FeaturesSlugRouteImport } from './routes/features.$slug'
 import { Route as TutorialsIndexRouteImport } from './routes/tutorials.index'
+import { Route as TutorialsSlugRouteImport } from './routes/tutorials.$slug'
 import { Route as AdminKindIndexRouteImport } from './routes/admin.$kind.index'
 import { Route as AdminKindSlugRouteImport } from './routes/admin.$kind.$slug'
 import { Route as ApiPublicBlogImageFileRouteImport } from './routes/api/public/blog-image.$file'
@@ -189,6 +190,11 @@ const TutorialsIndexRoute = TutorialsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => TutorialsRoute,
 } as any)
+const TutorialsSlugRoute = TutorialsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => TutorialsRoute,
+} as any)
 const AdminKindIndexRoute = AdminKindIndexRouteImport.update({
   id: '/$kind/',
   path: '/$kind/',
@@ -242,6 +248,7 @@ export interface FileRoutesByFullPath {
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
+  '/tutorials/$slug': typeof TutorialsSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/features/': typeof FeaturesIndexRoute
@@ -276,6 +283,7 @@ export interface FileRoutesByTo {
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
+  '/tutorials/$slug': typeof TutorialsSlugRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/features': typeof FeaturesIndexRoute
@@ -313,6 +321,7 @@ export interface FileRoutesById {
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
+  '/tutorials/$slug': typeof TutorialsSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/features/': typeof FeaturesIndexRoute
@@ -351,6 +360,7 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/blog/$slug'
     | '/features/$slug'
+    | '/tutorials/$slug'
     | '/admin/'
     | '/blog/'
     | '/features/'
@@ -385,6 +395,7 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/blog/$slug'
     | '/features/$slug'
+    | '/tutorials/$slug'
     | '/admin'
     | '/blog'
     | '/features'
@@ -421,6 +432,7 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/blog/$slug'
     | '/features/$slug'
+    | '/tutorials/$slug'
     | '/admin/'
     | '/blog/'
     | '/features/'
@@ -667,6 +679,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TutorialsIndexRouteImport
       parentRoute: typeof TutorialsRoute
     }
+    '/tutorials/$slug': {
+      id: '/tutorials/$slug'
+      path: '/$slug'
+      fullPath: '/tutorials/$slug'
+      preLoaderRoute: typeof TutorialsSlugRouteImport
+      parentRoute: typeof TutorialsRoute
+    }
     '/admin/$kind/': {
       id: '/admin/$kind/'
       path: '/$kind'
@@ -726,10 +745,12 @@ const AdminRouteChildren: AdminRouteChildren = {
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface TutorialsRouteChildren {
+  TutorialsSlugRoute: typeof TutorialsSlugRoute
   TutorialsIndexRoute: typeof TutorialsIndexRoute
 }
 
 const TutorialsRouteChildren: TutorialsRouteChildren = {
+  TutorialsSlugRoute: TutorialsSlugRoute,
   TutorialsIndexRoute: TutorialsIndexRoute,
 }
 
