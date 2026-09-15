@@ -230,9 +230,13 @@ function TutorialPage() {
 
         <div className="tutorial-cta-bottom">
           <p className="tutorial-cta-title">Ready to try it?</p>
-          <ButtonLink to="/$slug" params={{ slug: tutorial.cta.toolSlug }} size="lg">
+          <Link
+            to="/$slug"
+            params={{ slug: tutorial.cta.toolSlug }}
+            className={buttonClass("primary", "lg")}
+          >
             Try {tutorial.cta.toolName} in AmmarAI <ArrowRight aria-hidden="true" />
-          </ButtonLink>
+          </Link>
         </div>
 
         {tutorial.relatedTools.length > 0 && (
