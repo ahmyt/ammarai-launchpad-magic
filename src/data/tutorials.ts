@@ -1656,7 +1656,99 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-use-ai-image-pro", "how-to-edit-videos-with-the-ai-video-editor"],
     cta: { toolName: "AI Creative Suite", toolSlug: "ai-creative-suite" },
   },
+  {
+    slug: "how-to-create-a-video-ad-from-a-product-url",
+    category: "Video Marketing",
+    title: "How to Create a Video Ad from a Product URL | AmmarAI Tutorials",
+    description: "Turn a product page link into a finished video ad in AmmarAI: add the product, choose language, duration and ratio, then pick an avatar, voice and captions before rendering.",
+    h1: "How to create a video ad from a product URL",
+    intro: [
+      "AI URL to Video builds a complete short video ad from a product page. You supply the product link or your own product images, set the video details, then choose the presenter, the voice and the caption style before the finished cut is rendered.",
+      "The workflow runs as a short wizard: Product, Detail, Composition and Render. Each step keeps what you selected before it, so you can step back and change one choice without starting again.",
+    ],
+    whenToUse: [
+      "You have a live product page and need an ad for Reels, TikTok or Shorts.",
+      "You want a presenter-led ad without filming anything.",
+      "You need several ad variants of the same product to test against each other.",
+    ],
+    sections: [
+      {
+        heading: "Create the ad",
+        steps: [
+          {
+            title: "Open the tool and start a new video",
+            body: "Open AI Influencer from the sidebar and select Generate New on the card for generating an ad video from a product URL or uploaded assets.",
+            image: { src: "/media/tutorials/tutorial-url-video-ad-1.png", alt: "AmmarAI AI Influencer page with the Generate New option for a product ad video", caption: "Start from the ad video card and select Generate New.", width: 1398, height: 728 },
+          },
+          {
+            title: "Add the product information",
+            body: "Choose Auto URL and paste the product page link, then select Analyze so the page is read for the product name, description and imagery. Choose Manual Upload instead when the product is not on a public page and you want to supply the details and images yourself. Select Next when the product is in place.",
+            image: { src: "/media/tutorials/tutorial-url-video-ad-2.png", alt: "Add Product Information step with Auto URL and Manual Upload options", caption: "Paste a product URL and analyse it, or upload the product details manually.", width: 1640, height: 838 },
+          },
+          {
+            title: "Choose the video details",
+            body: "Set the spoken language, the target duration and the aspect ratio. Vertical suits Reels, TikTok and Shorts; keep the duration short for paid placements. Select Next to continue.",
+            image: { src: "/media/tutorials/tutorial-url-video-ad-3.png", alt: "Choose Video Details step with language, duration and aspect ratio controls", caption: "Language, duration and aspect ratio are set before the composition step.", width: 1588, height: 736 },
+          },
+          {
+            title: "Pick the avatar",
+            body: "On the Composition step, stay on the Avatar tab and choose the presenter who will deliver the script. Use the search box to narrow the list, and match the setting of the avatar clip to the product you are selling.",
+            image: { src: "/media/tutorials/tutorial-url-video-ad-4.png", alt: "Composition step showing the avatar gallery", caption: "Choose the presenter from the avatar gallery.", width: 1589, height: 828 },
+          },
+          {
+            title: "Choose the voice",
+            body: "Switch to the Voice tab and preview the available voices with the play control next to each name. Pick a voice whose pace and accent match the audience for the ad.",
+            image: { src: "/media/tutorials/tutorial-url-video-ad-5.png", alt: "Voice tab in the composition step with previewable voices", caption: "Preview voices before selecting the one that fits the ad.", width: 1598, height: 839 },
+          },
+          {
+            title: "Select the caption style",
+            body: "Open the Captions tab and choose a caption treatment. High-contrast styles read best in silent autoplay feeds. When the avatar, voice and captions are set, select Preview videos.",
+            image: { src: "/media/tutorials/tutorial-url-video-ad-6.png", alt: "Captions tab with caption style options", caption: "Pick a caption style, then generate the previews.", width: 1591, height: 854 },
+          },
+          {
+            title: "Choose a preview and render",
+            body: "Several preview versions are generated, each with a different hook. Play them, select the one you want, then choose Render Video to produce the finished ad for download.",
+            image: { src: "/media/tutorials/tutorial-url-video-ad-7.png", alt: "Preview video options with the Render Video button", caption: "Select the strongest hook, then render the final ad.", width: 1541, height: 709 },
+          },
+        ],
+      },
+      {
+        heading: "What each step controls",
+        table: {
+          head: ["Step", "What you decide"],
+          rows: [
+            ["Product", "The source of the ad: a product URL to analyse, or product details and images you upload"],
+            ["Detail", "Spoken language, target duration and aspect ratio"],
+            ["Composition", "Avatar presenter, voice and caption style"],
+            ["Render", "Which generated preview becomes the final video"],
+          ],
+        },
+      },
+      {
+        heading: "Get a better result",
+        bullets: [
+          "Point the tool at a product page with clear copy and good imagery — the ad is only as accurate as the page it reads.",
+          "Keep the duration at the short end for paid placements and save longer cuts for organic posts.",
+          "Render more than one preview when you plan to test hooks, rather than rewriting the product step each time.",
+          "Match the avatar and voice to the audience rather than picking the first option in the list.",
+        ],
+      },
+      {
+        heading: "Limits and good practice",
+        bullets: [
+          "Check every claim in the generated script against the product page before publishing; the script is written from page content and can overstate a feature.",
+          "Review captions for spelling of product and brand names.",
+          "Use avatars and voices only in the ways the platform permits, and do not present a generated presenter as a real customer.",
+          "Rendering takes time, and longer or higher-resolution videos take longer.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-url-to-video", "ai-avatar-generator", "ai-video-generator"],
+    relatedTutorials: ["how-to-create-viral-clips", "how-to-create-ai-influencer-videos"],
+    cta: { toolName: "AI URL to Video", toolSlug: "ai-url-to-video" },
+  },
 ];
+
 
 
 export const tutorialBySlug = new Map(tutorials.map((tutorial) => [tutorial.slug, tutorial]));
