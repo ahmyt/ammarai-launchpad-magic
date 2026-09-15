@@ -145,3 +145,7 @@
 - [x] Replace altered/annotated captures with exact reference images; exclude admin-only reference images
 - [x] Re-audit navigation, search, breadcrumbs, related guides, previous/next links, CTAs, sitemap, and llms.txt
 - [x] Validate image fidelity, alt text, metadata, mobile/desktop layouts, links, and forbidden/admin content
+
+## Next verified tutorial tools
+- [x] Add AI Image Pro with regular-user reference screenshots and AmmarAI logo replacement only
+- [x] Add AI Video Pro with its regular-user reference screenshot and exclude the provider-key settings image

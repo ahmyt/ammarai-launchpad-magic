@@ -16,6 +16,8 @@ licensing and system-configuration material is excluded.
 |---|---|---|---|
 | AI Chat Pro | AI Chat Pro (`/ai-chat`) | `/tutorials/how-to-use-ai-chat-pro` | No qualifying end-user image from the reference page; its images show administrator settings, so none are published. |
 | Document Chat in AI Chat Pro | AI Document Analyzer and Chat Pro file workflow (`/ai-document-analyzer`) | `/tutorials/how-to-chat-with-documents` | Five exact, full-resolution reference images are published unchanged. |
+| AI Image Pro | AI Image Pro (`/ai-image-generator`) | `/tutorials/how-to-use-ai-image-pro` | Seven regular-user reference screenshots are used with only the compact source logo replaced by the AmmarAI logo. Administrator-setting images are excluded. |
+| AI Video Pro | AI Video Pro (`/ai-video-generator`) | `/tutorials/how-to-use-ai-video-pro` | The regular-user creation screenshot is used with only the source logo replaced. The provider-key settings screenshot is excluded. |
 
 ## Removed from the previous collection
 
@@ -48,6 +50,11 @@ Some reference captures display the reference interface itself. They remain
 unchanged because the requirement explicitly prohibits editing the visual
 content. They are presented as reference workflow images, not as fabricated
 AmmarAI product screenshots.
+
+The AI Image Pro and AI Video Pro captures preserve the reference screenshot
+content, dimensions and annotations. Their only visual change is replacement
+of the compact source product logo with the AmmarAI logo, as explicitly
+requested. No fields, controls, arrows, crops, colors or results were changed.
 
 ## Excluded reference material
 
