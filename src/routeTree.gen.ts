@@ -37,6 +37,7 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as FeaturesIndexRouteImport } from './routes/features.index'
 import { Route as FeaturesSlugRouteImport } from './routes/features.$slug'
+import { Route as TutorialsIndexRouteImport } from './routes/tutorials.index'
 import { Route as AdminKindIndexRouteImport } from './routes/admin.$kind.index'
 import { Route as AdminKindSlugRouteImport } from './routes/admin.$kind.$slug'
 import { Route as ApiPublicBlogImageFileRouteImport } from './routes/api/public/blog-image.$file'
@@ -183,6 +184,11 @@ const FeaturesSlugRoute = FeaturesSlugRouteImport.update({
   path: '/features/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TutorialsIndexRoute = TutorialsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TutorialsRoute,
+} as any)
 const AdminKindIndexRoute = AdminKindIndexRouteImport.update({
   id: '/$kind/',
   path: '/$kind/',
@@ -228,7 +234,7 @@ export interface FileRoutesByFullPath {
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
-  '/tutorials': typeof TutorialsRoute
+  '/tutorials': typeof TutorialsRouteWithChildren
   '/use-cases': typeof UseCasesRoute
   '/admin/articles': typeof AdminArticlesRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -239,6 +245,7 @@ export interface FileRoutesByFullPath {
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/features/': typeof FeaturesIndexRoute
+  '/tutorials/': typeof TutorialsIndexRoute
   '/admin/$kind/$slug': typeof AdminKindSlugRoute
   '/admin/$kind/': typeof AdminKindIndexRoute
   '/api/public/blog-image/$file': typeof ApiPublicBlogImageFileRoute
@@ -262,7 +269,6 @@ export interface FileRoutesByTo {
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
-  '/tutorials': typeof TutorialsRoute
   '/use-cases': typeof UseCasesRoute
   '/admin/articles': typeof AdminArticlesRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -273,6 +279,7 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/features': typeof FeaturesIndexRoute
+  '/tutorials': typeof TutorialsIndexRoute
   '/admin/$kind/$slug': typeof AdminKindSlugRoute
   '/admin/$kind': typeof AdminKindIndexRoute
   '/api/public/blog-image/$file': typeof ApiPublicBlogImageFileRoute
@@ -298,7 +305,7 @@ export interface FileRoutesById {
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
-  '/tutorials': typeof TutorialsRoute
+  '/tutorials': typeof TutorialsRouteWithChildren
   '/use-cases': typeof UseCasesRoute
   '/admin/articles': typeof AdminArticlesRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -309,6 +316,7 @@ export interface FileRoutesById {
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/features/': typeof FeaturesIndexRoute
+  '/tutorials/': typeof TutorialsIndexRoute
   '/admin/$kind/$slug': typeof AdminKindSlugRoute
   '/admin/$kind/': typeof AdminKindIndexRoute
   '/api/public/blog-image/$file': typeof ApiPublicBlogImageFileRoute
@@ -346,6 +354,7 @@ export interface FileRouteTypes {
     | '/admin/'
     | '/blog/'
     | '/features/'
+    | '/tutorials/'
     | '/admin/$kind/$slug'
     | '/admin/$kind/'
     | '/api/public/blog-image/$file'
@@ -369,7 +378,6 @@ export interface FileRouteTypes {
     | '/resources'
     | '/sitemap.xml'
     | '/terms'
-    | '/tutorials'
     | '/use-cases'
     | '/admin/articles'
     | '/admin/messages'
@@ -380,6 +388,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/blog'
     | '/features'
+    | '/tutorials'
     | '/admin/$kind/$slug'
     | '/admin/$kind'
     | '/api/public/blog-image/$file'
@@ -415,6 +424,7 @@ export interface FileRouteTypes {
     | '/admin/'
     | '/blog/'
     | '/features/'
+    | '/tutorials/'
     | '/admin/$kind/$slug'
     | '/admin/$kind/'
     | '/api/public/blog-image/$file'
@@ -440,7 +450,7 @@ export interface RootRouteChildren {
   ResourcesRoute: typeof ResourcesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
-  TutorialsRoute: typeof TutorialsRoute
+  TutorialsRoute: typeof TutorialsRouteWithChildren
   UseCasesRoute: typeof UseCasesRoute
   ApiContactRoute: typeof ApiContactRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -650,6 +660,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeaturesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tutorials/': {
+      id: '/tutorials/'
+      path: '/'
+      fullPath: '/tutorials/'
+      preLoaderRoute: typeof TutorialsIndexRouteImport
+      parentRoute: typeof TutorialsRoute
+    }
     '/admin/$kind/': {
       id: '/admin/$kind/'
       path: '/$kind'
@@ -708,6 +725,18 @@ const AdminRouteChildren: AdminRouteChildren = {
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
+interface TutorialsRouteChildren {
+  TutorialsIndexRoute: typeof TutorialsIndexRoute
+}
+
+const TutorialsRouteChildren: TutorialsRouteChildren = {
+  TutorialsIndexRoute: TutorialsIndexRoute,
+}
+
+const TutorialsRouteWithChildren = TutorialsRoute._addFileChildren(
+  TutorialsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SlugRoute: SlugRoute,
@@ -726,7 +755,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResourcesRoute: ResourcesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
-  TutorialsRoute: TutorialsRoute,
+  TutorialsRoute: TutorialsRouteWithChildren,
   UseCasesRoute: UseCasesRoute,
   ApiContactRoute: ApiContactRoute,
   BlogSlugRoute: BlogSlugRoute,
