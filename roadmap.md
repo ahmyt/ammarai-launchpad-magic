@@ -149,3 +149,5 @@
 ## Next verified tutorial tools
 - [x] Add AI Image Pro with regular-user reference screenshots and AmmarAI logo replacement only
 - [x] Add AI Video Pro with its regular-user reference screenshot and exclude the provider-key settings image
+- [x] Add Viral Clips using the original full-resolution reference screenshots and exclude provider/setup screens
+- [x] Add AI Influencer product-ad and presenter workflows using original full-resolution reference screenshots
