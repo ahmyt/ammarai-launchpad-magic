@@ -39,7 +39,7 @@ Where an entry is named as "setup" in the reference but AmmarAI genuinely expose
   - a sticky table of contents for longer guides;
   - callouts for tips, notes, and warnings;
   - previous/next navigation and related tutorials;
-  - a prominent **Try in AmmarAI** link to the corresponding real tool page/workspace destination.
+  - a prominent call-to-action at the top and again at the end, using the convention **Try [Tool] in AmmarAI →**. Each CTA links to the tool's real AmmarAI page, and visitors who are not signed in are taken naturally into the registration/sign-up flow from there — no dead ends, no CTAs pointing at tools that do not exist.
 - Match the existing light Neo-Swiss Editorial design, typography, semantic colors, buttons, borders, spacing, header, and footer. Avoid a generic documentation-template appearance.
 - Add Tutorials to visible site navigation without creating broken links.
 
