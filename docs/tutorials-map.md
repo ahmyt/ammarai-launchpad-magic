@@ -102,3 +102,10 @@ All published reference-interface screenshots that display a far-right account a
 - AI Music Pro → AmmarAI AI Music Pro (`/ai-music-generator`) — track description, duration, style selection, generation, and review retained. The provider API-key screenshot is excluded. Three original-resolution workflow screenshots are used.
 
 Every Batch 5 source wordmark and far-right profile avatar was measured independently. Replacements preserve each image's native dimensions and occupy the exact original mark center and footprint; no instructional controls or existing red pointers were moved or redrawn.
+
+## Batch 6 (verified overlaps)
+
+- AI Presentation → AmmarAI AI Presentation Maker (`/ai-presentation-maker`) — brief, language, theme (incl. theme gallery), slide count, advanced options/AI images, generation and download retained. Gamma API integration, credits/cost summary and the admin dashboard capture are excluded. Eight original-resolution screenshots are used.
+- Realtime Voice Chat → AmmarAI Realtime Voice Chat (`/realtime-voice-chat`) — opening a chat, enabling real-time voice from the message bar and holding the spoken session retained. The provider API-key enable screenshot is excluded. One original-resolution screenshot is used.
+
+Every Batch 6 source wordmark was measured independently; replacements occupy the exact original mark center and footprint at native image dimensions. No red pointers or controls were moved. None of the published Batch 6 captures contain a far-right profile avatar.
