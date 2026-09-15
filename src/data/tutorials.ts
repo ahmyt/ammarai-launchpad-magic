@@ -58,7 +58,6 @@ export const tutorials: Tutorial[] = [
     h1: "How to use AI Chat Pro",
     intro: [
       "AI Chat Pro is AmmarAI’s conversational workspace for research, planning, analysis and drafting. You can choose the model that fits the task, add a reusable skill, attach source material and bring current web information into one thread.",
-      "This guide covers only the Chat Pro controls available to AmmarAI users. Platform administration, extension installation, guest limits and system configuration are deliberately excluded.",
     ],
     whenToUse: [
       "You expect to refine an answer through several follow-up messages.",
