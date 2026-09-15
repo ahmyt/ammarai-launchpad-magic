@@ -26,6 +26,7 @@ import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TutorialsRouteImport } from './routes/tutorials'
 import { Route as UseCasesRouteImport } from './routes/use-cases'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminArticlesRouteImport } from './routes/admin.articles'
@@ -36,6 +37,8 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as FeaturesIndexRouteImport } from './routes/features.index'
 import { Route as FeaturesSlugRouteImport } from './routes/features.$slug'
+import { Route as TutorialsIndexRouteImport } from './routes/tutorials.index'
+import { Route as TutorialsSlugRouteImport } from './routes/tutorials.$slug'
 import { Route as AdminKindIndexRouteImport } from './routes/admin.$kind.index'
 import { Route as AdminKindSlugRouteImport } from './routes/admin.$kind.$slug'
 import { Route as ApiPublicBlogImageFileRouteImport } from './routes/api/public/blog-image.$file'
@@ -127,6 +130,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TutorialsRoute = TutorialsRouteImport.update({
+  id: '/tutorials',
+  path: '/tutorials',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UseCasesRoute = UseCasesRouteImport.update({
   id: '/use-cases',
   path: '/use-cases',
@@ -177,6 +185,16 @@ const FeaturesSlugRoute = FeaturesSlugRouteImport.update({
   path: '/features/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TutorialsIndexRoute = TutorialsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TutorialsRoute,
+} as any)
+const TutorialsSlugRoute = TutorialsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => TutorialsRoute,
+} as any)
 const AdminKindIndexRoute = AdminKindIndexRouteImport.update({
   id: '/$kind/',
   path: '/$kind/',
@@ -222,6 +240,7 @@ export interface FileRoutesByFullPath {
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/tutorials': typeof TutorialsRouteWithChildren
   '/use-cases': typeof UseCasesRoute
   '/admin/articles': typeof AdminArticlesRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -229,9 +248,11 @@ export interface FileRoutesByFullPath {
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
+  '/tutorials/$slug': typeof TutorialsSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/features/': typeof FeaturesIndexRoute
+  '/tutorials/': typeof TutorialsIndexRoute
   '/admin/$kind/$slug': typeof AdminKindSlugRoute
   '/admin/$kind/': typeof AdminKindIndexRoute
   '/api/public/blog-image/$file': typeof ApiPublicBlogImageFileRoute
@@ -262,9 +283,11 @@ export interface FileRoutesByTo {
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
+  '/tutorials/$slug': typeof TutorialsSlugRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/features': typeof FeaturesIndexRoute
+  '/tutorials': typeof TutorialsIndexRoute
   '/admin/$kind/$slug': typeof AdminKindSlugRoute
   '/admin/$kind': typeof AdminKindIndexRoute
   '/api/public/blog-image/$file': typeof ApiPublicBlogImageFileRoute
@@ -290,6 +313,7 @@ export interface FileRoutesById {
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/tutorials': typeof TutorialsRouteWithChildren
   '/use-cases': typeof UseCasesRoute
   '/admin/articles': typeof AdminArticlesRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -297,9 +321,11 @@ export interface FileRoutesById {
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/features/$slug': typeof FeaturesSlugRoute
+  '/tutorials/$slug': typeof TutorialsSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/features/': typeof FeaturesIndexRoute
+  '/tutorials/': typeof TutorialsIndexRoute
   '/admin/$kind/$slug': typeof AdminKindSlugRoute
   '/admin/$kind/': typeof AdminKindIndexRoute
   '/api/public/blog-image/$file': typeof ApiPublicBlogImageFileRoute
@@ -326,6 +352,7 @@ export interface FileRouteTypes {
     | '/resources'
     | '/sitemap.xml'
     | '/terms'
+    | '/tutorials'
     | '/use-cases'
     | '/admin/articles'
     | '/admin/messages'
@@ -333,9 +360,11 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/blog/$slug'
     | '/features/$slug'
+    | '/tutorials/$slug'
     | '/admin/'
     | '/blog/'
     | '/features/'
+    | '/tutorials/'
     | '/admin/$kind/$slug'
     | '/admin/$kind/'
     | '/api/public/blog-image/$file'
@@ -366,9 +395,11 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/blog/$slug'
     | '/features/$slug'
+    | '/tutorials/$slug'
     | '/admin'
     | '/blog'
     | '/features'
+    | '/tutorials'
     | '/admin/$kind/$slug'
     | '/admin/$kind'
     | '/api/public/blog-image/$file'
@@ -393,6 +424,7 @@ export interface FileRouteTypes {
     | '/resources'
     | '/sitemap.xml'
     | '/terms'
+    | '/tutorials'
     | '/use-cases'
     | '/admin/articles'
     | '/admin/messages'
@@ -400,9 +432,11 @@ export interface FileRouteTypes {
     | '/api/contact'
     | '/blog/$slug'
     | '/features/$slug'
+    | '/tutorials/$slug'
     | '/admin/'
     | '/blog/'
     | '/features/'
+    | '/tutorials/'
     | '/admin/$kind/$slug'
     | '/admin/$kind/'
     | '/api/public/blog-image/$file'
@@ -428,6 +462,7 @@ export interface RootRouteChildren {
   ResourcesRoute: typeof ResourcesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  TutorialsRoute: typeof TutorialsRouteWithChildren
   UseCasesRoute: typeof UseCasesRoute
   ApiContactRoute: typeof ApiContactRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -560,6 +595,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tutorials': {
+      id: '/tutorials'
+      path: '/tutorials'
+      fullPath: '/tutorials'
+      preLoaderRoute: typeof TutorialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/use-cases': {
       id: '/use-cases'
       path: '/use-cases'
@@ -630,6 +672,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeaturesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tutorials/': {
+      id: '/tutorials/'
+      path: '/'
+      fullPath: '/tutorials/'
+      preLoaderRoute: typeof TutorialsIndexRouteImport
+      parentRoute: typeof TutorialsRoute
+    }
+    '/tutorials/$slug': {
+      id: '/tutorials/$slug'
+      path: '/$slug'
+      fullPath: '/tutorials/$slug'
+      preLoaderRoute: typeof TutorialsSlugRouteImport
+      parentRoute: typeof TutorialsRoute
+    }
     '/admin/$kind/': {
       id: '/admin/$kind/'
       path: '/$kind'
@@ -688,6 +744,20 @@ const AdminRouteChildren: AdminRouteChildren = {
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
+interface TutorialsRouteChildren {
+  TutorialsSlugRoute: typeof TutorialsSlugRoute
+  TutorialsIndexRoute: typeof TutorialsIndexRoute
+}
+
+const TutorialsRouteChildren: TutorialsRouteChildren = {
+  TutorialsSlugRoute: TutorialsSlugRoute,
+  TutorialsIndexRoute: TutorialsIndexRoute,
+}
+
+const TutorialsRouteWithChildren = TutorialsRoute._addFileChildren(
+  TutorialsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SlugRoute: SlugRoute,
@@ -706,6 +776,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResourcesRoute: ResourcesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  TutorialsRoute: TutorialsRouteWithChildren,
   UseCasesRoute: UseCasesRoute,
   ApiContactRoute: ApiContactRoute,
   BlogSlugRoute: BlogSlugRoute,

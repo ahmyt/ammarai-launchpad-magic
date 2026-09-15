@@ -8,10 +8,11 @@ import { SITE, softwareApplicationJsonLd, REGISTER_URL } from "@/lib/site";
 import { Container, Section, SectionHeading, Card, NumberedList, BulletList } from "@/components/site/primitives";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/Breadcrumbs";
-import { ExternalButton, ButtonLink } from "@/components/site/Button";
+import { ExternalButton, ButtonLink, buttonClass } from "@/components/site/Button";
 import { RelatedTools, ToolCard } from "@/components/site/ToolCard";
 import { AnimatedExample } from "@/components/site/AnimatedExample";
 import { toolDemoMedia, type ToolDemoMedia } from "@/data/tool-demos";
+import { tutorialByTool } from "@/data/tutorials";
 
 /**
  * One sample per example. CMS overrides win: `demoVideoUrl` / `demoVideoCaption`
@@ -295,6 +296,29 @@ function ToolPage({ tool }: { tool: Tool }) {
           <FaqAccordion heading={`${tool.name} FAQ`} items={tool.faqs} />
         </Container>
       </Section>
+
+      {(() => {
+        const tutorial = tutorialByTool.get(tool.slug);
+        if (!tutorial) return null;
+        return (
+          <Section>
+            <Container size="narrow">
+              <div className="tool-tutorial-link">
+                <p className="eyebrow">Tutorial</p>
+                <h2 className="mt-2 text-2xl sm:text-3xl">{tutorial.h1}</h2>
+                <p className="mt-3 text-muted-foreground">{tutorial.description}</p>
+                <Link
+                  to="/tutorials/$slug"
+                  params={{ slug: tutorial.slug }}
+                  className={buttonClass("primary", "md", "mt-5")}
+                >
+                  Read the tutorial
+                </Link>
+              </div>
+            </Container>
+          </Section>
+        );
+      })()}
 
       <Section>
         <Container>

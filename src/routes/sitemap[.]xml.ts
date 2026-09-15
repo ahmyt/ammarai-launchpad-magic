@@ -11,6 +11,7 @@ import { tools } from "@/data/tools";
 import { useCases } from "@/data/use-cases";
 import { posts } from "@/data/posts";
 import { features } from "@/data/features";
+import { tutorials } from "@/data/tutorials";
 import { fetchSyndicatedArticles } from "@/lib/articles";
 
 const BASE_URL = "https://ammarai.com";
@@ -23,7 +24,10 @@ export const Route = createFileRoute("/sitemap.xml")({
         const router = await getRouterInstance();
         const entries: SitemapEntry[] = sitemapStaticPaths(router).map((path) => ({ path }));
 
-        const addDynamic = (routeId: "/$slug" | "/blog/$slug" | "/features/$slug", slugs: string[]) => {
+        const addDynamic = (
+          routeId: "/$slug" | "/blog/$slug" | "/features/$slug" | "/tutorials/$slug",
+          slugs: string[],
+        ) => {
           const to = routeId;
           if (!isSitemapRouteIncluded(router.routesById[routeId])) return;
           for (const slug of slugs) {
@@ -46,6 +50,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const syndicatedSlugs = syndicated.filter((a) => !a.is_hidden).map((a) => a.slug);
         addDynamic("/blog/$slug", [...posts.map((p) => p.slug), ...syndicatedSlugs]);
         addDynamic("/features/$slug", features.map((f) => f.slug));
+        addDynamic("/tutorials/$slug", tutorials.map((t) => t.slug));
 
         if (entries.length === 0) {
           return new Response(null, { status: 404, headers: { "Cache-Control": "no-store" } });
