@@ -274,9 +274,7 @@ export function getTutorial(slug: string): Tutorial | undefined {
 
 export const tutorialByTool = new Map<string, Tutorial>();
 for (const tutorial of tutorials) {
-  for (const toolSlug of tutorial.relatedTools) {
-    if (!tutorialByTool.has(toolSlug)) tutorialByTool.set(toolSlug, tutorial);
-  }
+  tutorialByTool.set(tutorial.cta.toolSlug, tutorial);
 }
 
 export function tutorialsByCategory(category: TutorialCategory): Tutorial[] {
