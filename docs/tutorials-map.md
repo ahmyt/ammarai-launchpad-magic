@@ -14,7 +14,7 @@ licensing and system-configuration material is excluded.
 
 | Reference workflow | AmmarAI equivalent | Public guide | Image decision |
 |---|---|---|---|
-| AI Chat Pro | AI Chat Pro (`/ai-chat`) | `/tutorials/how-to-use-ai-chat-pro` | No qualifying end-user image from the reference page; its images show administrator settings, so none are published. |
+| AI Chat Pro | AI Chat Pro (`/ai-chat`) | `/tutorials/how-to-use-ai-chat-pro` | Five original-resolution customer-facing reference screenshots are used for opening a thread, choosing models, adding source material, sending a grounded request and continuing the conversation. Administrator settings remain excluded. |
 | Document Chat in AI Chat Pro | AI Document Analyzer and Chat Pro file workflow (`/ai-document-analyzer`) | `/tutorials/how-to-chat-with-documents` | Five exact, full-resolution reference images are published unchanged. |
 | AI Image Pro | AI Image Pro (`/ai-image-generator`) | `/tutorials/how-to-use-ai-image-pro` | Seven regular-user reference screenshots are used with only the compact source logo replaced by the AmmarAI logo. Administrator-setting images are excluded. |
 | AI Video Pro | AI Video Pro (`/ai-video-generator`) | `/tutorials/how-to-use-ai-video-pro` | The regular-user creation screenshot is used with only the source logo replaced. The provider-key settings screenshot is excluded. |
