@@ -9,6 +9,15 @@ Create an original, searchable AmmarAI documentation center that covers only end
 - The reference site contains both end-user tutorials and extensive administrator/setup material. All installation, API-key, provider setup, server, deployment, payment, storage, and system-configuration material will be excluded.
 - You will provide captures of AmmarAI’s signed-in workflows. A tutorial will not be published until its controls and steps are supported by those captures.
 
+## Candidate list you supplied
+Your two screenshots list the reference product's feature set. Each entry becomes a candidate row, tested against AmmarAI before anything is written:
+
+- **Strong AmmarAI matches (likely tutorials):** AI Agent, AI Blogger Agent, AI Chat Pro, AI Image Pro, AI Captions, AI Music Pro, AI Presentation, AI Influencer, Content Manager, Creative Suite, Document Chat, External Chatbot, Marketing Bot, Multi Model, Realtime Voice Chat, SEO Tools, Sora/text video generation, Temporary Chat, UGC Factory, URL to Video Ad, Video Dubbing, Video Editor, Viral Clips, Fashion Studio, Influencer Avatars, Product Photography, Avatar, Persona, Voice Bots, Bot Replies, Human Agent, Booking/commerce/messaging channels, HubSpot CRM.
+- **Excluded outright:** every entry that is setup/configuration in nature (anything whose purpose is installing, connecting keys, or configuring providers), plus pricing/discount, mega menu, customizer, migration, and similar owner-side items.
+- **Excluded unless your captures prove them:** any feature AmmarAI does not actually offer to a signed-in user.
+
+Where an entry is named as "setup" in the reference but AmmarAI genuinely exposes the feature to users, the tutorial documents only the user-facing workflow, never the configuration side.
+
 ## Phase 1 — Build the verified source-to-AmmarAI map
 - Inventory the AmmarAI tool catalogue, current public URLs, retired redirects, and related platform features.
 - Inventory relevant end-user reference tutorials without copying their text or page structure.
