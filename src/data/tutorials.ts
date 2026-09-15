@@ -1916,7 +1916,7 @@ export const tutorials: Tutorial[] = [
       },
     ],
     relatedTools: ["ai-crm", "ai-phone-agent", "ai-agent-builder"],
-    relatedTutorials: ["how-to-create-an-ai-agent", "how-to-create-outbound-ai-calls"],
+    relatedTutorials: ["how-to-build-an-ai-agent", "how-to-create-outbound-ai-calls"],
     cta: { toolName: "AI CRM", toolSlug: "ai-crm" },
   },
   {
