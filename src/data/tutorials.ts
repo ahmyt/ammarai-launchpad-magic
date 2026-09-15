@@ -423,7 +423,7 @@ export const tutorials: Tutorial[] = [
     h1: "How to create viral clips from a long video",
     intro: [
       "Viral Clips turns long-form footage into shorter moments for social publishing. Use it to repurpose webinars, interviews, podcasts and other extended videos into focused clips.",
-      "This guide follows the complete regular-user reference workflow. Provider integration, API keys, default-engine selection and administrator settings are excluded.",
+      "This guide follows the complete regular-user workflow for starting a project, supplying the source video and choosing the clip settings.",
     ],
     whenToUse: [
       "You want to repurpose a webinar, podcast or interview for social channels.",
@@ -472,7 +472,7 @@ export const tutorials: Tutorial[] = [
     h1: "How to create AI influencer videos",
     intro: [
       "AI URL to Video & Influencer creates product-led ads from a product link or uploaded assets and presenter-led videos from a script. The workflow combines product details, format choices, a presenter, a voice and captions before rendering.",
-      "This guide preserves the regular-user creation sequences from the reference documentation. Provider keys, engine selection and administrator configuration are excluded.",
+      "This guide covers both regular-user creation paths: a product-powered ad and a presenter-led video made from a script.",
     ],
     whenToUse: [
       "You want a short product ad for Reels, TikTok or YouTube Shorts.",
