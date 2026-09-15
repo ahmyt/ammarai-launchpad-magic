@@ -72,22 +72,57 @@ export const tutorials: Tutorial[] = [
           {
             title: "Open AI Chat Pro",
             body: "Open AI Chat Pro from the AmmarAI workspace and begin a new thread. Use a separate thread when the subject or project changes so unrelated context does not affect the answer.",
+            image: {
+              src: "/media/tutorials/tutorial-ai-chat-pro-1.png",
+              alt: "AI Chat Pro workspace with the new-message control highlighted",
+              caption: "Open a fresh AI Chat Pro thread for each new subject or project.",
+              width: 1810,
+              height: 856,
+            },
           },
           {
             title: "Choose the model",
             body: "Open the model selector and choose an available model for the job. Keep the default for general work, or switch when you need a different balance of speed, reasoning or writing style.",
+            image: {
+              src: "/media/tutorials/tutorial-ai-chat-pro-2.png",
+              alt: "AI Chat Pro model selector with two model choices highlighted",
+              caption: "Choose the model that best fits the request, then apply the selection.",
+              width: 512,
+              height: 299,
+            },
           },
           {
             title: "Add the tools the message needs",
             body: "Open the add menu in the message area. Select a saved skill, upload source material, turn on web search, add brand context or choose another available chat tool. Active tools remain visible with the message and can be removed before sending.",
+            image: {
+              src: "/media/tutorials/tutorial-ai-chat-pro-3.png",
+              alt: "AI Chat Pro content picker open above the message field",
+              caption: "The add control opens files and other content that can be used in the conversation.",
+              width: 1884,
+              height: 872,
+            },
           },
           {
             title: "Write and send the request",
             body: "State the goal, the important constraints and the format you want back. If you attached a source, tell the assistant to base its answer on that material rather than general knowledge.",
+            image: {
+              src: "/media/tutorials/tutorial-ai-chat-pro-4.png",
+              alt: "AI Chat Pro message field with an attached file, written request and send button highlighted",
+              caption: "Attach the source, write a specific request and send it from the same message field.",
+              width: 1894,
+              height: 858,
+            },
           },
           {
             title: "Refine in the same thread",
             body: "Ask follow-up questions, correct assumptions or request a different format. Keep the conversation together while it is serving the same goal so Chat Pro can use the earlier context.",
+            image: {
+              src: "/media/tutorials/tutorial-ai-chat-pro-5.png",
+              alt: "AI Chat Pro conversation showing a question, attached file and grounded answer",
+              caption: "Continue in the same thread when the follow-up depends on the earlier request or source.",
+              width: 1798,
+              height: 853,
+            },
           },
         ],
       },

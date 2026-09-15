@@ -1,3 +1,4 @@
+- [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
 ## Blog commercial content strategy (audit delivered)
