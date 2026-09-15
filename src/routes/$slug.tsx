@@ -297,6 +297,29 @@ function ToolPage({ tool }: { tool: Tool }) {
         </Container>
       </Section>
 
+      {(() => {
+        const tutorial = tutorialByTool.get(tool.slug);
+        if (!tutorial) return null;
+        return (
+          <Section>
+            <Container size="narrow">
+              <div className="tool-tutorial-link">
+                <p className="eyebrow">Tutorial</p>
+                <h2 className="mt-2 text-2xl sm:text-3xl">{tutorial.h1}</h2>
+                <p className="mt-3 text-muted-foreground">{tutorial.description}</p>
+                <ButtonLink
+                  to="/tutorials/$slug"
+                  params={{ slug: tutorial.slug }}
+                  className="mt-5"
+                >
+                  Read the tutorial
+                </ButtonLink>
+              </div>
+            </Container>
+          </Section>
+        );
+      })()}
+
       <Section>
         <Container>
           <SectionHeading eyebrow="Related" title="Tools that pair well with this" />
