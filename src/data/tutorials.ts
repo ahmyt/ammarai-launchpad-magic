@@ -272,6 +272,7 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["introduction-to-ammarai", "getting-started-with-ammarai"],
     cta: { toolName: "AI Chat Pro", toolSlug: "ai-chat" },
   },
+  ...writingTutorials,
 ];
 
 export const tutorialBySlug = new Map(tutorials.map((t) => [t.slug, t]));
