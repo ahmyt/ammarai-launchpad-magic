@@ -208,3 +208,12 @@ Note: `tutorialByTool` now keeps the first tutorial registered for a tool slug, 
 | ugc-factory, influencer-avatars | — | Already covered | `how-to-create-ugc-videos` and `how-to-create-ai-influencer-videos`. |
 | ai-canvas | — | Excluded | No AmmarAI equivalent (chat canvas editor). |
 | ai-product-photography-setup, realtime-image-setup, ai-voice-bots-elevenlabs-conversational-ai, social-media-suite-setup | — | Excluded | Provider account and API-key setup only. |
+
+## Batch 18
+
+| Reference page | AmmarAI equivalent | Decision | Notes |
+| --- | --- | --- | --- |
+| external-chatbot-whatsapp-integration / -telegram-integration / -facebook-messenger-integration / instagram-integration-for-ai-chatbots (Channel step only) | External Chatbot Builder (`external-chatbot`) | Included — `how-to-connect-your-chatbot-to-messaging-channels` | One guide covers the end-user Channel step for all four channels. Excluded from every one of these pages: Twilio account/SID/auth-token setup, Telegram BotFather token creation, Meta for Developers app creation, page access tokens and permissions, webhook URL configuration, and the admin Instagram Chatbot Settings credentials screen. Two screenshots: whatsapp-1 (3000x1506) — sidebar wordmark measured at (43,35)-(223,82) on white and the widget footer mark at (2116,1404)-(2323,1429) on (248,248,248), both replaced with the AmmarAI logo and wordmark at the exact measured centre and footprint, native dimensions kept, red pointers untouched; ext3 (972x705) — channel tiles plus connection dialog, no source mark present, used unchanged. |
+| how-to-train-chatbot | — | Excluded | Admin Templates area, JSON role-based training data. |
+| ai-fine-tuning | — | Excluded | Provider fine-tuning API and keys. |
+| ai-social-media-setup, ai-model-selector-for-ai-chat, managing-user-permissions, discount-offers, onboarding-pro, checkout-registration, access-to-rest-api, shared-credit-pool-system, hubspot-crm-integration | — | Excluded | Owner/admin configuration or provider credentials. |
