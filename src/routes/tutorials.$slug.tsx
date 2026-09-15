@@ -4,7 +4,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, Info, Lightbulb, TriangleAlert }
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { buttonClass } from "@/components/site/Button";
 import { Container } from "@/components/site/primitives";
-import { adjacentTutorials, getTutorial, type TutorialCallout } from "@/data/tutorials";
+import { adjacentTutorials, getTutorial, type Tutorial, type TutorialCallout } from "@/data/tutorials";
 
 export const Route = createFileRoute("/tutorials/$slug")({
   staticData: { sitemap: true },
@@ -109,6 +109,30 @@ function Callout({ callout }: { callout: TutorialCallout }) {
   );
 }
 
+function CtaLink({ cta }: { cta: Tutorial["cta"] }) {
+  const label = (
+    <>
+      Try {cta.toolName} in AmmarAI <ArrowRight aria-hidden="true" />
+    </>
+  );
+  if (cta.kind === "feature") {
+    return (
+      <Link
+        to="/features/$slug"
+        params={{ slug: cta.toolSlug }}
+        className={buttonClass("primary", "lg")}
+      >
+        {label}
+      </Link>
+    );
+  }
+  return (
+    <Link to="/$slug" params={{ slug: cta.toolSlug }} className={buttonClass("primary", "lg")}>
+      {label}
+    </Link>
+  );
+}
+
 function TutorialPage() {
   const { tutorial } = Route.useLoaderData();
   const { prev, next } = adjacentTutorials(tutorial.slug);
@@ -133,13 +157,7 @@ function TutorialPage() {
             </p>
           ))}
           <div className="tutorial-cta-top">
-            <Link
-              to="/$slug"
-              params={{ slug: tutorial.cta.toolSlug }}
-              className={buttonClass("primary", "lg")}
-            >
-              Try {tutorial.cta.toolName} in AmmarAI <ArrowRight aria-hidden="true" />
-            </Link>
+            <CtaLink cta={tutorial.cta} />
           </div>
         </header>
 
@@ -244,13 +262,7 @@ function TutorialPage() {
 
         <div className="tutorial-cta-bottom">
           <p className="tutorial-cta-title">Ready to try it?</p>
-          <Link
-            to="/$slug"
-            params={{ slug: tutorial.cta.toolSlug }}
-            className={buttonClass("primary", "lg")}
-          >
-            Try {tutorial.cta.toolName} in AmmarAI <ArrowRight aria-hidden="true" />
-          </Link>
+          <CtaLink cta={tutorial.cta} />
         </div>
 
         {tutorial.relatedTools.length > 0 && (

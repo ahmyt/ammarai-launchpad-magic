@@ -43,7 +43,7 @@ export interface Tutorial {
   sections: TutorialSection[];
   relatedTools: string[];
   relatedTutorials: string[];
-  cta: { toolName: string; toolSlug: string };
+  cta: { toolName: string; toolSlug: string; kind?: "tool" | "feature" };
 }
 
 export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Automation", "Image", "Video", "Video Marketing", "Fashion", "Audio", "Productivity"];
@@ -2704,6 +2704,61 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-use-the-ai-creative-suite", "how-to-use-ai-image-pro"],
     cta: { toolName: "AI Creative Suite", toolSlug: "ai-creative-suite" },
   },
+  {
+    slug: "how-to-invite-teammates-to-your-workspace",
+    category: "Productivity",
+    title: "How to Invite Teammates to Your Workspace | AmmarAI Tutorials",
+    description:
+      "Invite colleagues into your AmmarAI workspace by email, see how they accept, and understand how team members draw on the workspace owner's credits.",
+    h1: "How to invite teammates to your workspace",
+    intro: [
+      "A workspace can be shared. Invite a colleague by email and they work alongside you with the same brand profiles, templates and assistants, instead of each person starting from a blank prompt box.",
+      "Invited members work from the workspace owner's allowance, so there is one balance to watch rather than one per person.",
+    ],
+    whenToUse: [
+      "Two or more people write, design or publish from the same brand.",
+      "You want new joiners to inherit the prompts and templates you have already refined.",
+      "An agency runs a separate workspace per client and needs staff in each one.",
+    ],
+    sections: [
+      {
+        heading: "Send the invitation",
+        steps: [
+          {
+            title: "Open your team settings",
+            body: "Sign in as the workspace owner and open the team area of your account. Seat-based team access is part of the Ultimate plan, so make sure your plan includes the seats you need before inviting.",
+          },
+          {
+            title: "Enter a colleague's email address",
+            body: "Type the email address of the person you want to add and send the invitation. Repeat for each colleague — one address per invitation.",
+            image: { src: "/media/tutorials/tutorial-team-invite-1.png", alt: "Team invitation panel with an email address field and an invite button", caption: "Invite colleagues by email address, one at a time.", width: 1080, height: 845 },
+          },
+          {
+            title: "Let them accept",
+            body: "Each person receives an email with a link. Opening it takes them to sign in or create an account, and once that is done they join your workspace automatically.",
+          },
+        ],
+      },
+      {
+        heading: "How shared usage works",
+        bullets: [
+          "Team members spend from the workspace owner's allowance, not a separate personal balance.",
+          "Keep an eye on usage across the workspace so a busy month does not run the balance down unexpectedly.",
+          "Seats are tied to your plan, so add seats before inviting more people than the plan covers.",
+          "Agencies should keep one workspace per client so brand voices and templates never mix.",
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Set up your brand profiles and reusable templates before inviting people — new members then start from your house style rather than their own.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-writer", "ai-chat", "ai-image-editor"],
+    relatedTutorials: ["how-to-use-the-content-manager", "how-to-use-ai-chat-pro"],
+    cta: { toolName: "Team Workspaces", toolSlug: "team-workspaces", kind: "feature" },
+  },
 ];
 
 
@@ -2718,6 +2773,7 @@ export function getTutorial(slug: string): Tutorial | undefined {
 
 export const tutorialByTool = new Map<string, Tutorial>();
 for (const tutorial of tutorials) {
+  if (tutorial.cta.kind === "feature") continue;
   tutorialByTool.set(tutorial.cta.toolSlug, tutorial);
 }
 

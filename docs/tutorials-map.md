@@ -177,3 +177,12 @@ None of the Batch 13 captures contain a source wordmark or far-right profile ava
 | external-chatbot-whatsapp-integration | — | Excluded | Workflow is third-party provider credentials and webhook wiring. |
 | external-chatbot-telegram-integration / facebook-messenger / instagram | — | Excluded | Channel token and provider app configuration. |
 | ai-fine-tuning | — | Excluded | Provider-side setup only. |
+
+## Batch 15
+
+| Reference page | AmmarAI equivalent | Decision | Notes |
+| --- | --- | --- | --- |
+| team-members ("For Users" half) | Team Workspaces feature (`/features/team-workspaces`) | Included — `how-to-invite-teammates-to-your-workspace` | Admin half (team pricing plans, seat counts) excluded. Only image is a promo graphic naming the source product; cropped to the genuine invite panel (1080x845 from 1140x1492, crop box 40,405-1120,1250) which contains no source mark — OCR verified clean. CTA uses the new `cta.kind: "feature"` option so it points at the feature page. |
+| shared-credit-pool-system | — | Excluded | Entirely admin finance configuration. |
+| hubspot-crm-integration, ai-avatar-setup, seo-tools, access-to-rest-api, onboarding-pro, checkout-registration | — | Excluded | Provider API keys, server commands, or owner-side extension configuration. |
+| influencer-avatars | already covered | Skipped | Workflow is already in `how-to-create-ai-influencer-videos`. |
