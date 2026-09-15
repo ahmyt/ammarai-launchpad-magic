@@ -2,7 +2,7 @@ import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowRight, ChevronLeft, ChevronRight, Info, Lightbulb, TriangleAlert } from "lucide-react";
 
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { Button } from "@/components/site/Button";
+import { ButtonLink } from "@/components/site/Button";
 import { Container } from "@/components/site/Container";
 import { adjacentTutorials, getTutorial, type TutorialCallout } from "@/data/tutorials";
 
@@ -131,11 +131,9 @@ function TutorialPage() {
             </p>
           ))}
           <div className="tutorial-cta-top">
-            <Button asChild size="lg">
-              <Link to="/$slug" params={{ slug: tutorial.cta.toolSlug }}>
-                Try {tutorial.cta.toolName} in AmmarAI <ArrowRight aria-hidden="true" />
-              </Link>
-            </Button>
+            <ButtonLink to="/$slug" params={{ slug: tutorial.cta.toolSlug }} size="lg">
+              Try {tutorial.cta.toolName} in AmmarAI <ArrowRight aria-hidden="true" />
+            </ButtonLink>
           </div>
         </header>
 
@@ -227,11 +225,9 @@ function TutorialPage() {
 
         <div className="tutorial-cta-bottom">
           <p className="tutorial-cta-title">Ready to try it?</p>
-          <Button asChild size="lg">
-            <Link to="/$slug" params={{ slug: tutorial.cta.toolSlug }}>
-              Try {tutorial.cta.toolName} in AmmarAI <ArrowRight aria-hidden="true" />
-            </Link>
-          </Button>
+          <ButtonLink to="/$slug" params={{ slug: tutorial.cta.toolSlug }} size="lg">
+            Try {tutorial.cta.toolName} in AmmarAI <ArrowRight aria-hidden="true" />
+          </ButtonLink>
         </div>
 
         {tutorial.relatedTools.length > 0 && (
@@ -314,9 +310,9 @@ function TutorialNotFound() {
       <p className="mx-auto mt-4 max-w-md text-muted-foreground">
         This tutorial may have moved. Browse the full list instead.
       </p>
-      <Button asChild className="mt-8">
-        <Link to="/tutorials">All tutorials</Link>
-      </Button>
+      <ButtonLink to="/tutorials" className="mt-8">
+        All tutorials
+      </ButtonLink>
     </Container>
   );
 }
