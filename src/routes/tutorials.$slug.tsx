@@ -66,6 +66,7 @@ export const Route = createFileRoute("/tutorials/$slug")({
         { property: "og:title", content: tutorial.title },
         { property: "og:description", content: tutorial.description },
         { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary" },
       ],
       links: [
         { rel: "canonical", href: `https://ammarai.com/tutorials/${tutorial.slug}` },
@@ -192,8 +193,8 @@ function TutorialPage() {
                             <img
                               src={step.image.src}
                               alt={step.image.alt}
-                              width={1280}
-                              height={720}
+                              width={step.image.width}
+                              height={step.image.height}
                               loading="lazy"
                               decoding="async"
                             />

@@ -19,14 +19,16 @@ export const Route = createFileRoute("/tutorials/")({
       {
         name: "description",
         content:
-          "Step-by-step AmmarAI tutorials and documentation. Learn the workspace, the flagship AI tools, and how to turn one subscription into your entire content workflow.",
+          "Verified step-by-step guides for AI Chat Pro and Document Chat in AmmarAI, with practical workflows, limitations and examples.",
       },
       { property: "og:title", content: "AmmarAI Tutorials & Documentation" },
       {
         property: "og:description",
         content:
-          "Step-by-step AmmarAI tutorials and documentation. Learn the workspace and the flagship AI tools.",
+          "Verified step-by-step guides for AI Chat Pro and Document Chat in AmmarAI.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: TutorialsIndexPage,
@@ -45,8 +47,8 @@ function TutorialsIndexPage() {
           <p className="eyebrow">Tutorials</p>
           <h1>AmmarAI documentation</h1>
           <p className="tutorials-hub-lede">
-            Practical, step-by-step guides to the AmmarAI workspace. Start with the basics,
-            then follow a guide for the tool you are using.
+            Verified, step-by-step guidance for AmmarAI tools that have a matching
+            end-user workflow in the reference documentation.
           </p>
         </header>
 
@@ -124,8 +126,8 @@ function TutorialsIndexPage() {
         )}
 
         <p className="tutorials-hub-foot">
-          {tutorials.length} {tutorials.length === 1 ? "guide" : "guides"} published — new tool
-          tutorials are added as they are verified.
+          {tutorials.length} {tutorials.length === 1 ? "guide" : "guides"} published. A guide
+          is added only after its tool and end-user workflow are verified.
         </p>
       </Container>
     </div>

@@ -134,18 +134,14 @@
 - [x] Verified source-to-AmmarAI mapping (docs/tutorials-map.md)
 - [x] Tutorial infrastructure: /tutorials hub, /tutorials/$slug, search, sidebar, TOC, prev/next, breadcrumbs, CTAs
 - [x] SEO: per-tutorial metadata, HowTo/BreadcrumbList schema, sitemap + llms.txt inclusion, Tutorials nav entry
-- [x] Getting Started tutorials (introduction, getting started, navigating) — no captures required
-- [ ] Tool tutorials per verified overlap — captured workflows ready for the next image, video, voice, and agent groups; paywalled tools remain pending
-- [x] Replace all illustrated tutorial mockups with genuine demo screenshots or reference workflow captures for every step in the six existing tool tutorials
-- [x] Show the left menu and add a red pointer arrow without a box in all 31 existing tutorial step screenshots
+- [x] Previous broad guide set and altered images superseded by the strict 2026-09-15 revision below
 - [x] Add bordered, partitioned, mobile-safe tutorial tables
-- [ ] Genuine demo screenshots or screen-recording frames for every step in each newly written tool tutorial, retaining the left menu and annotated with a red arrow only; no interface mockups
-- [ ] QA: link validation, branding scan, mobile/desktop checks
+- [x] QA: link validation, branding scan, mobile/desktop checks
 
 ## Tutorial & documentation complete revision
-- [ ] Replace the previous overlap map with a strict reference-page-to-AmmarAI audit
-- [ ] Remove tutorials, cards, links, metadata, and images without a verified end-user overlap
-- [ ] Rebuild every retained tutorial to preserve the reference workflow order and coverage using AmmarAI terminology
-- [ ] Replace altered/annotated captures with exact reference images, changing only the logo and signed-in avatar
-- [ ] Re-audit navigation, search, breadcrumbs, related guides, previous/next links, CTAs, sitemap, and llms.txt
-- [ ] Validate image fidelity, alt text, metadata, mobile/desktop layouts, links, and forbidden/admin content
+- [x] Replace the previous overlap map with a strict reference-page-to-AmmarAI audit
+- [x] Remove tutorials, cards, links, metadata, and images without a verified end-user overlap
+- [x] Rebuild every retained tutorial to preserve the reference workflow order and coverage using AmmarAI terminology
+- [x] Replace altered/annotated captures with exact reference images; exclude admin-only reference images
+- [x] Re-audit navigation, search, breadcrumbs, related guides, previous/next links, CTAs, sitemap, and llms.txt
+- [x] Validate image fidelity, alt text, metadata, mobile/desktop layouts, links, and forbidden/admin content
