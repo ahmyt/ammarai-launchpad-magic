@@ -866,6 +866,76 @@ export const tutorials: Tutorial[] = [
     cta: { toolName: "AI Dubbing", toolSlug: "ai-dubbing" },
   },
   {
+    slug: "how-to-use-ai-captions",
+    category: "Video",
+    title: "How to Use AI Captions | AmmarAI Tutorials",
+    description:
+      "Upload a portrait video, choose a caption style and generate styled subtitles with AmmarAI AI Captions.",
+    h1: "How to use AI Captions",
+    intro: [
+      "AI Captions adds animated, styled subtitles to short portrait videos. Upload the source video, preview the available caption templates and generate the captioned result before continuing in the video editor.",
+      "This guide covers the regular-user creation workflow only. Installation, API keys, plan allocation and administrator controls are excluded.",
+    ],
+    whenToUse: [
+      "You want readable captions for a short vertical social video.",
+      "You want to apply a ready-made animated caption style.",
+      "You want to continue refining the generated result in the video editor.",
+    ],
+    sections: [
+      {
+        heading: "Open AI Captions and upload the video",
+        steps: [
+          {
+            title: "Open AI Captions",
+            body: "Choose AI Captions from the AmmarAI side menu. The workspace opens with the video upload area, caption-style selector, Generate action and your previously created videos.",
+            image: { src: "/media/tutorials/tutorial-captions-1.png", alt: "AmmarAI AI Captions workspace showing the side menu and portrait-video upload area", caption: "Open AI Captions and upload the source video.", width: 1851, height: 851 },
+          },
+          {
+            title: "Upload a portrait video",
+            body: "Select Upload Video and choose a 9:16 portrait video from your device. The source file can be up to 50 MB and five minutes long.",
+          },
+        ],
+      },
+      {
+        heading: "Choose the caption style",
+        steps: [
+          {
+            title: "Open the caption-template picker",
+            body: "Select the caption-style preview to open the template picker. Browse the animated previews and choose the treatment that fits the video; available examples include Medusa, line-by-line treatments and other emphasized word styles.",
+            image: { src: "/media/tutorials/tutorial-captions-2.png", alt: "AI Captions workspace with an animated caption style selected beneath the video uploader", caption: "Select the caption-style preview to browse templates.", width: 1859, height: 860 },
+          },
+          {
+            title: "Preview and select a template",
+            body: "Preview the templates in the picker, then select the caption design you want to apply. The chosen template is outlined and its preview plays automatically so you can check the typography and animation before generating.",
+            image: { src: "/media/tutorials/tutorial-captions-3.png", alt: "AI Captions template picker with animated caption designs and the selected style outlined", caption: "Preview the available designs and select one caption template.", width: 1898, height: 928 },
+          },
+        ],
+      },
+      {
+        heading: "Generate and continue editing",
+        steps: [
+          {
+            title: "Generate the captioned video",
+            body: "Return to the AI Captions panel and click Generate. AmmarAI processes the upload with the selected caption style and adds the result to the previously created videos area.",
+          },
+          {
+            title: "Open the result in the video editor",
+            body: "Preview the generated video. When you need further changes, open it in the AI Video Editor and continue editing the captioned result there.",
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "AI Captions accepts portrait 9:16 videos up to 50 MB and five minutes long. Prepare the source in that format before uploading it.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-captions", "ai-video-editor", "ai-dubbing"],
+    relatedTutorials: ["how-to-dub-a-video", "how-to-use-ai-video-pro"],
+    cta: { toolName: "AI Captions", toolSlug: "ai-captions" },
+  },
+  {
     slug: "how-to-create-ugc-videos",
     category: "Video Marketing",
     title: "How to Create UGC Videos | AmmarAI Tutorials",

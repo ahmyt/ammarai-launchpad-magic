@@ -19,7 +19,7 @@ export const Route = createFileRoute("/tutorials/")({
       {
         name: "description",
         content:
-          "Step-by-step AmmarAI guides for chat, documents, images, video generation, viral clips, AI influencer videos, Fashion Studio, dubbing and UGC videos.",
+          "Step-by-step AmmarAI guides for chat, documents, images, video generation, viral clips, AI influencer videos, Fashion Studio, dubbing, captions and UGC videos.",
       },
       { property: "og:title", content: "AmmarAI Tutorials & Documentation" },
       {
