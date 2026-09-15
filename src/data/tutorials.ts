@@ -2269,7 +2269,129 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-build-and-embed-a-website-chatbot", "how-to-manage-sales-with-ai-crm"],
     cta: { toolName: "AI Social Media Agent", toolSlug: "ai-social-media-agent" },
   },
+  {
+    slug: "how-to-hand-chats-to-a-human-agent",
+    category: "Automation",
+    title: "How to Hand Live Chats to a Human Agent | AmmarAI Tutorials",
+    description:
+      "Let your AmmarAI chatbot pass a conversation to a person, then answer, tag, note and export those live chats from the Smart Inbox.",
+    h1: "How to hand live chats to a human agent",
+    intro: [
+      "An AI chatbot answers most questions on its own, but some conversations need a person — a refund, a complaint, a deal about to close. AmmarAI lets a visitor ask for a human and drops that conversation straight into your inbox.",
+      "This guide covers switching a chatbot to live-chat handover, then working the inbox: replying, leaving private notes, reading who you are talking to, filtering by date and exporting a conversation.",
+    ],
+    whenToUse: [
+      "Visitors ask questions your chatbot should not answer alone.",
+      "You want one place for every live conversation instead of several tabs.",
+      "You need a record of what was said to a customer.",
+    ],
+    sections: [
+      {
+        heading: "Turn on handover",
+        steps: [
+          {
+            title: "Set the interaction type on your chatbot",
+            body: "Open your chatbot and set Interaction type to AI & Live Chat. That keeps the AI answering first while giving visitors a way to reach you. Only AI and Only Live Chat are there if you want one or the other.",
+            image: { src: "/media/tutorials/tutorial-live-agent-1.png", alt: "Chatbot settings with the interaction type set to AI and Live Chat", caption: "AI & Live Chat keeps the bot answering and still lets people reach you.", width: 1654, height: 1348 },
+          },
+          {
+            title: "Write the connect message",
+            body: "The connect message is what the visitor sees the moment they ask for a person — something like \"I've forwarded your request to a human agent.\" Set expectations here about how quickly someone will reply.",
+            image: { src: "/media/tutorials/tutorial-live-agent-1.png", alt: "Connect message field beneath the interaction type setting", caption: "Say how long a reply will take, so nobody waits in silence.", width: 1654, height: 1348 },
+          },
+          {
+            title: "Open the live conversations inbox",
+            body: "Once handover is on, requests arrive in the inbox. The list on the left holds the conversations, the thread sits in the middle, and everything you need to answer is on the same screen.",
+            image: { src: "/media/tutorials/tutorial-live-agent-2.png", alt: "Live agent inbox with a conversation list and an open thread", caption: "One inbox for every conversation that reaches a person.", width: 2922, height: 1416 },
+          },
+        ],
+      },
+      {
+        heading: "Answer the conversation",
+        steps: [
+          {
+            title: "Filter to the ones that need you",
+            body: "Use the filter above the list to switch between All, AI Agent and Human Agent. Human Agent shows only the conversations a visitor has asked a person to join.",
+            image: { src: "/media/tutorials/tutorial-live-agent-3.png", alt: "Inbox filter open with All, AI Agent and Human Agent options", caption: "Start with Human Agent when time is short.", width: 978, height: 343 },
+          },
+          {
+            title: "Reply in the thread",
+            body: "Type in the message box at the bottom and send. Your reply appears in the same thread the visitor is already reading, so the conversation continues without them changing anything.",
+            image: { src: "/media/tutorials/tutorial-live-agent-4.png", alt: "Open conversation with the reply box at the bottom of the thread", caption: "The visitor stays in the same chat window throughout.", width: 974, height: 903 },
+          },
+          {
+            title: "Send a saved reply",
+            body: "For the questions you answer every day, pull in a saved reply instead of typing it again. Search, pick the one you want and edit it before sending if the situation needs it.",
+            image: { src: "/media/tutorials/tutorial-live-agent-5.png", alt: "Saved reply panel open above the message box with a search field", caption: "Saved replies keep common answers consistent.", width: 1007, height: 930 },
+          },
+          {
+            title: "Leave a private note",
+            body: "Switch the send control from Reply to Note to write something only your team sees — context for whoever picks the conversation up next. Notes never reach the visitor.",
+            image: { src: "/media/tutorials/tutorial-live-agent-6.png", alt: "Send control switched from Reply to Note", caption: "Notes are internal; check the control before you send.", width: 1065, height: 945 },
+          },
+        ],
+      },
+      {
+        heading: "Know who you are talking to",
+        steps: [
+          {
+            title: "Open the details panel",
+            body: "The panel on the right shows the visitor, the channel they came from, when the conversation started and was last updated, their country and how long they have been on the site.",
+            image: { src: "/media/tutorials/tutorial-live-agent-7.png", alt: "Conversation details panel with channel, status, created and updated times and country", caption: "Context before you answer, without asking the visitor for it.", width: 1431, height: 940 },
+          },
+          {
+            title: "Tag the conversation",
+            body: "Add a tag from the same panel to group conversations by topic, customer type or priority. Tags make the inbox searchable once the volume grows.",
+            image: { src: "/media/tutorials/tutorial-live-agent-7.png", alt: "Tag control in the conversation details panel", caption: "Agree a small tag list with your team and stick to it.", width: 1431, height: 940 },
+          },
+          {
+            title: "See the pages they visited",
+            body: "The panel also lists the pages the visitor has been on, with page titles and time spent. A pricing page open for ten minutes tells you what the question is really about.",
+            image: { src: "/media/tutorials/tutorial-live-agent-8.png", alt: "Visited pages list inside the conversation details panel", caption: "Their browsing history usually explains the question.", width: 1435, height: 874 },
+          },
+          {
+            title: "Spot unread messages",
+            body: "A counter marks conversations with new messages, so replies that arrive while you are elsewhere do not sit unanswered.",
+            image: { src: "/media/tutorials/tutorial-live-agent-9.png", alt: "Inbox showing an unread message indicator on a conversation", caption: "Unread counts stop conversations going cold.", width: 1098, height: 313 },
+          },
+        ],
+      },
+      {
+        heading: "Review and keep records",
+        steps: [
+          {
+            title: "Filter by date range",
+            body: "Pick a start and end date in the calendar and apply it to narrow the inbox to a week, a campaign or a single busy day.",
+            image: { src: "/media/tutorials/tutorial-live-agent-10.png", alt: "Date range calendar with a selected range and an Apply button", caption: "Useful for reviewing a launch day after the fact.", width: 999, height: 795 },
+          },
+          {
+            title: "Export one conversation",
+            body: "From the conversation menu, choose Export Conversation and download it as text, CSV, PDF or JSON — handy for a support record or a handover to another team.",
+            image: { src: "/media/tutorials/tutorial-live-agent-11.png", alt: "Export conversation menu with text, CSV, PDF and JSON download options", caption: "Four formats, so the record fits wherever it needs to go.", width: 1014, height: 795 },
+          },
+          {
+            title: "Export the filtered list",
+            body: "The export control above the list saves everything currently filtered as CSV, JSON or PDF — combine it with the date filter to pull a clean monthly report.",
+            image: { src: "/media/tutorials/tutorial-live-agent-12.png", alt: "Export menu above the conversation list with CSV, JSON and PDF options", caption: "Set your filters first; the export follows them.", width: 1074, height: 329 },
+          },
+        ],
+      },
+      {
+        heading: "Working well with handover",
+        bullets: [
+          "Tell visitors when a person is available; an honest message beats an unanswered chat.",
+          "Keep notes factual — they can be exported with the conversation.",
+          "Review tagged conversations weekly and feed the common questions back into the chatbot's training.",
+          "Handle personal data in line with your privacy policy before you export anything.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-smart-inbox", "external-chatbot", "ai-chat"],
+    relatedTutorials: ["how-to-build-and-embed-a-website-chatbot", "how-to-manage-sales-with-ai-crm"],
+    cta: { toolName: "AI Smart Inbox", toolSlug: "ai-smart-inbox" },
+  },
 ];
+
 
 
 

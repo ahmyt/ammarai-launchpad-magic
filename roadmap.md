@@ -193,3 +193,8 @@
 - [x] Website chatbot guide (`how-to-build-and-embed-a-website-chatbot`, 10 screenshots)
 - [x] Social media agent guide (`how-to-run-a-social-media-agent`, 18 screenshots)
 - [x] All source wordmarks, icons and far-right avatars replaced at measured footprints; setup, plan and API content excluded
+
+## Batch 12 tutorials (done)
+- [x] Live human-agent handover guide (`how-to-hand-chats-to-a-human-agent`, 12 screenshots, AI Smart Inbox)
+- [x] Excluded: chatbot template training (admin area), AI Chat model selector (admin), Voice Isolator and AI Music (provider setup only)
+- [x] Source sidebar marks and bot-name headings replaced at measured footprints; native dimensions and pointers unchanged
