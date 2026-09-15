@@ -2031,6 +2031,244 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-create-an-ai-phone-agent", "how-to-manage-sales-with-ai-crm"],
     cta: { toolName: "AI Phone Agent", toolSlug: "ai-phone-agent" },
   },
+  {
+    slug: "how-to-build-and-embed-a-website-chatbot",
+    category: "Chat & Documents",
+    title: "How to Build and Embed a Website Chatbot | AmmarAI Tutorials",
+    description:
+      "Create an AmmarAI external chatbot, style it, train it on your own content and embed it on your website so visitors get answers day and night.",
+    h1: "How to build and embed a website chatbot",
+    intro: [
+      "An external chatbot is the assistant your visitors talk to on your own website. You give it a name and a voice, tell it what it is allowed to talk about, train it on your pages and documents, then paste a small snippet into your site.",
+      "This guide follows the whole creation flow: configure, customise, train, test and embed.",
+    ],
+    whenToUse: [
+      "You answer the same questions from visitors over and over.",
+      "You want help available on your site outside working hours.",
+      "You want visitors to reach a human when the assistant cannot help.",
+    ],
+    sections: [
+      {
+        heading: "Create the chatbot",
+        steps: [
+          {
+            title: "Open AI Bots",
+            body: "Select AI Bots in the workspace menu. This is where every chatbot you build lives, together with the conversations visitors have had with them.",
+            image: { src: "/media/tutorials/tutorial-site-chatbot-1.png", alt: "AmmarAI workspace menu with AI Bots highlighted", caption: "AI Bots holds every chatbot you build.", width: 462, height: 764 },
+          },
+          {
+            title: "Add a new chatbot",
+            body: "Choose Add New Chatbot to start. If you already have bots, the same page lists them under Active Chatbots so you can pick one up again instead of starting over.",
+            image: { src: "/media/tutorials/tutorial-site-chatbot-3.png", alt: "Add New Chatbot action on the AmmarAI chatbot page", caption: "Start a new chatbot from the AI Bots page.", width: 1097, height: 812 },
+          },
+          {
+            title: "Fill in the basics",
+            body: "Give the chatbot a title, the short bubble message that invites people to open it, and the welcome message it opens with. In Chatbot Instructions, describe its role, what it should help with and what it should refuse. Turn on Do Not Go Beyond Instructions when you want it to stay strictly inside that brief, pick the language and choose the model. The live preview on the right updates as you type.",
+            image: { src: "/media/tutorials/tutorial-site-chatbot-4.png", alt: "Chatbot configure step with title, bubble message, welcome message, instructions, language and model fields beside a live preview", caption: "Everything you set here is visible in the preview straight away.", width: 2024, height: 1566 },
+          },
+          {
+            title: "Decide how conversations are handled",
+            body: "Set the interaction type to choose whether the assistant answers alone or can pass a conversation to a person, and write the connect message the visitor sees when that happens. The same panel has optional extras such as feedback collection, a voice call agent and booking or shopping help.",
+            image: { src: "/media/tutorials/tutorial-site-chatbot-5.png", alt: "Interaction type, connect message and optional assistant toggles in the chatbot editor", caption: "Decide what happens when the assistant cannot answer.", width: 1938, height: 1446 },
+          },
+          {
+            title: "Offer starter questions",
+            body: "Turn on Suggested Prompts/Questions and add a few openers, such as your pricing, delivery or booking questions. Visitors who do not know what to ask will usually pick one of these, which keeps the conversation on ground the assistant knows well.",
+            image: { src: "/media/tutorials/tutorial-site-chatbot-9.png", alt: "Suggested Prompts and Questions panel with an Add Prompt button", caption: "Starter prompts guide visitors into useful questions.", width: 850, height: 896 },
+          },
+        ],
+      },
+      {
+        heading: "Style it for your site",
+        steps: [
+          {
+            title: "Choose the look",
+            body: "In the customise step, upload your logo, pick an avatar and an accent colour, then decide whether to show the logo and timestamps. You can set the size of the launcher and place it on the left or the right of the page.",
+            image: { src: "/media/tutorials/tutorial-site-chatbot-6.png", alt: "Chatbot customise step with logo upload, avatar choices, colour swatches and position controls", caption: "Match the assistant to your site before anyone sees it.", width: 756, height: 754 },
+          },
+          {
+            title: "Pick the bubble design",
+            body: "The bubble design controls what the closed launcher looks like on your page — a plain bubble, a link bubble, a modern style, a suggestion bubble or a promo banner. Choose the one that suits how much attention you want it to draw.",
+            image: { src: "/media/tutorials/tutorial-site-chatbot-10.png", alt: "Bubble design dropdown showing Blank, Plain, Links, Modern, Suggestions and Promo Banner options", caption: "The bubble design is the first thing a visitor sees.", width: 841, height: 771 },
+          },
+        ],
+      },
+      {
+        heading: "Train, test and publish",
+        steps: [
+          {
+            title: "Train it on your own content",
+            body: "Training is optional but it is what makes the answers yours. Point it at your website, upload a PDF, paste text, or write question-and-answer pairs for the things you are asked most. Start with the pages you would send a customer to anyway.",
+            image: { src: "/media/tutorials/tutorial-site-chatbot-7.png", alt: "Chatbot training step with Website, PDF, Text and Q&A sources and an Add URL field", caption: "Website, PDF, text and Q&A are all accepted as training sources.", width: 753, height: 1148 },
+          },
+          {
+            title: "Check it before it goes live",
+            body: "Use the preview to ask the questions your customers actually ask, including one the assistant should refuse. Adjust the instructions or add training material until the answers read the way you would answer yourself.",
+            image: { src: "/media/tutorials/tutorial-site-chatbot-8.png", alt: "Chatbot editor preview pane showing a test conversation", caption: "Test the awkward questions, not just the easy ones.", width: 792, height: 637 },
+          },
+          {
+            title: "Embed it on your website",
+            body: "The final step gives you a small snippet and a width and height for the window. Copy the snippet and paste it just before the closing </body> tag of your site, then save and refresh the page to see the assistant appear.",
+            image: { src: "/media/tutorials/tutorial-site-chatbot-2.png", alt: "Test and Embed step with the copyable embed snippet and window size controls", caption: "One snippet, pasted before the closing body tag.", width: 2034, height: 1507 },
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Re-train after any big change to pricing, policies or opening hours; the assistant only knows what you have given it.",
+          },
+        ],
+      },
+      {
+        heading: "Before you publish",
+        bullets: [
+          "Read the instructions back as if you were a customer: anything vague will show up as a vague answer.",
+          "Give the assistant a clear route to a human for refunds, complaints and anything with money attached.",
+          "Do not train it on internal documents, price lists or customer data you would not publish on the page.",
+          "Check the conversations in the first week and add the questions you did not anticipate.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-chat", "ai-personas", "ai-agent-builder"],
+    relatedTutorials: ["how-to-chat-with-documents", "how-to-create-an-ai-phone-agent"],
+    cta: { toolName: "External Chatbot Builder", toolSlug: "external-chatbot" },
+  },
+  {
+    slug: "how-to-run-a-social-media-agent",
+    category: "Automation",
+    title: "How to Run an AI Social Media Agent | AmmarAI Tutorials",
+    description:
+      "Set up an AmmarAI social media agent that plans, writes and schedules posts for your accounts, then review, adjust and track them from one place.",
+    h1: "How to run an AI social media agent",
+    intro: [
+      "A social media agent takes the repetitive part of posting off your hands. You describe the brand, the accounts and the kind of posts you want, and it drafts a schedule you can review before anything goes out.",
+      "This guide walks through the dashboard, creating an agent step by step, and the places you review, schedule and measure the work it produces.",
+    ],
+    whenToUse: [
+      "You want to post consistently without writing every caption yourself.",
+      "You manage several accounts and keep losing the thread between them.",
+      "You would rather approve a plan than start from a blank page each week.",
+    ],
+    sections: [
+      {
+        heading: "Get your bearings",
+        steps: [
+          {
+            title: "Open the social media dashboard",
+            body: "Open AI Social Media from the workspace menu and start at the dashboard. It gives you today's summary in one screen, with the agent's report at the top and the week's activity below.",
+            image: { src: "/media/tutorials/tutorial-social-agent-1.png", alt: "AmmarAI social media dashboard with the workspace menu open on AI Social Media", caption: "The dashboard is the daily starting point.", width: 1906, height: 893 },
+          },
+          {
+            title: "Read the numbers at a glance",
+            body: "The counters show scheduled posts, new posts and new impressions, so you can tell in a second whether the pipeline is full or running dry.",
+            image: { src: "/media/tutorials/tutorial-social-agent-2.png", alt: "Dashboard counters showing scheduled posts, new posts and new impressions", caption: "Scheduled posts is the number to watch.", width: 1909, height: 906 },
+          },
+          {
+            title: "Open the posts waiting for review",
+            body: "When posts are ready for you, the report links straight to them. Approving or editing here is what keeps the schedule moving.",
+            image: { src: "/media/tutorials/tutorial-social-agent-3.png", alt: "Dashboard notice linking to new posts that are ready for review", caption: "The report links to whatever needs your attention.", width: 1912, height: 784 },
+          },
+          {
+            title: "Review a single post",
+            body: "Open a post to see its image, the account it will go to, the date and time, and the full caption. Change any of these before it publishes, then move to the next post.",
+            image: { src: "/media/tutorials/tutorial-social-agent-4.png", alt: "Single post review panel with image, account, date and time and caption", caption: "Every field in the draft can be edited before it goes out.", width: 1845, height: 889 },
+          },
+          {
+            title: "Scan the latest posts",
+            body: "The latest posts strip shows recent drafts and published posts side by side with their impressions and engagement, and each card has an Edit button if you want to change something.",
+            image: { src: "/media/tutorials/tutorial-social-agent-5.png", alt: "Latest posts cards with captions, impressions and engagement figures", caption: "Recent work and its results in one row.", width: 1912, height: 901 },
+          },
+        ],
+      },
+      {
+        heading: "Create an agent",
+        steps: [
+          {
+            title: "Open Agents and add one",
+            body: "Go to Agents to see the agents you already have, with their status and creation date, and choose Add Agent to build a new one.",
+            image: { src: "/media/tutorials/tutorial-social-agent-6.png", alt: "Social media agents list with agent cards and the Add Agent button", caption: "Each agent can cover a different brand or account set.", width: 1909, height: 898 },
+          },
+          {
+            title: "Start the setup",
+            body: "The agent introduces itself and explains that it will plan, publish and optimise posts for you. Choose Let's Get Started to begin the seven short steps.",
+            image: { src: "/media/tutorials/tutorial-social-agent-7.png", alt: "Social media agent welcome screen with a Let's Get Started button", caption: "Setup is seven short steps, not a long form.", width: 1908, height: 906 },
+          },
+          {
+            title: "Choose where it publishes",
+            body: "Pick one or more connected accounts. If the account you want is missing, link it here before you continue.",
+            image: { src: "/media/tutorials/tutorial-social-agent-8.png", alt: "Platform selection step with connected social accounts and a link account option", caption: "An agent can cover one platform or several.", width: 1905, height: 897 },
+          },
+          {
+            title: "Tell it about your business",
+            body: "Add your website address so the agent can read your brand for itself, or write a short description instead. The more accurate this is, the less editing you will do later.",
+            image: { src: "/media/tutorials/tutorial-social-agent-9.png", alt: "Brand step asking for a website URL or a written brand description", caption: "Your website is the fastest way to give it context.", width: 1910, height: 896 },
+          },
+          {
+            title: "Describe who you are talking to",
+            body: "Choose the audiences that match your customers, or leave the agent to decide automatically. You can regenerate the suggestions if none of them fit.",
+            image: { src: "/media/tutorials/tutorial-social-agent-10.png", alt: "Audience step with selectable audience tags and an automatic option", caption: "Audience choice changes the tone of every caption.", width: 1906, height: 903 },
+          },
+          {
+            title: "Pick the content mix",
+            body: "Select the kinds of posts you want — announcements, product promotions, informative posts, customer stories, tips and so on. A mix keeps the feed from reading like an advert.",
+            image: { src: "/media/tutorials/tutorial-social-agent-11.png", alt: "Content focus step with post type options such as announcements, promotions and tips", caption: "Choose several types so the feed stays varied.", width: 1912, height: 892 },
+          },
+          {
+            title: "Fine-tune the style",
+            body: "Decide whether posts include images, whether hashtags and emoji are used, and set the language, how often it posts and the tone of voice.",
+            image: { src: "/media/tutorials/tutorial-social-agent-12.png", alt: "Personalisation step with image, hashtag, language, frequency and tone controls", caption: "Tone and frequency are the two settings people change most.", width: 1901, height: 893 },
+          },
+          {
+            title: "Set the posting schedule",
+            body: "Choose your own posting times or let the agent decide when engagement is likely to be highest, then finish setup. The agent starts drafting from there.",
+            image: { src: "/media/tutorials/tutorial-social-agent-13.png", alt: "Schedule step asking when the agent should post, with an automatic option", caption: "Automatic timing is a sensible default to begin with.", width: 1909, height: 899 },
+          },
+        ],
+      },
+      {
+        heading: "Run it week to week",
+        steps: [
+          {
+            title: "Work through the posts archive",
+            body: "The archive lists every post by account, with drafts and published posts together. Filter by platform, sort by date and edit anything before its slot comes round.",
+            image: { src: "/media/tutorials/tutorial-social-agent-14.png", alt: "Posts archive filtered by platform with draft post cards", caption: "The archive is where bulk editing happens.", width: 1796, height: 866 },
+          },
+          {
+            title: "Plan on the calendar",
+            body: "The calendar shows the month laid out by day so you can spot gaps, clashes and days where you have scheduled too much. Move posts around until the rhythm looks right.",
+            image: { src: "/media/tutorials/tutorial-social-agent-15.png", alt: "Monthly content calendar with scheduled posts on each day", caption: "Gaps and pile-ups are obvious in the month view.", width: 1911, height: 904 },
+          },
+          {
+            title: "Check what actually worked",
+            body: "Analytics covers engagement, followers, published posts and impressions over time. Use it to decide what the agent should do more of, then change the content mix or tone in the agent's settings.",
+            image: { src: "/media/tutorials/tutorial-social-agent-16.png", alt: "Analytics screen with engagement, follower, post and impression charts", caption: "Feed the results back into the agent's settings.", width: 1905, height: 904 },
+          },
+          {
+            title: "Manage connected accounts",
+            body: "The accounts page is where you link, review and remove the profiles the agent posts to, with the status of each connection listed underneath.",
+            image: { src: "/media/tutorials/tutorial-social-agent-17.png", alt: "Social accounts page listing connected profiles and their status", caption: "Reconnect an account here if posting stops working.", width: 1825, height: 893 },
+          },
+          {
+            title: "Ask for something specific",
+            body: "The chat is there for one-off requests: a launch plan, a trend check, a set of captions or a campaign idea. Anything you agree there can be turned into scheduled posts.",
+            image: { src: "/media/tutorials/tutorial-social-agent-18.png", alt: "Social media chat with suggested requests such as analysing trends and creating captions", caption: "Use the chat for the work that falls outside the routine.", width: 1913, height: 908 },
+          },
+        ],
+      },
+      {
+        heading: "Before you publish",
+        bullets: [
+          "Read the first week of drafts in full; corrections early save you correcting the same thing all month.",
+          "Check claims, prices and dates yourself — the agent writes from what you told it, not from your systems.",
+          "Keep the approval step on until the tone is consistently right.",
+          "Follow each platform's rules on disclosure, promotions and competitions.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-social-media-agent", "ai-dm-comment-agent", "ai-image-generator"],
+    relatedTutorials: ["how-to-build-and-embed-a-website-chatbot", "how-to-manage-sales-with-ai-crm"],
+    cta: { toolName: "AI Social Media Agent", toolSlug: "ai-social-media-agent" },
+  },
 ];
 
 
