@@ -4,7 +4,7 @@
  * is intentionally excluded.
  */
 
-export type TutorialCategory = "Chat & Documents" | "Image" | "Video" | "Video Marketing" | "Fashion";
+export type TutorialCategory = "Chat & Documents" | "Automation" | "Image" | "Video" | "Video Marketing" | "Fashion" | "Audio";
 
 export interface TutorialCallout {
   type: "tip" | "note" | "warning";
@@ -46,7 +46,7 @@ export interface Tutorial {
   cta: { toolName: string; toolSlug: string };
 }
 
-export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Image", "Video", "Video Marketing", "Fashion"];
+export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Automation", "Image", "Video", "Video Marketing", "Fashion", "Audio"];
 
 export const tutorials: Tutorial[] = [
   {
@@ -1001,6 +1001,168 @@ export const tutorials: Tutorial[] = [
     relatedTools: ["ai-ugc-generator", "ai-captions", "ai-url-to-video"],
     relatedTutorials: ["how-to-create-ai-influencer-videos", "how-to-dub-a-video"],
     cta: { toolName: "AI UGC Generator", toolSlug: "ai-ugc-generator" },
+  },
+  {
+    slug: "how-to-build-an-ai-agent",
+    category: "Automation",
+    title: "How to Build an AI Agent | AmmarAI Tutorials",
+    description:
+      "Build, test and monitor a multi-step workflow with AmmarAI AI Agent Builder using plain-language instructions, triggers and connected tools.",
+    h1: "How to build an AI agent",
+    intro: [
+      "AI Agent Builder turns a plain-language job description into a workflow that can run on demand, on a schedule or when a message arrives. Each step can use the result from the step before it.",
+      "This guide covers the regular-user workflow for creating and monitoring an agent. Workspace installation, provider credentials and plan controls are intentionally excluded.",
+    ],
+    whenToUse: [
+      "A repeated task requires several decisions or tools, not one generated answer.",
+      "You want the workflow to run on a schedule or react to incoming messages.",
+      "You need a visible run history before trusting an automation.",
+    ],
+    sections: [
+      {
+        heading: "Start from the Agent Builder",
+        steps: [
+          {
+            title: "Open the agent dashboard",
+            body: "Open AI Agent Builder. Start with the plain-language description box, open the visual builder, or choose a featured starting point such as a daily report, weekly summary or morning briefing.",
+            image: { src: "/media/tutorials/tutorial-agent-builder-01.png", alt: "AmmarAI Agent Builder dashboard with a plain-language agent description field and featured workflows", caption: "Choose a starting point for the workflow.", width: 1644, height: 815 },
+          },
+          {
+            title: "Connect only the services the job needs",
+            body: "Open Manage Connectors, select Add Connector and link the account needed by this workflow. Keep access narrow: an email workflow needs its mailbox, while an unrelated service can remain disconnected.",
+            image: { src: "/media/tutorials/tutorial-agent-builder-02.png", alt: "AmmarAI Agent Builder dashboard with the Manage Connectors action highlighted", caption: "Open the connector manager from the agent dashboard.", width: 1523, height: 490 },
+          },
+          {
+            title: "Choose the relevant connector",
+            body: "Select the service the agent should use. The available actions shown for each connector make it clear whether the agent can read messages, create drafts, send mail, manage contacts or update a calendar.",
+            image: { src: "/media/tutorials/tutorial-agent-builder-03.png", alt: "Agent connector picker showing email services and their available actions", caption: "Choose a connector by the actions your workflow requires.", width: 951, height: 293 },
+          },
+        ],
+      },
+      {
+        heading: "Describe and refine the workflow",
+        steps: [
+          {
+            title: "Describe the complete job",
+            body: "State what should happen, when it should run and where the result belongs. For example: every weekday morning, summarize yesterday’s messages and send the briefing to a chosen channel. Continue the conversation to refine the workflow.",
+            image: { src: "/media/tutorials/tutorial-agent-builder-04.png", alt: "AmmarAI Agent Builder description box and workflow starting options", caption: "Describe the goal, timing and destination in one clear brief.", width: 1637, height: 839 },
+          },
+          {
+            title: "Set the trigger and chain the actions",
+            body: "Choose a schedule or an incoming channel message as the trigger. Add the required actions in order and pass useful output forward, such as reading messages, summarizing them and sending the final report.",
+          },
+          {
+            title: "Test, save and activate",
+            body: "Run a test, inspect the result and correct any vague instruction. Save the agent only when the test follows the intended path, then switch it to Active. You can pause it at any time.",
+          },
+        ],
+      },
+      {
+        heading: "Monitor agents and conversations",
+        steps: [
+          {
+            title: "Review every agent from one list",
+            body: "Open Agents to compare statuses and last-run times. Use the options menu to edit, pause or remove a workflow, or start a conversation with an agent directly.",
+            image: { src: "/media/tutorials/tutorial-agent-builder-05.png", alt: "AmmarAI agents list with status, last-run information and agent options", caption: "Check status and recent activity across all agents.", width: 1736, height: 639 },
+          },
+          {
+            title: "Inspect messages and run details",
+            body: "Open Channel Messages, select a conversation and read the full history. Use Details and Logs to verify what the agent received, which steps ran and what it produced before expanding the workflow’s responsibility.",
+            image: { src: "/media/tutorials/tutorial-agent-builder-06.png", alt: "AmmarAI agent conversation with Details and Logs for a completed workflow", caption: "Use the conversation history and logs to audit each run.", width: 1693, height: 661 },
+          },
+        ],
+        callouts: [{ type: "tip", body: "Begin with one narrow job and review its first runs in full before increasing its schedule or access." }],
+      },
+    ],
+    relatedTools: ["ai-agent-builder", "ai-blogger-agent", "ai-social-media-agent"],
+    relatedTutorials: ["how-to-use-ai-blogger-agent", "how-to-use-ai-chat-pro"],
+    cta: { toolName: "AI Agent Builder", toolSlug: "ai-agent-builder" },
+  },
+  {
+    slug: "how-to-use-ai-blogger-agent",
+    category: "Automation",
+    title: "How to Use AI Blogger Agent | AmmarAI Tutorials",
+    description:
+      "Plan, schedule, review and measure a recurring content workflow with AmmarAI AI Blogger Agent.",
+    h1: "How to use AI Blogger Agent",
+    intro: [
+      "AI Blogger Agent organizes recurring content around a defined topic, format and schedule. Its dashboard brings drafts, scheduled posts, the calendar and recent activity into one working view.",
+      "This guide follows the complete regular-user workflow from creating an agent to reviewing posts, calendar activity and performance.",
+    ],
+    whenToUse: [
+      "You want a consistent publishing rhythm instead of creating every post manually.",
+      "Different topics or brands need separate content instructions.",
+      "You want drafts and scheduled work visible in one calendar and post library.",
+    ],
+    sections: [
+      {
+        heading: "Read the content dashboard",
+        steps: [
+          { title: "Check the current queue", body: "Use the opening dashboard to review new drafts, scheduled work and the next item requiring attention.", image: { src: "/media/tutorials/tutorial-blogger-agent-01.png", alt: "AmmarAI Blogger Agent dashboard with content summary and latest activity", caption: "The dashboard summarizes the active content queue.", width: 1917, height: 857 } },
+          { title: "Review the calendar and latest posts", body: "Scan the calendar for published and scheduled items, then review the latest-post cards to spot gaps or open a draft that needs editing.", image: { src: "/media/tutorials/tutorial-blogger-agent-02.png", alt: "Blogger Agent calendar showing scheduled and published content", caption: "Use the calendar to see coverage over time.", width: 1843, height: 557 } },
+          { title: "Open a recent post", body: "Use the latest-post area to inspect a draft or published item without losing the wider schedule view.", image: { src: "/media/tutorials/tutorial-blogger-agent-03.png", alt: "Blogger Agent latest-post cards with content previews", caption: "Recent items remain available for quick review.", width: 1843, height: 672 } },
+        ],
+      },
+      {
+        heading: "Create a focused blogger agent",
+        steps: [
+          { title: "Start a new agent", body: "Open Agents and select Add Agent. Keep one clear niche or publishing purpose per agent so its drafts remain consistent.", image: { src: "/media/tutorials/tutorial-blogger-agent-04.png", alt: "AmmarAI Blogger Agent list with the Add Agent action", caption: "Create a separate agent for each distinct content strategy.", width: 1918, height: 946 } },
+          { title: "Define the niche and article type", body: "Enter the main subject, then choose the article format that best fits the audience and publishing destination.", image: { src: "/media/tutorials/tutorial-blogger-agent-05.png", alt: "Blogger Agent setup asking for the content niche", caption: "Begin with one specific subject area.", width: 1912, height: 877 } },
+          { title: "Set the content preferences", body: "Choose whether posts should include images, emojis or current web research, and set the language and tone required for this agent.", image: { src: "/media/tutorials/tutorial-blogger-agent-07.png", alt: "Blogger Agent setup with content preference fields", caption: "Set the output rules before scheduling posts.", width: 1911, height: 857 } },
+          { title: "Choose the schedule", body: "Select the posting days, time and frequency. Use a sustainable cadence that leaves enough time to review early drafts.", image: { src: "/media/tutorials/tutorial-blogger-agent-09.png", alt: "Blogger Agent schedule step with posting cadence controls", caption: "Choose when and how often the agent should prepare content.", width: 1915, height: 815 } },
+          { title: "Name and create the agent", body: "Give the agent a recognizable name, check the summary and create it. The name will identify its work in the post library and reports.", image: { src: "/media/tutorials/tutorial-blogger-agent-10.png", alt: "Final Blogger Agent setup step with agent name and create action", caption: "Name the agent so its posts are easy to trace.", width: 1911, height: 845 } },
+        ],
+      },
+      {
+        heading: "Manage posts, dates and results",
+        steps: [
+          { title: "Filter the post library", body: "Open Posts and sort or filter by date, status or title. Drafts remain editable, while scheduled and published items provide a clear record of the queue.", image: { src: "/media/tutorials/tutorial-blogger-agent-11.png", alt: "AmmarAI Blogger Agent post library with filters and status columns", caption: "Use the post library to find drafts and scheduled work quickly.", width: 1907, height: 863 } },
+          { title: "Use the full calendar", body: "Open Calendar for a month-level view of every scheduled and published item. Check for empty stretches and crowded publishing days before changing the cadence.", image: { src: "/media/tutorials/tutorial-blogger-agent-15.png", alt: "AmmarAI Blogger Agent monthly content calendar", caption: "The calendar shows the complete publishing rhythm.", width: 1914, height: 937 } },
+          { title: "Review reports and analytics", body: "Use Reports and Analytics to compare posting volume and activity by agent. Use what you learn to adjust future topics, formats and frequency.", image: { src: "/media/tutorials/tutorial-blogger-agent-16.png", alt: "AmmarAI Blogger Agent reports and analytics dashboard", caption: "Measure activity before revising the content plan.", width: 1920, height: 864 } },
+        ],
+      },
+    ],
+    relatedTools: ["ai-blogger-agent", "ai-agent-builder", "keyword-generator"],
+    relatedTutorials: ["how-to-build-an-ai-agent", "how-to-use-ai-chat-pro"],
+    cta: { toolName: "AI Blogger Agent", toolSlug: "ai-blogger-agent" },
+  },
+  {
+    slug: "how-to-use-ai-music-pro",
+    category: "Audio",
+    title: "How to Use AI Music Pro | AmmarAI Tutorials",
+    description:
+      "Generate an original track in AmmarAI AI Music Pro by defining its sound, duration and musical style.",
+    h1: "How to use AI Music Pro",
+    intro: [
+      "AI Music Pro creates an original track from three creative inputs: a written description, a duration and a musical style.",
+      "This guide covers the complete creation workflow. Provider keys and workspace configuration are not part of the end-user process and are excluded.",
+    ],
+    whenToUse: [
+      "A video, advertisement, podcast or presentation needs an original music bed.",
+      "The track must match a specific emotion, instrumentation or tempo.",
+      "You need a defined duration rather than trimming a longer stock track.",
+    ],
+    sections: [
+      {
+        heading: "Define the track",
+        steps: [
+          { title: "Write a precise music description", body: "Describe the intended mood, pace and prominent instruments. A useful brief combines all three, such as an optimistic electronic track with light percussion, warm synths and a steady mid-tempo build.", image: { src: "/media/tutorials/tutorial-music-pro-01.png", alt: "AmmarAI Music Pro description field for a new track", caption: "Describe the mood, instrumentation and movement of the track.", width: 1811, height: 629 } },
+          { title: "Set the duration", body: "Enter the required length in seconds so the result fits its destination, whether it is a short social clip, an advertisement or a longer presentation segment.", image: { src: "/media/tutorials/tutorial-music-pro-02.png", alt: "AmmarAI Music Pro duration control with track length entered", caption: "Match the duration to the content that will use the music.", width: 1801, height: 585 } },
+          { title: "Choose the musical style", body: "Open the style list and select the genre or foundation closest to the desired result. The description supplies the detail; the style gives the composition its broad musical structure.", image: { src: "/media/tutorials/tutorial-music-pro-03.png", alt: "AmmarAI Music Pro style selector open with musical genres", caption: "Choose the genre that best anchors the written brief.", width: 1898, height: 636 } },
+        ],
+      },
+      {
+        heading: "Generate and evaluate",
+        steps: [
+          { title: "Generate the track", body: "Check the description, duration and style together, then generate. Listen to the full result in context rather than judging only its opening seconds." },
+          { title: "Refine one variable at a time", body: "If the result misses the brief, change one element—such as tempo, instrument or mood—and generate again. Keeping the other inputs stable makes each revision easier to evaluate." },
+        ],
+        callouts: [{ type: "note", body: "Keep a record of the prompt and generated result you select, and confirm that your final use complies with AmmarAI’s current plan and usage terms." }],
+      },
+    ],
+    relatedTools: ["ai-music-generator", "sound-studio", "ai-video-generator"],
+    relatedTutorials: ["how-to-use-ai-video-pro", "how-to-create-ugc-videos"],
+    cta: { toolName: "AI Music Pro", toolSlug: "ai-music-generator" },
   },
 ];
 
