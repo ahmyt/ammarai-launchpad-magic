@@ -8,7 +8,7 @@ import { SITE, softwareApplicationJsonLd, REGISTER_URL } from "@/lib/site";
 import { Container, Section, SectionHeading, Card, NumberedList, BulletList } from "@/components/site/primitives";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/Breadcrumbs";
-import { ExternalButton, ButtonLink } from "@/components/site/Button";
+import { ExternalButton, ButtonLink, buttonClass } from "@/components/site/Button";
 import { RelatedTools, ToolCard } from "@/components/site/ToolCard";
 import { AnimatedExample } from "@/components/site/AnimatedExample";
 import { toolDemoMedia, type ToolDemoMedia } from "@/data/tool-demos";
@@ -307,13 +307,13 @@ function ToolPage({ tool }: { tool: Tool }) {
                 <p className="eyebrow">Tutorial</p>
                 <h2 className="mt-2 text-2xl sm:text-3xl">{tutorial.h1}</h2>
                 <p className="mt-3 text-muted-foreground">{tutorial.description}</p>
-                <ButtonLink
+                <Link
                   to="/tutorials/$slug"
                   params={{ slug: tutorial.slug }}
-                  className="mt-5"
+                  className={buttonClass("primary", "md", "mt-5")}
                 >
                   Read the tutorial
-                </ButtonLink>
+                </Link>
               </div>
             </Container>
           </Section>

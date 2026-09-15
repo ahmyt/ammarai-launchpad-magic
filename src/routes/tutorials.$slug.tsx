@@ -2,7 +2,7 @@ import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowRight, ChevronLeft, ChevronRight, Info, Lightbulb, TriangleAlert } from "lucide-react";
 
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { ButtonLink } from "@/components/site/Button";
+import { buttonClass } from "@/components/site/Button";
 import { Container } from "@/components/site/primitives";
 import { adjacentTutorials, getTutorial, type TutorialCallout } from "@/data/tutorials";
 
@@ -132,9 +132,13 @@ function TutorialPage() {
             </p>
           ))}
           <div className="tutorial-cta-top">
-            <ButtonLink to="/$slug" params={{ slug: tutorial.cta.toolSlug }} size="lg">
+            <Link
+              to="/$slug"
+              params={{ slug: tutorial.cta.toolSlug }}
+              className={buttonClass("primary", "lg")}
+            >
               Try {tutorial.cta.toolName} in AmmarAI <ArrowRight aria-hidden="true" />
-            </ButtonLink>
+            </Link>
           </div>
         </header>
 
@@ -311,9 +315,9 @@ function TutorialNotFound() {
       <p className="mx-auto mt-4 max-w-md text-muted-foreground">
         This tutorial may have moved. Browse the full list instead.
       </p>
-      <ButtonLink to="/tutorials" className="mt-8">
+      <Link to="/tutorials" className={buttonClass("primary", "md", "mt-8")}>
         All tutorials
-      </ButtonLink>
+      </Link>
     </Container>
   );
 }
