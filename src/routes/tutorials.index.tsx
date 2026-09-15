@@ -2,7 +2,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { BookOpenText, ChevronRight, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 
-import { Container } from "@/components/site/Container";
+import { Container } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import {
   searchTutorials,

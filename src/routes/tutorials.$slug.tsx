@@ -3,10 +3,11 @@ import { ArrowRight, ChevronLeft, ChevronRight, Info, Lightbulb, TriangleAlert }
 
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ButtonLink } from "@/components/site/Button";
-import { Container } from "@/components/site/Container";
+import { Container } from "@/components/site/primitives";
 import { adjacentTutorials, getTutorial, type TutorialCallout } from "@/data/tutorials";
 
 export const Route = createFileRoute("/tutorials/$slug")({
+  staticData: { sitemap: true },
   loader: ({ params }) => {
     const tutorial = getTutorial(params.slug);
     if (!tutorial) throw notFound();
