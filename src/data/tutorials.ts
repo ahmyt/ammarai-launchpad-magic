@@ -2755,7 +2755,7 @@ export const tutorials: Tutorial[] = [
         ],
       },
     ],
-    relatedTools: ["ai-writer", "ai-chat", "ai-content-manager"],
+    relatedTools: ["ai-writer", "ai-chat", "ai-image-editor"],
     relatedTutorials: ["how-to-use-the-content-manager", "how-to-use-ai-chat-pro"],
     cta: { toolName: "Team Workspaces", toolSlug: "team-workspaces", kind: "feature" },
   },
