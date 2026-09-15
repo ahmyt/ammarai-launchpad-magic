@@ -16,9 +16,10 @@ Illustrated interface mockups are not permitted. Crop captures to the relevant
 controls and make only necessary branding/privacy adaptations; never invent a
 state that was not observed. If a screen is blocked by the demo plan, keep the
 tutorial pending or use a genuine screenshot from the public reference docs.
-Each step image must also use a visible pointer arrow and outlined highlight on
-the exact field, control, result, or action being explained. Annotations may
-clarify a genuine capture but must never imply an unobserved interface state.
+Each step image must retain the full left-side menu and use a visible red
+pointer arrow on the exact field, control, result, or action being explained.
+Do not add outlined highlight boxes. Annotations may clarify a genuine capture
+but must never imply an unobserved interface state.
 The first six verified tutorials contain 31 real step captures in total.
 
 Capture pass 2026-09-15: signed in to the public product demo with its own
