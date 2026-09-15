@@ -1379,7 +1379,258 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-use-ai-chat-pro", "how-to-chat-with-documents"],
     cta: { toolName: "Realtime Voice Chat", toolSlug: "realtime-voice-chat" },
   },
+  {
+    slug: "how-to-edit-videos-with-the-ai-video-editor",
+    category: "Video",
+    title: "How to Edit Videos with the AI Video Editor | AmmarAI Tutorials",
+    description:
+      "Create a project, arrange clips on the timeline and use the AI, voice and music panels inside the AmmarAI AI Video Editor, then export the finished video.",
+    h1: "How to edit videos with the AI Video Editor",
+    intro: [
+      "The AI Video Editor is a timeline editor built into AmmarAI. You create a project, bring in footage, arrange it across video, audio and text tracks, and export the result without moving between separate applications.",
+      "Alongside the standard editing tools, side panels let you generate new clips, voiceovers and background music directly onto the timeline. This guide follows that end-user flow only.",
+    ],
+    whenToUse: [
+      "You need to assemble or trim footage rather than generate a single clip.",
+      "A video needs narration or background music added to the same timeline.",
+      "The same footage has to be delivered in different aspect ratios for different platforms.",
+    ],
+    sections: [
+      {
+        heading: "Start a project",
+        steps: [
+          {
+            title: "Open the AI Video Editor and create a project",
+            body: "Open AI Video Editor from the workspace menu. The page lists every existing project with its aspect ratio, name and creation date. Select New Project, give the project a name, then choose the aspect ratio that matches where the video will be published.",
+            image: {
+              src: "/media/tutorials/tutorial-video-editor-1.png",
+              alt: "AmmarAI AI Video Editor new project dialog with project name and aspect ratio",
+              caption: "Name the project and set the aspect ratio before opening the timeline.",
+              width: 1888,
+              height: 850,
+            },
+          },
+          {
+            title: "Choose the right aspect ratio",
+            body: "1:1 suits square social feeds, 16:9 suits YouTube and presentations, and 9:16 suits vertical formats such as Reels and Shorts. Setting this at the start avoids recomposing shots later.",
+          },
+        ],
+        table: {
+          head: ["Aspect ratio", "Shape", "Best for"],
+          rows: [
+            ["1:1", "Square", "Instagram and Facebook feed posts"],
+            ["16:9", "Landscape", "YouTube, websites and presentations"],
+            ["9:16", "Portrait", "Reels, TikTok and YouTube Shorts"],
+          ],
+        },
+      },
+      {
+        heading: "Build the timeline",
+        steps: [
+          {
+            title: "Add media from the library",
+            body: "Open the Library panel and upload your footage, images and audio, or pick from what is already stored. Filter by video, image or audio to find assets quickly, then drop them onto the timeline in the order the story should play.",
+            image: {
+              src: "/media/tutorials/tutorial-video-editor-2.png",
+              alt: "AmmarAI AI Video Editor library panel with uploaded video, image and audio files",
+              caption: "The Library panel holds every asset available to the project.",
+              width: 1894,
+              height: 929,
+            },
+          },
+          {
+            title: "Arrange, trim and layer",
+            body: "Use the timeline to trim clips, split them and change their order. Video, audio and text sit on separate tracks, so narration, music and captions can run underneath the picture. The preview updates as you work, and projects save automatically.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Lay down the picture edit first and add voice, music and text afterwards. Timing changes are far quicker before extra tracks are aligned to the cut.",
+          },
+        ],
+      },
+      {
+        heading: "Use the AI panels",
+        paragraphs: [
+          "Three side panels bring AmmarAI generation into the editor itself, so new material lands straight on the timeline instead of being produced elsewhere and imported.",
+        ],
+        steps: [
+          {
+            title: "Generate video in the AI panel",
+            body: "Open the AI tab, describe the clip you need and choose the model. The generated clip is placed on the timeline ready to trim and position with the rest of the edit.",
+            image: {
+              src: "/media/tutorials/tutorial-video-editor-3.png",
+              alt: "AmmarAI AI Video Editor AI generation panel with prompt and model selection",
+              caption: "Generated clips are added straight to the timeline.",
+              width: 1835,
+              height: 921,
+            },
+          },
+          {
+            title: "Add a voiceover in the Voice panel",
+            body: "Open the Voice tab, enter the script, choose the language and voice, and generate. The narration is added as an audio track you can move and trim against the picture.",
+            image: {
+              src: "/media/tutorials/tutorial-video-editor-4.png",
+              alt: "AmmarAI AI Video Editor voiceover panel with script, language and voice controls",
+              caption: "Narration arrives as a normal audio track on the timeline.",
+              width: 1816,
+              height: 932,
+            },
+          },
+          {
+            title: "Add background music in the Music panel",
+            body: "Open the Music tab, describe the mood or style you want behind the edit and generate a track. Place it on an audio track and lower its level so narration stays clear.",
+            image: {
+              src: "/media/tutorials/tutorial-video-editor-5.png",
+              alt: "AmmarAI AI Video Editor music panel with a music description field",
+              caption: "Generated music sits on its own audio track under the narration.",
+              width: 1811,
+              height: 933,
+            },
+          },
+        ],
+      },
+      {
+        heading: "Save and export",
+        steps: [
+          {
+            title: "Review the full edit",
+            body: "Play the project from the start and check pacing, audio balance and the readability of any on-screen text at the size viewers will actually see.",
+          },
+          {
+            title: "Export the video",
+            body: "Use Save to keep working later, or Export to render the finished video in the project's aspect ratio. Completed projects stay on the editor home screen and can be reopened at any time.",
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "Longer timelines with several generated tracks take longer to render. Export a short test section first when you are checking a new look or audio mix.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-video-editor", "ai-video-generator", "ai-captions"],
+    relatedTutorials: ["how-to-use-ai-video-pro", "how-to-use-ai-captions"],
+    cta: { toolName: "AI Video Editor", toolSlug: "ai-video-editor" },
+  },
+  {
+    slug: "how-to-use-the-ai-creative-suite",
+    category: "Image",
+    title: "How to Use the AI Creative Suite | AmmarAI Tutorials",
+    description:
+      "Generate images with your chosen AI engine, start from a template or artboard, then refine type, colour and layout in the AmmarAI AI Creative Suite canvas.",
+    h1: "How to use the AI Creative Suite",
+    intro: [
+      "The AI Creative Suite joins image generation and design editing in one canvas. You generate a visual with the engine you prefer, then refine it with type, colour, layout and export controls without leaving the workspace.",
+      "This guide follows the everyday design flow: generate, choose a starting layout, edit on the canvas and export the finished artwork.",
+    ],
+    whenToUse: [
+      "Marketing, product or social visuals need text and layout on top of a generated image.",
+      "A campaign needs several sizes of the same design.",
+      "You want a reusable project file rather than a one-off image download.",
+    ],
+    sections: [
+      {
+        heading: "Generate the base image",
+        steps: [
+          {
+            title: "Choose the AI engine and describe the image",
+            body: "Open the Creative Suite and write what the image should show. Select the generation engine you prefer for the subject, then generate. Different engines favour different results, so it is worth trying more than one for the same brief.",
+            image: {
+              src: "/media/tutorials/tutorial-creative-suite-1.png",
+              alt: "AmmarAI Creative Suite image generation panel with engine selection",
+              caption: "Pick the engine that suits the subject, then generate the base image.",
+              width: 1895,
+              height: 915,
+            },
+          },
+          {
+            title: "Bring the result onto the canvas",
+            body: "Add the generated image to the canvas. You can keep generating alternatives and add more images to the same project, so several options can be compared side by side.",
+          },
+        ],
+      },
+      {
+        heading: "Start from a template or artboard",
+        steps: [
+          {
+            title: "Use a predefined template",
+            body: "Templates give you a finished composition with type, spacing and colour already arranged. Choose one that matches the message, then replace the imagery and wording with your own.",
+            image: {
+              src: "/media/tutorials/tutorial-creative-suite-2.png",
+              alt: "AmmarAI Creative Suite template gallery with predefined designs",
+              caption: "Templates give a complete layout you can adapt.",
+              width: 1883,
+              height: 905,
+            },
+          },
+          {
+            title: "Pick a predefined artboard",
+            body: "Artboards set the canvas to a standard size for a specific destination, such as a social post or an advertisement. Choosing the right artboard first keeps every element correctly positioned for the final format.",
+            image: {
+              src: "/media/tutorials/tutorial-creative-suite-4.png",
+              alt: "AmmarAI Creative Suite artboard size options",
+              caption: "Set the artboard so the design matches its destination from the start.",
+              width: 1891,
+              height: 907,
+            },
+          },
+        ],
+      },
+      {
+        heading: "Edit the design on the canvas",
+        steps: [
+          {
+            title: "Set type, colour and alignment",
+            body: "Select any text element to change the font, weight, size, spacing, colour and alignment. The left rail gives access to library assets, text, images, shapes, sizing and layers, so the whole composition is edited in one place.",
+            image: {
+              src: "/media/tutorials/tutorial-creative-suite-3.png",
+              alt: "AmmarAI Creative Suite canvas with font, size, colour and alignment controls",
+              caption: "Type, colour, size and layer controls sit around the canvas.",
+              width: 1914,
+              height: 903,
+            },
+          },
+          {
+            title: "Add more images and arrange layers",
+            body: "Add further generated or uploaded images, then use the layer controls to set what sits in front of what. Keep important text clear of busy areas of the image so it stays readable.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Restrict a design to two typefaces and a small colour set. Generated imagery is already visually rich, so restrained type keeps the message legible.",
+          },
+        ],
+      },
+      {
+        heading: "Export and reuse the project",
+        steps: [
+          {
+            title: "Export the finished artwork",
+            body: "Export the design when it is complete. Check it at the size it will actually be viewed, particularly small text on mobile feeds.",
+          },
+          {
+            title: "Export and import projects",
+            body: "Projects can be exported and imported again later, which makes it straightforward to reuse an approved layout for the next campaign rather than rebuilding it.",
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "Confirm that any product photography, logo or claim you place on the artwork is approved for the campaign before it is published.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-creative-suite", "ai-image-generator", "ai-image-editor"],
+    relatedTutorials: ["how-to-use-ai-image-pro", "how-to-edit-videos-with-the-ai-video-editor"],
+    cta: { toolName: "AI Creative Suite", toolSlug: "ai-creative-suite" },
+  },
 ];
+
 
 export const tutorialBySlug = new Map(tutorials.map((tutorial) => [tutorial.slug, tutorial]));
 
