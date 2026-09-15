@@ -4,7 +4,7 @@
  * is intentionally excluded.
  */
 
-export type TutorialCategory = "Chat & Documents" | "Image" | "Video" | "Video Marketing";
+export type TutorialCategory = "Chat & Documents" | "Image" | "Video" | "Video Marketing" | "Fashion";
 
 export interface TutorialCallout {
   type: "tip" | "note" | "warning";
@@ -46,7 +46,7 @@ export interface Tutorial {
   cta: { toolName: string; toolSlug: string };
 }
 
-export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Image", "Video", "Video Marketing"];
+export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Image", "Video", "Video Marketing", "Fashion"];
 
 export const tutorials: Tutorial[] = [
   {
@@ -552,6 +552,385 @@ export const tutorials: Tutorial[] = [
     relatedTools: ["ai-url-to-video", "ai-avatar-generator", "ai-captions"],
     relatedTutorials: ["how-to-create-viral-clips", "how-to-use-ai-video-pro"],
     cta: { toolName: "AI URL to Video & Influencer", toolSlug: "ai-url-to-video" },
+  },
+  {
+    slug: "how-to-use-fashion-studio",
+    category: "Fashion",
+    title: "How to Use Fashion Studio | AmmarAI Tutorials",
+    description:
+      "Create AI photoshoots, virtual try-on images, model swaps, edits and fashion videos with AmmarAI’s Fashion Studio workflow.",
+    h1: "How to use Fashion Studio",
+    intro: [
+      "Fashion Studio is AmmarAI’s creative suite for visualising, styling and marketing apparel. Whether you run an e-commerce brand, style digitally or create content, it brings photoshoots, try-on, model swaps, editing and video into one workspace.",
+      "Fashion Studio uses the existing credit system. Image actions — model and background generation, photoshoots and edits — draw on your image credits, and video creation draws on your video credits.",
+    ],
+    whenToUse: [
+      "You need editorial product imagery without booking a physical set.",
+      "You want to see how a garment looks on a real human figure before shooting it.",
+      "You want to animate a static fashion image into a short cinematic clip.",
+    ],
+    sections: [
+      {
+        heading: "The Fashion Studio dashboard",
+        paragraphs: [
+          "The dashboard is your creative headquarters. Built for speed and precision, it gives immediate access to the core generative tools, so you can define your brand aesthetic, animate your designs and preview garments from one screen.",
+        ],
+        bullets: [
+          "Model selection: choose from a diverse library of AI models, filtering by ethnicity, age and body type so your brand representation is inclusive and accurate.",
+          "Style customisation: control the look with the style editor, adjusting hair, makeup and lighting environments to match the campaign mood.",
+          "Video generation: bring static images to life with cinematic catwalks or 360-degree product showcases for social media and high-impact ads.",
+          "Virtual try-on: drag a garment from your wardrobe onto a selected model for an instant, high-fidelity preview of fit and fabric drape.",
+        ],
+        steps: [
+          {
+            title: "Open the Fashion Studio dashboard",
+            body: "Open Fashion Studio from the side menu to reach the model, style, video and try-on tools.",
+            image: { src: "/media/tutorials/tutorial-fashion-1.png", alt: "AmmarAI Fashion Studio dashboard showing the core creative tools", caption: "The Fashion Studio dashboard.", width: 1804, height: 910 },
+          },
+        ],
+      },
+      {
+        heading: "AI Photoshoot",
+        paragraphs: [
+          "The AI Photoshoot module creates high-end editorial imagery without the logistics of a physical set. You can combine existing assets, your own products and AI-generated designs in a single scene.",
+        ],
+        steps: [
+          {
+            title: "1. Product selection — library products",
+            body: "You can feature up to three products in one photoshoot. Select items from the curated catalogue already available in the system.",
+            image: { src: "/media/tutorials/tutorial-fashion-2.png", alt: "Photoshoot product selection showing library products", caption: "Choose products from the built-in catalogue.", width: 1795, height: 892 },
+          },
+          {
+            title: "1. Product selection — upload your own",
+            body: "Import your own product photos or flat lays to see them modelled in three dimensions.",
+            image: { src: "/media/tutorials/tutorial-fashion-3.png", alt: "Photoshoot product selection showing the upload option for your own product photos", caption: "Upload your own product photos or flat lays.", width: 1809, height: 897 },
+          },
+          {
+            title: "1. Product selection — prompt to product",
+            body: "If you do not have a physical item yet, describe a garment — for example, “A silk emerald green midi dress with puff sleeves” — and the AI generates it for the shoot.",
+            image: { src: "/media/tutorials/tutorial-fashion-4.png", alt: "Photoshoot product selection showing a text prompt used to generate a garment", caption: "Describe a garment and generate it for the shoot.", width: 1817, height: 887 },
+          },
+          {
+            title: "2. Model & style — select a model",
+            body: "Once your products are set, choose who will wear them. Pick a specific model from the diverse library to keep brand consistency.",
+            image: { src: "/media/tutorials/tutorial-fashion-5.png", alt: "Photoshoot model selection library", caption: "Select a model from the library.", width: 1777, height: 901 },
+          },
+          {
+            title: "2. Model & style — randomised selection",
+            body: "If you do not select a model, the system intelligently chooses a random model that best fits the garment style.",
+            image: { src: "/media/tutorials/tutorial-fashion-6.png", alt: "Photoshoot model step with no model chosen, using random selection", caption: "Leave the model unset for an automatic match.", width: 1793, height: 902 },
+          },
+          {
+            title: "2. Model & style — style editor",
+            body: "Adjust the model’s look with the style controls to match the campaign mood.",
+            image: { src: "/media/tutorials/tutorial-fashion-7.png", alt: "Photoshoot style customisation controls", caption: "Refine hair, makeup and lighting for the shoot.", width: 1779, height: 908 },
+          },
+          {
+            title: "3. Posing & composition — manual pose",
+            body: "Select from a variety of poses — from high-fashion editorial to casual walking — to highlight specific product details.",
+            image: { src: "/media/tutorials/tutorial-fashion-8.png", alt: "Photoshoot pose selection options", caption: "Choose a pose that shows the product best.", width: 1766, height: 911 },
+          },
+          {
+            title: "3. Posing & composition — dynamic posing",
+            body: "If no pose is selected, the system defaults to a random pose, giving you a fresh perspective every time.",
+            image: { src: "/media/tutorials/tutorial-fashion-9.png", alt: "Photoshoot pose step left unset for dynamic posing", caption: "Leave the pose unset for a new perspective each run.", width: 1817, height: 910 },
+          },
+          {
+            title: "3. Posing & composition — compare results",
+            body: "Review how the chosen pose changes the composition before moving on to the background.",
+            image: { src: "/media/tutorials/tutorial-fashion-10.png", alt: "Photoshoot composition preview for a selected pose", caption: "Check the composition before continuing.", width: 1803, height: 909 },
+          },
+          {
+            title: "4. Background & environment — custom backgrounds",
+            body: "Choose from the environment presets, such as Milan streetwear, luxury minimalist studio or tropical beach.",
+            image: { src: "/media/tutorials/tutorial-fashion-11.png", alt: "Photoshoot background presets", caption: "Pick an environment preset for the scene.", width: 1809, height: 908 },
+          },
+          {
+            title: "4. Background & environment — AI environments",
+            body: "Leave the background blank to let the system generate a random background that complements the lighting and colours of your chosen products.",
+            image: { src: "/media/tutorials/tutorial-fashion-12.png", alt: "Photoshoot background step left blank for an AI-generated environment", caption: "Leave it blank for an automatically matched background.", width: 1828, height: 912 },
+          },
+          {
+            title: "4. Background & environment — review the scene",
+            body: "Confirm the final combination of products, model, pose and environment before generating the photoshoot.",
+            image: { src: "/media/tutorials/tutorial-fashion-13.png", alt: "Photoshoot scene review before generating", caption: "Review the full scene before you generate.", width: 1823, height: 913 },
+          },
+        ],
+      },
+      {
+        heading: "Virtual Try-On",
+        paragraphs: [
+          "Virtual Try-On is a visualisation tool that shows how any garment looks on a real human figure. By pairing a model image with a clothing image, the AI drapes the fabric precisely, accounting for proportion and fit.",
+          "The process is a simple three-step pair-and-generate workflow.",
+        ],
+        steps: [
+          {
+            title: "Pair the model and garment, then generate",
+            body: "Upload a high-resolution photo of a person — for the most accurate results use a ghost mannequin or a model in a neutral pose against a plain background. Upload a clear image of the garment you want to try on; this can be a flat-lay photo, a product packshot or even a cropped image of a specific texture or pattern. Then click Generate, and the AI analyses the model’s proportions and the garment’s dimensions to produce a realistic composite image.",
+            image: { src: "/media/tutorials/tutorial-fashion-14.png", alt: "Virtual Try-On screen with model image, clothing image and the Generate action", caption: "Pair a model image with a garment image and generate.", width: 1801, height: 848 },
+          },
+        ],
+      },
+      {
+        heading: "Change Model",
+        paragraphs: [
+          "Change Model swaps the person in an existing fashion photograph while keeping the original clothing and setting intact — ideal for refreshing brand aesthetics or diversifying a campaign. You need two images: the source image containing the model you want to replace (the AI detects the garments so they are preserved), and the target image of the new model, whose features, skin tone and body structure are analysed for a seamless fit.",
+        ],
+        steps: [
+          {
+            title: "Upload the original, add the new model and process",
+            body: "Drop your current campaign or product photo into the source slot, drop the image of the desired model into the replacement slot, then click Change Model. The system transfers the clothing from the original photo onto the new model, maintaining the original lighting, background and garment details.",
+            image: { src: "/media/tutorials/tutorial-fashion-15.png", alt: "Change Model screen with source image, replacement model image and the Change Model action", caption: "Swap the model while keeping the clothing and scene.", width: 1808, height: 845 },
+          },
+        ],
+      },
+      {
+        heading: "Edit Image",
+        paragraphs: [
+          "Edit Image lets you modify existing visuals with plain language. Instead of starting from scratch, take a generated or uploaded photo and instruct the AI to change specific elements.",
+        ],
+        steps: [
+          {
+            title: "Upload, describe the changes and generate",
+            body: "Start by uploading the photo you want to modify — a photoshoot result, a product shot or a personal image. In the prompt box, type exactly what you want to change. The AI analyses your request and applies the edits while maintaining the original composition and lighting.",
+            image: { src: "/media/tutorials/tutorial-fashion-16.png", alt: "Edit Image screen with an uploaded photo and a prompt box describing the change", caption: "Describe the change and let the AI apply it.", width: 1786, height: 832 },
+          },
+        ],
+      },
+      {
+        heading: "My Photoshoots",
+        paragraphs: [
+          "My Photoshoots is your cloud-hosted gallery where every creation is archived, so your creative history stays available.",
+        ],
+        bullets: [
+          "Unified library: all your AI photoshoots, virtual try-on results and edited images are stored in one place.",
+          "Video archive: access AI-generated catwalks, 360-degree views and cinematic clips, previewable directly in the dashboard.",
+          "High-resolution downloads: every asset is available for high-quality export for social media, e-commerce sites or marketing presentations.",
+        ],
+        steps: [
+          {
+            title: "Browse your generated images",
+            body: "Open My Photoshoots to see every image you have created in the studio.",
+            image: { src: "/media/tutorials/tutorial-fashion-17.png", alt: "My Photoshoots gallery of generated fashion images", caption: "All generated images in one library.", width: 1767, height: 885 },
+          },
+          {
+            title: "Preview a result",
+            body: "Select any asset to preview it at full size before downloading.",
+            image: { src: "/media/tutorials/tutorial-fashion-18.png", alt: "My Photoshoots preview of a single generated image", caption: "Preview any result in place.", width: 1756, height: 890 },
+          },
+          {
+            title: "Open the video archive",
+            body: "Switch to the video results to preview and download generated clips.",
+            image: { src: "/media/tutorials/tutorial-fashion-19.png", alt: "My Photoshoots video archive with generated fashion clips", caption: "Generated videos are archived alongside images.", width: 1795, height: 833 },
+          },
+        ],
+      },
+      {
+        heading: "My Wardrobe",
+        paragraphs: [
+          "The Wardrobe is your centralised asset library, bridging your real-world inventory and your digital creations so you can organise, preview and reuse products across Fashion Studio. It is organised into three categories.",
+        ],
+        bullets: [
+          "Predefined products: a curated library of high-quality, ready-to-use fashion items, ideal for quick prototyping or testing new looks and backgrounds.",
+          "Uploaded images: your personal inventory of product photos, flat lays and reference images, processed and stored so they can instantly be worn by a model.",
+          "Created images: your final AI-generated outputs — successful try-ons and editorial photoshoots — stored for easy access and re-download.",
+        ],
+        steps: [
+          {
+            title: "Open the predefined products",
+            body: "Browse the curated library of ready-to-use fashion items.",
+            image: { src: "/media/tutorials/tutorial-fashion-20.png", alt: "My Wardrobe predefined product library", caption: "Ready-to-use items for quick prototyping.", width: 1798, height: 904 },
+          },
+          {
+            title: "Review your uploaded images",
+            body: "Find the product photos and reference images you have uploaded, ready to be worn by a model.",
+            image: { src: "/media/tutorials/tutorial-fashion-21.png", alt: "My Wardrobe uploaded product images", caption: "Your own uploaded product inventory.", width: 1789, height: 883 },
+          },
+          {
+            title: "Reuse your created images",
+            body: "Open the created images section to access and re-download your best generated results.",
+            image: { src: "/media/tutorials/tutorial-fashion-22.png", alt: "My Wardrobe created images from previous generations", caption: "Reuse your strongest generated results.", width: 1811, height: 830 },
+          },
+        ],
+      },
+      {
+        heading: "AI video generation",
+        paragraphs: [
+          "Video generation brings fashion photography to life. Combine a static image with a descriptive prompt to turn a still portrait into a cinematic video, such as a model walking.",
+        ],
+        steps: [
+          {
+            title: "Upload a base image, enter a motion prompt and generate",
+            body: "Choose a high-quality photo from your device or select a previously generated image from My Photoshoots; this is the starting frame and visual anchor for your video. In the video prompt field, describe the movement or action you want — for example, “Model walking towards the camera on a windy city street, hair blowing naturally,” or “A 360-degree slow-motion pan around the model to showcase the dress texture.” Then click Generate Video, and the AI analyses the garment’s physics and the background to create a seamless, high-definition clip.",
+            image: { src: "/media/tutorials/tutorial-fashion-23.png", alt: "Fashion video generation screen with a base image, motion prompt field and Generate Video action", caption: "Animate a still image with a motion prompt.", width: 1830, height: 843 },
+          },
+        ],
+      },
+      {
+        heading: "Photoshoot settings",
+        paragraphs: [
+          "The photoshoot settings panel gives you control over the technical output. Before you generate, use these settings so the images meet the requirements of your channel.",
+        ],
+        bullets: [
+          "Number of images: choose how many variations to generate in one batch (for example 1, 2 or 4). Multiple variations let you compare lighting and pose nuances to find the best result.",
+          "Resolution: standard is best for quick previews and social media drafts; high definition is ideal for website assets and professional lookbooks.",
+          "Aspect ratio: portrait (2:3 / 9:16) for Stories, TikTok and mobile shopping apps; square (1:1) for social feeds and e-commerce thumbnails; landscape (16:9 / 3:2) for website hero banners and cinematic presentations.",
+        ],
+        steps: [
+          {
+            title: "Set the output options",
+            body: "Open the settings panel and set the number of images, resolution and aspect ratio before generating.",
+            image: { src: "/media/tutorials/tutorial-fashion-24.png", alt: "Photoshoot settings panel with image count, resolution and aspect ratio controls", caption: "Match the output to your destination channel.", width: 1733, height: 833 },
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "Use only garments, product photography and likenesses you are authorised to process.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-photoshoot", "ai-virtual-try-on", "ai-image-generator"],
+    relatedTutorials: ["how-to-use-ai-image-pro", "how-to-use-ai-video-pro"],
+    cta: { toolName: "AI Photoshoot", toolSlug: "ai-photoshoot" },
+  },
+  {
+    slug: "how-to-dub-a-video",
+    category: "Video",
+    title: "How to Dub a Video | AmmarAI Tutorials",
+    description:
+      "Translate and re-voice an existing video into another language with AmmarAI AI Dubbing, from source selection to download.",
+    h1: "How to dub a video into another language",
+    intro: [
+      "AI Dubbing translates and re-voices existing videos into other languages automatically. You supply a video by URL or direct upload, choose a target language and speaker configuration, and AmmarAI produces a dubbed version you can preview and download.",
+      "This guide follows the regular-user workflow only.",
+    ],
+    whenToUse: [
+      "You want to reach an audience in another language with existing footage.",
+      "You have a public video URL or a video file on your device.",
+      "You need a dubbed version you can preview and download.",
+    ],
+    sections: [
+      {
+        heading: "Getting started",
+        paragraphs: [
+          "Open AI Dubbing from the side menu. The page shows the dubbing configuration panel and your previously dubbed videos. Monthly usage is tracked and displayed at the top of the page.",
+        ],
+        steps: [
+          {
+            title: "Open AI Dubbing",
+            body: "Navigate to AI Dubbing from the side menu to reach the configuration panel and your dubbing history.",
+            image: { src: "/media/tutorials/tutorial-dubbing-1.png", alt: "AmmarAI AI Dubbing page with the configuration panel and previously dubbed videos", caption: "The AI Dubbing workspace.", width: 1782, height: 908 },
+          },
+        ],
+      },
+      {
+        heading: "How to dub a video",
+        steps: [
+          {
+            title: "Choose the source type",
+            body: "Pick one of the three source tabs: a YouTube video URL, a TikTok video URL, or Upload to add a video file directly from your device.",
+            image: { src: "/media/tutorials/tutorial-dubbing-2.png", alt: "AI Dubbing source tabs for YouTube, TikTok and direct upload", caption: "Choose how the source video is supplied.", width: 1784, height: 855 },
+          },
+          {
+            title: "Choose the target language",
+            body: "Select the language to dub the video into from the Target Language dropdown. Available languages depend on the dubbing engine active on your workspace, ranging from a core set of widely used languages to an extended list with regional variants.",
+            image: { src: "/media/tutorials/tutorial-dubbing-3.png", alt: "AI Dubbing target language dropdown", caption: "Pick the language for the dubbed version.", width: 1751, height: 843 },
+          },
+          {
+            title: "Set the number of speakers",
+            body: "Use the Number of Speakers field. Choose Auto Detect so the system identifies speakers automatically, or set a value manually between 1 and 10. This preserves voice dynamics in multi-speaker content.",
+            image: { src: "/media/tutorials/tutorial-dubbing-4.png", alt: "AI Dubbing number of speakers field with auto detect and manual values", caption: "Auto-detect speakers or set the count yourself.", width: 1561, height: 805 },
+          },
+          {
+            title: "Expand the advanced options",
+            body: "Open Advanced Options for extra control. The options shown depend on the active dubbing engine and can include: Source Language — set the original language manually or leave it on Auto; Resolution — a highest-resolution toggle or a quality/fast mode; Background Audio — keep or drop the original music and ambient sound; Profanity Filter — on or off to filter spoken profanity in the dubbed output; Audio-only Translation — translate the audio without processing the video; and Lip-sync — align dubbed speech to the speaker’s mouth movements.",
+            image: { src: "/media/tutorials/tutorial-dubbing-5.png", alt: "AI Dubbing advanced options panel", caption: "Advanced controls for language, resolution, audio and lip-sync.", width: 1466, height: 764 },
+          },
+          {
+            title: "Title the video and generate",
+            body: "Enter a title in the Title field to identify the dubbed video, then click Generate. The dubbed video is processed and added to the created-previously section below, where you can preview and download it.",
+          },
+        ],
+      },
+      {
+        heading: "Previously dubbed videos",
+        paragraphs: [
+          "All previously dubbed videos are listed below the generation panel with a thumbnail, duration and target-language label — for example “Dubbed to Turkish” or “Dubbed to Hindi”. Click any video to preview or download it.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-dubbing", "ai-captions", "ai-video-editor"],
+    relatedTutorials: ["how-to-create-ugc-videos", "how-to-use-ai-video-pro"],
+    cta: { toolName: "AI Dubbing", toolSlug: "ai-dubbing" },
+  },
+  {
+    slug: "how-to-create-ugc-videos",
+    category: "Video Marketing",
+    title: "How to Create UGC Videos | AmmarAI Tutorials",
+    description:
+      "Generate realistic user-generated-content videos with AmmarAI’s AI UGC Generator — script, voice, actor and scene in one pass.",
+    h1: "How to create UGC videos",
+    intro: [
+      "The AI UGC Generator lets you create realistic user-generated-content videos for social media and marketing without actors, studios or cameras. You write a script, choose a voice, pick a pre-built AI actor and select a scene, and AmmarAI renders the finished video.",
+      "This guide covers the regular-user creation workflow only.",
+    ],
+    whenToUse: [
+      "You want authentic-looking social ads without a shoot.",
+      "You have a script, a recording or an audio file ready.",
+      "You need several scene variations of the same message.",
+    ],
+    sections: [
+      {
+        heading: "Getting started",
+        paragraphs: [
+          "Open the AI UGC Generator from the side menu. The page shows the video creation interface with options for script input, voice selection, actor selection and scene selection. Click View All Videos to browse previously generated videos.",
+        ],
+        steps: [
+          {
+            title: "Open the UGC workspace",
+            body: "Navigate to the AI UGC Generator from the side menu to reach the creation interface.",
+            image: { src: "/media/tutorials/tutorial-ugc-1.png", alt: "AmmarAI UGC generator workspace with script, voice, actor and scene options", caption: "The UGC creation interface.", width: 1337, height: 626 },
+          },
+        ],
+      },
+      {
+        heading: "How to create a UGC video",
+        paragraphs: [
+          "The input panel has three tabs, and only one is used at a time — the active tab determines how the audio for the video is provided.",
+          "Text — type or paste your script into the text field; the script is converted to speech using the selected voice. Use this when you want to write the content and have the AI deliver it.",
+          "Audio — upload a pre-recorded audio file, which is used directly as the voiceover, bypassing voice selection. Use this when you already have a finished recording.",
+          "Record — record your voiceover in the browser with your microphone; the recording is used as-is. Use this when you want to deliver the script yourself in real time.",
+        ],
+        steps: [
+          {
+            title: "Provide the audio and choose a voice",
+            body: "On the Text tab, choose a voice from the Voice dropdown; the selected voice converts your written script to speech in the generated video. Voices are listed with their name and style description, for example “Roger — Laid-back”. Voice selection is not used when the Audio or Record tab is active, because you provide the audio directly.",
+            image: { src: "/media/tutorials/tutorial-ugc-2.png", alt: "UGC generator script tabs with the voice dropdown open", caption: "Write the script and pick the delivery voice.", width: 1730, height: 846 },
+          },
+          {
+            title: "Select an actor",
+            body: "Choose one of three options in the actor panel: Pick an Actor to use the built-in AI actor library, Upload Your Actor to add a custom actor image or video, or Create New Actor to build a new custom actor from scratch. The built-in library includes pre-built actors.",
+            image: { src: "/media/tutorials/tutorial-ugc-3.png", alt: "UGC generator actor panel with library, upload and create options", caption: "Pick, upload or create the actor.", width: 1738, height: 901 },
+          },
+          {
+            title: "Select a scene and generate",
+            body: "Choose the scene or context the actor appears in — options include a skin-care routine, at the café, while doing makeup, travelling, chatting in the car, in the kitchen, on the way to work, recording a podcast, walking on the street, top view, taking a break at the office, and in a cosy home. Then click Generate to produce the video; the system combines the audio from the active tab, the chosen actor and the selected scene into the final UGC video.",
+            image: { src: "/media/tutorials/tutorial-ugc-4.png", alt: "UGC generator scene selection with the Generate action", caption: "Choose the scene, then generate the video.", width: 1763, height: 910 },
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "Use only scripts, recordings, likenesses and product claims you are authorised to publish.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-ugc-generator", "ai-captions", "ai-url-to-video"],
+    relatedTutorials: ["how-to-create-ai-influencer-videos", "how-to-dub-a-video"],
+    cta: { toolName: "AI UGC Generator", toolSlug: "ai-ugc-generator" },
   },
 ];
 
