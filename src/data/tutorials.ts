@@ -2841,6 +2841,215 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-use-ai-blogger-agent", "how-to-use-the-content-manager"],
     cta: { toolName: "AI Blogger Agent", toolSlug: "ai-blogger-agent" },
   },
+  {
+    slug: "how-to-read-whatsapp-and-telegram-messages-in-one-inbox",
+    category: "Automation",
+    title: "How to Read WhatsApp and Telegram Messages in One Inbox | AmmarAI Tutorials",
+    description:
+      "Bring WhatsApp, Telegram and your other message channels into a single AmmarAI inbox, filter by channel and reply without switching apps.",
+    h1: "How to read WhatsApp and Telegram messages in one inbox",
+    intro: [
+      "Messages arrive everywhere: the website chat, a WhatsApp number, a Telegram account, social replies. Checking four apps is how a good lead goes cold.",
+      "The Smart Inbox pulls those conversations into one threaded list. You can look at everything together or narrow it to a single channel, and reply from the same screen.",
+    ],
+    whenToUse: [
+      "Customers message you on more than one platform.",
+      "Two people share the replying and nobody is sure what has been answered.",
+      "You want one place to catch questions instead of a phone, a laptop and a browser tab.",
+    ],
+    sections: [
+      {
+        heading: "Open the inbox and pick a channel",
+        steps: [
+          {
+            title: "Open Inbox",
+            body: "Choose Inbox from the left-hand menu. Every conversation from your connected channels appears in the middle column, newest first.",
+          },
+          {
+            title: "Filter by channel",
+            body: "Use the channel selector at the top of the list. Leave it on all channels for the full picture, or pick WhatsApp or Telegram when you want to work through one platform at a time.",
+            image: {
+              src: "/media/tutorials/tutorial-unified-inbox-1.png",
+              alt: "Message list with the channel selector open, showing options for all channels, Telegram and WhatsApp, with red arrows pointing at each option",
+              caption: "The channel selector switches between all conversations and a single platform.",
+              width: 1903,
+              height: 932,
+            },
+          },
+          {
+            title: "Open a conversation",
+            body: "Select a thread to see its whole history in the panel on the right, including which channel it came from and who you are talking to.",
+          },
+        ],
+      },
+      {
+        heading: "Reply and keep the queue moving",
+        steps: [
+          {
+            title: "Write your reply",
+            body: "Type in the message box at the bottom of the thread and send. The reply goes out on the channel the person used, so they receive it where they wrote to you.",
+          },
+          {
+            title: "Let the AI take the routine ones",
+            body: "Opening hours, prices, delivery times and other repeat questions can be answered automatically, with a draft waiting for your approval on anything less obvious.",
+          },
+          {
+            title: "Hand over what needs a person",
+            body: "Complaints, refunds and real buying signals are worth taking over yourself. Assign the thread to a teammate with a note so it is picked up rather than passed around.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Work channel by channel when the list is long — filtering to one platform keeps the tone and the context consistent while you reply.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-smart-inbox", "external-chatbot", "ai-crm"],
+    relatedTutorials: ["how-to-hand-chats-to-a-human-agent", "how-to-build-and-embed-a-website-chatbot"],
+    cta: { toolName: "AI Smart Inbox", toolSlug: "ai-smart-inbox" },
+  },
+  {
+    slug: "how-to-clone-your-own-voice-for-voiceovers",
+    category: "Audio",
+    title: "How to Clone Your Own Voice for Voiceovers | AmmarAI Tutorials",
+    description:
+      "Record a short sample, create a clone of your own voice in AmmarAI, and use it for narration across videos, courses and product audio.",
+    h1: "How to clone your own voice for voiceovers",
+    intro: [
+      "A cloned voice lets you narrate a video at midnight without setting up a microphone, and keeps every video in the same voice even when the script changes at the last minute.",
+      "You record one clear sample, AmmarAI builds the clone, and from then on it sits alongside the standard voices whenever you generate a voiceover.",
+    ],
+    whenToUse: [
+      "You narrate your own videos and want a consistent sound without re-recording.",
+      "Scripts change often and re-recording every tweak is not realistic.",
+      "You want your voice, in your language, reading material you wrote.",
+    ],
+    sections: [
+      {
+        heading: "Record a usable sample",
+        steps: [
+          {
+            title: "Record at least a minute of speech",
+            body: "Read naturally for a minute or more in a quiet room, at your normal pace. Avoid music, background chatter and heavy room echo — the clone copies whatever it hears.",
+          },
+          {
+            title: "Keep it to one speaker",
+            body: "Only your voice should be in the recording. A second person in the background makes the clone sound uneven.",
+          },
+        ],
+        callouts: [
+          {
+            type: "warning",
+            body: "Only clone a voice you own or have clear permission to use. Cloning someone else's voice without consent is not acceptable use.",
+          },
+        ],
+      },
+      {
+        heading: "Create the clone and use it",
+        steps: [
+          {
+            title: "Open the voice cloning area",
+            body: "Go to AI Voiceover & Voice Clone from the left-hand menu and choose to add a new cloned voice.",
+          },
+          {
+            title: "Upload the recording and name the voice",
+            body: "Upload your audio file and give the voice a name you will recognise later, such as your own name or the brand it belongs to. Save to start the cloning process.",
+          },
+          {
+            title: "Pick it when you generate a voiceover",
+            body: "Once processing finishes, the cloned voice appears in the voice list, usually at the top. Select it, paste your script and generate as you would with any other voice.",
+          },
+          {
+            title: "Direct the delivery",
+            body: "Adjust pace, emphasis and pauses on individual lines until it sounds like you reading, not you being read out.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Record the sample in the language you will narrate in most often — the clone is strongest in the accent and language it heard.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-voice-generator", "ai-text-to-speech", "ai-dubbing"],
+    relatedTutorials: ["how-to-dub-a-video", "how-to-use-ai-captions"],
+    cta: { toolName: "AI Voiceover & Voice Clone", toolSlug: "ai-voice-generator" },
+  },
+  {
+    slug: "how-to-get-keyword-and-question-ideas-in-the-article-wizard",
+    category: "Productivity",
+    title: "How to Get Keyword and Question Ideas in the Article Wizard | AmmarAI Tutorials",
+    description:
+      "Use live keyword suggestions and real search questions inside the AmmarAI Article Wizard so your article answers what people are actually searching for.",
+    h1: "How to get keyword and question ideas in the Article Wizard",
+    intro: [
+      "An article only earns traffic if it matches what people type into a search box. Guessing at that is the slowest way to find out you guessed wrong.",
+      "The Article Wizard can suggest keywords drawn from recent searches, and show the questions people are asking around your topic, while you are still building the outline.",
+    ],
+    whenToUse: [
+      "You are writing for search, not just for the blog archive.",
+      "You have a topic but are not sure which phrasing people actually use.",
+      "You want the article's sections to answer real questions rather than invented ones.",
+    ],
+    sections: [
+      {
+        heading: "Start with keyword suggestions",
+        steps: [
+          {
+            title: "Open the Article Wizard and enter your topic",
+            body: "Start a new article and describe what the piece is about in plain words — the product, the problem or the subject.",
+          },
+          {
+            title: "Ask for keyword suggestions",
+            body: "At the keyword step, request suggestions. You get phrases based on recent searches around your topic rather than a generic word list.",
+          },
+          {
+            title: "Keep the ones that match your intent",
+            body: "Choose the phrases a buyer or reader would genuinely type. Two or three well-matched phrases beat a long list you then have to force into sentences.",
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "Suggestions are a starting point, not a quota. Write the sentence the reader needs and let the phrase fit naturally.",
+          },
+        ],
+      },
+      {
+        heading: "Turn real questions into sections",
+        steps: [
+          {
+            title: "Move to the outline step",
+            body: "Once your keywords are chosen, continue to the outline where the wizard proposes the article's structure.",
+          },
+          {
+            title: "Pull in the questions people search",
+            body: "Ask for search questions on your topic. These are the things people are asking right now, which makes them the strongest candidates for headings.",
+          },
+          {
+            title: "Answer each one properly",
+            body: "Turn the questions you keep into sections and answer them directly in the first sentence underneath. Readers and search engines both reward a straight answer.",
+          },
+          {
+            title: "Write and review section by section",
+            body: "Let the wizard draft each section, then edit for accuracy. Anything you cannot verify should come out before you publish.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Save the questions you did not use — each one is a candidate for the next article, and together they build a topic cluster.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["article-wizard", "keyword-generator", "ai-seo-analyzer"],
+    relatedTutorials: ["how-to-use-ai-blogger-agent", "how-to-publish-a-post-to-wordpress"],
+    cta: { toolName: "Article Wizard", toolSlug: "article-wizard" },
+  },
 ];
 
 
