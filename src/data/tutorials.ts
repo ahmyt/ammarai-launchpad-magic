@@ -4,7 +4,7 @@
  * is intentionally excluded.
  */
 
-export type TutorialCategory = "Chat & Documents" | "Image" | "Video";
+export type TutorialCategory = "Chat & Documents" | "Image" | "Video" | "Video Marketing";
 
 export interface TutorialCallout {
   type: "tip" | "note" | "warning";
@@ -46,7 +46,7 @@ export interface Tutorial {
   cta: { toolName: string; toolSlug: string };
 }
 
-export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Image", "Video"];
+export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Image", "Video", "Video Marketing"];
 
 export const tutorials: Tutorial[] = [
   {
@@ -414,6 +414,144 @@ export const tutorials: Tutorial[] = [
     relatedTools: ["ai-video-generator", "ai-image-to-video", "ai-image-generator"],
     relatedTutorials: ["how-to-use-ai-image-pro"],
     cta: { toolName: "AI Video Pro", toolSlug: "ai-video-generator" },
+  },
+  {
+    slug: "how-to-create-viral-clips",
+    category: "Video Marketing",
+    title: "How to Create Viral Clips | AmmarAI Tutorials",
+    description: "Turn a long video or video URL into short, shareable social clips with AmmarAI’s AI URL to Video tool.",
+    h1: "How to create viral clips from a long video",
+    intro: [
+      "Viral Clips turns long-form footage into shorter moments for social publishing. Use it to repurpose webinars, interviews, podcasts and other extended videos into focused clips.",
+      "This guide follows the complete regular-user workflow for starting a project, supplying the source video and choosing the clip settings.",
+    ],
+    whenToUse: [
+      "You want to repurpose a webinar, podcast or interview for social channels.",
+      "You need short highlights from an existing long-form video.",
+      "You have either a public video URL or a video file to upload.",
+    ],
+    sections: [
+      {
+        heading: "Generate clips from a long video",
+        steps: [
+          {
+            title: "Start a new viral-clips project",
+            body: "Open AI URL to Video & Influencer, choose the viral-clips option and select Generate New.",
+            image: { src: "/media/tutorials/tutorial-viral-clips-1.png", alt: "AmmarAI video workspace with the viral-clips option and Generate New action indicated", caption: "Choose the viral-clips workflow and start a new project.", width: 1819, height: 737 },
+          },
+          {
+            title: "Enter the video URL and details",
+            body: "Paste the source video URL, complete the required fields and select Next to continue.",
+            image: { src: "/media/tutorials/tutorial-viral-clips-2.png", alt: "Viral Clips form for a source video URL and clip preferences", caption: "Add the source URL, complete the required options and continue.", width: 1537, height: 919 },
+          },
+          {
+            title: "Upload the video instead",
+            body: "If you do not want to use a URL, switch to the upload option and add the source video file manually, then complete the same clip settings.",
+            image: { src: "/media/tutorials/tutorial-viral-clips-3.png", alt: "Viral Clips form showing the manual video upload option", caption: "Upload a source file when a video URL is not available.", width: 1402, height: 917 },
+          },
+        ],
+      },
+      {
+        heading: "Before you generate",
+        bullets: [
+          "Use a clear source with intelligible speech and a stable picture.",
+          "Choose a target language and clip duration suited to the destination.",
+          "Review each extracted moment before publishing it out of its original context.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-url-to-video", "ai-video-editor", "ai-captions"],
+    relatedTutorials: ["how-to-create-ai-influencer-videos", "how-to-use-ai-video-pro"],
+    cta: { toolName: "AI URL to Video", toolSlug: "ai-url-to-video" },
+  },
+  {
+    slug: "how-to-create-ai-influencer-videos",
+    category: "Video Marketing",
+    title: "How to Create AI Influencer Videos | AmmarAI Tutorials",
+    description: "Create product-powered ads and presenter-led influencer videos with AmmarAI’s AI URL to Video & Influencer tool.",
+    h1: "How to create AI influencer videos",
+    intro: [
+      "AI URL to Video & Influencer creates product-led ads from a product link or uploaded assets and presenter-led videos from a script. The workflow combines product details, format choices, a presenter, a voice and captions before rendering.",
+      "This guide covers both regular-user creation paths: a product-powered ad and a presenter-led video made from a script.",
+    ],
+    whenToUse: [
+      "You want a short product ad for Reels, TikTok or YouTube Shorts.",
+      "You have a product page or product images to use as the source.",
+      "You want a presenter-style video from your own script.",
+    ],
+    sections: [
+      {
+        heading: "Create a product-powered ad video",
+        steps: [
+          {
+            title: "Start a product ad",
+            body: "Open AI URL to Video & Influencer and select Generate New under the product-ad option.",
+            image: { src: "/media/tutorials/tutorial-influencer-1.png", alt: "AmmarAI influencer-video workspace with the product-ad Generate New action indicated", caption: "Choose the product-powered ad workflow.", width: 1398, height: 728 },
+          },
+          {
+            title: "Add the product information",
+            body: "Choose whether to supply a product link or upload product images, then add the product source and continue.",
+            image: { src: "/media/tutorials/tutorial-influencer-2.png", alt: "Product information step with product-link and uploaded-asset options", caption: "Provide a product link or upload product assets.", width: 1640, height: 838 },
+          },
+          {
+            title: "Choose the video details",
+            body: "Set the language, duration and aspect ratio for the destination, then select Next.",
+            image: { src: "/media/tutorials/tutorial-influencer-3.png", alt: "Video details step with language, duration and aspect-ratio controls", caption: "Set the language, length and format of the ad.", width: 1588, height: 736 },
+          },
+          {
+            title: "Choose a presenter",
+            body: "Browse the available presenters, select the one that fits the video and continue to the voice step.",
+            image: { src: "/media/tutorials/tutorial-influencer-4.png", alt: "Composition step showing a gallery of presenter choices", caption: "Select the presenter for the video.", width: 1589, height: 828 },
+          },
+          {
+            title: "Select the voice",
+            body: "Preview the available voices and select the voice you want to use for the presenter.",
+            image: { src: "/media/tutorials/tutorial-influencer-5.png", alt: "Composition step showing voice preview and selection controls", caption: "Preview and select the presenter voice.", width: 1598, height: 839 },
+          },
+          {
+            title: "Choose the caption style and preview",
+            body: "Select a caption treatment, then choose Preview Video to create preview options.",
+            image: { src: "/media/tutorials/tutorial-influencer-6.png", alt: "Composition step showing caption styles and the preview-video action", caption: "Pick a caption style and generate previews.", width: 1591, height: 854 },
+          },
+          {
+            title: "Wait for rendering",
+            body: "The selected composition begins rendering. Keep the page open while the preview is prepared.",
+            image: { src: "/media/tutorials/tutorial-influencer-7.png", alt: "Preview-video step showing the rendering state", caption: "Wait while AmmarAI prepares the video previews.", width: 1569, height: 729 },
+          },
+          {
+            title: "Choose the finished preview",
+            body: "Review the generated preview videos, select the strongest version and continue with the chosen result.",
+            image: { src: "/media/tutorials/tutorial-influencer-8.png", alt: "Preview-video step showing three rendered product-ad options", caption: "Compare the generated previews and choose a result.", width: 1541, height: 709 },
+          },
+        ],
+      },
+      {
+        heading: "Create a presenter video from a script",
+        steps: [
+          {
+            title: "Start an influencer-style video",
+            body: "Return to the AI URL to Video & Influencer workspace and select Generate New under the influencer-video option.",
+            image: { src: "/media/tutorials/tutorial-influencer-avatar-1.png", alt: "AmmarAI influencer-video workspace with the presenter-video Generate New action indicated", caption: "Choose the presenter-led influencer-video workflow.", width: 1880, height: 740 },
+          },
+          {
+            title: "Choose the presenter and enter the script",
+            body: "Select a presenter, enter the script the presenter should deliver and select Generate Video to start creation.",
+            image: { src: "/media/tutorials/tutorial-influencer-avatar-2.png", alt: "AI influencer presenter gallery with script field and Generate Video action", caption: "Select a presenter, add the script and generate the video.", width: 1798, height: 813 },
+          },
+        ],
+      },
+      {
+        heading: "Review before publishing",
+        bullets: [
+          "Confirm that product claims match the source page and your approved messaging.",
+          "Check the presenter, voice, captions and aspect ratio in the final render.",
+          "Use only product assets, scripts and likenesses you are authorised to process.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-url-to-video", "ai-avatar-generator", "ai-captions"],
+    relatedTutorials: ["how-to-create-viral-clips", "how-to-use-ai-video-pro"],
+    cta: { toolName: "AI URL to Video & Influencer", toolSlug: "ai-url-to-video" },
   },
 ];
 

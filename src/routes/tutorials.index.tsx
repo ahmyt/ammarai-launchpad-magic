@@ -19,13 +19,13 @@ export const Route = createFileRoute("/tutorials/")({
       {
         name: "description",
         content:
-          "Step-by-step AmmarAI guides for AI Chat Pro, Document Chat, AI Image Pro and AI Video Pro, with verified workflows and examples.",
+          "Step-by-step AmmarAI guides for chat, documents, images, video generation, viral clips and AI influencer videos.",
       },
       { property: "og:title", content: "AmmarAI Tutorials & Documentation" },
       {
         property: "og:description",
         content:
-          "Step-by-step guides for chat, documents, image generation and video generation in AmmarAI.",
+          "Verified AmmarAI guides for chat, documents, image generation, video creation and video marketing.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -47,7 +47,7 @@ function TutorialsIndexPage() {
           <p className="eyebrow">Tutorials</p>
           <h1>AmmarAI documentation</h1>
           <p className="tutorials-hub-lede">
-            Step-by-step guidance for verified AmmarAI chat, document, image and video workflows.
+            Step-by-step guidance for verified AmmarAI chat, document, image, video and video-marketing workflows.
           </p>
         </header>
 

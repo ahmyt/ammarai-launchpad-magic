@@ -18,6 +18,8 @@ licensing and system-configuration material is excluded.
 | Document Chat in AI Chat Pro | AI Document Analyzer and Chat Pro file workflow (`/ai-document-analyzer`) | `/tutorials/how-to-chat-with-documents` | Five exact, full-resolution reference images are published unchanged. |
 | AI Image Pro | AI Image Pro (`/ai-image-generator`) | `/tutorials/how-to-use-ai-image-pro` | Seven regular-user reference screenshots are used with only the compact source logo replaced by the AmmarAI logo. Administrator-setting images are excluded. |
 | AI Video Pro | AI Video Pro (`/ai-video-generator`) | `/tutorials/how-to-use-ai-video-pro` | The regular-user creation screenshot is used with only the source logo replaced. The provider-key settings screenshot is excluded. |
+| Viral Clips | Long-video clipping in AI URL to Video & Influencer (`/ai-url-to-video`) | `/tutorials/how-to-create-viral-clips` | Three original full-resolution regular-user screenshots are used. The compact source logo is replaced only where it appears; setup screenshots are excluded. |
+| AI Influencer | Product-ad and presenter workflows in AI URL to Video & Influencer (`/ai-url-to-video`) | `/tutorials/how-to-create-ai-influencer-videos` | Ten original full-resolution regular-user screenshots are used. The compact source logo is replaced only where it appears; provider/setup screenshots are excluded. |
 
 ## Removed from the previous collection
 
@@ -55,6 +57,12 @@ The AI Image Pro and AI Video Pro captures preserve the reference screenshot
 content, dimensions and annotations. Their only visual change is replacement
 of the compact source product logo with the AmmarAI logo, as explicitly
 requested. No fields, controls, arrows, crops, colors or results were changed.
+
+The Viral Clips and AI Influencer captures use the original full-resolution
+reference assets rather than WordPress's 1024-pixel derivatives. The originals
+range from 1398 to 1880 pixels wide. Files without the compact source mark are
+byte-for-byte copies; files with that mark retain their native dimensions and
+visual content, with only the compact top-left logo replaced by AmmarAI.
 
 ## Excluded reference material
 
