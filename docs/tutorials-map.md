@@ -196,3 +196,15 @@ None of the Batch 13 captures contain a source wordmark or far-right profile ava
 | ai-voice-bots-elevenlabs-conversational-ai | — | Excluded | Provider API-key setup only. |
 
 Note: `tutorialByTool` now keeps the first tutorial registered for a tool slug, so a second guide sharing a CTA tool does not displace the primary one.
+
+## Batch 17
+
+| Reference page | AmmarAI equivalent | Decision | Notes |
+| --- | --- | --- | --- |
+| marketing-bot (Inbox section only) | AI Smart Inbox (`ai-smart-inbox`) | Included — `how-to-read-whatsapp-and-telegram-messages-in-one-inbox` | Only the unified inbox maps to AmmarAI. Broadcast campaigns, contact lists/segments, Twilio and Meta WhatsApp provider setup, Telegram BotFather token setup, the campaign dashboard capture and the "Admin Panel" top-bar capture are all excluded. One screenshot used (TinyTake09-06-2025-03-36-31, 1903x932): sidebar wordmark measured at (23,12)-(126,38) and the far-right profile avatar at (1247,39)-(1275,67); both replaced with the AmmarAI logo at the exact measured centre and footprint on the true white background, divider line restored, native dimensions kept, red pointers untouched. |
+| ai-voice-clone-setup (end-user half) | AI Voiceover & Voice Clone (`ai-voice-generator`) | Included — `how-to-clone-your-own-voice-for-voiceovers` | Kept: recording requirements, uploading the sample, naming and saving the clone, selecting it when generating a voiceover. Excluded: provider account signup, plan pricing and API-key configuration. No screenshots exist on the reference page, so the guide is text-only. |
+| seo-tools (Article Wizard features only) | Article Wizard (`article-wizard`) | Included — `how-to-get-keyword-and-question-ideas-in-the-article-wizard` | Kept: keyword suggestions and search questions inside the Article Wizard. Excluded: Serper API key setup, site meta optimisation and blog post SEO fields (both admin-only). No screenshots on the reference page. |
+| sora-video | AI Video Pro | Already covered | Documented as the AI Video Pro prompt/model/duration/size section in Batch 8. |
+| ugc-factory, influencer-avatars | — | Already covered | `how-to-create-ugc-videos` and `how-to-create-ai-influencer-videos`. |
+| ai-canvas | — | Excluded | No AmmarAI equivalent (chat canvas editor). |
+| ai-product-photography-setup, realtime-image-setup, ai-voice-bots-elevenlabs-conversational-ai, social-media-suite-setup | — | Excluded | Provider account and API-key setup only. |
