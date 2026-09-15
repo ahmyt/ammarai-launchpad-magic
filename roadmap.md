@@ -188,3 +188,8 @@
 - [x] AI Phone Agent guide (`how-to-create-an-ai-phone-agent`, 4 screenshots)
 - [x] Outbound AI Calls guide (`how-to-create-outbound-ai-calls`, 4 screenshots)
 - [x] Logo and avatar replacements aligned to each measured original footprint; admin, activation and provider content excluded
+
+## Batch 11 tutorials (done)
+- [x] Website chatbot guide (`how-to-build-and-embed-a-website-chatbot`, 10 screenshots)
+- [x] Social media agent guide (`how-to-run-a-social-media-agent`, 18 screenshots)
+- [x] All source wordmarks, icons and far-right avatars replaced at measured footprints; setup, plan and API content excluded

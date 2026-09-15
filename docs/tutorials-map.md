@@ -140,3 +140,11 @@ Batch 9 marks were measured per image. Content Manager captures carry a top-left
 - Outbound Calls → AmmarAI AI Phone Agent (`/ai-phone-agent`) — outbound-call workspace, single call, batch call and call-history monitoring retained. Global phone settings, provider configuration and automated follow-up-rule administration excluded. Four original-resolution screenshots are used.
 
 Every Batch 10 source mark and far-right profile avatar was measured independently. Replacements occupy each original centre and footprint at native image dimensions, including dimmed modal backgrounds; no instructional controls or existing red pointers were moved.
+
+## Batch 11 (verified overlaps)
+
+- External Chatbot → AmmarAI External Chatbot Builder (`/external-chatbot`) — AI Bots list, chatbot creation, configure (title, bubble message, welcome message, instructions, strict-instruction toggle, language, model), interaction type and connect message, suggested prompts, customiser (logo, avatar, colour, launcher size and position, bubble design), training (website, PDF, text, Q&A), preview testing and the embed snippet retained. Model pricing/credit screens, provider keys and workspace setup excluded. Ten original-resolution screenshots are used.
+- Social Media Agents → AmmarAI AI Social Media Agent (`/ai-social-media-agent`) — dashboard and counters, post review, latest posts, agent list, the seven-step agent creation flow (start, platforms, brand, audience, content mix, styling, schedule), posts archive, calendar, analytics, connected accounts and the social chat retained. Admin example prompts, plan/limit configuration and API configuration excluded. Eighteen original-resolution screenshots are used.
+- AI Bot Replies excluded: the reference is a WhatsApp campaign tool with no matching AmmarAI channel workflow.
+
+Batch 11 source marks were measured per image with OCR bounds and the top-bar background sampled from true pixels. Every wordmark replacement grows left to swallow the adjacent source icon, so the AmmarAI logo occupies the exact original footprint at native image dimensions. Far-right profile avatars were detected and replaced individually. No red pointers or controls were moved.
