@@ -154,3 +154,5 @@
 - [x] Add Fashion Studio (photoshoot, try-on, model swap, edit, wardrobe, video, settings) excluding admin settings
 - [x] Add AI Dubbing end-user workflow excluding installation, provider keys and admin controls
 - [x] Add AI UGC Generator end-user workflow excluding installation, provider keys and admin controls
+- [x] Replace far-right profile avatars in published reference screenshots with the AmmarAI logo
+- [x] Add AI Captions upload, style-selection, generation and editor workflow excluding setup and admin controls
