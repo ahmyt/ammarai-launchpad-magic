@@ -8,6 +8,8 @@
  * - Never name or reference other products used as research sources.
  */
 
+import { writingTutorials } from "./tutorials-writing";
+
 export type TutorialCategory =
   | "Getting Started"
   | "Writing"
@@ -272,6 +274,7 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["introduction-to-ammarai", "getting-started-with-ammarai"],
     cta: { toolName: "AI Chat Pro", toolSlug: "ai-chat" },
   },
+  ...writingTutorials,
 ];
 
 export const tutorialBySlug = new Map(tutorials.map((t) => [t.slug, t]));

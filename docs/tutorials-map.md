@@ -5,8 +5,14 @@ when the feature exists in both the reference documentation and AmmarAI, and
 the AmmarAI workflow is evidenced by user-provided captures of
 app.ammarai.com. Never copy reference text, structure, or images.
 
-Statuses: `pending-capture` (awaiting user captures), `drafted` (getting-started
-set, no capture needed), `excluded` (admin/setup/source-only).
+Statuses: `verified` (workflow observed in the live product demo and the tool
+exists in AmmarAI; tutorial written), `pending-capture` (workflow not yet
+observed — demo plan limits or no capture), `drafted` (getting-started set, no
+capture needed), `excluded` (admin/setup/source-only).
+
+Capture pass 2026-09-15: signed in to the public product demo with its own
+published demo account and walked each tool form to record fields, options and
+step order. Screens behind the demo's plan paywall remain pending.
 
 ## Getting Started
 | Tutorial | Status |
@@ -20,7 +26,7 @@ set, no capture needed), `excluded` (admin/setup/source-only).
 |---|---|---|---|
 | AI Agent | AI Agent Builder | /ai-agent-builder | pending-capture |
 | AI Blogger Agent | AI Blogger Agent | /ai-blogger-agent | pending-capture |
-| AI Chat Pro | AI Chat Pro | /ai-chat | pending-capture |
+| AI Chat Pro | AI Chat Pro | /ai-chat | verified (how-to-use-ai-chat-pro) |
 | AI Image Pro | AI Image Pro | /ai-image-generator | pending-capture |
 | AI Captions | AI Captions | /ai-captions | pending-capture |
 | AI Music Pro | AI Music Pro | /ai-music-generator | pending-capture |
@@ -70,3 +76,20 @@ discount & offers, onboarding builder (admin side).
 
 Rule: where a reference page mixes user workflow with setup, document only the
 user workflow as it exists in AmmarAI.
+
+
+## Written (capture pass 1 — writing, chat & assistants)
+| Tutorial | AmmarAI tool | Evidence |
+|---|---|---|
+| how-to-use-ai-writer | /ai-writer | Template workbook: brief fields, language, max length, creativity, tone, number of results, model, brand, bulk |
+| how-to-use-the-ai-article-wizard | /ai-writer | Four-stage wizard: keywords, titles, outline, images + output settings |
+| how-to-use-ai-chat-pro | /ai-chat | Chat workspace: model selector, personal instructions, memory, folders, brand voice, export |
+| how-to-analyse-documents-with-ai-file-chat | /ai-document-analyzer | File chat: upload, question, rename, delete |
+| how-to-use-ai-vision | /ai-vision | Vision chat: image drop (jpg/png/webp), prompt, follow-up |
+| how-to-check-content-with-the-plagiarism-checker | /ai-plagiarism-detector | Checker workbook: description, language, max length, generate |
+
+### Still pending after capture pass 1 (demo plan paywall)
+AI Image Pro, AI Photoshoot, Virtual Try-on, AI Presentation, AI Music Pro,
+CRM Assistant. Image editing, video, avatar/persona, captions, voiceover,
+speech-to-text, UGC/influencer, agent workflows, blogger agent, marketing bot
+and creative suite were observed and are ready to write.
