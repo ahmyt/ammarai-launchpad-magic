@@ -137,6 +137,7 @@
 - [x] Getting Started tutorials (introduction, getting started, navigating) — no captures required
 - [ ] Tool tutorials per verified overlap — captured workflows ready for the next image, video, voice, and agent groups; paywalled tools remain pending
 - [x] Replace all illustrated tutorial mockups with genuine demo screenshots or reference workflow captures for every step in the six existing tool tutorials
+- [x] Add pointer arrows and outlined highlights to the exact action in all 31 existing tutorial step screenshots
 - [x] Add bordered, partitioned, mobile-safe tutorial tables
-- [ ] Genuine demo screenshots or screen-recording frames for every step in each newly written tool tutorial; no interface mockups
+- [ ] Genuine demo screenshots or screen-recording frames for every step in each newly written tool tutorial, annotated with the exact action; no interface mockups
 - [ ] QA: link validation, branding scan, mobile/desktop checks
