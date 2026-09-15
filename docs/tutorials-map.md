@@ -132,3 +132,11 @@ Batch 8 marks were measured per image: only the AI Influencer capture carries a 
 - AI Canvas and Creative Suite annotation excluded: setup-only content, or no verified AmmarAI equivalent.
 
 Batch 9 marks were measured per image. Content Manager captures carry a top-left icon (~12x12) with a ~40x12 wordmark and a far-right profile avatar (~22x22); influencer captures carry only a top-left icon (~30x30) with a ~77x30 wordmark and no avatar. Every replacement occupies the exact measured centre and footprint at native image dimensions, with the background sampled from the true top-bar pixels. No red pointers or controls were moved.
+
+## Batch 10 (verified overlaps)
+
+- CRM → AmmarAI AI CRM (`/ai-crm`) — overview, CRM Assistant, contacts, companies, deals, projects, tasks and calendar retained. CRM enablement, admin controls and settings toggles excluded. Eight original-resolution screenshots are used.
+- Phone Call Agent → AmmarAI AI Phone Agent (`/ai-phone-agent`) — agent list, title/greeting/instructions/language/duration/voice configuration, URL/PDF/text training and saved-agent review retained. Marketplace installation, activation, plan configuration, provider setup and phone-number import/provider assignment excluded. Four original-resolution screenshots are used.
+- Outbound Calls → AmmarAI AI Phone Agent (`/ai-phone-agent`) — outbound-call workspace, single call, batch call and call-history monitoring retained. Global phone settings, provider configuration and automated follow-up-rule administration excluded. Four original-resolution screenshots are used.
+
+Every Batch 10 source mark and far-right profile avatar was measured independently. Replacements occupy each original centre and footprint at native image dimensions, including dimmed modal backgrounds; no instructional controls or existing red pointers were moved.
