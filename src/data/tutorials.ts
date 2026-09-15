@@ -3136,6 +3136,354 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-build-and-embed-a-website-chatbot", "how-to-hand-chats-to-a-human-agent"],
     cta: { toolName: "External Chatbot Builder", toolSlug: "external-chatbot" },
   },
+  {
+    slug: "how-to-audit-a-page-with-the-ai-seo-analyzer",
+    category: "Productivity",
+    title: "How to Audit a Page With the AI SEO Analyzer | AmmarAI Tutorials",
+    description:
+      "Score a live URL, check a draft before you publish and size up a keyword — and learn which of the reported issues to fix first.",
+    h1: "How to audit a page with the AI SEO Analyzer",
+    intro: [
+      "Most SEO advice is a list of everything that could possibly matter. That is not useful when you have one page and an hour.",
+      "The AI SEO Analyzer scores the page you actually have, lists the issues behind that score, and lets you re-run the check after a fix to confirm the number moved.",
+    ],
+    whenToUse: [
+      "A page ranks below where you expect and you want to know why before rewriting it.",
+      "You are about to publish a draft and want a readability and density check first.",
+      "You are choosing between two keywords and need volume and difficulty side by side.",
+    ],
+    sections: [
+      {
+        heading: "Score a live page",
+        steps: [
+          {
+            title: "Run a URL analysis",
+            body: "Open the SEO Analyzer, stay on URL Analysis, paste the full address of the page including https, and run the check.",
+          },
+          {
+            title: "Read the score with the issues, not on its own",
+            body: "The score is a summary; the issue list underneath is the actionable part. Work down it rather than chasing the number.",
+          },
+          {
+            title: "Check the crawler's view of the page",
+            body: "Confirm the title, meta description, status code and load time are what you intended. A wrong title or a slow response explains more rankings problems than most content edits.",
+          },
+          {
+            title: "Confirm the technical basics",
+            body: "HTTPS, mobile rendering, a reachable sitemap and a sane robots.txt all show in one card. Any red here outranks every content fix on your list.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Fix one thing, re-run, and note the change. A single fix per run is the only way to learn which of them actually moves the score on your site.",
+          },
+        ],
+      },
+      {
+        heading: "Check a draft before it goes live",
+        steps: [
+          {
+            title: "Switch to Text Analysis",
+            body: "Paste the draft instead of a URL. You get word count, reading time, readability and keyword density without needing the page published first.",
+          },
+          {
+            title: "Treat density as a ceiling, not a target",
+            body: "If your keyword is over-represented, cut instances rather than adding synonyms. Readers notice repetition long before a search engine penalises it.",
+          },
+          {
+            title: "Act on the suggested edits",
+            body: "The report names specific sentences and structures to change. Apply the ones that also make the draft easier to read and ignore any that would make it worse.",
+          },
+        ],
+      },
+      {
+        heading: "Size up a keyword before committing",
+        steps: [
+          {
+            title: "Open the Keywords tab",
+            body: "Enter the term you are considering and read monthly volume, difficulty, CPC and competition together.",
+          },
+          {
+            title: "Pick the variant you can realistically win",
+            body: "Scan the related terms. A lower-volume phrase you can rank for this quarter beats a high-volume one you cannot.",
+          },
+          {
+            title: "Hand the chosen keyword to the writer",
+            body: "Take the term straight into the Article Wizard so the outline and headings are built around it from the start.",
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "High CPC on a keyword is a buying-intent signal. Those terms convert, which is usually why they are also the hardest to rank for.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-seo-analyzer", "article-wizard", "ai-blogger-agent"],
+    relatedTutorials: ["how-to-get-keyword-and-question-ideas-in-the-article-wizard"],
+    cta: { toolName: "AI SEO Analyzer", toolSlug: "ai-seo-analyzer" },
+  },
+  {
+    slug: "how-to-run-a-cited-research-report-with-ai-deep-research",
+    category: "Productivity",
+    title: "How to Run a Cited Research Report With AI Deep Research | AmmarAI Tutorials",
+    description:
+      "Frame the question, choose the depth, and turn a live multi-source research run into a report you can defend, with every claim linked to its source.",
+    h1: "How to run a cited research report with AI Deep Research",
+    intro: [
+      "A normal chat answer stops at the model's training date and gives you no way to check where anything came from.",
+      "Deep Research searches the live web, opens the pages that matter, compares what they say, and returns a structured report with links behind the claims.",
+    ],
+    whenToUse: [
+      "You need current facts — pricing, regulation, competitor moves, market size.",
+      "The output will be read by someone who will ask where a number came from.",
+      "One source is not enough and you do not want to open twenty tabs yourself.",
+    ],
+    sections: [
+      {
+        heading: "Frame the question properly",
+        steps: [
+          {
+            title: "Write the question, not the topic",
+            body: "\"Which project tools under 20 dollars per seat include time tracking, as of this month\" returns a usable report. \"Project tools\" returns a shapeless overview.",
+          },
+          {
+            title: "State the scope",
+            body: "Name the market, the time window and the audience. Scope is what stops the agent wandering into adjacent topics.",
+          },
+          {
+            title: "Name the sources you already trust",
+            body: "If you want vendor pricing pages and regulator publications rather than listicles, say so in the brief.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Add the decision you are making at the end of the brief. Knowing the report feeds a pricing decision changes what the agent chooses to include.",
+          },
+        ],
+      },
+      {
+        heading: "Set the depth and run it",
+        steps: [
+          {
+            title: "Choose a depth that matches the stakes",
+            body: "A quick scan orients you on an unfamiliar topic. A balanced overview suits most briefs. Reserve the exhaustive run for decisions you will have to justify.",
+          },
+          {
+            title: "Let the run finish",
+            body: "The agent searches, opens the relevant pages and extracts facts. A deep run takes longer because it is reading more, not because it is stuck.",
+          },
+          {
+            title: "Read the disagreements first",
+            body: "Where sources conflict, the report says so. Those passages are where your own judgement is worth the most.",
+          },
+        ],
+      },
+      {
+        heading: "Use the report",
+        steps: [
+          {
+            title: "Spot-check the citations",
+            body: "Open two or three links and confirm the page says what the report says it does. Do this every time before anything is published or presented.",
+          },
+          {
+            title: "Turn it into the thing you needed",
+            body: "Take the finished report into a writer or the presentation maker instead of rewriting it by hand.",
+          },
+          {
+            title: "Re-run when it ages",
+            body: "Pricing and regulation move. Re-running the same brief a quarter later gives you a comparable report rather than a fresh guess.",
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "Deep Research reports what the sources say. If the live web is wrong about something, the report will be too — which is exactly why the citations are there.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-deep-research", "article-wizard", "ai-presentation-maker"],
+    relatedTutorials: ["how-to-create-ai-presentations", "how-to-audit-a-page-with-the-ai-seo-analyzer"],
+    cta: { toolName: "AI Deep Research", toolSlug: "ai-deep-research" },
+  },
+  {
+    slug: "how-to-put-a-garment-on-a-model-with-ai-fashion-try-on",
+    category: "Fashion",
+    title: "How to Put a Garment on a Model With AI Fashion Try-On | AmmarAI Tutorials",
+    description:
+      "Turn the flat garment photo you already have into worn product imagery — correct fit and drape, several body types, one consistent look across a collection.",
+    h1: "How to put a garment on a model with AI Fashion Try-On",
+    intro: [
+      "A folded flat lay tells a shopper nothing about length, fit or how the fabric falls, and a model shoot means casting, studio time and a wait — repeated for every colourway.",
+      "Fashion Try-On renders the garment photo you already have as worn imagery, so one sample photo covers the whole product page.",
+    ],
+    whenToUse: [
+      "You have flat-lay or mannequin photos and need worn shots.",
+      "You want the same piece shown on several body types and skin tones.",
+      "A colourway or a new drop needs imagery before a shoot is possible.",
+    ],
+    sections: [
+      {
+        heading: "Prepare and upload the garment",
+        steps: [
+          {
+            title: "Start from the best flat shot you have",
+            body: "Even lighting, the whole item in frame, no crop through a sleeve or hem, prints and trims in focus. The render can only be as accurate as the input.",
+          },
+          {
+            title: "Upload it",
+            body: "Open Fashion Try-On and add the garment image. A clean mannequin shot works as well as a flat lay.",
+          },
+          {
+            title: "Handle one piece at a time",
+            body: "For a full outfit, add each garment as its own layer rather than uploading a styled composite.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Photograph the sample once, properly. Every colourway can then be produced from that single shot.",
+          },
+        ],
+      },
+      {
+        heading: "Choose the model and the setting",
+        steps: [
+          {
+            title: "Pick the body type and look",
+            body: "Set body type, height and skin tone to match the customers you actually sell to, not just one standard model.",
+          },
+          {
+            title: "Choose the setting",
+            body: "Studio for product pages, street or interior for lookbooks and ads. Keep it consistent across a collection so the grid looks deliberate.",
+          },
+          {
+            title: "Generate the views you need",
+            body: "Front, side and a detail view usually cover a product page. Generate them in the same session so the light matches.",
+          },
+        ],
+      },
+      {
+        heading: "Check and ship the images",
+        steps: [
+          {
+            title: "Inspect the details before publishing",
+            body: "Check seams, prints, logos and hem length against the real garment. Detail accuracy is what makes the imagery trustworthy — and what causes returns when it is wrong.",
+          },
+          {
+            title: "Regenerate rather than retouch",
+            body: "If the drape or fit looks off, change the model or setting and run it again. That is faster than fixing it in an editor.",
+          },
+          {
+            title: "Keep one model per collection",
+            body: "Reusing the same model and light across every product makes the whole catalogue read as one shoot.",
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "Show the fit honestly. Imagery that flatters a garment beyond what it does in real life just moves the cost to your returns.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-virtual-try-on", "ai-photoshoot", "ai-image-generator"],
+    relatedTutorials: ["how-to-use-fashion-studio", "how-to-use-ai-image-pro"],
+    cta: { toolName: "AI Fashion Try-On", toolSlug: "ai-virtual-try-on" },
+  },
+  {
+    slug: "how-to-transcribe-a-meeting-or-interview",
+    category: "Audio",
+    title: "How to Transcribe a Meeting or Interview | AmmarAI Tutorials",
+    description:
+      "Turn a recording into a timestamped, speaker-labelled transcript you can search, quote, summarise and export as subtitles.",
+    h1: "How to transcribe a meeting or interview",
+    intro: [
+      "An audio file is something you have to scrub through. A transcript is something you can search.",
+      "AI Transcription separates the speakers, attaches timestamps and gives you a document — which makes pulling a quote, finding the moment a decision was made, or producing subtitles almost free.",
+    ],
+    whenToUse: [
+      "You need a written record of a call, interview, podcast or lecture.",
+      "You want to quote someone accurately rather than from memory.",
+      "A video needs subtitles and you have the audio already.",
+    ],
+    sections: [
+      {
+        heading: "Get the recording right",
+        steps: [
+          {
+            title: "Record per speaker where you can",
+            body: "A remote call recorded with separate speaker tracks transcribes close to perfectly. Several people around one laptop with an air conditioner running will produce errors, especially on names and overlapping speech.",
+          },
+          {
+            title: "Upload the audio or video",
+            body: "Open AI Transcription and add the file. Common audio and video formats are accepted, so a screen recording works as well as an audio file.",
+          },
+          {
+            title: "Set the language",
+            body: "Name the spoken language rather than leaving it to be guessed, particularly for accented speech or anything with technical vocabulary.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Ask everyone to say their name at the start. Speaker labels are far easier to correct when each voice introduces itself.",
+          },
+        ],
+      },
+      {
+        heading: "Work with the transcript",
+        steps: [
+          {
+            title: "Fix the speaker labels",
+            body: "Rename the detected speakers once and the whole transcript updates. Do this before you share it with anyone.",
+          },
+          {
+            title: "Jump to the audio from any line",
+            body: "Timestamps link back to the recording, so you can confirm a disputed passage in seconds instead of scrubbing.",
+          },
+          {
+            title: "Review anything you intend to quote",
+            body: "Budget a few minutes to check names, numbers and technical terms before a quote goes anywhere public.",
+          },
+          {
+            title: "Search across your recordings",
+            body: "Once processed, every transcript is searchable, so \"when did we agree on the launch date\" becomes a text search rather than an archaeology project.",
+          },
+        ],
+      },
+      {
+        heading: "Turn it into the output you needed",
+        steps: [
+          {
+            title: "Summarise and pull action items",
+            body: "Generate a summary, the decisions and the action items from the transcript instead of writing notes during the call.",
+          },
+          {
+            title: "Export subtitles",
+            body: "Export a subtitle file for the video the audio came from, or send it on for styled captions.",
+          },
+          {
+            title: "Reuse the content",
+            body: "An interview transcript is the raw material for a blog post, a set of quotes and a handful of social clips.",
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "Tell people they are being recorded and transcribed. In many places that is a legal requirement, and everywhere it is the decent thing to do.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-transcription", "ai-captions", "ai-speech-to-text"],
+    relatedTutorials: ["how-to-use-ai-captions"],
+    cta: { toolName: "AI Transcription", toolSlug: "ai-transcription" },
+  },
 ];
 
 

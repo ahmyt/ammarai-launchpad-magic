@@ -217,3 +217,14 @@ Note: `tutorialByTool` now keeps the first tutorial registered for a tool slug, 
 | how-to-train-chatbot | — | Excluded | Admin Templates area, JSON role-based training data. |
 | ai-fine-tuning | — | Excluded | Provider fine-tuning API and keys. |
 | ai-social-media-setup, ai-model-selector-for-ai-chat, managing-user-permissions, discount-offers, onboarding-pro, checkout-registration, access-to-rest-api, shared-credit-pool-system, hubspot-crm-integration | — | Excluded | Owner/admin configuration or provider credentials. |
+
+## Batch 19
+
+The reference documentation is now exhausted for end-user content: every remaining page is owner/admin setup (provider API keys, payments, storage, installation, licensing, menus, languages, email templates) or already covered by an existing guide. Batch 19 is therefore sourced entirely from AmmarAI's own tool catalogue — no reference screenshots, text-only guides.
+
+| Guide | AmmarAI tool | Notes |
+| --- | --- | --- |
+| how-to-audit-a-page-with-the-ai-seo-analyzer | ai-seo-analyzer | URL / Text / Keywords workflows, no screenshots |
+| how-to-run-a-cited-research-report-with-ai-deep-research | ai-deep-research | Brief, depth, citations check |
+| how-to-put-a-garment-on-a-model-with-ai-fashion-try-on | ai-virtual-try-on | Flat lay upload, model/setting, QA |
+| how-to-transcribe-a-meeting-or-interview | ai-transcription | Recording quality, speaker labels, exports |
