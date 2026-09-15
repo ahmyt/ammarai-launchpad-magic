@@ -116,3 +116,11 @@ Every Batch 6 source wordmark was measured independently; replacements occupy th
 - Creative Suite → AmmarAI AI Creative Suite (`/ai-creative-suite`) — engine choice and generation, predefined templates, canvas type/colour/layer editing, artboards, export/import retained. Four original-resolution screenshots are used.
 
 Each Batch 7 source wordmark was measured independently (Creative Suite icon 30×30 with a 77×19 wordmark; Video Editor sidebar icon 32×32 with wordmark, plus a 35×36 far-right avatar). Replacements occupy the exact original centre and footprint at native image dimensions; no red pointers or controls were moved.
+
+## Batch 8 (verified overlaps)
+
+- URL to Video AD → AmmarAI AI URL to Video & Influencer (`/ai-url-to-video`) — Generate New entry point, product URL analysis and manual product upload, language/duration/aspect ratio, avatar, voice and caption selection, preview selection and render retained. Creatify/Topview provider API keys, Manage AI Tools defaults and all other settings screens excluded. Seven original-resolution screenshots are used.
+- Sora video inputs → folded into the existing AmmarAI AI Video Pro guide (`how-to-use-ai-video-pro`) as a "Set the generation inputs" section covering reference image, prompt, model, duration and size. The provider API-key/enablement screenshot is excluded. Five original-resolution screenshots are used.
+- Temporary Chat excluded: the reference page covers Marketplace installation and activation only, with no separable end-user workflow.
+
+Batch 8 marks were measured per image: only the AI Influencer capture carries a source mark (icon 36×32 at x9–45/y7–39, wordmark 83×23 at x47–130/y13–36); the replacement occupies that exact centre and footprint at native image dimensions. The remaining captures are wizard/detail crops with no brand mark. No red pointers or controls were moved.
