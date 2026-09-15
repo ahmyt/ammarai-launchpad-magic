@@ -166,3 +166,8 @@
 - [x] AI Presentation Maker guide (`how-to-create-ai-presentations`, 8 branded screenshots)
 - [x] Realtime Voice Chat guide (`how-to-use-realtime-voice-chat`, 1 branded screenshot)
 - [x] Logo replacements aligned to measured original footprint; admin/provider content excluded
+
+## Batch 7 tutorials (done)
+- [x] AI Video Editor guide (`how-to-edit-videos-with-the-ai-video-editor`, 5 screenshots)
+- [x] AI Creative Suite guide (`how-to-use-the-ai-creative-suite`, 4 screenshots)
+- [x] Logo and avatar replacements aligned to measured original footprints; activation/admin/provider content excluded

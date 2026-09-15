@@ -109,3 +109,10 @@ Every Batch 5 source wordmark and far-right profile avatar was measured independ
 - Realtime Voice Chat → AmmarAI Realtime Voice Chat (`/realtime-voice-chat`) — opening a chat, enabling real-time voice from the message bar and holding the spoken session retained. The provider API-key enable screenshot is excluded. One original-resolution screenshot is used.
 
 Every Batch 6 source wordmark was measured independently; replacements occupy the exact original mark center and footprint at native image dimensions. No red pointers or controls were moved. None of the published Batch 6 captures contain a far-right profile avatar.
+
+## Batch 7 (verified overlaps)
+
+- Video Editor → AmmarAI AI Video Editor (`/ai-video-editor`) — project creation, aspect ratio, library, timeline editing and the AI, Voice and Music panels retained. Requirements, server requirements, Marketplace activation, plan enablement, provider API keys and Admin Controls excluded. Five original-resolution screenshots are used.
+- Creative Suite → AmmarAI AI Creative Suite (`/ai-creative-suite`) — engine choice and generation, predefined templates, canvas type/colour/layer editing, artboards, export/import retained. Four original-resolution screenshots are used.
+
+Each Batch 7 source wordmark was measured independently (Creative Suite icon 30×30 with a 77×19 wordmark; Video Editor sidebar icon 32×32 with wordmark, plus a 35×36 far-right avatar). Replacements occupy the exact original centre and footprint at native image dimensions; no red pointers or controls were moved.
