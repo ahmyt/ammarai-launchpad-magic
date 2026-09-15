@@ -440,12 +440,12 @@ export const writingTutorials: Tutorial[] = [
           },
           {
             title: "Narrow down",
-            body: "Follow up with specifics: \"List every deadline with its date\",
+            body: "Follow up with specifics: \"List every deadline with its date\", \"What are the termination conditions?\", \"Pull the pricing into a table\".",
             image: {
               src: "/media/tutorials/how-to-analyse-documents-with-ai-file-chat-4.webp",
               alt: "AmmarAI Narrow down screen",
               caption: "Step 4: Narrow down",
-            }, \"What are the termination conditions?\", \"Pull the pricing into a table\".",
+            },
           },
           {
             title: "Save what you need",
@@ -532,12 +532,12 @@ export const writingTutorials: Tutorial[] = [
           },
           {
             title: "Ask a specific question",
-            body: "Say what you want out of it: \"Describe this for an ecommerce listing in 60 words\",
+            body: "Say what you want out of it: \"Describe this for an ecommerce listing in 60 words\", \"What does this error screenshot mean?\", \"Summarise the trend in this chart\".",
             image: {
               src: "/media/tutorials/how-to-use-ai-vision-3.webp",
               alt: "AmmarAI Ask a specific question screen",
               caption: "Step 3: Ask a specific question",
-            }, \"What does this error screenshot mean?\", \"Summarise the trend in this chart\".",
+            },
           },
           {
             title: "Follow up",
