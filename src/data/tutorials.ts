@@ -2120,6 +2120,20 @@ export const tutorials: Tutorial[] = [
         ],
       },
       {
+        heading: "Let visitors talk to the assistant",
+        steps: [
+          {
+            title: "Switch on the voice call agent",
+            body: "In the chatbot configuration, turn on Enable Voice Call Agent. Visitors can then hold a spoken conversation with the assistant in the same window instead of typing.",
+            image: { src: "/media/tutorials/tutorial-bot-voice-1.png", alt: "Chatbot configuration with the voice call agent switch turned on", caption: "The voice switch sits under the feedback option.", width: 838, height: 916 },
+          },
+          {
+            title: "Write the first spoken line",
+            body: "Fill in the first message of the voice agent. This is the greeting the assistant speaks when a visitor starts a call, so keep it short, warm and in the voice of your business.",
+          },
+        ],
+      },
+      {
         heading: "Before you publish",
         bullets: [
           "Read the instructions back as if you were a customer: anything vague will show up as a vague answer.",
@@ -2130,7 +2144,7 @@ export const tutorials: Tutorial[] = [
       },
     ],
     relatedTools: ["ai-chat", "ai-personas", "ai-agent-builder"],
-    relatedTutorials: ["how-to-chat-with-documents", "how-to-create-an-ai-phone-agent"],
+    relatedTutorials: ["how-to-chat-with-documents", "how-to-take-bookings-with-your-website-chatbot"],
     cta: { toolName: "External Chatbot Builder", toolSlug: "external-chatbot" },
   },
   {
