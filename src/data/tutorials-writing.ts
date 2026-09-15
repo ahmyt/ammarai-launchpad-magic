@@ -38,26 +38,56 @@ export const writingTutorials: Tutorial[] = [
           {
             title: "Open the template you need",
             body: "From the dashboard, open AI Writer and pick the format — blog article, paragraph, email, ad copy, product description and so on. The template decides which brief fields you see.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-writer-1.webp",
+              alt: "AmmarAI Open the template you need screen",
+              caption: "Step 1: Open the template you need",
+            },
           },
           {
             title: "Describe the content",
             body: "Fill in the main brief field, such as the blog topic, and any supporting field like the sections you want covered. Be specific: the audience, the angle and the outcome you want all improve the draft.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-writer-2.webp",
+              alt: "AmmarAI Describe the content screen",
+              caption: "Step 2: Describe the content",
+            },
           },
           {
             title: "Set language and length",
             body: "Choose the output language and the maximum length. Length is a character target, so raise it for long-form and lower it for short social or ad copy.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-writer-3.webp",
+              alt: "AmmarAI Set language and length screen",
+              caption: "Step 3: Set language and length",
+            },
           },
           {
             title: "Set tone and creativity",
             body: "Pick a tone of voice — professional, casual, bold, witty and others — or enter a custom tone. Creativity controls how closely the model sticks to the brief: lower for factual copy, higher for ideas and headlines.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-writer-4.webp",
+              alt: "AmmarAI Set tone and creativity screen",
+              caption: "Step 4: Set tone and creativity",
+            },
           },
           {
             title: "Choose the number of results",
             body: "Ask for more than one result when you want options to compare. Each result costs credits, so start with one or two.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-writer-5.webp",
+              alt: "AmmarAI Choose the number of results screen",
+              caption: "Step 5: Choose the number of results",
+            },
           },
           {
             title: "Generate and edit",
             body: "Select Generate. The draft appears in the document editor, where you can highlight a passage and rewrite just that part, then save the document.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-writer-6.webp",
+              alt: "AmmarAI Generate and edit screen",
+              caption: "Step 6: Generate and edit",
+            },
           },
         ],
         callouts: [
@@ -168,26 +198,56 @@ export const writingTutorials: Tutorial[] = [
           {
             title: "Describe the article",
             body: "In the topic field, answer \"What is this article about?\" in a sentence or two. Add the optional title and outline hints if you already have a direction in mind.",
+            image: {
+              src: "/media/tutorials/how-to-use-the-ai-article-wizard-1.webp",
+              alt: "AmmarAI Describe the article screen",
+              caption: "Step 1: Describe the article",
+            },
           },
           {
             title: "Generate keywords",
             body: "Set how many keywords you want and select Generate Keywords. Add your own with the keyword field, remove any that miss the intent, or skip the step if you already know your target terms.",
+            image: {
+              src: "/media/tutorials/how-to-use-the-ai-article-wizard-2.webp",
+              alt: "AmmarAI Generate keywords screen",
+              caption: "Step 2: Generate keywords",
+            },
           },
           {
             title: "Choose a title",
             body: "Set the number of titles and the maximum title length, generate the options, and select the one that matches the search intent. You can also type your own.",
+            image: {
+              src: "/media/tutorials/how-to-use-the-ai-article-wizard-3.webp",
+              alt: "AmmarAI Choose a title screen",
+              caption: "Step 3: Choose a title",
+            },
           },
           {
             title: "Shape the outline",
             body: "Set how many subtitles and outline points you want, generate them, then edit. This is the most valuable stage — the outline decides whether the article actually answers the question.",
+            image: {
+              src: "/media/tutorials/how-to-use-the-ai-article-wizard-4.webp",
+              alt: "AmmarAI Shape the outline screen",
+              caption: "Step 4: Shape the outline",
+            },
           },
           {
             title: "Add images (optional)",
             body: "Describe the images you want, set how many and their size, and add them to the run. Skip this if you are supplying your own artwork.",
+            image: {
+              src: "/media/tutorials/how-to-use-the-ai-article-wizard-5.webp",
+              alt: "AmmarAI Add images (optional) screen",
+              caption: "Step 5: Add images (optional)",
+            },
           },
           {
             title: "Set the output and generate",
             body: "Choose the language, the blog post length and the creativity level, then generate. The finished article opens in the document editor for final edits.",
+            image: {
+              src: "/media/tutorials/how-to-use-the-ai-article-wizard-6.webp",
+              alt: "AmmarAI Set the output and generate screen",
+              caption: "Step 6: Set the output and generate",
+            },
           },
         ],
         callouts: [
@@ -240,22 +300,47 @@ export const writingTutorials: Tutorial[] = [
           {
             title: "Open AI Chat Pro",
             body: "From the dashboard, open AI Chat Pro. A new conversation starts ready for your first message.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-chat-pro-1.webp",
+              alt: "AmmarAI Open AI Chat Pro screen",
+              caption: "Step 1: Open AI Chat Pro",
+            },
           },
           {
             title: "Pick an assistant or start blank",
             body: "Choose one of the ready-made assistants for a specific job, or start with the default assistant and steer it yourself.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-chat-pro-2.webp",
+              alt: "AmmarAI Pick an assistant or start blank screen",
+              caption: "Step 2: Pick an assistant or start blank",
+            },
           },
           {
             title: "Choose a model",
             body: "Open the model selector and pick the model for the task. The default model suits most work; switch models when you want a different balance of speed, reasoning depth or writing style.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-chat-pro-3.webp",
+              alt: "AmmarAI Choose a model screen",
+              caption: "Step 3: Choose a model",
+            },
           },
           {
             title: "Write your message",
             body: "State the task, the audience and the format you want back. Attach a file if the answer depends on it.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-chat-pro-4.webp",
+              alt: "AmmarAI Write your message screen",
+              caption: "Step 4: Write your message",
+            },
           },
           {
             title: "Iterate",
             body: "Reply with corrections rather than starting over — the assistant keeps the thread's context.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-chat-pro-5.webp",
+              alt: "AmmarAI Iterate screen",
+              caption: "Step 5: Iterate",
+            },
           },
         ],
       },
@@ -329,22 +414,47 @@ export const writingTutorials: Tutorial[] = [
           {
             title: "Open AI File Chat",
             body: "From the dashboard, open the document analysis workspace and start a new chat.",
+            image: {
+              src: "/media/tutorials/how-to-analyse-documents-with-ai-file-chat-1.webp",
+              alt: "AmmarAI Open AI File Chat screen",
+              caption: "Step 1: Open AI File Chat",
+            },
           },
           {
             title: "Upload the document",
             body: "Add your file. Wait for the upload to finish processing before asking the first question.",
+            image: {
+              src: "/media/tutorials/how-to-analyse-documents-with-ai-file-chat-2.webp",
+              alt: "AmmarAI Upload the document screen",
+              caption: "Step 2: Upload the document",
+            },
           },
           {
             title: "Ask a broad question first",
             body: "Start with something like \"Summarise this in ten bullets for a non-specialist\" to check the document was read correctly.",
+            image: {
+              src: "/media/tutorials/how-to-analyse-documents-with-ai-file-chat-3.webp",
+              alt: "AmmarAI Ask a broad question first screen",
+              caption: "Step 3: Ask a broad question first",
+            },
           },
           {
             title: "Narrow down",
-            body: "Follow up with specifics: \"List every deadline with its date\", \"What are the termination conditions?\", \"Pull the pricing into a table\".",
+            body: "Follow up with specifics: \"List every deadline with its date\",
+            image: {
+              src: "/media/tutorials/how-to-analyse-documents-with-ai-file-chat-4.webp",
+              alt: "AmmarAI Narrow down screen",
+              caption: "Step 4: Narrow down",
+            }, \"What are the termination conditions?\", \"Pull the pricing into a table\".",
           },
           {
             title: "Save what you need",
             body: "Rename the chat after the document so you can find it again, and export the answers you want to keep.",
+            image: {
+              src: "/media/tutorials/how-to-analyse-documents-with-ai-file-chat-5.webp",
+              alt: "AmmarAI Save what you need screen",
+              caption: "Step 5: Save what you need",
+            },
           },
         ],
         callouts: [
@@ -405,18 +515,38 @@ export const writingTutorials: Tutorial[] = [
           {
             title: "Open AI Vision",
             body: "From the dashboard, open the Vision workspace.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-vision-1.webp",
+              alt: "AmmarAI Open AI Vision screen",
+              caption: "Step 1: Open AI Vision",
+            },
           },
           {
             title: "Add your image",
             body: "Drag the image in or browse for it. JPG, PNG and WebP files are accepted.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-vision-2.webp",
+              alt: "AmmarAI Add your image screen",
+              caption: "Step 2: Add your image",
+            },
           },
           {
             title: "Ask a specific question",
-            body: "Say what you want out of it: \"Describe this for an ecommerce listing in 60 words\", \"What does this error screenshot mean?\", \"Summarise the trend in this chart\".",
+            body: "Say what you want out of it: \"Describe this for an ecommerce listing in 60 words\",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-vision-3.webp",
+              alt: "AmmarAI Ask a specific question screen",
+              caption: "Step 3: Ask a specific question",
+            }, \"What does this error screenshot mean?\", \"Summarise the trend in this chart\".",
           },
           {
             title: "Follow up",
             body: "Refine in the same conversation — change the tone, shorten the description, or ask for alt text.",
+            image: {
+              src: "/media/tutorials/how-to-use-ai-vision-4.webp",
+              alt: "AmmarAI Follow up screen",
+              caption: "Step 4: Follow up",
+            },
           },
         ],
       },
@@ -468,22 +598,47 @@ export const writingTutorials: Tutorial[] = [
           {
             title: "Open the plagiarism checker",
             body: "Find it in the writing tools in your dashboard.",
+            image: {
+              src: "/media/tutorials/how-to-check-content-with-the-plagiarism-checker-1.webp",
+              alt: "AmmarAI Open the plagiarism checker screen",
+              caption: "Step 1: Open the plagiarism checker",
+            },
           },
           {
             title: "Paste the text",
             body: "Add the content into the description field. Check one piece at a time rather than a whole site.",
+            image: {
+              src: "/media/tutorials/how-to-check-content-with-the-plagiarism-checker-2.webp",
+              alt: "AmmarAI Paste the text screen",
+              caption: "Step 2: Paste the text",
+            },
           },
           {
             title: "Set language and length",
             body: "Choose the language of the text and a maximum length that covers the piece you pasted.",
+            image: {
+              src: "/media/tutorials/how-to-check-content-with-the-plagiarism-checker-3.webp",
+              alt: "AmmarAI Set language and length screen",
+              caption: "Step 3: Set language and length",
+            },
           },
           {
             title: "Run the check",
             body: "Select Generate and read the report.",
+            image: {
+              src: "/media/tutorials/how-to-check-content-with-the-plagiarism-checker-4.webp",
+              alt: "AmmarAI Run the check screen",
+              caption: "Step 4: Run the check",
+            },
           },
           {
             title: "Rewrite the flagged parts",
             body: "Rewrite in your own words, or quote and attribute properly if the source should be credited.",
+            image: {
+              src: "/media/tutorials/how-to-check-content-with-the-plagiarism-checker-5.webp",
+              alt: "AmmarAI Rewrite the flagged parts screen",
+              caption: "Step 5: Rewrite the flagged parts",
+            },
           },
         ],
       },

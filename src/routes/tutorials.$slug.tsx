@@ -184,9 +184,22 @@ function TutorialPage() {
                       <span className="tutorial-step-number" aria-hidden="true">
                         {index + 1}
                       </span>
-                      <div>
+                      <div className="tutorial-step-content">
                         <h3>{step.title}</h3>
                         <p>{step.body}</p>
+                        {step.image ? (
+                          <figure className="tutorial-step-figure">
+                            <img
+                              src={step.image.src}
+                              alt={step.image.alt}
+                              width={1280}
+                              height={720}
+                              loading="lazy"
+                              decoding="async"
+                            />
+                            {step.image.caption ? <figcaption>{step.image.caption}</figcaption> : null}
+                          </figure>
+                        ) : null}
                       </div>
                     </li>
                   ))}
