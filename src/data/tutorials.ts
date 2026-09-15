@@ -4,7 +4,7 @@
  * is intentionally excluded.
  */
 
-export type TutorialCategory = "Chat & Documents";
+export type TutorialCategory = "Chat & Documents" | "Image" | "Video";
 
 export interface TutorialCallout {
   type: "tip" | "note" | "warning";
@@ -46,7 +46,7 @@ export interface Tutorial {
   cta: { toolName: string; toolSlug: string };
 }
 
-export const tutorialCategories: TutorialCategory[] = ["Chat & Documents"];
+export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Image", "Video"];
 
 export const tutorials: Tutorial[] = [
   {
@@ -263,6 +263,157 @@ export const tutorials: Tutorial[] = [
     relatedTools: ["ai-document-analyzer", "ai-chat"],
     relatedTutorials: ["how-to-use-ai-chat-pro"],
     cta: { toolName: "AI Document Analyzer", toolSlug: "ai-document-analyzer" },
+  },
+  {
+    slug: "how-to-use-ai-image-pro",
+    category: "Image",
+    title: "How to Use AI Image Pro | AmmarAI Tutorials",
+    description: "Create images in AmmarAI AI Image Pro by setting a prompt, variations, style, ratio and model, then reviewing the results.",
+    h1: "How to use AI Image Pro",
+    intro: [
+      "AI Image Pro turns a written idea into finished visual options. Its generator lets you control the number of results, visual style, aspect ratio and available image model before you create.",
+      "This guide follows the regular-user workflow in the reference documentation. Administrator controls, guest limits, display settings and platform configuration are excluded.",
+    ],
+    whenToUse: [
+      "You need original campaign, article or social imagery from a written brief.",
+      "You want several visual interpretations to compare before choosing a direction.",
+      "You need an image framed for a specific publishing format.",
+    ],
+    sections: [
+      {
+        heading: "Create an image",
+        steps: [
+          {
+            title: "Open the generator and describe the image",
+            body: "Open AI Image Pro and enter a clear description of the visual you want. Include the subject, setting, composition and lighting that matter to the result.",
+            image: { src: "/media/tutorials/tutorial-image-pro-1.png", alt: "AmmarAI AI Image Pro prompt area for describing a new image", caption: "Start with a specific description of the image you want to create.", width: 1024, height: 450 },
+          },
+          {
+            title: "Choose the number of variations",
+            body: "Choose how many versions to create. Generate one result for a focused request or several variations when you want to compare interpretations of the same prompt.",
+            image: { src: "/media/tutorials/tutorial-image-pro-2.png", alt: "AI Image Pro control for choosing the number of image variations", caption: "Select the number of variations before generating.", width: 1024, height: 459 },
+          },
+          {
+            title: "Select a visual style",
+            body: "Open the style picker and select the preset that best matches the intended look. The visual presets make it easier to compare directions without adding a long style description.",
+            image: { src: "/media/tutorials/tutorial-image-pro-3.png", alt: "AI Image Pro visual style preset gallery", caption: "Choose a preset that matches the visual direction you need.", width: 1024, height: 525 },
+          },
+          {
+            title: "Choose the aspect ratio",
+            body: "Select the shape that matches the destination, such as square, portrait or landscape. Setting the ratio before generation helps preserve the intended composition.",
+            image: { src: "/media/tutorials/tutorial-image-pro-5.png", alt: "AI Image Pro aspect-ratio menu beside the prompt", caption: "Match the image shape to where it will be published.", width: 1024, height: 458 },
+          },
+          {
+            title: "Choose an available model",
+            body: "Open the model selector and choose an available image model. Model availability can vary, so use the options shown in your AmmarAI workspace.",
+            image: { src: "/media/tutorials/tutorial-image-pro-6.png", alt: "AI Image Pro model selection menu", caption: "Select the available model for this generation.", width: 1024, height: 450 },
+          },
+          {
+            title: "Generate and review the results",
+            body: "Start the generation, then review the returned images. Compare subject accuracy, composition, edges and small details before choosing a result.",
+            image: { src: "/media/tutorials/tutorial-image-pro-8.png", alt: "AI Image Pro generated image results below the prompt area", caption: "Review the generated options and select the strongest result.", width: 1024, height: 490 },
+          },
+        ],
+      },
+      {
+        heading: "Use the image library",
+        steps: [
+          {
+            title: "Browse generated and available images",
+            body: "Open the image picker and use its sections to find the visual you need. Select an image after checking that it fits the subject, format and publishing context.",
+            image: { src: "/media/tutorials/tutorial-image-pro-9.png", alt: "AI Image Pro image library with generated visual thumbnails", caption: "Browse the image library and select a suitable visual.", width: 1024, height: 493 },
+          },
+        ],
+      },
+      {
+        heading: "Controls at a glance",
+        table: {
+          head: ["Control", "What it changes"],
+          rows: [
+            ["Number of images", "How many visual variations are returned."],
+            ["Style preset", "The broad visual treatment applied to the prompt."],
+            ["Aspect ratio", "The shape and framing of the generated image."],
+            ["Model", "The available image engine used for generation."],
+          ],
+        },
+      },
+      {
+        heading: "Limits and good practice",
+        bullets: [
+          "Review faces, hands, lettering, logos and small details before publishing.",
+          "Use a clear composition and intended format instead of disconnected keywords.",
+          "Do not request protected characters, brand assets or a real person’s likeness without permission.",
+          "Available styles, models and output limits can vary by account.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-image-generator", "ai-vision", "ai-image-to-video"],
+    relatedTutorials: ["how-to-use-ai-video-pro"],
+    cta: { toolName: "AI Image Pro", toolSlug: "ai-image-generator" },
+  },
+  {
+    slug: "how-to-use-ai-video-pro",
+    category: "Video",
+    title: "How to Use AI Video Pro | AmmarAI Tutorials",
+    description: "Generate a video in AmmarAI AI Video Pro by choosing a model, entering a prompt or image, adjusting settings and creating the result.",
+    h1: "How to use AI Video Pro",
+    intro: [
+      "AI Video Pro creates short videos from a written prompt or a source image. Available controls let you choose the generation approach and set options such as duration, resolution or style when the selected model supports them.",
+      "This guide includes only the end-user creation workflow. Provider keys, integrations and administrator configuration are excluded.",
+    ],
+    whenToUse: [
+      "You want to turn a written scene description into a short video clip.",
+      "You want to add motion to a still image.",
+      "You need visual material for a product demo, short story or social post.",
+    ],
+    sections: [
+      {
+        heading: "Generate a video",
+        steps: [
+          {
+            title: "Open AI Video Pro and choose an action",
+            body: "Open AI Video Pro, then choose the action that matches your source. Use text-to-video for a written scene or image-to-video when you have a still image to animate.",
+            image: { src: "/media/tutorials/tutorial-video-pro-1.png", alt: "AmmarAI AI Video Pro with action, prompt and generate controls", caption: "Choose the video action, provide the source and generate the clip.", width: 1024, height: 401 },
+          },
+          { title: "Choose an available model", body: "Select a video model from the options shown in your workspace. Models can support different source types and controls, so confirm the selected action before continuing." },
+          { title: "Enter a prompt or upload an image", body: "For text-to-video, describe the subject, action, setting, camera movement and lighting. For image-to-video, upload the source image and describe the motion you want." },
+          { title: "Adjust the available settings", body: "Set the resolution, duration and style controls offered by the selected model. Keep the first test short so you can refine the direction before creating a longer result." },
+          { title: "Generate and review the video", body: "Start the generation and wait for the video to finish. Review motion, subject consistency, framing and unwanted visual changes before downloading or using the clip." },
+        ],
+      },
+      {
+        heading: "Write a stronger video prompt",
+        table: {
+          head: ["Prompt detail", "Example"],
+          rows: [
+            ["Subject", "A ceramic coffee cup on a wooden counter"],
+            ["Action", "Steam curls upward as morning light moves across the surface"],
+            ["Camera", "Slow push-in from a medium shot"],
+            ["Look", "Natural light, realistic texture, warm editorial color"],
+          ],
+        },
+      },
+      {
+        heading: "Choose the right starting point",
+        bullets: [
+          "Use text-to-video when the scene does not need to preserve an exact existing subject.",
+          "Use image-to-video when the starting composition, product or character already matters.",
+          "Keep motion instructions simple and physically plausible for the cleanest first result.",
+        ],
+      },
+      {
+        heading: "Limits and good practice",
+        bullets: [
+          "Generated motion can change faces, hands, products, text and fine details between frames.",
+          "Review every clip before publishing, especially when it represents a real product or person.",
+          "Model choices and their supported settings can vary by plan and availability.",
+          "Use only source images and likenesses you are authorised to process.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-video-generator", "ai-image-to-video", "ai-image-generator"],
+    relatedTutorials: ["how-to-use-ai-image-pro"],
+    cta: { toolName: "AI Video Pro", toolSlug: "ai-video-generator" },
   },
 ];
 
