@@ -167,3 +167,13 @@ Batch 12 marks were measured per image with OCR plus a non-background bounding-b
 - Voice Call Agent → folded into the existing website chatbot guide as "Let visitors talk to the assistant" (enable switch, first spoken message). Global Voice Call Settings, provider selection and ElevenLabs voice-ID captures excluded. One original-resolution screenshot is used.
 
 None of the Batch 13 captures contain a source wordmark or far-right profile avatar; each was OCR-scanned before publication and no branding replacement was required, so all images keep their native dimensions with no pointers or controls moved.
+
+## Batch 14
+
+| Reference page | AmmarAI tool | Decision | Notes |
+| --- | --- | --- | --- |
+| temporary-chat | AI Chat Pro (`ai-chat`) | Included — `how-to-use-temporary-chat` | Marketplace install section excluded (setup). Images tc1.png (1268x195), tc2.png (1262x270) carry no source mark — used unchanged. |
+| creative-suite-annotation | AI Creative Suite (`ai-creative-suite`) | Included — `how-to-edit-part-of-an-image-with-annotations` | Admin sections (default model, vision model, plan access) excluded. Images 08-05-2026-11-39-20 (1550x808) and 11-47-06 (1593x964): source host in the browser address bar replaced with `app.ammarai.com/creative-suite` at the measured text box (152,18)-(560,30) and (152,4)-(557,16), background sampled from the adjacent bar pixel. 11-25-13, 11-26-33 and 11-28-21 excluded (settings screens). |
+| external-chatbot-whatsapp-integration | — | Excluded | Workflow is third-party provider credentials and webhook wiring. |
+| external-chatbot-telegram-integration / facebook-messenger / instagram | — | Excluded | Channel token and provider app configuration. |
+| ai-fine-tuning | — | Excluded | Provider-side setup only. |
