@@ -43,7 +43,7 @@ export interface Tutorial {
   sections: TutorialSection[];
   relatedTools: string[];
   relatedTutorials: string[];
-  cta: { toolName: string; toolSlug: string };
+  cta: { toolName: string; toolSlug: string; kind?: "tool" | "feature" };
 }
 
 export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Automation", "Image", "Video", "Video Marketing", "Fashion", "Audio", "Productivity"];
