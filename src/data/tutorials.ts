@@ -272,7 +272,6 @@ export const tutorials: Tutorial[] = [
     h1: "How to use AI Image Pro",
     intro: [
       "AI Image Pro turns a written idea into finished visual options. Its generator lets you control the number of results, visual style, aspect ratio and available image model before you create.",
-      "This guide follows the regular-user workflow in the reference documentation. Administrator controls, guest limits, display settings and platform configuration are excluded.",
     ],
     whenToUse: [
       "You need original campaign, article or social imagery from a written brief.",
@@ -359,7 +358,6 @@ export const tutorials: Tutorial[] = [
     h1: "How to use AI Video Pro",
     intro: [
       "AI Video Pro creates short videos from a written prompt or a source image. Available controls let you choose the generation approach and set options such as duration, resolution or style when the selected model supports them.",
-      "This guide includes only the end-user creation workflow. Provider keys, integrations and administrator configuration are excluded.",
     ],
     whenToUse: [
       "You want to turn a written scene description into a short video clip.",
@@ -874,7 +872,6 @@ export const tutorials: Tutorial[] = [
     h1: "How to use AI Captions",
     intro: [
       "AI Captions adds animated, styled subtitles to short portrait videos. Upload the source video, preview the available caption templates and generate the captioned result before continuing in the video editor.",
-      "This guide covers the regular-user creation workflow only. Installation, API keys, plan allocation and administrator controls are excluded.",
     ],
     whenToUse: [
       "You want readable captions for a short vertical social video.",
@@ -944,7 +941,6 @@ export const tutorials: Tutorial[] = [
     h1: "How to create UGC videos",
     intro: [
       "The AI UGC Generator lets you create realistic user-generated-content videos for social media and marketing without actors, studios or cameras. You write a script, choose a voice, pick a pre-built AI actor and select a scene, and AmmarAI renders the finished video.",
-      "This guide covers the regular-user creation workflow only.",
     ],
     whenToUse: [
       "You want authentic-looking social ads without a shoot.",
@@ -1135,7 +1131,6 @@ export const tutorials: Tutorial[] = [
     h1: "How to use AI Music Pro",
     intro: [
       "AI Music Pro creates an original track from three creative inputs: a written description, a duration and a musical style.",
-      "This guide covers the complete creation workflow. Provider keys and workspace configuration are not part of the end-user process and are excluded.",
     ],
     whenToUse: [
       "A video, advertisement, podcast or presentation needs an original music bed.",
@@ -1173,7 +1168,6 @@ export const tutorials: Tutorial[] = [
     h1: "How to create a presentation with AI",
     intro: [
       "AI Presentation Maker turns a short written brief into a finished deck, with slide structure, written content, layout and imagery generated together.",
-      "This guide follows the end-user creation flow from the first brief through to download. Workspace configuration and credit administration are not part of that flow and are excluded.",
     ],
     whenToUse: [
       "You need a first full draft of a deck rather than an empty template.",
@@ -1323,7 +1317,6 @@ export const tutorials: Tutorial[] = [
     h1: "How to use Realtime Voice Chat",
     intro: [
       "Realtime Voice Chat turns a normal AmmarAI chat into a spoken conversation. You talk out loud and the assistant answers in voice, without typing or waiting for a full written reply.",
-      "This guide covers the end-user conversation flow only. Workspace and provider configuration is not part of it and is excluded.",
     ],
     whenToUse: [
       "You want to think out loud and work through an idea conversationally.",
