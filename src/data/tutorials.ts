@@ -3050,6 +3050,92 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-use-ai-blogger-agent", "how-to-publish-a-post-to-wordpress"],
     cta: { toolName: "Article Wizard", toolSlug: "article-wizard" },
   },
+  {
+    slug: "how-to-connect-your-chatbot-to-messaging-channels",
+    category: "Chat & Documents",
+    title: "How to Connect Your Chatbot to WhatsApp, Telegram and Instagram | AmmarAI Tutorials",
+    description:
+      "Use the Channel step in the AmmarAI chatbot builder to let the same trained bot answer on WhatsApp, Telegram, Messenger and Instagram as well as your website.",
+    h1: "How to connect your chatbot to messaging channels",
+    intro: [
+      "A chatbot that only lives on your website misses everyone who messages you on WhatsApp or replies to a story on Instagram.",
+      "The Channel step of the chatbot builder points the bot you already trained at those apps, so the answers are identical wherever the question arrives — and every conversation still lands in your inbox.",
+    ],
+    whenToUse: [
+      "Customers reach you on messaging apps more often than through the website.",
+      "You want one trained bot answering everywhere instead of a different script per app.",
+      "You want channel conversations to arrive in the same inbox as website chats.",
+    ],
+    sections: [
+      {
+        heading: "Open the Channel step",
+        steps: [
+          {
+            title: "Edit the bot you want to connect",
+            body: "Go to your chatbots, open the bot you have already configured, styled and trained, and move through the builder to the final Channel step.",
+            image: {
+              src: "/media/tutorials/tutorial-channels-1.png",
+              alt: "Chatbot builder on the Channel step, with the Channel tab highlighted in red and a connected WhatsApp channel listed below the channel tile",
+              caption: "The Channel step sits at the end of the builder, after Configure, Customize, Train and Embed.",
+              width: 3000,
+              height: 1506,
+            },
+          },
+          {
+            title: "Pick a channel",
+            body: "Choose the app you want the bot to answer in — WhatsApp, Telegram, Messenger or Instagram. The step is optional, so a website-only bot can skip it entirely.",
+            image: {
+              src: "/media/tutorials/tutorial-channels-2.png",
+              alt: "Channel tiles for Telegram, WhatsApp, Messenger and Instagram with a connection dialog open and a red arrow pointing at the sign-in button",
+              caption: "Each channel opens its own short connection dialog.",
+              width: 972,
+              height: 705,
+            },
+          },
+          {
+            title: "Complete the short connection dialog",
+            body: "Some channels ask you to sign in to the account you want to answer from; others ask for the identifier of the number or account. Fill in what the dialog asks for and save.",
+          },
+          {
+            title: "Confirm the channel is live",
+            body: "A connected channel appears in the list underneath with its status. If it shows as pending, the connection has not finished — reopen it and complete the sign-in.",
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "Connect a channel once the bot is trained and you are happy with its answers. Whatever it says on your site is what it will say in the messaging app.",
+          },
+        ],
+      },
+      {
+        heading: "Work the conversations that arrive",
+        steps: [
+          {
+            title: "Read them in one place",
+            body: "Messages from connected channels flow into the Smart Inbox alongside website chats, each thread labelled with the app it came from.",
+          },
+          {
+            title: "Take over when it matters",
+            body: "With human handover enabled, a visitor can ask for a person on any channel and the conversation moves to you with the full transcript attached.",
+          },
+          {
+            title: "Keep improving the training",
+            body: "Messaging apps surface phrasing your website visitors never use. Feed the questions the bot could not answer back into its training every week.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Start with one channel. Get the answers right there before adding the rest, so you are only fixing one conversation stream at a time.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["external-chatbot", "ai-smart-inbox", "ai-chat"],
+    relatedTutorials: ["how-to-build-and-embed-a-website-chatbot", "how-to-hand-chats-to-a-human-agent"],
+    cta: { toolName: "External Chatbot Builder", toolSlug: "external-chatbot" },
+  },
 ];
 
 
