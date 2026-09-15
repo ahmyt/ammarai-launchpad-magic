@@ -171,3 +171,9 @@
 - [x] AI Video Editor guide (`how-to-edit-videos-with-the-ai-video-editor`, 5 screenshots)
 - [x] AI Creative Suite guide (`how-to-use-the-ai-creative-suite`, 4 screenshots)
 - [x] Logo and avatar replacements aligned to measured original footprints; activation/admin/provider content excluded
+
+## Batch 8 tutorials (done)
+- [x] URL to Video Ad guide (`how-to-create-a-video-ad-from-a-product-url`, 7 screenshots)
+- [x] Sora generation inputs added to the AI Video Pro guide (5 screenshots)
+- [x] Temporary Chat excluded (installation/activation only)
+- [x] Logo replacement aligned to measured original footprint; provider/admin content excluded
