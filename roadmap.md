@@ -205,3 +205,4 @@
 - [ ] Provide AmmarAI favicon file for download (done: /mnt/documents/ammarai-favicon.png + .ico)
 - [x] Tutorial batch 15: invite teammates to a workspace (Team Workspaces). Shared credit pool, HubSpot, SEO tools, REST API, onboarding pro and checkout registration excluded as admin/provider setup.
 - [x] Tutorial batch 16: publish a post to WordPress (AI Blogger Agent). Social Media Suite setup and AI Voice Bots excluded as developer-app/provider-key setup. Sidebar wordmark, far-right avatar and support-bubble avatar replaced at measured footprints; off-topic non-English sample copy replaced with neutral English text.
+- [x] Tutorial batch 17: one inbox for WhatsApp and Telegram messages (AI Smart Inbox), cloning your own voice (AI Voiceover & Voice Clone), keyword and question ideas in the Article Wizard. Broadcast campaigns, provider keys, admin SEO fields and AI Canvas excluded.
