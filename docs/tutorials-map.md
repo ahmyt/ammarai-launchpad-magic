@@ -10,14 +10,19 @@ exists in AmmarAI; tutorial written), `pending-capture` (workflow not yet
 observed — demo plan limits or no capture), `drafted` (getting-started set, no
 capture needed), `excluded` (admin/setup/source-only).
 
-Every written tool tutorial now requires a distinct AmmarAI-branded
-instructional image for each numbered step, with descriptive alt text. The
-first six verified tutorials contain 31 step images in total. Future tool
-tutorials must meet the same requirement before they are marked complete.
+Every written tool tutorial now requires a genuine workflow screenshot or
+screen-recording frame for each numbered step, with descriptive alt text.
+Illustrated interface mockups are not permitted. Crop captures to the relevant
+controls and make only necessary branding/privacy adaptations; never invent a
+state that was not observed. If a screen is blocked by the demo plan, keep the
+tutorial pending or use a genuine screenshot from the public reference docs.
+The first six verified tutorials contain 31 real step captures in total.
 
 Capture pass 2026-09-15: signed in to the public product demo with its own
 published demo account and walked each tool form to record fields, options and
-step order. Screens behind the demo's plan paywall remain pending.
+step order. The 31 initial illustrated step images were replaced with real
+captures from the live demo and public reference documentation. Screens behind
+the demo's plan paywall remain pending unless a genuine public capture exists.
 
 ## Getting Started
 | Tutorial | Status |
