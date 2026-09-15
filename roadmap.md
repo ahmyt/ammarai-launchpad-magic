@@ -202,3 +202,4 @@
 - [x] Tutorial batch 13: compare two AI models in one chat, take bookings with your website chatbot, answer shop questions with your chatbot, plus a voice-call section added to the website chatbot guide. Verified on desktop and mobile; no source branding in any capture.
 
 - [x] Tutorial batch 14: temporary chat (AI Chat Pro) and image annotations (AI Creative Suite). WhatsApp/Telegram/Messenger/Instagram channel pages and AI fine-tuning excluded as provider setup.
+- [ ] Provide AmmarAI favicon file for download (done: /mnt/documents/ammarai-favicon.png + .ico)
