@@ -28,6 +28,11 @@ export interface TutorialCallout {
 export interface TutorialStep {
   title: string;
   body: string;
+  image?: {
+    src: string;
+    alt: string;
+    caption?: string;
+  };
 }
 
 export interface TutorialSection {

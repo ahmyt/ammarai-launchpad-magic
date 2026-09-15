@@ -135,6 +135,8 @@
 - [x] Tutorial infrastructure: /tutorials hub, /tutorials/$slug, search, sidebar, TOC, prev/next, breadcrumbs, CTAs
 - [x] SEO: per-tutorial metadata, HowTo/BreadcrumbList schema, sitemap + llms.txt inclusion, Tutorials nav entry
 - [x] Getting Started tutorials (introduction, getting started, navigating) — no captures required
-- [ ] Tool tutorials per verified overlap — BLOCKED: awaiting user captures of app.ammarai.com workflows (screens or recording per tool)
-- [ ] Instructional images from user captures (crop, redact, brand, alt text)
+- [ ] Tool tutorials per verified overlap — captured workflows ready for the next image, video, voice, and agent groups; paywalled tools remain pending
+- [x] Add distinct AmmarAI-branded instructional images to every step in the six existing tool tutorials
+- [x] Add bordered, partitioned, mobile-safe tutorial tables
+- [ ] Instructional images for each newly written tool tutorial
 - [ ] QA: link validation, branding scan, mobile/desktop checks
