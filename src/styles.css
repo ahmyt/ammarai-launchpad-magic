@@ -3561,3 +3561,10 @@ body.no-select [contenteditable="true"] {
   letter-spacing: 0.12em;
   color: var(--muted-foreground);
 }
+
+/* Tool page tutorial link */
+.tool-tutorial-link {
+  border: 1px solid var(--border);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--card);
+}
