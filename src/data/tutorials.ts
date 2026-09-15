@@ -4,7 +4,7 @@
  * is intentionally excluded.
  */
 
-export type TutorialCategory = "Chat & Documents" | "Image" | "Video" | "Video Marketing";
+export type TutorialCategory = "Chat & Documents" | "Image" | "Video" | "Video Marketing" | "Fashion";
 
 export interface TutorialCallout {
   type: "tip" | "note" | "warning";
