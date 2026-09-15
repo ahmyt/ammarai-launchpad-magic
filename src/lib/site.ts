@@ -16,6 +16,7 @@ export const primaryNav = [
   { label: "Features", to: "/features" },
   { label: "Use Cases", to: "/use-cases" },
   { label: "Pricing", to: "/pricing" },
+  { label: "Tutorials", to: "/tutorials" },
   { label: "Resources", to: "/resources" },
 ] as const;
 
@@ -27,6 +28,7 @@ export type StaticPath =
   | "/pricing"
   | "/ai-models"
   | "/resources"
+  | "/tutorials"
   | "/blog"
   | "/faq"
   | "/about"
@@ -47,6 +49,7 @@ export const footerNav: { heading: string; links: SiteLink[] }[] = [
       { label: "Features", to: "/features" },
       { label: "Pricing", to: "/pricing" },
       { label: "AI models", to: "/ai-models" },
+      { label: "Tutorials", to: "/tutorials" },
       { label: "FAQ", to: "/faq" },
     ],
   },

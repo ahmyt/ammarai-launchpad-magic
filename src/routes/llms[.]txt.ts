@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { loadSiteContent } from "@/lib/content";
 import { fetchSyndicatedArticles } from "@/lib/articles";
+import { tutorials } from "@/data/tutorials";
 
 const BASE_URL = "https://ammarai.com";
 
@@ -41,6 +42,14 @@ export const Route = createFileRoute("/llms.txt")({
         for (const feature of content.features) {
           lines.push(
             `- [${feature.name}](${BASE_URL}/features/${feature.slug}): ${feature.summary}`,
+          );
+        }
+        lines.push("");
+
+        lines.push("## Tutorials");
+        for (const tutorial of tutorials) {
+          lines.push(
+            `- [${tutorial.h1}](${BASE_URL}/tutorials/${tutorial.slug}): ${tutorial.description}`,
           );
         }
         lines.push("");
