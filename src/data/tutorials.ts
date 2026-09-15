@@ -2759,6 +2759,88 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-use-the-content-manager", "how-to-use-ai-chat-pro"],
     cta: { toolName: "Team Workspaces", toolSlug: "team-workspaces", kind: "feature" },
   },
+  {
+    slug: "how-to-publish-a-post-to-wordpress",
+    category: "Productivity",
+    title: "How to Publish a Post to WordPress | AmmarAI Tutorials",
+    description:
+      "Connect your WordPress site to AmmarAI once, then send finished articles straight to your blog from the editor without copying and pasting.",
+    h1: "How to publish a post to WordPress",
+    intro: [
+      "Writing the article is only half the job. Getting it onto the blog — with the headings, links and formatting intact — is where most of the fiddling happens.",
+      "Connect your WordPress site to AmmarAI once and every finished draft can be sent to your blog with a single button, exactly as it was written.",
+    ],
+    whenToUse: [
+      "Your blog runs on WordPress and you publish regularly.",
+      "You are tired of pasting drafts into the WordPress editor and re-fixing the formatting.",
+      "You want your AI Blogger Agent articles to land on the live site automatically.",
+    ],
+    sections: [
+      {
+        heading: "Connect your WordPress site",
+        steps: [
+          {
+            title: "Open the integrations page",
+            body: "In your AmmarAI account, open Integrations from the left-hand menu. This is where the blog connections live.",
+            image: {
+              src: "/media/tutorials/tutorial-wordpress-1.png",
+              alt: "Integrations page showing a WordPress card with an Integrate button, with red arrows pointing at the Integration menu item and the button",
+              caption: "Open Integrations, then press Integrate on the WordPress card.",
+              width: 1094,
+              height: 838,
+            },
+          },
+          {
+            title: "Add your site details",
+            body: "Press Integrate on the WordPress card and enter your blog address together with the username and application password of the account that is allowed to publish. Save to finish the connection.",
+          },
+          {
+            title: "Check the connection",
+            body: "Once saved, the card shows the site as connected. If it does not, the usual cause is a mistyped address or a password that belongs to an account without publishing rights.",
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "Use an application password created inside WordPress rather than your normal login password — it can be revoked at any time without changing how you sign in.",
+          },
+        ],
+      },
+      {
+        heading: "Send an article to your blog",
+        steps: [
+          {
+            title: "Open the finished document",
+            body: "Go to your documents and open the article you want to publish. Everything you wrote — headings, lists and links — travels with it.",
+          },
+          {
+            title: "Read it through and press Share",
+            body: "Make any last edits in the editor, then press Share. The article is sent to your connected WordPress site as a new post.",
+            image: {
+              src: "/media/tutorials/tutorial-wordpress-2.png",
+              alt: "Share to WordPress screen showing the finished article in the editor with a Share button below it",
+              caption: "The finished article, ready to send to WordPress with the Share button.",
+              width: 1334,
+              height: 738,
+            },
+          },
+          {
+            title: "Review it on your blog",
+            body: "Open the post in WordPress to set the category, featured image and publish time. Publishing from AmmarAI gets the writing in place; the final presentation is still yours to decide.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Pair this with the AI Blogger Agent so researched, written and internally linked articles arrive on your blog on a schedule instead of one at a time.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-blogger-agent", "article-wizard", "ai-writer"],
+    relatedTutorials: ["how-to-use-ai-blogger-agent", "how-to-use-the-content-manager"],
+    cta: { toolName: "AI Blogger Agent", toolSlug: "ai-blogger-agent" },
+  },
 ];
 
 
@@ -2774,6 +2856,7 @@ export function getTutorial(slug: string): Tutorial | undefined {
 export const tutorialByTool = new Map<string, Tutorial>();
 for (const tutorial of tutorials) {
   if (tutorial.cta.kind === "feature") continue;
+  if (tutorialByTool.has(tutorial.cta.toolSlug)) continue;
   tutorialByTool.set(tutorial.cta.toolSlug, tutorial);
 }
 
