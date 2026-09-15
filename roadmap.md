@@ -136,7 +136,7 @@
 - [x] SEO: per-tutorial metadata, HowTo/BreadcrumbList schema, sitemap + llms.txt inclusion, Tutorials nav entry
 - [x] Getting Started tutorials (introduction, getting started, navigating) — no captures required
 - [ ] Tool tutorials per verified overlap — captured workflows ready for the next image, video, voice, and agent groups; paywalled tools remain pending
-- [x] Add distinct AmmarAI-branded instructional images to every step in the six existing tool tutorials
+- [x] Replace all illustrated tutorial mockups with genuine demo screenshots or reference workflow captures for every step in the six existing tool tutorials
 - [x] Add bordered, partitioned, mobile-safe tutorial tables
-- [ ] Instructional images for each newly written tool tutorial
+- [ ] Genuine demo screenshots or screen-recording frames for every step in each newly written tool tutorial; no interface mockups
 - [ ] QA: link validation, branding scan, mobile/desktop checks
