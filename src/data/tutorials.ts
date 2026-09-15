@@ -3481,7 +3481,7 @@ export const tutorials: Tutorial[] = [
       },
     ],
     relatedTools: ["ai-transcription", "ai-captions", "ai-speech-to-text"],
-    relatedTutorials: ["how-to-add-ai-captions-to-a-video"],
+    relatedTutorials: ["how-to-use-ai-captions"],
     cta: { toolName: "AI Transcription", toolSlug: "ai-transcription" },
   },
 ];
