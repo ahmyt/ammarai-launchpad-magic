@@ -46,7 +46,7 @@ export interface Tutorial {
   cta: { toolName: string; toolSlug: string };
 }
 
-export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Automation", "Image", "Video", "Video Marketing", "Fashion", "Audio"];
+export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Automation", "Image", "Video", "Video Marketing", "Fashion", "Audio", "Productivity"];
 
 export const tutorials: Tutorial[] = [
   {
