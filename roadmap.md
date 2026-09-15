@@ -204,3 +204,4 @@
 - [x] Tutorial batch 14: temporary chat (AI Chat Pro) and image annotations (AI Creative Suite). WhatsApp/Telegram/Messenger/Instagram channel pages and AI fine-tuning excluded as provider setup.
 - [ ] Provide AmmarAI favicon file for download (done: /mnt/documents/ammarai-favicon.png + .ico)
 - [x] Tutorial batch 15: invite teammates to a workspace (Team Workspaces). Shared credit pool, HubSpot, SEO tools, REST API, onboarding pro and checkout registration excluded as admin/provider setup.
+- [x] Tutorial batch 16: publish a post to WordPress (AI Blogger Agent). Social Media Suite setup and AI Voice Bots excluded as developer-app/provider-key setup. Sidebar wordmark, far-right avatar and support-bubble avatar replaced at measured footprints; off-topic non-English sample copy replaced with neutral English text.
