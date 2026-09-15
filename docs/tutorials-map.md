@@ -158,3 +158,12 @@ Batch 11 source marks were measured per image with OCR bounds and the top-bar ba
 - AI Music (AIML API) excluded: Marketplace installation and provider API-key setup only.
 
 Batch 12 marks were measured per image with OCR plus a non-background bounding-box scan. Two captures carry the source sidebar mark (icon 60x59/60x59 with a 154px wordmark) and one carries a source bot name in a heading; two list captures carry a source bot name in the thread header. Every replacement occupies the exact measured centre and footprint at native image dimensions, with the background sampled from true adjacent pixels. None of the published Batch 12 captures contain a far-right profile avatar. No red pointers or controls were moved.
+
+## Batch 13 (verified overlaps)
+
+- Multi Model → AmmarAI AI Chat Pro (`/ai-chat`) — opening the model picker, selecting two models, sending one prompt and keeping the preferred answer retained. Marketplace installation and extension activation excluded. Three original-resolution screenshots are used.
+- Booking Assistant → AmmarAI External Chatbot (`/external-chatbot`) — enabling the booking assistant, editing the show-conditions, pasting the inline scheduling embed code and testing in the preview retained. Marketplace add-on installation, third-party account creation screens and admin settings excluded. Three original-resolution screenshots are used.
+- Shopping Assistant → AmmarAI External Chatbot (`/external-chatbot`) — enabling the assistant, choosing the shop source and selecting which shop features may be used retained. Store API credential captures (Shopify token, WooCommerce consumer key/secret) and marketplace/admin screens excluded. Three original-resolution screenshots are used.
+- Voice Call Agent → folded into the existing website chatbot guide as "Let visitors talk to the assistant" (enable switch, first spoken message). Global Voice Call Settings, provider selection and ElevenLabs voice-ID captures excluded. One original-resolution screenshot is used.
+
+None of the Batch 13 captures contain a source wordmark or far-right profile avatar; each was OCR-scanned before publication and no branding replacement was required, so all images keep their native dimensions with no pointers or controls moved.

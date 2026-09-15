@@ -198,3 +198,5 @@
 - [x] Live human-agent handover guide (`how-to-hand-chats-to-a-human-agent`, 12 screenshots, AI Smart Inbox)
 - [x] Excluded: chatbot template training (admin area), AI Chat model selector (admin), Voice Isolator and AI Music (provider setup only)
 - [x] Source sidebar marks and bot-name headings replaced at measured footprints; native dimensions and pointers unchanged
+
+- [x] Tutorial batch 13: compare two AI models in one chat, take bookings with your website chatbot, answer shop questions with your chatbot, plus a voice-call section added to the website chatbot guide. Verified on desktop and mobile; no source branding in any capture.
