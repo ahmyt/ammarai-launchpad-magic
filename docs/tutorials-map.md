@@ -148,3 +148,13 @@ Every Batch 10 source mark and far-right profile avatar was measured independent
 - AI Bot Replies excluded: the reference is a WhatsApp campaign tool with no matching AmmarAI channel workflow.
 
 Batch 11 source marks were measured per image with OCR bounds and the top-bar background sampled from true pixels. Every wordmark replacement grows left to swallow the adjacent source icon, so the AmmarAI logo occupies the exact original footprint at native image dimensions. Far-right profile avatars were detected and replaced individually. No red pointers or controls were moved.
+
+## Batch 12 (verified overlaps)
+
+- Human Agent for External Chatbot → AmmarAI AI Smart Inbox (`ai-smart-inbox`) with AmmarAI External Chatbot Builder (`external-chatbot`) — interaction-type handover and connect message, live conversation inbox, channel/agent filter, replies, saved replies, private notes, visitor details, tags, visited pages, unread indicator, date-range filter and conversation/list export retained. Ably provider keys, API Integration and all administrator settings excluded. Twelve original-resolution screenshots are used.
+- Training Chatbot excluded: the reference workflow runs entirely inside the administrator Templates area.
+- AI Model Selector for AI Chat excluded: admin General Settings and plan configuration only.
+- Voice Isolator excluded: the reference page is provider API-key setup only.
+- AI Music (AIML API) excluded: Marketplace installation and provider API-key setup only.
+
+Batch 12 marks were measured per image with OCR plus a non-background bounding-box scan. Two captures carry the source sidebar mark (icon 60x59/60x59 with a 154px wordmark) and one carries a source bot name in a heading; two list captures carry a source bot name in the thread header. Every replacement occupies the exact measured centre and footprint at native image dimensions, with the background sampled from true adjacent pixels. None of the published Batch 12 captures contain a far-right profile avatar. No red pointers or controls were moved.
