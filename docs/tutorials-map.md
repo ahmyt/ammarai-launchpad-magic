@@ -124,3 +124,11 @@ Each Batch 7 source wordmark was measured independently (Creative Suite icon 30�
 - Temporary Chat excluded: the reference page covers Marketplace installation and activation only, with no separable end-user workflow.
 
 Batch 8 marks were measured per image: only the AI Influencer capture carries a source mark (icon 36×32 at x9–45/y7–39, wordmark 83×23 at x47–130/y13–36); the replacement occupies that exact centre and footprint at native image dimensions. The remaining captures are wizard/detail crops with no brand mark. No red pointers or controls were moved.
+
+## Batch 9 (verified overlaps)
+
+- Content Manager → AmmarAI shared media library (`how-to-use-the-content-manager`) — upload, stored images, stored videos, documents, stock image and stock video tabs plus the insert actions retained. Storage drivers, provider keys and any admin configuration excluded. Six original-resolution screenshots are used.
+- Influencer avatars → already covered by the existing `how-to-create-ai-influencer-videos` guide ("Create a presenter video from a script"); its two screenshots were re-derived from the originals with the measured branding. The FAL provider API-key capture is excluded.
+- AI Canvas and Creative Suite annotation excluded: setup-only content, or no verified AmmarAI equivalent.
+
+Batch 9 marks were measured per image. Content Manager captures carry a top-left icon (~12x12) with a ~40x12 wordmark and a far-right profile avatar (~22x22); influencer captures carry only a top-left icon (~30x30) with a ~77x30 wordmark and no avatar. Every replacement occupies the exact measured centre and footprint at native image dimensions, with the background sampled from the true top-bar pixels. No red pointers or controls were moved.

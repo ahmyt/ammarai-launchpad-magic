@@ -1747,7 +1747,95 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-create-viral-clips", "how-to-create-ai-influencer-videos"],
     cta: { toolName: "AI URL to Video", toolSlug: "ai-url-to-video" },
   },
+  {
+    slug: "how-to-use-the-content-manager",
+    category: "Productivity",
+    title: "How to Use the Content Manager Media Library | AmmarAI Tutorials",
+    description: "Upload, find and insert images, videos, documents and stock media from the AmmarAI Content Manager, the shared library that opens from every upload button.",
+    h1: "How to use the Content Manager media library",
+    intro: [
+      "The Content Manager is the shared media library that opens wherever AmmarAI offers an upload. Instead of hunting for a file on your computer every time, you upload once and reuse the same image, video or document across chats, editors and video tools.",
+      "Everything you generate in AmmarAI is saved here too, so a picture created in one tool can be inserted straight into another. The library also searches free stock photos and stock video, so you can pull in a visual without leaving the screen you are working on.",
+    ],
+    whenToUse: [
+      "You reuse the same brand images, product shots or documents across several tools.",
+      "You want to insert something you generated earlier without downloading and re-uploading it.",
+      "You need a quick stock photo or stock clip while you are mid-task.",
+    ],
+    sections: [
+      {
+        heading: "Use the library",
+        steps: [
+          {
+            title: "Open the library from any upload button",
+            body: "Select the upload or attach control in the tool you are using. The Content Manager opens as a window over your work, so you never lose the page you were on. The first tab, Upload Files, takes a new file by drag and drop or by browsing your computer; the window lists the accepted file types and the size limit.",
+            image: { src: "/media/tutorials/tutorial-content-manager-1.png", alt: "AmmarAI Content Manager open on the Upload Files tab with a drag-and-drop area", caption: "Upload Files accepts drag and drop or a normal file browse.", width: 933, height: 449 },
+          },
+          {
+            title: "Insert an image you already have",
+            body: "Open the Images tab to see everything you have uploaded or generated. Select a thumbnail to tick it, then choose Insert Selected Image to drop it into the tool you came from.",
+            image: { src: "/media/tutorials/tutorial-content-manager-2.png", alt: "Images tab of the Content Manager with a selected image and the Insert Selected Image button", caption: "Pick an image and insert it without leaving the tool.", width: 930, height: 446 },
+          },
+          {
+            title: "Insert a video",
+            body: "The Videos tab works the same way for video files. Select the clip you want and choose Insert Selected Video.",
+            image: { src: "/media/tutorials/tutorial-content-manager-3.png", alt: "Videos tab of the Content Manager with a selected clip and the Insert Selected Video button", caption: "Stored and generated videos live in the Videos tab.", width: 930, height: 442 },
+          },
+          {
+            title: "Insert a document",
+            body: "Other Files holds documents such as PDFs, with the file size and upload date shown next to each one. Select the document and choose Insert Selected Files to attach it — this is the quickest route when you are asking questions about a document in chat.",
+            image: { src: "/media/tutorials/tutorial-content-manager-4.png", alt: "Other Files tab of the Content Manager listing PDF documents with one selected", caption: "Documents are listed with their size and upload date.", width: 934, height: 447 },
+          },
+          {
+            title: "Search free stock images",
+            body: "Type a subject into the search box on the Stock Images tab to browse free stock photography. Select the photo you want and choose Download & Insert Selected Image; it is added to your library at the same time, so it is there next time.",
+            image: { src: "/media/tutorials/tutorial-content-manager-5.png", alt: "Stock Images tab of the Content Manager showing search results for a keyword", caption: "Stock photo results appear as soon as you search a subject.", width: 924, height: 447 },
+          },
+          {
+            title: "Search free stock video",
+            body: "Stock Videos works in the same way for footage, with the length shown on each clip. Choose Download & Insert Selected Video to bring it into your project and your library.",
+            image: { src: "/media/tutorials/tutorial-content-manager-6.png", alt: "Stock Videos tab of the Content Manager showing searchable stock footage results", caption: "Stock clips show their duration before you insert them.", width: 927, height: 443 },
+          },
+        ],
+      },
+      {
+        heading: "What each tab holds",
+        table: {
+          head: ["Tab", "What you will find"],
+          rows: [
+            ["Upload Files", "Drag and drop or browse to add new files from your device"],
+            ["Images", "Images you uploaded and images generated in AmmarAI"],
+            ["Videos", "Video files you uploaded and videos generated in AmmarAI"],
+            ["Other Files", "Documents such as PDFs and office files"],
+            ["Stock Images", "Searchable free stock photography"],
+            ["Stock Videos", "Searchable free stock footage"],
+          ],
+        },
+      },
+      {
+        heading: "Work faster with it",
+        bullets: [
+          "Use the search box and the sort control instead of scrolling; the library grows quickly once you start generating.",
+          "Generate once and reuse: an image made in an image tool can be inserted into a video or a chat without downloading it.",
+          "Keep file names meaningful when you upload, because the name is what you will search on later.",
+          "Check the stated file-type and size limits before you upload a large video.",
+        ],
+      },
+      {
+        heading: "Before you publish",
+        bullets: [
+          "Confirm you have the rights to any file you upload, and follow the licence terms attached to stock media.",
+          "Remove files you no longer need so client or product material is not left sitting in a shared library.",
+          "Check that the file you inserted is the current version, especially when several similar images are stored.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-chat", "ai-image-editor", "ai-video-editor"],
+    relatedTutorials: ["how-to-chat-with-documents", "how-to-use-the-ai-creative-suite"],
+    cta: { toolName: "AI Chat", toolSlug: "ai-chat" },
+  },
 ];
+
 
 
 
