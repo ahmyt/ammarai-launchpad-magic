@@ -151,3 +151,6 @@
 - [x] Add AI Video Pro with its regular-user reference screenshot and exclude the provider-key settings image
 - [x] Add Viral Clips using the original full-resolution reference screenshots and exclude provider/setup screens
 - [x] Add AI Influencer product-ad and presenter workflows using original full-resolution reference screenshots
+- [x] Add Fashion Studio (photoshoot, try-on, model swap, edit, wardrobe, video, settings) excluding admin settings
+- [x] Add AI Dubbing end-user workflow excluding installation, provider keys and admin controls
+- [x] Add AI UGC Generator end-user workflow excluding installation, provider keys and admin controls
