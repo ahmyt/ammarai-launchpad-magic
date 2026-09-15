@@ -177,3 +177,8 @@
 - [x] Sora generation inputs added to the AI Video Pro guide (5 screenshots)
 - [x] Temporary Chat excluded (installation/activation only)
 - [x] Logo replacement aligned to measured original footprint; provider/admin content excluded
+
+## Batch 9 tutorials (done)
+- [x] Content Manager media library guide (`how-to-use-the-content-manager`, 6 screenshots)
+- [x] Influencer avatar screenshots re-branded from originals with measured alignment
+- [x] AI Canvas, Creative Suite annotation and the FAL API-key step excluded (setup/admin or no AmmarAI equivalent)
