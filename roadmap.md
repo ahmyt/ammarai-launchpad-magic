@@ -129,3 +129,12 @@
 - [x] Verify representative public and Studio pages across desktop and mobile
 - [x] Keep every tool sample visible, with reliable video preview frames and playback controls
 - [x] Keep the Studio header, navigation, cards, and footer within the mobile viewport
+
+## Tutorial & documentation center (approved plan)
+- [ ] Verified source-to-AmmarAI mapping (docs/tutorials-map.md)
+- [ ] Tutorial infrastructure: /tutorials hub, /tutorials/$slug, search, sidebar, TOC, prev/next, breadcrumbs, CTAs
+- [ ] SEO: per-tutorial metadata, HowTo/BreadcrumbList schema, sitemap + llms.txt inclusion, Tutorials nav entry
+- [ ] Getting Started tutorials (introduction, getting started, navigating) — no captures required
+- [ ] Tool tutorials per verified overlap — BLOCKED: awaiting user captures of app.ammarai.com workflows (screens or recording per tool)
+- [ ] Instructional images from user captures (crop, redact, brand, alt text)
+- [ ] QA: link validation, branding scan, mobile/desktop checks
