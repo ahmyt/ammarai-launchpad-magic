@@ -380,6 +380,40 @@ export const tutorials: Tutorial[] = [
         ],
       },
       {
+        heading: "Set the generation inputs",
+        paragraphs: [
+          "When you choose a video action that generates a clip from scratch, the form gives you a small set of inputs that control the result: an optional reference image, the prompt, the model, the duration and the output size.",
+        ],
+        steps: [
+          {
+            title: "Add a reference image (optional)",
+            body: "Drop in a JPG or PNG to use as the first frame. The reference image has to match the width and height you request further down the form, otherwise the generation is rejected.",
+            image: { src: "/media/tutorials/tutorial-video-pro-sora-1.png", alt: "Reference image upload area in AmmarAI AI Video Pro", caption: "The reference image is optional and must match the requested output size.", width: 1912, height: 776 },
+          },
+          {
+            title: "Write the prompt",
+            body: "Describe the subject, the setting, the action, the lighting and the camera movement in one clear paragraph. The prompt is required even when you supply a reference image, because it tells the model what should happen in the shot.",
+            image: { src: "/media/tutorials/tutorial-video-pro-sora-2.png", alt: "Prompt field in AmmarAI AI Video Pro", caption: "Describe subject, action, setting, light and camera in the prompt field.", width: 1884, height: 762 },
+          },
+          {
+            title: "Choose the model",
+            body: "Pick the model variant you want to generate with. Variants differ in quality, speed and whether audio is generated alongside the picture, so check the label on the option before you run a longer clip.",
+            image: { src: "/media/tutorials/tutorial-video-pro-sora-3.png", alt: "Model selector in AmmarAI AI Video Pro", caption: "The model selector controls generation quality, speed and audio support.", width: 1871, height: 781 },
+          },
+          {
+            title: "Set the duration",
+            body: "Choose the target length of the clip in seconds. Start with the shortest option while you are still testing the prompt, then re-run at full length once the direction is right.",
+            image: { src: "/media/tutorials/tutorial-video-pro-sora-4.png", alt: "Duration selector in AmmarAI AI Video Pro", caption: "Duration sets the target length of the generated clip.", width: 1871, height: 781 },
+          },
+          {
+            title: "Set the size and generate",
+            body: "Select the output resolution and aspect ratio for the platform you are posting to, then select Generate. Vertical sizes suit Reels, Shorts and TikTok, while landscape suits YouTube and site embeds.",
+            image: { src: "/media/tutorials/tutorial-video-pro-sora-5.png", alt: "Output size selector and Generate button in AmmarAI AI Video Pro", caption: "Pick the output resolution and aspect ratio before generating.", width: 1871, height: 781 },
+          },
+        ],
+      },
+      {
+
         heading: "Write a stronger video prompt",
         table: {
           head: ["Prompt detail", "Example"],
