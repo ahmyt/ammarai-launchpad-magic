@@ -2584,6 +2584,126 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-build-and-embed-a-website-chatbot", "how-to-take-bookings-with-your-website-chatbot"],
     cta: { toolName: "External Chatbot", toolSlug: "external-chatbot" },
   },
+  {
+    slug: "how-to-use-temporary-chat",
+    category: "Chat & Documents",
+    title: "How to Use Temporary Chat in AI Chat Pro | AmmarAI Tutorials",
+    description:
+      "Turn on temporary chat in AmmarAI's AI Chat Pro to hold a one-off conversation that is not kept in your chat history, and know exactly when it switches off again.",
+    h1: "How to use temporary chat",
+    intro: [
+      "Temporary chat is for conversations you do not want kept. Switch it on and the exchange runs normally, but it is not written to your chat history.",
+      "It is a per-conversation switch, not a setting you configure once, so it is easy to turn on for a quick question and forget about afterwards.",
+    ],
+    whenToUse: [
+      "You are testing a prompt and do not want the attempt cluttering your history.",
+      "The conversation involves details you would rather not keep on file.",
+      "You want a clean, one-off answer with no follow-up thread.",
+    ],
+    sections: [
+      {
+        heading: "Turn it on",
+        steps: [
+          {
+            title: "Open AI Chat Pro",
+            body: "Start a new conversation. The row of icons at the right of the message box holds the extra chat controls, including the temporary chat icon.",
+            image: { src: "/media/tutorials/tutorial-temporary-chat-1.png", alt: "Message box in AI Chat Pro with the temporary chat icon at the right", caption: "The temporary chat icon sits in the message box controls.", width: 1268, height: 195 },
+          },
+          {
+            title: "Select the temporary chat icon",
+            body: "Click it once. The icon fills in and a short notice appears above the message box confirming that the conversation will not be saved to your chat history.",
+            image: { src: "/media/tutorials/tutorial-temporary-chat-2.png", alt: "Temporary chat enabled notice above the message box", caption: "The notice above the box confirms temporary mode is active.", width: 1262, height: 270 },
+          },
+          {
+            title: "Chat as normal",
+            body: "Write your prompt and continue the conversation as usual. Everything else behaves the same; only the saving of the thread changes.",
+          },
+        ],
+      },
+      {
+        heading: "When it switches off",
+        paragraphs: [
+          "Temporary mode is deliberately short-lived. It stays on until you click the icon again to unselect it, move to another page, or refresh the page — after any of those it turns off by itself and later conversations are saved again.",
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "The conversation is not stored in your chat history, but anything you upload or generate during it can still appear in your content library.",
+          },
+          {
+            type: "tip",
+            body: "Check that the icon is still filled in before you send a sensitive message — a page refresh quietly returns you to a normal, saved chat.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-chat", "web-page-chat", "ai-command-search"],
+    relatedTutorials: ["how-to-use-ai-chat-pro", "how-to-compare-two-ai-models-in-one-chat"],
+    cta: { toolName: "AI Chat Pro", toolSlug: "ai-chat" },
+  },
+  {
+    slug: "how-to-edit-part-of-an-image-with-annotations",
+    category: "Image",
+    title: "How to Edit Part of an Image With Annotations | AmmarAI Tutorials",
+    description:
+      "Mark a region on an image in the AmmarAI Creative Suite canvas, attach an instruction to it, and have the edit applied to that area only while the rest stays untouched.",
+    h1: "How to edit part of an image with annotations",
+    intro: [
+      "Broad prompts change more of an image than you intended. Annotations let you draw on the exact area you want changed and attach the instruction to that region, so the rest of the picture is left alone.",
+      "This works on any image placed on the Creative Suite canvas.",
+    ],
+    whenToUse: [
+      "One detail is wrong and a full re-generation would lose the rest.",
+      "You need to describe a change by pointing at it rather than in words alone.",
+      "Several people are reviewing a design and want to mark up specific spots.",
+    ],
+    sections: [
+      {
+        heading: "Enter annotation mode",
+        steps: [
+          {
+            title: "Select the image on the canvas",
+            body: "Click the image element you want to change. A small toolbar appears above it with tabs for the image, replacing the image, and annotating.",
+          },
+          {
+            title: "Choose Annotate",
+            body: "Select Annotate in that toolbar. The canvas switches to annotation view and a drawing toolbar appears along the bottom of the screen.",
+            image: { src: "/media/tutorials/tutorial-annotation-1.png", alt: "Creative Suite canvas with the image toolbar and the Annotate tab", caption: "Annotate sits in the toolbar above the selected image.", width: 1550, height: 808 },
+          },
+        ],
+      },
+      {
+        heading: "Mark the area and describe the change",
+        steps: [
+          {
+            title: "Pick a drawing tool",
+            body: "The bottom toolbar offers a colour picker plus rectangle, oval, freehand brush and lasso shapes, along with comment and speech-bubble markers for notes tied to a point.",
+            image: { src: "/media/tutorials/tutorial-annotation-2.png", alt: "Annotation toolbar with colour picker, shape, brush, lasso and comment tools", caption: "Draw with shapes, a brush or a lasso, and add comments to a point.", width: 1593, height: 964 },
+          },
+          {
+            title: "Draw over the region",
+            body: "Draw around the part of the image you want changed. You can place several marks, but only one can be selected for submission at a time; the active one is highlighted.",
+          },
+          {
+            title: "Write the instruction and submit",
+            body: "With the mark selected, type what should change in that region and choose Done. Only the marked area is re-generated, and the rest of the image is left exactly as it was.",
+          },
+        ],
+      },
+      {
+        heading: "Good practice",
+        bullets: [
+          "Draw a little wider than the object so edges blend naturally.",
+          "Describe the result you want in the region, not the tool you would use.",
+          "Each submission is a separate AI edit, so it uses credits the same way a generation does.",
+          "Work one region at a time and review between edits rather than stacking marks.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-creative-suite", "ai-image-generator", "ai-image-editor"],
+    relatedTutorials: ["how-to-use-the-ai-creative-suite", "how-to-use-ai-image-pro"],
+    cta: { toolName: "AI Creative Suite", toolSlug: "ai-creative-suite" },
+  },
 ];
 
 
