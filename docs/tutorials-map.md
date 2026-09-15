@@ -94,3 +94,11 @@ verified regular-user sequence may be documented.
 - AI Captions → AmmarAI AI Captions (`/ai-captions`) — Getting Started, video upload, caption-style selection, generation and editor handoff retained. Requirements, Activation, Admin Controls and API-key material excluded; the administrator screenshot `aic1` is not used. Three full-resolution reference screenshots are published with only the source logo and far-right profile avatar replaced by AmmarAI branding.
 
 All published reference-interface screenshots that display a far-right account avatar replace it with the AmmarAI logo. Each replacement must use the exact measured center and footprint of the original avatar; this is mandatory for every future tutorial batch. Native dimensions and all instructional controls remain unchanged.
+
+## Batch 5 (verified overlaps)
+
+- AI Blogger Agent → AmmarAI AI Blogger Agent (`/ai-blogger-agent`) — dashboard, five-step agent creation, post library, calendar, and reports/analytics retained. Provider, administrator, activation, and plan-control material excluded. Sixteen original-resolution workflow captures were reviewed; eleven are used in the guide.
+- AI Agent → AmmarAI AI Agent Builder (`/ai-agent-builder`) — plain-language creation, connectors, triggers and actions, agent monitoring, channel messages, and run details retained. Requirements, installation, activation, administrator controls, and plan limits excluded. Six original-resolution screenshots are used.
+- AI Music Pro → AmmarAI AI Music Pro (`/ai-music-generator`) — track description, duration, style selection, generation, and review retained. The provider API-key screenshot is excluded. Three original-resolution workflow screenshots are used.
+
+Every Batch 5 source wordmark and far-right profile avatar was measured independently. Replacements preserve each image's native dimensions and occupy the exact original mark center and footprint; no instructional controls or existing red pointers were moved or redrawn.
