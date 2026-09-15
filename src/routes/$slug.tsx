@@ -12,6 +12,7 @@ import { ExternalButton, ButtonLink } from "@/components/site/Button";
 import { RelatedTools, ToolCard } from "@/components/site/ToolCard";
 import { AnimatedExample } from "@/components/site/AnimatedExample";
 import { toolDemoMedia, type ToolDemoMedia } from "@/data/tool-demos";
+import { tutorialByTool } from "@/data/tutorials";
 
 /**
  * One sample per example. CMS overrides win: `demoVideoUrl` / `demoVideoCaption`
