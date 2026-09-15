@@ -311,7 +311,10 @@ export function searchTutorials(query: string): Tutorial[] {
 }
 
 /** Neighbours within the same category first, then the global list. */
-export function adjacentTutorials(slug: string): { prev?: Tutorial; next?: Tutorial } {
+export function adjacentTutorials(slug: string): {
+  prev?: Tutorial | undefined;
+  next?: Tutorial | undefined;
+} {
   const index = tutorials.findIndex((t) => t.slug === slug);
   if (index === -1) return {};
   return {
