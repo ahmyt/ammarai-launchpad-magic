@@ -161,3 +161,8 @@
 - [x] Add AI Agent Builder creation, connector, trigger/action, monitoring, and conversation workflows
 - [x] Add AI Music Pro description, duration, style, generation, and review workflow
 - [x] Measure and replace each Batch 5 source logo and profile avatar at its exact original center and footprint
+
+## Batch 6 tutorials (done)
+- [x] AI Presentation Maker guide (`how-to-create-ai-presentations`, 8 branded screenshots)
+- [x] Realtime Voice Chat guide (`how-to-use-realtime-voice-chat`, 1 branded screenshot)
+- [x] Logo replacements aligned to measured original footprint; admin/provider content excluded

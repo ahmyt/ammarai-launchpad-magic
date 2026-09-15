@@ -4,7 +4,7 @@
  * is intentionally excluded.
  */
 
-export type TutorialCategory = "Chat & Documents" | "Automation" | "Image" | "Video" | "Video Marketing" | "Fashion" | "Audio";
+export type TutorialCategory = "Chat & Documents" | "Automation" | "Image" | "Video" | "Video Marketing" | "Fashion" | "Audio" | "Productivity";
 
 export interface TutorialCallout {
   type: "tip" | "note" | "warning";
@@ -46,7 +46,7 @@ export interface Tutorial {
   cta: { toolName: string; toolSlug: string };
 }
 
-export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Automation", "Image", "Video", "Video Marketing", "Fashion", "Audio"];
+export const tutorialCategories: TutorialCategory[] = ["Chat & Documents", "Automation", "Image", "Video", "Video Marketing", "Fashion", "Audio", "Productivity"];
 
 export const tutorials: Tutorial[] = [
   {
@@ -1163,6 +1163,221 @@ export const tutorials: Tutorial[] = [
     relatedTools: ["ai-music-generator", "sound-studio", "ai-video-generator"],
     relatedTutorials: ["how-to-use-ai-video-pro", "how-to-create-ugc-videos"],
     cta: { toolName: "AI Music Pro", toolSlug: "ai-music-generator" },
+  },
+  {
+    slug: "how-to-create-ai-presentations",
+    category: "Productivity",
+    title: "How to Create AI Presentations | AmmarAI Tutorials",
+    description:
+      "Build a complete slide deck in AmmarAI AI Presentation Maker: write the brief, set language, theme, slide count and images, then generate and download.",
+    h1: "How to create a presentation with AI",
+    intro: [
+      "AI Presentation Maker turns a short written brief into a finished deck, with slide structure, written content, layout and imagery generated together.",
+      "This guide follows the end-user creation flow from the first brief through to download. Workspace configuration and credit administration are not part of that flow and are excluded.",
+    ],
+    whenToUse: [
+      "You need a first full draft of a deck rather than an empty template.",
+      "A topic must be turned into a structured narrative across a fixed number of slides.",
+      "The deck needs a consistent visual theme and matching imagery without manual design work.",
+    ],
+    sections: [
+      {
+        heading: "Write the presentation brief",
+        steps: [
+          {
+            title: "Describe the presentation",
+            body: "In the creation field, write what the deck is about. A specific brief produces a stronger outline: name the subject, the audience and the angle, for example a market overview of electric vehicles in 2030 for an investor audience.",
+            image: {
+              src: "/media/tutorials/tutorial-presentation-1.png",
+              alt: "AmmarAI AI Presentation Maker creation field with a presentation brief",
+              caption: "Start with a clear subject, audience and angle.",
+              width: 1600,
+              height: 633,
+            },
+          },
+          {
+            title: "Set the language",
+            body: "Open the language control and choose the language the slides should be written in. The outline, slide text and speaker-facing wording all follow this setting.",
+            image: {
+              src: "/media/tutorials/tutorial-presentation-2.png",
+              alt: "AmmarAI presentation language selector below the brief field",
+              caption: "The chosen language applies to all generated slide text.",
+              width: 1600,
+              height: 654,
+            },
+          },
+        ],
+      },
+      {
+        heading: "Choose structure and design",
+        steps: [
+          {
+            title: "Pick a theme",
+            body: "Select the visual theme. It controls the typography, colour treatment and slide backgrounds applied across the whole deck.",
+            image: {
+              src: "/media/tutorials/tutorial-presentation-3.png",
+              alt: "AmmarAI presentation theme control showing the selected theme",
+              caption: "The theme sets typography, colour and background for every slide.",
+              width: 1600,
+              height: 654,
+            },
+          },
+          {
+            title: "Browse the full theme gallery",
+            body: "Open the theme gallery to compare all available designs. You can search by name or filter to light or dark options, and each card previews title, body and link styling before you commit.",
+            image: {
+              src: "/media/tutorials/tutorial-presentation-7.png",
+              alt: "AmmarAI presentation theme gallery with light and dark theme previews",
+              caption: "Filter by light or dark and preview each theme before choosing.",
+              width: 1483,
+              height: 871,
+            },
+          },
+          {
+            title: "Set the number of slides",
+            body: "Enter how many slides the deck should contain. This determines how tightly the topic is summarised, so match it to the length of the session rather than to the amount of source material.",
+            image: {
+              src: "/media/tutorials/tutorial-presentation-4.png",
+              alt: "AmmarAI presentation slide-count control",
+              caption: "Choose the slide count that fits the time you have to present.",
+              width: 1600,
+              height: 654,
+            },
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "Fewer slides with a sharper narrative usually present better than a long deck that repeats the same point across several layouts.",
+          },
+        ],
+      },
+      {
+        heading: "Refine with advanced options",
+        steps: [
+          {
+            title: "Open Advanced Options",
+            body: "Expand Advanced Options to control text mode, format, card split, tone, audience and imagery. These refine the draft without changing the brief itself.",
+            image: {
+              src: "/media/tutorials/tutorial-presentation-5.png",
+              alt: "AmmarAI presentation advanced options with image model and image style controls",
+              caption: "Advanced Options control tone, audience, layout density and imagery.",
+              width: 1600,
+              height: 757,
+            },
+          },
+          {
+            title: "Choose how images are produced",
+            body: "Decide whether slides use AI-generated images, then set the image model and image style so the visuals stay consistent with the theme and the subject matter.",
+          },
+        ],
+      },
+      {
+        heading: "Generate and download",
+        steps: [
+          {
+            title: "Generate the deck",
+            body: "With the brief and settings in place, start generation. The outline, slide copy, layouts and images are produced together into a complete draft deck.",
+            image: {
+              src: "/media/tutorials/tutorial-presentation-6.png",
+              alt: "AmmarAI presentation generate control at the end of the brief panel",
+              caption: "Generation produces structure, copy and imagery in one pass.",
+              width: 1190,
+              height: 533,
+            },
+          },
+          {
+            title: "Review slide by slide",
+            body: "Work through the slide list and read each slide in order. Check that the narrative flows, that no point is duplicated and that any figures you rely on come from your own verified sources.",
+          },
+          {
+            title: "Download the finished deck",
+            body: "Open the download control in the top-right of the editor and export the deck for sharing or presenting.",
+            image: {
+              src: "/media/tutorials/tutorial-presentation-8.png",
+              alt: "AmmarAI presentation editor with the download control highlighted",
+              caption: "Export the finished deck from the editor toolbar.",
+              width: 1600,
+              height: 763,
+            },
+          },
+        ],
+        callouts: [
+          {
+            type: "note",
+            body: "Generated slides are a strong first draft. Always confirm claims, statistics and dates against your own sources before presenting.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["ai-presentation-maker", "ai-image-generator", "ai-chat"],
+    relatedTutorials: ["how-to-use-ai-image-pro", "how-to-use-ai-chat-pro"],
+    cta: { toolName: "AI Presentation Maker", toolSlug: "ai-presentation-maker" },
+  },
+  {
+    slug: "how-to-use-realtime-voice-chat",
+    category: "Chat & Documents",
+    title: "How to Use Realtime Voice Chat | AmmarAI Tutorials",
+    description:
+      "Hold a live spoken conversation with AmmarAI: open a chat, switch on real-time voice and talk naturally with spoken replies.",
+    h1: "How to use Realtime Voice Chat",
+    intro: [
+      "Realtime Voice Chat turns a normal AmmarAI chat into a spoken conversation. You talk out loud and the assistant answers in voice, without typing or waiting for a full written reply.",
+      "This guide covers the end-user conversation flow only. Workspace and provider configuration is not part of it and is excluded.",
+    ],
+    whenToUse: [
+      "You want to think out loud and work through an idea conversationally.",
+      "Your hands are busy and typing is impractical.",
+      "You are rehearsing a pitch, interview or language practice session.",
+    ],
+    sections: [
+      {
+        heading: "Start a voice conversation",
+        steps: [
+          {
+            title: "Open a chat",
+            body: "Go to AI Chat and open an existing conversation or start a new one. Realtime voice runs inside a normal chat, so anything already in the conversation stays available as context.",
+          },
+          {
+            title: "Switch on real-time voice",
+            body: "In the message bar, select the real-time voice control. The chat switches from typed messages to a live spoken session.",
+            image: {
+              src: "/media/tutorials/tutorial-voice-chat-1.png",
+              alt: "AmmarAI chat message bar with the real-time voice control highlighted",
+              caption: "The real-time voice control sits in the message bar of any chat.",
+              width: 2724,
+              height: 1313,
+            },
+          },
+          {
+            title: "Allow microphone access",
+            body: "Your browser asks for permission to use the microphone the first time you start a voice session. Accept it, and check that the correct input device is selected if you use a headset.",
+          },
+        ],
+      },
+      {
+        heading: "Hold the conversation",
+        steps: [
+          {
+            title: "Speak naturally",
+            body: "Talk in ordinary sentences rather than short commands. The assistant listens continuously and answers out loud, so you can interrupt, follow up and change direction as you would with a person.",
+          },
+          {
+            title: "End the session",
+            body: "Close the voice session when you are finished. The conversation stays in your chat history, so you can return to it or continue in text.",
+          },
+        ],
+        callouts: [
+          {
+            type: "tip",
+            body: "A quiet room and a headset microphone noticeably improve recognition accuracy, especially for names, numbers and technical terms.",
+          },
+        ],
+      },
+    ],
+    relatedTools: ["realtime-voice-chat", "ai-chat", "ai-text-to-speech"],
+    relatedTutorials: ["how-to-use-ai-chat-pro", "how-to-chat-with-documents"],
+    cta: { toolName: "Realtime Voice Chat", toolSlug: "realtime-voice-chat" },
   },
 ];
 
