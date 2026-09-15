@@ -1834,6 +1834,203 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-chat-with-documents", "how-to-use-the-ai-creative-suite"],
     cta: { toolName: "AI Chat", toolSlug: "ai-chat" },
   },
+  {
+    slug: "how-to-manage-sales-with-ai-crm",
+    category: "Automation",
+    title: "How to Manage Sales with AI CRM | AmmarAI Tutorials",
+    description: "Use AmmarAI AI CRM to manage contacts, companies, deals, projects, tasks and calendar activity from one customer workspace.",
+    h1: "How to manage sales with AI CRM",
+    intro: [
+      "AI CRM brings customer records and day-to-day sales work into one workspace. You can move from a contact to its company, deal, project, task and scheduled activity without rebuilding the context in separate tools.",
+      "The CRM Assistant is available when you need a quick summary or draft. The structured views remain the source of truth, so review the underlying record before acting on an AI response.",
+    ],
+    whenToUse: [
+      "You need one view of contacts, companies and active opportunities.",
+      "You want to track deals through a visual pipeline.",
+      "You need tasks, projects and calendar events tied to customer work.",
+    ],
+    sections: [
+      {
+        heading: "Start with the customer workspace",
+        steps: [
+          {
+            title: "Open AI CRM",
+            body: "Open AI CRM from the workspace. The overview gives you a quick route into contacts, deals and follow-up work, with recent pipeline activity visible below.",
+            image: { src: "/media/tutorials/tutorial-crm-1.png", alt: "AmmarAI AI CRM overview with customer workspace shortcuts and pipeline activity", caption: "The overview keeps customer records and active work together.", width: 1857, height: 874 },
+          },
+          {
+            title: "Ask the CRM Assistant",
+            body: "Use the CRM Assistant for questions such as a pipeline summary, overdue tasks or the health of a project. Be specific about the customer, owner or date range when the answer needs to be narrow.",
+            image: { src: "/media/tutorials/tutorial-crm-2.png", alt: "AmmarAI CRM Assistant with suggested questions and a message field", caption: "Ask a focused question about the records already held in your CRM.", width: 1899, height: 902 },
+          },
+        ],
+      },
+      {
+        heading: "Organise customer records",
+        steps: [
+          {
+            title: "Manage contacts",
+            body: "Open Contacts to review people, their details and their current status. Add a contact when a new lead or customer enters your workflow, and keep the record current so later tasks and conversations stay connected to the right person.",
+            image: { src: "/media/tutorials/tutorial-crm-3.png", alt: "AmmarAI AI CRM contacts table with contact records and status controls", caption: "Contacts are the people connected to your sales and delivery work.", width: 1863, height: 630 },
+          },
+          {
+            title: "Group contacts by company",
+            body: "Use Companies for the account-level view. This is where you can see the organisation behind several contacts and open a company record before reviewing its associated work.",
+            image: { src: "/media/tutorials/tutorial-crm-4.png", alt: "AmmarAI AI CRM companies table and Add Company action", caption: "Company records keep related customer contacts together.", width: 1711, height: 723 },
+          },
+        ],
+      },
+      {
+        heading: "Move work through the pipeline",
+        steps: [
+          {
+            title: "Track opportunities on the deals board",
+            body: "Open Deals to see opportunities grouped by stage. Add a deal for a qualified opportunity, then move it as the conversation progresses so the board reflects what is actually likely to close.",
+            image: { src: "/media/tutorials/tutorial-crm-5.png", alt: "AmmarAI AI CRM deals pipeline with opportunity cards grouped by stage", caption: "The deals board shows each opportunity at its current stage.", width: 1705, height: 821 },
+          },
+          {
+            title: "Follow delivery in Projects",
+            body: "Once work moves beyond the sales conversation, use Projects to track ownership, priority, dates and status. Keep the project linked to its customer context so handoffs do not lose the original requirements.",
+            image: { src: "/media/tutorials/tutorial-crm-6.png", alt: "AmmarAI AI CRM projects table with owners, dates, priorities and statuses", caption: "Projects carry customer work from agreement into delivery.", width: 1765, height: 823 },
+          },
+          {
+            title: "Plan follow-up on the task board",
+            body: "Use the task board to separate pending, in-progress and completed work. Give each task a clear owner and deadline, and update its stage as soon as the work changes.",
+            image: { src: "/media/tutorials/tutorial-crm-7.png", alt: "AmmarAI AI CRM task board with pending, in-progress and completed columns", caption: "The task board makes ownership and progress visible.", width: 1705, height: 859 },
+          },
+          {
+            title: "Review customer activity on the calendar",
+            body: "Open the CRM Calendar to see scheduled work across the month. Use it to check for overlapping follow-ups, project deadlines and customer commitments before promising a new date.",
+            image: { src: "/media/tutorials/tutorial-crm-8.png", alt: "AmmarAI CRM calendar showing scheduled customer and project activity", caption: "The calendar brings dated CRM activity into one view.", width: 1692, height: 787 },
+          },
+        ],
+      },
+      {
+        heading: "Keep the CRM reliable",
+        bullets: [
+          "Use consistent names for companies and avoid creating a second record for the same customer.",
+          "Update deal stages when the customer decision changes, not only at the end of the week.",
+          "Give every task and project a clear owner and due date.",
+          "Check AI-generated summaries against the underlying records before sharing them.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-crm", "ai-phone-agent", "ai-agent-builder"],
+    relatedTutorials: ["how-to-build-an-ai-agent", "how-to-create-outbound-ai-calls"],
+    cta: { toolName: "AI CRM", toolSlug: "ai-crm" },
+  },
+  {
+    slug: "how-to-create-an-ai-phone-agent",
+    category: "Automation",
+    title: "How to Create an AI Phone Agent | AmmarAI Tutorials",
+    description: "Create an AmmarAI AI Phone Agent, define its greeting and instructions, choose its voice and train it with approved business information.",
+    h1: "How to create an AI phone agent",
+    intro: [
+      "AI Phone Agent lets you create a voice agent for repeatable customer conversations such as enquiries, appointment requests and routine support calls.",
+      "A useful agent starts with a narrow job, a clear welcome message and instructions that explain what it may do, what it must not claim and when it should hand the conversation to a person.",
+    ],
+    whenToUse: [
+      "You receive recurring calls that follow a predictable structure.",
+      "You want a voice agent to collect details or help with appointment requests.",
+      "You need a consistent first response outside your staffed hours.",
+    ],
+    sections: [
+      {
+        heading: "Create the agent",
+        steps: [
+          {
+            title: "Open AI Phone Agent",
+            body: "Open AI Phone Agent and choose Add New Agent. Existing agents remain visible on the page, so you can return to one later to refine its instructions or training.",
+            image: { src: "/media/tutorials/tutorial-phone-agent-1.png", alt: "AmmarAI AI Phone Agent page with existing agents and the Add New Agent button", caption: "Start a new voice agent or open an existing one.", width: 1845, height: 854 },
+          },
+          {
+            title: "Define the conversation",
+            body: "Give the agent a recognizable title, write the greeting callers hear first and add instructions for its role and behaviour. Choose the language, maximum call duration and voice. If the agent handles bookings, enable the booking option only when that belongs in its job.",
+            image: { src: "/media/tutorials/tutorial-phone-agent-2.png", alt: "AmmarAI phone agent form with title, welcome message, instructions, language, duration and voice fields", caption: "Define the role, greeting, limits and voice before training the agent.", width: 1880, height: 894 },
+          },
+          {
+            title: "Train it with approved information",
+            body: "Add a website URL, PDF or text source that contains the information the agent may use. Prefer a focused FAQ, policy or service page over a broad source with unrelated material, then continue when the training source is ready.",
+            image: { src: "/media/tutorials/tutorial-phone-agent-3.png", alt: "AmmarAI phone agent training screen with URL, PDF and Text source options", caption: "Use focused, current sources for the agent's answers.", width: 1741, height: 812 },
+          },
+          {
+            title: "Return to the agent list",
+            body: "After saving, return to My Phone Call Agents to confirm the new agent appears with the expected voice and status. Open it again whenever the greeting, instructions or source material changes.",
+            image: { src: "/media/tutorials/tutorial-phone-agent-4.png", alt: "AmmarAI My Phone Call Agents list showing saved voice agents", caption: "Saved agents remain available for review and refinement.", width: 1758, height: 765 },
+          },
+        ],
+      },
+      {
+        heading: "Write safer instructions",
+        bullets: [
+          "State the agent's purpose in one sentence before adding detailed rules.",
+          "Tell it which details to collect and which details it must never request.",
+          "Include a clear handoff rule for emergencies, complaints and questions outside its knowledge.",
+          "Do not train it on confidential files unless every caller is authorised to receive that information.",
+          "Test the greeting, interruptions, silence and an out-of-scope question before using the agent with customers.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-phone-agent", "ai-crm", "ai-agent-builder"],
+    relatedTutorials: ["how-to-create-outbound-ai-calls", "how-to-manage-sales-with-ai-crm"],
+    cta: { toolName: "AI Phone Agent", toolSlug: "ai-phone-agent" },
+  },
+  {
+    slug: "how-to-create-outbound-ai-calls",
+    category: "Automation",
+    title: "How to Create Outbound AI Calls | AmmarAI Tutorials",
+    description: "Create individual or batch outbound calls with AmmarAI AI Phone Agent, then monitor each call from the outbound-call history.",
+    h1: "How to create outbound AI calls",
+    intro: [
+      "Outbound Calls lets an existing AI Phone Agent place a single call or work through a contact list. It is designed for specific, permission-based tasks such as reminders, requested follow-ups and customer qualification.",
+      "Before starting, decide the purpose of the call, the information the agent needs and what outcome should be recorded. A short, explicit call brief produces a more predictable conversation than a broad sales prompt.",
+    ],
+    whenToUse: [
+      "A customer has requested a callback or follow-up.",
+      "You need to send appointment or service reminders to an opted-in list.",
+      "You want to qualify a known set of leads using the same approved questions.",
+    ],
+    sections: [
+      {
+        heading: "Place an outbound call",
+        steps: [
+          {
+            title: "Open Outbound Calls",
+            body: "Open Outbound Calls from AI Phone Agent. The page separates batch calls from individual outbound calls and keeps the call history below the creation controls.",
+            image: { src: "/media/tutorials/tutorial-outbound-calls-1.png", alt: "AmmarAI Outbound Calls page with Place a Call and New Batch Call actions", caption: "Choose a single call or a batch according to the job.", width: 1848, height: 692 },
+          },
+          {
+            title: "Place a single call",
+            body: "Choose Place a Call, select the phone agent, enter the destination number and write a concise instruction for this conversation. Review the number and the brief, then create the call.",
+            image: { src: "/media/tutorials/tutorial-outbound-calls-2.png", alt: "AmmarAI Place a Call dialog with agent, phone number and instruction fields", caption: "A single call needs an agent, a destination and a clear brief.", width: 1777, height: 738 },
+          },
+          {
+            title: "Create a batch call",
+            body: "Choose New Batch Call when the same approved workflow applies to several recipients. Name the batch, choose the agent, add the contact source and write the shared instruction. Check the list before starting so every recipient belongs in this campaign.",
+            image: { src: "/media/tutorials/tutorial-outbound-calls-3.png", alt: "AmmarAI New Batch Call dialog with batch name, agent, phone numbers and instruction fields", caption: "Use a batch only when one call brief fits every selected recipient.", width: 1478, height: 838 },
+          },
+          {
+            title: "Monitor the call history",
+            body: "Return to Outbound Calls to review batch progress and individual call status. Use the history to identify completed, unanswered or failed calls before deciding whether a person should follow up.",
+            image: { src: "/media/tutorials/tutorial-outbound-calls-4.png", alt: "AmmarAI Outbound Calls history with batch and individual call statuses", caption: "Review call status before scheduling any further contact.", width: 1489, height: 721 },
+          },
+        ],
+      },
+      {
+        heading: "Before calling",
+        bullets: [
+          "Call only people you are permitted to contact and honour opt-outs immediately.",
+          "Use the recipient's local time and avoid inappropriate calling hours.",
+          "Make the AI nature and purpose of the call clear where law or good practice requires it.",
+          "Never put secrets, payment credentials or unnecessary personal data in the call instruction.",
+          "Review recordings, transcripts and retained call data according to the laws that apply to your business and recipients.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-phone-agent", "ai-crm", "ai-agent-builder"],
+    relatedTutorials: ["how-to-create-an-ai-phone-agent", "how-to-manage-sales-with-ai-crm"],
+    cta: { toolName: "AI Phone Agent", toolSlug: "ai-phone-agent" },
+  },
 ];
 
 

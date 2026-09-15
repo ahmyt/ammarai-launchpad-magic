@@ -182,3 +182,9 @@
 - [x] Content Manager media library guide (`how-to-use-the-content-manager`, 6 screenshots)
 - [x] Influencer avatar screenshots re-branded from originals with measured alignment
 - [x] AI Canvas, Creative Suite annotation and the FAL API-key step excluded (setup/admin or no AmmarAI equivalent)
+
+## Batch 10 tutorials (done)
+- [x] AI CRM guide (`how-to-manage-sales-with-ai-crm`, 8 screenshots)
+- [x] AI Phone Agent guide (`how-to-create-an-ai-phone-agent`, 4 screenshots)
+- [x] Outbound AI Calls guide (`how-to-create-outbound-ai-calls`, 4 screenshots)
+- [x] Logo and avatar replacements aligned to each measured original footprint; admin, activation and provider content excluded
