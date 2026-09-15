@@ -2390,6 +2390,186 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-build-and-embed-a-website-chatbot", "how-to-manage-sales-with-ai-crm"],
     cta: { toolName: "AI Smart Inbox", toolSlug: "ai-smart-inbox" },
   },
+  {
+    slug: "how-to-compare-two-ai-models-in-one-chat",
+    category: "Chat & Documents",
+    title: "How to Compare Two AI Models in One Chat | AmmarAI Tutorials",
+    description:
+      "Answer the same prompt with two AI models side by side in AmmarAI AI Chat Pro, then keep the response you prefer and carry on the thread.",
+    h1: "How to compare two AI models in one chat",
+    intro: [
+      "Different models answer the same question in different ways. One may be more concise, another more thorough or better at reasoning through numbers. AI Chat Pro lets you run a single prompt through two models at once and read both answers next to each other.",
+      "When you have read both, you pick the one you want to keep and the conversation continues from that response.",
+    ],
+    whenToUse: [
+      "The answer matters enough to be worth a second opinion.",
+      "You are deciding which model suits a recurring task.",
+      "A first answer felt thin and you want an alternative before rewriting the prompt.",
+    ],
+    sections: [
+      {
+        heading: "Run one prompt through two models",
+        steps: [
+          {
+            title: "Open the model picker",
+            body: "Start a thread in AI Chat Pro and open the model list above the message box. Each card shows the model name, its knowledge cut-off and its output limit, and the search field at the top finds a model by name.",
+            image: { src: "/media/tutorials/tutorial-multi-model-1.png", alt: "AI model gallery with two models selected and an Apply button", caption: "Tick a second model to compare answers side by side.", width: 512, height: 299 },
+          },
+          {
+            title: "Select two models and apply",
+            body: "Tick the two models you want to hear from, then choose Apply. Both names stay visible at the top of the thread so you always know which pair is answering.",
+          },
+          {
+            title: "Send your prompt once",
+            body: "Type the prompt as you normally would and send it. The question goes to both models and the two answers appear in parallel columns, so you can read the difference in depth, structure and tone without repeating yourself.",
+            image: { src: "/media/tutorials/tutorial-multi-model-2.png", alt: "Two AI answers to the same question shown side by side in AI Chat Pro", caption: "Both models answer the same prompt in parallel columns.", width: 512, height: 251 },
+          },
+          {
+            title: "Keep the answer you prefer",
+            body: "Under the column you want, choose the option to prefer that response. The chosen answer becomes part of the thread and every follow-up message continues from it.",
+            image: { src: "/media/tutorials/tutorial-multi-model-3.png", alt: "The preferred response kept in the AI Chat Pro thread", caption: "The preferred answer becomes the thread you carry on with.", width: 512, height: 251 },
+          },
+        ],
+      },
+      {
+        heading: "Getting useful comparisons",
+        bullets: [
+          "Compare on a real task, not a trivia question — differences show up in reasoning and structure.",
+          "Pair a fast model with a stronger one when you want a sanity check rather than two long answers.",
+          "Comparing uses the credits of both models, so use it where the decision is worth it.",
+          "A confident answer can still be wrong. Agreement between two models is not proof.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-chat", "ai-personas", "ai-deep-research"],
+    relatedTutorials: ["how-to-use-ai-chat-pro", "how-to-chat-with-documents"],
+    cta: { toolName: "AI Chat Pro", toolSlug: "ai-chat" },
+  },
+  {
+    slug: "how-to-take-bookings-with-your-website-chatbot",
+    category: "Chat & Documents",
+    title: "How to Take Bookings With Your Website Chatbot | AmmarAI Tutorials",
+    description:
+      "Turn on the booking assistant in your AmmarAI website chatbot, decide when it should offer a meeting and paste in your scheduling embed code.",
+    h1: "How to take bookings with your website chatbot",
+    intro: [
+      "A chatbot that answers questions is useful. A chatbot that books the meeting while the visitor is still interested is better. The booking assistant adds a scheduler inside the chat window, so an interested visitor picks a slot without leaving the conversation.",
+      "You decide when the scheduler appears, and you connect it to the calendar service you already use by pasting its inline embed code.",
+    ],
+    whenToUse: [
+      "Your sales or support process ends in a call or demo.",
+      "Visitors ask about availability, pricing or a walkthrough.",
+      "You lose enquiries between the chat and a separate booking page.",
+    ],
+    sections: [
+      {
+        heading: "Turn on the booking assistant",
+        steps: [
+          {
+            title: "Open the chatbot configuration",
+            body: "Open the chatbot you want to change and scroll the configuration panel to the assistant switches, below the interaction type and connect message.",
+            image: { src: "/media/tutorials/tutorial-bot-booking-1.png", alt: "Chatbot configuration panel with the booking assistant switch turned on", caption: "The booking assistant sits with the other chatbot switches.", width: 814, height: 885 },
+          },
+          {
+            title: "Switch on Booking Assistant",
+            body: "Turn the Booking Assistant switch on. Two further controls appear: the instructions that decide when the scheduler is offered, and the field for your scheduling embed code.",
+          },
+          {
+            title: "Choose when the scheduler appears",
+            body: "Select Edit next to the booking instructions and tick the situations that should trigger an offer to book — for example when a visitor asks to schedule a meeting, asks to see a demo, mentions team size, or hesitates. Save the instructions when you are done.",
+            image: { src: "/media/tutorials/tutorial-bot-booking-2.png", alt: "When to show booking assistant dialog with selectable conditions", caption: "Tick the moments where a booking offer makes sense.", width: 1048, height: 870 },
+          },
+          {
+            title: "Paste your scheduling embed code",
+            body: "Copy the inline embed code from your scheduling service and paste it into the Booking Assistant Embed Code box. Inline is the right format here because the calendar is shown inside the chat window rather than in a pop-up. Continue with Next and save the chatbot.",
+            image: { src: "/media/tutorials/tutorial-bot-booking-3.png", alt: "Booking assistant embed code field in the chatbot configuration", caption: "The inline embed code connects your calendar to the chat.", width: 869, height: 901 },
+          },
+          {
+            title: "Test it in the preview",
+            body: "Open the chatbot preview and ask for a meeting in plain language. The scheduler should appear in the conversation with your real availability; if it does not, re-check that the embed code is the inline variant and that a matching condition is ticked.",
+          },
+        ],
+      },
+      {
+        heading: "Good practice",
+        bullets: [
+          "Keep the conditions narrow. A scheduler offered on every message feels pushy.",
+          "Hide page details and cookie banners in the embed so the calendar fits the chat window.",
+          "Keep your availability current — a booking assistant is only as good as the calendar behind it.",
+        ],
+      },
+    ],
+    relatedTools: ["external-chatbot", "ai-chat-bots", "ai-smart-inbox"],
+    relatedTutorials: ["how-to-build-and-embed-a-website-chatbot", "how-to-hand-chats-to-a-human-agent"],
+    cta: { toolName: "External Chatbot", toolSlug: "external-chatbot" },
+  },
+  {
+    slug: "how-to-answer-shop-questions-with-your-chatbot",
+    category: "Chat & Documents",
+    title: "How to Answer Shop Questions With Your Chatbot | AmmarAI Tutorials",
+    description:
+      "Connect your online store to an AmmarAI website chatbot so it can answer order, tracking and product questions, and choose which shop details it may use.",
+    h1: "How to answer shop questions with your chatbot",
+    intro: [
+      "Most store enquiries are the same few questions: where is my order, is this in stock, what does delivery cost. The shopping assistant lets your website chatbot read that information from your store and answer it in the conversation.",
+      "You choose which store it reads from and which parts of the shop it is allowed to talk about.",
+    ],
+    whenToUse: [
+      "Order status and tracking questions take up your support time.",
+      "Shoppers ask about stock, shipping or returns before buying.",
+      "You want answers that reflect the store right now, not a static FAQ.",
+    ],
+    sections: [
+      {
+        heading: "Connect the store",
+        steps: [
+          {
+            title: "Switch on Shopping Assistant",
+            body: "Open the chatbot configuration and turn on the Shopping Assistant switch, below the booking and voice options.",
+          },
+          {
+            title: "Pick the shop source",
+            body: "Open the Shop Source list and choose the platform your store runs on. The fields underneath change to match the platform you pick, asking for your own store address and its connection details.",
+            image: { src: "/media/tutorials/tutorial-bot-shop-1.png", alt: "Shop source dropdown in the chatbot configuration", caption: "Choose the platform your store runs on.", width: 782, height: 893 },
+          },
+          {
+            title: "Enter your store connection details",
+            body: "Fill in your store address and the access details it issues for read access. These belong to your own shop, so generate them from your store admin and keep them private.",
+          },
+        ],
+      },
+      {
+        heading: "Choose what the assistant may discuss",
+        steps: [
+          {
+            title: "Open Shop Features",
+            body: "Select Edit next to Shop Features. This is where you decide how much of the shop the assistant may pull into a conversation.",
+            image: { src: "/media/tutorials/tutorial-bot-shop-2.png", alt: "Shop features edit button in the chatbot configuration", caption: "Shop Features controls what the assistant may use.", width: 756, height: 894 },
+          },
+          {
+            title: "Select the shop details to expose",
+            body: "Tick the areas you want available — payment methods, shipping methods, coupons and product reviews are each optional. Leave anything off that you would rather answer yourself, then save the features.",
+            image: { src: "/media/tutorials/tutorial-bot-shop-3.png", alt: "Shop features dialog with payment, shipping, coupon and review options", caption: "Only the ticked areas are available to the assistant.", width: 1039, height: 908 },
+          },
+          {
+            title: "Test with a real order",
+            body: "Save the chatbot, open the preview and ask about a genuine order number and a product you stock. Confirm the reply matches what your store shows before you put the chatbot in front of customers.",
+          },
+        ],
+      },
+      {
+        heading: "Good practice",
+        bullets: [
+          "Grant read access only — the assistant never needs to change orders.",
+          "For anything wordy, such as a returns policy, training the chatbot on that page often reads better than pulling raw shop data.",
+          "Re-test after a store change; renamed fields or revoked access stop the answers silently.",
+        ],
+      },
+    ],
+    relatedTools: ["external-chatbot", "ai-chat-bots", "ai-smart-inbox"],
+    relatedTutorials: ["how-to-build-and-embed-a-website-chatbot", "how-to-take-bookings-with-your-website-chatbot"],
+    cta: { toolName: "External Chatbot", toolSlug: "external-chatbot" },
+  },
 ];
 
 
