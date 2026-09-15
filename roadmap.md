@@ -141,3 +141,11 @@
 - [x] Add bordered, partitioned, mobile-safe tutorial tables
 - [ ] Genuine demo screenshots or screen-recording frames for every step in each newly written tool tutorial, retaining the left menu and annotated with a red arrow only; no interface mockups
 - [ ] QA: link validation, branding scan, mobile/desktop checks
+
+## Tutorial & documentation complete revision
+- [ ] Replace the previous overlap map with a strict reference-page-to-AmmarAI audit
+- [ ] Remove tutorials, cards, links, metadata, and images without a verified end-user overlap
+- [ ] Rebuild every retained tutorial to preserve the reference workflow order and coverage using AmmarAI terminology
+- [ ] Replace altered/annotated captures with exact reference images, changing only the logo and signed-in avatar
+- [ ] Re-audit navigation, search, breadcrumbs, related guides, previous/next links, CTAs, sitemap, and llms.txt
+- [ ] Validate image fidelity, alt text, metadata, mobile/desktop layouts, links, and forbidden/admin content
