@@ -87,3 +87,7 @@ verified regular-user sequence may be documented.
   retain visible cells and partitions.
 - Public tutorial copy must not mention the source brand or expose admin/setup
   workflows.
+## Batch 4 (verified overlaps)
+- Fashion Studio → AmmarAI AI Photoshoot / Virtual Try-On (`/ai-photoshoot`, `/ai-virtual-try-on`) — full end-user workflow retained (dashboard, photoshoot, VTO, change model, edit image, my photoshoots, wardrobe, video generation, photoshoot settings). Admin Settings section and `fsett` image excluded. 24 reference screenshots, original resolution, compact source logo replaced with the AmmarAI logo only.
+- Video Dubbing → AmmarAI AI Dubbing (`/ai-dubbing`) — Getting Started, How to Dub a Video, Previously Dubbed Videos retained. Requirements, Activation, Admin Controls and provider/API-key material excluded (`vd2`, `vd3`, `vd4`, `vd5`, `vd10` unused). 5 screenshots.
+- UGC Factory → AmmarAI AI UGC Generator (`/ai-ugc-generator`) — Getting Started and How to Create a UGC Video retained. Requirements, Activation, Admin Controls excluded (`ugc2`, `ugc3`, `ugc1-1`, `ugc2-1`, `ugc6` unused). 4 screenshots.
