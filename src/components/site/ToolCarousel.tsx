@@ -17,7 +17,8 @@ export function ToolCarousel({ tools }: { tools: Tool[] }) {
 
   const scrollToIndex = (index: number) => {
     const track = trackRef.current;
-    const item = track?.children.item(index);
+    if (!track) return;
+    const item = track.children.item(index);
     if (!(item instanceof HTMLElement)) return;
     track.scrollTo({ left: item.offsetLeft, behavior: "smooth" });
     setActiveIndex(index);
@@ -34,7 +35,8 @@ export function ToolCarousel({ tools }: { tools: Tool[] }) {
       setActiveIndex((current) => {
         const next = (current + 1) % tools.length;
         const track = trackRef.current;
-        const item = track?.children.item(next);
+        if (!track) return current;
+        const item = track.children.item(next);
         if (item instanceof HTMLElement) {
           track.scrollTo({ left: item.offsetLeft, behavior: "smooth" });
         }
