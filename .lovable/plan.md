@@ -1,18 +1,32 @@
-# Make AI Social Media Publisher easy to find
+# Re-audit the platform tool list properly, then correct only what's wrong
 
-The page exists and is live: /ai-social-media-publisher returns fine, and its card shows on the Tools page under the "AI Social Media" filter and when searching its name. So nothing is missing — it is just hard to spot among 150 cards, and it does not come up for the words people would actually type ("schedule posts", "post to LinkedIn", "content calendar").
+You're right to push back. My last comparison was based on the short card text captured from the platform's tool list, not on each tool's full description. AI Video Pro is the clearest example: the card text I had did not mention image-to-video, so I reported a conflict that may not exist. Before changing a single word on the site, I'll recapture the source properly.
 
-## What I'll change
+## Step 1 — Capture the platform's own wording in full
 
-1. **Search wording** — add a scheduling/publishing group to the tool search so "schedule posts", "post calendar", "publish to LinkedIn", "queue posts", "X / Twitter post" and similar bring up AI Social Media Publisher first, alongside the social agent and post-writing tools.
-2. **Cross-links** — list it as a related tool on the pages people arrive at first: AI Social Media Agent, Facebook Post Generator, Instagram Reel Script Generator, and the LinkedIn/X post templates. Today none of them point to it.
-3. **Recently added row** — it is already flagged as recent, so it will appear in the "recently added" set on the tools directory; I'll confirm that row is actually rendered and visible, and fix it if it is not.
+Sign in, open the tool list, and for every entry record: exact name, category, the full description text (opened detail view, not just the card), and any listed capabilities or sub-features. Save the raw capture to a file so every later claim can be traced back to it rather than to memory.
 
-Nothing else changes: no redesign, no renaming, no new categories, and tutorials are untouched.
+## Step 2 — Compare line by line, with evidence
+
+For each of the 150 public pages, place the platform's captured text next to our page's summary, lede, "what you can do" list and capabilities. Classify each into:
+
+- **Conflict** — our page states something the platform text contradicts.
+- **Gap** — the platform states a capability our page omits.
+- **Match** — no action.
+
+Nothing gets classified from memory or inference. If the captured text is silent on a point, that is recorded as "not stated", not as "the platform doesn't do it" — tutorials and the platform's own feature list stay authoritative where they disagree with a short marketing blurb.
+
+## Step 3 — Report before changing anything
+
+You get a table: tool, what our page says, what the platform says, and the exact proposed wording change. No edits until you approve that table. I'll explicitly re-check the ten I flagged last time — AI Video Pro, AI Marketing Bot, AI Video to Video, AI Personas, AI Fashion Studio, AI Photoshoot, AI Writer, AI Image Pro, AI Chat Pro, AI Social Media Publisher — and say for each whether the earlier claim held up.
+
+## Step 4 — Apply approved corrections only
+
+Edits stay inside the tool records in `src/data/tools-*.ts` (summary, lede, canDo, how, capabilities). No renames, no slug or URL changes, no design changes, no tutorial changes.
 
 ## Technical notes
 
-- Add one entry to `intentMap` in `src/data/tools.ts` with the scheduling/publishing keywords and slugs `ai-social-media-publisher`, `ai-social-media-agent`, `facebook-post-generator`.
-- Append `ai-social-media-publisher` to the `related` arrays of the named tool records in `src/data/tools-agents.ts` and the social template files.
-- Verify `recentTools` output and its usage on the directory page; adjust only the rendering if the row is missing.
-- Verification: `bunx tsgo --noEmit`, build check, and a Playwright pass at 1440 and 390 px confirming the card appears under the "AI Social Media" filter, is returned by the new search phrases, and the detail page returns 200 with no console errors.
+- Capture with Playwright against the live app using the supplied login; each entry's detail panel opened so the full description is read, not the truncated card. Raw output written to `/tmp/marketplace-audit/entries.json` plus screenshots for anything ambiguous.
+- Comparison done programmatically: join captured entries to tool records by normalised name and slug, emit a diff table to `/tmp/marketplace-audit/report.md`.
+- Verification after approved edits: `bunx tsgo --noEmit`, build check, Playwright pass at 1440 and 390 px on every edited page (200, single H1, no overflow, no console errors).
+- Tutorials, tutorial data, routes and images untouched — tutorial changes will be 0.
