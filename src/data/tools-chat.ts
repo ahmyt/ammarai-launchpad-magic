@@ -24,9 +24,11 @@ export const chatWorkspaceTools: Tool[] = [
       "Upload reference material the persona should always know",
       "Attach reusable skills such as checklists, formats and review passes",
       "Set output rules — length, structure, language, forbidden claims",
-      "Share personas with the team so everyone works from the same voice",
+      "Build a skill with /skill-creator, or import a ready-made one from a file or GitHub",
+      "Build advanced skills from multiple files, resources and references",
+      "Validate and preview a skill before installing it",
+      "Search and manage your saved skills in one library",
       "Use a persona in chat, in writing tools, or behind an agent or chatbot",
-      "Version a persona and roll back when a change makes results worse",
     ],
     how: [
       {

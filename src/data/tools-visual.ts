@@ -182,6 +182,10 @@ export const visualTools: Tool[] = [
       "Add realistic shadows, reflections and surface contact",
       "Show scale with plausible props next to the item",
       "Keep the same lighting recipe across an entire catalogue",
+      "Start from a scene template or write a fully custom prompt",
+      "Replace the background on an existing product photo",
+      "Create UGC-style and billboard-style advertising visuals",
+      "Regenerate variations and new angles after the fact, keeping the original",
     ],
     how: [
       {
@@ -223,8 +227,16 @@ export const visualTools: Tool[] = [
         body: "Shape, label, texture and colour are preserved from your photo; only the world around the product is generated.",
       },
       {
-        title: "Scene library and custom prompts",
-        body: "Start from a preset direction or describe the exact set you have in mind, down to the surface and time of day.",
+        title: "Scene templates and custom prompts",
+        body: "Start from one of the ready-made scene template categories or describe the exact set you have in mind, down to the surface and time of day.",
+      },
+      {
+        title: "Editable after generation",
+        body: "Every image stays editable — regenerate variations, change the style, swap the background or add an angle without losing the original.",
+      },
+      {
+        title: "Prompt or image to start",
+        body: "Upload a product photo, describe the shot in words, or do both — composition, lighting, reflections and shadows are handled for you.",
       },
       {
         title: "Consistent across a range",
@@ -335,6 +347,10 @@ export const visualTools: Tool[] = [
       "Produce every colourway from one photographed sample",
       "Generate front, side and detail views for a product page",
       "Keep one model and one light across a whole collection",
+      "Swap the model on an existing image in seconds",
+      "Edit, crop and enhance generated images without leaving the tool",
+      "Upload your own models and backgrounds instead of generated ones",
+      "Turn a product into a short campaign-ready video",
     ],
     how: [
       {
@@ -351,7 +367,7 @@ export const visualTools: Tool[] = [
       },
       {
         title: "Publish the set",
-        body: "Export product-page views, lookbook shots and story crops from the same session.",
+        body: "Export product-page views, lookbook shots, story crops and a short product video from the same session.",
       },
     ],
     examples: [
