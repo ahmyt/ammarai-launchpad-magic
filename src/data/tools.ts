@@ -19,9 +19,11 @@ import { academicTemplateTools } from "./tools-templates-academic";
 import { commsTemplateTools } from "./tools-templates-comms";
 import { lifestyleTemplateTools } from "./tools-templates-lifestyle";
 import { writerTemplateTools } from "./tools-templates-writer";
+import { marketplaceTools } from "./tools-marketplace";
 
 export const tools: Tool[] = [
   ...agentTools,
+  ...marketplaceTools,
   ...chatWorkspaceTools,
   ...engagementTools,
   ...visualTools,

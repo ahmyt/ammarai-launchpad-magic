@@ -64,6 +64,14 @@ export const chatWorkspaceTools: Tool[] = [
     ],
     capabilities: [
       {
+        title: "Skill creator",
+        body: "Build a new skill with /skill-creator, or import a ready-made one, and reuse it across every persona.",
+      },
+      {
+        title: "Skill library",
+        body: "Keep your saved capabilities in one place so a new persona starts from procedures that already work.",
+      },
+      {
         title: "Reusable identity",
         body: "One definition covers role, tone, knowledge and boundaries, so results stay consistent across people and days.",
       },

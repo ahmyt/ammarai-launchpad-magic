@@ -63,6 +63,26 @@ export const agentTools: Tool[] = [
     ],
     capabilities: [
       {
+        title: "Email connectors",
+        body: "Connect Gmail or Outlook so the agent can read, draft and send mail as part of a workflow.",
+      },
+      {
+        title: "Messaging channels",
+        body: "Reach the agent through Slack, WhatsApp or Telegram — receive reports, ask for work, approve actions from the chat you already use.",
+      },
+      {
+        title: "CRM access",
+        body: "Connect the CRM so agents can read and update customer records, deals and tasks rather than working blind.",
+      },
+      {
+        title: "Marketing and social",
+        body: "Agents can create, schedule and optimise WhatsApp, Telegram and social campaigns, then report on how they performed.",
+      },
+      {
+        title: "Chatbot handover",
+        body: "Connect an external chatbot so agents handle customer conversations, review support quality and work tickets across channels.",
+      },
+      {
         title: "Multi-step reasoning",
         body: "The agent plans the order of work itself and adjusts when a step returns something unexpected.",
       },
@@ -298,6 +318,7 @@ export const agentTools: Tool[] = [
       "Update records by describing what happened, in plain language",
       "Ask questions about the pipeline and get direct answers",
       "Get monthly summaries, win rates and source performance without exports",
+      "Raise invoices, record payments and see what is outstanding",
       "Create tasks and follow-ups from a sentence",
       "Work with it from WhatsApp or Telegram as well as the dashboard",
     ],

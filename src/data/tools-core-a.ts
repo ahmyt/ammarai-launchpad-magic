@@ -222,6 +222,30 @@ export const coreToolsA: Tool[] = [
     ],
     capabilities: [
       {
+        title: "Canvas documents",
+        body: "Open a document beside the conversation and write or edit it there, without breaking the thread to move text elsewhere.",
+      },
+      {
+        title: "Temporary chat",
+        body: "Start a conversation that is never saved, for one-off questions you do not want in your history.",
+      },
+      {
+        title: "Highlight to ask",
+        body: "Select any part of an answer and ask a follow-up about just that passage, with smart highlights surfacing entities worth exploring.",
+      },
+      {
+        title: "Chat with documents",
+        body: "Upload a PDF or document into the thread and get answers, summaries and extracts from it in real time.",
+      },
+      {
+        title: "Workspace connectors",
+        body: "Connect Gmail, Google Calendar, Google Drive, Notion and Outlook so the assistant can read your own mail, events, files and notes during a conversation.",
+      },
+      {
+        title: "Shared conversations",
+        body: "Publish a private thread as a link when someone else needs to read it.",
+      },
+      {
         title: "Persistent thread context",
         body: "Constraints, tone and decisions set earlier in the conversation carry forward, so you stop re-explaining yourself.",
       },
@@ -357,6 +381,8 @@ export const coreToolsA: Tool[] = [
       "Match a house style from a reference image instead of describing it every time",
       "Upscale to a crisp, large file for print-adjacent and retina use",
       "Batch out every social size from one approved master image",
+      "Choose how many variations to generate and which image model renders them",
+      "Get prompt help from AI Image Assistant when an idea is still rough",
       "Send any finished still into image-to-video for motion",
     ],
     how: [
@@ -544,6 +570,7 @@ export const coreToolsA: Tool[] = [
       "Generate several hook variants of the same video for testing",
       "Generate standalone clips from a written shot description when no footage exists",
       "Direct camera movement, lens feel and lighting straight from the prompt",
+      "Pick which video model renders the clip",
     ],
     how: [
       {

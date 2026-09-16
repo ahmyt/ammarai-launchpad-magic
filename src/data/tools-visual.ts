@@ -309,11 +309,11 @@ export const visualTools: Tool[] = [
   },
   {
     slug: "ai-virtual-try-on",
-    name: "AI Fashion Try-On",
+    name: "AI Fashion Studio",
     category: "AI Image",
     summary:
       "Put a garment on a model without a shoot — same clothes, real fit, any model, any setting.",
-    title: "AI Fashion Try-On: Garments on Models Without a Shoot | AmmarAI",
+    title: "AI Fashion Studio: Garments on Models Without a Shoot | AmmarAI",
     description:
       "Upload a flat garment photo and get lookbook imagery on models — accurate fit and fabric drape, varied models and settings, ready for product pages and ads.",
     h1: "Your clothes, on models, without booking anyone",
@@ -480,9 +480,9 @@ export const visualTools: Tool[] = [
       "Ask for a campaign and you get the set: hero image, three ad variants, matching social tiles in every ratio, a banner, and mockups showing how it looks in the real world.",
     ],
     canDo: [
-      "Generate a brand starter kit: mark, palette, type direction, textures",
+      "Describe a design and get an editable layout with copy, images and composition",
       "Produce a matching campaign set across every ad and social format",
-      "Create packaging and merchandise mockups in your style",
+      "Edit precisely in Annotation mode: select an area, draw a mask, replace text, leave instructions",
       "Build presentation and pitch visuals that match your deck",
       "Design event, promo and seasonal graphics from one brief",
       "Make coordinated blog and article headers",
