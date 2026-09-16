@@ -192,6 +192,30 @@ export const platformTools: Tool[] = [
     ],
     capabilities: [
       {
+        title: "Sales agent for stores",
+        body: "Connect WooCommerce or Shopify so the bot can recommend products, answer product questions, track orders and guide a shopper to checkout.",
+      },
+      {
+        title: "Booking agent",
+        body: "Let visitors schedule meetings and appointments inside the chat instead of being sent to a separate form.",
+      },
+      {
+        title: "Real-time voice chat",
+        body: "Visitors can speak to the assistant and hear it answer, with live transcription alongside the conversation.",
+      },
+      {
+        title: "Human handover",
+        body: "Switch a live conversation from the assistant to a real agent when it needs a person.",
+      },
+      {
+        title: "Channels beyond the site",
+        body: "The same bot answers on Instagram, WhatsApp, Telegram and Facebook Messenger, with every conversation in one inbox.",
+      },
+      {
+        title: "Feedback and segmentation",
+        body: "Visitors can rate a conversation, and contacts can be tagged into segments by interest, issue or buying behaviour.",
+      },
+      {
         title: "Trained on your content only",
         body: "Answers are grounded in your pages, documents and product data. Outside that, it says it does not know instead of guessing.",
       },
