@@ -313,7 +313,7 @@ export const marketplaceTools: Tool[] = [
     ],
     mistakes: ["Posting identical text everywhere", "Scheduling a month ahead with no room to adapt", "Skipping the preview on image posts"],
     faqs: [
-      { q: "Which platforms can it publish to?", a: "Posts publish directly to LinkedIn and X from connected accounts; other networks can be drafted and previewed." },
+      { q: "Which platforms can it publish to?", a: "Posts publish directly to connected Facebook, Instagram, X and LinkedIn accounts." },
       { q: "Can I edit a scheduled post?", a: "Yes, any time before it goes out." },
     ],
     related: ["ai-social-media-agent", "ai-dm-comment-agent", "ai-writer", "ai-image-generator"],
