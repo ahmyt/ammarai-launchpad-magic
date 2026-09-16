@@ -272,8 +272,7 @@ export const writerTemplateTools: Tool[] = [
   {
     slug: "rss-feed-generator",
     name: "Generate From RSS Feed",
-    category: "AI Templates",
-    templateGroup: "Writing",
+    category: "AI Writing",
     summary: "Turn items from an RSS feed into fresh written content — summaries, roundups, or posts — ready to review.",
     title: "Generate Content From an RSS Feed | AmmarAI",
     description: "Turn RSS feed items into summaries, roundups, or blog posts automatically with AmmarAI's RSS content generator.",
@@ -607,8 +606,7 @@ export const writerTemplateTools: Tool[] = [
   {
     slug: "ai-voice-isolator",
     name: "AI Voice Isolator",
-    category: "AI Templates",
-    templateGroup: "Writing",
+    category: "AI Audio",
     summary: "Strip background noise and music from a recording, leaving clean, clear speech behind.",
     title: "AI Voice Isolator: Clean Up Noisy Audio | AmmarAI",
     description: "Remove background noise, music, and ambient sound from any recording, leaving isolated, clear speech audio.",

@@ -4,8 +4,7 @@ export const blogTemplateTools: Tool[] = [
   {
     slug: "article-wizard",
     name: "Article Wizard",
-    category: "AI Templates",
-    templateGroup: "Blog",
+    category: "AI Writing",
     summary: "A guided, step-by-step wizard that walks you from topic to finished long-form article.",
     title: "Article Wizard: Guided Long-Form Article Builder | AmmarAI",
     description: "Build long-form articles step by step — topic, outline, sections, and polish — with AmmarAI's guided Article Wizard.",
@@ -339,8 +338,7 @@ export const blogTemplateTools: Tool[] = [
   {
     slug: "web-page-chat",
     name: "Web Page Chat",
-    category: "AI Templates",
-    templateGroup: "Blog",
+    category: "AI Chat",
     summary: "Paste a URL and ask questions about the page's content directly, without reading the whole thing.",
     title: "Web Page Chat: Ask Questions About Any URL | AmmarAI",
     description: "Paste a webpage URL and ask AmmarAI questions about its content — summaries, specifics, and follow-ups in one chat.",
@@ -406,8 +404,7 @@ export const blogTemplateTools: Tool[] = [
   {
     slug: "chat-with-image",
     name: "Chat With Image",
-    category: "AI Templates",
-    templateGroup: "Blog",
+    category: "AI Vision",
     summary: "Upload an image and ask questions about what's in it, in plain conversation.",
     title: "Chat With Image: Ask AI About Any Photo | AmmarAI",
     description: "Upload an image and ask AmmarAI questions about it — objects, text, context, and follow-ups — with Chat With Image.",
@@ -473,8 +470,7 @@ export const blogTemplateTools: Tool[] = [
   {
     slug: "realtime-voice-chat",
     name: "Realtime Voice Chat",
-    category: "AI Templates",
-    templateGroup: "Blog",
+    category: "AI Voice",
     summary: "Talk out loud with AI and get spoken replies back, in a live back-and-forth conversation.",
     title: "Realtime Voice Chat: Talk With AI Out Loud | AmmarAI",
     description: "Have a live spoken conversation with AmmarAI — talk naturally and get real-time voice replies with Realtime Voice Chat.",
