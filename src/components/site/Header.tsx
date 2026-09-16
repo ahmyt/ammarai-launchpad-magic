@@ -42,7 +42,7 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
-          {primaryNav.map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.to}
               to={item.to}
@@ -82,7 +82,7 @@ export function Header() {
       {open ? (
         <div className="site-mobile-menu border-t border-border bg-background md:hidden">
           <nav aria-label="Mobile" className="mx-auto flex max-w-6xl flex-col px-5 py-4">
-            {primaryNav.map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
