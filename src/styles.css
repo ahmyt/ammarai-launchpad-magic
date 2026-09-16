@@ -1113,6 +1113,131 @@ body:has(.home-swiss) .site-header button {
   color: var(--accent-foreground);
 }
 
+.home-swiss .studio-secondary-tools {
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.studio-tools-carousel {
+  min-width: 0;
+}
+
+.studio-tools-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(18rem, 28rem);
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+  padding: 0 0.5rem 0.75rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.studio-tools-track::-webkit-scrollbar {
+  display: none;
+}
+
+.studio-secondary-tool {
+  position: relative;
+  display: flex;
+  min-height: 24rem;
+  flex-direction: column;
+  scroll-snap-align: start;
+  border: 1px solid var(--foreground);
+  padding: 1.5rem;
+  background: var(--paper);
+  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+}
+
+.studio-secondary-tool:hover,
+.studio-secondary-tool:focus-visible {
+  z-index: 1;
+  transform: translate(-4px, -4px);
+  background: var(--secondary);
+  box-shadow: 8px 8px 0 var(--accent);
+  outline: none;
+}
+
+.studio-secondary-tool-number {
+  margin-bottom: 4.5rem;
+  color: var(--foreground);
+  font-family: "Space Grotesk", var(--font-sans);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.studio-tools-controls > div:first-child button {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border-radius: 0;
+}
+
+.studio-tools-indicators {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.studio-tools-indicator {
+  width: min(3rem, 6vw);
+  height: 0.25rem;
+  background: var(--border);
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.studio-tools-indicator[data-active="true"] {
+  background: var(--accent);
+  transform: scaleY(2);
+}
+
+.studio-tools-indicator:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 4px;
+}
+
+@media (max-width: 639px) {
+  .studio-tools-track {
+    grid-auto-columns: calc(100vw - 4rem);
+  }
+
+  .studio-secondary-tool {
+    min-height: 21rem;
+  }
+
+  .studio-tools-controls {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  .studio-tools-indicators {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: stretch;
+  }
+
+  .studio-tools-indicator {
+    width: auto;
+    flex: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .studio-tools-track {
+    scroll-behavior: auto;
+  }
+
+  .studio-secondary-tool,
+  .studio-tools-indicator {
+    transition: none;
+  }
+}
+
 .home-swiss .studio-video-section {
   background: var(--foreground);
   color: var(--ink-foreground);
