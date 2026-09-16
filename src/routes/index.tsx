@@ -22,7 +22,7 @@ import avatarDemo from "@/assets/demo-avatar-video.mp4.asset.json";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
 const description =
-  "150 AI tools and templates in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.";
+  "151 AI tools and templates in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.";
 
 const goalPrompts = [
   "Write a blog post about pricing",
@@ -430,7 +430,7 @@ export function Home() {
         <Container>
           <SectionHeading
             eyebrow="Why one workspace"
-            title="What makes 150 tools feel like one product"
+            title="What makes 151 tools feel like one product"
             intro="One account and subscription connect your history, brand voice, files, templates, AI models and assistants across every workflow."
              scale="large"
              className="studio-heading-wide"
