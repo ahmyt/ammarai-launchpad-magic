@@ -3531,8 +3531,12 @@ export function getTutorial(slug: string): Tutorial | undefined {
 }
 
 export const tutorialByTool = new Map<string, Tutorial>();
+export const tutorialsByTool = new Map<string, Tutorial[]>();
 for (const tutorial of tutorials) {
   if (tutorial.cta.kind === "feature") continue;
+  const existing = tutorialsByTool.get(tutorial.cta.toolSlug);
+  if (existing) existing.push(tutorial);
+  else tutorialsByTool.set(tutorial.cta.toolSlug, [tutorial]);
   if (tutorialByTool.has(tutorial.cta.toolSlug)) continue;
   tutorialByTool.set(tutorial.cta.toolSlug, tutorial);
 }
