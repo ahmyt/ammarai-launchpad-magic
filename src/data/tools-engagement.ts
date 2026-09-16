@@ -163,88 +163,92 @@ export const engagementTools: Tool[] = [
     name: "AI Marketing Bot",
     category: "AI Marketing",
     summary:
-      "A marketing strategist on call — it plans campaigns, writes the assets, and tells you what to run next and why.",
-    title: "AI Marketing Bot: Campaign Strategy on Demand | AmmarAI",
+      "Broadcast marketing messages to your WhatsApp and Telegram audiences — written by AI, segmented, scheduled and measured.",
+    title: "AI Marketing Bot: WhatsApp & Telegram Campaigns | AmmarAI",
     description:
-      "An AI marketing strategist that builds campaign plans, audience angles, channel mixes and the assets to run them — briefed on your business, not a generic template.",
-    h1: "A marketing strategist that never runs out of ideas",
+      "Send bulk WhatsApp and Telegram campaigns with AI-written messages, translation, audience segmentation, scheduling, a unified inbox and campaign analytics.",
+    h1: "Reach your audience where they already read",
     lede:
-      "Tell it what you sell, who you sell to and what you are trying to move. The Marketing Bot comes back with a campaign plan, the angles worth testing, the channel mix, and the actual copy and creative briefs to run it.",
-    ctaLabel: "Plan a campaign",
+      "Announcements, offers and re-engagement sent straight to WhatsApp and Telegram. Write the message with AI, translate it, segment who receives it, schedule the send and watch the results in one place.",
+    ctaLabel: "Start a campaign",
     recent: true,
     what: [
-      "Most AI writing tools start after the thinking is done: you already know the angle, you just want the words. The Marketing Bot works the other way round. It starts at strategy — who to talk to, what to say to them, where to say it — and only then produces the assets.",
-      "You brief it once on your business: product, price point, audience, competitors, tone, the channels you actually use. That brief persists, so every later request is answered in the context of your business rather than a generic marketing template.",
-      "Ask it for a launch plan, a slow-month rescue, a Black Friday sequence or a way to sell more of one stuck SKU, and it returns a structured plan: objective, audience segments, offer, angles ranked by likely performance, a channel-by-channel calendar, and the copy for each placement.",
+      "The Marketing Bot is a broadcast tool. It connects your WhatsApp and Telegram accounts and sends campaigns to your contact lists — product announcements, personalised offers, event reminders, win-back messages — on the channels people actually open.",
+      "Messages can be written for you: describe the campaign and the AI drafts it, translates it into the languages your audience speaks, and adapts the wording per segment. Rich media such as images and links can be attached.",
+      "Replies do not disappear into a black hole. Incoming messages land in a unified inbox, can be handed off to a human agent, and campaign analytics show who received, opened and responded.",
     ],
     canDo: [
-      "Build a full campaign plan from an objective and a budget",
-      "Generate audience segments and the message that fits each one",
-      "Rank creative angles by likely performance and explain the reasoning",
-      "Write the assets: ad copy, emails, captions, landing page sections, scripts",
-      "Produce a channel-by-channel calendar with sequencing and frequency",
-      "Critique an existing campaign and say what to change first",
-      "Suggest A/B tests worth running and what result would prove what",
-      "Turn a plan into work: hand assets to the Social Media Agent, Email tools or Image Generator",
+      "Broadcast a message to your WhatsApp and Telegram contacts",
+      "Generate the campaign message with AI instead of writing it from scratch",
+      "Translate a campaign into multiple languages",
+      "Segment your audience and send each group a different message",
+      "Attach images, links and other rich media",
+      "Schedule campaigns in advance or send immediately",
+      "Handle replies in a unified inbox and hand off to a human agent",
+      "Track delivery, engagement and campaign performance",
     ],
     how: [
       {
-        title: "Brief it on your business",
-        body: "Product, price, audience, competitors, tone and the channels you actually use. This is the input that makes everything after it specific.",
+        title: "Connect your channels",
+        body: "Link the WhatsApp and Telegram accounts you send from.",
       },
       {
-        title: "State the objective",
-        body: "\"Fill 40 seats for a September workshop\" or \"clear last season's stock in three weeks\". Objectives with numbers get plans with numbers.",
+        title: "Choose who receives it",
+        body: "Pick a contact list or build a segment — recent buyers, lapsed customers, a single language group.",
       },
       {
-        title: "Review the plan, not the copy",
-        body: "Check the audience, offer and angle order first. Fixing strategy takes a sentence; fixing thirty finished assets takes a day.",
+        title: "Write or generate the message",
+        body: "Draft it yourself or have the AI write it, then translate it for each language you send in.",
       },
       {
-        title: "Generate and ship",
-        body: "Approve the plan and have it write every asset, then push them to the social agent, email tools or your ad accounts.",
+        title: "Schedule and measure",
+        body: "Send now or book it for later, then watch delivery and engagement in the campaign report.",
       },
     ],
     examples: [
       {
-        label: "Quiet-month rescue",
+        label: "Weekend offer",
         input:
-          "Independent gym, 340 members, February is always flat. Budget £600. Want 40 new joiners and fewer cancellations.",
+          "Independent gym, 340 members. Send a February restart offer to members who have not visited in 60 days.",
         output:
-          "Plan: two audiences (January quitters who lapsed, and partners of current members). Offer: 6-week 'finish what you started' block, not a discount. Angles ranked — 1) shame-free restart, 2) train with someone you know, 3) measurable 6-week outcome. Channels: £380 local Meta, £120 Google brand defence, £100 print in three cafés; member referral email on day one, SMS reminder day ten. 14 assets attached.",
+          "A segment of 112 lapsed members, a short WhatsApp message with the offer and a booking link, translated into two languages, scheduled for Thursday 18:00 — with replies routed to the unified inbox.",
       },
       {
-        label: "Campaign critique",
+        label: "Product announcement",
         input:
-          "Our SaaS ads get clicks but no trials. Copy leads with '30% faster reporting'. Landing page is the homepage.",
+          "New product line launching Monday. Tell the Telegram channel and the WhatsApp list.",
         output:
-          "Two problems, one fix each. The claim is a feature, not a consequence — test 'close the month in a morning, not a week'. And you are sending paid traffic to a homepage that asks visitors to choose; build one page per angle with a single call to action. Expected order of impact: landing page first, copy second.",
+          "One campaign, two channels, an AI-written announcement with the product image and link, sent at launch time with delivery and click figures reported afterwards.",
       },
     ],
     capabilities: [
       {
-        title: "Strategy before assets",
-        body: "You get an objective, audiences, offer and ranked angles — the decisions that make the copy work — before anything is written.",
+        title: "WhatsApp and Telegram broadcasting",
+        body: "Send to both channels from one campaign instead of managing each app separately.",
       },
       {
-        title: "Briefed on your business",
-        body: "Your product, pricing, audience and competitors persist, so answers are specific to you rather than to marketing in general.",
+        title: "AI-written messages",
+        body: "Describe the campaign and get a message drafted for it, ready to edit before it goes out.",
       },
       {
-        title: "Full-funnel output",
-        body: "Ads, emails, captions, landing sections, scripts and creative briefs, all consistent with one plan.",
+        title: "Translation built in",
+        body: "Send the same campaign in every language your audience reads, without a separate translation step.",
       },
       {
-        title: "Honest critique",
-        body: "Paste an existing campaign and it tells you what is weak and what to fix first, in priority order.",
+        title: "Segmentation",
+        body: "Split your contacts and send each group the message that actually fits them.",
       },
       {
-        title: "Test design",
-        body: "Suggests the A/B tests worth running and what a result would actually prove, so you stop testing button colours.",
+        title: "Scheduling and automation",
+        body: "Queue campaigns ahead of time, including re-engagement sends to contacts who have gone quiet.",
       },
       {
-        title: "Hands off to the rest of the platform",
-        body: "Approved assets go to the Social Media Agent, email generators, image and video tools without a rewrite.",
+        title: "Unified inbox and human handoff",
+        body: "Replies arrive in one inbox, and any conversation can be passed to a person to continue.",
+      },
+      {
+        title: "Campaign and audience analytics",
+        body: "See delivery, engagement and audience breakdowns for every campaign you send.",
       },
     ],
     audiences: [
