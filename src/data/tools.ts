@@ -23,6 +23,7 @@ import { marketplaceTools } from "./tools-marketplace";
 
 export const tools: Tool[] = [
   ...agentTools,
+  ...marketplaceTools,
   ...chatWorkspaceTools,
   ...engagementTools,
   ...visualTools,
