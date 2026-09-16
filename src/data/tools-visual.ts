@@ -481,10 +481,10 @@ export const visualTools: Tool[] = [
     name: "AI Creative Suite",
     category: "AI Image",
     summary:
-      "One brief, a whole set of on-brand visuals — logo marks, ads, social tiles, packaging and banners that match.",
+      "A drag-and-drop design editor with AI image generation — ads, social posts, invitations and banners that all match.",
     title: "AI Creative Suite: On-Brand Visual Sets in One Go | AmmarAI",
     description:
-      "Describe the brand and the campaign once, and generate a matching set of visuals — brand marks, ad creatives, social tiles, banners and packaging mockups in a single consistent style.",
+      "Design on an infinite canvas with templates, layers, icons and fonts, and generate AI imagery in place — ad creatives, social posts, invitations and banners in one consistent style.",
     h1: "A whole visual set, not one lonely image",
     lede:
       "Most tools give you one picture at a time and none of them match. The Creative Suite works from a brand brief and produces a coordinated set — the same palette, the same style, every format your campaign needs.",
@@ -502,6 +502,10 @@ export const visualTools: Tool[] = [
       "Build presentation and pitch visuals that match your deck",
       "Design event, promo and seasonal graphics from one brief",
       "Make coordinated blog and article headers",
+      "Work on an infinite canvas with layers, text, shapes, symbols and colours",
+      "Start from 20+ ready-made templates or a preset artboard size for social and marketing",
+      "Pull from the built-in library of images, icons and fonts",
+      "Undo and redo freely, and design from a phone as well as a desktop",
       "Regenerate an entire set when the brand direction changes",
       "Keep a saved style so later work still matches months on",
     ],
@@ -553,8 +557,12 @@ export const visualTools: Tool[] = [
         body: "Lock a direction and reuse it months later so new work still matches the old.",
       },
       {
-        title: "Real-world mockups",
-        body: "See the design on packaging, a shop sign, a phone screen or a tote before committing to print.",
+        title: "Infinite canvas and layers",
+        body: "Drag, drop and arrange every element on a canvas that never runs out of room, with full layer, position and appearance control.",
+      },
+      {
+        title: "Template and asset library",
+        body: "Over twenty pre-made templates plus images, icons, fonts, shapes and symbols to build from instead of starting blank.",
       },
       {
         title: "Format coverage",
