@@ -298,22 +298,26 @@ function ToolPage({ tool }: { tool: Tool }) {
       </Section>
 
       {(() => {
-        const tutorial = tutorialByTool.get(tool.slug);
-        if (!tutorial) return null;
+        const toolTutorials = tutorialsByTool.get(tool.slug) ?? [];
+        if (toolTutorials.length === 0) return null;
         return (
           <Section>
             <Container size="narrow">
-              <div className="tool-tutorial-link">
-                <p className="eyebrow">Tutorial</p>
-                <h2 className="mt-2 text-2xl sm:text-3xl">{tutorial.h1}</h2>
-                <p className="mt-3 text-muted-foreground">{tutorial.description}</p>
-                <Link
-                  to="/tutorials/$slug"
-                  params={{ slug: tutorial.slug }}
-                  className={buttonClass("primary", "md", "mt-5")}
-                >
-                  Read the tutorial
-                </Link>
+              <div className="flex flex-col gap-6">
+                {toolTutorials.map((tutorial) => (
+                  <div key={tutorial.slug} className="tool-tutorial-link">
+                    <p className="eyebrow">Tutorial</p>
+                    <h2 className="mt-2 text-2xl sm:text-3xl">{tutorial.h1}</h2>
+                    <p className="mt-3 text-muted-foreground">{tutorial.description}</p>
+                    <Link
+                      to="/tutorials/$slug"
+                      params={{ slug: tutorial.slug }}
+                      className={buttonClass("primary", "md", "mt-5")}
+                    >
+                      Read the tutorial
+                    </Link>
+                  </div>
+                ))}
               </div>
             </Container>
           </Section>
