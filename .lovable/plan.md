@@ -46,3 +46,7 @@ Edits are confined to the tool records in `src/data/tools-*.ts` — the `canDo`,
 ## Decision needed
 
 Group A is unambiguous. Tell me whether to apply Group B and Group C as well, or only Group A.
+
+## Note on the admin marketplace page
+
+https://app.ammarai.com/dashboard/admin/marketplace redirects to the sign-in screen for anyone not logged in, so I cannot read it. If you export that list (screenshots or copied text), I will check every Group B claim against it before removing anything, and add any capability it proves that the tool pages are missing.
