@@ -381,6 +381,8 @@ export const coreToolsA: Tool[] = [
       "Match a house style from a reference image instead of describing it every time",
       "Upscale to a crisp, large file for print-adjacent and retina use",
       "Batch out every social size from one approved master image",
+      "Choose how many variations to generate and which image model renders them",
+      "Get prompt help from AI Image Assistant when an idea is still rough",
       "Send any finished still into image-to-video for motion",
     ],
     how: [
@@ -568,6 +570,7 @@ export const coreToolsA: Tool[] = [
       "Generate several hook variants of the same video for testing",
       "Generate standalone clips from a written shot description when no footage exists",
       "Direct camera movement, lens feel and lighting straight from the prompt",
+      "Pick which video model renders the clip",
     ],
     how: [
       {
