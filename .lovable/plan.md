@@ -4,29 +4,29 @@
 Expand the homepage’s dark secondary-tools carousel from 12 to 18 major AmmarAI tools while excluding all AI Templates and the eight flagship products.
 
 ## Curated selection
-Keep the strongest existing entries and broaden category coverage with major standalone products across agents, video, image, chat, writing, audio, productivity, and sales:
+Place automation-focused tools first, followed by a balanced mix of standalone video, image, chat, audio, document, and productivity products:
 
-1. AI Video Editor
-2. AI Captions
-3. AI Realtime Image
-4. AI Product Photoshoot
-5. AI Creative Suite
+1. AI Social Media Agent
+2. AI Blogger Agent
+3. AI Phone Call Agent
+4. AI Social Media Publisher
+5. AI CRM
 6. AI Deep Research
-7. AI Document Analyzer
-8. AI Music Pro
-9. AI Phone Call Agent
-10. AI CRM
-11. AI Social Media Publisher
-12. AI Dubbing
-13. AI Social Media Agent
-14. AI Blogger Agent
-15. UGC Factory
-16. Viral Clips
-17. AI Council Mode
-18. Content Manager
+7. AI Video Editor
+8. AI Captions
+9. UGC Factory
+10. Viral Clips
+11. AI Dubbing
+12. AI Realtime Image
+13. AI Product Photoshoot
+14. AI Creative Suite
+15. AI Council Mode
+16. Content Manager
+17. AI Document Analyzer
+18. AI Music Pro
 
 ## Implementation
-- Update only the carousel’s curated tool list; preserve the approved dark single-card design, next-card preview, slow autoplay, arrows, progress indicator, and View All Tools action.
+- Put the automation-focused entries at the start of the carousel, then update only its curated tool list; preserve the approved dark single-card design, next-card preview, slow autoplay, arrows, progress indicator, and View All Tools action.
 - Confirm every selected slug resolves to a real public tool page and each card uses its existing category, name, and description.
 - Confirm none of the 18 entries belongs to AI Templates or duplicates the flagship selection.
 - Ensure the longer progress indicator remains readable on desktop and the current 411px mobile layout.
