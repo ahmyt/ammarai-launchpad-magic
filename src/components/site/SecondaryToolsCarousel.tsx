@@ -44,7 +44,7 @@ export function SecondaryToolsCarousel() {
 
   useEffect(() => {
     if (paused || tools.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => goTo(activeIndex + 1), 3600);
+    const timer = window.setInterval(() => goTo(activeIndex + 1), 5200);
     return () => window.clearInterval(timer);
   }, [activeIndex, goTo, paused, tools.length]);
 
@@ -131,20 +131,25 @@ export function SecondaryToolsCarousel() {
       </div>
 
       <div className="studio-secondary-footer">
-        <div className="studio-carousel-dots" aria-label="Choose a tool slide">
-          {tools.map((tool, index) => (
-            <button
-              key={tool.slug}
-              type="button"
-              aria-label={`Show ${tool.name}`}
-              aria-current={activeIndex === index ? "true" : undefined}
-              onClick={() => goTo(index)}
-              className="studio-carousel-dot"
-            />
-          ))}
+        <div className="studio-carousel-progress">
+          <span className="studio-carousel-count" aria-live="polite">
+            {String(activeIndex + 1).padStart(2, "0")} / {String(tools.length).padStart(2, "0")}
+          </span>
+          <div className="studio-carousel-dots" aria-label="Choose a tool slide">
+            {tools.map((tool, index) => (
+              <button
+                key={tool.slug}
+                type="button"
+                aria-label={`Show ${tool.name}`}
+                aria-current={activeIndex === index ? "true" : undefined}
+                onClick={() => goTo(index)}
+                className="studio-carousel-dot"
+              />
+            ))}
+          </div>
         </div>
-        <ButtonLink to="/ai-tools" variant="ink" size="md">
-          View all tools <ArrowRight className="size-4" aria-hidden="true" />
+        <ButtonLink to="/ai-tools" variant="onInk" size="lg" className="studio-secondary-all-tools">
+          View All Tools <ArrowRight className="size-4" aria-hidden="true" />
         </ButtonLink>
       </div>
     </section>
