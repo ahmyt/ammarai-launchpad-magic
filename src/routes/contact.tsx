@@ -9,7 +9,7 @@ import { siteContentQuery } from "@/lib/content";
 
 const title = "Contact AmmarAI: Sales, Support and Partnerships | AmmarAI";
 const description =
-  "Get in touch about plans, agency and team accounts, technical questions or partnership enquiries.";
+  "Contact AmmarAI for plans, team and agency accounts, technical support, or partnerships. Send a message and get a reply within two working days.";
 
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },
@@ -21,7 +21,83 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ammarai.com/contact" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://ammarai.com/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "@id": "https://ammarai.com/contact#contactpage",
+            url: "https://ammarai.com/contact",
+            name: title,
+            headline: "Tell us what you are trying to build",
+            description,
+            inLanguage: "en",
+            about: { "@id": "https://ammarai.com/#organization" },
+            mainEntity: { "@id": "https://ammarai.com/#organization" },
+            isPartOf: { "@id": "https://ammarai.com/#website" },
+            publisher: { "@id": "https://ammarai.com/#organization" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://ammarai.com/#organization",
+            url: "https://ammarai.com/",
+            name: "AmmarAI",
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                contactType: "customer support",
+                email: "support@ammarai.com",
+                url: "https://ammarai.com/contact",
+                availableLanguage: "English",
+              },
+              {
+                "@type": "ContactPoint",
+                contactType: "sales",
+                email: "teams@ammarai.com",
+                url: "https://ammarai.com/contact",
+                availableLanguage: "English",
+              },
+              {
+                "@type": "ContactPoint",
+                contactType: "partnerships",
+                email: "partners@ammarai.com",
+                url: "https://ammarai.com/contact",
+                availableLanguage: "English",
+              },
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://ammarai.com/#website",
+            url: "https://ammarai.com/",
+            name: "AmmarAI",
+            inLanguage: "en",
+            publisher: { "@id": "https://ammarai.com/#organization" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://ammarai.com/contact#breadcrumb",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://ammarai.com/" },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Contact",
+                item: "https://ammarai.com/contact",
+              },
+            ],
+          },
+        ]),
+      },
     ],
   }),
   component: Contact,
