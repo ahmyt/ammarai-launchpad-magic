@@ -42,7 +42,7 @@ export function ToolCarousel({ tools }: { tools: Tool[] }) {
         }
         return next;
       });
-    }, 3600);
+    }, 5200);
     return () => window.clearInterval(timer);
   }, [paused, tools.length]);
 
@@ -86,9 +86,9 @@ export function ToolCarousel({ tools }: { tools: Tool[] }) {
               {String(index + 1).padStart(2, "0")}
             </span>
             <span className="text-xs font-semibold uppercase text-accent">{tool.category}</span>
-            <h3 className="mt-auto text-2xl font-extrabold leading-tight text-foreground">{tool.name}</h3>
+            <h3 className="mt-auto text-xl font-extrabold leading-tight text-foreground">{tool.name}</h3>
             <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{tool.summary}</p>
-            <span className="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase text-foreground">
+            <span className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase text-foreground">
               Open tool <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </span>
           </Link>
@@ -125,7 +125,7 @@ export function ToolCarousel({ tools }: { tools: Tool[] }) {
           })}
         </div>
 
-        <ButtonLink to="/ai-tools" variant="ink" size="md">
+        <ButtonLink to="/ai-tools" variant="primary" size="lg" className="studio-tools-view-all">
           View all tools <ChevronRight className="size-4" aria-hidden="true" />
         </ButtonLink>
       </div>
