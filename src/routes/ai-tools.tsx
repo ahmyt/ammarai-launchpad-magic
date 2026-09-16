@@ -9,9 +9,9 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { SITE, REGISTER_URL } from "@/lib/site";
 
-const title = "All AI Tools: 130+ Tools & Templates in One Workspace | AmmarAI";
+const title = "AI Tools Library: 140+ Tools, Agents & Templates | AmmarAI";
 const description =
-  "Browse every AmmarAI tool and template: writing, chat, images, video, voice, transcription, vision, documents, SEO, e-commerce, code and 99 ready-made templates.";
+  "Explore 140 AI tools and templates for writing, chat, agents, marketing, SEO, images, video, voice, documents and code. Find the right tool and start free.";
 
 export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },
