@@ -299,12 +299,12 @@ export const platformTools: Tool[] = [
     name: "AI Presentation Maker",
     category: "AI Productivity",
     summary:
-      "Generate complete, professionally designed slide decks from a topic or brief — layouts, visuals and PPTX export included.",
+      "Generate complete, professionally designed slide decks from a topic or brief — layouts and visuals included.",
     title: "AI Presentation Maker: Decks From a Brief | AmmarAI",
     description:
       "Generate complete, professionally designed slide decks from a topic or brief, including layouts, visuals, and export to PPTX.",
     h1: "From a one-line brief to a finished deck",
-    lede: "Describe the topic, the audience and the length, and the Presentation Maker produces a complete deck — structured content, designed layouts and visuals — that exports to PPTX for final polish.",
+    lede: "Describe the topic, the audience and the length, and the Presentation Maker produces a complete deck — structured content, designed layouts and visuals — ready to present or polish further.",
     ctaLabel: "Build a deck",
     what: [
       "The AI Presentation Maker turns a topic or short brief into a complete slide deck. It handles the two slowest parts of presentation work at once: structuring the content into a logical sequence of slides, and applying professional layouts so the deck looks designed rather than defaulted.",
@@ -315,7 +315,7 @@ export const platformTools: Tool[] = [
       "Choose the deck length and level of detail",
       "Apply professional layouts and visual themes automatically",
       "Include visuals matched to each slide's content",
-      "Export to PPTX for editing in PowerPoint or Keynote",
+      "Export the finished deck for presenting or further editing",
       "Regenerate individual slides without rebuilding the deck",
     ],
     how: [

@@ -318,6 +318,7 @@ export const agentTools: Tool[] = [
       "Update records by describing what happened, in plain language",
       "Ask questions about the pipeline and get direct answers",
       "Get monthly summaries, win rates and source performance without exports",
+      "Raise invoices, record payments and see what is outstanding",
       "Create tasks and follow-ups from a sentence",
       "Work with it from WhatsApp or Telegram as well as the dashboard",
     ],

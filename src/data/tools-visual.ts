@@ -480,9 +480,9 @@ export const visualTools: Tool[] = [
       "Ask for a campaign and you get the set: hero image, three ad variants, matching social tiles in every ratio, a banner, and mockups showing how it looks in the real world.",
     ],
     canDo: [
-      "Generate a brand starter kit: mark, palette, type direction, textures",
+      "Describe a design and get an editable layout with copy, images and composition",
       "Produce a matching campaign set across every ad and social format",
-      "Create packaging and merchandise mockups in your style",
+      "Edit precisely in Annotation mode: select an area, draw a mask, replace text, leave instructions",
       "Build presentation and pitch visuals that match your deck",
       "Design event, promo and seasonal graphics from one brief",
       "Make coordinated blog and article headers",
