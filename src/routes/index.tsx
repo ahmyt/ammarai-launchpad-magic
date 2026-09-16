@@ -10,12 +10,12 @@ import { posts } from "@/data/posts";
 import { SITE, organizationJsonLd, REGISTER_URL } from "@/lib/site";
 import { Container, Section, SectionHeading, Card } from "@/components/site/primitives";
 import { ToolCard } from "@/components/site/ToolCard";
+import { ToolMarquee } from "@/components/site/ToolMarquee";
 import { ActionButton, ExternalButton, ButtonLink } from "@/components/site/Button";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { assetUrl } from "@/lib/asset-url";
 import { TrustLogoStrip } from "@/components/site/TrustLogoStrip";
 import { CustomerReviews } from "@/components/site/CustomerReviews";
-import { ToolCarousel } from "@/components/site/ToolCarousel";
 import videoProDemo from "@/assets/demo-video-generator.mp4.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
@@ -148,10 +148,6 @@ export function Home() {
   const [query, setQuery] = useState("");
   const searchRef = useRef<HTMLInputElement>(null);
   const suggestions = useMemo(() => suggestTools(query).slice(0, 5), [query]);
-  const secondaryTools = useMemo(() => {
-    const flagshipSlugs = new Set(featuredTools.map((tool) => tool.slug));
-    return tools.filter((tool) => !flagshipSlugs.has(tool.slug));
-  }, []);
 
   useEffect(() => {
     const focusSearch = (event: KeyboardEvent) => {
@@ -171,6 +167,10 @@ export function Home() {
         count: toolsByCategory(c).length,
         sample: toolsByCategory(c).slice(0, 3),
       })),
+    [],
+  );
+  const marqueeRows = useMemo(
+    () => [featuredTools.slice(0, 4), [...featuredTools.slice(4, 8)].reverse()],
     [],
   );
 
@@ -308,29 +308,9 @@ export function Home() {
              scale="large"
              className="studio-heading-wide"
           />
-          <div className="studio-card-grid mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredTools.map((tool, index) => (
-              <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "studio-featured-card lg:col-span-2 min-h-52 justify-end" : "min-h-52"} />
-            ))}
+          <div className="mt-14">
+            <ToolMarquee rows={marqueeRows} total={tools.length} />
           </div>
-        </Container>
-      </Section>
-
-      <Section className="studio-section studio-secondary-tools">
-        <Container size="wide">
-          <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
-            <SectionHeading
-              eyebrow="Explore more"
-              title="More tools for every part of the work"
-              intro="Move from first idea to finished output with focused tools for writing, research, design, marketing, audio, business and more."
-              scale="large"
-              className="studio-heading-wide"
-            />
-            <p className="max-w-xs border-t border-foreground pt-4 text-sm leading-relaxed text-muted-foreground lg:mb-2">
-              Browse the complete collection automatically, or use the controls to move at your own pace.
-            </p>
-          </div>
-          <ToolCarousel tools={secondaryTools} />
         </Container>
       </Section>
 
