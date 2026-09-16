@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, type LegalSection } from "@/components/site/LegalPage";
 
-const title = "Refund Policy | AmmarAI";
+const title = "Refund Policy: 7-Day Subscription Guarantee | AmmarAI";
 const description =
   "When AmmarAI subscriptions are refundable, the 7-day first-purchase guarantee, how consumed credits are treated and how to request a refund.";
 
