@@ -9,9 +9,9 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { SITE, REGISTER_URL } from "@/lib/site";
 
-const title = "All AI Tools: 130+ Tools & Templates in One Workspace | AmmarAI";
+const title = "AI Tools Library: 140+ Tools, Agents & Templates | AmmarAI";
 const description =
-  "Browse every AmmarAI tool and template: writing, chat, images, video, voice, transcription, vision, documents, SEO, e-commerce, code and 99 ready-made templates.";
+  "Explore 140 AI tools and templates for writing, chat, agents, marketing, SEO, images, video, voice, documents and code. Find the right tool and start free.";
 
 export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },
@@ -23,7 +23,69 @@ export const Route = createFileRoute("/ai-tools")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ammarai.com/ai-tools" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://ammarai.com/ai-tools" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://ammarai.com/ai-tools#webpage",
+            url: "https://ammarai.com/ai-tools",
+            name: title,
+            headline: "Every AI tool, one workspace, one subscription",
+            description,
+            inLanguage: "en",
+            about: { "@type": "Thing", name: "AI tools and templates" },
+            isPartOf: { "@id": "https://ammarai.com/#website" },
+            publisher: { "@id": "https://ammarai.com/#organization" },
+            mainEntity: { "@id": "https://ammarai.com/ai-tools#itemlist" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "@id": "https://ammarai.com/ai-tools#itemlist",
+            name: "AmmarAI AI Tool Library",
+            description:
+              "A directory of 140 AI tools across writing, chat, image, video, voice, transcription, vision, documents, marketing, SEO, e-commerce, productivity, sales, CRM and code.",
+            itemListOrder: "https://schema.org/ItemListUnordered",
+            numberOfItems: 140,
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://ammarai.com/#organization",
+            url: "https://ammarai.com/",
+            name: "AmmarAI",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://ammarai.com/#website",
+            url: "https://ammarai.com/",
+            name: "AmmarAI",
+            publisher: { "@id": "https://ammarai.com/#organization" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://ammarai.com/ai-tools#breadcrumb",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "AmmarAI", item: "https://ammarai.com/" },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "AI Tools",
+                item: "https://ammarai.com/ai-tools",
+              },
+            ],
+          },
+        ]),
+      },
     ],
   }),
   component: ToolsDirectory,
