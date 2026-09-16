@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { primaryNav, SITE, REGISTER_URL, LOGIN_URL } from "@/lib/site";
+import { siteContentQuery } from "@/lib/content";
 import { ExternalButton } from "./Button";
 import logoAsset from "@/assets/ammarai-logo.png.asset.json";
 import { assetUrl } from "@/lib/asset-url";
@@ -24,6 +26,12 @@ export function Wordmark({ className }: { className?: string }) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const { data: content } = useSuspenseQuery(siteContentQuery);
+  const settings = content.pages.find((p) => p.slug === "settings");
+  const showTutorials = settings?.showTutorialsNav !== false;
+  const navItems = showTutorials
+    ? primaryNav
+    : primaryNav.filter((item) => item.to !== "/tutorials");
 
   return (
     <header className="site-header sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
