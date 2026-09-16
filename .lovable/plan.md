@@ -1,38 +1,20 @@
-# Align tool pages and tutorials
+# Record tutorials as the source of truth (no edits)
 
-## Goal
-Make every existing tutorial consistent with its matching AmmarAI tool or feature page, so names, capabilities, workflows, links, and related recommendations tell the same story.
+## What you've decided
+The tutorial pages describe what AmmarAI tools really do. Nothing on the site gets edited — not tutorials, not tool pages.
 
-## Current findings
-- The catalogue contains 140 tools, 10 feature pages, and 40 tutorials.
-- The tutorials currently point to 27 distinct tools and one feature page; every primary destination and every related tutorial/tool link resolves.
-- Ten tutorial CTA labels do not exactly match their destination page names, including AI URL to Video & Influencer, AI Product Photoshoot, AI UGC Creator, AI Chat Pro, AI Phone Call Agent, and External Chatbot Builder.
-- Several tools have multiple tutorials, but their tool page currently shows only the first one.
+## What happens now
+No code, content, image, or metadata changes. The alignment check I ran is reported to you here in chat only, so you have the list without anything being "fixed" against your wishes.
 
-## Work
-1. **Build a complete alignment matrix**
-   - Compare all 40 tutorials with the full content of their matching tool or feature page.
-   - Check product name, CTA destination, description, supported inputs, controls, outputs, workflow steps, limitations, related tools, and terminology.
-   - Separate harmless wording differences from genuine capability conflicts.
+## Verified findings (read-only, nothing changed)
+- Catalogue: 140 tool pages, 10 feature pages, 40 tutorials. Every tutorial's main button and every related link reaches a page that exists — no broken destinations.
+- Ten tutorials label their button slightly differently from the page it opens. These are display-label differences only, for example "AI Chat" vs the page titled "AI Chat Pro", "AI Photoshoot" vs "AI Product Photoshoot", "AI UGC Generator" vs "AI UGC Creator", "AI Phone Agent" vs "AI Phone Call Agent", "External Chatbot" vs "External Chatbot Builder", "Team Workspaces" vs "Team workspaces".
+- Seven tools have more than one tutorial, but each tool page currently shows only one of them: AI Chat (4), Website chatbot (4), AI URL to Video & Influencer (3), AI Blogger Agent (2), AI Creative Suite (2), AI Phone Call Agent (2), AI Smart Inbox (2). So 13 guides are not reachable from their tool page.
 
-2. **Reconcile names and functionality**
-   - Standardise tutorial names and CTA labels to the canonical catalogue names.
-   - Update tool-page copy when a tutorial documents a verified AmmarAI capability that the page omits.
-   - Remove or narrow tutorial claims that are not supported by the matching AmmarAI page or established product catalogue.
-   - Keep distinct workflows under shared products clearly labelled, such as viral clips and product-video creation within AI URL to Video & Influencer.
+## Deliberately not done
+- No tutorial wording, names, buttons, steps, or images are altered.
+- No tool page copy is altered.
+- No new consistency tests, navigation changes, or metadata edits are added.
 
-3. **Align navigation both ways**
-   - Replace the one-tutorial-per-tool lookup with a one-to-many relationship.
-   - Show every relevant tutorial on its matching tool page without duplicating unrelated guides.
-   - Preserve feature-page destinations such as Team Workspaces and verify related-tool and related-tutorial links after changes.
-
-4. **Quality assurance**
-   - Add an automated catalogue consistency check for missing slugs, duplicate slugs, mismatched canonical names, and broken relationships.
-   - Review every affected tool and tutorial page on desktop and mobile.
-   - Confirm page metadata, headings, CTAs, images, and internal links remain valid, with no internal editorial notes exposed.
-
-## Scope
-This aligns the 40 existing tutorials with their corresponding catalogue pages. It does not create tutorials for the other 113 tools that currently have no tutorial.
-
-## Technical details
-Likely changes will be limited to the tool/tutorial data files, the tutorial lookup helper, tool-page tutorial rendering, and a focused consistency test. AmmarAI's established product catalogue and verified end-user functionality will be the authority when resolving conflicts.
+## Note for later
+If you ever want the tool pages and tutorials to match more closely, the change should go the other way too: tool pages updated to follow the tutorials, since the tutorials are the record of real capability. Say the word and I'll plan that instead.
