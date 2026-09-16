@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, type LegalSection } from "@/components/site/LegalPage";
 
-const title = "Refund Policy | AmmarAI";
+const title = "Refund Policy: 7-Day Subscription Guarantee | AmmarAI";
 const description =
   "When AmmarAI subscriptions are refundable, the 7-day first-purchase guarantee, how consumed credits are treated and how to request a refund.";
 
@@ -102,7 +102,71 @@ export const Route = createFileRoute("/refund-policy")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ammarai.com/refund-policy" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://ammarai.com/refund-policy" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://ammarai.com/refund-policy#webpage",
+            url: "https://ammarai.com/refund-policy",
+            name: title,
+            headline: "Refund Policy",
+            description,
+            inLanguage: "en-US",
+            dateModified: "2026-09-14",
+            about: { "@type": "Thing", name: "AmmarAI subscription refunds and cancellation policy" },
+            isPartOf: { "@id": "https://ammarai.com/#website" },
+            publisher: { "@id": "https://ammarai.com/#organization" },
+            breadcrumb: { "@id": "https://ammarai.com/refund-policy#breadcrumb" },
+            mainEntity: {
+              "@type": "Thing",
+              name: "AmmarAI Refund Policy",
+              description:
+                "AmmarAI offers a 7-day refund guarantee for a customer's first paid subscription, subject to the request being made within 7 calendar days and usage being no more than 20% of the applicable credit allowance.",
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://ammarai.com/#website",
+            url: "https://ammarai.com/",
+            name: "AmmarAI",
+            inLanguage: "en-US",
+            description: "AmmarAI provides AI-powered generation and productivity tools.",
+            publisher: { "@id": "https://ammarai.com/#organization" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://ammarai.com/#organization",
+            url: "https://ammarai.com/",
+            name: "Mobile Unlocking LLC",
+            alternateName: "AmmarAI",
+            email: "support@ammarai.com",
+            brand: { "@type": "Brand", name: "AmmarAI", url: "https://ammarai.com/" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://ammarai.com/refund-policy#breadcrumb",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "AmmarAI", item: "https://ammarai.com/" },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Refund Policy",
+                item: "https://ammarai.com/refund-policy",
+              },
+            ],
+          },
+        ]),
+      },
     ],
   }),
   component: () => (
