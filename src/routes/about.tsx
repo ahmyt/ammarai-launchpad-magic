@@ -63,7 +63,7 @@ export const Route = createFileRoute("/about")({
             name: "AmmarAI",
             publisher: { "@id": "https://ammarai.com/#organization" },
             description:
-              "AmmarAI brings 140 AI tools into one workspace for writing, chat, images, video, voice, transcription, vision, documents and code.",
+              "AmmarAI brings 150 AI tools into one workspace for writing, chat, images, video, voice, transcription, vision, documents and code.",
           },
           {
             "@context": "https://schema.org",
