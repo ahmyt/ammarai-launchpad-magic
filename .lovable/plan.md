@@ -1,42 +1,51 @@
-# Aligning the tool pages with what AmmarAI actually runs
+# Tools page reconciled against the Marketplace
 
-## What the marketplace shows
+I signed in and read the full admin Marketplace: **117 entries**. The public Tools page currently has **140 cards** (41 tools + 99 writer templates). Most of the gap is naming and placement, not missing pages — but ten real tools are genuinely absent.
 
-I signed in and read the full marketplace list (110+ add-ons). Two facts stand out:
+Scope agreed: platform/admin/billing add-ons excluded, small add-ons listed on their parent tool page, AI models stay on the AI Models page. Tutorials: untouched.
 
-- **The Installed tab is empty.** Not a single marketplace add-on is installed on the app today.
-- Every add-on is marked either "Not Purchased" or "Free (Not Installed)" — including CRM, Phone Call Agent, AI Agent Builder, UGC Creator, UGC Factory, AI Video Editor, AI Video Pro, AI Captions, AI Dubbing, AI Photoshoot, AI Fashion Studio, AI Image Pro, AI Music Pro, AI Presentation Maker, AI Creative Suite, AI Blogger Agent, Social Media Agent, External Chatbot v3, AI Chat Pro, Deep Research, AI Council Mode, AI Persona, Canvas, Content Manager, SEO Tool.
+## What the audit found
 
-What the workspace actually offers right now is the core set in the user sidebar: AI Editor, AI Writer, AI Video, AI Image, AI Article Wizard, AI File Chat, AI Vision, AI ReWriter, AI Chat Image, AI Chat, AI Code, AI YouTube, AI RSS, AI Speech to Text, AI Voiceover, Brand Voice, plus Integration and the writer templates.
+**Missing tools (10) — to be added**
 
-So the marketplace confirms the **names and real descriptions** of every advertised capability, but it also shows most of them are not switched on yet.
+| Tool | Category | What it does (per Marketplace) |
+| --- | --- | --- |
+| UGC Factory | AI Video | UGC videos with virtual actors, digital twins, voiceover and lip-sync |
+| Viral Clips | AI Video | Turns long videos into TikToks, Reels and Shorts |
+| AI Video Enhancer | AI Video | Upscales and restores video frame by frame |
+| AI Council Mode | AI Chat | Runs several models in parallel and merges them into one answer, with side-by-side comparison |
+| AI Social Media Publisher | AI Social Media | Preview, schedule and publish posts, including LinkedIn and X |
+| Content Manager | AI Productivity | One library for uploaded images, documents and videos |
+| AI ReWriter | AI Writing | Rewrites existing text in a chosen tone and length |
+| Brand Voice | AI Writing | Saves a brand's tone so every tool writes in it |
+| AI Editor | AI Writing | Long-form document editor with AI assistance |
+| AI Image Assistant | AI Image | Guided prompt help and refinement inside image generation |
 
-## The decision this forces
+**Wrong category (6) — real tools currently filed under "AI Templates"**
+Article Wizard → AI Writing; Web Page Chat → AI Chat; Chat With Image → AI Vision; Realtime Voice Chat → AI Voice; Generate From RSS Feed → AI Writing; AI Voice Isolator → AI Audio.
 
-The marketing site advertises 140 tools and 40 guides, most of them for add-ons that are not installed. That is a promise-versus-product gap, and it is a business call, not a code call. Three options:
+**Names to correct (2)**
+"AI Fashion Try-On" → **AI Fashion Studio**; "AI Chat Bots" → **AI Chatbot Training** (it is the chatbot training tool, not a second chatbot builder). Slugs and URLs stay the same so nothing breaks.
 
-- **A. Treat the marketplace as the roadmap** (recommended default): keep the pages, keep the guides, and correct only wording that contradicts the marketplace description. Nothing is removed. Assumes the add-ons get installed.
-- **B. Mark the not-yet-installed ones.** Same as A, plus a small "Coming soon" marker on tools whose add-on is not installed, so visitors are not misled.
-- **C. Trim to what runs today.** Show only the core sidebar tools and archive the rest until their add-ons are installed.
+**Descriptions to correct** where a page states something the Marketplace does not: AI Video Pro, AI Video Editor, AI Product Photoshoot, AI Creative Suite, AI UGC Creator, AI URL to Video, AI Captions, AI Dubbing, AI Presentation Maker, AI Phone Call Agent, AI CRM, AI Smart Inbox, AI Agent Builder, AI Blogger Agent, AI Music Pro, AI Image Pro, AI Document Analyzer.
 
-## The tool-page fixes, either way
+**Capabilities added to existing pages** (not new cards, per your choice):
+AI Chat Pro — Canvas documents, Memory, Folders, Temporary Chat, Highlight to Ask, Smart Highlight, Smart Image Display, Chat with Documents, Chat Share, and the Gmail, Google Calendar, Google Drive, Notion and Outlook connectors.
+External Chatbot Builder — Sales Agent, Booking Agent, Voice Chat, Human handover, Feedback, Customer Segmentation, and Instagram, WhatsApp, Telegram and Messenger channels.
+AI Agent Builder — Gmail, Outlook, Slack, WhatsApp, CRM, Marketing, Social Media and External Chatbot connectors.
+AI Personas & Skills — the Skills library and /skill-creator.
 
-Names, slugs, URLs, CTAs, related lists and SEO metadata stay as they are. Tutorials are never edited. All edits are confined to the tool records in `src/data/tools-*.ts`.
+**Duplicates:** none on the site. The Marketplace lists "AI Photoshoot" and "AI Product Photography" separately; both map to the single existing Product Photoshoot page, which is correct.
 
-**Group A — contradictions with the guides** (apply now): AI Video Pro, AI Video Editor, AI Product Photoshoot / AI Fashion Studio, AI Creative Suite, AI UGC Creator, AI URL to Video & Influencer. Their described workflow conflicts with the guide; rewrite the `how` steps and any contradicting summary line to match the guide.
+## Tool count
 
-**Group B — claims with no guide behind them** (now resolvable): check each against the marketplace description and keep what the marketplace states, reword what it states differently, drop what appears nowhere. Affects AI Captions, AI Dubbing, AI Presentation Maker, AI Phone Call Agent, AI CRM, AI Smart Inbox, AI Agent Builder, AI Blogger Agent, AI Music Pro, AI Image Pro, AI Document Analyzer.
-
-**Group C — real capabilities the pages omit** (apply now, from the guides): AI Chat Pro (two-model comparison, temporary chat, Content Manager library), AI Voiceover & Voice Clone (cloning), Article Wizard (keyword suggestions), External Chatbot Builder (voice call agent, Booking Assistant, Shopping Assistant), AI Smart Inbox (saved replies, private notes, exports), AI CRM (Projects board, activity calendar), AI Phone Call Agent (outbound single and batch calling), AI Image Pro (variation count, style presets, model choice), AI Blogger Agent (calendar, reports).
-
-The marketplace also names several capabilities the site does not mention at all — Skills, AI Council Mode, Deep Research, Canvas, Viral Clips, Influencer Avatars, Memory / Folders / Highlight-to-Ask and the Gmail, Calendar, Drive, Notion and Outlook connectors for AI Chat Pro. I will list these for you rather than adding pages unprompted.
+Adding ten tools takes the catalogue from 140 to **150**. The "140 tools" wording appears across the homepage, Features, AI Tools, pricing and blog copy — all of it gets updated to 150 so the claim stays true.
 
 ## Technical notes
 
-- Edits limited to `src/data/tools-*.ts` (`summary`, `lede`, `canDo`, `how`, `capabilities`).
-- No changes to `src/data/tutorials.ts`, tutorial images, routes, or head metadata.
-- Verified with `bunx tsgo --noEmit` and a clean build; spot-check the six Group A pages in the browser.
-
-## What I need from you
-
-Pick A, B or C for the advertised-versus-installed gap. I will apply Groups A, B and C to the tool pages either way.
+- New tool records go into the existing `src/data/tools-*.ts` files using the current `Tool` shape (slug, name, category, summary, lede, canDo, how, capabilities, related). No new components, no styling changes; cards, filters, search and the `$slug.tsx` detail page already handle any tool in the array.
+- Category re-assignment is a one-field change per record; `categoryOrder` already contains every target category, so no new filter chips are needed.
+- Each new tool gets its own route via the existing dynamic route, plus canonical, og:url and JSON-LD from the current head convention, and is added to the sitemap automatically.
+- Icons come from the existing icon set used by sibling tools in the same category.
+- Verification: `bunx tsgo --noEmit`, a build check, then a Playwright pass at 1440 and 390 px confirming every new tool page returns 200, appears under the right filter, is findable by search, has one H1, no overflow and no console errors.
+- Tutorials, tutorial data, routes and images are not touched — final count of tutorial changes will be 0.
