@@ -77,7 +77,7 @@ export const Route = createFileRoute("/$slug")({
     if (useCase) return { kind: "useCase" as const, useCase };
     throw notFound();
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) {
       return {
         meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }],
