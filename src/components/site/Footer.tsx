@@ -1,8 +1,20 @@
 import { Link } from "@tanstack/react-router";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { footerNav, SITE } from "@/lib/site";
+import { siteContentQuery } from "@/lib/content";
 import { Wordmark } from "./Header";
 
 export function Footer() {
+  const { data: content } = useSuspenseQuery(siteContentQuery);
+  const settings = content.pages.find((page) => page.slug === "settings");
+  const showTutorials = settings?.showTutorialsNav !== false;
+  const navGroups = footerNav.map((group) => ({
+    ...group,
+    links: showTutorials
+      ? group.links
+      : group.links.filter((link) => !("to" in link && link.to === "/tutorials")),
+  }));
+
   return (
     <footer className="site-footer border-t border-border bg-sand">
       <div className="site-footer-inner mx-auto w-full max-w-7xl px-5 sm:px-8">
@@ -20,7 +32,7 @@ export function Footer() {
           </div>
 
           <div className="site-footer-nav grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
-            {footerNav.map((group, groupIndex) => (
+            {navGroups.map((group, groupIndex) => (
               <nav key={group.heading} aria-label={group.heading}>
                 <div className="site-footer-nav-index" aria-hidden="true">
                   {String(groupIndex + 1).padStart(2, "0")}
