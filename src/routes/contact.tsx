@@ -9,7 +9,7 @@ import { siteContentQuery } from "@/lib/content";
 
 const title = "Contact AmmarAI: Sales, Support and Partnerships | AmmarAI";
 const description =
-  "Get in touch about plans, agency and team accounts, technical questions or partnership enquiries.";
+  "Contact AmmarAI for plans, team and agency accounts, technical support, or partnerships. Send a message and get a reply within two working days.";
 
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },
