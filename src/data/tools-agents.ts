@@ -598,7 +598,9 @@ export const agentTools: Tool[] = [
       "Write full posts with headings, tables, FAQs and internal links",
       "Set titles, meta descriptions and image alt text automatically",
       "Publish to WordPress directly, or hold posts for review",
-      "Keep publishing on a weekly or daily schedule without prompting",
+      "Set categories, tags and a featured image on each published post",
+      "Choose the tone — professional, friendly, direct, technical — or use your own brand style rules",
+      "Keep publishing on a weekly, daily or custom schedule without prompting",
     ],
     how: [
       {
@@ -643,7 +645,11 @@ export const agentTools: Tool[] = [
       },
       {
         title: "Direct publishing",
-        body: "Push straight to WordPress with the SEO fields and featured image already set.",
+        body: "Push straight to WordPress with the SEO fields, categories, tags and featured image already set.",
+      },
+      {
+        title: "Custom tone and style",
+        body: "Pick a voice for the whole run, or hand it your own brand style rules to follow.",
       },
       {
         title: "Internal linking",
@@ -876,7 +882,7 @@ export const agentTools: Tool[] = [
       "Run live web searches on a topic you define",
       "Open and read the most relevant pages automatically",
       "Compare multiple sources and note where they disagree",
-      "Compile findings into a structured report with citations",
+      "Compile findings into a structured report with sources and citations",
       "Summarise long documents and extract key quotes",
       "Refresh the research when sources go stale",
     ],
@@ -915,6 +921,14 @@ export const agentTools: Tool[] = [
       },
     ],
     capabilities: [
+      {
+        title: "Multi-step investigations",
+        body: "A single prompt becomes a structured, step-by-step investigation instead of one flat answer.",
+      },
+      {
+        title: "Research-optimised models",
+        body: "Questions are routed through high-reasoning models built for analytical work, with long-context handling for big topics.",
+      },
       {
         title: "Live web search",
         body: "Sources are pulled from the live web, not from a static training cutoff.",

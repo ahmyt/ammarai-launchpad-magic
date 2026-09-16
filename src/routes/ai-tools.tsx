@@ -9,9 +9,9 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { SITE, REGISTER_URL } from "@/lib/site";
 
-const title = "AI Tools Library: 150+ Tools, Agents & Templates | AmmarAI";
+const title = "AI Tools Library: 151+ Tools, Agents & Templates | AmmarAI";
 const description =
-  "Explore 150 AI tools and templates for writing, chat, agents, marketing, SEO, images, video, voice, documents and code. Find the right tool and start free.";
+  "Explore 151 AI tools and templates for writing, chat, agents, marketing, SEO, images, video, voice, documents and code. Find the right tool and start free.";
 
 export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },
@@ -51,9 +51,9 @@ export const Route = createFileRoute("/ai-tools")({
             "@id": "https://ammarai.com/ai-tools#itemlist",
             name: "AmmarAI AI Tool Library",
             description:
-              "A directory of 150 AI tools across writing, chat, image, video, voice, transcription, vision, documents, marketing, SEO, e-commerce, productivity, sales, CRM and code.",
+              "A directory of 151 AI tools across writing, chat, image, video, voice, transcription, vision, documents, marketing, SEO, e-commerce, productivity, sales, CRM and code.",
             itemListOrder: "https://schema.org/ItemListUnordered",
-            numberOfItems: 150,
+            numberOfItems: 151,
           },
           {
             "@context": "https://schema.org",
