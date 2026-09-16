@@ -7,7 +7,7 @@ import { tools } from "@/data/tools";
 
 const title = "About AmmarAI: One Workspace for AI Creation | AmmarAI";
 const description =
-  "Why AmmarAI exists, what we believe about AI tools, and the limits we state openly rather than hide behind marketing.";
+  "Why AmmarAI brings AI creation, agents and workflow automation into one workspace, with clear limits stated openly.";
 
 const principles = [
   {
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/about")({
             name: "AmmarAI",
             brand: { "@type": "Brand", name: "AmmarAI" },
             description:
-              "AmmarAI is an AI workspace that brings writing, chat, images, video, voice, transcription, vision, documents and code tools into one place.",
+              "AmmarAI is an AI workspace that brings writing, chat, images, video, voice, transcription, vision, documents, code, AI agents and workflow automation into one place.",
           },
           {
             "@context": "https://schema.org",
@@ -63,7 +63,7 @@ export const Route = createFileRoute("/about")({
             name: "AmmarAI",
             publisher: { "@id": "https://ammarai.com/#organization" },
             description:
-              "AmmarAI brings 151 AI tools into one workspace for writing, chat, images, video, voice, transcription, vision, documents and code.",
+              "AmmarAI brings 151 AI tools into one workspace for creation, AI agents and workflow automation.",
           },
           {
             "@context": "https://schema.org",
@@ -108,8 +108,8 @@ function About() {
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
               {SITE.name} brings {tools.length} AI tools into one place: writing, chat, images,
-              video, voice, transcription, vision, documents and code, sharing one brand voice, one
-              history and one bill.
+              video, voice, transcription, vision, documents, code, AI agents and workflow
+              automation, sharing one brand voice, one history and one bill.
             </p>
           </div>
         </Container>
