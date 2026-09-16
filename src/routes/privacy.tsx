@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, type LegalSection } from "@/components/site/LegalPage";
 
-const title = "Privacy Policy | AmmarAI";
+const title = "Privacy Policy: Data Collection & User Rights | AmmarAI";
 const description =
   "How AmmarAI collects, uses, shares and protects your personal data and the content you create, including AI model providers, retention periods and your rights.";
 
@@ -136,7 +136,89 @@ export const Route = createFileRoute("/privacy")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ammarai.com/privacy" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://ammarai.com/privacy" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://ammarai.com/privacy#webpage",
+            url: "https://ammarai.com/privacy",
+            name: title,
+            headline: "Privacy Policy",
+            description,
+            inLanguage: "en-US",
+            dateModified: "2026-09-14",
+            about: { "@type": "Thing", name: "Privacy, personal data protection and data rights" },
+            isPartOf: { "@id": "https://ammarai.com/#website" },
+            publisher: { "@id": "https://ammarai.com/#organization" },
+            mainEntity: { "@id": "https://ammarai.com/privacy#privacy-policy" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "DigitalDocument",
+            "@id": "https://ammarai.com/privacy#privacy-policy",
+            url: "https://ammarai.com/privacy",
+            name: "AmmarAI Privacy Policy",
+            headline: "Privacy Policy",
+            description:
+              "Privacy policy explaining what AmmarAI collects, why it collects information, who processes it, how long information is retained, and how users can access or remove their data.",
+            inLanguage: "en-US",
+            dateModified: "2026-09-14",
+            keywords: [
+              "AmmarAI privacy policy",
+              "personal data",
+              "AI content privacy",
+              "data protection",
+              "privacy rights",
+              "AI model providers",
+              "data retention",
+            ],
+            about: [
+              { "@type": "Thing", name: "Personal data" },
+              { "@type": "Thing", name: "Data privacy" },
+              { "@type": "Thing", name: "User rights" },
+            ],
+            author: { "@id": "https://ammarai.com/#organization" },
+            publisher: { "@id": "https://ammarai.com/#organization" },
+            copyrightHolder: { "@id": "https://ammarai.com/#organization" },
+            isPartOf: { "@id": "https://ammarai.com/#website" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://ammarai.com/#organization",
+            url: "https://ammarai.com/",
+            name: "Mobile Unlocking LLC",
+            alternateName: "AmmarAI",
+            email: "support@ammarai.com",
+            description:
+              "AmmarAI is an all-in-one AI creation workspace for writing, chat, images, video, voice, transcription, vision, documents and code.",
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "privacy inquiries",
+              email: "support@ammarai.com",
+              availableLanguage: ["en"],
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://ammarai.com/#website",
+            url: "https://ammarai.com/",
+            name: "AmmarAI",
+            inLanguage: "en-US",
+            description:
+              "An all-in-one AI creation workspace for writing, chat, images, video, voice, transcription, vision, documents and code.",
+            publisher: { "@id": "https://ammarai.com/#organization" },
+          },
+        ]),
+      },
     ],
   }),
   component: () => (
