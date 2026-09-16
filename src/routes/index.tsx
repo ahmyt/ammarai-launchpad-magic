@@ -15,6 +15,7 @@ import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { assetUrl } from "@/lib/asset-url";
 import { TrustLogoStrip } from "@/components/site/TrustLogoStrip";
 import { CustomerReviews } from "@/components/site/CustomerReviews";
+import { ToolCarousel } from "@/components/site/ToolCarousel";
 import videoProDemo from "@/assets/demo-video-generator.mp4.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
@@ -147,6 +148,10 @@ export function Home() {
   const [query, setQuery] = useState("");
   const searchRef = useRef<HTMLInputElement>(null);
   const suggestions = useMemo(() => suggestTools(query).slice(0, 5), [query]);
+  const secondaryTools = useMemo(() => {
+    const flagshipSlugs = new Set(featuredTools.map((tool) => tool.slug));
+    return tools.filter((tool) => !flagshipSlugs.has(tool.slug));
+  }, []);
 
   useEffect(() => {
     const focusSearch = (event: KeyboardEvent) => {
@@ -308,6 +313,24 @@ export function Home() {
               <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "studio-featured-card lg:col-span-2 min-h-52 justify-end" : "min-h-52"} />
             ))}
           </div>
+        </Container>
+      </Section>
+
+      <Section className="studio-section studio-secondary-tools">
+        <Container size="wide">
+          <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
+            <SectionHeading
+              eyebrow="Explore more"
+              title="More tools for every part of the work"
+              intro="Move from first idea to finished output with focused tools for writing, research, design, marketing, audio, business and more."
+              scale="large"
+              className="studio-heading-wide"
+            />
+            <p className="max-w-xs border-t border-foreground pt-4 text-sm leading-relaxed text-muted-foreground lg:mb-2">
+              Browse the complete collection automatically, or use the controls to move at your own pace.
+            </p>
+          </div>
+          <ToolCarousel tools={secondaryTools} />
         </Container>
       </Section>
 
