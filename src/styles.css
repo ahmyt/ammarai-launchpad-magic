@@ -417,6 +417,7 @@ body:has(.home-premium) .site-header nav a:hover::after {
 .studio-secondary-showcase {
   position: relative;
   margin-top: clamp(3.5rem, 7vw, 6.5rem);
+  overflow: hidden;
   border: 1px solid var(--border);
   background: color-mix(in oklab, var(--ink) 98%, var(--accent));
   color: var(--ink-foreground);
@@ -467,10 +468,11 @@ body:has(.home-premium) .site-header nav a:hover::after {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-auto-columns: minmax(17rem, 27%);
+  grid-auto-columns: minmax(36rem, 78%);
   grid-auto-flow: column;
-  gap: 1px;
+  gap: 1rem;
   overflow-x: auto;
+  padding: clamp(1rem, 2.4vw, 2rem);
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
@@ -483,53 +485,60 @@ body:has(.home-premium) .site-header nav a:hover::after {
 
 .studio-secondary-card {
   display: flex;
-  min-height: 22rem;
+  min-height: clamp(25rem, 35vw, 31rem);
   scroll-snap-align: start;
   flex-direction: column;
-  border-right: 1px solid color-mix(in oklab, var(--ink-foreground) 17%, transparent);
-  padding: clamp(1.35rem, 2.5vw, 2rem);
-  background: color-mix(in oklab, var(--ink) 96%, transparent);
-  transition: background 240ms ease, color 240ms ease;
+  border: 1px solid color-mix(in oklab, var(--ink-foreground) 18%, transparent);
+  padding: clamp(1.5rem, 4vw, 3.25rem);
+  background:
+    linear-gradient(135deg, color-mix(in oklab, var(--accent) 7%, transparent), transparent 42%),
+    color-mix(in oklab, var(--ink) 92%, var(--foreground));
+  box-shadow: 12px 12px 0 color-mix(in oklab, var(--ink-foreground) 7%, transparent);
+  transition: border-color 240ms ease, background 240ms ease, transform 240ms ease;
 }
 
 .studio-secondary-card:hover,
 .studio-secondary-card:focus-visible {
-  background: var(--accent);
-  color: var(--accent-foreground);
+  border-color: color-mix(in oklab, var(--accent) 72%, var(--ink-foreground));
+  background:
+    linear-gradient(135deg, color-mix(in oklab, var(--accent) 15%, transparent), transparent 48%),
+    color-mix(in oklab, var(--ink) 88%, var(--foreground));
+  transform: translateY(-3px);
   outline: none;
 }
 
 .studio-secondary-number {
-  color: color-mix(in oklab, currentColor 48%, transparent);
+  color: color-mix(in oklab, var(--accent) 78%, var(--ink-foreground));
   font-family: "Space Grotesk", var(--font-sans);
-  font-size: 2.5rem;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
   font-weight: 600;
   line-height: 1;
 }
 
 .studio-secondary-category {
   border: 1px solid color-mix(in oklab, currentColor 28%, transparent);
-  padding: 0.35rem 0.55rem;
+  padding: 0.45rem 0.7rem;
   font-size: 0.625rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .studio-secondary-card h3 {
-  max-width: 15rem;
+  max-width: 38rem;
   color: currentColor;
   font-family: "Space Grotesk", var(--font-sans);
-  font-size: clamp(1.35rem, 2vw, 1.8rem);
-  line-height: 1.05;
+  font-size: clamp(2rem, 5vw, 4.25rem);
+  line-height: 0.98;
 }
 
 .studio-secondary-card p {
   display: -webkit-box;
   margin-top: 0.85rem;
   overflow: hidden;
-  color: color-mix(in oklab, currentColor 72%, transparent);
-  font-size: 0.8125rem;
-  line-height: 1.65;
+  max-width: 42rem;
+  color: color-mix(in oklab, currentColor 70%, transparent);
+  font-size: clamp(0.875rem, 1.4vw, 1.05rem);
+  line-height: 1.6;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
@@ -538,9 +547,13 @@ body:has(.home-premium) .site-header nav a:hover::after {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
+  width: fit-content;
+  margin-top: 1.75rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.3rem;
+  font-size: 0.8125rem;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .studio-secondary-footer {
@@ -551,8 +564,23 @@ body:has(.home-premium) .site-header nav a:hover::after {
   display: flex;
   align-items: center;
   gap: 0.38rem;
-  max-width: min(52vw, 25rem);
+  max-width: min(44vw, 22rem);
   overflow: hidden;
+}
+
+.studio-carousel-progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.studio-carousel-count {
+  flex: 0 0 auto;
+  color: color-mix(in oklab, var(--ink-foreground) 72%, transparent);
+  font-family: "Space Grotesk", var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
 }
 
 .studio-carousel-dot {
@@ -568,13 +596,27 @@ body:has(.home-premium) .site-header nav a:hover::after {
   background: var(--accent);
 }
 
+.studio-secondary-all-tools {
+  min-width: 12rem;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
 @media (max-width: 639px) {
   .studio-secondary-rail {
-    grid-auto-columns: 83%;
+    grid-auto-columns: 88%;
+    gap: 0.75rem;
+    padding: 0.75rem;
   }
 
   .studio-secondary-card {
-    min-height: 19rem;
+    min-height: 24rem;
+    padding: 1.35rem;
+    box-shadow: 6px 6px 0 color-mix(in oklab, var(--ink-foreground) 7%, transparent);
+  }
+
+  .studio-secondary-card h3 {
+    font-size: clamp(1.9rem, 10vw, 2.65rem);
   }
 
   .studio-secondary-footer {
@@ -584,6 +626,14 @@ body:has(.home-premium) .site-header nav a:hover::after {
 
   .studio-carousel-dots {
     max-width: 100%;
+  }
+
+  .studio-carousel-progress {
+    width: 100%;
+  }
+
+  .studio-secondary-all-tools {
+    width: 100%;
   }
 }
 
