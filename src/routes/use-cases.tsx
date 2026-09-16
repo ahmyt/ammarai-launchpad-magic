@@ -13,6 +13,10 @@ const url = "https://ammarai.com/use-cases";
 
 export const Route = createFileRoute("/use-cases")({
   staticData: { sitemap: true },
+  loader: async ({ context }) => {
+    const content = await context.queryClient.ensureQueryData(siteContentQuery);
+    return { useCases: content.useCases };
+  },
   head: ({ loaderData }) => {
     const useCases = loaderData?.useCases ?? [];
     return {
