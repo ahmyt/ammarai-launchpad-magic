@@ -77,7 +77,7 @@ export const Route = createFileRoute("/$slug")({
     if (useCase) return { kind: "useCase" as const, useCase };
     throw notFound();
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) {
       return {
         meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }],
@@ -96,8 +96,10 @@ export const Route = createFileRoute("/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: `https://ammarai.com/${params.slug}` },
         { name: "twitter:card", content: "summary_large_image" },
       ],
+      links: [{ rel: "canonical", href: `https://ammarai.com/${params.slug}` }],
     };
   },
   component: SlugPage,
