@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, type LegalSection } from "@/components/site/LegalPage";
 
-const title = "Terms of Service | AmmarAI";
+const title = "AmmarAI Terms of Service | User Agreement & Policies";
 const description =
   "The rules for using AmmarAI: accounts, subscriptions and credits, acceptable use, ownership of AI output, liability and how the agreement ends.";
 
