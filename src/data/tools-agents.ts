@@ -600,7 +600,7 @@ export const agentTools: Tool[] = [
       "Publish to WordPress directly, or hold posts for review",
       "Set categories, tags and a featured image on each published post",
       "Choose the tone — professional, friendly, direct, technical — or use your own brand style rules",
-      "Keep publishing on a weekly, daily or custom schedule without prompting"",
+      "Keep publishing on a weekly, daily or custom schedule without prompting",
     ],
     how: [
       {
