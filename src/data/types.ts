@@ -170,5 +170,7 @@ export interface Page {
   comparisonSecondaryLabel?: string;
   /** Site-wide content protection (blocks copy, right-click and shortcuts) */
   protectContent?: boolean;
+  /** Show the Tutorials link in the top navigation (site settings page) */
+  showTutorialsNav?: boolean;
 }
 

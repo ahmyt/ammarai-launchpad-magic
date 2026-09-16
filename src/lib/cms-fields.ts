@@ -196,10 +196,20 @@ export const fieldSpecs: Record<ContentKind, FieldSpec[]> = {
   ],
 };
 
-/** Fields shown when editing a specific page — keeps Contact and Home separate. */
+const pageSettingsFields: FieldSpec[] = [
+  { name: "name", label: "Page name", type: "text" },
+  {
+    name: "showTutorialsNav",
+    label: "Show the Tutorials link in the top menu",
+    type: "boolean",
+  },
+];
+
+/** Fields shown when editing a specific page — keeps Contact, Home and Settings separate. */
 export function pageFieldSpecs(slug: string): FieldSpec[] {
   if (slug === "contact") return [...pageSharedFields, ...pageContactFields];
   if (slug === "home") return [...pageSharedFields, ...pageHomeFields];
+  if (slug === "settings") return pageSettingsFields;
   return pageSharedFields;
 }
 
