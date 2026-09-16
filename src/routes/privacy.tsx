@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, type LegalSection } from "@/components/site/LegalPage";
 
-const title = "Privacy Policy | AmmarAI";
+const title = "Privacy Policy: Data Collection & User Rights | AmmarAI";
 const description =
   "How AmmarAI collects, uses, shares and protects your personal data and the content you create, including AI model providers, retention periods and your rights.";
 
