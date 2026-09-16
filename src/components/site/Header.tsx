@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { primaryNav, SITE, REGISTER_URL, LOGIN_URL } from "@/lib/site";
+import { siteContentQuery } from "@/lib/content";
 import { ExternalButton } from "./Button";
 import logoAsset from "@/assets/ammarai-logo.png.asset.json";
 import { assetUrl } from "@/lib/asset-url";
@@ -24,6 +26,12 @@ export function Wordmark({ className }: { className?: string }) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const { data: content } = useSuspenseQuery(siteContentQuery);
+  const settings = content.pages.find((p) => p.slug === "settings");
+  const showTutorials = settings?.showTutorialsNav !== false;
+  const navItems = showTutorials
+    ? primaryNav
+    : primaryNav.filter((item) => item.to !== "/tutorials");
 
   return (
     <header className="site-header sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
@@ -34,7 +42,7 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
-          {primaryNav.map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.to}
               to={item.to}
@@ -74,7 +82,7 @@ export function Header() {
       {open ? (
         <div className="site-mobile-menu border-t border-border bg-background md:hidden">
           <nav aria-label="Mobile" className="mx-auto flex max-w-6xl flex-col px-5 py-4">
-            {primaryNav.map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}

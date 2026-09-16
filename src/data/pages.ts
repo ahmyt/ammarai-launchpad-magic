@@ -78,4 +78,18 @@ export const pages: Page[] = [
     comparisonSecondaryLabel: "Compare plans",
     protectContent: true,
   },
+  {
+    slug: "settings",
+    name: "Site settings",
+    title: "Site settings",
+    description: "Site-wide switches for the AmmarAI website.",
+    eyebrow: "",
+    h1: "",
+    lede: "",
+    formHeading: "",
+    sentHeading: "",
+    sentBody: "",
+    channels: [],
+    showTutorialsNav: true,
+  },
 ];
