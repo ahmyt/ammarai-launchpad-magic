@@ -156,7 +156,7 @@ function Resources() {
         <Container>
           <SectionHeading eyebrow="Guides" title="Read these first" />
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.slice(0, 6).map((post) => (
+            {resourceGuides.map((post) => (
               <Card key={post.slug} interactive className="p-6">
                 <p className="eyebrow">{post.category}</p>
                 <h3 className="mt-3 text-base font-semibold">
@@ -181,7 +181,7 @@ function Resources() {
         <Container>
           <SectionHeading eyebrow="Start here" title="The tools most people open first" />
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[...featuredTools, ...popularTools].slice(0, 6).map((tool) => (
+            {resourceTools.map((tool) => (
               <ToolCard key={tool.slug} tool={tool} />
             ))}
           </div>
