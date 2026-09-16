@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, type LegalSection } from "@/components/site/LegalPage";
 
-const title = "Terms of Service | AmmarAI";
+const title = "AmmarAI Terms of Service | User Agreement & Policies";
 const description =
   "The rules for using AmmarAI: accounts, subscriptions and credits, acceptable use, ownership of AI output, liability and how the agreement ends.";
 
@@ -144,7 +144,93 @@ export const Route = createFileRoute("/terms")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ammarai.com/terms" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://ammarai.com/terms" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://ammarai.com/terms#webpage",
+            url: "https://ammarai.com/terms",
+            name: title,
+            headline: "Terms of Service",
+            description,
+            inLanguage: "en-US",
+            dateModified: "2026-09-14",
+            about: { "@id": "https://ammarai.com/#organization" },
+            isPartOf: { "@id": "https://ammarai.com/#website" },
+            publisher: { "@id": "https://ammarai.com/#organization" },
+            mainEntity: { "@id": "https://ammarai.com/terms#terms" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "TermsOfService",
+            "@id": "https://ammarai.com/terms#terms",
+            url: "https://ammarai.com/terms",
+            name: "AmmarAI Terms of Service",
+            headline: "Terms of Service",
+            description:
+              "The agreement between users and AmmarAI covering use of the website and application, accounts, subscriptions, credits, acceptable use, AI output ownership, liability and termination.",
+            inLanguage: "en-US",
+            dateModified: "2026-09-14",
+            serviceUrl: "https://app.ammarai.com",
+            audience: {
+              "@type": "Audience",
+              audienceType: "Users of the AmmarAI website and application",
+            },
+            about: [
+              { "@type": "Thing", name: "AmmarAI account requirements" },
+              { "@type": "Thing", name: "AmmarAI subscriptions, credits and billing" },
+              { "@type": "Thing", name: "Acceptable use of AmmarAI" },
+              { "@type": "Thing", name: "Ownership of AI-generated output" },
+              { "@type": "Thing", name: "Limitation of liability" },
+              { "@type": "Thing", name: "Termination of the agreement" },
+            ],
+            provider: { "@id": "https://ammarai.com/#organization" },
+            publisher: { "@id": "https://ammarai.com/#organization" },
+            isPartOf: { "@id": "https://ammarai.com/#website" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://ammarai.com/#organization",
+            url: "https://ammarai.com",
+            name: "Mobile Unlocking LLC",
+            alternateName: "AmmarAI",
+            email: "support@ammarai.com",
+            description:
+              "Mobile Unlocking LLC operates AmmarAI, a subscription workspace providing AI tools for writing, chat, images, video, voice, transcription, vision, documents, code and automation agents.",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://ammarai.com/#website",
+            url: "https://ammarai.com",
+            name: "AmmarAI",
+            inLanguage: "en-US",
+            publisher: { "@id": "https://ammarai.com/#organization" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://ammarai.com/terms#breadcrumb",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "AmmarAI", item: "https://ammarai.com" },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Terms of Service",
+                item: "https://ammarai.com/terms",
+              },
+            ],
+          },
+        ]),
+      },
     ],
   }),
   component: () => (
