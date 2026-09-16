@@ -56,6 +56,7 @@
 - [x] Feature the actual seven flagship tools and align the section description with them
 - [x] Expand the opening description with named flagship tools and supporting capabilities
 - [x] Add a curated homepage library of existing Video Pro, Editor, UGC, and Avatar samples
+- [x] Replace the static flagship grid with a two-direction Neo-Swiss scrolling tool showcase
 
 - [x] Diagnose attached bounce: production is still sending through plesk-steve.zap.cloud / 185.223.31.164.
 
