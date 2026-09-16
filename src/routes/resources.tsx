@@ -10,6 +10,10 @@ const title = "Resources: Guides, Playbooks and Tool Picks | AmmarAI";
 const description =
   "Practical guides to using AI well: writing workflows, video and voice production, SEO, prompting and platform features.";
 
+const resourceGuides = posts.slice(0, 6);
+const resourceTools = [...featuredTools, ...popularTools].slice(0, 6);
+
+
 export const Route = createFileRoute("/resources")({
   staticData: { sitemap: true },
   head: () => ({
@@ -152,7 +156,7 @@ function Resources() {
         <Container>
           <SectionHeading eyebrow="Guides" title="Read these first" />
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.slice(0, 6).map((post) => (
+            {resourceGuides.map((post) => (
               <Card key={post.slug} interactive className="p-6">
                 <p className="eyebrow">{post.category}</p>
                 <h3 className="mt-3 text-base font-semibold">
@@ -177,7 +181,7 @@ function Resources() {
         <Container>
           <SectionHeading eyebrow="Start here" title="The tools most people open first" />
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[...featuredTools, ...popularTools].slice(0, 6).map((tool) => (
+            {resourceTools.map((tool) => (
               <ToolCard key={tool.slug} tool={tool} />
             ))}
           </div>
