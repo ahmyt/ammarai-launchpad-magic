@@ -58,6 +58,7 @@
 - [x] Add a curated homepage library of existing Video Pro, Editor, UGC, and Avatar samples
 - [x] Add an auto-playing, manually controlled showcase for non-flagship tools
 - [x] Expand the showcase to 18 major standalone tools, with automation tools first and no templates or flagship duplicates
+- [x] Add a playable video output sample to the Viral Clips tool page
 
 - [x] Diagnose attached bounce: production is still sending through plesk-steve.zap.cloud / 185.223.31.164.
 
