@@ -210,6 +210,14 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
         "Sample output — an influencer-style avatar delivering the written script on camera with natural lip-sync, expressions and captions.",
     },
   ],
+  "viral-clips": [
+    {
+      kind: "video",
+      url: urlToVideoClipDemo.url,
+      caption:
+        "Sample output — a strong podcast moment reframed as a vertical social clip with a clear opening hook and burned-in captions.",
+    },
+  ],
   "ai-voice-generator": [
     {
       kind: "audio",
