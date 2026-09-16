@@ -5,18 +5,24 @@ import { toolBySlug } from "@/data/tools";
 import { ActionButton, ButtonLink } from "@/components/site/Button";
 
 const showcaseSlugs = [
+  "ai-social-media-agent",
+  "ai-blogger-agent",
+  "ai-phone-agent",
+  "ai-social-media-publisher",
+  "ai-crm",
+  "ai-deep-research",
   "ai-video-editor",
   "ai-captions",
+  "ugc-factory",
+  "viral-clips",
+  "ai-dubbing",
   "ai-realtime-image",
   "ai-photoshoot",
   "ai-creative-suite",
-  "ai-deep-research",
+  "ai-council-mode",
+  "content-manager",
   "ai-document-analyzer",
   "ai-music-generator",
-  "ai-phone-agent",
-  "ai-crm",
-  "ai-social-media-publisher",
-  "ai-dubbing",
 ];
 
 export function SecondaryToolsCarousel() {
