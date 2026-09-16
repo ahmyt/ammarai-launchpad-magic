@@ -47,6 +47,19 @@ Edits are confined to the tool records in `src/data/tools-*.ts` — the `canDo`,
 
 Group A is unambiguous. Tell me whether to apply Group B and Group C as well, or only Group A.
 
-## Note on the admin marketplace page
+## What the live workspace showed
 
-https://app.ammarai.com/dashboard/admin/marketplace redirects to the sign-in screen for anyone not logged in, so I cannot read it. If you export that list (screenshots or copied text), I will check every Group B claim against it before removing anything, and add any capability it proves that the tool pages are missing.
+I signed into the app with the account you gave me. Two things stop it being usable as proof:
+
+- It is a normal user account, so the admin marketplace page redirects straight back to the website.
+- It has no active subscription, so opening the tool area lands on the plan page instead of the tools.
+
+Its sidebar lists AI Editor, AI Writer, AI Video, AI Image, AI Article Wizard, AI File Chat, AI Vision, AI ReWriter, AI Chat Image, AI Chat, AI Code, AI YouTube, AI RSS, AI Speech to Text, AI Voiceover, Brand Voice and Integration. Fashion Studio, CRM, Phone Agent, Dubbing, Captions, Music, Presentations, UGC, Agent Builder and Smart Inbox are not shown there — but that is probably plan gating, so I am not treating this list as the capability record.
+
+To use the marketplace as the source of truth I need an account with admin access, ideally with an active plan. Screenshots of the marketplace list work just as well.
+
+## Order of work
+
+1. Apply Group A now — contradictions with the guides, no further evidence needed.
+2. Apply Group C now — these come straight from the guides, which are already the agreed record.
+3. Hold Group B until the marketplace can be read, then remove or keep each claim on that evidence.
