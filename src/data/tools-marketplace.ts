@@ -620,4 +620,73 @@ export const marketplaceTools: Tool[] = [
     ],
     related: ["ai-image-generator", "ai-image-editor", "ai-creative-suite", "content-manager"],
   },
+  {
+    slug: "ai-realtime-image",
+    name: "AI Realtime Image",
+    category: "AI Image",
+    summary: "Watch the image redraw as you type — change a word and see the result instantly, with no submit and wait.",
+    title: "AI Realtime Image: Images That Update As You Type | AmmarAI",
+    description: "Generate images live while you write the prompt. Change a style, a light, an outfit or a mood and see the picture update instantly instead of waiting for another render.",
+    h1: "The image changes while you type",
+    lede: "No writing a full prompt, submitting, waiting and starting again. Type a few words and the picture forms in front of you, changing as fast as you change your mind.",
+    ctaLabel: "Try realtime image",
+    recent: true,
+    what: [
+      "Normal image generation is stop-and-go: write the prompt, submit, wait, look, edit, repeat. Most of the work is waiting for a render you already know is wrong.",
+      "Realtime Image removes the gap. The picture takes shape as you write, so trying \"watercolour\" instead of \"cyberpunk\", or moving the light, or changing a character's pose, is a live adjustment rather than another round trip.",
+      "It suits exploration: characters, worlds, scenes and abstract ideas, where the point is to see many possibilities quickly and keep the one that works.",
+    ],
+    canDo: [
+      "See the image update live as you type the prompt",
+      "Switch art styles — watercolour, cyberpunk, realism, anime — and compare instantly",
+      "Adjust lighting, background, perspective and mood word by word",
+      "Change a character's outfit, expression or pose on the spot",
+      "Try dozens of variations without a separate render each time",
+      "Keep the version you like and carry it into the other image tools",
+    ],
+    how: [
+      { title: "Start typing", body: "Write a few words. The image begins forming before you finish the sentence." },
+      { title: "Steer it live", body: "Add a style, a light, a camera angle or a mood and watch the picture follow." },
+      { title: "Explore variations", body: "Change a single word to test a bold idea without losing your place." },
+      { title: "Keep what works", body: "Save the version you want and take it into editing or the rest of your project." },
+    ],
+    examples: [
+      {
+        label: "Character exploration",
+        input: "\"young cartographer, lantern light\" — then add \"anime\", then \"rain-soaked street\".",
+        output: "Three distinct versions seen within seconds of each other, each appearing as the words are typed rather than after a queue.",
+      },
+      {
+        label: "Mood testing",
+        input: "A product scene tried in warm morning light, then overcast, then neon night.",
+        output: "The same composition relit three ways in one sitting, with the strongest option saved.",
+      },
+    ],
+    capabilities: [
+      { title: "Live rendering", body: "The picture updates as the prompt changes, so you never submit and wait to find out." },
+      { title: "Style switching", body: "Move between watercolour, realism, anime, cyberpunk and more without restarting." },
+      { title: "Fine control in words", body: "Colour, mood, angle, background and perspective all respond to small wording changes." },
+      { title: "Stay in flow", body: "No jumping between prompt and preview, which is where most ideas get lost." },
+    ],
+    audiences: [
+      { who: "Illustrators and concept artists", why: "Explore many directions before committing to one." },
+      { who: "Designers and marketers", why: "Find the right look quickly instead of burning renders on guesses." },
+      { who: "Writers and world-builders", why: "See characters and settings while describing them." },
+    ],
+    useCases: [
+      { title: "Concept exploration", body: "Sketch out characters, worlds and scenes in words and see them immediately." },
+      { title: "Style hunting", body: "Find the visual direction for a campaign before generating the final assets." },
+    ],
+    tips: [
+      "Start broad, then add one detail at a time so you can see what each word does.",
+      "Use it to choose a direction, then finish the chosen image in AI Image Pro or the editor.",
+      "Save versions as you go — the live preview moves on quickly.",
+    ],
+    mistakes: ["Writing a long prompt before looking", "Trying to get a final print-ready asset here rather than a direction", "Changing five things at once"],
+    faqs: [
+      { q: "How is this different from AI Image Pro?", a: "Realtime Image is for exploring: the picture updates as you type. Image Pro is where you produce and refine the finished image." },
+      { q: "Can I keep the images?", a: "Yes — save the versions you want and use them in the other tools." },
+    ],
+    related: ["ai-image-generator", "ai-image-editor", "ai-creative-suite", "ai-photoshoot"],
+  },
 ];
