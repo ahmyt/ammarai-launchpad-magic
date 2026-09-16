@@ -1,61 +1,48 @@
-# Keep reviewer emails out of the published site
+# Align tool pages with the tutorials (tutorials stay untouched)
 
-## Short answer to the question
+I compared all 40 tutorials against the 28 tool pages they point to. Everything below is a proposed change to **tool pages only** — no tutorial wording, step, image, name or button is touched.
 
-No. When an admin approves a review, the reviewer's email address is **not** published anywhere, so Google cannot crawl it.
+Findings fall into three groups. Group A are real contradictions. Group B are claims a tool page makes that no tutorial supports. Group C are real capabilities the tutorials show but the tool page never mentions.
 
-What was checked:
+## Group A — the workflow described does not match the tutorial (fix these)
 
-- The published reviews have no email field at all — the approval step copies only name, title, text, rating, date, verified flag and source. The email column lives in a separate private table.
-- The private table that holds emails allows *submitting only*. No browser, and no crawler, can read rows back from it.
-- The homepage HTML that search engines receive contains no review text at all (reviews are added by the browser after load) and the only addresses in it are the three public company ones: `support@`, `teams@`, `partners@`.
-- Nothing in the sitemap, feeds or public endpoints exposes review records.
+1. **AI Video Pro** — the page describes turning a script into a scene-by-scene video with built-in voiceover, burnt-in captions, per-scene regeneration and hook variants. The guide shows a single-clip generator: choose model, write a prompt or upload an image, set duration and size, generate. Rewrite the page around prompt/image-to-clip, and point voice, captions and multi-scene assembly at AI Voiceover, AI Captions and the AI Video Editor.
+2. **AI Video Editor** — the page reads as a prompt-driven auto-editor ("describe the cut", colour grading, silence trimming, dialogue cleanup). The guide shows a real project editor: pick an aspect ratio, add library media, arrange/trim/layer on a timeline, then use AI panels for generated video, voiceover and music. Rewrite to the timeline-plus-AI-panels workflow.
+3. **AI Product Photoshoot** — the guide attached to this page is Fashion Studio: a dashboard with product selection (library, upload, prompt-to-product), model and style selection, posing, backgrounds, Virtual Try-On, Change Model, Edit Image, My Photoshoots, My Wardrobe, AI video generation, and output settings for count, resolution and ratio. The page currently covers only product-only scenes. Rebuild the page around the Fashion Studio workflow shown.
+4. **AI Creative Suite** — the page describes a brand-kit/set generator with saved brand styles and mockups. The guide shows a design canvas: generate a base image, templates and artboards, type/colour/alignment, layers, annotation-based region edits, export and project import/export. Rewrite to the canvas workflow.
+5. **AI UGC Creator** — the page starts from a product brief and creator matching. The guide starts from audio and a chosen voice, then actor, then scene. Correct the sequence.
+6. **AI URL to Video & Influencer** — the page's "review the generated script" step does not exist in any of its three guides; the real flow is product details → video details → presenter → voice → caption style → choose a rendered preview. Correct that step and add the influencer-from-script path.
 
-**The one real gap:** if a reviewer types their email address *inside the review text* (for example "email me at john@x.com"), that sentence is published word for word on approval and a crawler can read it. Nothing catches that today. Right now zero published reviews and zero pending submissions contain an email address, so nothing has leaked — this plan makes sure nothing ever can.
+## Group B — claims no tutorial supports (propose removing or softening)
 
-## What to build
+- **AI Captions**: speaker detection, subtitle translation, transcript correction, SRT/VTT export. Guide shows upload, template, generate, continue in the video editor.
+- **AI Dubbing**: "review the translation" step and translated captions. Guide shows source type, language, speaker count, advanced options, title, generate, history.
+- **AI Presentation Maker**: PPTX export and single-slide regeneration. Guide ends at review and download.
+- **AI Phone Call Agent**: live calendar booking, human transfer, per-contact transcript logging.
+- **AI CRM**: WhatsApp/Telegram access, monthly win-rate and source reports.
+- **AI Smart Inbox**: one-click conversion to lead/task/deal, response-time and resolution metrics.
+- **AI Agent Builder**: approval gates before sensitive actions.
+- **AI Blogger Agent**: an explicit "approve the plan" step.
+- **AI Music Pro**: multiple variants per brief, direct hand-off to Sound Studio.
+- **AI Image Pro**: brush editing, background removal, frame extension, upscaling, batch export.
+- **AI Document Analyzer**: version comparison and multi-document questioning.
 
-1. **Automatic removal at approval.** Before a review goes live, any email address inside the reviewer name, review title or review text is replaced with `[email removed]`. This happens in the single server-side approval routine, so it applies to every review no matter who approves it or how.
-2. **Existing published reviews cleaned.** The same removal runs once over the reviews already live, so the rule holds even if something was approved before this change.
-3. **A quiet note on the review form.** Under the email box, one line: "Your email is never published. Please don't include it in your review." Reviewers who do still get their review approved — just with the address masked.
-4. **A heads-up for admins.** In the moderation screen, a pending review that contains an email address shows a small badge: "Contains an email — it will be removed on approval."
-5. **Nothing is destroyed for you.** The private copy keeps the reviewer's real email and their original wording, so you can still reply to them.
+## Group C — capabilities the tutorials show that the tool page omits (propose adding)
 
-```text
-Reviewer submits            Admin approves              Public site
---------------              --------------              -----------
-email  -> private table     approval routine            name/title/text
-text   -> pending queue  -> masks any email found  ->   no email present
-name   -> pending queue                                  (crawlable, safe)
-```
+- **AI Chat Pro**: run one prompt through two models side by side; temporary chat; the Content Manager media library (uploads, stock images, stock video, documents).
+- **AI Voiceover & Voice Clone**: voice cloning from your own recording is absent from the page despite being in the product name.
+- **Article Wizard**: keyword suggestions and "questions people search" turned into outline sections.
+- **External Chatbot Builder**: voice call agent, Booking Assistant with a scheduling embed, Shopping Assistant with store connection and selectable shop details, starter questions, bubble design.
+- **AI Smart Inbox**: saved replies, private notes, visited-page history, date filtering, single and bulk conversation export.
+- **AI CRM**: Projects board and the activity calendar.
+- **AI Phone Call Agent**: outbound single and batch calling with call history.
+- **AI Image Pro**: variation count, style presets and model choice.
+- **AI Blogger Agent**: content calendar and reports/analytics.
 
-## Technical details
+## How the changes are made
 
-**1. New masking function** (`public.mask_emails(text) returns text`)
-- `regexp_replace(_text, '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[email removed]', 'gi')`
-- `immutable`, `security invoker`, `search_path` pinned to `public`. Returns input unchanged when there is no match.
+Edits are confined to the tool records in `src/data/tools-*.ts` — the `canDo`, `how`, `capabilities`, and where the summary/lede contradicts the guide, those fields too. Names, slugs, URLs, CTAs, related lists and SEO metadata stay as they are, so no link or canonical changes. Typecheck and build after each batch.
 
-**2. Replace `public.admin_moderate_review`** (existing `SECURITY DEFINER` admin-only function — same signature, same admin check)
-- In the approved branch, the `INSERT INTO public.customer_reviews (...) VALUES (...)` applies `public.mask_emails()` to `reviewer_name`, `review_title` and `review_text`; the `ON CONFLICT DO UPDATE` clause carries the same three masked values.
-- The `UPDATE public.customer_reviews SET status = 'rejected'` branch and the returned review id are unchanged.
-- `review_submissions` is still updated only for status, so the reviewer's real email and original text remain available to admins.
+## Decision needed
 
-**3. One-off backfill in the same migration**
-- `UPDATE public.customer_reviews SET reviewer_name = mask_emails(reviewer_name), review_title = mask_emails(review_title), review_text = mask_emails(review_text)` guarded by a `WHERE ... ~* 'email regex'` so rows without a match are untouched. Expected to affect 0 rows today.
-- GRANTs, RLS and policies are left exactly as they are — this change adds no new table and no new access path.
-
-**4. Form copy** — in `src/components/site/CustomerReviews.tsx`, a short muted line below the email input. No validation change: submissions still go through even when an email appears in the text.
-
-**5. Admin badge** — in `src/routes/admin.reviews.tsx`, a small pill next to a pending submission whose name, title or text matches the email pattern, using a client-side regex constant shared from `src/lib/reviews.ts`. No query change.
-
-## Verification
-
-- SQL probe: submit a review whose text contains `test@leak-me.com`, approve it through the moderation screen, then confirm the published row reads `[email removed]`, that the pending record still holds the original text, and that a full scan of `customer_reviews` for the email pattern returns 0 rows. Delete the test rows afterwards.
-- `bunx tsgo --noEmit` clean; `/tmp/observability/build-errors.log` shows build OK.
-- Playwright on the homepage at 1280x1800 and 390x1800: reviews render, no `@` address appears in any review card, no console errors, no horizontal overflow.
-- Confirm the three company addresses and all existing structured data are unaffected.
-
-## Notes
-
-- Reviews stay visible to Google exactly as they are today — only the address text changes.
-- Live effect requires your next Plesk deployment; the database change itself applies as soon as it runs.
+Group A is unambiguous. Tell me whether to apply Group B and Group C as well, or only Group A.
