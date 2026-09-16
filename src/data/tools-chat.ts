@@ -9,7 +9,7 @@ export const chatWorkspaceTools: Tool[] = [
       "Build reusable AI personas with their own role, tone, knowledge and skills, then use them anywhere in the workspace instead of retyping instructions.",
     title: "AI Personas & Skills: Reusable AI Roles | AmmarAI",
     description:
-      "Create AI personas with a defined role, tone, knowledge and output rules, attach reusable skills, share them with your team and use them across chat, writing and agents.",
+      "Create reusable AI personas with roles, tone, knowledge, rules, and skills. Share them with your team and use them across chat, writing tools, and agents.",
     h1: "Save the instructions once, use the expert everywhere",
     lede: "Stop pasting the same three paragraphs of context into every conversation. Build the persona once — role, tone, knowledge, rules — attach the skills it needs, and call it whenever you need that expert.",
     ctaLabel: "Build a persona",
