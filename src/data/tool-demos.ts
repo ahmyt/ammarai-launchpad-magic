@@ -49,6 +49,8 @@ import seoReportTextAnalysis from "@/assets/seo-report-text-analysis.jpg";
 import seoReportKeywords from "@/assets/seo-report-keywords.jpg";
 import chatImgMenu from "@/assets/chatimg-in-menu.jpg";
 import chatImgWhiteboard from "@/assets/chatimg-in-whiteboard.jpg";
+import realtimeCartographer from "@/assets/realtime-out-cartographer.jpg";
+import realtimeProductNeon from "@/assets/realtime-out-product-neon.jpg";
 
 
 export type ToolDemoScene = {
@@ -275,6 +277,18 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
       kind: "image",
       url: imageOutCyclist,
       caption: "Sample output — a 4:5 concept scene with negative space in the lower third for a caption.",
+    },
+  ],
+  "ai-realtime-image": [
+    {
+      kind: "image",
+      url: realtimeCartographer,
+      caption: "Sample output — a lantern-lit young cartographer in a rain-soaked anime city, refined live from the evolving prompt.",
+    },
+    {
+      kind: "image",
+      url: realtimeProductNeon,
+      caption: "Sample output — the same product-scene idea pushed into a polished neon-night campaign direction.",
     },
   ],
   "ai-image-editor": [
