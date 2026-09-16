@@ -113,7 +113,10 @@ export const Route = createFileRoute("/use-cases")({
       ],
     };
   },
-  loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
+  loader: async ({ context }) => {
+    const content = await context.queryClient.ensureQueryData(siteContentQuery);
+    return { useCases: content.useCases };
+  },
   component: UseCasesIndex,
 });
 
