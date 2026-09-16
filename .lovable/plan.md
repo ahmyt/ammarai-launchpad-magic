@@ -2,7 +2,7 @@
 
 I signed in and read the full admin Marketplace: **117 entries**. The public Tools page currently has **140 cards** (41 tools + 99 writer templates). Most of the gap is naming and placement, not missing pages — but ten real tools are genuinely absent.
 
-Scope agreed: platform/admin/billing add-ons excluded, small add-ons listed on their parent tool page, AI models stay on the AI Models page. Tutorials: untouched.
+Scope agreed: platform/admin/billing add-ons excluded, small add-ons listed on their parent tool page, AI models stay on the AI Models page. Every Marketplace entry is treated as live and available — "Not purchased" and "Not installed" are ignored, and no "coming soon" labels are used anywhere. Tutorials: untouched.
 
 ## What the audit found
 
