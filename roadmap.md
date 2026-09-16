@@ -57,6 +57,7 @@
 - [x] Expand the opening description with named flagship tools and supporting capabilities
 - [x] Add a curated homepage library of existing Video Pro, Editor, UGC, and Avatar samples
 - [x] Add an auto-playing, manually controlled showcase for non-flagship tools
+- [x] Expand the showcase to 18 major standalone tools, with automation tools first and no templates or flagship duplicates
 
 - [x] Diagnose attached bounce: production is still sending through plesk-steve.zap.cloud / 185.223.31.164.
 
