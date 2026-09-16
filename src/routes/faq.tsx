@@ -91,8 +91,10 @@ export const Route = createFileRoute("/faq")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ammarai.com/faq" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://ammarai.com/faq" }],
   }),
   component: FaqPage,
 });
