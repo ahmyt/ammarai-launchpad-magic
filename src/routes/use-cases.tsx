@@ -6,22 +6,113 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { SITE, REGISTER_URL } from "@/lib/site";
 
-const title = "AI Use Cases by Role and Industry | AmmarAI";
+const title = "AI Use Cases by Role and Industry | AmmarAI Workflows";
 const description =
   "See how marketers, creators, small businesses, agencies, students, developers and e-commerce teams use AmmarAI day to day.";
+const url = "https://ammarai.com/use-cases";
 
 export const Route = createFileRoute("/use-cases")({
   staticData: { sitemap: true },
-  head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: ({ loaderData }) => {
+    const useCases = loaderData?.useCases ?? [];
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: url },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": "https://ammarai.com/#organization",
+              name: SITE.name,
+              url: "https://ammarai.com/",
+              description: SITE.description,
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://ammarai.com/#website",
+              name: SITE.name,
+              url: "https://ammarai.com/",
+              publisher: { "@id": "https://ammarai.com/#organization" },
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "@id": "https://ammarai.com/#software",
+              name: SITE.name,
+              url: "https://ammarai.com/",
+              description:
+                "An AI creation platform for producing marketing copy, content, emails, documentation, social media posts, product listings and other everyday written work.",
+              operatingSystem: "Web",
+              applicationCategory: "BusinessApplication",
+              publisher: { "@id": "https://ammarai.com/#organization" },
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              "@id": `${url}#webpage`,
+              url,
+              name: title,
+              headline: "The same platform, used very differently",
+              description,
+              isPartOf: { "@id": "https://ammarai.com/#website" },
+              publisher: { "@id": "https://ammarai.com/#organization" },
+              about: { "@id": "https://ammarai.com/#software" },
+              mainEntity: { "@id": `${url}#use-cases` },
+              breadcrumb: { "@id": `${url}#breadcrumb` },
+              potentialAction: {
+                "@type": "RegisterAction",
+                name: "Start creating free",
+                target: REGISTER_URL,
+              },
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "@id": `${url}#use-cases`,
+              name: "AmmarAI Use Cases by Role",
+              description:
+                "Ways different professionals, teams and creators use AmmarAI in their daily workflows.",
+              itemListOrder: "https://schema.org/ItemListOrderAscending",
+              numberOfItems: useCases.length,
+              itemListElement: useCases.map((uc, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                name: uc.name,
+                description: uc.summary,
+                url: `https://ammarai.com/${uc.slug}`,
+              })),
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "@id": `${url}#breadcrumb`,
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://ammarai.com/",
+                },
+                { "@type": "ListItem", position: 2, name: "Use Cases", item: url },
+              ],
+            },
+          ]),
+        },
+      ],
+    };
+  },
   loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
   component: UseCasesIndex,
 });
