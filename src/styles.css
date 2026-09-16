@@ -414,6 +414,190 @@ body:has(.home-premium) .site-header nav a:hover::after {
   color: color-mix(in oklab, var(--ink-foreground) 68%, transparent);
 }
 
+.studio-secondary-showcase {
+  position: relative;
+  margin-top: clamp(3.5rem, 7vw, 6.5rem);
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--ink) 98%, var(--accent));
+  color: var(--ink-foreground);
+  box-shadow: 0 44px 90px -62px color-mix(in oklab, var(--foreground) 70%, transparent);
+}
+
+.studio-secondary-showcase::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--ink-foreground) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--ink-foreground) 5%, transparent) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  pointer-events: none;
+}
+
+.studio-secondary-topline,
+.studio-secondary-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.studio-secondary-topline {
+  border-bottom: 1px solid color-mix(in oklab, var(--ink-foreground) 17%, transparent);
+}
+
+.studio-secondary-showcase .studio-label {
+  color: color-mix(in oklab, var(--ink-foreground) 66%, transparent);
+}
+
+.studio-secondary-showcase .studio-carousel-arrow {
+  border-color: color-mix(in oklab, var(--ink-foreground) 25%, transparent);
+  color: var(--ink-foreground);
+}
+
+.studio-secondary-showcase .studio-carousel-arrow:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.studio-secondary-rail {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-auto-columns: minmax(17rem, 27%);
+  grid-auto-flow: column;
+  gap: 1px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+}
+
+.studio-secondary-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.studio-secondary-card {
+  display: flex;
+  min-height: 22rem;
+  scroll-snap-align: start;
+  flex-direction: column;
+  border-right: 1px solid color-mix(in oklab, var(--ink-foreground) 17%, transparent);
+  padding: clamp(1.35rem, 2.5vw, 2rem);
+  background: color-mix(in oklab, var(--ink) 96%, transparent);
+  transition: background 240ms ease, color 240ms ease;
+}
+
+.studio-secondary-card:hover,
+.studio-secondary-card:focus-visible {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  outline: none;
+}
+
+.studio-secondary-number {
+  color: color-mix(in oklab, currentColor 48%, transparent);
+  font-family: "Space Grotesk", var(--font-sans);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.studio-secondary-category {
+  border: 1px solid color-mix(in oklab, currentColor 28%, transparent);
+  padding: 0.35rem 0.55rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.studio-secondary-card h3 {
+  max-width: 15rem;
+  color: currentColor;
+  font-family: "Space Grotesk", var(--font-sans);
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.05;
+}
+
+.studio-secondary-card p {
+  display: -webkit-box;
+  margin-top: 0.85rem;
+  overflow: hidden;
+  color: color-mix(in oklab, currentColor 72%, transparent);
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.studio-secondary-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.studio-secondary-footer {
+  border-top: 1px solid color-mix(in oklab, var(--ink-foreground) 17%, transparent);
+}
+
+.studio-carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+  max-width: min(52vw, 25rem);
+  overflow: hidden;
+}
+
+.studio-carousel-dot {
+  width: 1.2rem;
+  height: 0.2rem;
+  flex: 0 0 auto;
+  background: color-mix(in oklab, var(--ink-foreground) 30%, transparent);
+  transition: width 200ms ease, background 200ms ease;
+}
+
+.studio-carousel-dot[aria-current="true"] {
+  width: 2.5rem;
+  background: var(--accent);
+}
+
+@media (max-width: 639px) {
+  .studio-secondary-rail {
+    grid-auto-columns: 83%;
+  }
+
+  .studio-secondary-card {
+    min-height: 19rem;
+  }
+
+  .studio-secondary-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .studio-carousel-dots {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .studio-secondary-rail {
+    scroll-behavior: auto;
+  }
+
+  .studio-secondary-card,
+  .studio-carousel-dot {
+    transition: none;
+  }
+}
+
 .studio-video-card {
   transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
 }

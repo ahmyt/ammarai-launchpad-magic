@@ -15,6 +15,7 @@ import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { assetUrl } from "@/lib/asset-url";
 import { TrustLogoStrip } from "@/components/site/TrustLogoStrip";
 import { CustomerReviews } from "@/components/site/CustomerReviews";
+import { SecondaryToolsCarousel } from "@/components/site/SecondaryToolsCarousel";
 import videoProDemo from "@/assets/demo-video-generator.mp4.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
@@ -308,6 +309,7 @@ export function Home() {
               <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "studio-featured-card lg:col-span-2 min-h-52 justify-end" : "min-h-52"} />
             ))}
           </div>
+           <SecondaryToolsCarousel />
         </Container>
       </Section>
 
