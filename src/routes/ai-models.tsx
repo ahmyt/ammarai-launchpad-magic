@@ -79,8 +79,10 @@ export const Route = createFileRoute("/ai-models")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ammarai.com/ai-models" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://ammarai.com/ai-models" }],
   }),
   component: Models,
 });
