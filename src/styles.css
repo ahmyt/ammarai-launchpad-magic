@@ -468,7 +468,7 @@ body:has(.home-premium) .site-header nav a:hover::after {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-auto-columns: minmax(36rem, 78%);
+  grid-auto-columns: 82%;
   grid-auto-flow: column;
   gap: 1rem;
   overflow-x: auto;
