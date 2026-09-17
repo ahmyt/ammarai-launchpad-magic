@@ -5302,6 +5302,10 @@ body:has(.home-swiss-dark) .site-footer {
   border-top: 1px solid var(--border);
 }
 
+.home-enterprise .studio-reviews-compact > div > div:nth-last-child(2) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .home-enterprise .studio-proof .studio-review-card:hover,
 .home-enterprise .studio-flagships .studio-featured-card:hover {
   border-color: color-mix(in oklab, var(--accent) 46%, var(--border));
@@ -5437,5 +5441,9 @@ body:has(.home-swiss-dark) .site-footer {
   .home-enterprise .studio-section-action .site-button,
   .home-enterprise .studio-secondary-all-tools {
     width: 100%;
+  }
+
+  .home-enterprise .studio-reviews-compact > div > div:nth-last-child(2) {
+    grid-template-columns: 1fr;
   }
 }
