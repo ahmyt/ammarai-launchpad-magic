@@ -5614,7 +5614,7 @@ body:has(.home-swiss-dark) .site-footer {
   .site-demo
 ) {
   border-color: var(--border);
-  box-shadow: 5px 5px 0 var(--accent) !important;
+  box-shadow: 2px 2px 0 color-mix(in oklab, var(--accent) 46%, transparent) !important;
 }
 
 .site-shell.theme-dark :is(
@@ -5624,11 +5624,9 @@ body:has(.home-swiss-dark) .site-footer {
   .site-pricing-card
 ):hover,
 .site-shell.theme-dark .site-pricing-card:focus-within {
-  border-color: color-mix(in oklab, var(--accent) 68%, var(--border));
-  transform: translate(-2px, -2px);
-  box-shadow:
-    7px 7px 0 var(--accent),
-    0 1.25rem 2.75rem -1.75rem color-mix(in oklab, var(--accent) 36%, transparent) !important;
+  border-color: color-mix(in oklab, var(--accent) 46%, var(--border));
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 color-mix(in oklab, var(--accent) 72%, transparent) !important;
 }
 
 .site-shell.theme-dark :is(
@@ -5638,7 +5636,7 @@ body:has(.home-swiss-dark) .site-footer {
   .admin-studio [class*="rounded-xl"][class*="bg-card"]
 ) {
   border-color: var(--border);
-  box-shadow: 5px 5px 0 var(--accent) !important;
+  box-shadow: 2px 2px 0 color-mix(in oklab, var(--accent) 46%, transparent) !important;
 }
 
 .site-shell.theme-dark .site-demo [class*="rounded-xl"][class*="bg-card"] {
@@ -5666,7 +5664,7 @@ body:has(.home-swiss-dark) .site-footer {
     main details[class*="rounded-xl"][class*="bg-card"],
     main form[class*="rounded-xl"][class*="bg-card"]
   ) {
-    box-shadow: 4px 4px 0 var(--accent) !important;
+    box-shadow: 2px 2px 0 color-mix(in oklab, var(--accent) 46%, transparent) !important;
   }
 
   .site-shell.theme-dark .site-demo [class*="rounded-xl"][class*="bg-card"] {
