@@ -5075,7 +5075,7 @@ body:has(.home-swiss-dark) .site-header a[class*="bg-ink"] {
 }
 
 .home-swiss-dark .trust-strip[data-logo-mode="colorful"] .trust-logo-item img {
-  opacity: 0.88;
+  opacity: 1;
   transition: opacity 240ms ease, transform 240ms ease;
 }
 
