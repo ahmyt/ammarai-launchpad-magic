@@ -128,7 +128,7 @@ function FeaturesIndex() {
               The parts that make a tool library into a workspace
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Sixty tools are only useful if they share a voice, remember your work and export
+              151 tools are only useful if they share a voice, remember your work and export
               cleanly. These are the pieces that hold the whole thing together.
             </p>
           </div>
