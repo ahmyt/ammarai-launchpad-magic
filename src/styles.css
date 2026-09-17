@@ -5594,3 +5594,82 @@ body:has(.home-swiss-dark) .site-footer {
     display: none;
   }
 }
+
+/* Final card-edge layer: intentionally last so page-specific card rules cannot flatten it. */
+.site-shell.theme-dark :is(
+  .site-card,
+  .site-tool-card,
+  .tutorials-card,
+  .tutorials-sidebar-inner,
+  .site-pricing-card,
+  .studio-category-card,
+  .studio-usecase-card,
+  .studio-review-card,
+  .studio-journal-card,
+  .studio-comparison-card,
+  .studio-secondary-card,
+  .tutorial-when,
+  .tutorial-callout,
+  .tool-tutorial-link,
+  .site-demo
+) {
+  border-color: var(--border);
+  box-shadow: 5px 5px 0 var(--accent);
+}
+
+.site-shell.theme-dark :is(
+  .site-card,
+  .site-tool-card,
+  .tutorials-card,
+  .site-pricing-card
+):hover,
+.site-shell.theme-dark .site-pricing-card:focus-within {
+  border-color: color-mix(in oklab, var(--accent) 68%, var(--border));
+  transform: translate(-2px, -2px);
+  box-shadow:
+    7px 7px 0 var(--accent),
+    0 1.25rem 2.75rem -1.75rem color-mix(in oklab, var(--accent) 36%, transparent);
+}
+
+.site-shell.theme-dark :is(
+  main li[class*="rounded-xl"][class*="bg-card"],
+  main details[class*="rounded-xl"][class*="bg-card"],
+  main form[class*="rounded-xl"][class*="bg-card"],
+  .admin-studio [class*="rounded-xl"][class*="bg-card"]
+) {
+  border-color: var(--border);
+  box-shadow: 5px 5px 0 var(--accent);
+}
+
+.site-shell.theme-dark .site-demo [class*="rounded-xl"][class*="bg-card"] {
+  box-shadow: none;
+}
+
+@media (max-width: 639px) {
+  .site-shell.theme-dark :is(
+    .site-card,
+    .site-tool-card,
+    .tutorials-card,
+    .tutorials-sidebar-inner,
+    .site-pricing-card,
+    .studio-category-card,
+    .studio-usecase-card,
+    .studio-review-card,
+    .studio-journal-card,
+    .studio-comparison-card,
+    .studio-secondary-card,
+    .tutorial-when,
+    .tutorial-callout,
+    .tool-tutorial-link,
+    .site-demo,
+    main li[class*="rounded-xl"][class*="bg-card"],
+    main details[class*="rounded-xl"][class*="bg-card"],
+    main form[class*="rounded-xl"][class*="bg-card"]
+  ) {
+    box-shadow: 4px 4px 0 var(--accent);
+  }
+
+  .site-shell.theme-dark .site-demo [class*="rounded-xl"][class*="bg-card"] {
+    box-shadow: none;
+  }
+}
