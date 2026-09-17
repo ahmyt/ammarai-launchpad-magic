@@ -242,3 +242,7 @@
 - [x] Add an accessible sun/moon theme control to desktop and mobile headers
 - [x] Keep the premium dark design as the first-visit default and offer the earlier light design
 - [x] Verify persistence and both themes across desktop and mobile
+
+## Scrolling logo panels
+- [x] Add a consistent white background behind every homepage scrolling logo
+- [x] Verify logo readability and spacing on desktop and mobile
