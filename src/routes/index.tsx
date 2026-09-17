@@ -180,7 +180,7 @@ export function Home() {
 
       <div className="studio-proof" aria-label="Customer proof">
         <TrustLogoStrip />
-        <CustomerReviews />
+        <CustomerReviews compact />
       </div>
 
       <Section className="studio-section studio-flagships studio-focused-section">

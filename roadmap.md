@@ -232,4 +232,4 @@
 ## Focused enterprise homepage sequence
 - [x] Preserve the current hero and consolidate the lower page into proof, flagship tools, specialist tools, and one close
 - [x] Limit the homepage to major tools and standardize cards, labels, controls, spacing, and dividers
-- [ ] Verify desktop, mobile, interactions, links, and build health
+- [x] Verify desktop, mobile, interactions, links, and build health
