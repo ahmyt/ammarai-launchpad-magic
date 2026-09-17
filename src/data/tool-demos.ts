@@ -434,15 +434,6 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
       caption: "Sample output — the same recording with the background bed removed and the voice evened out.",
     },
   ],
-  "ai-video-to-video": [
-    {
-      kind: "video",
-      inputVideo: "/media/demo-video-to-video-source.mp4",
-      inputVideoLabel: "raw-camera-take.mp4",
-      url: "/media/demo-video-to-video.mp4",
-      caption: "Sample output — the same take restyled with a cinematic grade, sharper detail and a soft vignette.",
-    },
-  ],
   "ai-code-generator": [
     {
       kind: "code",
