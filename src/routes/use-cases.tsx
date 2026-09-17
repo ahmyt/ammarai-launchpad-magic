@@ -8,7 +8,7 @@ import { SITE, REGISTER_URL } from "@/lib/site";
 
 const title = "AI Use Cases by Role and Industry | AmmarAI Workflows";
 const description =
-  "See how marketers, creators, small businesses, agencies, students, developers and e-commerce teams use AmmarAI day to day.";
+  "See how marketers, creators, small businesses, agencies, students, developers and e-commerce teams use AmmarAI day to day — from hands-on creation to AI agents that schedule and publish for them.";
 const url = "https://ammarai.com/use-cases";
 
 export const Route = createFileRoute("/use-cases")({
@@ -135,7 +135,9 @@ function UseCasesIndex() {
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
               A solo creator and a twelve-person agency reach for completely different parts of the
-              library. These pages describe the actual workflows, not the marketing version.
+              platform — from hands-on creation tools to AI agents that research, schedule, and
+              publish on their behalf. These pages describe the actual workflows, not the marketing
+              version.
             </p>
           </div>
         </Container>
