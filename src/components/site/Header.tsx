@@ -1,9 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { Moon, Sun } from "lucide-react";
 import { primaryNav, SITE, REGISTER_URL, LOGIN_URL } from "@/lib/site";
 import { siteContentQuery } from "@/lib/content";
-import { ExternalButton } from "./Button";
+import { ActionButton, ExternalButton } from "./Button";
+import { useTheme } from "./ThemeProvider";
 import logoAsset from "@/assets/ammarai-logo.png.asset.json";
 import { assetUrl } from "@/lib/asset-url";
 
@@ -26,6 +28,7 @@ export function Wordmark({ className }: { className?: string }) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const settings = content.pages.find((p) => p.slug === "settings");
   const showTutorials = settings?.showTutorialsNav !== false;
@@ -55,6 +58,17 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <ActionButton
+            type="button"
+            variant="ghost"
+            size="sm"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+            title={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+            className="theme-toggle size-9 p-0"
+          >
+            {theme === "light" ? <Moon className="size-4" aria-hidden="true" /> : <Sun className="size-4" aria-hidden="true" />}
+          </ActionButton>
           <a
             href={LOGIN_URL}
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -66,17 +80,32 @@ export function Header() {
           </ExternalButton>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-label="Toggle navigation menu"
-          className="site-menu-toggle flex size-10 items-center justify-center ring-1 ring-border md:hidden"
-        >
-          <span aria-hidden="true" className="text-lg leading-none">
-            {open ? "×" : "≡"}
-          </span>
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ActionButton
+            type="button"
+            variant="ghost"
+            size="sm"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+            title={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+            className="theme-toggle size-10 p-0"
+          >
+            {theme === "light" ? <Moon className="size-4" aria-hidden="true" /> : <Sun className="size-4" aria-hidden="true" />}
+          </ActionButton>
+          <ActionButton
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label="Toggle navigation menu"
+            className="site-menu-toggle size-10 p-0"
+          >
+            <span aria-hidden="true" className="text-lg leading-none">
+              {open ? "×" : "≡"}
+            </span>
+          </ActionButton>
+        </div>
       </div>
 
       {open ? (

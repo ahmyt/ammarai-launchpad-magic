@@ -237,3 +237,8 @@
 ## Homepage secondary action
 - [x] Add an “Explore AI tools” secondary button beside “Start creating free”
 - [x] Verify destination, desktop/mobile layout, and build health
+
+## Light and dark theme control
+- [x] Add an accessible sun/moon theme control to desktop and mobile headers
+- [x] Restore the premium light design as the first-visit default
+- [ ] Verify persistence and both themes across desktop and mobile

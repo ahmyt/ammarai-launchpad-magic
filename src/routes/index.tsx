@@ -15,6 +15,7 @@ import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { TrustLogoStrip } from "@/components/site/TrustLogoStrip";
 import { CustomerReviews } from "@/components/site/CustomerReviews";
 import { SecondaryToolsCarousel } from "@/components/site/SecondaryToolsCarousel";
+import { useTheme } from "@/components/site/ThemeProvider";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
 const description =
@@ -145,6 +146,7 @@ export function Home() {
     secondaryLabel: page?.comparisonSecondaryLabel || "Compare plans",
   };
   const [query, setQuery] = useState("");
+  const { theme } = useTheme();
   const searchRef = useRef<HTMLInputElement>(null);
   const suggestions = useMemo(() => suggestTools(query).slice(0, 5), [query]);
 
@@ -170,7 +172,7 @@ export function Home() {
   );
 
   return (
-    <div className="home-premium home-swiss home-swiss-dark home-enterprise overflow-hidden">
+    <div className={`home-premium home-swiss overflow-hidden ${theme === "dark" ? "home-swiss-dark home-enterprise" : ""}`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
