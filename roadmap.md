@@ -227,4 +227,4 @@
 ## Enterprise homepage refinement
 - [x] Apply the selected Enterprise Indigo Tech system across the complete homepage
 - [x] Simplify the hero and operational workspace preview without changing capabilities
-- [ ] Verify desktop, mobile, interactions, media, and build health
+- [x] Verify desktop, mobile, interactions, media, and build health

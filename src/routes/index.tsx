@@ -80,25 +80,29 @@ const videoLibrary = [
     title: "From brief to finished video",
     label: "AI Video Pro",
     slug: "ai-video-generator",
-    src: "/media/demo-video-generator.mp4",
+    src: "/media/demo-video-generator.webm",
+    poster: "/media/demo-video-generator.poster.jpg",
   },
   {
     title: "A polished product edit",
     label: "AI Video Editor",
     slug: "ai-video-editor",
-    src: "/media/demo-video-editor.mp4",
+    src: "/media/demo-video-editor.webm",
+    poster: "/media/demo-video-editor.poster.jpg",
   },
   {
     title: "Creator-style campaign video",
     label: "AI UGC Generator",
     slug: "ai-ugc-generator",
-    src: "/media/demo-ugc-creator.mp4",
+    src: "/media/demo-ugc-creator.webm",
+    poster: "/media/demo-ugc-creator.poster.jpg",
   },
   {
     title: "A talking avatar presentation",
     label: "AI Avatar Video Generator",
     slug: "ai-avatar-generator",
-    src: "/media/demo-avatar-video.mp4",
+    src: "/media/demo-avatar-video.webm",
+    poster: "/media/demo-avatar-video.poster.jpg",
   },
 ];
 
@@ -328,7 +332,7 @@ export function Home() {
                   muted
                   playsInline
                   preload="none"
-                  poster={item.src.replace(/\.mp4$/, ".poster.jpg")}
+                   poster={item.poster}
                   src={item.src}
                   aria-label={`${item.label} sample video`}
                   className="aspect-video w-full bg-ink object-cover"
