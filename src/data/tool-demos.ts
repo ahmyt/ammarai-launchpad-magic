@@ -98,7 +98,7 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
   "ai-avatar-generator": [
     {
       kind: "video",
-      url: "/media/avatar-option-1-final.mp4",
+      url: "/media/avatar-option-1-final.webm",
       caption: "Sample output — a founder headshot delivering the launch announcement with AI lip-sync.",
     },
     {
