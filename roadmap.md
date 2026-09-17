@@ -223,3 +223,8 @@
 - [x] Tutorial batch 17: one inbox for WhatsApp and Telegram messages (AI Smart Inbox), cloning your own voice (AI Voiceover & Voice Clone), keyword and question ideas in the Article Wizard. Broadcast campaigns, provider keys, admin SEO fields and AI Canvas excluded.
 - [x] Tutorial batch 18: connecting a chatbot to WhatsApp, Telegram, Messenger and Instagram via the Channel step (External Chatbot Builder). Provider account/app/webhook setup and admin credential screens excluded.
 - [x] Tutorial batch 19 (4 guides, own-catalogue sourced): AI SEO Analyzer, AI Deep Research, AI Fashion Try-On, AI Transcription. Reference docs exhausted for end-user content.
+
+## Enterprise homepage refinement
+- [ ] Apply the selected Enterprise Indigo Tech system across the complete homepage
+- [ ] Simplify the hero and operational workspace preview without changing capabilities
+- [ ] Verify desktop, mobile, interactions, media, and build health
