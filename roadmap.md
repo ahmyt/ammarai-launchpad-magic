@@ -230,6 +230,6 @@
 - [x] Verify desktop, mobile, interactions, media, and build health
 
 ## Homepage trust-logo refresh
-- [ ] Replace all seven scrolling logos with the supplied company artwork
-- [ ] Remove solid and checkerboard backgrounds while preserving logo details
-- [ ] Verify descriptive alt text, desktop/mobile presentation, and build health
+- [x] Replace all seven scrolling logos with the supplied company artwork
+- [x] Remove solid and checkerboard backgrounds while preserving logo details
+- [x] Verify descriptive alt text, desktop/mobile presentation, and build health
