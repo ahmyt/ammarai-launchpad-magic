@@ -1,14 +1,14 @@
-import avatarDemo from "@/assets/sample-avatar-founder.mp4.asset.json";
-import avatarDemo2 from "@/assets/sample-avatar-instructor.mp4.asset.json";
-import imageToVideoDemo from "@/assets/sample-image-video-sneaker.mp4.asset.json";
-import imageToVideoDemo2 from "@/assets/sample-image-video-mountains.mp4.asset.json";
-import textToVideoDemo from "@/assets/sample-video-pro-serum.mp4.asset.json";
-import textToVideoDemo2 from "@/assets/sample-video-pro-city.mp4.asset.json";
-import videoGeneratorDemo from "@/assets/sample-video-pro-app.mp4.asset.json";
-import videoGeneratorDemo2 from "@/assets/sample-video-pro-lifestyle.mp4.asset.json";
-import urlToVideoAdDemo from "@/assets/sample-url-video-ad.mp4.asset.json";
-import urlToVideoClipDemo from "@/assets/sample-url-video-clip.mp4.asset.json";
-import urlToVideoAvatarDemo from "@/assets/sample-url-video-avatar.mp4.asset.json";
+import avatarDemo from "@/assets/demo-avatar-video.mp4.asset.json";
+import avatarDemo2 from "@/assets/demo-avatar-video-2.mp4.asset.json";
+import imageToVideoDemo from "@/assets/demo-image-to-video.mp4.asset.json";
+import imageToVideoDemo2 from "@/assets/demo-image-to-video-2.mp4.asset.json";
+import textToVideoDemo from "@/assets/demo-text-to-video.mp4.asset.json";
+import textToVideoDemo2 from "@/assets/demo-text-to-video-2.mp4.asset.json";
+import videoGeneratorDemo from "@/assets/demo-video-generator.mp4.asset.json";
+import videoGeneratorDemo2 from "@/assets/demo-video-generator-2.mp4.asset.json";
+import urlToVideoAdDemo from "@/assets/demo-url-to-video-ad.mp4.asset.json";
+import urlToVideoClipDemo from "@/assets/demo-url-to-video-clip.mp4.asset.json";
+import urlToVideoAvatarDemo from "@/assets/demo-url-to-video-avatar.mp4.asset.json";
 import voiceAdRead from "@/assets/demo-voice-ad-read.mp3.asset.json";
 import voiceCourse from "@/assets/demo-voice-course.mp3.asset.json";
 import ttsArticle from "@/assets/demo-tts-article.mp3.asset.json";
@@ -19,20 +19,11 @@ import transcriptionInterview from "@/assets/demo-transcription-interview.mp3.as
 import transcriptionWalkthrough from "@/assets/demo-transcription-walkthrough.mp3.asset.json";
 import musicAdBed from "@/assets/demo-music-ad-bed.mp3.asset.json";
 import musicAmbientBed from "@/assets/demo-music-ambient-bed.mp3.asset.json";
-import videoEditorDemo from "@/assets/sample-video-editor.mp4.asset.json";
-import videoEditorSource from "@/assets/source-video-editor.mp4.asset.json";
-import captionsDemo from "@/assets/sample-ai-captions.mp4.asset.json";
-import captionsSource from "@/assets/source-founder-captions.mp4.asset.json";
-import dubbingDemo from "@/assets/sample-ai-dubbing.mp4.asset.json";
-import dubbingSource from "@/assets/source-ai-dubbing.mp4.asset.json";
-import ugcDemo from "@/assets/sample-ugc-creator.mp4.asset.json";
-import youtubeDemo from "@/assets/sample-youtube-short.mp4.asset.json";
-import youtubeSource from "@/assets/source-youtube-short.mp4.asset.json";
-import viralClipsDemo from "@/assets/sample-viral-clips.mp4.asset.json";
-import videoToVideoDemo from "@/assets/sample-video-to-video.mp4.asset.json";
-import ugcFactoryDemo from "@/assets/sample-ugc-factory.mp4.asset.json";
-import videoEnhancerDemo from "@/assets/sample-video-enhancer.mp4.asset.json";
-import videoEnhancerSource from "@/assets/source-video-enhancer.mp4.asset.json";
+import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
+import videoEditorSource from "@/assets/demo-video-editor-source.mp4.asset.json";
+import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
+import youtubeDemo from "@/assets/demo-youtube-publisher.mp4.asset.json";
+import youtubeSource from "@/assets/demo-youtube-source.mp4.asset.json";
 import sourceSneaker from "@/assets/i2v-source-sneaker.jpg";
 import sourceMountains from "@/assets/i2v-source-mountains.jpg";
 import imageOutWorkbench from "@/assets/imggen-out-workbench.jpg";
@@ -168,19 +159,19 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
   "ai-captions": [
     {
       kind: "video",
-      inputVideo: captionsSource.url,
+      inputVideo: "/media/demo-ai-captions-source.mp4",
       inputVideoLabel: "founder-talking-head.mp4",
-      url: captionsDemo.url,
+      url: "/media/demo-ai-captions.mp4",
       caption: "Sample output — the same founder clip with word-timed English captions burned in.",
     },
   ],
   "ai-dubbing": [
     {
       kind: "video",
-      inputVideo: dubbingSource.url,
+      inputVideo: "/media/demo-ai-dubbing-source.mp4",
       inputVideoLabel: "travel-presenter-english.mp4",
-      url: dubbingDemo.url,
-      caption: "Sample output — the same presenter localised with natural Spanish delivery and timing aligned to the scene.",
+      url: "/media/demo-ai-dubbing.mp4",
+      caption: "Sample output — the same presenter dubbed into Spanish with matched timing and on-screen subtitles.",
     },
   ],
   "ai-ugc-generator": [
@@ -204,52 +195,27 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
       kind: "video",
       url: urlToVideoAdDemo.url,
       caption:
-        "Sample output — a finished vertical travel-connectivity ad assembled from the product-page brief, with product visuals, presenter voiceover and burned-in captions.",
+        "Sample output — a finished vertical ad built from the esimnow.net product page, with avatar presenter, voiceover and burned-in captions.",
     },
     {
       kind: "video",
       url: urlToVideoClipDemo.url,
       caption:
-        "Sample output — a self-contained podcast moment reframed vertically with an opening hook and burned-in captions.",
+        "Sample output — one of the five short clips cut from the 45-minute podcast, opening on a hook with captions burned in for Reels and TikTok.",
     },
     {
       kind: "video",
       url: urlToVideoAvatarDemo.url,
       caption:
-        "Sample output — an influencer-style presenter delivering a product script with natural lip-sync, expressions and captions.",
+        "Sample output — an influencer-style avatar delivering the written script on camera with natural lip-sync, expressions and captions.",
     },
   ],
   "viral-clips": [
     {
       kind: "video",
-      url: viralClipsDemo.url,
+      url: urlToVideoClipDemo.url,
       caption:
-        "Sample output — a strong podcast insight reframed as a focused vertical social clip.",
-    },
-  ],
-  "ai-video-to-video": [
-    {
-      kind: "video",
-      inputVideo: "/media/demo-video-to-video-source.mp4",
-      inputVideoLabel: "source-product-scene.mp4",
-      url: videoToVideoDemo.url,
-      caption: "Sample output — the same source clip restyled with a cooler cinematic grade, stronger contrast and a focused campaign finish.",
-    },
-  ],
-  "ugc-factory": [
-    {
-      kind: "video",
-      url: ugcFactoryDemo.url,
-      caption: "Sample output — one polished virtual-presenter variant from a batch-ready supplement campaign.",
-    },
-  ],
-  "ai-video-enhancer": [
-    {
-      kind: "video",
-      inputVideo: videoEnhancerSource.url,
-      inputVideoLabel: "compressed-product-demo.mp4",
-      url: videoEnhancerDemo.url,
-      caption: "Sample output — the original edit preserved while resolution, clarity and fine detail are restored.",
+        "Sample output — a strong podcast moment reframed as a vertical social clip with a clear opening hook and burned-in captions.",
     },
   ],
   "ai-voice-generator": [
@@ -432,6 +398,15 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
       inputAudioLabel: "walkthrough-with-background-music.mp3",
       url: "/media/demo-voice-isolator.mp3",
       caption: "Sample output — the same recording with the background bed removed and the voice evened out.",
+    },
+  ],
+  "ai-video-to-video": [
+    {
+      kind: "video",
+      inputVideo: "/media/demo-video-to-video-source.mp4",
+      inputVideoLabel: "raw-camera-take.mp4",
+      url: "/media/demo-video-to-video.mp4",
+      caption: "Sample output — the same take restyled with a cinematic grade, sharper detail and a soft vignette.",
     },
   ],
   "ai-code-generator": [

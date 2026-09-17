@@ -61,7 +61,6 @@
 - [x] Add a playable video output sample to the Viral Clips tool page
 - [x] Audit public pages for automation and publishing discrepancies; correct the About page and footer
 - [x] Refresh daily-writer keyword research for all 151 tools and add new capability-led topics
-- [x] Replace all 20 output samples across the 13 video tools with premium, capability-matched video and fresh poster frames; tutorials unchanged
 
 - [x] Diagnose attached bounce: production is still sending through plesk-steve.zap.cloud / 185.223.31.164.
 
