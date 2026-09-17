@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowRight, Check, Search, Sparkles, WandSparkles } from "lucide-react";
 import { siteContentQuery } from "@/lib/content";
 import { tools, featuredTools, suggestTools } from "@/data/tools";
@@ -45,7 +44,6 @@ export const Route = createFileRoute("/")({
 });
 
 export function Home() {
-  const { data: content } = useSuspenseQuery(siteContentQuery);
   const [query, setQuery] = useState("");
   const searchRef = useRef<HTMLInputElement>(null);
   const suggestions = useMemo(() => suggestTools(query).slice(0, 5), [query]);

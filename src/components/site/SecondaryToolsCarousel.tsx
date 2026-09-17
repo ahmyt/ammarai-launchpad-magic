@@ -12,17 +12,9 @@ const showcaseSlugs = [
   "ai-crm",
   "ai-deep-research",
   "ai-video-editor",
-  "ai-captions",
   "ugc-factory",
   "viral-clips",
-  "ai-dubbing",
   "ai-realtime-image",
-  "ai-photoshoot",
-  "ai-creative-suite",
-  "ai-council-mode",
-  "content-manager",
-  "ai-document-analyzer",
-  "ai-music-generator",
 ];
 
 export function SecondaryToolsCarousel() {
@@ -78,7 +70,7 @@ export function SecondaryToolsCarousel() {
       }}
     >
       <div className="studio-secondary-topline">
-        <p className="studio-label">More ways to create</p>
+        <p className="studio-label">Selected specialist tools</p>
         <div className="flex items-center gap-2">
           <ActionButton
             type="button"
@@ -154,8 +146,8 @@ export function SecondaryToolsCarousel() {
             ))}
           </div>
         </div>
-        <ButtonLink to="/ai-tools" variant="onInk" size="lg" className="studio-secondary-all-tools">
-          View All Tools <ArrowRight className="size-4" aria-hidden="true" />
+        <ButtonLink to="/ai-tools" variant="outline" size="lg" className="studio-secondary-all-tools">
+          Explore tools <ArrowRight className="size-4" aria-hidden="true" />
         </ButtonLink>
       </div>
     </section>

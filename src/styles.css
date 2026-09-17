@@ -5239,3 +5239,203 @@ body:has(.home-swiss-dark) .site-footer {
     display: none;
   }
 }
+
+/* Homepage lower sections — focused enterprise sequence. Hero intentionally unchanged. */
+.home-enterprise .studio-proof,
+.home-enterprise .studio-focused-section,
+.home-enterprise .studio-final-cta {
+  border-top: 1px solid var(--border);
+}
+
+.home-enterprise .studio-proof .trust-strip {
+  border: 0;
+  padding-block: 2.75rem;
+  background: var(--ink);
+}
+
+.home-enterprise .studio-proof .trust-strip h2 {
+  margin-bottom: 1.5rem;
+  letter-spacing: 0;
+}
+
+.home-enterprise .studio-proof .studio-reviews-section {
+  padding-block: clamp(5rem, 7vw, 7rem);
+  border-top: 1px solid var(--border);
+  background: var(--background);
+  background-image: none;
+}
+
+.home-enterprise .studio-proof .studio-reviews-section::before {
+  display: none;
+}
+
+.home-enterprise .studio-proof .studio-reviews-section h2,
+.home-enterprise .studio-focused-section h2 {
+  max-width: 52rem;
+  font-size: clamp(2.6rem, 5vw, 4.75rem);
+  line-height: 0.96;
+}
+
+.home-enterprise .studio-proof .studio-heading-wide,
+.home-enterprise .studio-focused-section .studio-heading-wide {
+  max-width: 66rem;
+}
+
+.home-enterprise .studio-proof .studio-heading-wide > p:last-child,
+.home-enterprise .studio-focused-section .studio-heading-wide > p:last-child {
+  max-width: 43rem;
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.home-enterprise .studio-proof .studio-review-card,
+.home-enterprise .studio-flagships .studio-featured-card {
+  min-height: 16rem;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  background: var(--card) !important;
+  box-shadow: none;
+}
+
+.home-enterprise .studio-proof .studio-review-card {
+  border-top: 1px solid var(--border);
+}
+
+.home-enterprise .studio-proof .studio-review-card:hover,
+.home-enterprise .studio-flagships .studio-featured-card:hover {
+  border-color: color-mix(in oklab, var(--accent) 46%, var(--border));
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.home-enterprise .studio-focused-section {
+  padding-block: clamp(5.5rem, 8vw, 8rem);
+  background-color: var(--background);
+  background-image: none;
+}
+
+.home-enterprise .studio-secondary-section {
+  background: var(--sand);
+}
+
+.home-enterprise .studio-card-grid {
+  gap: 0;
+  border: 1px solid var(--border);
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.home-enterprise .studio-card-grid > a {
+  min-height: 16rem;
+  padding: 1.75rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.home-enterprise .studio-card-grid > a h3 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.home-enterprise .studio-section-action {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.home-enterprise .studio-section-action .site-button {
+  min-height: 3.25rem;
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+.home-enterprise .studio-secondary-showcase {
+  margin-top: 3rem;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  background: var(--ink);
+  box-shadow: none;
+}
+
+.home-enterprise .studio-secondary-topline,
+.home-enterprise .studio-secondary-footer {
+  border-color: var(--border);
+}
+
+.home-enterprise .studio-secondary-card {
+  border-color: var(--border);
+  background: var(--card);
+  box-shadow: none;
+}
+
+.home-enterprise .studio-secondary-card:hover {
+  border-color: color-mix(in oklab, var(--accent) 42%, var(--border));
+  transform: none;
+  box-shadow: none;
+}
+
+.home-enterprise .studio-secondary-card h3 {
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  line-height: 1;
+}
+
+.home-enterprise .studio-carousel-dots {
+  max-width: 15rem;
+}
+
+.home-enterprise .studio-carousel-dot {
+  background: var(--border);
+}
+
+.home-enterprise .studio-carousel-dot[aria-current="true"] {
+  background: var(--accent);
+}
+
+.home-enterprise .studio-secondary-all-tools {
+  border-color: var(--border);
+  background: transparent;
+  color: var(--foreground);
+}
+
+.home-enterprise .studio-secondary-all-tools:hover {
+  border-color: var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.home-enterprise .studio-final-cta {
+  padding-block: clamp(5.5rem, 8vw, 7.5rem);
+}
+
+.home-enterprise .studio-final-cta::before {
+  opacity: 0.24;
+}
+
+.home-enterprise .studio-final-cta .site-button {
+  min-width: 14rem;
+  min-height: 3.75rem;
+  border: 1px solid var(--foreground);
+}
+
+@media (max-width: 639px) {
+  .home-enterprise .studio-proof .studio-reviews-section,
+  .home-enterprise .studio-focused-section {
+    padding-block: 4.5rem;
+  }
+
+  .home-enterprise .studio-proof .studio-reviews-section h2,
+  .home-enterprise .studio-focused-section h2 {
+    font-size: clamp(2.35rem, 11vw, 3.25rem);
+    line-height: 0.98;
+  }
+
+  .home-enterprise .studio-card-grid > a {
+    min-height: 13rem;
+    padding: 1.5rem;
+  }
+
+  .home-enterprise .studio-section-action .site-button,
+  .home-enterprise .studio-secondary-all-tools {
+    width: 100%;
+  }
+}
