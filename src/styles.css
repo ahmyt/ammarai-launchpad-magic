@@ -979,6 +979,37 @@ body:has(.home-enterprise) .site-header nav a,
   border: 1px solid var(--border);
 }
 
+.home-enterprise .studio-card-grid > a::before,
+.home-enterprise .studio-secondary-number {
+  color: color-mix(in oklab, var(--accent) 72%, var(--muted-foreground));
+}
+
+.home-enterprise .studio-card-grid > a h3,
+.home-enterprise .studio-secondary-card h3 {
+  font-family: "Space Grotesk", var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.home-enterprise .studio-card-grid > a p,
+.home-enterprise .studio-secondary-card p {
+  line-height: 1.6;
+}
+
+.home-enterprise .studio-secondary-card {
+  border: 1px solid var(--border);
+}
+
+.home-enterprise .studio-secondary-card h3 {
+  font-size: clamp(1.85rem, 3.5vw, 3rem);
+  line-height: 1.08;
+}
+
+.home-enterprise .studio-secondary-link {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
 .home-enterprise .studio-card-grid > :first-child,
 .home-enterprise .studio-recent-panel,
 .home-enterprise .studio-usecase-card:nth-child(3n + 2),
@@ -995,7 +1026,7 @@ body:has(.home-enterprise) .site-header nav a,
 .home-enterprise .studio-secondary-card:focus-visible {
   transform: translateY(-2px);
   border-color: color-mix(in oklab, var(--accent) 42%, var(--border));
-  box-shadow: 0 1rem 2.5rem -1.75rem color-mix(in oklab, var(--accent) 35%, transparent);
+  box-shadow: none;
 }
 
 .home-enterprise .studio-video-section {
