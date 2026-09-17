@@ -5114,7 +5114,8 @@ body:has(.home-swiss-dark) .site-header a[class*="bg-ink"] {
 
 .home-swiss-dark .studio-card-grid > a::before,
 .home-swiss-dark .studio-secondary-number {
-  color: color-mix(in oklab, var(--accent) 72%, var(--muted-foreground));
+  color: color-mix(in oklab, var(--accent) 72%, var(--muted-foreground)) !important;
+  opacity: 1;
 }
 
 .home-swiss-dark .studio-video-section {
