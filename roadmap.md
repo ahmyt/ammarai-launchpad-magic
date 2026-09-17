@@ -245,4 +245,4 @@
 
 ## Scrolling logo panels
 - [x] Add a consistent white background behind every homepage scrolling logo
-- [ ] Verify logo readability and spacing on desktop and mobile
+- [x] Verify logo readability and spacing on desktop and mobile
