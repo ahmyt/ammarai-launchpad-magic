@@ -1012,7 +1012,6 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     relatedKeywords: [
       { keyword: "conversational ai assistant", volume: 9900 },
       { keyword: "ai call center", volume: 2900 },
-      { keyword: "ai voice agents", volume: 1600 },
     ],
     questions: [
       "which ai voice agents support outbound phone calls",
@@ -1079,11 +1078,8 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     searchVolume: 320,
     difficulty: 36,
     relatedKeywords: [
-      { keyword: "auto reply instagram dm", volume: 5400 },
-      { keyword: "automated facebook comment replies", volume: 720 },
-      { keyword: "ai dm assistant", volume: 1300 },
-      { keyword: "youtube comment automation", volume: 1900 },
-      { keyword: "social media auto responder", volume: 1100 },
+      { keyword: "instagram bot", volume: 2400 },
+      { keyword: "instagram messages", volume: 4400 },
     ],
     questions: [
       "how to automate dm responses on instagram",
@@ -1098,11 +1094,10 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     searchVolume: 260,
     difficulty: 52,
     relatedKeywords: [
-      { keyword: "ai research agent", volume: 1400 },
-      { keyword: "automated web research ai", volume: 880 },
-      { keyword: "ai research assistant with citations", volume: 650 },
-      { keyword: "multi source research ai", volume: 320 },
-      { keyword: "ai market research tool", volume: 2900 },
+      { keyword: "deep research", volume: 6600 },
+      { keyword: "deep search ai", volume: 4400 },
+      { keyword: "chatgpt deep research", volume: 4400 },
+      { keyword: "gemini deep research", volume: 8100 },
     ],
     questions: [
       "what is ai deep research",
@@ -1174,11 +1169,9 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     searchVolume: 260,
     difficulty: 46,
     relatedKeywords: [
-      { keyword: "best ai marketing bots", volume: 1100 },
-      { keyword: "ai marketing automation bot", volume: 880 },
-      { keyword: "marketing chatbot ai", volume: 5400 },
-      { keyword: "ai bots for lead generation", volume: 2600 },
-      { keyword: "autonomous marketing ai", volume: 750 },
+      { keyword: "ai marketing", volume: 9900 },
+      { keyword: "ai in marketing", volume: 6600 },
+      { keyword: "ai marketing tools", volume: 6600 },
     ],
     questions: [
       "what is ai marketing bot",
@@ -1211,11 +1204,10 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     searchVolume: 390,
     difficulty: 39,
     relatedKeywords: [
-      { keyword: "ai product photography", volume: 8100 },
-      { keyword: "ai generated product photos", volume: 2900 },
-      { keyword: "best ai for product photos", volume: 1400 },
-      { keyword: "ai photoshoot for ecommerce", volume: 2200 },
-      { keyword: "virtual product photoshoot ai", volume: 850 },
+      { keyword: "artificial intelligence photoshoot", volume: 18100 },
+      { keyword: "photoshoot ai", volume: 4400 },
+      { keyword: "ai product image builder", volume: 2900 },
+      { keyword: "ai photoshoot", volume: 1300 },
     ],
     questions: [
       "how to use ai for product photography",
@@ -1230,17 +1222,14 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     searchVolume: 170,
     difficulty: 45,
     relatedKeywords: [
-      { keyword: "virtual try on clothing ai", volume: 9900 },
-      { keyword: "ai virtual fitting room", volume: 4400 },
-      { keyword: "online dressing room ai", volume: 2400 },
-      { keyword: "ai clothing try on app", volume: 5400 },
-      { keyword: "best virtual try on technology", volume: 1100 },
+      { keyword: "clothes swap ai", volume: 1900 },
+      { keyword: "ai clothes swap", volume: 1600 },
+      { keyword: "clothes changer ai", volume: 1300 },
+      { keyword: "clothes swap", volume: 1300 },
     ],
     questions: [
-      "How does AI fashion try-on work?",
-      "Where can I try on clothes virtually with AI?",
-      "Is virtual try-on accurate?",
-      "What are the best virtual fitting room tools?",
+      "how accurate is ai virtual try on for sizing",
+      "how to virtually try on clothes using ai image editing",
     ],
   },
 
@@ -1249,11 +1238,8 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     searchVolume: 480,
     difficulty: 33,
     relatedKeywords: [
-      { keyword: "adobe firefly suite", volume: 135000 },
-      { keyword: "ai design suite", volume: 2200 },
-      { keyword: "canva ai creative tools", volume: 8100 },
-      { keyword: "ai content creation suite", volume: 1400 },
-      { keyword: "best ai creative platforms", volume: 950 },
+      { keyword: "adobe firefly", volume: 110000 },
+      { keyword: "adobe creative cloud", volume: 165000 },
     ],
     questions: [
       "What is an AI creative suite?",
@@ -2751,12 +2737,9 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     relatedKeywords: [
       { keyword: "ai video clips generator", volume: 40 },
       { keyword: "ai video maker", volume: 27100 },
-      { keyword: "short video maker", volume: 2900 },
     ],
     questions: [
-      "can ai generate short video clips for social media",
-      "how to turn a long video into short clips with ai",
-      "how to repurpose a podcast into social clips",
+      "can ai generate short video clips for social media 2026",
     ],
   },
 
@@ -2878,11 +2861,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
       { keyword: "ai writing editor", volume: 480 },
       { keyword: "ai content editor", volume: 210 },
     ],
-    questions: [
-      "how to edit a document with ai",
-      "can ai rewrite part of a document",
-      "how to use ai in a long form editor",
-    ],
+    questions: [],
   },
 
   "ai-image-assistant": {
@@ -2913,11 +2892,7 @@ export const toolKeywords: Record<string, ToolKeywords> = {
       { keyword: "ai art generator", volume: 60500 },
       { keyword: "ai realtime image generator", volume: 10 },
     ],
-    questions: [
-      "how does a realtime ai image generator work",
-      "can an ai image update while you type",
-      "how to explore image styles with ai",
-    ],
+    questions: [],
   },
 };
 
