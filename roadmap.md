@@ -233,3 +233,7 @@
 - [x] Replace all seven scrolling logos with the supplied company artwork
 - [x] Remove solid and checkerboard backgrounds while preserving logo details
 - [x] Verify descriptive alt text, desktop/mobile presentation, and build health
+
+## Homepage secondary action
+- [ ] Add a “Start creating free” secondary button to the homepage opening section
+- [ ] Verify destination, desktop/mobile layout, and build health
