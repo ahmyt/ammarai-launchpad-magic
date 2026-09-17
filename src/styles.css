@@ -4424,3 +4424,270 @@ body:has(.home-swiss-dark) .site-footer {
     animation: none;
   }
 }
+
+/* Homepage hero — Kinetic Obsidian product stage. */
+.home-swiss-dark .studio-hero {
+  isolation: isolate;
+  min-height: calc(100svh - 4.75rem);
+  background:
+    linear-gradient(to right, transparent 0 49.96%, color-mix(in oklab, var(--foreground) 7%, transparent) 50%, transparent 50.04%),
+    radial-gradient(ellipse 70% 48% at 50% 62%, color-mix(in oklab, var(--accent) 20%, transparent), transparent 68%),
+    radial-gradient(ellipse 48% 30% at 50% 10%, color-mix(in oklab, var(--foreground) 8%, transparent), transparent 74%),
+    var(--background);
+}
+
+.home-swiss-dark .studio-hero::before {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+  opacity: 0.72;
+}
+
+.home-swiss-dark .studio-hero-light {
+  position: absolute;
+  z-index: -1;
+  top: 5%;
+  left: 50%;
+  width: min(84vw, 76rem);
+  height: 44rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, color-mix(in oklab, var(--accent) 16%, transparent), transparent 67%);
+  filter: blur(34px);
+  opacity: 0.88;
+  pointer-events: none;
+  animation: studio-ambient-light 8s ease-in-out infinite;
+}
+
+.home-swiss-dark .studio-hero-copy {
+  max-width: 78rem;
+  margin-inline: auto;
+}
+
+.home-swiss-dark .studio-kicker {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--foreground) 3%, transparent) inset,
+    0 0 2rem color-mix(in oklab, var(--accent) 10%, transparent);
+}
+
+.home-swiss-dark .studio-hero-grid {
+  gap: 2.35rem;
+}
+
+.home-swiss-dark .studio-hero h1 {
+  max-width: 79rem;
+  font-size: clamp(4.6rem, 10.6vw, 10rem);
+  line-height: 0.79;
+  text-shadow: 0 1px 0 color-mix(in oklab, var(--foreground) 20%, transparent);
+}
+
+.home-swiss-dark .studio-hero h1 > span:first-child {
+  font-size: 0.67em;
+  font-weight: 700;
+}
+
+.home-swiss-dark .studio-hero h1 > span:nth-child(2) {
+  color: color-mix(in oklab, var(--foreground) 92%, transparent);
+}
+
+.home-swiss-dark .studio-accent-text {
+  position: relative;
+  color: var(--accent);
+  text-shadow:
+    0 0 2rem color-mix(in oklab, var(--accent) 28%, transparent),
+    0 0 7rem color-mix(in oklab, var(--accent) 18%, transparent);
+}
+
+.home-swiss-dark .studio-hero-aside {
+  max-width: 50rem;
+  border-top-color: color-mix(in oklab, var(--foreground) 18%, transparent);
+}
+
+.home-swiss-dark .studio-hero-actions .studio-primary-cta {
+  position: relative;
+  min-width: 17rem;
+  min-height: 4.5rem;
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-foreground);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent-foreground) 12%, transparent) inset,
+    0 1rem 3.5rem -1.25rem color-mix(in oklab, var(--accent) 78%, transparent);
+}
+
+.home-swiss-dark .studio-hero-actions .studio-primary-cta::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(105deg, transparent 20%, color-mix(in oklab, var(--accent-foreground) 20%, transparent) 45%, transparent 70%);
+  transform: translateX(-130%);
+  transition: transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.home-swiss-dark .studio-hero-actions .studio-primary-cta:hover::after {
+  transform: translateX(130%);
+}
+
+.studio-command-stage {
+  position: relative;
+  max-width: 80rem;
+  margin: clamp(4rem, 8vw, 7rem) auto 0;
+  perspective: 1400px;
+}
+
+.home-swiss-dark .studio-command-aura {
+  position: absolute;
+  inset: 8% 8% -12%;
+  z-index: -1;
+  background: color-mix(in oklab, var(--accent) 20%, transparent);
+  filter: blur(70px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.home-swiss-dark .studio-command {
+  position: relative;
+  margin-top: 0;
+  transform: rotateX(1.5deg) translateY(0);
+  transform-origin: center bottom;
+  border-color: color-mix(in oklab, var(--foreground) 22%, transparent);
+  background: color-mix(in oklab, var(--paper) 90%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--foreground) 3%, transparent) inset,
+    0 0 0 1px color-mix(in oklab, var(--accent) 6%, transparent),
+    0 3rem 9rem -2.5rem color-mix(in oklab, var(--accent) 34%, transparent),
+    0 4rem 8rem -3rem var(--ink);
+  backdrop-filter: blur(20px) saturate(130%);
+  animation: studio-command-arrive 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease, box-shadow 500ms ease;
+}
+
+.home-swiss-dark .studio-command-stage:hover .studio-command {
+  transform: rotateX(0deg) translateY(-5px);
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 12%, transparent) inset,
+    0 3.5rem 10rem -2.25rem color-mix(in oklab, var(--accent) 42%, transparent),
+    0 4rem 8rem -3rem var(--ink);
+}
+
+.studio-command-rail {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: color-mix(in oklab, var(--foreground) 42%, transparent);
+  font-family: "Space Grotesk", var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  pointer-events: none;
+}
+
+.studio-command-rail i {
+  width: 1px;
+  height: 3.25rem;
+  background: color-mix(in oklab, var(--accent) 70%, transparent);
+}
+
+.studio-command-rail-left {
+  left: -2.5rem;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.studio-command-rail-right {
+  right: -2.5rem;
+  transform: translateY(-50%);
+}
+
+.studio-command-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.15rem;
+  color: color-mix(in oklab, var(--foreground) 38%, transparent);
+  font-family: "Space Grotesk", var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@keyframes studio-command-arrive {
+  from { opacity: 0; transform: rotateX(7deg) translateY(3rem) scale(0.98); }
+  to { opacity: 1; transform: rotateX(1.5deg) translateY(0) scale(1); }
+}
+
+@keyframes studio-ambient-light {
+  0%, 100% { opacity: 0.62; transform: translateX(-50%) scale(0.96); }
+  50% { opacity: 0.9; transform: translateX(-50%) scale(1.04); }
+}
+
+@media (max-width: 899px) {
+  .studio-command-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .home-swiss-dark .studio-hero {
+    padding-top: 2.25rem;
+    background:
+      radial-gradient(ellipse 100% 30% at 50% 25%, color-mix(in oklab, var(--accent) 16%, transparent), transparent 75%),
+      var(--background);
+  }
+
+  .home-swiss-dark .studio-hero-index {
+    display: none;
+  }
+
+  .home-swiss-dark .studio-hero h1 {
+    font-size: clamp(2.55rem, 12.4vw, 3.35rem);
+    line-height: 0.84;
+  }
+
+  .home-swiss-dark .studio-hero h1 > span:first-child {
+    font-size: 0.72em;
+  }
+
+  .home-swiss-dark .studio-hero-actions .studio-primary-cta {
+    min-height: 4.25rem;
+  }
+
+  .studio-command-stage {
+    margin-top: 3.5rem;
+  }
+
+  .home-swiss-dark .studio-command {
+    transform: none;
+    animation-name: studio-command-arrive-mobile;
+  }
+
+  .home-swiss-dark .studio-command-stage:hover .studio-command {
+    transform: translateY(-2px);
+  }
+
+  .studio-command-caption {
+    margin-top: 0.9rem;
+  }
+}
+
+@keyframes studio-command-arrive-mobile {
+  from { opacity: 0; transform: translateY(2rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-swiss-dark .studio-hero-light,
+  .home-swiss-dark .studio-command {
+    animation: none;
+  }
+
+  .home-swiss-dark .studio-hero-actions .studio-primary-cta::after {
+    display: none;
+  }
+}
