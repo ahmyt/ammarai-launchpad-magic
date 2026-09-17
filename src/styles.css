@@ -4642,13 +4642,12 @@ body:has(.home-swiss-dark) .site-footer {
   }
 
   .home-swiss-dark .studio-hero-index {
-    position: static;
-    align-self: flex-start;
+    display: none;
   }
 
   .home-swiss-dark .studio-hero h1 {
-    font-size: clamp(3rem, 15vw, 4rem);
-    line-height: 0.82;
+    font-size: clamp(2.55rem, 12.4vw, 3.35rem);
+    line-height: 0.84;
   }
 
   .home-swiss-dark .studio-hero h1 > span:first-child {
