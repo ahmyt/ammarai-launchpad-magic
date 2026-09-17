@@ -171,7 +171,7 @@ export function Home() {
   );
 
   return (
-    <div className="home-premium home-swiss overflow-hidden">
+    <div className="home-premium home-swiss home-swiss-dark overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -184,7 +184,7 @@ export function Home() {
       <section className="studio-hero relative border-b border-border pb-14 pt-8 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-16">
         <Container size="wide" className="relative z-10">
           <div className="studio-hero-copy">
-            <div className="studio-hero-index" aria-hidden="true">A/01</div>
+            <div className="studio-hero-index" aria-hidden="true">A/01 · Creative intelligence</div>
             <p className="studio-kicker"><Sparkles className="size-3.5" /> {tools.length} tools · one intelligent workspace</p>
             <div className="studio-hero-grid">
               <h1>
@@ -214,6 +214,7 @@ export function Home() {
           <div className="studio-command mx-auto mt-10 max-w-7xl overflow-hidden bg-card ring-1 ring-border sm:mt-16">
             <div className="studio-command-header flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
+                <span className="studio-window-controls" aria-hidden="true"><i /><i /><i /></span>
                 <span className="studio-command-icon grid size-10 place-items-center bg-accent text-accent-foreground"><WandSparkles className="size-4" /></span>
                 <div className="text-left"><p className="text-sm font-semibold text-foreground">AmmarAI command center</p><p className="text-xs text-muted-foreground">Choose a flagship tool or describe your goal</p></div>
               </div>
