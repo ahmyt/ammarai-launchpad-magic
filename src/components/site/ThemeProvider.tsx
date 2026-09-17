@@ -18,7 +18,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
+    document.documentElement.dataset["theme"] = theme;
     document.documentElement.style.colorScheme = theme;
     window.localStorage.setItem("ammarai-theme", theme);
   }, [theme]);
