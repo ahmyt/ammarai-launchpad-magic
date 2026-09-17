@@ -228,3 +228,8 @@
 - [x] Apply the selected Enterprise Indigo Tech system across the complete homepage
 - [x] Simplify the hero and operational workspace preview without changing capabilities
 - [x] Verify desktop, mobile, interactions, media, and build health
+
+## Homepage trust-logo refresh
+- [ ] Replace all seven scrolling logos with the supplied company artwork
+- [ ] Remove solid and checkerboard backgrounds while preserving logo details
+- [ ] Verify descriptive alt text, desktop/mobile presentation, and build health
