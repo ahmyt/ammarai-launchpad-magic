@@ -65,9 +65,9 @@
 - [x] Replace AI Avatar Generator option 2 with a female-voiced, tightly lip-synced sample
 
 ## Neo-Swiss premium dark homepage polish
-- [ ] Apply the selected dark editorial direction across the complete homepage
-- [ ] Elevate the hero, Command Center, section rhythm, contrast, and interactions
-- [ ] Verify desktop and mobile layouts, interactions, media, and build health
+- [x] Apply the selected dark editorial direction across the complete homepage
+- [x] Elevate the hero, Command Center, section rhythm, contrast, and interactions
+- [x] Verify desktop and mobile layouts, interactions, media, and build health
 
 - [x] Diagnose attached bounce: production is still sending through plesk-steve.zap.cloud / 185.223.31.164.
 
