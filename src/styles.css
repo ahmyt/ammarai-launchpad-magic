@@ -3086,6 +3086,59 @@ html[data-theme="dark"] body {
   box-shadow: 0 1rem 2.5rem -1.75rem color-mix(in oklab, var(--accent) 34%, transparent);
 }
 
+/* Shared paired-edge feedback for selectable and interactive cards. */
+.interactive-card-edge {
+  position: relative;
+  isolation: isolate;
+}
+
+.interactive-card-edge::before,
+.interactive-card-edge::after {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  left: 0;
+  height: 2px;
+  border-radius: inherit;
+  background: var(--accent);
+  box-shadow: 0 0 0.75rem color-mix(in oklab, var(--accent) 34%, transparent);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: scaleX(0.72);
+  transition: opacity 160ms ease, transform 220ms ease;
+}
+
+.interactive-card-edge::before {
+  top: 0;
+  transform-origin: top center;
+}
+
+.interactive-card-edge::after {
+  bottom: 0;
+  transform-origin: bottom center;
+}
+
+.interactive-card-edge:is(:hover, :focus, :focus-within, :active),
+.interactive-card-edge[data-selected="true"] {
+  outline: none;
+}
+
+.interactive-card-edge:is(:hover, :focus, :focus-within, :active)::before,
+.interactive-card-edge:is(:hover, :focus, :focus-within, :active)::after,
+.interactive-card-edge[data-selected="true"]::before,
+.interactive-card-edge[data-selected="true"]::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-card-edge::before,
+  .interactive-card-edge::after {
+    transition: none;
+  }
+}
+
 .site-shell.theme-dark .site-button,
 .site-shell.theme-dark input:not([type="checkbox"]):not([type="radio"]),
 .site-shell.theme-dark textarea,

@@ -7,9 +7,10 @@ export function ToolCard({ tool, className }: { tool: Tool; className?: string }
     <Link
       to="/$slug"
       params={{ slug: tool.slug }}
-
+      data-interactive-card="true"
+      onPointerDown={(event) => event.currentTarget.focus({ preventScroll: true })}
       className={cn(
-        "site-tool-card group flex flex-col rounded-xl bg-card p-6 ring-1 ring-border transition-all duration-200 hover:-translate-y-1 hover:ring-accent/40",
+        "site-tool-card interactive-card-edge group flex flex-col rounded-xl bg-card p-6 ring-1 ring-border transition-all duration-200 hover:-translate-y-1 hover:ring-accent/40",
         className,
       )}
     >

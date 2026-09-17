@@ -116,7 +116,10 @@ export function SecondaryToolsCarousel() {
             key={tool.slug}
             to="/$slug"
             params={{ slug: tool.slug }}
-            className="studio-secondary-card group"
+            className="studio-secondary-card interactive-card-edge group"
+            data-interactive-card="true"
+            data-selected={activeIndex === index ? "true" : undefined}
+            onPointerDown={(event) => event.currentTarget.focus({ preventScroll: true })}
             aria-label={`Explore ${tool.name}`}
           >
             <div className="flex items-start justify-between gap-5">
