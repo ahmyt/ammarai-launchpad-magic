@@ -251,4 +251,4 @@
 - [x] Correct shared dark-theme color mapping across all pages
 - [x] Extend the homepage enterprise surfaces, typography, controls, and restrained depth site-wide
 - [x] Verify representative public, tool, blog, tutorial, legal, authentication, and Studio pages
-- [ ] Add and verify the enterprise blue offset edge across dark-theme card families
+- [x] Add and verify the enterprise blue offset edge across dark-theme card families
