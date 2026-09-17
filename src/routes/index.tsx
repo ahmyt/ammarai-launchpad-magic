@@ -312,7 +312,14 @@ export function Home() {
           />
           <div className="studio-card-grid mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {featuredTools.map((tool, index) => (
-              <ToolCard key={tool.slug} tool={tool} className={index === 0 || index === 3 ? "studio-featured-card lg:col-span-2 min-h-52 justify-end" : "min-h-52"} />
+              <ToolCard
+                key={tool.slug}
+                tool={tool}
+                summary={index === 0
+                  ? "Build agents that run real workflows on a schedule or trigger. Connect web search, documents, email, calendars and spreadsheets, chain multiple steps, and require approval before sensitive actions."
+                  : undefined}
+                className={index === 0 || index === 3 ? "studio-featured-card lg:col-span-2 min-h-52 justify-end" : "min-h-52"}
+              />
             ))}
           </div>
            <SecondaryToolsCarousel />

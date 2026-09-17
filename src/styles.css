@@ -979,6 +979,37 @@ body:has(.home-enterprise) .site-header nav a,
   border: 1px solid var(--border);
 }
 
+.home-enterprise .studio-card-grid > a::before,
+.home-enterprise .studio-secondary-number {
+  color: color-mix(in oklab, var(--accent) 72%, var(--muted-foreground));
+}
+
+.home-enterprise .studio-card-grid > a h3,
+.home-enterprise .studio-secondary-card h3 {
+  font-family: "Space Grotesk", var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.home-enterprise .studio-card-grid > a p,
+.home-enterprise .studio-secondary-card p {
+  line-height: 1.6;
+}
+
+.home-enterprise .studio-secondary-card {
+  border: 1px solid var(--border);
+}
+
+.home-enterprise .studio-secondary-card h3 {
+  font-size: clamp(1.85rem, 3.5vw, 3rem);
+  line-height: 1.08;
+}
+
+.home-enterprise .studio-secondary-link {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
 .home-enterprise .studio-card-grid > :first-child,
 .home-enterprise .studio-recent-panel,
 .home-enterprise .studio-usecase-card:nth-child(3n + 2),
@@ -995,7 +1026,7 @@ body:has(.home-enterprise) .site-header nav a,
 .home-enterprise .studio-secondary-card:focus-visible {
   transform: translateY(-2px);
   border-color: color-mix(in oklab, var(--accent) 42%, var(--border));
-  box-shadow: 0 1rem 2.5rem -1.75rem color-mix(in oklab, var(--accent) 35%, transparent);
+  box-shadow: none;
 }
 
 .home-enterprise .studio-video-section {
@@ -3098,15 +3129,12 @@ html[data-theme="dark"] body {
   inset: 0;
   border-radius: inherit;
   background:
-    linear-gradient(var(--accent), var(--accent)) top center / 72% 2px no-repeat,
-    linear-gradient(var(--accent), var(--accent)) bottom center / 72% 2px no-repeat;
-  box-shadow:
-    0 -0.25rem 0.75rem -0.45rem color-mix(in oklab, var(--accent) 34%, transparent) inset,
-    0 0.25rem 0.75rem -0.45rem color-mix(in oklab, var(--accent) 34%, transparent) inset;
+    linear-gradient(color-mix(in oklab, var(--accent) 62%, var(--border)), color-mix(in oklab, var(--accent) 62%, var(--border))) top center / 100% 1px no-repeat,
+    linear-gradient(color-mix(in oklab, var(--accent) 62%, var(--border)), color-mix(in oklab, var(--accent) 62%, var(--border))) bottom center / 100% 1px no-repeat;
   content: "";
   opacity: 0;
   pointer-events: none;
-  transition: opacity 160ms ease, background-size 220ms ease;
+  transition: opacity 160ms ease, background-image 160ms ease;
 }
 
 .interactive-card-edge:is(:hover, :focus, :focus-within, :active),
@@ -3114,9 +3142,14 @@ html[data-theme="dark"] body {
   outline: none;
 }
 
-.interactive-card-edge:is(:hover, :focus, :focus-within, :active)::after,
 .interactive-card-edge[data-selected="true"]::after {
-  background-size: 100% 2px, 100% 2px;
+  opacity: 0.72;
+}
+
+.interactive-card-edge:is(:hover, :focus-visible, :focus-within, :active)::after {
+  background:
+    linear-gradient(var(--accent), var(--accent)) top center / 100% 1px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) bottom center / 100% 1px no-repeat;
   opacity: 1;
 }
 
@@ -5055,7 +5088,6 @@ body:has(.home-swiss-dark) .site-header a[class*="bg-ink"] {
   background: var(--card);
 }
 
-.home-swiss-dark .studio-card-grid > :first-child,
 .home-swiss-dark .studio-recent-panel,
 .home-swiss-dark .studio-usecase-card:nth-child(3n + 2),
 .home-swiss-dark .studio-journal-card:nth-child(2) {
@@ -5064,9 +5096,6 @@ body:has(.home-swiss-dark) .site-header a[class*="bg-ink"] {
   color: var(--foreground);
 }
 
-.home-swiss-dark .studio-card-grid > :first-child p,
-.home-swiss-dark .studio-card-grid > :first-child h3,
-.home-swiss-dark .studio-card-grid > :first-child h3 span,
 .home-swiss-dark .studio-recent-panel .eyebrow,
 .home-swiss-dark .studio-recent-panel h2,
 .home-swiss-dark .studio-usecase-card:nth-child(3n + 2) h3 a,
@@ -5074,6 +5103,19 @@ body:has(.home-swiss-dark) .site-header a[class*="bg-ink"] {
 .home-swiss-dark .studio-journal-card:nth-child(2) h3 a,
 .home-swiss-dark .studio-journal-card:nth-child(2) p {
   color: var(--foreground);
+}
+
+.home-swiss-dark .studio-card-grid > a,
+.home-swiss-dark .studio-card-grid > :first-child {
+  border-color: var(--border);
+  background: var(--card) !important;
+  color: var(--foreground);
+}
+
+.home-swiss-dark .studio-card-grid > a::before,
+.home-swiss-dark .studio-secondary-number {
+  color: color-mix(in oklab, var(--accent) 72%, var(--muted-foreground)) !important;
+  opacity: 1;
 }
 
 .home-swiss-dark .studio-video-section {

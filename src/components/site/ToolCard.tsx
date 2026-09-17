@@ -2,7 +2,15 @@ import { Link } from "@tanstack/react-router";
 import type { Tool } from "@/data/types";
 import { cn } from "@/lib/utils";
 
-export function ToolCard({ tool, className }: { tool: Tool; className?: string }) {
+export function ToolCard({
+  tool,
+  className,
+  summary,
+}: {
+  tool: Tool;
+  className?: string;
+  summary?: string;
+}) {
   return (
     <Link
       to="/$slug"
@@ -27,7 +35,7 @@ export function ToolCard({ tool, className }: { tool: Tool; className?: string }
         </span>
       </h3>
       <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
-        {tool.summary}
+        {summary ?? tool.summary}
       </p>
     </Link>
   );
