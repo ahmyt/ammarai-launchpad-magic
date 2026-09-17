@@ -55,6 +55,7 @@ export function SecondaryToolsCarousel() {
     if (!section || typeof IntersectionObserver === "undefined") return;
     const observer = new IntersectionObserver(
       ([entry]) => {
+        if (!entry) return;
         const visible = entry.intersectionRect.height;
         const reference = Math.min(entry.boundingClientRect.height, window.innerHeight);
         setInView(reference > 0 && visible / reference >= 0.5);
