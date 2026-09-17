@@ -69,6 +69,7 @@
 - [x] Elevate the hero, Command Center, section rhythm, contrast, and interactions
 - [x] Verify desktop and mobile layouts, interactions, media, and build health
 - [x] Elevate the hero with the selected Kinetic Obsidian product stage and cinematic depth
+- [x] Intensify the selected Cinematic Neo-Swiss hero with luminous type, CTA lighting, and a floating interface
 
 - [x] Diagnose attached bounce: production is still sending through plesk-steve.zap.cloud / 185.223.31.164.
 

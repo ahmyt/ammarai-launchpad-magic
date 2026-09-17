@@ -183,6 +183,8 @@ export function Home() {
 
       <section className="studio-hero relative border-b border-border pb-14 pt-8 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-16">
         <div className="studio-hero-light" aria-hidden="true" />
+        <div className="studio-hero-beam studio-hero-beam-left" aria-hidden="true" />
+        <div className="studio-hero-beam studio-hero-beam-right" aria-hidden="true" />
         <Container size="wide" className="relative z-10">
           <div className="studio-hero-copy">
             <div className="studio-hero-index" aria-hidden="true">A/01 · Creative intelligence</div>
@@ -214,6 +216,7 @@ export function Home() {
 
           <div className="studio-command-stage">
             <div className="studio-command-aura" aria-hidden="true" />
+            <div className="studio-command-orbit" aria-hidden="true"><i /><i /><i /></div>
             <div className="studio-command-rail studio-command-rail-left" aria-hidden="true">
               <span>151 tools</span><i /><span>One workspace</span>
             </div>
@@ -221,6 +224,7 @@ export function Home() {
               <span>Live discovery</span><i /><span>Ready to create</span>
             </div>
           <div className="studio-command mx-auto max-w-7xl overflow-hidden bg-card ring-1 ring-border">
+            <div className="studio-command-scan" aria-hidden="true" />
             <div className="studio-command-header flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
                 <span className="studio-window-controls" aria-hidden="true"><i /><i /><i /></span>
