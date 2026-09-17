@@ -24,7 +24,8 @@ export const useCases: UseCase[] = [
       { title: "Campaign kickoff to first drafts", body: "Feed the campaign brief into AmmarAI, generate a blog announcement, then reuse the same core message to produce Facebook, Google, and LinkedIn ad variants, an email sequence, and a set of social captions — all before the first team meeting about the launch." },
       { title: "Weekly content sprint", body: "Brief → outline → draft → meta description → social cutdowns. Run this sequence every week for always-on content so the Monday meeting is about what to say next, not who still owes a draft." },
       { title: "A/B testing at scale", body: "Generate five headline variants and three CTA angles for the same ad, ship all of them to the ad platform, and let real performance data pick the winner instead of internal debate." },
-      { title: "Localization and repurposing", body: "Take one flagship piece of content and use AmmarAI to rewrite it into different tones for different channels — the same launch news written for a formal LinkedIn post and a casual Instagram caption." }
+      { title: "Localization and repurposing", body: "Take one flagship piece of content and use AmmarAI to rewrite it into different tones for different channels — the same launch news written for a formal LinkedIn post and a casual Instagram caption." },
+      { title: "Always-on publishing with agents", body: "Let the AI Blogger Agent research and draft scheduled articles for your WordPress blog, and let the AI Social Media Agent prepare campaign posts for Facebook, Instagram, X, and LinkedIn — publishing automatically where you allow it and holding each post for approval where you don't." }
     ],
     toolkit: [
       { slug: "ad-script-generator", why: "Marketing teams need multiple ad angles fast, and this generates variants for testing instead of a single one-shot draft." },
@@ -32,14 +33,17 @@ export const useCases: UseCase[] = [
       { slug: "facebook-post-generator", why: "Every campaign needs a social presence, and this turns one core message into platform-appropriate posts without a separate writer for each channel." },
       { slug: "landing-page-copy-generator", why: "Landing pages and blog posts ship faster when the SEO metadata isn't an afterthought left for someone to remember later." },
       { slug: "ai-rephraser", why: "Keeping brand voice consistent across contributors is easier when drafts can be adjusted to match a house tone before they go out." },
-      { slug: "article-wizard", why: "Campaign announcements and thought-leadership posts need a first draft a strategist can shape, not an empty doc and a deadline." }
+      { slug: "article-wizard", why: "Campaign announcements and thought-leadership posts need a first draft a strategist can shape, not an empty doc and a deadline." },
+      { slug: "ai-social-media-agent", why: "Campaigns don't end at the draft — the agent schedules and publishes social posts across connected channels, with approval controls where the team wants them." },
+      { slug: "ai-blogger-agent", why: "Keeps the company blog publishing on a schedule to WordPress without a marketer hand-posting every article." }
     ],
     outcomes: [
       "Campaign briefs turn into a full set of assets — ads, email, social, landing copy — in one sitting instead of across a week of separate writing tasks.",
       "Teams can afford to test more headline and CTA variants because writing them no longer costs a proportional amount of time.",
       "Brand voice stays more consistent across contributors when everyone starts from AmmarAI drafts instead of a blank document.",
       "Approval cycles shorten because stakeholders review closer-to-final drafts instead of rough first attempts.",
-      "Repurposing a single campaign idea across channels becomes a same-day task instead of a week-long content calendar item."
+      "Repurposing a single campaign idea across channels becomes a same-day task instead of a week-long content calendar item.",
+      "Blog and social publishing keep running on a schedule through agents even while the team is focused on the next campaign."
     ],
     faqs: [
       { q: "Will AI-generated ad copy sound generic?", a: "It reflects the input you give it, so specific briefs with real product details and audience context produce specific copy. Generic prompts produce generic drafts — the same is true of any writer." },
@@ -71,7 +75,8 @@ export const useCases: UseCase[] = [
       { title: "Idea to multi-platform package", body: "Draft the video script, then generate a YouTube title and description, a set of tags, a TikTok script cutdown, and Instagram captions from the same core idea in one sitting." },
       { title: "Weekly upload sprint", body: "Outline -> script draft -> title options -> description -> caption set. Run this once per upload so production day doesn't spill into two days." },
       { title: "Title and hook testing", body: "Generate several YouTube title variants and hashtag sets for a video, then pick the strongest combination instead of publishing your first guess." },
-      { title: "Batch content for a slow week", body: "Use a lighter week to draft scripts and captions for several upcoming uploads at once, so a busy week doesn't force you to skip a publish date." }
+      { title: "Batch content for a slow week", body: "Use a lighter week to draft scripts and captions for several upcoming uploads at once, so a busy week doesn't force you to skip a publish date." },
+      { title: "Upload to automated promotion", body: "After each publish, queue the announcement posts and clip teasers in the AI Social Media Publisher so every platform hears about the upload on a schedule — not whenever you happen to remember." }
     ],
     toolkit: [
       { slug: "ad-script-generator", why: "The script is the backbone of most creator content, and starting from a structured draft saves the hardest part of production." },
@@ -79,7 +84,8 @@ export const useCases: UseCase[] = [
       { slug: "video-description-generator", why: "Descriptions matter for discovery but are the task creators most often skip when time is tight, so having a fast draft keeps them from being an afterthought." },
       { slug: "instagram-reel-script-generator", why: "Every upload needs a caption tailored to Instagram's shorter, punchier style, separate from the main script." },
       { slug: "instagram-reel-script-generator", why: "Repurposing a longer video into a TikTok-native script format is a constant, recurring task for creators active on multiple platforms." },
-      { slug: "trending-post-generator", why: "Relevant hashtags support discovery, and generating a fresh, on-topic set per post beats reusing the same stale list every time." }
+      { slug: "trending-post-generator", why: "Relevant hashtags support discovery, and generating a fresh, on-topic set per post beats reusing the same stale list every time." },
+      { slug: "ai-social-media-publisher", why: "Keeps announcements and clips posting on a recurring schedule across platforms after each upload, so promotion doesn't depend on remembering to post." }
     ],
     outcomes: [
       "One recorded idea becomes a full set of platform-specific assets in the same sitting instead of spread across several days.",
@@ -118,21 +124,25 @@ export const useCases: UseCase[] = [
       { title: "New offer to live promotion", body: "Draft a product or service description, generate a short ad for social media, and write a customer email announcing the promotion — all from one sitting before opening the shop." },
       { title: "Website refresh", body: "Outline -> homepage copy draft -> about page draft -> FAQ draft, done page by page during slower hours instead of a rushed weekend project." },
       { title: "Customer follow-up routine", body: "Use a follow-up email draft after every completed job or purchase, adjusted slightly each time, so review requests and thank-yous actually go out." },
-      { title: "Seasonal promotion cycle", body: "Business bio update -> seasonal ad copy -> email announcement -> social captions, repeated each time a new season or local event calls for fresh messaging." }
+      { title: "Seasonal promotion cycle", body: "Business bio update -> seasonal ad copy -> email announcement -> social captions, repeated each time a new season or local event calls for fresh messaging." },
+      { title: "Set-and-review publishing", body: "Let the AI Blogger Agent keep your WordPress blog updated with scheduled articles, and use the AI Social Media Agent to keep Facebook, Instagram, X, and LinkedIn active — reviewing queued posts when you have five minutes instead of writing them from nothing." }
     ],
     toolkit: [
       { slug: "personal-bio-generator", why: "A clear, professional business bio is one of the first things customers read, and most owners never have time to write one they're happy with." },
       { slug: "why-choose-this-product", why: "Every product or service needs a description that actually sells it, and writing dozens of these by hand is the task most likely to get skipped." },
       { slug: "youtube-ads-generator", why: "Running local ads without an agency means writing the ad copy yourself, and getting a usable draft quickly matters when the budget is tight." },
       { slug: "welcome-email-generator", why: "Customer follow-ups and promotional emails are easy to plan and hard to actually sit down and write during a busy week." },
-      { slug: "product-name-generator", why: "Owners launching a new product line or side offer often need naming help fast, without hiring a branding consultant." }
+      { slug: "product-name-generator", why: "Owners launching a new product line or side offer often need naming help fast, without hiring a branding consultant." },
+      { slug: "ai-blogger-agent", why: "A blog that updates itself on a schedule keeps bringing in search traffic while the owner is busy running the business." },
+      { slug: "ai-social-media-agent", why: "Keeps the business's social channels posting consistently without a daily time commitment." }
     ],
     outcomes: [
       "Website and product copy gets written and published instead of staying on the to-do list indefinitely.",
       "Local ads and seasonal promotions go out on time because drafting them takes minutes instead of an evening.",
       "Customer follow-up emails actually get sent, supporting repeat business and reviews.",
       "Owners spend less of their limited time on writing tasks and more on the parts of the business only they can run.",
-      "Marketing starts to happen consistently instead of only during rare bursts of free time."
+      "Marketing starts to happen consistently instead of only during rare bursts of free time.",
+      "The blog and social channels stay active week after week through automation, even in months when the owner has no time to write."
     ],
     faqs: [
       { q: "I'm not a writer — will the copy actually sound professional?", a: "AmmarAI produces a structured, polished draft from what you tell it about your business; you can then adjust details so it sounds like you, not a generic template." },
@@ -302,7 +312,8 @@ export const useCases: UseCase[] = [
       { title: "Multi-client content batch", body: "Move through each client account in sequence, generating that account's blog post, social captions, and ad copy for the week using their specific brief and tone before moving to the next client." },
       { title: "New client onboarding", body: "Company bio draft -> tone guide notes -> first content batch, produced quickly during the initial weeks of a new account so the client sees output fast." },
       { title: "Monthly reporting cycle", body: "Summarize campaign results and activity into a client-readable report draft, then adjust the framing per client based on what they care most about." },
-      { title: "Junior staff support", body: "Use AmmarAI-generated drafts as a training baseline for junior writers, showing them a structured starting point they then learn to edit toward each client's specific standards." }
+      { title: "Junior staff support", body: "Use AmmarAI-generated drafts as a training baseline for junior writers, showing them a structured starting point they then learn to edit toward each client's specific standards." },
+      { title: "Client channels on autopilot with oversight", body: "Run each client's blog through the AI Blogger Agent and their social channels through the AI Social Media Agent, with approval required before anything publishes — the team reviews queued content instead of producing every post manually." }
     ],
     toolkit: [
       { slug: "ai-writer", why: "Agencies produce a high volume of varied written deliverables across accounts, and a flexible drafting tool covers most of that recurring workload." },
@@ -310,14 +321,17 @@ export const useCases: UseCase[] = [
       { slug: "facebook-post-generator", why: "Social content calendars are one of the most common recurring deliverables across client accounts, and volume is the main challenge." },
       { slug: "ad-script-generator", why: "Paid campaigns need multiple ad variants per client, and producing those at scale across several accounts is a real time sink without help." },
       { slug: "bullet-point-answer-generator", why: "Monthly client reports need campaign activity distilled into something a non-marketer can read quickly." },
-      { slug: "personal-bio-generator", why: "New client onboarding often starts with getting the client's own bio and positioning right before any campaign work begins." }
+      { slug: "personal-bio-generator", why: "New client onboarding often starts with getting the client's own bio and positioning right before any campaign work begins." },
+      { slug: "ai-social-media-agent", why: "One agent can manage publishing across multiple client accounts on Facebook, Instagram, X, and LinkedIn, with per-account approval settings." },
+      { slug: "ai-crm", why: "Client contacts, conversations, and follow-ups stay organized in one place as the account list grows." }
     ],
     outcomes: [
       "More client accounts can be supported by the same team without a proportional increase in production hours.",
       "Switching between client voices during a single day becomes more manageable and less error-prone.",
       "New clients see a first content batch faster during onboarding, which helps early client confidence.",
       "Monthly reporting stops being a scramble at the end of the month.",
-      "Junior team members reach a usable quality bar faster with structured drafts to start from."
+      "Junior team members reach a usable quality bar faster with structured drafts to start from.",
+      "Recurring publishing work for each client runs on schedules, so account growth stops translating directly into evening work."
     ],
     faqs: [
       { q: "Can different client accounts have separate tone guidance?", a: "Yes — you can direct tone and style per prompt, which lets one team member move between distinct client voices without needing separate tools per account." },
@@ -349,7 +363,8 @@ export const useCases: UseCase[] = [
       { title: "Catalog batch drafting", body: "Feed basic specs for each product — material, size, use case, key benefit — and generate a description and title for each, moving through a batch of SKUs in one sitting." },
       { title: "Marketplace-specific listing", body: "Draft a core product description, then generate an Amazon-formatted title and bullet set separately, tailored to that marketplace's conventions." },
       { title: "New launch to live listing", body: "Product description -> title options -> comparison copy against similar SKUs -> ad copy for the launch promotion, done as one workflow before the product goes live." },
-      { title: "Seasonal refresh", body: "Update descriptions and titles for seasonal keywords and promotions ahead of key shopping periods, instead of leaving listings static year-round." }
+      { title: "Seasonal refresh", body: "Update descriptions and titles for seasonal keywords and promotions ahead of key shopping periods, instead of leaving listings static year-round." },
+      { title: "Launch to scheduled promotion", body: "Once a new listing is live, queue its launch posts and seasonal reminders in the AI Social Media Publisher so promotion runs on a schedule across Facebook, Instagram, X, and LinkedIn without a daily manual push." }
     ],
     toolkit: [
       { slug: "why-choose-this-product", why: "This is the core, highest-volume writing task for any catalog, and manual writing simply doesn't scale to hundreds of SKUs." },
@@ -357,7 +372,8 @@ export const useCases: UseCase[] = [
       { slug: "why-choose-this-product", why: "Amazon listings benefit from format-specific copy distinct from a store's own product page, and sellers on the platform need both." },
       { slug: "product-review-generator", why: "Helping shoppers compare similar SKUs in a listing or category page supports purchase decisions and reduces returns from mismatched expectations." },
       { slug: "why-choose-this-product", why: "Feature bullet points need to be scannable and specific, and drafting them per product at catalog scale is faster with a starting structure." },
-      { slug: "why-choose-this-product", why: "Descriptions that convert usually lead with benefits rather than specs, and translating a feature list into benefit language for every SKU takes real time by hand." }
+      { slug: "why-choose-this-product", why: "Descriptions that convert usually lead with benefits rather than specs, and translating a feature list into benefit language for every SKU takes real time by hand." },
+      { slug: "ai-social-media-publisher", why: "Product launches and seasonal sales need recurring promotion, and scheduling it once beats re-posting manually for every campaign." }
     ],
     outcomes: [
       "Full catalogs get unique, professional descriptions instead of relying on generic manufacturer copy.",
@@ -396,21 +412,25 @@ export const useCases: UseCase[] = [
       { title: "Monthly calendar batch", body: "Generate a batch of post ideas and captions across the month's themes in one sitting, then schedule them, rather than writing captions the day each post is due." },
       { title: "Cross-platform adaptation", body: "Draft one core post idea, then generate platform-specific versions — Instagram caption, LinkedIn post, TikTok script — from the same core message." },
       { title: "Hashtag research shortcut", body: "Generate a relevant hashtag set for each post topic as part of the drafting process, instead of treating hashtag research as a separate, easily-skipped task." },
-      { title: "Multi-account management", body: "Move between different brand or client accounts within the same session, adjusting tone for each, to batch content across several accounts without losing a full day per account." }
+      { title: "Multi-account management", body: "Move between different brand or client accounts within the same session, adjusting tone for each, to batch content across several accounts without losing a full day per account." },
+      { title: "Approve-and-automate publishing", body: "Connect Facebook, Instagram, X, and LinkedIn, then let the AI Social Media Agent generate and schedule the calendar — auto-publishing routine posts and holding sensitive ones for your approval, with recurring schedules handled by the Social Media Publisher." }
     ],
     toolkit: [
       { slug: "facebook-post-generator", why: "This is the core recurring task for the role, and having a fast draft for each platform is what keeps the calendar full week over week." },
       { slug: "instagram-reel-script-generator", why: "Instagram's caption style is distinct enough from other platforms that a dedicated draft saves rewriting time on the highest-volume platform for many brands." },
       { slug: "trending-post-generator", why: "Hashtag research is the task most likely to get skipped under deadline pressure, so generating a relevant set alongside the caption keeps it from being dropped." },
       { slug: "instagram-reel-script-generator", why: "Short-form video scripts need a different structure than a static post caption, and this covers that format specifically." },
-      { slug: "ai-rephraser", why: "Managing multiple accounts means shifting tone constantly, and adjusting a draft toward each brand's voice is faster than rewriting from scratch each time." }
+      { slug: "ai-rephraser", why: "Managing multiple accounts means shifting tone constantly, and adjusting a draft toward each brand's voice is faster than rewriting from scratch each time." },
+      { slug: "ai-social-media-agent", why: "Goes beyond drafting: it schedules and publishes across the connected platforms, so the calendar executes itself with approvals where you want them." },
+      { slug: "ai-social-media-publisher", why: "Runs recurring posting schedules and campaign queues to Facebook, Instagram, X, and LinkedIn without someone manually posting every day." }
     ],
     outcomes: [
       "Content calendars stay full through the whole month instead of running dry after the first two weeks.",
       "Platform-specific caption adaptation takes minutes instead of a separate rewrite session per platform.",
       "Hashtag research happens consistently instead of being the first task dropped under time pressure.",
       "Managers running multiple accounts can batch more content per session without each account eating a full day.",
-      "More time goes to community engagement and analysis, and less to the mechanics of caption writing."
+      "More time goes to community engagement and analysis, and less to the mechanics of caption writing.",
+      "Posting stops depending on someone remembering to hit publish — schedules and queues run automatically across all four channels."
     ],
     faqs: [
       { q: "Can I generate different caption styles for different platforms from one idea?", a: "Yes — drafting one core idea and generating platform-specific versions for Instagram, LinkedIn, and TikTok is one of the most common uses." },
@@ -442,7 +462,8 @@ export const useCases: UseCase[] = [
       { title: "Keyword to published article", body: "Take a target keyword and brief, generate a structured blog post draft, then generate a matching meta description and title before the post goes into editorial review." },
       { title: "Site-wide metadata cleanup", body: "Work through a list of existing pages with thin or missing metadata, generating a title and meta description for each based on the page's actual content and target keyword." },
       { title: "FAQ and schema content batch", body: "Generate a set of question-and-answer pairs targeting long-tail queries related to a core topic, structured for both readability and FAQ schema markup." },
-      { title: "Content refresh cycle", body: "Rewrite underperforming or outdated content sections to better match current search intent, using the existing page as a base rather than starting over." }
+      { title: "Content refresh cycle", body: "Rewrite underperforming or outdated content sections to better match current search intent, using the existing page as a base rather than starting over." },
+      { title: "Keyword to auto-published blog", body: "Hand a keyword cluster to the AI Blogger Agent and let it research, draft, and schedule optimized articles to your WordPress site on a publishing calendar — your review happens before posts go live, not at the keyboard every day." }
     ],
     toolkit: [
       { slug: "article-wizard", why: "This is the core content production tool that lets a keyword list actually turn into published articles at a workable pace." },
@@ -450,14 +471,16 @@ export const useCases: UseCase[] = [
       { slug: "website-copy-generator", why: "FAQ sections targeting long-tail, question-based queries need per-topic thought, and this speeds up producing them without resorting to copy-pasted generic questions." },
       { slug: "ai-rephraser", why: "Refreshing older content to better match current search intent is often more valuable than writing something new, and this speeds up that specific task." },
       { slug: "ai-rephraser", why: "Working a target keyword naturally into existing or new content without over-stuffing it takes a careful pass, which this supports directly." },
-      { slug: "blog-ideas-generator", why: "Titles carry significant weight for both click-through and keyword targeting, and testing several options beats settling for the first draft." }
+      { slug: "blog-ideas-generator", why: "Titles carry significant weight for both click-through and keyword targeting, and testing several options beats settling for the first draft." },
+      { slug: "ai-blogger-agent", why: "Turns a keyword list into a self-running WordPress publishing schedule, which is exactly the production gap most SEO plans stall on." }
     ],
     outcomes: [
       "More of the identified keyword opportunities actually get targeted with published content instead of sitting on a research spreadsheet.",
       "Site-wide metadata gets cleaned up and made specific instead of staying generic or missing across large sections of a site.",
       "FAQ content targeting long-tail queries becomes realistic to produce at scale rather than only for a handful of priority pages.",
       "Underperforming content gets refreshed more often, since rewriting no longer takes as long as writing from scratch.",
-      "SEO strategy and content production move at a matching pace, so a good plan doesn't stall on execution."
+      "SEO strategy and content production move at a matching pace, so a good plan doesn't stall on execution.",
+      "Publishing cadence stops depending on writer availability — the blog keeps shipping on schedule."
     ],
     faqs: [
       { q: "Will AI-generated SEO content actually rank?", a: "Rankings depend on many factors beyond the writing itself — search intent match, site authority, technical SEO, and competition — but a well-structured, genuinely useful draft is a reasonable starting point that you should still edit and fact-check." },
@@ -489,21 +512,25 @@ export const useCases: UseCase[] = [
       { title: "Inbox clearing session", body: "Draft replies to routine emails using a short note about what each response needs to say, then personalize and send, clearing a backlog faster than writing each reply individually from scratch." },
       { title: "Meeting prep document review", body: "Summarize a long report or document ahead of a meeting into the key points that matter, then review the summary rather than the full document under time pressure." },
       { title: "Recurring update routine", body: "Use the same structure each week to draft a status update or meeting recap, adjusting the specific details rather than starting the format from zero every time." },
-      { title: "End-of-day cleanup", body: "Batch the day's small unanswered emails and notes into one drafting session at the end of the day, instead of letting them interrupt focus time throughout." }
+      { title: "End-of-day cleanup", body: "Batch the day's small unanswered emails and notes into one drafting session at the end of the day, instead of letting them interrupt focus time throughout." },
+      { title: "Delegate recurring work to an agent", body: "Use the AI Agent Builder to automate a recurring multi-step task — gather information, draft a summary, and file it in the right place — running on a schedule with approval required before anything sensitive goes out." }
     ],
     toolkit: [
       { slug: "welcome-email-generator", why: "Routine email replies are one of the most consistent time drains in a busy schedule, and drafting them quickly frees up meaningful time each day." },
       { slug: "bullet-point-answer-generator", why: "Getting through long documents and reports under time pressure is faster when the key points are pulled out first." },
       { slug: "reply-email-generator", why: "Follow-up notes are easy to postpone precisely because they feel low-priority, and a fast draft makes it easier to actually send them." },
       { slug: "ai-rephraser", why: "Turning a rough set of notes into a clear, sendable message is a common small task that adds up across a day of communication." },
-      { slug: "ai-proofreader", why: "Quick messages sent under time pressure benefit from a fast check before sending, without needing a careful manual proofread every time." }
+      { slug: "ai-proofreader", why: "Quick messages sent under time pressure benefit from a fast check before sending, without needing a careful manual proofread every time." },
+      { slug: "ai-agent-builder", why: "Recurring multi-step tasks can run on a schedule with approval gates, removing whole categories of weekly busywork." },
+      { slug: "content-manager", why: "Keeps drafts, scheduled content, and published pieces organized in one place instead of scattered across docs and inboxes." }
     ],
     outcomes: [
       "Email backlogs clear faster, leaving more of the workday for tasks that require real focus.",
       "Long documents get understood quickly enough to walk into a meeting prepared without having read every page closely.",
       "Recurring updates and status reports take less time to produce each week.",
       "Small writing tasks interrupt deep work less often because they can be batched and cleared quickly.",
-      "The day-to-day backlog of small communications stops quietly growing in the background."
+      "The day-to-day backlog of small communications stops quietly growing in the background.",
+      "Recurring busywork starts running itself on a schedule, with approval before anything sensitive leaves the building."
     ],
     faqs: [
       { q: "Is this only useful for email, or does it help with other writing tasks too?", a: "Email is a common use case, but summarizing documents, drafting notes, and cleaning up rough text into clear messages are equally common uses for busy professionals." },
