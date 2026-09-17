@@ -266,4 +266,4 @@
 
 ## Homepage scrolling-logo CMS control
 - [x] Add a Site settings switch for faded or always-colorful scrolling logos
-- [ ] Verify saved setting, hover/touch color behavior, desktop/mobile, and build health
+- [x] Verify setting integration, hover/touch color behavior, desktop/mobile, and build health
