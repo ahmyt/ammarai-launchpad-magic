@@ -203,6 +203,11 @@ const pageSettingsFields: FieldSpec[] = [
     label: "Show the Tutorials link in the top menu",
     type: "boolean",
   },
+  {
+    name: "fadeHomepageLogos",
+    label: "Fade scrolling logos until touched",
+    type: "boolean",
+  },
 ];
 
 /** Fields shown when editing a specific page — keeps Contact, Home and Settings separate. */

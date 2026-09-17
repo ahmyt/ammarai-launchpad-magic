@@ -172,5 +172,7 @@ export interface Page {
   protectContent?: boolean;
   /** Show the Tutorials link in the top navigation (site settings page) */
   showTutorialsNav?: boolean;
+  /** Fade homepage company logos until hover, focus, or touch */
+  fadeHomepageLogos?: boolean;
 }
 

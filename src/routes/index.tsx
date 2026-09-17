@@ -128,6 +128,7 @@ export const Route = createFileRoute("/")({
 export function Home() {
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const page = content.pages.find((p) => p.slug === "home");
+  const settings = content.pages.find((p) => p.slug === "settings");
   const cmp = {
     eyebrow: page?.comparisonEyebrow || "The math",
     title: page?.comparisonTitle || "Stop paying for five AI tools",
@@ -298,7 +299,7 @@ export function Home() {
         </Container>
       </section>
 
-      <TrustLogoStrip />
+      <TrustLogoStrip faded={settings?.fadeHomepageLogos !== false} />
 
       {/* Featured */}
         <Section tone="sand" className="studio-section studio-flagships">

@@ -91,5 +91,6 @@ export const pages: Page[] = [
     sentBody: "",
     channels: [],
     showTutorialsNav: true,
+    fadeHomepageLogos: true,
   },
 ];

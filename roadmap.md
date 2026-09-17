@@ -263,3 +263,7 @@
 ## Secondary tools carousel autoplay
 - [x] Autoplay only while the carousel is on screen
 - [x] Verify freeze off screen, resume on return, manual controls, desktop/mobile, build health
+
+## Homepage scrolling-logo CMS control
+- [x] Add a Site settings switch for faded or always-colorful scrolling logos
+- [ ] Verify saved setting, hover/touch color behavior, desktop/mobile, and build health
