@@ -1,4 +1,4 @@
-import avatarDemo from "@/assets/demo-avatar-video.mp4.asset.json";
+import avatarDemo from "@/assets/demo-avatar-video-female-voice.mp4.asset.json";
 import avatarDemo2 from "@/assets/demo-avatar-video-2.mp4.asset.json";
 import imageToVideoDemo from "@/assets/demo-image-to-video.mp4.asset.json";
 import imageToVideoDemo2 from "@/assets/demo-image-to-video-2.mp4.asset.json";
