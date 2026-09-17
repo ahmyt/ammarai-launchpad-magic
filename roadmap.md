@@ -254,4 +254,4 @@
 
 ## Shared card selection feedback
 - [x] Add reusable blue top-and-bottom edge feedback to interactive cards
-- [ ] Verify hover, keyboard focus, click, touch selection, and single-active carousel behavior
+- [x] Verify hover, keyboard focus, click, touch selection, and single-active carousel behavior
