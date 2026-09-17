@@ -255,3 +255,7 @@
 ## Shared card selection feedback
 - [x] Add reusable blue top-and-bottom edge feedback to interactive cards
 - [x] Verify hover, keyboard focus, click, touch selection, and single-active carousel behavior
+
+## Review pop-up dark theme
+- [x] Apply the active dark enterprise theme to the customer review form pop-up
+- [x] Verify the form, confirmation state, desktop/mobile layout, and build health

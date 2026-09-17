@@ -72,7 +72,7 @@ function ReviewBrowser({ reviews }: { reviews: CustomerReview[] }) {
   const visible = filtered.slice((page - 1) * pageSize, page * pageSize);
 
   return (
-    <DialogContent className="max-h-[88vh] max-w-4xl overflow-y-auto">
+    <DialogContent className="customer-review-dialog max-h-[88vh] max-w-4xl overflow-y-auto">
       <DialogHeader>
         <DialogTitle>Customer reviews</DialogTitle>
         <DialogDescription>Read feedback approved for publication by AmmarAI.</DialogDescription>
@@ -155,7 +155,7 @@ function ReviewForm() {
 
   if (done) {
     return (
-      <DialogContent className="max-h-[88vh] overflow-y-auto">
+      <DialogContent className="customer-review-dialog max-h-[88vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Thank you for your review</DialogTitle>
           <DialogDescription>
@@ -172,7 +172,7 @@ function ReviewForm() {
   }
 
   return (
-    <DialogContent className="max-h-[88vh] overflow-y-auto">
+    <DialogContent className="customer-review-dialog max-h-[88vh] overflow-y-auto">
       <DialogHeader>
         <DialogTitle>Write a review</DialogTitle>
         <DialogDescription>Your review will be checked before it appears publicly.</DialogDescription>

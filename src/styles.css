@@ -2654,7 +2654,8 @@ body:has(.home-swiss) .site-footer-back:hover span {
   --ring: oklch(0.55 0.225 265);
 }
 
-.site-shell.theme-dark {
+.site-shell.theme-dark,
+html[data-theme="dark"] {
   --background: oklch(0.105 0.008 270);
   --foreground: oklch(0.975 0.004 95);
   --paper: oklch(0.135 0.008 270);
@@ -2703,6 +2704,29 @@ body:has(.home-swiss) .site-footer-back:hover span {
   --color-ring: var(--ring);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
+}
+
+html[data-theme="dark"] .customer-review-dialog {
+  border-color: var(--border);
+  background: var(--paper);
+  color: var(--foreground);
+  box-shadow: 0 1.5rem 4rem -2rem color-mix(in oklab, var(--background) 78%, transparent);
+}
+
+html[data-theme="dark"] .customer-review-dialog input:not([type="checkbox"]),
+html[data-theme="dark"] .customer-review-dialog textarea,
+html[data-theme="dark"] .customer-review-dialog select {
+  border-color: var(--border);
+  background: var(--background);
+  color: var(--foreground);
+}
+
+html[data-theme="dark"] .customer-review-dialog input:focus,
+html[data-theme="dark"] .customer-review-dialog textarea:focus,
+html[data-theme="dark"] .customer-review-dialog select:focus {
+  border-color: var(--accent);
+  outline: 2px solid color-mix(in oklab, var(--accent) 28%, transparent);
+  outline-offset: 1px;
 }
 
 .theme-toggle {

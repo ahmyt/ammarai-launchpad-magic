@@ -315,9 +315,9 @@ export function Home() {
               <ToolCard
                 key={tool.slug}
                 tool={tool}
-                summary={index === 0
-                  ? "Build agents that run real workflows on a schedule or trigger. Connect web search, documents, email, calendars and spreadsheets, chain multiple steps, and require approval before sensitive actions."
-                  : undefined}
+                {...(index === 0
+                  ? { summary: "Build agents that run real workflows on a schedule or trigger. Connect web search, documents, email, calendars and spreadsheets, chain multiple steps, and require approval before sensitive actions." }
+                  : {})}
                 className={index === 0 || index === 3 ? "studio-featured-card lg:col-span-2 min-h-52 justify-end" : "min-h-52"}
               />
             ))}
