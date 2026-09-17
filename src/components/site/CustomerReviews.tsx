@@ -205,19 +205,17 @@ function ReviewDialog({ children }: { children: ReactNode }) {
   );
 }
 
-export function CustomerReviews({ compact = false }: { compact?: boolean }) {
+export function CustomerReviews() {
   const { data, isLoading } = useQuery(publicReviewsQuery);
   const reviews = data?.reviews ?? [];
   const settings = data?.settings;
-  const selected = settings
-    ? sortReviews(reviews, settings).slice(0, compact ? Math.min(3, settings.display_count) : settings.display_count)
-    : [];
+  const selected = settings ? sortReviews(reviews, settings).slice(0, settings.display_count) : [];
   const average = reviews.length ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length : 0;
   const verifiedCount = reviews.filter((review) => review.verified).length;
   const distribution = [5, 4, 3, 2, 1].map((value) => ({ value, count: reviews.filter((review) => review.rating === value).length }));
 
   return (
-    <Section tone="sand" id="customer-reviews" className={`studio-section studio-reviews-section${compact ? " studio-reviews-compact" : ""}`}>
+    <Section tone="sand" id="customer-reviews" className="studio-section studio-reviews-section">
       <Container>
         <SectionHeading eyebrow="Customer reviews" title="What customers say about AmmarAI" intro="Published feedback is reviewed before it appears here. Verified badges are applied only after validation." scale="large" className="studio-heading-wide" />
         {isLoading ? <p className="mt-8 text-sm text-muted-foreground">Loading reviews…</p> : reviews.length === 0 ? (
