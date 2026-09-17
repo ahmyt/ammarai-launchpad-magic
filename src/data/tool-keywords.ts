@@ -2,7 +2,7 @@
  * Pre-researched Semrush keyword data for each AmmarAI tool.
  * Used by the daily blog writer to ground OpenAI prompts in real search data.
  *
- * Research date: September 2026. Database: US.
+ * Research date: 17 September 2026. Database: US.
  * To refresh: re-run Semrush keyword research for each tool and update this file.
  */
 
@@ -989,134 +989,121 @@ export const toolKeywords: Record<string, ToolKeywords> = {
 
   "ai-agent-builder": {
     primaryKeyword: "ai agent builder",
-    searchVolume: 9900,
-    difficulty: 32,
+    searchVolume: 2400,
+    difficulty: 45,
     relatedKeywords: [
-      { keyword: "build ai agents", volume: 1200 },
-      { keyword: "best ai agent builder", volume: 850 },
-      { keyword: "no code ai agent builder", volume: 560 },
-      { keyword: "ai agent platform", volume: 1400 },
-      { keyword: "autonomous ai agents builder", volume: 320 },
+      { keyword: "ai agent", volume: 22200 },
+      { keyword: "agent ai", volume: 4400 },
+      { keyword: "mindstudio", volume: 2900 },
+      { keyword: "n8n ai agent", volume: 2900 },
     ],
     questions: [
-      "What is the best AI agent builder?",
-      "How to build AI agents for business?",
-      "Can I build AI agents without coding?",
-      "What are the top AI agent platforms in 2026?",
+      "how to build an ai agent",
+      "how to build ai agents",
+      "how to build agentic ai",
+      "how to build your own ai agent",
     ],
   },
 
   "ai-phone-agent": {
     primaryKeyword: "ai phone call agent",
-    searchVolume: 4500,
-    difficulty: 48,
+    searchVolume: 30,
+    difficulty: 44,
     relatedKeywords: [
-      { keyword: "ai voice call agent", volume: 2100 },
-      { keyword: "best ai phone receptionist", volume: 720 },
-      { keyword: "ai outbound call agent", volume: 880 },
-      { keyword: "conversational ai for phone calls", volume: 1100 },
-      { keyword: "automated phone call ai", volume: 650 },
+      { keyword: "conversational ai assistant", volume: 9900 },
+      { keyword: "ai call center", volume: 2900 },
     ],
     questions: [
-      "What is an AI phone call agent?",
-      "How much does an AI call agent cost?",
-      "Can AI handle customer service calls?",
-      "What are the best AI phone agent platforms?",
+      "which ai voice agents support outbound phone calls",
+      "what is a voice ai agent for business phone calls",
+      "which ai voice agents support inbound phone calls",
     ],
   },
 
   "ai-crm": {
     primaryKeyword: "ai crm",
-    searchVolume: 18100,
-    difficulty: 62,
+    searchVolume: 3600,
+    difficulty: 71,
     relatedKeywords: [
-      { keyword: "best ai crm software", volume: 2400 },
-      { keyword: "ai crm for small business", volume: 1900 },
       { keyword: "salesforce ai features", volume: 3600 },
-      { keyword: "ai powered crm", volume: 1200 },
-      { keyword: "ai in crm marketing", volume: 850 },
+      { keyword: "hubspot ai", volume: 2400 },
+      { keyword: "ai crm software", volume: 880 },
+      { keyword: "ai powered crm", volume: 880 },
     ],
     questions: [
-      "Which AI CRM is best?",
-      "How does AI improve CRM?",
-      "Is there a free AI CRM?",
-      "What are the benefits of AI in CRM?",
+      "how ai improves customer relationship management crm benefits",
+      "how ai crm helps sales teams benefits examples",
+      "how crm platforms use ai to improve sales productivity",
+      "how to use ai to optimize your crm",
     ],
   },
 
   "ai-social-media-agent": {
     primaryKeyword: "ai social media agent",
-    searchVolume: 3200,
-    difficulty: 38,
+    searchVolume: 50,
+    difficulty: 39,
     relatedKeywords: [
-      { keyword: "ai social media manager", volume: 5400 },
-      { keyword: "automated social media ai", volume: 1200 },
-      { keyword: "ai social media automation", volume: 2200 },
-      { keyword: "best ai for social media posts", volume: 2900 },
-      { keyword: "ai agent for instagram growth", volume: 450 },
+      { keyword: "ai social media", volume: 3600 },
+      { keyword: "social media ai", volume: 1600 },
+      { keyword: "ai for social media", volume: 1300 },
+      { keyword: "ai social media platform", volume: 1000 },
     ],
     questions: [
-      "Can AI manage my social media?",
-      "What is the best AI social media agent?",
-      "How to automate social media with AI?",
-      "Are AI social media managers effective?",
+      "how ai agents improve social media performance",
+      "what are ai agents in social media advertising",
+      "how to build a social media ai agent",
+      "which ai agent is best for social media marketing",
     ],
   },
 
   "ai-blogger-agent": {
-    primaryKeyword: "ai blogger agent",
-    searchVolume: 1500,
-    difficulty: 25,
+    primaryKeyword: "ai blog automation",
+    searchVolume: 70,
+    difficulty: 21,
     relatedKeywords: [
-      { keyword: "ai blog writer agent", volume: 850 },
-      { keyword: "autonomous ai blogger", volume: 320 },
-      { keyword: "ai blog post generator", volume: 9900 },
-      { keyword: "best ai for blogging", volume: 4400 },
-      { keyword: "automated ai wordpress blog", volume: 600 },
+      { keyword: "autoblogging ai", volume: 22200 },
+      { keyword: "autoblogger", volume: 18100 },
+      { keyword: "ai content creation tools", volume: 1900 },
+      { keyword: "blog generator", volume: 1900 },
     ],
     questions: [
-      "How does an AI blogger agent work?",
-      "Can AI write an entire blog post?",
-      "What is the best AI tool for automated blogging?",
-      "Is AI content good for SEO?",
+      "how to automate blog content with ai",
+      "how marketers can automate blog series using ai",
+      "how to automate blog content creation with ai",
     ],
   },
 
   "ai-dm-comment-agent": {
-    primaryKeyword: "ai comment reply agent",
-    searchVolume: 880,
-    difficulty: 22,
+    primaryKeyword: "instagram dm automation",
+    searchVolume: 320,
+    difficulty: 36,
     relatedKeywords: [
-      { keyword: "auto reply instagram dm", volume: 5400 },
-      { keyword: "automated facebook comment replies", volume: 720 },
-      { keyword: "ai dm assistant", volume: 1300 },
-      { keyword: "youtube comment automation", volume: 1900 },
-      { keyword: "social media auto responder", volume: 1100 },
+      { keyword: "instagram bot", volume: 2400 },
+      { keyword: "instagram messages", volume: 4400 },
     ],
     questions: [
-      "Can AI reply to Instagram DMs?",
-      "How do you automate YouTube comments?",
-      "What is the best AI comment reply tool?",
-      "Can AI capture leads from social media comments?",
+      "how to automate dm responses on instagram",
+      "how to do instagram dm automation",
+      "how to send an automated dm on instagram",
+      "how to set up comment to dm automation on instagram",
     ],
   },
 
   "ai-deep-research": {
     primaryKeyword: "ai deep research",
-    searchVolume: 3600,
-    difficulty: 28,
+    searchVolume: 260,
+    difficulty: 52,
     relatedKeywords: [
-      { keyword: "ai research agent", volume: 1400 },
-      { keyword: "automated web research ai", volume: 880 },
-      { keyword: "ai research assistant with citations", volume: 650 },
-      { keyword: "multi source research ai", volume: 320 },
-      { keyword: "ai market research tool", volume: 2900 },
+      { keyword: "deep research", volume: 6600 },
+      { keyword: "deep search ai", volume: 4400 },
+      { keyword: "chatgpt deep research", volume: 4400 },
+      { keyword: "gemini deep research", volume: 8100 },
     ],
     questions: [
-      "Can AI do deep research with live sources?",
-      "What is the best AI research agent?",
-      "How do you cite sources from AI research?",
-      "Can AI compare competitors from live web data?",
+      "what is ai deep research",
+      "what ai is best for deep research",
+      "how does ai deep research work",
+      "how to use ai deep research",
     ],
   },
 
@@ -1179,20 +1166,17 @@ export const toolKeywords: Record<string, ToolKeywords> = {
 
   "ai-marketing-bot": {
     primaryKeyword: "ai marketing bot",
-    searchVolume: 3900,
-    difficulty: 42,
+    searchVolume: 260,
+    difficulty: 46,
     relatedKeywords: [
-      { keyword: "best ai marketing bots", volume: 1100 },
-      { keyword: "ai marketing automation bot", volume: 880 },
-      { keyword: "marketing chatbot ai", volume: 5400 },
-      { keyword: "ai bots for lead generation", volume: 2600 },
-      { keyword: "autonomous marketing ai", volume: 750 },
+      { keyword: "ai marketing", volume: 9900 },
+      { keyword: "ai in marketing", volume: 6600 },
+      { keyword: "ai marketing tools", volume: 6600 },
     ],
     questions: [
-      "What is an AI marketing bot?",
-      "How to use AI bots for marketing?",
-      "Can AI bots replace marketing agencies?",
-      "What are the top AI marketing tools in 2026?",
+      "what is ai marketing bot",
+      "what is an ai marketing bot",
+      "how do ai conversation bots compare in market leadership",
     ],
   },
 
@@ -1216,53 +1200,46 @@ export const toolKeywords: Record<string, ToolKeywords> = {
   },
 
   "ai-photoshoot": {
-    primaryKeyword: "ai product photoshoot",
-    searchVolume: 5400,
-    difficulty: 36,
+    primaryKeyword: "ai product photography",
+    searchVolume: 390,
+    difficulty: 39,
     relatedKeywords: [
-      { keyword: "ai product photography", volume: 8100 },
-      { keyword: "ai generated product photos", volume: 2900 },
-      { keyword: "best ai for product photos", volume: 1400 },
-      { keyword: "ai photoshoot for ecommerce", volume: 2200 },
-      { keyword: "virtual product photoshoot ai", volume: 850 },
+      { keyword: "artificial intelligence photoshoot", volume: 18100 },
+      { keyword: "photoshoot ai", volume: 4400 },
+      { keyword: "ai product image builder", volume: 2900 },
+      { keyword: "ai photoshoot", volume: 1300 },
     ],
     questions: [
-      "What is an AI product photoshoot?",
-      "How to do a product photoshoot with AI?",
-      "Is AI product photography cheaper?",
-      "What is the best AI for ecommerce photos?",
+      "how to use ai for product photography",
+      "how ai product photography mockups reduce production costs",
+      "how ai product photography tools reduce time to market e-commerce",
+      "how to test ai product photography vs traditional studio photography",
     ],
   },
 
   "ai-virtual-try-on": {
-    primaryKeyword: "ai fashion try-on",
-    searchVolume: 6600,
-    difficulty: 40,
+    primaryKeyword: "ai virtual try on",
+    searchVolume: 170,
+    difficulty: 45,
     relatedKeywords: [
-      { keyword: "virtual try on clothing ai", volume: 9900 },
-      { keyword: "ai virtual fitting room", volume: 4400 },
-      { keyword: "online dressing room ai", volume: 2400 },
-      { keyword: "ai clothing try on app", volume: 5400 },
-      { keyword: "best virtual try on technology", volume: 1100 },
+      { keyword: "clothes swap ai", volume: 1900 },
+      { keyword: "ai clothes swap", volume: 1600 },
+      { keyword: "clothes changer ai", volume: 1300 },
+      { keyword: "clothes swap", volume: 1300 },
     ],
     questions: [
-      "How does AI fashion try-on work?",
-      "Where can I try on clothes virtually with AI?",
-      "Is virtual try-on accurate?",
-      "What are the best virtual fitting room tools?",
+      "how accurate is ai virtual try on for sizing",
+      "how to virtually try on clothes using ai image editing",
     ],
   },
 
   "ai-creative-suite": {
     primaryKeyword: "ai creative suite",
-    searchVolume: 1900,
-    difficulty: 45,
+    searchVolume: 480,
+    difficulty: 33,
     relatedKeywords: [
-      { keyword: "adobe firefly suite", volume: 135000 },
-      { keyword: "ai design suite", volume: 2200 },
-      { keyword: "canva ai creative tools", volume: 8100 },
-      { keyword: "ai content creation suite", volume: 1400 },
-      { keyword: "best ai creative platforms", volume: 950 },
+      { keyword: "adobe firefly", volume: 110000 },
+      { keyword: "adobe creative cloud", volume: 165000 },
     ],
     questions: [
       "What is an AI creative suite?",
@@ -2733,6 +2710,189 @@ export const toolKeywords: Record<string, ToolKeywords> = {
       "can ai change video style",
       "how does video to video ai work",
     ],
+  },
+
+  "ugc-factory": {
+    primaryKeyword: "ai ugc video generator",
+    searchVolume: 590,
+    difficulty: 52,
+    relatedKeywords: [
+      { keyword: "ai ugc", volume: 1900 },
+      { keyword: "ugc ads", volume: 1000 },
+      { keyword: "ugc video", volume: 1000 },
+      { keyword: "ugc ai", volume: 880 },
+      { keyword: "ai ugc generator", volume: 140 },
+    ],
+    questions: [
+      "can ai generate ugc videos for multiple social platforms",
+      "how to add ctas to ai-generated ugc videos",
+      "how to evaluate ai-generated ugc ads for roi",
+    ],
+  },
+
+  "viral-clips": {
+    primaryKeyword: "long video to short clips ai",
+    searchVolume: 20,
+    difficulty: 0,
+    relatedKeywords: [
+      { keyword: "ai video clips generator", volume: 40 },
+      { keyword: "ai video maker", volume: 27100 },
+    ],
+    questions: [
+      "can ai generate short video clips for social media 2026",
+    ],
+  },
+
+  "ai-video-enhancer": {
+    primaryKeyword: "ai video enhancer",
+    searchVolume: 4400,
+    difficulty: 50,
+    relatedKeywords: [
+      { keyword: "video enhancer", volume: 6600 },
+      { keyword: "video quality enhancer", volume: 6600 },
+      { keyword: "video upscaler", volume: 5400 },
+      { keyword: "enhance video quality", volume: 3600 },
+      { keyword: "ai video upscaler", volume: 2900 },
+    ],
+    questions: [
+      "can you ai enhance videos",
+      "how does ai video enhancement work",
+      "how to ai upscale video",
+      "what is the best ai video upscaler",
+    ],
+  },
+
+  "ai-council-mode": {
+    primaryKeyword: "compare ai models",
+    searchVolume: 320,
+    difficulty: 57,
+    relatedKeywords: [
+      { keyword: "ai models", volume: 12100 },
+      { keyword: "ai platforms", volume: 12100 },
+      { keyword: "llm leaderboard", volume: 6600 },
+    ],
+    questions: [
+      "how to compare ai models",
+      "how to compare two ai models",
+      "how do different ai models compare",
+      "when to compare ai models",
+    ],
+  },
+
+  "ai-social-media-publisher": {
+    primaryKeyword: "social media scheduling tool",
+    searchVolume: 1000,
+    difficulty: 37,
+    relatedKeywords: [
+      { keyword: "social media scheduler", volume: 550000 },
+      { keyword: "social media management tools", volume: 9900 },
+      { keyword: "social media scheduling tools", volume: 2900 },
+      { keyword: "ai social media scheduler", volume: 50 },
+    ],
+    questions: [
+      "what is the best social media scheduling tool",
+      "how social media scheduling tools improve marketing efficiency",
+      "how social media scheduling tools maintain consistent posting",
+      "what benefit does ai bring to scheduling social media posts",
+    ],
+  },
+
+  "content-manager": {
+    primaryKeyword: "digital asset management software",
+    searchVolume: 3600,
+    difficulty: 50,
+    relatedKeywords: [
+      { keyword: "digital asset management", volume: 8100 },
+      { keyword: "dam software", volume: 2900 },
+      { keyword: "media asset management software", volume: 1600 },
+      { keyword: "digital asset management tools", volume: 1300 },
+    ],
+    questions: [
+      "what is digital asset management software",
+      "what is the best digital asset management software",
+      "who uses digital asset management software",
+      "can digital asset management integrate with other software",
+    ],
+  },
+
+  "ai-rewriter": {
+    primaryKeyword: "ai rewriter",
+    searchVolume: 49500,
+    difficulty: 78,
+    relatedKeywords: [
+      { keyword: "paraphrase tool", volume: 135000 },
+      { keyword: "paraphrasing tool", volume: 90500 },
+      { keyword: "rewrite", volume: 60500 },
+      { keyword: "paraphraser", volume: 49500 },
+      { keyword: "rewording tool", volume: 40500 },
+    ],
+    questions: [
+      "how to rewrite ai generated text",
+      "can ai rewrite my resume",
+      "do ai rewriters work",
+      "how to use ai to rewrite something",
+    ],
+  },
+
+  "brand-voice": {
+    primaryKeyword: "brand voice ai",
+    searchVolume: 110,
+    difficulty: 25,
+    relatedKeywords: [
+      { keyword: "ai brand voice generator", volume: 40 },
+      { keyword: "brand voice management", volume: 90 },
+      { keyword: "brand voice analysis tools marketing", volume: 90 },
+    ],
+    questions: [
+      "why brand voice matters ai",
+      "how to adapt ai written text to brand voice",
+      "can ai tools actually learn your brand voice",
+      "how agencies maintain brand voice with ai",
+    ],
+  },
+
+  "ai-editor": {
+    primaryKeyword: "ai document editor",
+    searchVolume: 1000,
+    difficulty: 50,
+    relatedKeywords: [
+      { keyword: "ai-powered writing assistant", volume: 9900 },
+      { keyword: "writing assistant", volume: 6600 },
+      { keyword: "ai writing editor", volume: 480 },
+      { keyword: "ai content editor", volume: 210 },
+    ],
+    questions: [],
+  },
+
+  "ai-image-assistant": {
+    primaryKeyword: "ai image prompt generator",
+    searchVolume: 880,
+    difficulty: 62,
+    relatedKeywords: [
+      { keyword: "ai image generator", volume: 823000 },
+      { keyword: "ai art generator", volume: 60500 },
+      { keyword: "prompt generator", volume: 49500 },
+      { keyword: "ai image assistant", volume: 20 },
+    ],
+    questions: [
+      "how to use ai image generator with text prompt",
+      "how to write prompts for ai image generation",
+      "how to create effective prompts for ai image generation",
+      "how to prompt ai to generate images",
+    ],
+  },
+
+  "ai-realtime-image": {
+    primaryKeyword: "realtime ai image generator",
+    searchVolume: 170,
+    difficulty: 38,
+    relatedKeywords: [
+      { keyword: "ai image generator", volume: 823000 },
+      { keyword: "ai photo generator", volume: 165000 },
+      { keyword: "ai art generator", volume: 60500 },
+      { keyword: "ai realtime image generator", volume: 10 },
+    ],
+    questions: [],
   },
 };
 

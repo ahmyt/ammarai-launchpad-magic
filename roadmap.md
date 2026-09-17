@@ -60,6 +60,7 @@
 - [x] Expand the showcase to 18 major standalone tools, with automation tools first and no templates or flagship duplicates
 - [x] Add a playable video output sample to the Viral Clips tool page
 - [x] Audit public pages for automation and publishing discrepancies; correct the About page and footer
+- [x] Refresh daily-writer keyword research for all 151 tools and add new capability-led topics
 
 - [x] Diagnose attached bounce: production is still sending through plesk-steve.zap.cloud / 185.223.31.164.
 

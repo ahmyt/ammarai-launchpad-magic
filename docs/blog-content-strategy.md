@@ -1,8 +1,8 @@
 # AmmarAI blog: content audit and strategy map
 
-Prepared 14 September 2026. Read-only audit — no existing article was changed, merged or removed.
+Prepared 14 September 2026; keyword coverage refreshed 17 September 2026. No existing article was removed.
 
-Sources: `src/data/posts.ts` (10 hand-written guides), the `syndicated_articles` table (19 live rows), `src/data/tools.ts` / `features.ts` / `use-cases.ts` for internal-link targets. Search volume and difficulty figures are live US data pulled on 14 Sep 2026; "—" means no reliable data exists for that phrase.
+Sources: `src/data/posts.ts` (10 hand-written guides), the `syndicated_articles` table (19 live rows), and the public tool catalogue for internal-link targets. Original roadmap figures are US Semrush data pulled on 14 Sep 2026; new and updated tool figures were refreshed on 17 Sep 2026. Missing data means unknown, never zero.
 
 ---
 
@@ -114,6 +114,21 @@ The four alternatives pages are the single best ratio on the board: real demand,
 ### Tier P3 — long tail and authority fill
 
 Best AI Tools for Content Creators (110/mo, 30) · Best AI Tools for Agencies (20/mo, 0) · AI for Agencies guide (110/mo, 24) · Best AI Tools for YouTube (30/mo, 43) · Best AI Agent Platforms (70/mo, 40) · Best AI Tools for Blog Writing (30/mo, 0) · Best AI Tools for Social Media (140/mo, 34) · AI Video Workflow (50/mo, 18) · AI SEO Workflow (20/mo, 0) · AI Brand Voice (40/mo, 24) · the remaining "How to … With AmmarAI" tutorials (social content, marketing videos, voiceovers, full campaign, blog-to-social).
+
+### September 17 tool refresh
+
+The 151-tool catalogue now has complete daily-writer keyword coverage. Six capability-led topics were added without changing the 30/30/25/15 rotation:
+
+| Topic | Intent | Target term | US volume | Difficulty |
+|---|---|---|---:|---:|
+| Enhance Video Quality With AI | Product tutorial | ai video enhancer | 4,400/mo | 50 |
+| Create UGC Videos With AI | Product use-case | ai ugc video generator | 590/mo | 52 |
+| AI Blog Automation for WordPress | Automation use-case | ai blog automation | 70/mo | 21 |
+| Schedule Social Media Posts With AI | Product tutorial | social media scheduling tool | 1,000/mo | 37 |
+| How a Realtime AI Image Generator Works | Informational guide | realtime ai image generator | 170/mo | 38 |
+| Keep Brand Voice Consistent With AI | Product tutorial | brand voice ai | 110/mo | 25 |
+
+Keyword records were also added for Viral Clips, AI Council Mode, Content Manager, AI ReWriter, AI Editor and AI Image Assistant. Broad terms were used only when their intent matches the actual tool; unavailable Semrush measurements remain unstated rather than being recorded as zero.
 
 **Skip:** "AI video generator alternatives", "AI writing tool alternatives", "AI marketing automation workflow" — zero measurable demand; the intent is already served by the named-competitor pages. MagicAI and Canva AI have no reliable US data; treat as optional P3 and only if the comparison is honest and substantive.
 

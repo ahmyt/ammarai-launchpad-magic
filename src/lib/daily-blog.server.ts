@@ -495,6 +495,9 @@ function siblingLinks(cluster: string, exclude: string[]): string[] {
     audio: ["/blog/how-to-generate-ai-voiceovers"],
     seo: ["/blog/how-to-use-ai-for-seo"],
     automation: ["/blog/ai-productivity-workflows"],
+    agents: ["/blog/ai-productivity-workflows", "/blog/ai-agents-business-automation"],
+    chat: ["/blog/how-to-write-better-ai-prompts"],
+    productivity: ["/blog/ai-productivity-workflows"],
     platform: ["/blog/best-ai-writing-tools"],
   };
   return (byCluster[cluster] ?? ["/blog/how-to-use-ai-for-content-creation"]).filter(
@@ -595,6 +598,11 @@ export async function writeDailyPost(
       "AI SEO": "seo",
       "AI Marketing": "marketing",
       "AI Writing": "writing",
+      "AI Social Media": "marketing",
+      "AI Automation": "automation",
+      "AI Agents": "agents",
+      "AI Chat": "chat",
+      "AI Productivity": "productivity",
     };
     blogPrompt = [
       ...base,
