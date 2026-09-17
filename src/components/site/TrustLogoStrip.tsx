@@ -1,11 +1,11 @@
 const companies = [
-  { name: "ATNapps", src: "/media/trusted-companies/atnapps.webp" },
-  { name: "TaxiVA Call 8802", src: "/media/trusted-companies/taxiva.webp" },
-  { name: "eSIMnow", src: "/media/trusted-companies/esimnow.webp" },
-  { name: "ATN Technology", src: "/media/trusted-companies/atn-technology.webp" },
-  { name: "MyMobile Unlocking", src: "/media/trusted-companies/mymobile-unlocking.webp" },
-  { name: "Ethio Game", src: "/media/trusted-companies/ethio-game.webp" },
-  { name: "AymarPOS", src: "/media/trusted-companies/aymarpos.webp" },
+  { name: "ATNapps", src: "/media/trusted-companies/atnapps.png", alt: "ATNapps mobile app builder logo" },
+  { name: "NureMath", src: "/media/trusted-companies/nuremath.png", alt: "NureMath mathematics learning logo" },
+  { name: "MyMobile Unlocking", src: "/media/trusted-companies/mymobile-unlocking.png", alt: "MyMobile Unlocking logo" },
+  { name: "Ice Land", src: "/media/trusted-companies/ice-land.png", alt: "Ice Land ice cream logo" },
+  { name: "ATN Technology", src: "/media/trusted-companies/atn-technology.png", alt: "ATN Technology logo" },
+  { name: "Ethio Game", src: "/media/trusted-companies/ethio-game.png", alt: "Ethio Game logo" },
+  { name: "AymarPOS", src: "/media/trusted-companies/aymarpos.png", alt: "AymarPOS point-of-sale logo" },
 ];
 
 function LogoTrack({ duplicate = false }: { duplicate?: boolean }) {
@@ -15,7 +15,7 @@ function LogoTrack({ duplicate = false }: { duplicate?: boolean }) {
         <div key={company.name} className="trust-logo-item">
           <img
             src={company.src}
-            alt={`${company.name} company logo`}
+            alt={company.alt}
             title={company.name}
             width={360}
             height={112}
