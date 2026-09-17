@@ -204,19 +204,19 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
       kind: "video",
       url: urlToVideoAdDemo.url,
       caption:
-        "Sample output — a finished vertical ad built from the esimnow.net product page, with avatar presenter, voiceover and burned-in captions.",
+        "Sample output — a finished vertical travel-connectivity ad assembled from the product-page brief, with product visuals, presenter voiceover and burned-in captions.",
     },
     {
       kind: "video",
       url: urlToVideoClipDemo.url,
       caption:
-        "Sample output — one of the five short clips cut from the 45-minute podcast, opening on a hook with captions burned in for Reels and TikTok.",
+        "Sample output — a self-contained podcast moment reframed vertically with an opening hook and burned-in captions.",
     },
     {
       kind: "video",
       url: urlToVideoAvatarDemo.url,
       caption:
-        "Sample output — an influencer-style avatar delivering the written script on camera with natural lip-sync, expressions and captions.",
+        "Sample output — an influencer-style presenter delivering a product script with natural lip-sync, expressions and captions.",
     },
   ],
   "viral-clips": [
