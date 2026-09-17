@@ -250,4 +250,4 @@
 ## Site-wide enterprise dark design
 - [x] Correct shared dark-theme color mapping across all pages
 - [x] Extend the homepage enterprise surfaces, typography, controls, and restrained depth site-wide
-- [ ] Verify representative public, tool, blog, tutorial, legal, authentication, and Studio pages
+- [x] Verify representative public, tool, blog, tutorial, legal, authentication, and Studio pages
