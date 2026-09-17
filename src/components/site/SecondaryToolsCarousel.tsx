@@ -34,8 +34,10 @@ export function SecondaryToolsCarousel() {
     [],
   );
   const railRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(true);
 
   const goTo = useCallback((index: number, smooth = true) => {
     const rail = railRef.current;
@@ -49,10 +51,25 @@ export function SecondaryToolsCarousel() {
   }, [tools.length]);
 
   useEffect(() => {
-    if (paused || tools.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const section = sectionRef.current;
+    if (!section || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const visible = entry.intersectionRect.height;
+        const reference = Math.min(entry.boundingClientRect.height, window.innerHeight);
+        setInView(reference > 0 && visible / reference >= 0.5);
+      },
+      { threshold: [0, 0.25, 0.5, 0.75, 1] },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!inView || paused || tools.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = window.setInterval(() => goTo(activeIndex + 1), 5200);
     return () => window.clearInterval(timer);
-  }, [activeIndex, goTo, paused, tools.length]);
+  }, [activeIndex, goTo, inView, paused, tools.length]);
 
   const updateActiveCard = () => {
     const rail = railRef.current;
@@ -68,6 +85,7 @@ export function SecondaryToolsCarousel() {
 
   return (
     <section
+      ref={sectionRef}
       aria-label="More AmmarAI tools"
       className="studio-secondary-showcase"
       onMouseEnter={() => setPaused(true)}
