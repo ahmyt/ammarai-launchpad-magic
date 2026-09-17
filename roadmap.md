@@ -258,4 +258,4 @@
 
 ## Review pop-up dark theme
 - [x] Apply the active dark enterprise theme to the customer review form pop-up
-- [ ] Verify the form, confirmation state, desktop/mobile layout, and build health
+- [x] Verify the form, confirmation state, desktop/mobile layout, and build health
