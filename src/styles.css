@@ -2648,6 +2648,30 @@ body:has(.home-swiss) .site-footer-back:hover span {
   --ring: oklch(0.64 0.23 264);
   --ink: oklch(0.075 0.008 270);
   --ink-foreground: oklch(0.975 0.004 95);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-sand: var(--sand);
+  --color-hairline: var(--hairline);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
 }
 
 .theme-toggle {
@@ -2943,6 +2967,225 @@ body:has(.home-swiss) .site-footer-back:hover span {
   }
   .trust-logo-track[aria-hidden="true"] {
     display: none;
+  }
+}
+
+/* Site-wide enterprise dark treatment. The homepage remains the visual source of truth. */
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  background: oklch(0.105 0.008 270);
+  color: oklch(0.975 0.004 95);
+}
+
+.site-shell.theme-dark {
+  background:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 3.5%, transparent) 1px, transparent 1px),
+    var(--background);
+  background-size: 4rem 100%;
+}
+
+.site-shell.theme-dark .site-header {
+  border-color: var(--border);
+  background: color-mix(in oklab, var(--background) 94%, transparent);
+  box-shadow: 0 1px 0 color-mix(in oklab, var(--foreground) 3%, transparent) inset;
+  backdrop-filter: blur(16px);
+}
+
+.site-shell.theme-dark .site-header > div {
+  min-height: 4.5rem;
+}
+
+.site-shell.theme-dark .site-header nav a {
+  letter-spacing: 0.06em;
+}
+
+.site-shell.theme-dark .site-header a[class*="bg-ink"] {
+  border: 1px solid var(--accent);
+  border-radius: 0.375rem;
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.site-shell.theme-dark > main > :not(.home-premium) > .site-section:first-child,
+.site-shell.theme-dark > main > article > .site-section:first-of-type,
+.site-shell.theme-dark > main .site-section:has(.site-breadcrumbs) {
+  min-height: 28rem;
+  border-color: var(--border);
+  background:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 3%, transparent) 1px, transparent 1px),
+    radial-gradient(ellipse 54% 62% at 74% 12%, color-mix(in oklab, var(--accent) 11%, transparent), transparent 72%),
+    var(--background);
+  background-size: 4rem 4rem, 4rem 4rem, auto, auto;
+}
+
+.site-shell.theme-dark > main > :not(.home-premium) > .site-section:first-child::after,
+.site-shell.theme-dark > main > article > .site-section:first-of-type::after,
+.site-shell.theme-dark > main .site-section:has(.site-breadcrumbs)::after {
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), var(--accent) 54% 70%, var(--border));
+}
+
+.site-shell.theme-dark > main > :not(.home-premium) > .site-section:first-child h1,
+.site-shell.theme-dark > main > article > .site-section:first-of-type h1,
+.site-shell.theme-dark > main .site-section:has(.site-breadcrumbs) h1 {
+  max-width: 58rem;
+  font-size: clamp(3.2rem, 6.5vw, 6.7rem);
+  font-weight: 700;
+  line-height: 0.94;
+  text-transform: none;
+}
+
+.site-shell.theme-dark .site-section {
+  border-color: var(--border);
+}
+
+.site-shell.theme-dark .site-section.bg-sand {
+  border-color: var(--border);
+  background-color: var(--sand);
+  background-image: none;
+}
+
+.site-shell.theme-dark .site-section.bg-ink {
+  border-color: var(--border);
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--ink-foreground) 3%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--ink-foreground) 2.5%, transparent) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+}
+
+.site-shell.theme-dark .site-section-heading h1,
+.site-shell.theme-dark .site-section-heading h2,
+.site-shell.theme-dark .site-section-heading h3,
+.site-shell.theme-dark .site-section.bg-ink h2 {
+  font-weight: 700;
+  line-height: 0.98;
+  text-transform: none;
+}
+
+.site-shell.theme-dark .site-card,
+.site-shell.theme-dark .site-tool-card,
+.site-shell.theme-dark .tutorials-card,
+.site-shell.theme-dark .tutorials-sidebar-inner,
+.site-shell.theme-dark .tutorial-when,
+.site-shell.theme-dark .tutorial-callout,
+.site-shell.theme-dark .tool-tutorial-link,
+.site-shell.theme-dark [class*="rounded-xl"][class*="bg-card"] {
+  border-color: var(--border);
+  border-radius: 0.5rem;
+  background: var(--card);
+  box-shadow: none;
+}
+
+.site-shell.theme-dark .site-card:hover,
+.site-shell.theme-dark .site-tool-card:hover,
+.site-shell.theme-dark .tutorials-card:hover {
+  border-color: color-mix(in oklab, var(--accent) 42%, var(--border));
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 2.5rem -1.75rem color-mix(in oklab, var(--accent) 34%, transparent);
+}
+
+.site-shell.theme-dark .site-button,
+.site-shell.theme-dark input:not([type="checkbox"]):not([type="radio"]),
+.site-shell.theme-dark textarea,
+.site-shell.theme-dark select,
+.site-shell.theme-dark .tutorials-search-input,
+.site-shell.theme-dark .tutorial-related-link {
+  border-color: var(--border);
+  border-radius: 0.375rem;
+}
+
+.site-shell.theme-dark input:not([type="checkbox"]):not([type="radio"]),
+.site-shell.theme-dark textarea,
+.site-shell.theme-dark select,
+.site-shell.theme-dark .tutorials-search-input {
+  background: var(--paper);
+  color: var(--foreground);
+}
+
+.site-shell.theme-dark .site-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0.9rem 2.5rem -1.5rem color-mix(in oklab, var(--accent) 55%, transparent);
+}
+
+.site-shell.theme-dark .site-demo {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  box-shadow: 0 1.5rem 4rem -2.5rem color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+.site-shell.theme-dark .site-faq > div,
+.site-shell.theme-dark .tutorial-toc,
+.site-shell.theme-dark .tutorial-step-number,
+.site-shell.theme-dark .tutorial-step-figure img,
+.site-shell.theme-dark .tutorial-body .table-scroll,
+.site-shell.theme-dark .tutorial-cta-bottom,
+.site-shell.theme-dark .prose-editorial figure img,
+.site-shell.theme-dark .prose-editorial p > img,
+.site-shell.theme-dark .syndicated-article img,
+.site-shell.theme-dark table {
+  border-color: var(--border);
+}
+
+.site-shell.theme-dark .prose-editorial figure img,
+.site-shell.theme-dark .prose-editorial p > img,
+.site-shell.theme-dark .syndicated-article img {
+  border-radius: 0.5rem;
+  box-shadow: 0 1.5rem 4rem -2.5rem color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+.site-shell.theme-dark > main > .site-section:only-child {
+  background:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 3%, transparent) 1px, transparent 1px),
+    var(--background);
+  background-size: 4rem 4rem;
+}
+
+.site-shell.theme-dark > main > .site-section:only-child > .site-container.max-w-md,
+.site-shell.theme-dark > main > .site-section:only-child > .site-container.max-w-lg {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--paper);
+  box-shadow: 0 2rem 5rem -2.75rem color-mix(in oklab, var(--accent) 38%, transparent);
+}
+
+.site-shell.theme-dark .site-footer {
+  border-color: var(--border);
+  background: var(--sand);
+}
+
+.site-shell.theme-dark .site-footer::before {
+  opacity: 0.38;
+}
+
+.site-shell.theme-dark .admin-studio nav > a {
+  border-color: var(--border);
+  border-radius: 0.375rem;
+}
+
+.site-shell.theme-dark .admin-studio > .site-container > div:first-child {
+  border-color: var(--border);
+}
+
+@media (max-width: 639px) {
+  .site-shell.theme-dark > main > :not(.home-premium) > .site-section:first-child,
+  .site-shell.theme-dark > main > article > .site-section:first-of-type,
+  .site-shell.theme-dark > main .site-section:has(.site-breadcrumbs) {
+    min-height: 0;
+    background:
+      linear-gradient(to right, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 3%, transparent) 1px, transparent 1px),
+      var(--background);
+    background-size: 3rem 3rem;
+  }
+
+  .site-shell.theme-dark > main > :not(.home-premium) > .site-section:first-child h1,
+  .site-shell.theme-dark > main > article > .site-section:first-of-type h1,
+  .site-shell.theme-dark > main .site-section:has(.site-breadcrumbs) h1 {
+    font-size: clamp(2.35rem, 10.5vw, 3.1rem);
+    line-height: 0.98;
   }
 }
 
