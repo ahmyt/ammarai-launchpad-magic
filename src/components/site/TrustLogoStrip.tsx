@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const companies = [
   { name: "ATNapps", src: "/media/trusted-companies/atnapps.png", alt: "ATNapps mobile app builder logo" },
@@ -50,6 +50,24 @@ function LogoTrack({
 
 export function TrustLogoStrip({ faded = true }: { faded?: boolean }) {
   const [activeCompany, setActiveCompany] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!faded) return;
+
+    const clearActiveLogo = (event: PointerEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element) || target.closest(".trust-logo-item")) return;
+
+      setActiveCompany(null);
+      const focusedElement = document.activeElement;
+      if (focusedElement instanceof HTMLElement && focusedElement.closest(".trust-logo-item")) {
+        focusedElement.blur();
+      }
+    };
+
+    document.addEventListener("pointerdown", clearActiveLogo);
+    return () => document.removeEventListener("pointerdown", clearActiveLogo);
+  }, [faded]);
 
   return (
     <section
