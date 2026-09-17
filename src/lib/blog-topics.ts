@@ -59,7 +59,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "best ai marketing tools",
     volume: 1300,
     difficulty: 40,
-    links: ["/ai-marketing-bot", "/ad-script-generator", "/ai-social-media-agent"],
+    links: ["/ai-marketing-bot", "/ai-social-media-publisher", "/ai-social-media-agent"],
     cluster: "marketing",
     brief:
       "Category page grouped by marketing job (campaign planning, ad copy, social, email, analytics) with a comparison table and a pick per job rather than one overall winner.",
@@ -74,7 +74,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "best ai tools for small business",
     volume: 880,
     difficulty: 52,
-    links: ["/ai-writer", "/ai-crm", "/pricing"],
+    links: ["/ai-writer", "/ai-crm", "/ai-blogger-agent", "/pricing"],
     cluster: "business",
     brief:
       "Practical picks for owner-operated businesses on a tight budget. Organise by task, include real list prices with a check date, and be explicit about what a small team can skip.",
@@ -87,7 +87,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "ai workflow automation tools",
     volume: 880,
     difficulty: 62,
-    links: ["/ai-agent-builder", "/ai-smart-inbox", "/ai-crm"],
+    links: ["/ai-agent-builder", "/ai-blogger-agent", "/ai-social-media-agent", "/ai-crm"],
     cluster: "automation",
     brief:
       "Compare automation platforms and AI agent builders. Explain trigger/action automation versus agentic automation, then a table, then a verdict by team size.",
@@ -100,7 +100,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "ai content creation tools",
     volume: 1900,
     difficulty: 55,
-    links: ["/ai-writer", "/ai-video-generator", "/ai-image-generator"],
+    links: ["/ai-writer", "/viral-clips", "/ai-realtime-image", "/content-manager"],
     cluster: "content",
     brief:
       "Cover the whole content pipeline: idea, script, draft, visuals, video, repurposing. Table by stage, and a section on where stitching several point tools costs more than one workspace.",
@@ -190,7 +190,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "ai content repurposing",
     volume: 390,
     difficulty: 31,
-    links: ["/ai-writer", "/ai-social-media-agent", "/ai-text-to-video"],
+    links: ["/ai-writer", "/viral-clips", "/ai-social-media-publisher"],
     cluster: "content",
     brief:
       "Genuine step-by-step tutorial turning one long article into social posts, a newsletter and a short video, with the exact tools and the order to use them in.",
@@ -302,7 +302,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     primaryKeyword: "ai comment reply agent",
     volume: 880,
     difficulty: 22,
-    links: ["/ai-dm-comment-agent", "/smart-inbox", "/social-media-agent"],
+    links: ["/ai-dm-comment-agent", "/ai-smart-inbox", "/ai-social-media-agent"],
     cluster: "agents",
     brief:
       "Practical workflow for automating Instagram and Facebook DMs plus YouTube comment replies: triage rules, lead capture from comments, moderation guardrails and the handoff to a human. Cover YouTube comment automation explicitly.",
@@ -319,6 +319,84 @@ export const BLOG_TOPICS: BlogTopic[] = [
     cluster: "agents",
     brief:
       "Step-by-step deep-research workflow with live sources and citations: framing the question, multi-source gathering, competitor and market research use cases, and how to verify cited sources before trusting the report.",
+  },
+  {
+    id: "ai-video-enhancement-guide",
+    workingTitle: "How to Enhance Video Quality With AI",
+    contentType: "tutorial",
+    category: "AI Video",
+    primaryKeyword: "ai video enhancer",
+    volume: 4400,
+    difficulty: 50,
+    links: ["/ai-video-enhancer", "/ai-video-editor", "/viral-clips"],
+    cluster: "video",
+    brief:
+      "A practical restoration workflow for soft, compressed or low-resolution footage: inspect the source, upscale frame by frame, compare motion and faces, avoid over-sharpening, and export without changing the edit or audio.",
+  },
+  {
+    id: "ai-ugc-video-generator-guide",
+    workingTitle: "How to Create UGC Videos With AI",
+    contentType: "use-case",
+    category: "AI Video",
+    primaryKeyword: "ai ugc video generator",
+    volume: 590,
+    difficulty: 52,
+    links: ["/ugc-factory", "/ai-ugc-generator", "/ai-avatar-generator"],
+    cluster: "video",
+    brief:
+      "Show how to produce consent-based creator-style campaign variants with virtual actors or a digital twin, conversational scripts, voiceover, lip sync, hook testing and a human review before publishing.",
+  },
+  {
+    id: "ai-blog-automation-wordpress",
+    workingTitle: "AI Blog Automation for WordPress",
+    contentType: "use-case",
+    category: "AI Automation",
+    primaryKeyword: "ai blog automation",
+    volume: 70,
+    difficulty: 21,
+    links: ["/ai-blogger-agent", "/ai-writer", "/ai-seo-analyzer"],
+    cluster: "automation",
+    brief:
+      "Explain an accountable WordPress automation workflow: research, categories and tags, featured image, brand rules, schedule, optional approval, publication and performance review. Distinguish useful automation from unchecked autoblogging.",
+  },
+  {
+    id: "ai-social-media-scheduling",
+    workingTitle: "How to Schedule Social Media Posts With AI",
+    contentType: "tutorial",
+    category: "AI Social Media",
+    primaryKeyword: "social media scheduling tool",
+    volume: 1000,
+    difficulty: 37,
+    links: ["/ai-social-media-publisher", "/ai-social-media-agent", "/ai-dm-comment-agent"],
+    cluster: "marketing",
+    brief:
+      "Build a cross-channel publishing workflow for Facebook, Instagram, X and LinkedIn: adapt copy per network, preview crops and truncation, schedule or recur posts, leave room for reactive content, and review results.",
+  },
+  {
+    id: "realtime-ai-image-generator",
+    workingTitle: "How a Realtime AI Image Generator Works",
+    contentType: "guide",
+    category: "AI Image",
+    primaryKeyword: "realtime ai image generator",
+    volume: 170,
+    difficulty: 38,
+    links: ["/ai-realtime-image", "/ai-image-assistant", "/ai-image-editor"],
+    cluster: "image",
+    brief:
+      "Explain live prompt-to-image exploration without overstating final-output quality. Cover changing one variable at a time, testing style, lighting and composition, saving promising directions, then finishing the selected image in an editing tool.",
+  },
+  {
+    id: "brand-voice-ai-workflow",
+    workingTitle: "How to Keep Brand Voice Consistent With AI",
+    contentType: "tutorial",
+    category: "AI Writing",
+    primaryKeyword: "brand voice ai",
+    volume: 110,
+    difficulty: 25,
+    links: ["/brand-voice", "/ai-rewriter", "/ai-editor"],
+    cluster: "writing",
+    brief:
+      "A practical workflow for teaching AI a real brand voice from approved samples, vocabulary, banned phrases and regional spelling; then testing it across articles, social posts and customer replies and correcting drift.",
   },
 ];
 
