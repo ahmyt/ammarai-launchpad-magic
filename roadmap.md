@@ -236,4 +236,4 @@
 
 ## Homepage secondary action
 - [x] Add an “Explore AI tools” secondary button beside “Start creating free”
-- [ ] Verify destination, desktop/mobile layout, and build health
+- [x] Verify destination, desktop/mobile layout, and build health
