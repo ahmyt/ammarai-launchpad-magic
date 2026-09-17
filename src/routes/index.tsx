@@ -12,14 +12,9 @@ import { Container, Section, SectionHeading, Card } from "@/components/site/prim
 import { ToolCard } from "@/components/site/ToolCard";
 import { ActionButton, ExternalButton, ButtonLink } from "@/components/site/Button";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
-import { assetUrl } from "@/lib/asset-url";
 import { TrustLogoStrip } from "@/components/site/TrustLogoStrip";
 import { CustomerReviews } from "@/components/site/CustomerReviews";
 import { SecondaryToolsCarousel } from "@/components/site/SecondaryToolsCarousel";
-import videoProDemo from "@/assets/demo-video-generator.mp4.asset.json";
-import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
-import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
-import avatarDemo from "@/assets/demo-avatar-video.mp4.asset.json";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
 const description =
@@ -85,25 +80,29 @@ const videoLibrary = [
     title: "From brief to finished video",
     label: "AI Video Pro",
     slug: "ai-video-generator",
-    src: assetUrl(videoProDemo.url),
+    src: "/media/demo-video-generator.webm",
+    poster: "/media/demo-video-generator.poster.jpg",
   },
   {
     title: "A polished product edit",
     label: "AI Video Editor",
     slug: "ai-video-editor",
-    src: assetUrl(videoEditorDemo.url),
+    src: "/media/demo-video-editor.webm",
+    poster: "/media/demo-video-editor.poster.jpg",
   },
   {
     title: "Creator-style campaign video",
     label: "AI UGC Generator",
     slug: "ai-ugc-generator",
-    src: assetUrl(ugcDemo.url),
+    src: "/media/demo-ugc-creator.webm",
+    poster: "/media/demo-ugc-creator.poster.jpg",
   },
   {
     title: "A talking avatar presentation",
     label: "AI Avatar Video Generator",
     slug: "ai-avatar-generator",
-    src: assetUrl(avatarDemo.url),
+    src: "/media/demo-avatar-video.webm",
+    poster: "/media/demo-avatar-video.poster.jpg",
   },
 ];
 
@@ -171,7 +170,7 @@ export function Home() {
   );
 
   return (
-    <div className="home-premium home-swiss home-swiss-dark overflow-hidden">
+    <div className="home-premium home-swiss home-swiss-dark home-enterprise overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -183,12 +182,10 @@ export function Home() {
 
       <section className="studio-hero relative border-b border-border pb-14 pt-8 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-16">
         <div className="studio-hero-light" aria-hidden="true" />
-        <div className="studio-hero-beam studio-hero-beam-left" aria-hidden="true" />
-        <div className="studio-hero-beam studio-hero-beam-right" aria-hidden="true" />
         <Container size="wide" className="relative z-10">
           <div className="studio-hero-copy">
-            <div className="studio-hero-index" aria-hidden="true">A/01 · Creative intelligence</div>
-            <p className="studio-kicker"><Sparkles className="size-3.5" /> {tools.length} tools · one intelligent workspace</p>
+            <div className="studio-hero-index" aria-hidden="true">AmmarAI / Workspace</div>
+            <p className="studio-kicker"><Sparkles className="size-3.5" /> AI workspace for serious creative teams</p>
             <div className="studio-hero-grid">
               <h1>
                 <span>One AI for</span>
@@ -205,9 +202,6 @@ export function Home() {
                   <ExternalButton href={REGISTER_URL} size="lg" className="studio-primary-cta w-full sm:w-auto">
                     Start creating free <ArrowRight className="size-4" />
                   </ExternalButton>
-                  <ButtonLink to="/ai-tools" variant="outline" size="lg" className="w-full sm:w-auto">
-                    Explore {tools.length} tools
-                  </ButtonLink>
                 </div>
                 <p className="studio-hero-note mt-5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required. Every tool included.</p>
               </div>
@@ -216,26 +210,18 @@ export function Home() {
 
           <div className="studio-command-stage">
             <div className="studio-command-aura" aria-hidden="true" />
-            <div className="studio-command-orbit" aria-hidden="true"><i /><i /><i /></div>
-            <div className="studio-command-rail studio-command-rail-left" aria-hidden="true">
-              <span>151 tools</span><i /><span>One workspace</span>
-            </div>
-            <div className="studio-command-rail studio-command-rail-right" aria-hidden="true">
-              <span>Live discovery</span><i /><span>Ready to create</span>
-            </div>
           <div className="studio-command mx-auto max-w-7xl overflow-hidden bg-card ring-1 ring-border">
-            <div className="studio-command-scan" aria-hidden="true" />
             <div className="studio-command-header flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
                 <span className="studio-window-controls" aria-hidden="true"><i /><i /><i /></span>
                 <span className="studio-command-icon grid size-10 place-items-center bg-accent text-accent-foreground"><WandSparkles className="size-4" /></span>
-                <div className="text-left"><p className="text-sm font-semibold text-foreground">AmmarAI command center</p><p className="text-xs text-muted-foreground">Choose a flagship tool or describe your goal</p></div>
+                <div className="text-left"><p className="text-sm font-semibold text-foreground">AmmarAI workspace</p><p className="text-xs text-muted-foreground">Choose a core tool or describe the work you need done</p></div>
               </div>
-              <span className="studio-status"><span className="size-1.5 rounded-full bg-success" /> All tools ready</span>
+              <span className="studio-status"><span className="size-1.5 rounded-full bg-success" /> {tools.length} tools available</span>
             </div>
              <div className="grid lg:grid-cols-[0.62fr_1.38fr]">
               <div className="studio-command-sidebar border-b border-border p-5 sm:p-7 lg:border-b-0 lg:border-r">
-                <p className="studio-label">Flagship workspace</p>
+                <p className="studio-label">Core tools</p>
                 <div className="mt-4 grid gap-1 sm:grid-cols-2 lg:grid-cols-1">
                   {featuredTools.slice(0, 6).map((tool, index) => (
                     <Link key={tool.slug} to="/$slug" params={{ slug: tool.slug }} className="studio-tool-row group">
@@ -304,10 +290,6 @@ export function Home() {
               </div>
             </div>
           </div>
-            <div className="studio-command-caption" aria-hidden="true">
-              <span>Creative operating system</span>
-              <span>AmmarAI / 2026</span>
-            </div>
         </Container>
       </section>
 
@@ -350,7 +332,7 @@ export function Home() {
                   muted
                   playsInline
                   preload="none"
-                  poster={item.src.replace(/\.mp4$/, ".poster.jpg")}
+                   poster={item.poster}
                   src={item.src}
                   aria-label={`${item.label} sample video`}
                   className="aspect-video w-full bg-ink object-cover"

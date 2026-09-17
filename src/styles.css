@@ -648,6 +648,468 @@ body:has(.home-premium) .site-header nav a:hover::after {
   }
 }
 
+/* Homepage — selected Enterprise Indigo Tech refinement. */
+.home-enterprise {
+  --background: oklch(0.105 0.015 265);
+  --paper: oklch(0.135 0.017 265);
+  --sand: oklch(0.15 0.018 265);
+  --card: oklch(0.145 0.018 265);
+  --muted: oklch(0.19 0.02 265);
+  --muted-foreground: oklch(0.72 0.02 265);
+  --border: oklch(0.28 0.024 265);
+  --input: oklch(0.34 0.028 265);
+  --accent: oklch(0.61 0.2 266);
+}
+
+body:has(.home-enterprise) .site-header {
+  border-color: var(--border);
+  background: color-mix(in oklab, var(--background) 94%, transparent);
+  box-shadow: none;
+  backdrop-filter: blur(16px);
+}
+
+body:has(.home-enterprise) .site-header > div {
+  min-height: 4.5rem;
+}
+
+body:has(.home-enterprise) .site-header nav a,
+.home-enterprise .eyebrow,
+.home-enterprise .studio-label {
+  letter-spacing: 0.06em;
+}
+
+.home-enterprise .studio-hero {
+  min-height: auto;
+  padding-top: clamp(4rem, 7vw, 6.5rem);
+  padding-bottom: clamp(5rem, 8vw, 7rem);
+  background:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 3%, transparent) 1px, transparent 1px),
+    var(--background);
+  background-size: 4rem 4rem;
+}
+
+.home-enterprise .studio-hero::before {
+  background: linear-gradient(to bottom, transparent, var(--background));
+  mask-image: none;
+  opacity: 0.68;
+}
+
+.home-enterprise .studio-hero::after {
+  background: var(--border);
+}
+
+.home-enterprise .studio-hero-light {
+  top: -8rem;
+  width: min(80vw, 66rem);
+  height: 34rem;
+  background: radial-gradient(ellipse, color-mix(in oklab, var(--accent) 20%, transparent), transparent 68%);
+  filter: blur(56px);
+  opacity: 0.8;
+  animation: none;
+}
+
+.home-enterprise .studio-hero-copy {
+  max-width: 76rem;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.home-enterprise .studio-hero-index {
+  top: 0;
+  border: 0;
+  padding: 0;
+  color: color-mix(in oklab, var(--foreground) 44%, transparent);
+  letter-spacing: 0.08em;
+}
+
+.home-enterprise .studio-kicker {
+  border-color: var(--border);
+  border-radius: 999px;
+  padding: 0.55rem 0.8rem;
+  background: color-mix(in oklab, var(--paper) 88%, transparent);
+  box-shadow: none;
+  color: color-mix(in oklab, var(--foreground) 72%, transparent);
+}
+
+.home-enterprise .studio-kicker::before {
+  display: none;
+}
+
+.home-enterprise .studio-kicker svg {
+  display: block;
+  color: var(--accent);
+}
+
+.home-enterprise .studio-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.7fr);
+  align-items: end;
+  gap: clamp(3rem, 7vw, 7rem);
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.home-enterprise .studio-hero h1 {
+  max-width: 58rem;
+  font-size: clamp(4.2rem, 8vw, 7.75rem);
+  font-weight: 700;
+  line-height: 0.9;
+  text-align: left;
+  text-shadow: none;
+}
+
+.home-enterprise .studio-hero h1 > span:first-child {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.home-enterprise .studio-hero h1 > span:nth-child(2) {
+  color: var(--foreground);
+}
+
+.home-enterprise .studio-accent-text {
+  color: var(--accent);
+  text-shadow: 0 0 2.5rem color-mix(in oklab, var(--accent) 18%, transparent);
+}
+
+.home-enterprise .studio-accent-text::after {
+  display: none;
+}
+
+.home-enterprise .studio-hero-aside {
+  max-width: 31rem;
+  padding-top: 1.5rem;
+  border-top-color: var(--border);
+  text-align: left;
+}
+
+.home-enterprise .studio-hero-aside > p:first-child {
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.home-enterprise .studio-hero-actions,
+.home-enterprise .studio-hero-note {
+  justify-content: flex-start;
+}
+
+.home-enterprise .studio-hero-actions .studio-primary-cta {
+  min-width: 15rem;
+  min-height: 3.75rem;
+  border-radius: 0.375rem;
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0.85rem 2.5rem -1.25rem color-mix(in oklab, var(--accent) 70%, transparent);
+  transform: none;
+}
+
+.home-enterprise .studio-hero-actions .studio-primary-cta::after {
+  display: none;
+}
+
+.home-enterprise .studio-hero-actions .studio-primary-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 1rem 3rem -1.25rem color-mix(in oklab, var(--accent) 82%, transparent);
+}
+
+.home-enterprise .studio-command-stage {
+  max-width: 75rem;
+  margin-top: clamp(4rem, 7vw, 6rem);
+  perspective: none;
+}
+
+.home-enterprise .studio-command-aura {
+  inset: 15% 10% -15%;
+  background: radial-gradient(ellipse, color-mix(in oklab, var(--accent) 20%, transparent), transparent 68%);
+  filter: blur(64px);
+  opacity: 0.72;
+}
+
+.home-enterprise .studio-command {
+  transform: none;
+  border-color: var(--border);
+  border-radius: 0.5rem;
+  background: var(--paper);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--foreground) 3%, transparent) inset,
+    0 2rem 5rem -2.5rem color-mix(in oklab, var(--accent) 28%, transparent),
+    0 1.5rem 4rem -2rem var(--ink);
+  backdrop-filter: none;
+  animation: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.home-enterprise .studio-command-stage:hover .studio-command {
+  transform: none;
+  border-color: color-mix(in oklab, var(--accent) 36%, var(--border));
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 7%, transparent) inset,
+    0 2rem 5rem -2.5rem color-mix(in oklab, var(--accent) 30%, transparent),
+    0 1.5rem 4rem -2rem var(--ink);
+}
+
+.home-enterprise .studio-command-header {
+  min-height: 4.75rem;
+  background: color-mix(in oklab, var(--paper) 90%, var(--background));
+}
+
+.home-enterprise .studio-window-controls i,
+.home-enterprise .studio-window-controls i:first-child {
+  background: color-mix(in oklab, var(--foreground) 18%, transparent);
+}
+
+.home-enterprise .studio-command-icon {
+  border-radius: 0.375rem;
+}
+
+.home-enterprise .studio-status {
+  border-radius: 999px;
+  background: var(--background);
+}
+
+.home-enterprise .studio-command-sidebar,
+.home-enterprise .studio-command-main {
+  background: var(--paper);
+}
+
+.home-enterprise .studio-command-sidebar {
+  background: color-mix(in oklab, var(--paper) 82%, var(--background));
+}
+
+.home-enterprise .studio-tool-row {
+  border-color: var(--border);
+  padding-inline: 0.65rem;
+  border-radius: 0.25rem;
+}
+
+.home-enterprise .studio-tool-row:hover,
+.home-enterprise .studio-tool-row:focus-visible {
+  border-color: var(--border);
+  background: var(--secondary);
+  color: var(--foreground);
+}
+
+.home-enterprise .studio-search {
+  min-height: 4.25rem;
+  border-width: 1px;
+  border-color: var(--input);
+  border-radius: 0.375rem;
+}
+
+.home-enterprise .studio-search:focus-within {
+  transform: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 14%, transparent);
+}
+
+.home-enterprise .studio-command-main button,
+.home-enterprise .studio-command-results li {
+  border-radius: 0.375rem;
+}
+
+.home-enterprise .studio-command-main button:hover,
+.home-enterprise .studio-command-results li:hover {
+  border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
+  background: var(--muted);
+  color: var(--foreground);
+  transform: none;
+}
+
+.home-enterprise .trust-strip {
+  padding-block: 2.5rem;
+  background: var(--background);
+}
+
+.home-enterprise .trust-logo-item:hover img {
+  transform: none;
+}
+
+.home-enterprise .studio-section,
+.home-enterprise .studio-section.bg-sand,
+.home-enterprise .studio-library-section,
+.home-enterprise .studio-reviews-section,
+.home-enterprise .studio-faq-section,
+.home-enterprise .studio-journal-section,
+.home-enterprise .studio-comparison {
+  padding-block: clamp(5.5rem, 8vw, 7.5rem);
+  border-color: var(--border);
+  background-color: var(--background);
+  background-image: none;
+}
+
+.home-enterprise .studio-flagships,
+.home-enterprise .studio-workspace-section,
+.home-enterprise .studio-usecases-section,
+.home-enterprise .studio-faq-section {
+  background-color: var(--sand);
+}
+
+.home-enterprise .studio-section h2 {
+  max-width: 54rem;
+  font-size: clamp(2.5rem, 5vw, 4.75rem);
+  font-weight: 700;
+  line-height: 0.98;
+}
+
+.home-enterprise .studio-heading-wide > p:last-child,
+.home-enterprise .studio-comparison-heading > p:last-child {
+  max-width: 43rem;
+  margin-top: 1.25rem;
+}
+
+.home-enterprise [class*="rounded-xl"][class*="bg-card"],
+.home-enterprise .studio-ranked-shell,
+.home-enterprise .studio-comparison-card,
+.home-enterprise .studio-category-card,
+.home-enterprise .studio-card-grid > a,
+.home-enterprise .studio-secondary-card {
+  border-color: var(--border);
+  border-radius: 0.5rem;
+  background: var(--card) !important;
+  box-shadow: none;
+}
+
+.home-enterprise .studio-card-grid {
+  gap: 0.75rem;
+  border: 0;
+}
+
+.home-enterprise .studio-card-grid > a {
+  min-height: 16rem;
+  border: 1px solid var(--border);
+}
+
+.home-enterprise .studio-card-grid > :first-child,
+.home-enterprise .studio-recent-panel,
+.home-enterprise .studio-usecase-card:nth-child(3n + 2),
+.home-enterprise .studio-journal-card:nth-child(2) {
+  border-color: var(--border);
+  background: var(--card) !important;
+  color: var(--foreground);
+}
+
+.home-enterprise .studio-card-grid > a:hover,
+.home-enterprise .studio-video-card:hover,
+.home-enterprise [class*="rounded-xl"][class*="bg-card"]:hover,
+.home-enterprise .studio-secondary-card:hover,
+.home-enterprise .studio-secondary-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--accent) 42%, var(--border));
+  box-shadow: 0 1rem 2.5rem -1.75rem color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+.home-enterprise .studio-video-section {
+  background: var(--ink);
+}
+
+.home-enterprise .studio-video-card,
+.home-enterprise .studio-category-card,
+.home-enterprise .studio-review-card {
+  border-top-width: 1px;
+}
+
+.home-enterprise .studio-ranked-shell,
+.home-enterprise .studio-comparison-winner {
+  box-shadow: none;
+}
+
+.home-enterprise .studio-benefit-strip {
+  gap: 0.75rem;
+  border: 0;
+}
+
+.home-enterprise .studio-benefit {
+  min-height: 6.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.home-enterprise .studio-benefit > span {
+  border-radius: 0.375rem;
+}
+
+.home-enterprise .studio-comparison-card {
+  border: 1px solid var(--border);
+}
+
+.home-enterprise .studio-comparison-winner {
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+  background: color-mix(in oklab, var(--accent) 8%, var(--card));
+}
+
+.home-enterprise .studio-secondary-showcase {
+  border-radius: 0.5rem;
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+.home-enterprise .studio-carousel-arrow,
+.home-enterprise .studio-secondary-all-tools,
+.home-enterprise .studio-section .site-button,
+.home-enterprise .studio-final-cta .site-button {
+  border-radius: 0.375rem;
+}
+
+.home-enterprise .studio-final-cta {
+  padding-block: clamp(5.5rem, 8vw, 7.5rem);
+  border-top: 1px solid var(--border);
+  background: var(--ink);
+}
+
+.home-enterprise .studio-final-cta::before {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 3%, transparent) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  opacity: 0.7;
+}
+
+.home-enterprise .studio-final-cta h2 {
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  font-weight: 700;
+}
+
+body:has(.home-enterprise) .site-footer::before {
+  opacity: 0.4;
+}
+
+@media (max-width: 899px) {
+  .home-enterprise .studio-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .home-enterprise .studio-hero h1,
+  .home-enterprise .studio-hero-aside {
+    text-align: left;
+  }
+}
+
+@media (max-width: 639px) {
+  .home-enterprise .studio-hero {
+    padding-top: 3rem;
+    background:
+      linear-gradient(to right, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 3%, transparent) 1px, transparent 1px),
+      var(--background);
+    background-size: 3rem 3rem;
+  }
+
+  .home-enterprise .studio-hero h1 {
+    font-size: clamp(3rem, 14vw, 3.8rem);
+    line-height: 0.92;
+  }
+
+  .home-enterprise .studio-command {
+    box-shadow: 0 1.5rem 3.5rem -2rem color-mix(in oklab, var(--accent) 28%, transparent);
+  }
+
+  .home-enterprise .studio-section h2 {
+    font-size: clamp(2.35rem, 11vw, 3.25rem);
+    line-height: 0.98;
+  }
+}
+
 .studio-video-card {
   transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
 }
