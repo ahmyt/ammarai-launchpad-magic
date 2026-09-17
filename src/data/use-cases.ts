@@ -24,7 +24,8 @@ export const useCases: UseCase[] = [
       { title: "Campaign kickoff to first drafts", body: "Feed the campaign brief into AmmarAI, generate a blog announcement, then reuse the same core message to produce Facebook, Google, and LinkedIn ad variants, an email sequence, and a set of social captions — all before the first team meeting about the launch." },
       { title: "Weekly content sprint", body: "Brief → outline → draft → meta description → social cutdowns. Run this sequence every week for always-on content so the Monday meeting is about what to say next, not who still owes a draft." },
       { title: "A/B testing at scale", body: "Generate five headline variants and three CTA angles for the same ad, ship all of them to the ad platform, and let real performance data pick the winner instead of internal debate." },
-      { title: "Localization and repurposing", body: "Take one flagship piece of content and use AmmarAI to rewrite it into different tones for different channels — the same launch news written for a formal LinkedIn post and a casual Instagram caption." }
+      { title: "Localization and repurposing", body: "Take one flagship piece of content and use AmmarAI to rewrite it into different tones for different channels — the same launch news written for a formal LinkedIn post and a casual Instagram caption." },
+      { title: "Always-on publishing with agents", body: "Let the AI Blogger Agent research and draft scheduled articles for your WordPress blog, and let the AI Social Media Agent prepare campaign posts for Facebook, Instagram, X, and LinkedIn — publishing automatically where you allow it and holding each post for approval where you don't." }
     ],
     toolkit: [
       { slug: "ad-script-generator", why: "Marketing teams need multiple ad angles fast, and this generates variants for testing instead of a single one-shot draft." },
@@ -32,14 +33,17 @@ export const useCases: UseCase[] = [
       { slug: "facebook-post-generator", why: "Every campaign needs a social presence, and this turns one core message into platform-appropriate posts without a separate writer for each channel." },
       { slug: "landing-page-copy-generator", why: "Landing pages and blog posts ship faster when the SEO metadata isn't an afterthought left for someone to remember later." },
       { slug: "ai-rephraser", why: "Keeping brand voice consistent across contributors is easier when drafts can be adjusted to match a house tone before they go out." },
-      { slug: "article-wizard", why: "Campaign announcements and thought-leadership posts need a first draft a strategist can shape, not an empty doc and a deadline." }
+      { slug: "article-wizard", why: "Campaign announcements and thought-leadership posts need a first draft a strategist can shape, not an empty doc and a deadline." },
+      { slug: "ai-social-media-agent", why: "Campaigns don't end at the draft — the agent schedules and publishes social posts across connected channels, with approval controls where the team wants them." },
+      { slug: "ai-blogger-agent", why: "Keeps the company blog publishing on a schedule to WordPress without a marketer hand-posting every article." }
     ],
     outcomes: [
       "Campaign briefs turn into a full set of assets — ads, email, social, landing copy — in one sitting instead of across a week of separate writing tasks.",
       "Teams can afford to test more headline and CTA variants because writing them no longer costs a proportional amount of time.",
       "Brand voice stays more consistent across contributors when everyone starts from AmmarAI drafts instead of a blank document.",
       "Approval cycles shorten because stakeholders review closer-to-final drafts instead of rough first attempts.",
-      "Repurposing a single campaign idea across channels becomes a same-day task instead of a week-long content calendar item."
+      "Repurposing a single campaign idea across channels becomes a same-day task instead of a week-long content calendar item.",
+      "Blog and social publishing keep running on a schedule through agents even while the team is focused on the next campaign."
     ],
     faqs: [
       { q: "Will AI-generated ad copy sound generic?", a: "It reflects the input you give it, so specific briefs with real product details and audience context produce specific copy. Generic prompts produce generic drafts — the same is true of any writer." },
@@ -118,21 +122,25 @@ export const useCases: UseCase[] = [
       { title: "New offer to live promotion", body: "Draft a product or service description, generate a short ad for social media, and write a customer email announcing the promotion — all from one sitting before opening the shop." },
       { title: "Website refresh", body: "Outline -> homepage copy draft -> about page draft -> FAQ draft, done page by page during slower hours instead of a rushed weekend project." },
       { title: "Customer follow-up routine", body: "Use a follow-up email draft after every completed job or purchase, adjusted slightly each time, so review requests and thank-yous actually go out." },
-      { title: "Seasonal promotion cycle", body: "Business bio update -> seasonal ad copy -> email announcement -> social captions, repeated each time a new season or local event calls for fresh messaging." }
+      { title: "Seasonal promotion cycle", body: "Business bio update -> seasonal ad copy -> email announcement -> social captions, repeated each time a new season or local event calls for fresh messaging." },
+      { title: "Set-and-review publishing", body: "Let the AI Blogger Agent keep your WordPress blog updated with scheduled articles, and use the AI Social Media Agent to keep Facebook, Instagram, X, and LinkedIn active — reviewing queued posts when you have five minutes instead of writing them from nothing." }
     ],
     toolkit: [
       { slug: "personal-bio-generator", why: "A clear, professional business bio is one of the first things customers read, and most owners never have time to write one they're happy with." },
       { slug: "why-choose-this-product", why: "Every product or service needs a description that actually sells it, and writing dozens of these by hand is the task most likely to get skipped." },
       { slug: "youtube-ads-generator", why: "Running local ads without an agency means writing the ad copy yourself, and getting a usable draft quickly matters when the budget is tight." },
       { slug: "welcome-email-generator", why: "Customer follow-ups and promotional emails are easy to plan and hard to actually sit down and write during a busy week." },
-      { slug: "product-name-generator", why: "Owners launching a new product line or side offer often need naming help fast, without hiring a branding consultant." }
+      { slug: "product-name-generator", why: "Owners launching a new product line or side offer often need naming help fast, without hiring a branding consultant." },
+      { slug: "ai-blogger-agent", why: "A blog that updates itself on a schedule keeps bringing in search traffic while the owner is busy running the business." },
+      { slug: "ai-social-media-agent", why: "Keeps the business's social channels posting consistently without a daily time commitment." }
     ],
     outcomes: [
       "Website and product copy gets written and published instead of staying on the to-do list indefinitely.",
       "Local ads and seasonal promotions go out on time because drafting them takes minutes instead of an evening.",
       "Customer follow-up emails actually get sent, supporting repeat business and reviews.",
       "Owners spend less of their limited time on writing tasks and more on the parts of the business only they can run.",
-      "Marketing starts to happen consistently instead of only during rare bursts of free time."
+      "Marketing starts to happen consistently instead of only during rare bursts of free time.",
+      "The blog and social channels stay active week after week through automation, even in months when the owner has no time to write."
     ],
     faqs: [
       { q: "I'm not a writer — will the copy actually sound professional?", a: "AmmarAI produces a structured, polished draft from what you tell it about your business; you can then adjust details so it sounds like you, not a generic template." },
