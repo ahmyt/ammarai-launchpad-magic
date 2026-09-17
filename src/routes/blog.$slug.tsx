@@ -105,7 +105,7 @@ function RecommendedReading({ article }: { article: SyndicatedArticle }) {
         {posts.length > 0 ? (
           <ul className="mt-5 border-t border-border">
             {posts.map((r) => (
-              <li key={r.slug} className="border-b border-border py-4">
+              <li key={r.slug} className="interactive-card-edge border-b border-border py-4">
                 <Link
                   to="/blog/$slug"
                   params={{ slug: r.slug }}
@@ -128,7 +128,10 @@ function RecommendedReading({ article }: { article: SyndicatedArticle }) {
             <h3 className="mt-10 text-lg font-semibold">Tools to try next</h3>
             <ul className="mt-4 grid gap-3 sm:grid-cols-3">
               {relatedTools.map((tool) => (
-                <li key={tool.slug} className="rounded-xl bg-card p-4 ring-1 ring-border">
+                <li
+                  key={tool.slug}
+                  className="interactive-card-edge rounded-xl bg-card p-4 ring-1 ring-border"
+                >
                   <Link
                     to="/$slug"
                     params={{ slug: tool.slug }}
@@ -483,7 +486,7 @@ function StaticPostView({ post }: { post: Post }) {
             {related.length > 0 ? (
               <ul className="mt-5 border-t border-border">
                 {related.map((r) => (
-                  <li key={r.slug} className="border-b border-border py-4">
+                  <li key={r.slug} className="interactive-card-edge border-b border-border py-4">
                     <Link
                       to="/blog/$slug"
                       params={{ slug: r.slug }}
@@ -504,7 +507,7 @@ function StaticPostView({ post }: { post: Post }) {
                 <h3 className="mt-10 text-lg font-semibold">Tools to try next</h3>
                 <ul className="mt-4 grid gap-3 sm:grid-cols-3">
                   {relatedTools.map((tool) => (
-                    <li key={tool.slug} className="border border-border bg-card p-4">
+                    <li key={tool.slug} className="interactive-card-edge border border-border bg-card p-4">
                       <Link
                         to="/$slug"
                         params={{ slug: tool.slug }}
