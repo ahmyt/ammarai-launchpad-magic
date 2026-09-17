@@ -235,5 +235,5 @@
 - [x] Verify descriptive alt text, desktop/mobile presentation, and build health
 
 ## Homepage secondary action
-- [ ] Add a “Start creating free” secondary button to the homepage opening section
+- [x] Add an “Explore AI tools” secondary button beside “Start creating free”
 - [ ] Verify destination, desktop/mobile layout, and build health

@@ -202,6 +202,9 @@ export function Home() {
                   <ExternalButton href={REGISTER_URL} size="lg" className="studio-primary-cta w-full sm:w-auto">
                     Start creating free <ArrowRight className="size-4" />
                   </ExternalButton>
+                  <ButtonLink to="/ai-tools" variant="outline" size="lg" className="w-full sm:w-auto">
+                    Explore AI tools
+                  </ButtonLink>
                 </div>
                 <p className="studio-hero-note mt-5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required. Every tool included.</p>
               </div>
