@@ -246,3 +246,8 @@
 ## Scrolling logo panels
 - [x] Add a consistent white background behind every homepage scrolling logo
 - [x] Verify logo readability and spacing on desktop and mobile
+
+## Site-wide enterprise dark design
+- [x] Correct shared dark-theme color mapping across all pages
+- [x] Extend the homepage enterprise surfaces, typography, controls, and restrained depth site-wide
+- [x] Verify representative public, tool, blog, tutorial, legal, authentication, and Studio pages
