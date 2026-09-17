@@ -7,7 +7,7 @@ import { tools } from "@/data/tools";
 
 const title = "About AmmarAI: One Workspace for AI Creation | AmmarAI";
 const description =
-  "Why AmmarAI brings AI creation, agents and workflow automation into one workspace, with clear limits stated openly.";
+  "Discover AmmarAI tools and agents for creating content, automating workflows, publishing WordPress articles and scheduling social posts.";
 
 const principles = [
   {
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/about")({
             name: "AmmarAI",
             brand: { "@type": "Brand", name: "AmmarAI" },
             description:
-              "AmmarAI is an AI workspace that brings writing, chat, images, video, voice, transcription, vision, documents, code, AI agents and workflow automation into one place.",
+              "AmmarAI brings AI creation and workflow automation into one workspace, including agents that publish WordPress articles and schedule social posts.",
           },
           {
             "@context": "https://schema.org",
@@ -63,7 +63,7 @@ export const Route = createFileRoute("/about")({
             name: "AmmarAI",
             publisher: { "@id": "https://ammarai.com/#organization" },
             description:
-              "AmmarAI brings 151 AI tools into one workspace for creation, AI agents and workflow automation.",
+              "AmmarAI brings 151 AI tools into one workspace for creation, workflow automation and publishing across connected channels.",
           },
           {
             "@context": "https://schema.org",
@@ -109,7 +109,9 @@ function About() {
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
               {SITE.name} brings {tools.length} AI tools into one place: writing, chat, images,
               video, voice, transcription, vision, documents, code, AI agents and workflow
-              automation, sharing one brand voice, one history and one bill.
+              automation. Agents can research and publish WordPress articles, or create, schedule
+              and publish social posts to Facebook, Instagram, X and LinkedIn — all while sharing
+              one brand voice, one history and one bill.
             </p>
           </div>
         </Container>
@@ -136,9 +138,10 @@ function About() {
           <SectionHeading title="What we are not" />
           <div className="prose-editorial mt-5">
             <p>
-              We are not an autopilot. Nothing here publishes itself, and any vendor promising that
-              is describing a liability rather than a feature. Generated drafts need a person who
-              knows the subject to check the claims and add the specifics.
+              Automation stays under your control. AmmarAI agents can publish and act on a schedule,
+              while optional approval steps let you review work before it goes live. Factual,
+              sensitive and regulated material still needs a person who knows the subject to check
+              the claims and add the specifics.
             </p>
             <p>
               We are also not an SEO guarantee. The tools help with structure, coverage, metadata and

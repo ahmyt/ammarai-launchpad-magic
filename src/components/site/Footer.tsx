@@ -25,8 +25,8 @@ export function Footer() {
               <Wordmark className="font-display text-3xl font-semibold sm:text-4xl" />
             </Link>
             <p className="site-footer-copy mt-6 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
-              {SITE.tagline} Writing, chat, images, video, voice, documents, code, AI agents and
-              workflow automation in one workspace.
+              {SITE.tagline} Create with writing, image, video and voice tools, then use AI agents to
+              automate workflows and publish across connected channels.
             </p>
             <p className="site-footer-signoff mt-10">Write. Chat. Create. Speak. See. Code.</p>
           </div>
