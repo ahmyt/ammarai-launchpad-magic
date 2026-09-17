@@ -2870,14 +2870,12 @@ body:has(.home-swiss) .site-footer-back:hover span {
   width: 13rem;
   height: 5rem;
   place-items: center;
-  filter: grayscale(1);
-  opacity: 0.62;
-  transition: filter 200ms ease, opacity 200ms ease;
+  opacity: 0.9;
+  transition: opacity 200ms ease;
 }
 
 .trust-logo-item:hover,
 .trust-logo-item:focus-within {
-  filter: grayscale(0);
   opacity: 1;
 }
 
@@ -4679,14 +4677,12 @@ body:has(.home-swiss-dark) .site-header a[class*="bg-ink"] {
 }
 
 .home-swiss-dark .trust-logo-item img {
-  filter: grayscale(1) brightness(2.5);
-  opacity: 0.5;
-  transition: filter 240ms ease, opacity 240ms ease, transform 240ms ease;
+  opacity: 0.88;
+  transition: opacity 240ms ease, transform 240ms ease;
 }
 
 .home-swiss-dark .trust-logo-item:hover img {
-  filter: grayscale(0) brightness(1.15);
-  opacity: 0.9;
+  opacity: 1;
   transform: translateY(-2px);
 }
 
