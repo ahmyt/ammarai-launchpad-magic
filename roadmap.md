@@ -259,3 +259,7 @@
 ## Review pop-up dark theme
 - [x] Apply the active dark enterprise theme to the customer review form pop-up
 - [x] Verify the form, confirmation state, desktop/mobile layout, and build health
+
+## Secondary tools carousel autoplay
+- [x] Autoplay only while the carousel is on screen
+- [x] Verify freeze off screen, resume on return, manual controls, desktop/mobile, build health
