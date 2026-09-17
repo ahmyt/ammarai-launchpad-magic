@@ -2906,8 +2906,7 @@ body:has(.home-swiss) .site-footer-back:hover span {
   padding: 0.5rem 0.75rem;
   background: var(--logo-tile-background);
   border-radius: 0.375rem;
-  opacity: 0.9;
-  transition: opacity 200ms ease;
+  opacity: 1;
 }
 
 .trust-logo-item:hover,
