@@ -241,4 +241,4 @@
 ## Light and dark theme control
 - [x] Add an accessible sun/moon theme control to desktop and mobile headers
 - [x] Keep the premium dark design as the first-visit default and offer the earlier light design
-- [ ] Verify persistence and both themes across desktop and mobile
+- [x] Verify persistence and both themes across desktop and mobile
