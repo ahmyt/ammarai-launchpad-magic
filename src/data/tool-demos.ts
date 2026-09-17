@@ -1,4 +1,3 @@
-import avatarDemo from "@/assets/demo-avatar-video-female-voice.mp4.asset.json";
 import avatarDemo2 from "@/assets/demo-avatar-video-2-lipsynced-final.mp4.asset.json";
 import imageToVideoDemo from "@/assets/demo-image-to-video.mp4.asset.json";
 import imageToVideoDemo2 from "@/assets/demo-image-to-video-2.mp4.asset.json";
@@ -99,7 +98,7 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
   "ai-avatar-generator": [
     {
       kind: "video",
-      url: avatarDemo.url,
+      url: "/media/avatar-option-1-final.mp4",
       caption: "Sample output — a founder headshot delivering the launch announcement with AI lip-sync.",
     },
     {
