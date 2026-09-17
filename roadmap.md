@@ -64,6 +64,11 @@
 - [x] Refresh daily-writer keyword research for all 151 tools and add new capability-led topics
 - [x] Replace AI Avatar Generator option 2 with a female-voiced, tightly lip-synced sample
 
+## Neo-Swiss premium dark homepage polish
+- [x] Apply the selected dark editorial direction across the complete homepage
+- [x] Elevate the hero, Command Center, section rhythm, contrast, and interactions
+- [x] Verify desktop and mobile layouts, interactions, media, and build health
+
 - [x] Diagnose attached bounce: production is still sending through plesk-steve.zap.cloud / 185.223.31.164.
 
 - [x] Automation runs without the private database key (token-checked database functions) so it can run on Plesk.
