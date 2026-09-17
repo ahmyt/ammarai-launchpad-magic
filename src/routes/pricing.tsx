@@ -80,7 +80,7 @@ function Pricing() {
               <div
                 key={plan.name}
                 className={cn(
-                  "flex flex-col rounded-xl bg-card p-6 ring-1 ring-border",
+                  "site-pricing-card flex flex-col rounded-xl bg-card p-6 ring-1 ring-border",
                   plan.highlight && "ring-2 ring-accent",
                 )}
               >
