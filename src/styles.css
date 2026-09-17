@@ -3076,14 +3076,68 @@ html[data-theme="dark"] body {
   border-radius: 0.5rem;
   background: var(--card);
   box-shadow: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .site-shell.theme-dark .site-card:hover,
 .site-shell.theme-dark .site-tool-card:hover,
 .site-shell.theme-dark .tutorials-card:hover {
-  border-color: color-mix(in oklab, var(--accent) 42%, var(--border));
-  transform: translateY(-2px);
-  box-shadow: 0 1rem 2.5rem -1.75rem color-mix(in oklab, var(--accent) 34%, transparent);
+  border-color: color-mix(in oklab, var(--accent) 68%, var(--border));
+  transform: translate(-2px, -2px);
+  box-shadow:
+    7px 7px 0 var(--accent),
+    0 1.25rem 2.75rem -1.75rem color-mix(in oklab, var(--accent) 36%, transparent);
+}
+
+/* The cobalt registration edge is shared across every card family in dark mode. */
+.site-shell.theme-dark .site-card,
+.site-shell.theme-dark .site-tool-card,
+.site-shell.theme-dark .tutorials-card,
+.site-shell.theme-dark .tutorials-sidebar-inner,
+.site-shell.theme-dark .site-pricing-card,
+.site-shell.theme-dark .studio-category-card,
+.site-shell.theme-dark .studio-usecase-card,
+.site-shell.theme-dark .studio-review-card,
+.site-shell.theme-dark .studio-journal-card,
+.site-shell.theme-dark .studio-comparison-card,
+.site-shell.theme-dark .studio-secondary-card,
+.site-shell.theme-dark .tutorial-when,
+.site-shell.theme-dark .tutorial-callout,
+.site-shell.theme-dark .tool-tutorial-link,
+.site-shell.theme-dark .site-demo,
+.site-shell.theme-dark main li[class*="rounded-xl"][class*="bg-card"],
+.site-shell.theme-dark main details[class*="rounded-xl"][class*="bg-card"],
+.site-shell.theme-dark main form[class*="rounded-xl"][class*="bg-card"],
+.site-shell.theme-dark .admin-studio [class*="rounded-xl"][class*="bg-card"] {
+  border-color: var(--border);
+  box-shadow: 5px 5px 0 var(--accent);
+}
+
+/* Keep miniature surfaces inside product previews flat; only their outer frame is a card. */
+.site-shell.theme-dark .site-demo [class*="rounded-xl"][class*="bg-card"] {
+  box-shadow: none;
+}
+
+.site-shell.theme-dark .site-pricing-card {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--card);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.site-shell.theme-dark .site-pricing-card:hover,
+.site-shell.theme-dark .site-pricing-card:focus-within {
+  border-color: color-mix(in oklab, var(--accent) 68%, var(--border));
+  transform: translate(-2px, -2px);
+  box-shadow:
+    7px 7px 0 var(--accent),
+    0 1.25rem 2.75rem -1.75rem color-mix(in oklab, var(--accent) 36%, transparent);
 }
 
 .site-shell.theme-dark .site-button,
@@ -3148,7 +3202,9 @@ html[data-theme="dark"] body {
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   background: var(--paper);
-  box-shadow: 0 2rem 5rem -2.75rem color-mix(in oklab, var(--accent) 38%, transparent);
+  box-shadow:
+    5px 5px 0 var(--accent),
+    0 2rem 5rem -2.75rem color-mix(in oklab, var(--accent) 38%, transparent);
 }
 
 .site-shell.theme-dark .site-footer {
@@ -3186,6 +3242,31 @@ html[data-theme="dark"] body {
   .site-shell.theme-dark > main .site-section:has(.site-breadcrumbs) h1 {
     font-size: clamp(2.35rem, 10.5vw, 3.1rem);
     line-height: 0.98;
+  }
+
+  .site-shell.theme-dark .site-card,
+  .site-shell.theme-dark .site-tool-card,
+  .site-shell.theme-dark .tutorials-card,
+  .site-shell.theme-dark .tutorials-sidebar-inner,
+  .site-shell.theme-dark .site-pricing-card,
+  .site-shell.theme-dark .studio-category-card,
+  .site-shell.theme-dark .studio-usecase-card,
+  .site-shell.theme-dark .studio-review-card,
+  .site-shell.theme-dark .studio-journal-card,
+  .site-shell.theme-dark .studio-comparison-card,
+  .site-shell.theme-dark .studio-secondary-card,
+  .site-shell.theme-dark .tutorial-when,
+  .site-shell.theme-dark .tutorial-callout,
+  .site-shell.theme-dark .tool-tutorial-link,
+  .site-shell.theme-dark .site-demo,
+  .site-shell.theme-dark main li[class*="rounded-xl"][class*="bg-card"],
+  .site-shell.theme-dark main details[class*="rounded-xl"][class*="bg-card"],
+  .site-shell.theme-dark main form[class*="rounded-xl"][class*="bg-card"] {
+    box-shadow: 4px 4px 0 var(--accent);
+  }
+
+  .site-shell.theme-dark .site-demo [class*="rounded-xl"][class*="bg-card"] {
+    box-shadow: none;
   }
 }
 
@@ -5511,5 +5592,84 @@ body:has(.home-swiss-dark) .site-footer {
 
   .home-swiss-dark .studio-hero-actions .studio-primary-cta::after {
     display: none;
+  }
+}
+
+/* Final card-edge layer: intentionally last so page-specific card rules cannot flatten it. */
+.site-shell.theme-dark :is(
+  .site-card,
+  .site-tool-card,
+  .tutorials-card,
+  .tutorials-sidebar-inner,
+  .site-pricing-card,
+  .studio-category-card,
+  .studio-usecase-card,
+  .studio-review-card,
+  .studio-journal-card,
+  .studio-comparison-card,
+  .studio-secondary-card,
+  .tutorial-when,
+  .tutorial-callout,
+  .tool-tutorial-link,
+  .site-demo
+) {
+  border-color: var(--border);
+  box-shadow: 5px 5px 0 var(--accent) !important;
+}
+
+.site-shell.theme-dark :is(
+  .site-card,
+  .site-tool-card,
+  .tutorials-card,
+  .site-pricing-card
+):hover,
+.site-shell.theme-dark .site-pricing-card:focus-within {
+  border-color: color-mix(in oklab, var(--accent) 68%, var(--border));
+  transform: translate(-2px, -2px);
+  box-shadow:
+    7px 7px 0 var(--accent),
+    0 1.25rem 2.75rem -1.75rem color-mix(in oklab, var(--accent) 36%, transparent) !important;
+}
+
+.site-shell.theme-dark :is(
+  main li[class*="rounded-xl"][class*="bg-card"],
+  main details[class*="rounded-xl"][class*="bg-card"],
+  main form[class*="rounded-xl"][class*="bg-card"],
+  .admin-studio [class*="rounded-xl"][class*="bg-card"]
+) {
+  border-color: var(--border);
+  box-shadow: 5px 5px 0 var(--accent) !important;
+}
+
+.site-shell.theme-dark .site-demo [class*="rounded-xl"][class*="bg-card"] {
+  box-shadow: none !important;
+}
+
+@media (max-width: 639px) {
+  .site-shell.theme-dark :is(
+    .site-card,
+    .site-tool-card,
+    .tutorials-card,
+    .tutorials-sidebar-inner,
+    .site-pricing-card,
+    .studio-category-card,
+    .studio-usecase-card,
+    .studio-review-card,
+    .studio-journal-card,
+    .studio-comparison-card,
+    .studio-secondary-card,
+    .tutorial-when,
+    .tutorial-callout,
+    .tool-tutorial-link,
+    .site-demo,
+    main li[class*="rounded-xl"][class*="bg-card"],
+    main details[class*="rounded-xl"][class*="bg-card"],
+    main form[class*="rounded-xl"][class*="bg-card"]
+  ) {
+    box-shadow: 4px 4px 0 var(--accent) !important;
+  }
+
+  .site-shell.theme-dark .site-demo [class*="rounded-xl"][class*="bg-card"] {
+    box-shadow: none !important;
   }
 }
