@@ -3092,31 +3092,21 @@ html[data-theme="dark"] body {
   isolation: isolate;
 }
 
-.interactive-card-edge::before,
 .interactive-card-edge::after {
   position: absolute;
   z-index: 2;
-  right: 0;
-  left: 0;
-  height: 2px;
+  inset: 0;
   border-radius: inherit;
-  background: var(--accent);
-  box-shadow: 0 0 0.75rem color-mix(in oklab, var(--accent) 34%, transparent);
+  background:
+    linear-gradient(var(--accent), var(--accent)) top center / 72% 2px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) bottom center / 72% 2px no-repeat;
+  box-shadow:
+    0 -0.25rem 0.75rem -0.45rem color-mix(in oklab, var(--accent) 34%, transparent) inset,
+    0 0.25rem 0.75rem -0.45rem color-mix(in oklab, var(--accent) 34%, transparent) inset;
   content: "";
   opacity: 0;
   pointer-events: none;
-  transform: scaleX(0.72);
-  transition: opacity 160ms ease, transform 220ms ease;
-}
-
-.interactive-card-edge::before {
-  top: 0;
-  transform-origin: top center;
-}
-
-.interactive-card-edge::after {
-  bottom: 0;
-  transform-origin: bottom center;
+  transition: opacity 160ms ease, background-size 220ms ease;
 }
 
 .interactive-card-edge:is(:hover, :focus, :focus-within, :active),
@@ -3124,16 +3114,13 @@ html[data-theme="dark"] body {
   outline: none;
 }
 
-.interactive-card-edge:is(:hover, :focus, :focus-within, :active)::before,
 .interactive-card-edge:is(:hover, :focus, :focus-within, :active)::after,
-.interactive-card-edge[data-selected="true"]::before,
 .interactive-card-edge[data-selected="true"]::after {
+  background-size: 100% 2px, 100% 2px;
   opacity: 1;
-  transform: scaleX(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .interactive-card-edge::before,
   .interactive-card-edge::after {
     transition: none;
   }
