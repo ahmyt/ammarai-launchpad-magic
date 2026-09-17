@@ -103,9 +103,10 @@ export function Card({
     <div
       className={cn(
         "site-card rounded-xl bg-card p-5 ring-1 ring-border",
-        interactive && "transition-all duration-200 hover:-translate-y-1 hover:ring-accent/40",
+        interactive && "interactive-card-edge transition-all duration-200 hover:-translate-y-1 hover:ring-accent/40",
         className,
       )}
+      data-interactive-card={interactive ? "true" : undefined}
     >
       {children}
     </div>

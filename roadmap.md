@@ -251,3 +251,7 @@
 - [x] Correct shared dark-theme color mapping across all pages
 - [x] Extend the homepage enterprise surfaces, typography, controls, and restrained depth site-wide
 - [x] Verify representative public, tool, blog, tutorial, legal, authentication, and Studio pages
+
+## Shared card selection feedback
+- [x] Add reusable blue top-and-bottom edge feedback to interactive cards
+- [x] Verify hover, keyboard focus, click, touch selection, and single-active carousel behavior
