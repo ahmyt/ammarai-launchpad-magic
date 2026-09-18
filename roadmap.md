@@ -272,4 +272,4 @@
 - [x] Add the nine supplied videos as the first AI Video Pro samples
 - [x] Rewrite each matching sample prompt and output description in original AmmarAI wording
 - [x] Keep the four existing AI Video Pro samples at the end
-- [ ] Verify all 13 samples, video playback, desktop/mobile layout, and build health
+- [x] Verify all 13 samples, video playback, desktop/mobile layout, and build health
