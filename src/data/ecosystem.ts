@@ -54,8 +54,8 @@ export const flagshipWorkflows: FlagshipWorkflow[] = [
   {
     slug: "ai-chat",
     bring: "A question, document, image, saved skill, or research task.",
-    process: "AmmarAI keeps the conversation focused and can use attached sources or current web results.",
-    get: "A grounded answer, plan, analysis, or draft you can continue refining in one thread.",
+    process: "AmmarAI keeps the conversation focused and can use attached files, reusable skills, or live web results.",
+    get: "An answer, plan, analysis, or draft you can verify and continue refining in one thread.",
     useCaseSlugs: ["ai-for-developers", "ai-for-productivity", "ai-for-students"],
   },
   {
@@ -75,7 +75,7 @@ export const flagshipWorkflows: FlagshipWorkflow[] = [
   {
     slug: "ai-agent-builder",
     bring: "A repeatable task, the information it needs, connected steps, and approval rules.",
-    process: "AmmarAI chains the workflow, runs it on a trigger or schedule, and pauses at approval gates.",
+    process: "AmmarAI chains the workflow, runs it on a trigger or schedule, and pauses at the approval gates you set.",
     get: "A reusable agent that handles recurring work while sensitive actions stay supervised.",
     useCaseSlugs: ["ai-for-small-business", "ai-for-agencies", "ai-for-productivity"],
   },
