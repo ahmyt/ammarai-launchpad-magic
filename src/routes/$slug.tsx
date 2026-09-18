@@ -390,7 +390,7 @@ function ToolPage({ tool }: { tool: Tool }) {
             <ExternalButton href={REGISTER_URL} variant="onInk" size="lg">
               Start creating free
             </ExternalButton>
-            <ButtonLink to="/ai-tools" search={(previous) => ({ ...previous, pillar: undefined })} variant="ghost" size="lg" className="text-ink-foreground">
+            <ButtonLink to="/ai-tools" variant="ghost" size="lg" className="text-ink-foreground">
               Browse all tools
             </ButtonLink>
           </div>
@@ -448,7 +448,7 @@ function UseCasePage({ useCase }: { useCase: UseCase }) {
               <ExternalButton href={REGISTER_URL} size="lg">
                 Start creating free
               </ExternalButton>
-              <ButtonLink to="/ai-tools" search={(previous) => ({ ...previous, pillar: undefined })} variant="outline" size="lg">
+              <ButtonLink to="/ai-tools" variant="outline" size="lg">
                 Browse the tools
               </ButtonLink>
             </div>

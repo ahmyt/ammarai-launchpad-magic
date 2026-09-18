@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { categoryOrder, suggestTools, TOOL_COUNT } from "@/data/tools";
 import { pillarDetails, pillarForTool, pillarOrder, type EcosystemPillar } from "@/data/ecosystem";
 import { siteContentQuery } from "@/lib/content";
@@ -16,10 +16,6 @@ const description =
 
 export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },
-  validateSearch: (search: Record<string, unknown>): { pillar?: EcosystemPillar } => {
-    const pillar = search["pillar"] as EcosystemPillar;
-    return pillarOrder.includes(pillar) ? { pillar } : {};
-  },
   loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
   head: () => ({
     meta: [
@@ -98,17 +94,10 @@ export const Route = createFileRoute("/ai-tools")({
 
 function ToolsDirectory() {
   const { data: content } = useSuspenseQuery(siteContentQuery);
-  const routeSearch = Route.useSearch();
   const tools = content.tools;
   const [query, setQuery] = useState("");
-  const [pillar, setPillar] = useState<"All" | EcosystemPillar>(routeSearch.pillar ?? "All");
+  const [pillar, setPillar] = useState<"All" | EcosystemPillar>("All");
   const [category, setCategory] = useState<string>("All");
-
-  useEffect(() => {
-    setPillar(routeSearch.pillar ?? "All");
-    setCategory("All");
-    setQuery("");
-  }, [routeSearch.pillar]);
 
   const usedCategories = useMemo(
     () => categoryOrder.filter((c) => tools.some((t) => t.category === c)),

@@ -34,7 +34,7 @@ export function EcosystemOverview({ tools }: { tools: Tool[] }) {
                     </li>
                   ))}
                 </ul>
-                <ButtonLink to="/ai-tools" search={(previous) => ({ ...previous, pillar })} variant="ghost" size="sm" className="mt-auto self-start px-0">
+                <ButtonLink to="/ai-tools" variant="ghost" size="sm" className="mt-auto self-start px-0">
                   Explore {pillar} <ArrowRight className="size-4" aria-hidden="true" />
                 </ButtonLink>
               </article>

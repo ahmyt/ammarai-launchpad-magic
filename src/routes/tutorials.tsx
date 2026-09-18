@@ -50,7 +50,7 @@ function TutorialsLayout() {
               <p className="tutorials-sidebar-heading">More</p>
               <ul>
                 <li>
-                  <Link to="/ai-tools" search={(previous) => ({ ...previous, pillar: undefined })} className="tutorials-sidebar-link">
+                  <Link to="/ai-tools" className="tutorials-sidebar-link">
                     <ChevronRight className="size-3.5" aria-hidden="true" />
                     AI tools directory
                   </Link>
