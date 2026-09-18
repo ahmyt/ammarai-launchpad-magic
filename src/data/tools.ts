@@ -45,6 +45,8 @@ export const tools: Tool[] = [
   ...writerTemplateTools,
 ];
 
+export const TOOL_COUNT = tools.length;
+
 
 
 export const toolBySlug = new Map(tools.map((t) => [t.slug, t]));

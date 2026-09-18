@@ -3,7 +3,7 @@ import { Container, Section, SectionHeading, Card } from "@/components/site/prim
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ButtonLink, ExternalButton } from "@/components/site/Button";
 import { SITE, REGISTER_URL } from "@/lib/site";
-import { tools } from "@/data/tools";
+import { tools, TOOL_COUNT } from "@/data/tools";
 
 const title = "About AmmarAI: One Workspace for AI Creation | AmmarAI";
 const description =
@@ -63,7 +63,7 @@ export const Route = createFileRoute("/about")({
             name: "AmmarAI",
             publisher: { "@id": "https://ammarai.com/#organization" },
             description:
-              "AmmarAI brings 151 AI tools into one workspace for creation, workflow automation and publishing across connected channels.",
+              `AmmarAI brings ${TOOL_COUNT} AI tools into one workspace for creation, workflow automation and publishing across connected channels.`,
           },
           {
             "@context": "https://schema.org",

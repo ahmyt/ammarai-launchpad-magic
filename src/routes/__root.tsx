@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { TOOL_COUNT } from "@/data/tools";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
@@ -88,7 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "151 AI tools and templates in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.",
+          `${TOOL_COUNT} AI tools and templates in one workspace: create content, think through problems, and automate real work.`,
       },
       { name: "author", content: "AmmarAI" },
       { property: "og:site_name", content: "AmmarAI" },

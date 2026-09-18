@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { siteContentQuery } from "@/lib/content";
+import { TOOL_COUNT } from "@/data/tools";
 import { Container, Section, Card } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
@@ -128,7 +129,7 @@ function FeaturesIndex() {
               The parts that make a tool library into a workspace
             </h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              151 tools are only useful if they share a voice, remember your work and export
+               {TOOL_COUNT} tools are only useful if they share a voice, remember your work and export
               cleanly. These are the pieces that hold the whole thing together.
             </p>
           </div>
