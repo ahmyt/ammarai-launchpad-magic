@@ -2,13 +2,13 @@
 # Roadmap
 
 ## Workflow-led AmmarAI ecosystem (approved)
-- [ ] Phase 1: shared Create / Think / Automate / Grow taxonomy, dynamic tool count, grouped navigation
-- [ ] Phase 2: outcome-led homepage structure and command center
-- [ ] Phase 3: accessible flagship carousel and verified workflow stories
-- [ ] Phase 4: pillar filters and stronger product-page discovery
-- [ ] Phase 5: substantial, verified solution pages with no duplicates
-- [ ] Phase 6: SaaS and real-estate use cases
-- [ ] Phase 7: tutorial discovery integration, tutorial source files unchanged
+- [x] Phase 1: shared Create / Think / Automate / Grow taxonomy, dynamic tool count, grouped navigation
+- [x] Phase 2: outcome-led homepage structure and command center
+- [x] Phase 3: accessible flagship carousel and verified workflow stories
+- [x] Phase 4: pillar filters and stronger product-page discovery
+- [x] Phase 5: substantial, verified solution pages with no duplicates
+- [x] Phase 6: SaaS and real-estate use cases
+- [x] Phase 7: tutorial discovery integration, tutorial source files unchanged
 - [ ] Verify desktop, tablet, mobile, keyboard, reduced motion, SEO links, sitemap and build health
 
 ## Blog commercial content strategy (audit delivered)

@@ -409,6 +409,18 @@ function UseCasePage({ useCase }: { useCase: UseCase }) {
   return (
     <article>
       <Json data={faqJsonLd(useCase.faqs)} />
+      <Json data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${SITE.url}/${useCase.slug}#webpage`,
+        url: `${SITE.url}/${useCase.slug}`,
+        name: useCase.title,
+        headline: useCase.h1,
+        description: useCase.description,
+        inLanguage: "en",
+        isPartOf: { "@id": `${SITE.url}/#website` },
+        about: useCase.toolkit.map((entry) => ({ "@type": "SoftwareApplication", name: toolMap.get(entry.slug)?.name ?? entry.slug })),
+      }} />
       <Json
         data={breadcrumbJsonLd([
           { label: "Home", path: "/" },
