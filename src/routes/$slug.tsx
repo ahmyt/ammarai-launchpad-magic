@@ -209,7 +209,7 @@ function ToolPage({ tool }: { tool: Tool }) {
             className="mt-8 max-w-3xl"
           />
 
-          {tool.slug === "ai-video-generator" ? (
+          {tool.examples.length > 2 ? (
             <SamplePromptAccordion examples={tool.examples} />
           ) : (
             <div className="mt-8 grid gap-5 md:grid-cols-2">
