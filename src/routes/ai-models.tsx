@@ -135,10 +135,10 @@ function Models() {
               <table className="w-full min-w-[38rem] border-collapse text-left text-sm">
                 <thead className="bg-muted/60">
                   <tr>
-                    <th scope="col" className="px-4 py-3 font-medium">
+                    <th scope="col" className="px-4 py-3 font-medium text-background">
                       Model family
                     </th>
-                    <th scope="col" className="px-4 py-3 font-medium">
+                    <th scope="col" className="px-4 py-3 font-medium text-background">
                       Best for
                     </th>
                   </tr>
