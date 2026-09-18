@@ -285,6 +285,6 @@
 - [x] Verify sample selection, playback, accessibility, desktop/mobile layout, and build health
 
 ## AI Video Pro puppet sample expansion
-- [ ] Add both supplied clips before the existing Video Pro samples
-- [ ] Give each clip an accurate title, rewritten prompt, output description, and descriptive video label
-- [ ] Verify all 15 samples, playback, mobile layout, and build health
+- [x] Add both supplied clips before the existing Video Pro samples
+- [x] Give each clip an accurate title, rewritten prompt, output description, and descriptive video label
+- [x] Verify all 15 samples, playback, mobile layout, and build health
