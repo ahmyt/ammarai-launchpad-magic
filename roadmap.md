@@ -9,7 +9,7 @@
 - [x] Phase 5: substantial, verified solution pages with no duplicates
 - [x] Phase 6: SaaS and real-estate use cases
 - [x] Phase 7: tutorial discovery integration, tutorial source files unchanged
-- [ ] Verify desktop, tablet, mobile, keyboard, reduced motion, SEO links, sitemap and build health
+- [x] Verify desktop, tablet, mobile, keyboard, reduced motion, SEO links, sitemap and build health
 
 ## Blog commercial content strategy (audit delivered)
 - [x] Audit all 29 existing articles, content map, gap analysis, prioritized roadmap (docs/blog-content-strategy.md)
