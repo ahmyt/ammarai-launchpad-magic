@@ -11,6 +11,7 @@ import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/Breadcrumbs";
 import { ExternalButton, ButtonLink, buttonClass } from "@/components/site/Button";
 import { RelatedTools, ToolCard } from "@/components/site/ToolCard";
 import { AnimatedExample } from "@/components/site/AnimatedExample";
+import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
 import { toolDemoMedia, type ToolDemoMedia } from "@/data/tool-demos";
 import { tutorialsByTool } from "@/data/tutorials";
 
@@ -208,25 +209,29 @@ function ToolPage({ tool }: { tool: Tool }) {
             className="mt-8 max-w-3xl"
           />
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            {tool.examples.map((ex) => (
-              <Card key={ex.label} className="p-6">
-                <p className="eyebrow">{ex.label}</p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  Input
-                </p>
-                <p className="mt-1.5 text-pretty text-sm leading-relaxed text-foreground">
-                  {ex.input}
-                </p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  Output
-                </p>
-                <p className="mt-1.5 text-pretty text-sm leading-relaxed text-muted-foreground">
-                  {ex.output}
-                </p>
-              </Card>
-            ))}
-          </div>
+          {tool.slug === "ai-video-generator" ? (
+            <SamplePromptAccordion examples={tool.examples} />
+          ) : (
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
+              {tool.examples.map((ex) => (
+                <Card key={ex.label} className="p-6">
+                  <p className="eyebrow">{ex.label}</p>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Input
+                  </p>
+                  <p className="mt-1.5 text-pretty text-sm leading-relaxed text-foreground">
+                    {ex.input}
+                  </p>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Output
+                  </p>
+                  <p className="mt-1.5 text-pretty text-sm leading-relaxed text-muted-foreground">
+                    {ex.output}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          )}
         </Container>
       </Section>
 
