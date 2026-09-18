@@ -16,9 +16,9 @@ const description =
 
 export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },
-  validateSearch: (search: Record<string, unknown>) => ({
-    pillar: pillarOrder.includes(search.pillar as EcosystemPillar)
-      ? (search.pillar as EcosystemPillar)
+  validateSearch: (search: Record<string, unknown>): { pillar?: EcosystemPillar } => ({
+    pillar: pillarOrder.includes(search["pillar"] as EcosystemPillar)
+      ? (search["pillar"] as EcosystemPillar)
       : undefined,
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
