@@ -294,9 +294,3 @@
 - [x] Add accurate sample names, rewritten copy, posters, and descriptive video labels
 - [x] Feature the grandparents dining sample for AI Video Pro on the homepage
 - [x] Verify tool-page and homepage playback, mobile layout, and build health
-
-## Light editorial restyle — first fold
-- [x] Apply the warm-paper, ink, dry-blue, serif/sans visual foundation globally
-- [x] Restyle the shared header and footer without changing navigation
-- [x] Replace only the homepage first fold with the Writer-focused split layout
-- [x] Verify desktop, mobile, routes, interactions, and preview health; then stop for approval

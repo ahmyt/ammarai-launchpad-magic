@@ -10,11 +10,11 @@ type ThemeContextValue = {
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("ammarai-theme");
-    if (savedTheme === "light" || savedTheme === "dark") setTheme(savedTheme);
+    if (savedTheme === "light") setTheme("light");
   }, []);
 
   useEffect(() => {
