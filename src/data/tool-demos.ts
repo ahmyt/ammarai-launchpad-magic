@@ -5,6 +5,15 @@ import textToVideoDemo from "@/assets/demo-text-to-video.mp4.asset.json";
 import textToVideoDemo2 from "@/assets/demo-text-to-video-2.mp4.asset.json";
 import videoGeneratorDemo from "@/assets/demo-video-generator.mp4.asset.json";
 import videoGeneratorDemo2 from "@/assets/demo-video-generator-2.mp4.asset.json";
+import videoProRedPanda from "@/assets/ai-video-pro-red-panda.mp4.asset.json";
+import videoProFixedFrame from "@/assets/ai-video-pro-fixed-frame.mp4.asset.json";
+import videoProEspresso from "@/assets/ai-video-pro-espresso.mp4.asset.json";
+import videoProPaintingClass from "@/assets/ai-video-pro-painting-class.mp4.asset.json";
+import videoProFighters from "@/assets/ai-video-pro-fighters.mp4.asset.json";
+import videoProHotPot from "@/assets/ai-video-pro-hot-pot.mp4.asset.json";
+import videoProBankChase from "@/assets/ai-video-pro-bank-chase.mp4.asset.json";
+import videoProFamilyLunch from "@/assets/ai-video-pro-family-lunch.mp4.asset.json";
+import videoProComedyReel from "@/assets/ai-video-pro-comedy-reel.mp4.asset.json";
 import urlToVideoAdDemo from "@/assets/demo-url-to-video-ad.mp4.asset.json";
 import urlToVideoClipDemo from "@/assets/demo-url-to-video-clip.mp4.asset.json";
 import urlToVideoAvatarDemo from "@/assets/demo-url-to-video-avatar.mp4.asset.json";
@@ -124,6 +133,51 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
     },
   ],
   "ai-video-generator": [
+    {
+      kind: "video",
+      url: videoProRedPanda.url,
+      caption: "Sample output — a cinematic red panda story unfolding beside a moss-covered woodland tea house.",
+    },
+    {
+      kind: "video",
+      url: videoProFixedFrame.url,
+      caption: "Sample output — an elegant animated couple arriving for an evening concert in one composed shot.",
+    },
+    {
+      kind: "video",
+      url: videoProEspresso.url,
+      caption: "Sample output — a photoreal espresso pour with detailed crema, steam and warm commercial lighting.",
+    },
+    {
+      kind: "video",
+      url: videoProPaintingClass.url,
+      caption: "Sample output — a warm stylised afternoon painting class with expressive character animation.",
+    },
+    {
+      kind: "video",
+      url: videoProFighters.url,
+      caption: "Sample output — a tightly framed martial-arts exchange with airborne dust and dramatic cave light.",
+    },
+    {
+      kind: "video",
+      url: videoProHotPot.url,
+      caption: "Sample output — two famous football rivals sharing an animated Sichuan hot-pot meal beneath red lanterns.",
+    },
+    {
+      kind: "video",
+      url: videoProBankChase.url,
+      caption: "Sample output — a fictional comedic bank-heist escape staged as a fast live-action chase.",
+    },
+    {
+      kind: "video",
+      url: videoProFamilyLunch.url,
+      caption: "Sample output — grandparents and grandchildren enjoying a warm animated family lunch together.",
+    },
+    {
+      kind: "video",
+      url: videoProComedyReel.url,
+      caption: "Sample output — a quick live-action coffee mishap shaped like a punchy viral comedy reel.",
+    },
     {
       kind: "video",
       url: videoGeneratorDemo.url,
