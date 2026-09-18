@@ -67,7 +67,7 @@
 ## Compact tool sample libraries
 - [x] Use the single-open sample accordion for every tool with more than two samples
 - [x] Preserve the existing cards for tools with one or two samples
-- [ ] Verify representative desktop and mobile tool pages and preview health
+- [x] Verify representative desktop and mobile tool pages and preview health
 
 ## Neo-Swiss premium dark homepage polish
 - [x] Apply the selected dark editorial direction across the complete homepage
