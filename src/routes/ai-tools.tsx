@@ -135,9 +135,13 @@ function ToolsDirectory() {
         byGroup.set(g, []);
         order.push(g);
       }
-      byGroup.get(g)!.push(t);
+      const group = byGroup.get(g);
+      if (group) group.push(t);
     }
-    return order.map((g) => ({ group: g, tools: byGroup.get(g)! }));
+    return order.flatMap((g) => {
+      const groupedTools = byGroup.get(g);
+      return groupedTools ? [{ group: g, tools: groupedTools }] : [];
+    });
   }, [filtered, tools]);
 
   return (
