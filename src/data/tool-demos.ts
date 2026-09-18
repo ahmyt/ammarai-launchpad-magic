@@ -259,8 +259,9 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
   "ai-ugc-generator": [
     {
       kind: "video",
-      url: ugcDemo.url,
-      caption: "Sample output — an original vertical creator-style skincare video generated from the campaign brief.",
+      url: ugcSkincareSerum.url,
+      poster: "/media/ai-ugc-skincare-serum.poster.jpg",
+      caption: "Sample output — a skincare creator presenting and demonstrating an amber-bottle facial serum in a bright bathroom setting.",
     },
   ],
   "ai-youtube-publisher": [
