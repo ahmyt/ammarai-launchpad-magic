@@ -1,4 +1,5 @@
 import type { UseCase } from "./types";
+import { intentUseCases } from "./intent-use-cases";
 
 export const useCases: UseCase[] = [
   {
@@ -539,4 +540,5 @@ export const useCases: UseCase[] = [
       { q: "How much time does this realistically save in a normal week?", a: "It varies by how much routine writing your role involves, but most people notice the biggest time savings on the smaller, repetitive tasks rather than on any single large project." }
     ]
   }
+  ...intentUseCases,
 ];
