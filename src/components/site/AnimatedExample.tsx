@@ -76,6 +76,7 @@ export function AnimatedExample({
     ? {
         ...rawMedia,
         url: rawMedia.url ? assetUrl(rawMedia.url) : rawMedia.url,
+        poster: rawMedia.poster ? assetUrl(rawMedia.poster) : rawMedia.poster,
         inputImage: rawMedia.inputImage ? assetUrl(rawMedia.inputImage) : rawMedia.inputImage,
         inputAudio: rawMedia.inputAudio ? assetUrl(rawMedia.inputAudio) : rawMedia.inputAudio,
         inputVideo: rawMedia.inputVideo ? assetUrl(rawMedia.inputVideo) : rawMedia.inputVideo,
@@ -598,7 +599,7 @@ export function AnimatedExample({
                       <video
                         key={demoVideo.url}
                         src={demoVideo.url}
-                        poster={videoPoster(demoVideo.url)}
+                        poster={demoVideo.poster ?? videoPoster(demoVideo.url)}
                         className="aspect-video w-full object-contain"
                         autoPlay
                         loop

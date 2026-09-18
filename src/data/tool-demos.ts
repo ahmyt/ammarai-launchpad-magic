@@ -1,10 +1,19 @@
 import avatarDemo2 from "@/assets/demo-avatar-video-2-lipsynced-final.mp4.asset.json";
 import imageToVideoDemo from "@/assets/demo-image-to-video.mp4.asset.json";
 import imageToVideoDemo2 from "@/assets/demo-image-to-video-2.mp4.asset.json";
-import textToVideoDemo from "@/assets/demo-text-to-video.mp4.asset.json";
-import textToVideoDemo2 from "@/assets/demo-text-to-video-2.mp4.asset.json";
-import videoGeneratorDemo from "@/assets/demo-video-generator.mp4.asset.json";
-import videoGeneratorDemo2 from "@/assets/demo-video-generator-2.mp4.asset.json";
+import textToVideoDemo from "@/assets/demo-text-to-video.webm.asset.json";
+import textToVideoDemo2 from "@/assets/demo-text-to-video-2.webm.asset.json";
+import videoGeneratorDemo from "@/assets/demo-video-generator.webm.asset.json";
+import videoGeneratorDemo2 from "@/assets/demo-video-generator-2.webm.asset.json";
+import videoProRedPanda from "@/assets/ai-video-pro-red-panda.webm.asset.json";
+import videoProFixedFrame from "@/assets/ai-video-pro-fixed-frame.webm.asset.json";
+import videoProEspresso from "@/assets/ai-video-pro-espresso.webm.asset.json";
+import videoProPaintingClass from "@/assets/ai-video-pro-painting-class.webm.asset.json";
+import videoProFighters from "@/assets/ai-video-pro-fighters.webm.asset.json";
+import videoProHotPot from "@/assets/ai-video-pro-hot-pot.webm.asset.json";
+import videoProBankChase from "@/assets/ai-video-pro-bank-chase.webm.asset.json";
+import videoProFamilyLunch from "@/assets/ai-video-pro-family-lunch.webm.asset.json";
+import videoProComedyReel from "@/assets/ai-video-pro-comedy-reel.webm.asset.json";
 import urlToVideoAdDemo from "@/assets/demo-url-to-video-ad.mp4.asset.json";
 import urlToVideoClipDemo from "@/assets/demo-url-to-video-clip.mp4.asset.json";
 import urlToVideoAvatarDemo from "@/assets/demo-url-to-video-avatar.mp4.asset.json";
@@ -68,6 +77,8 @@ export type ToolDemoMedia = {
   kind?: "video" | "audio" | "image" | "code" | "scene";
   /** Output media URL (video, audio or image). Omit for text/code output. */
   url?: string;
+  /** Optional local preview image used before a video starts playing. */
+  poster?: string;
   caption?: string;
   /** Output source code, streamed into a code block (kind: "code"). */
   code?: string;
@@ -126,23 +137,81 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
   "ai-video-generator": [
     {
       kind: "video",
+      url: videoProRedPanda.url,
+      poster: "/media/ai-video-pro-red-panda.poster.jpg",
+      caption: "Sample output — a cinematic red panda story unfolding beside a moss-covered woodland tea house.",
+    },
+    {
+      kind: "video",
+      url: videoProFixedFrame.url,
+      poster: "/media/ai-video-pro-fixed-frame.poster.jpg",
+      caption: "Sample output — an elegant animated couple arriving for an evening concert in one composed shot.",
+    },
+    {
+      kind: "video",
+      url: videoProEspresso.url,
+      poster: "/media/ai-video-pro-espresso.poster.jpg",
+      caption: "Sample output — a photoreal espresso pour with detailed crema, steam and warm commercial lighting.",
+    },
+    {
+      kind: "video",
+      url: videoProPaintingClass.url,
+      poster: "/media/ai-video-pro-painting-class.poster.jpg",
+      caption: "Sample output — a warm stylised afternoon painting class with expressive character animation.",
+    },
+    {
+      kind: "video",
+      url: videoProFighters.url,
+      poster: "/media/ai-video-pro-fighters.poster.jpg",
+      caption: "Sample output — a tightly framed martial-arts exchange with airborne dust and dramatic cave light.",
+    },
+    {
+      kind: "video",
+      url: videoProHotPot.url,
+      poster: "/media/ai-video-pro-hot-pot.poster.jpg",
+      caption: "Sample output — two famous football rivals sharing an animated Sichuan hot-pot meal beneath red lanterns.",
+    },
+    {
+      kind: "video",
+      url: videoProBankChase.url,
+      poster: "/media/ai-video-pro-bank-chase.poster.jpg",
+      caption: "Sample output — a fictional comedic bank-heist escape staged as a fast live-action chase.",
+    },
+    {
+      kind: "video",
+      url: videoProFamilyLunch.url,
+      poster: "/media/ai-video-pro-family-lunch.poster.jpg",
+      caption: "Sample output — grandparents and grandchildren enjoying a warm animated family lunch together.",
+    },
+    {
+      kind: "video",
+      url: videoProComedyReel.url,
+      poster: "/media/ai-video-pro-comedy-reel.poster.jpg",
+      caption: "Sample output — a quick live-action coffee mishap shaped like a punchy viral comedy reel.",
+    },
+    {
+      kind: "video",
       url: videoGeneratorDemo.url,
+      poster: "/media/demo-video-generator.poster.jpg",
       caption: "Sample output — a clean product explainer shot generated from the written brief.",
     },
     {
       kind: "video",
       url: videoGeneratorDemo2.url,
+      poster: "/media/demo-video-generator-2.poster.jpg",
       caption: "Sample output — a warm lifestyle ad variant generated from the same product brief.",
 
     },
     {
       kind: "video",
       url: textToVideoDemo.url,
+      poster: "/media/demo-text-to-video.poster.jpg",
       caption: "Sample output — text to video: a macro gold-splash beauty shot generated from the prompt alone.",
     },
     {
       kind: "video",
       url: textToVideoDemo2.url,
+      poster: "/media/demo-text-to-video-2.poster.jpg",
       caption: "Sample output — text to video: a neon hyperlapse through rain-slick Tokyo streets, no footage required.",
     },
   ],
