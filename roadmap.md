@@ -283,3 +283,8 @@
 - [x] Replace the long sample-card grid with a single-open accordion
 - [x] Keep all 13 prompts and outputs rendered for search visibility
 - [x] Verify sample selection, playback, accessibility, desktop/mobile layout, and build health
+
+## AI Video Pro puppet sample expansion
+- [ ] Add both supplied clips before the existing Video Pro samples
+- [ ] Give each clip an accurate title, rewritten prompt, output description, and descriptive video label
+- [ ] Verify all 15 samples, playback, mobile layout, and build health
