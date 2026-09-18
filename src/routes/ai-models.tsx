@@ -126,14 +126,19 @@ function Models() {
         <Section key={group.heading} className="pt-4">
           <Container>
             <SectionHeading title={group.heading} intro={group.blurb} />
-            <div className="mt-6 overflow-hidden rounded-xl ring-1 ring-border">
-              <table className="w-full border-collapse text-left text-sm">
+            <div
+              className="mt-6 max-w-full overflow-x-auto overscroll-x-contain rounded-xl ring-1 ring-border"
+              role="region"
+              aria-label={`${group.heading} model table`}
+              tabIndex={0}
+            >
+              <table className="w-full min-w-[38rem] border-collapse text-left text-sm">
                 <thead className="bg-muted/60">
                   <tr>
-                    <th scope="col" className="px-4 py-3 font-medium text-foreground">
+                    <th scope="col" className="px-4 py-3 font-medium text-background">
                       Model family
                     </th>
-                    <th scope="col" className="px-4 py-3 font-medium text-foreground">
+                    <th scope="col" className="px-4 py-3 font-medium text-background">
                       Best for
                     </th>
                   </tr>
