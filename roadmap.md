@@ -290,7 +290,7 @@
 - [x] Verify all 15 samples, playback, mobile layout, and build health
 
 ## Homepage and AI UGC video refresh
-- [ ] Replace the AI UGC sample and homepage preview with the supplied skincare creator video
-- [ ] Add accurate sample names, rewritten copy, posters, and descriptive video labels
-- [ ] Feature the grandparents dining sample for AI Video Pro on the homepage
-- [ ] Verify tool-page and homepage playback, mobile layout, and build health
+- [x] Replace the AI UGC sample and homepage preview with the supplied skincare creator video
+- [x] Add accurate sample names, rewritten copy, posters, and descriptive video labels
+- [x] Feature the grandparents dining sample for AI Video Pro on the homepage
+- [x] Verify tool-page and homepage playback, mobile layout, and build health
