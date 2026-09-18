@@ -267,3 +267,9 @@
 ## Homepage scrolling-logo CMS control
 - [x] Add a Site settings switch for faded or always-colorful scrolling logos
 - [x] Verify setting integration, hover/touch color behavior, desktop/mobile, and build health
+
+## AI Video Pro sample expansion
+- [ ] Add the nine supplied videos as the first AI Video Pro samples
+- [ ] Rewrite each matching sample prompt and output description in original AmmarAI wording
+- [ ] Keep the four existing AI Video Pro samples at the end
+- [ ] Verify all 13 samples, video playback, desktop/mobile layout, and build health
