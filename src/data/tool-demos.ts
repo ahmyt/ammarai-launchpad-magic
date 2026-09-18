@@ -14,6 +14,8 @@ import videoProHotPot from "@/assets/ai-video-pro-hot-pot.webm.asset.json";
 import videoProBankChase from "@/assets/ai-video-pro-bank-chase.webm.asset.json";
 import videoProFamilyLunch from "@/assets/ai-video-pro-family-lunch.webm.asset.json";
 import videoProComedyReel from "@/assets/ai-video-pro-comedy-reel.webm.asset.json";
+import videoProPuppetWaveDance from "@/assets/ai-video-pro-puppet-wave-dance.webm.asset.json";
+import videoProOctopusLibrary from "@/assets/ai-video-pro-octopus-library.webm.asset.json";
 import urlToVideoAdDemo from "@/assets/demo-url-to-video-ad.mp4.asset.json";
 import urlToVideoClipDemo from "@/assets/demo-url-to-video-clip.mp4.asset.json";
 import urlToVideoAvatarDemo from "@/assets/demo-url-to-video-avatar.mp4.asset.json";
@@ -135,6 +137,18 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
     },
   ],
   "ai-video-generator": [
+    {
+      kind: "video",
+      url: videoProPuppetWaveDance.url,
+      poster: "/media/ai-video-pro-puppet-wave-dance.poster.jpg",
+      caption: "Sample output — a vivid handcrafted puppet performing a fluid wave dance against a simple fabric backdrop.",
+    },
+    {
+      kind: "video",
+      url: videoProOctopusLibrary.url,
+      poster: "/media/ai-video-pro-octopus-library.poster.jpg",
+      caption: "Sample output — a mysterious octopus studying an antique book in a shadowy library illuminated by deep red light.",
+    },
     {
       kind: "video",
       url: videoProRedPanda.url,

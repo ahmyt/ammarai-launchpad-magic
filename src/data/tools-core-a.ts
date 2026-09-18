@@ -596,6 +596,20 @@ export const coreToolsA: Tool[] = [
     ],
     examples: [
       {
+        label: "The Paper Puppet Wave Dance",
+        input:
+          "Create one uninterrupted video of a brightly coloured paper-mâché puppet performing an energetic wave dance. Keep the handmade puppet as the only subject and make its rippling arm movements, shifting posture and playful rhythm the focus of the scene. Preserve the tactile paper texture, bold painted colours and simple fabric backdrop throughout.",
+        output:
+          "A lively handcrafted-character performance with fluid wave-inspired movement, vivid colour and a clear uninterrupted dance routine.",
+      },
+      {
+        label: "The Octopus Librarian",
+        input:
+          "Create a cinematic continuous shot of an intelligent octopus absorbed in an open antique book inside a grand, shadow-filled library. Let its tentacles curl naturally around the lectern and nearby volumes while a restrained red glow reveals the shelves, marble columns and glass vessels. Keep the mood mysterious, the camera movement subtle and the creature's reading behaviour believable.",
+        output:
+          "An atmospheric fantasy-library scene with convincing tentacle motion, rich environmental detail and controlled crimson lighting.",
+      },
+      {
         label: "Red Panda's Tea-House Discovery",
         input:
           "Create a cinematic 3D animated short about an inquisitive red panda discovering a tiny tea house deep in a mossy forest at sunrise. Track beside it across a wooden footbridge, then settle at eye level as it finds a steaming ceramic cup on the veranda. The panda investigates the steam, sits with its ringed tail around its paws and watches one maple leaf float past. Use believable animal motion, tactile fur and timber, warm natural colour and one gentle continuous camera move. Add only stream water, birds and soft pawsteps—no speech, music, titles, logos or familiar characters.",
