@@ -8,6 +8,7 @@ import { ActionButton, ExternalButton } from "./Button";
 import { useTheme } from "./ThemeProvider";
 import logoAsset from "@/assets/ammarai-logo.png.asset.json";
 import { assetUrl } from "@/lib/asset-url";
+import { pillarDetails, pillarOrder } from "@/data/ecosystem";
 
 export function Wordmark({ className }: { className?: string }) {
   return (
@@ -45,7 +46,26 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
-          {navItems.map((item) => (
+          {navItems.map((item) => item.to === "/ai-tools" ? (
+            <div key={item.to} className="site-tools-menu group relative">
+              <Link
+                to={item.to}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                activeProps={{ className: "text-foreground" }}
+              >
+                {item.label}
+              </Link>
+              <div className="site-tools-menu-panel" aria-label="AI tools by workflow">
+                {pillarOrder.map((pillar) => (
+                  <div key={pillar}>
+                    <p className="eyebrow">{pillar}</p>
+                    <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{pillarDetails[pillar].description}</p>
+                    <Link to="/ai-tools" className="mt-3 inline-flex text-xs font-semibold text-accent">Explore {pillar}</Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
             <Link
               key={item.to}
               to={item.to}
@@ -121,6 +141,13 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <div className="grid grid-cols-2 gap-2 border-b border-border py-4">
+              {pillarOrder.map((pillar) => (
+                <Link key={pillar} to="/ai-tools" onClick={() => setOpen(false)} className="text-xs font-semibold text-accent">
+                  {pillar} tools
+                </Link>
+              ))}
+            </div>
             <div className="flex items-center gap-3 pt-4">
               <ExternalButton
                 href={REGISTER_URL}

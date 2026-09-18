@@ -14,6 +14,8 @@ import { AnimatedExample } from "@/components/site/AnimatedExample";
 import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
 import { toolDemoMedia, type ToolDemoMedia } from "@/data/tool-demos";
 import { tutorialsByTool } from "@/data/tutorials";
+import { flagshipWorkflows, pillarForTool } from "@/data/ecosystem";
+import { useCases } from "@/data/use-cases";
 
 /**
  * One sample per example. CMS overrides win: `demoVideoUrl` / `demoVideoCaption`
@@ -123,6 +125,18 @@ function Json({ data }: { data: unknown }) {
 
 function ToolPage({ tool }: { tool: Tool }) {
   const toolMap = useToolMap();
+  const workflow = flagshipWorkflows.find((item) => item.slug === tool.slug);
+  const relatedSlugs = tool.related.length >= 4
+    ? tool.related
+    : [...new Set([
+        ...tool.related,
+        ...Array.from(toolMap.values())
+          .filter((candidate) => candidate.slug !== tool.slug && pillarForTool(candidate) === pillarForTool(tool))
+          .map((candidate) => candidate.slug),
+      ])].slice(0, 4);
+  const relatedUseCases = workflow
+    ? workflow.useCaseSlugs.flatMap((slug) => useCases.find((item) => item.slug === slug) ?? [])
+    : useCases.filter((item) => item.toolkit.some((entry) => entry.slug === tool.slug)).slice(0, 3);
   return (
     <article>
       <Json data={softwareApplicationJsonLd(tool.name, tool.description, `/${tool.slug}`)} />
@@ -145,7 +159,7 @@ function ToolPage({ tool }: { tool: Tool }) {
             ]}
           />
           <div className="mt-8 max-w-3xl">
-            <p className="eyebrow">{tool.category}</p>
+            <p className="eyebrow">{pillarForTool(tool)} / {tool.category}</p>
             <h1 className="mt-4 text-balance text-4xl leading-[1.05] sm:text-5xl">{tool.h1}</h1>
             <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
               {renderInline(tool.lede)}
@@ -161,6 +175,19 @@ function ToolPage({ tool }: { tool: Tool }) {
           </div>
         </Container>
       </Section>
+
+      {workflow ? (
+        <Section className="tool-workflow-section">
+          <Container>
+            <SectionHeading eyebrow="Workflow" title={`From input to outcome with ${tool.name}`} intro="A practical view of what you provide, what AmmarAI handles, and what you leave with." />
+            <div className="tool-workflow-grid mt-8">
+              {[{ label: "What you provide", body: workflow.bring }, { label: "What AmmarAI does", body: workflow.process }, { label: "What you get", body: workflow.get }].map((item, index) => (
+                <Card key={item.label} className="p-6"><span className="ecosystem-number">0{index + 1}</span><h3 className="mt-4 text-base font-semibold text-foreground">{item.label}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p></Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
       <Section tone="sand" className="py-14 sm:py-20">
         <Container>
@@ -335,10 +362,23 @@ function ToolPage({ tool }: { tool: Tool }) {
         <Container>
           <SectionHeading eyebrow="Related" title="Tools that pair well with this" />
           <div className="mt-8">
-            <RelatedTools slugs={tool.related} tools={toolMap} />
+            <RelatedTools slugs={relatedSlugs} tools={toolMap} />
           </div>
         </Container>
       </Section>
+
+      {relatedUseCases.length > 0 ? (
+        <Section tone="sand">
+          <Container>
+            <SectionHeading eyebrow="Related workflows" title="See how this tool fits into real work" />
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              {relatedUseCases.map((item) => (
+                <Card key={item.slug} interactive className="p-6"><p className="eyebrow">{item.audience}</p><h3 className="mt-3 text-base font-semibold"><Link to="/$slug" params={{ slug: item.slug }} className="text-foreground hover:text-accent">{item.name}</Link></h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.summary}</p></Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
       <Section tone="ink" className="py-16 sm:py-20">
         <Container className="text-center">

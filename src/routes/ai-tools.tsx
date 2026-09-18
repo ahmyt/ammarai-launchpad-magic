@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
-import { categoryOrder, suggestTools } from "@/data/tools";
+import { categoryOrder, suggestTools, TOOL_COUNT } from "@/data/tools";
+import { pillarDetails, pillarForTool, pillarOrder, type EcosystemPillar } from "@/data/ecosystem";
 import { siteContentQuery } from "@/lib/content";
 import { Container, Section } from "@/components/site/primitives";
 import { ToolCard } from "@/components/site/ToolCard";
@@ -9,9 +10,9 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { SITE, REGISTER_URL } from "@/lib/site";
 
-const title = "AI Tools Library: 151+ Tools, Agents & Templates | AmmarAI";
+const title = `AI Tools Library: ${TOOL_COUNT}+ Tools, Agents & Templates | AmmarAI`;
 const description =
-  "Explore 151 AI tools and templates for writing, chat, agents, marketing, SEO, images, video, voice, documents and code. Find the right tool and start free.";
+  `Explore ${TOOL_COUNT} AI tools and templates for writing, chat, agents, marketing, SEO, images, video, voice, documents and code. Find the right tool and start free.`;
 
 export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },
@@ -51,9 +52,9 @@ export const Route = createFileRoute("/ai-tools")({
             "@id": "https://ammarai.com/ai-tools#itemlist",
             name: "AmmarAI AI Tool Library",
             description:
-              "A directory of 151 AI tools across writing, chat, image, video, voice, transcription, vision, documents, marketing, SEO, e-commerce, productivity, sales, CRM and code.",
+              `A directory of ${TOOL_COUNT} AI tools across writing, chat, image, video, voice, transcription, vision, documents, marketing, SEO, e-commerce, productivity, sales, CRM and code.`,
             itemListOrder: "https://schema.org/ItemListUnordered",
-            numberOfItems: 151,
+            numberOfItems: TOOL_COUNT,
           },
           {
             "@context": "https://schema.org",
@@ -95,6 +96,7 @@ function ToolsDirectory() {
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const tools = content.tools;
   const [query, setQuery] = useState("");
+  const [pillar, setPillar] = useState<"All" | EcosystemPillar>("All");
   const [category, setCategory] = useState<string>("All");
 
   const usedCategories = useMemo(
@@ -111,8 +113,14 @@ function ToolsDirectory() {
 
   const filtered = useMemo(() => {
     if (query.trim()) return suggestions;
-    return category === "All" ? tools : tools.filter((t) => t.category === category);
-  }, [query, category, suggestions, tools]);
+    const inPillar = pillar === "All" ? tools : tools.filter((tool) => pillarForTool(tool) === pillar);
+    return category === "All" ? inPillar : inPillar.filter((t) => t.category === category);
+  }, [query, category, pillar, suggestions, tools]);
+
+  const visibleCategories = useMemo(
+    () => usedCategories.filter((categoryName) => pillar === "All" || pillarDetails[pillar].categories.includes(categoryName)),
+    [pillar, usedCategories],
+  );
 
   // When browsing (not searching), AI Templates render grouped by topic.
   const browsing = !query.trim();
@@ -163,11 +171,29 @@ function ToolsDirectory() {
             />
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-2">
+          <div className="mt-8" aria-label="Filter tools by workflow">
+            <p className="eyebrow mb-3">Start with the job</p>
+            <div className="flex flex-wrap gap-2">
+              {(["All", ...pillarOrder] as const).map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => { setPillar(item); setCategory("All"); setQuery(""); }}
+                  aria-pressed={pillar === item && !query}
+                  className={pillar === item && !query ? "rounded-full bg-ink px-4 py-2 text-xs font-semibold text-ink-foreground" : "rounded-full px-4 py-2 text-xs font-semibold text-muted-foreground ring-1 ring-border transition-colors hover:text-foreground"}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-2" aria-label="Filter tools by category">
             <button
               type="button"
               onClick={() => {
                 setCategory("All");
+                setPillar("All");
                 setQuery("");
               }}
               aria-pressed={category === "All" && !query}
@@ -179,7 +205,7 @@ function ToolsDirectory() {
             >
               All
             </button>
-            {usedCategories.map((c) => (
+            {visibleCategories.map((c) => (
               <button
                 key={c}
                 type="button"
@@ -205,7 +231,7 @@ function ToolsDirectory() {
         <Container>
           <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
             {filtered.length} {filtered.length === 1 ? "tool" : "tools"}
-            {query ? " matched" : category === "All" ? "" : ` in ${category}`}
+            {query ? " matched" : category !== "All" ? ` in ${category}` : pillar !== "All" ? ` for ${pillar}` : ""}
           </p>
           {filtered.length === 0 ? (
             <p className="mt-8 text-sm text-muted-foreground">

@@ -5,7 +5,7 @@ import sanitizeHtml from "sanitize-html";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 import { writerFromClient, type ArticleWriter } from "@/lib/cron-db.server";
-import { tools } from "@/data/tools";
+import { tools, TOOL_COUNT } from "@/data/tools";
 import { SITE } from "@/lib/site";
 import { getToolKeywords } from "@/data/tool-keywords";
 import {
@@ -549,7 +549,7 @@ export async function writeDailyPost(
       `PRIMARY KEYWORD: "${topic.primaryKeyword}"${topic.volume ? ` (${topic.volume.toLocaleString()} searches/month)` : ""}.`,
       `The title MUST include the primary keyword and be under 60 characters. The metaDescription MUST include it and be under 155 characters.`,
       typeBrief[topic.contentType] ?? "",
-      `AmmarAI is an all-in-one AI workspace with 151 tools on one subscription: writing, video, image, voice, agents, SEO and marketing.`,
+      `AmmarAI is an all-in-one AI workspace with ${TOOL_COUNT} tools on one subscription: writing, video, image, voice, agents, SEO and marketing.`,
       ...houseRules(topic.links, siblingLinks(topic.cluster, topic.links)),
     ].join("\n");
   } else {

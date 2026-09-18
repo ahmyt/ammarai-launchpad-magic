@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowRight, Bot, Check, Files, History, Layers3, Search, Sparkles, SwatchBook, WandSparkles } from "lucide-react";
 import { siteContentQuery } from "@/lib/content";
-import { tools, featuredTools, popularTools, recentTools, usedCategories, suggestTools, toolsByCategory } from "@/data/tools";
+import { tools, featuredTools, TOOL_COUNT, suggestTools } from "@/data/tools";
 import { useCases } from "@/data/use-cases";
 import { features } from "@/data/features";
 import { posts } from "@/data/posts";
@@ -16,20 +16,14 @@ import { TrustLogoStrip } from "@/components/site/TrustLogoStrip";
 import { CustomerReviews } from "@/components/site/CustomerReviews";
 import { SecondaryToolsCarousel } from "@/components/site/SecondaryToolsCarousel";
 import { useTheme } from "@/components/site/ThemeProvider";
+import { outcomeShortcuts } from "@/data/ecosystem";
+import { EcosystemOverview, WorkflowStories } from "@/components/site/HomeEcosystem";
+import { FlagshipCarousel } from "@/components/site/FlagshipCarousel";
+import { tutorials } from "@/data/tutorials";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
 const description =
-  "151 AI tools and templates in one workspace: write, chat, generate images and video, create voiceovers, transcribe audio, analyze documents and code.";
-
-const goalPrompts = [
-  "Write a blog post about pricing",
-  "Create a product description",
-  "Make a promotional video",
-  "Generate a voiceover",
-  "Transcribe an interview",
-  "Create an Instagram ad",
-  "Build an AI agent",
-];
+  `${TOOL_COUNT} AI tools and templates in one workspace: create content, think through problems, and automate real work.`;
 
 const workspaceBenefits = [
   { label: "One account", icon: Check },
@@ -164,16 +158,6 @@ export function Home() {
     return () => window.removeEventListener("keydown", focusSearch);
   }, []);
 
-  const categoryPreview = useMemo(
-    () =>
-      usedCategories.slice(0, 8).map((c) => ({
-        category: c,
-        count: toolsByCategory(c).length,
-        sample: toolsByCategory(c).slice(0, 3),
-      })),
-    [],
-  );
-
   return (
     <div className={`home-premium home-swiss overflow-hidden ${theme === "dark" ? "home-swiss-dark home-enterprise" : ""}`}>
       <script
@@ -248,19 +232,12 @@ export function Home() {
                 <div className={`studio-command-results mt-6 ${query.trim() === "" ? "studio-command-results-prompts" : "studio-command-results-active"}`}>
                 {query.trim() === "" ? (
                   <div>
-                    <p className="studio-label">Popular starting points</p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {goalPrompts.map((prompt) => (
-                        <ActionButton
-                          key={prompt}
-                          type="button"
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setQuery(prompt)}
-                          className="h-auto justify-start rounded-full py-2 text-left text-xs font-medium text-muted-foreground hover:text-foreground"
-                        >
-                          {prompt}
-                        </ActionButton>
+                    <p className="studio-label">Tell AmmarAI what you want to accomplish</p>
+                    <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                      {outcomeShortcuts.map((shortcut) => (
+                        <Link key={shortcut.label} to="/$slug" params={{ slug: shortcut.slug }} className="studio-outcome-shortcut group">
+                          <span>{shortcut.label}</span><ArrowRight className="size-3.5 shrink-0 transition-transform group-hover:translate-x-1" />
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -313,21 +290,13 @@ export function Home() {
              scale="large"
              className="studio-heading-wide"
           />
-          <div className="studio-card-grid mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredTools.map((tool, index) => (
-              <ToolCard
-                key={tool.slug}
-                tool={tool}
-                {...(index === 0
-                  ? { summary: "Build agents that run real workflows on a schedule or trigger. Connect web search, documents, email, calendars and spreadsheets, chain multiple steps, and require approval before sensitive actions." }
-                  : {})}
-                className={index === 0 || index === 3 ? "studio-featured-card lg:col-span-2 min-h-52 justify-end" : "min-h-52"}
-              />
-            ))}
-          </div>
+           <FlagshipCarousel tools={featuredTools} />
            <SecondaryToolsCarousel />
         </Container>
       </Section>
+
+      <EcosystemOverview tools={tools} />
+      <WorkflowStories tools={tools} />
 
       {/* Video library */}
        <Section className="studio-section studio-video-section">
@@ -370,85 +339,12 @@ export function Home() {
         </Container>
       </Section>
 
-      {/* Categories */}
-        <Section tone="sand" className="studio-section studio-library-section">
-        <Container>
-          <SectionHeading
-            eyebrow="The library"
-            title="Organised by the job, not by the technology"
-          />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {categoryPreview.map((group) => (
-              <Card key={group.category} className="studio-category-card p-6">
-                <div className="flex items-baseline justify-between gap-2">
-                  <h3 className="text-base font-semibold text-foreground">{group.category}</h3>
-                  <span className="text-xs tabular-nums text-muted-foreground">{group.count}</span>
-                </div>
-                <ul className="mt-3 flex flex-col gap-1.5">
-                  {group.sample.map((t) => (
-                    <li key={t.slug}>
-                      <Link
-                        to="/$slug"
-                        params={{ slug: t.slug }}
-                        className="text-sm text-muted-foreground transition-colors hover:text-accent"
-                      >
-                        {t.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            ))}
-          </div>
-          <div className="mt-8">
-            <ButtonLink to="/ai-tools" variant="outline">
-              See all {tools.length} tools
-            </ButtonLink>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Popular + recent */}
-       <Section className="studio-section studio-ranked-lists studio-section-compact">
-        <Container>
-           <div className="studio-ranked-shell grid gap-12 lg:grid-cols-2">
-             <div className="studio-popular-panel">
-              <SectionHeading eyebrow="Popular" title="Used most this month" />
-              <ul className="mt-6 border-t border-border">
-                {popularTools.slice(0, 6).map((tool) => (
-                  <li key={tool.slug} className="border-b border-border py-3.5">
-                    <Link
-                      to="/$slug"
-                      params={{ slug: tool.slug }}
-                      className="flex items-baseline justify-between gap-4 text-sm"
-                    >
-                      <span className="font-semibold text-foreground hover:text-accent">
-                        {tool.name}
-                      </span>
-                      <span className="text-xs text-muted-foreground">{tool.category}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-             <div className="studio-recent-panel">
-              <SectionHeading eyebrow="New" title="Recently added" />
-              <div className="mt-6 grid gap-4">
-                {recentTools.slice(0, 3).map((tool) => (
-                  <ToolCard key={tool.slug} tool={tool} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
       {/* Features */}
        <Section tone="sand" className="studio-section studio-workspace-section">
         <Container>
           <SectionHeading
             eyebrow="Why one workspace"
-            title="What makes 151 tools feel like one product"
+            title={`What makes ${TOOL_COUNT} tools feel like one product`}
             intro="One account and subscription connect your history, brand voice, files, templates, AI models and assistants across every workflow."
              scale="large"
              className="studio-heading-wide"
@@ -479,6 +375,22 @@ export function Home() {
               </Card>
             ))}
           </div>
+        </Container>
+      </Section>
+
+      <Section className="studio-section studio-tutorials-section">
+        <Container>
+          <SectionHeading eyebrow="Learn by doing" title="Practical guides for real workflows" intro="Open a focused walkthrough, follow the exact fields and controls, then continue into the matching AmmarAI tool." />
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {tutorials.slice(0, 3).map((tutorial) => (
+              <Card key={tutorial.slug} interactive className="p-6">
+                <p className="eyebrow">{tutorial.category}</p>
+                <h3 className="mt-3 text-lg font-semibold"><Link to="/tutorials/$slug" params={{ slug: tutorial.slug }} className="text-foreground hover:text-accent">{tutorial.h1}</Link></h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{tutorial.description}</p>
+              </Card>
+            ))}
+          </div>
+          <ButtonLink to="/tutorials" variant="outline" className="mt-8">Browse all tutorials</ButtonLink>
         </Container>
       </Section>
 
@@ -614,7 +526,7 @@ export function Home() {
          <Container className="text-center">
            <p className="studio-final-kicker">Your complete AI workspace</p>
            <h2 className="mx-auto max-w-4xl text-balance text-5xl leading-[0.95] sm:text-7xl">
-            Start with the free plan
+             Create. Think. Automate. One intelligent workspace.
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed opacity-80">
             Every tool, no card required. Upgrade only when your output volume makes the case for
