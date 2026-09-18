@@ -299,4 +299,4 @@
 - [x] Apply the warm-paper, ink, dry-blue, serif/sans visual foundation globally
 - [x] Restyle the shared header and footer without changing navigation
 - [x] Replace only the homepage first fold with the Writer-focused split layout
-- [ ] Verify desktop, mobile, routes, interactions, and preview health; then stop for approval
+- [x] Verify desktop, mobile, routes, interactions, and preview health; then stop for approval
