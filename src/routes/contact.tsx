@@ -160,7 +160,7 @@ function Contact() {
                     </p>
                   ) : null}
 
-                  <ButtonLink to="/ai-tools" search={{}} variant="outline" size="sm" className="mt-6">
+                  <ButtonLink to="/ai-tools" search={(previous) => ({ ...previous, pillar: undefined })} variant="outline" size="sm" className="mt-6">
                     Browse the tools
                   </ButtonLink>
                 </div>

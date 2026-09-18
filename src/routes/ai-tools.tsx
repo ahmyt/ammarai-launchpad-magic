@@ -16,11 +16,10 @@ const description =
 
 export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },
-  validateSearch: (search: Record<string, unknown>): { pillar?: EcosystemPillar } => ({
-    pillar: pillarOrder.includes(search["pillar"] as EcosystemPillar)
-      ? (search["pillar"] as EcosystemPillar)
-      : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { pillar?: EcosystemPillar } => {
+    const pillar = search["pillar"] as EcosystemPillar;
+    return pillarOrder.includes(pillar) ? { pillar } : {};
+  },
   loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
   head: () => ({
     meta: [

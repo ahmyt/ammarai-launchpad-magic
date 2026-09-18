@@ -176,7 +176,7 @@ export function SecondaryToolsCarousel() {
             ))}
           </div>
         </div>
-        <ButtonLink to="/ai-tools" search={{}} variant="onInk" size="lg" className="studio-secondary-all-tools">
+        <ButtonLink to="/ai-tools" search={(previous) => ({ ...previous, pillar: undefined })} variant="onInk" size="lg" className="studio-secondary-all-tools">
           View All Tools <ArrowRight className="size-4" aria-hidden="true" />
         </ButtonLink>
       </div>
