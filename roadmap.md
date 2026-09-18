@@ -296,7 +296,7 @@
 - [x] Verify tool-page and homepage playback, mobile layout, and build health
 
 ## Light editorial restyle — first fold
-- [ ] Apply the warm-paper, ink, dry-blue, serif/sans visual foundation globally
-- [ ] Restyle the shared header and footer without changing navigation
-- [ ] Replace only the homepage first fold with the Writer-focused split layout
+- [x] Apply the warm-paper, ink, dry-blue, serif/sans visual foundation globally
+- [x] Restyle the shared header and footer without changing navigation
+- [x] Replace only the homepage first fold with the Writer-focused split layout
 - [ ] Verify desktop, mobile, routes, interactions, and preview health; then stop for approval
