@@ -288,3 +288,9 @@
 - [x] Add both supplied clips before the existing Video Pro samples
 - [x] Give each clip an accurate title, rewritten prompt, output description, and descriptive video label
 - [x] Verify all 15 samples, playback, mobile layout, and build health
+
+## Homepage and AI UGC video refresh
+- [ ] Replace the AI UGC sample and homepage preview with the supplied skincare creator video
+- [ ] Add accurate sample names, rewritten copy, posters, and descriptive video labels
+- [ ] Feature the grandparents dining sample for AI Video Pro on the homepage
+- [ ] Verify tool-page and homepage playback, mobile layout, and build health

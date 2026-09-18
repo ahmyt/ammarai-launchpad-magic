@@ -78,11 +78,12 @@ const ammarAi = [
 
 const videoLibrary = [
   {
-    title: "From brief to finished video",
+    title: "Grandparents eating at the table",
     label: "AI Video Pro",
     slug: "ai-video-generator",
-    src: "/media/demo-video-generator.webm",
-    poster: "/media/demo-video-generator.poster.jpg",
+    src: "/media/ai-video-pro-family-lunch.webm",
+    poster: "/media/ai-video-pro-family-lunch.poster.jpg",
+    accessibilityLabel: "AI Video Pro sample: grandparents and grandchildren sharing a warm animated family meal at the table",
   },
   {
     title: "A polished product edit",
@@ -92,11 +93,12 @@ const videoLibrary = [
     poster: "/media/demo-video-editor.poster.jpg",
   },
   {
-    title: "Creator-style campaign video",
+    title: "Skincare serum creator review",
     label: "AI UGC Generator",
     slug: "ai-ugc-generator",
-    src: "/media/demo-ugc-creator.webm",
-    poster: "/media/demo-ugc-creator.poster.jpg",
+    src: "/media/ai-ugc-skincare-serum.webm",
+    poster: "/media/ai-ugc-skincare-serum.poster.jpg",
+    accessibilityLabel: "AI UGC Generator sample: a woman presenting and demonstrating an amber-bottle facial serum",
   },
   {
     title: "A talking avatar presentation",
@@ -347,7 +349,7 @@ export function Home() {
                   preload="none"
                    poster={item.poster}
                   src={item.src}
-                  aria-label={`${item.label} sample video`}
+                  aria-label={item.accessibilityLabel ?? `${item.label} sample video`}
                   className="aspect-video w-full bg-ink object-cover"
                 />
                 <div className="p-5">

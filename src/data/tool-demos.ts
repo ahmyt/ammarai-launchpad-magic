@@ -31,7 +31,7 @@ import musicAdBed from "@/assets/demo-music-ad-bed.mp3.asset.json";
 import musicAmbientBed from "@/assets/demo-music-ambient-bed.mp3.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import videoEditorSource from "@/assets/demo-video-editor-source.mp4.asset.json";
-import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
+import ugcSkincareSerum from "@/assets/ai-ugc-skincare-serum.webm.asset.json";
 import youtubeDemo from "@/assets/demo-youtube-publisher.mp4.asset.json";
 import youtubeSource from "@/assets/demo-youtube-source.mp4.asset.json";
 import sourceSneaker from "@/assets/i2v-source-sneaker.jpg";
