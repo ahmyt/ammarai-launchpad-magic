@@ -275,6 +275,6 @@
 - [x] Verify all 13 samples, video playback, desktop/mobile layout, and build health
 
 ## AI Video Pro compact sample library
-- [ ] Replace the long sample-card grid with a single-open accordion
-- [ ] Keep all 13 prompts and outputs rendered for search visibility
-- [ ] Verify sample selection, playback, accessibility, desktop/mobile layout, and build health
+- [x] Replace the long sample-card grid with a single-open accordion
+- [x] Keep all 13 prompts and outputs rendered for search visibility
+- [x] Verify sample selection, playback, accessibility, desktop/mobile layout, and build health

@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { Example } from "@/data/types";
 
 export function SamplePromptAccordion({ examples }: { examples: Example[] }) {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <div className="mt-8 overflow-hidden rounded-lg border border-border bg-card">
@@ -23,13 +23,14 @@ export function SamplePromptAccordion({ examples }: { examples: Example[] }) {
               key={example.label}
               open={isOpen}
               className="group border-b border-border last:border-b-0"
-              onToggle={(event) => {
-                if (event.currentTarget.open) setOpenIndex(index);
-              }}
             >
               <summary
                 aria-controls={contentId}
                 aria-expanded={isOpen}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setOpenIndex(isOpen ? null : index);
+                }}
                 className="flex cursor-pointer list-none items-center gap-4 px-5 py-4 text-left marker:hidden sm:px-6"
               >
                 <span className="shrink-0 font-mono text-xs font-semibold tabular-nums text-accent">
