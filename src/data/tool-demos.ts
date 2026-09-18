@@ -1,10 +1,10 @@
 import avatarDemo2 from "@/assets/demo-avatar-video-2-lipsynced-final.mp4.asset.json";
 import imageToVideoDemo from "@/assets/demo-image-to-video.mp4.asset.json";
 import imageToVideoDemo2 from "@/assets/demo-image-to-video-2.mp4.asset.json";
-import textToVideoDemo from "@/assets/demo-text-to-video.mp4.asset.json";
-import textToVideoDemo2 from "@/assets/demo-text-to-video-2.mp4.asset.json";
-import videoGeneratorDemo from "@/assets/demo-video-generator.mp4.asset.json";
-import videoGeneratorDemo2 from "@/assets/demo-video-generator-2.mp4.asset.json";
+import textToVideoDemo from "@/assets/demo-text-to-video.webm.asset.json";
+import textToVideoDemo2 from "@/assets/demo-text-to-video-2.webm.asset.json";
+import videoGeneratorDemo from "@/assets/demo-video-generator.webm.asset.json";
+import videoGeneratorDemo2 from "@/assets/demo-video-generator-2.webm.asset.json";
 import videoProRedPanda from "@/assets/ai-video-pro-red-panda.webm.asset.json";
 import videoProFixedFrame from "@/assets/ai-video-pro-fixed-frame.webm.asset.json";
 import videoProEspresso from "@/assets/ai-video-pro-espresso.webm.asset.json";
@@ -192,22 +192,26 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
     {
       kind: "video",
       url: videoGeneratorDemo.url,
+      poster: "/media/demo-video-generator.poster.jpg",
       caption: "Sample output — a clean product explainer shot generated from the written brief.",
     },
     {
       kind: "video",
       url: videoGeneratorDemo2.url,
+      poster: "/media/demo-video-generator-2.poster.jpg",
       caption: "Sample output — a warm lifestyle ad variant generated from the same product brief.",
 
     },
     {
       kind: "video",
       url: textToVideoDemo.url,
+      poster: "/media/demo-text-to-video.poster.jpg",
       caption: "Sample output — text to video: a macro gold-splash beauty shot generated from the prompt alone.",
     },
     {
       kind: "video",
       url: textToVideoDemo2.url,
+      poster: "/media/demo-text-to-video-2.poster.jpg",
       caption: "Sample output — text to video: a neon hyperlapse through rain-slick Tokyo streets, no footage required.",
     },
   ],
