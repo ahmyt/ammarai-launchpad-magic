@@ -31,7 +31,7 @@ import musicAdBed from "@/assets/demo-music-ad-bed.mp3.asset.json";
 import musicAmbientBed from "@/assets/demo-music-ambient-bed.mp3.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import videoEditorSource from "@/assets/demo-video-editor-source.mp4.asset.json";
-import ugcDemo from "@/assets/demo-ugc-creator.mp4.asset.json";
+import ugcSkincareSerum from "@/assets/ai-ugc-skincare-serum.webm.asset.json";
 import youtubeDemo from "@/assets/demo-youtube-publisher.mp4.asset.json";
 import youtubeSource from "@/assets/demo-youtube-source.mp4.asset.json";
 import sourceSneaker from "@/assets/i2v-source-sneaker.jpg";
@@ -259,8 +259,9 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
   "ai-ugc-generator": [
     {
       kind: "video",
-      url: ugcDemo.url,
-      caption: "Sample output — an original vertical creator-style skincare video generated from the campaign brief.",
+      url: ugcSkincareSerum.url,
+      poster: "/media/ai-ugc-skincare-serum.poster.jpg",
+      caption: "Sample output — a skincare creator presenting and demonstrating an amber-bottle facial serum in a bright bathroom setting.",
     },
   ],
   "ai-youtube-publisher": [
