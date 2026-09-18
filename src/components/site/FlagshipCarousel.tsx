@@ -85,7 +85,7 @@ export function FlagshipCarousel({ tools }: { tools: Tool[] }) {
         })}
       </div>
       <div className="flagship-dots" aria-label="Choose a flagship tool">
-        {tools.map((tool, index) => <button key={tool.slug} type="button" aria-label={`Show ${tool.name}`} aria-current={activeIndex === index ? "true" : undefined} onClick={() => goTo(index)} />)}
+        {tools.map((tool, index) => <ActionButton key={tool.slug} type="button" variant="ghost" size="sm" className="p-0" aria-label={`Show ${tool.name}`} aria-current={activeIndex === index ? "true" : undefined} onClick={() => goTo(index)} />)}
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import type { UseCase } from "./types";
+import { intentUseCases } from "./intent-use-cases";
 
 export const useCases: UseCase[] = [
   {
@@ -538,5 +539,6 @@ export const useCases: UseCase[] = [
       { q: "Will using AI for routine emails make my communication feel impersonal?", a: "Drafts reflect the specifics you provide, so adding real context about the recipient and situation keeps replies from feeling generic, the same as with any fast-written email." },
       { q: "How much time does this realistically save in a normal week?", a: "It varies by how much routine writing your role involves, but most people notice the biggest time savings on the smaller, repetitive tasks rather than on any single large project." }
     ]
-  }
+  },
+  ...intentUseCases,
 ];

@@ -102,6 +102,11 @@ const videoLibrary = [
   },
 ];
 
+const homepageUseCases = [
+  ...useCases.slice(0, 6),
+  ...useCases.filter((item) => item.slug === "ai-for-saas-companies" || item.slug === "ai-for-real-estate-agents"),
+];
+
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
   loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
@@ -461,7 +466,7 @@ export function Home() {
         <Container>
           <SectionHeading eyebrow="Use cases" title="Built around how people actually work" />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {useCases.slice(0, 6).map((uc) => (
+            {homepageUseCases.map((uc) => (
               <Card key={uc.slug} interactive className="studio-usecase-card p-6">
                 <p className="eyebrow">{uc.audience}</p>
                 <h3 className="mt-3 text-base font-semibold">
