@@ -600,6 +600,7 @@ export function AnimatedExample({
                         key={demoVideo.url}
                         src={demoVideo.url}
                         poster={demoVideo.poster ?? videoPoster(demoVideo.url)}
+                        title={`${toolName} — ${example.label}`}
                         className="aspect-video w-full object-contain"
                         autoPlay
                         loop
@@ -607,7 +608,7 @@ export function AnimatedExample({
                         playsInline
                         preload="metadata"
                         controls
-                        aria-label={`${toolName} sample output video`}
+                        aria-label={`${toolName} sample video: ${example.label}. ${demoVideo.caption ?? example.output}`}
                       />
                     )}
                   </figure>
