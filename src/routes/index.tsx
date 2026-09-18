@@ -195,7 +195,7 @@ export function Home() {
                   <ExternalButton href={REGISTER_URL} size="lg" className="studio-primary-cta w-full sm:w-auto">
                     Start creating free <ArrowRight className="size-4" />
                   </ExternalButton>
-                  <ButtonLink to="/ai-tools" variant="outline" size="lg" className="w-full sm:w-auto">
+                  <ButtonLink to="/ai-tools" search={{}} variant="outline" size="lg" className="w-full sm:w-auto">
                     Explore AI tools
                   </ButtonLink>
                 </div>

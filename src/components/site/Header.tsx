@@ -50,6 +50,7 @@ export function Header() {
             <div key={item.to} className="site-tools-menu group relative">
               <Link
                 to={item.to}
+                search={item.to === "/ai-tools" ? {} : undefined}
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                 activeProps={{ className: "text-foreground" }}
               >
