@@ -109,9 +109,9 @@ export const flagshipWorkflows: FlagshipWorkflow[] = [
   },
   {
     slug: "ai-seo-analyzer",
-    bring: "A public page URL and the search performance questions you want answered.",
-    process: "AmmarAI reviews the page signals and organizes practical findings by priority.",
-    get: "An actionable SEO review that shows what to investigate and improve next.",
+    bring: "A URL, a draft, or a keyword and the search performance questions you want answered.",
+    process: "AmmarAI reviews page signals, text readability and density, or search demand, then organizes the findings by priority.",
+    get: "A scored report and actionable list showing what to investigate or improve next.",
     useCaseSlugs: ["ai-for-seo", "ai-for-marketing", "ai-for-small-business"],
   },
 ];
