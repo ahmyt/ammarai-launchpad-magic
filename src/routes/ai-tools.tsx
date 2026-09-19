@@ -22,7 +22,7 @@ export const Route = createFileRoute("/ai-tools")({
       ? { pillar: value as EcosystemPillar }
       : {};
   },
-  loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
+  loader: ({ context }) => context.queryClient.prefetchQuery(siteContentQuery),
   head: () => ({
     meta: [
       { title },

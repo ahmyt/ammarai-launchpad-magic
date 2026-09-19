@@ -3,7 +3,7 @@ import { createFileRoute, notFound, redirect, Link } from "@tanstack/react-route
 import { retiredToolRedirects } from "@/data/retired-tools";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import type { Tool, UseCase } from "@/data/types";
-import { siteContentQuery } from "@/lib/content";
+import { getSiteContent, siteContentQuery } from "@/lib/content";
 import { SITE, softwareApplicationJsonLd, REGISTER_URL } from "@/lib/site";
 import { Container, Section, SectionHeading, Card, NumberedList, BulletList } from "@/components/site/primitives";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
@@ -77,14 +77,14 @@ export const Route = createFileRoute("/$slug")({
   staticData: { sitemap: true },
   loader: async ({ params, context }) => {
     if (params.slug === HOST_ERROR_DOC_SLUG) {
-      await context.queryClient.ensureQueryData(siteContentQuery);
+      await getSiteContent(context.queryClient);
       return { kind: "home" as const };
     }
     const redirectTarget = retiredToolRedirects[params.slug];
     if (redirectTarget) {
       throw redirect({ to: "/$slug", params: { slug: redirectTarget }, statusCode: 301 });
     }
-    const content = await context.queryClient.ensureQueryData(siteContentQuery);
+    const content = await getSiteContent(context.queryClient);
     const tool = content.tools.find((t) => t.slug === params.slug);
     if (tool) return { kind: "tool" as const, tool };
     const useCase = content.useCases.find((u) => u.slug === params.slug);

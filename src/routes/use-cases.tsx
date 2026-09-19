@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { siteContentQuery } from "@/lib/content";
+import { getSiteContent, siteContentQuery } from "@/lib/content";
 import { Container, Section, Card } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
@@ -14,7 +14,7 @@ const url = "https://ammarai.com/use-cases";
 export const Route = createFileRoute("/use-cases")({
   staticData: { sitemap: true },
   loader: async ({ context }) => {
-    const content = await context.queryClient.ensureQueryData(siteContentQuery);
+    const content = await getSiteContent(context.queryClient);
     return { useCases: content.useCases };
   },
   head: ({ loaderData }) => {

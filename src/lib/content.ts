@@ -1,4 +1,4 @@
-import { queryOptions } from "@tanstack/react-query";
+import { queryOptions, type QueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import type { Feature, Page, Post, Tool, UseCase } from "@/data/types";
 import { tools as staticTools } from "@/data/tools";
@@ -114,9 +114,25 @@ export async function loadSiteContent(): Promise<SiteContent> {
   }
 }
 
+// Server-side access to the merged catalogue: reads the small CMS rows from the
+// cache (already fetched by the root loader) and merges them with bundled data.
+export async function getSiteContent(queryClient: QueryClient): Promise<SiteContent> {
+  const rows = await queryClient.ensureQueryData(siteContentRowsQuery);
+  return mergeContent(rows);
+}
+
+// The cache stores only the CMS rows (a few KB). The full catalogue is merged
+// from bundled data on demand via `select`, so page payloads stay small.
+export const siteContentRowsQuery = queryOptions({
+  queryKey: ["site-content"],
+  queryFn: fetchContentRows,
+  staleTime: 30_000,
+});
+
 export const siteContentQuery = queryOptions({
   queryKey: ["site-content"],
-  queryFn: loadSiteContent,
+  queryFn: fetchContentRows,
+  select: (rows: ContentRow[]) => mergeContent(rows),
   staleTime: 30_000,
 });
 

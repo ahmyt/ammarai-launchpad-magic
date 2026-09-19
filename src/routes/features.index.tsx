@@ -111,7 +111,7 @@ export const Route = createFileRoute("/features/")({
       },
     ],
   }),
-  loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
+  loader: ({ context }) => context.queryClient.prefetchQuery(siteContentQuery),
   component: FeaturesIndex,
 });
 

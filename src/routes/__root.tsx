@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useMemo, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { TOOL_COUNT } from "@/data/tools";
@@ -16,7 +16,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { ContentProtection } from "@/components/site/ContentProtection";
 import { ThemeProvider, useTheme } from "@/components/site/ThemeProvider";
-import { siteContentQuery } from "@/lib/content";
+import { siteContentQuery, siteContentRowsQuery, type ContentRow } from "@/lib/content";
 
 function NotFoundComponent() {
   return (
@@ -80,7 +80,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   staticData: { sitemap: false },
-  loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
+  loader: ({ context }) => context.queryClient.fetchQuery(siteContentRowsQuery),
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -129,6 +129,19 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const rows = Route.useLoaderData() as ContentRow[] | undefined;
+
+  // The root loader carries only the CMS rows. Seed the cache with them so the
+  // header, footer and page copy resolve without a second request.
+  useMemo(() => {
+    if (
+      Array.isArray(rows) &&
+      queryClient.getQueryData(siteContentQuery.queryKey) === undefined
+    ) {
+      queryClient.setQueryData(siteContentQuery.queryKey, rows);
+    }
+  }, [rows, queryClient]);
+
 
   return (
     <QueryClientProvider client={queryClient}>
