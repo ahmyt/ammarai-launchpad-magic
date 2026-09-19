@@ -9,7 +9,7 @@ The supplied documentation and screenshot define four functions:
 3. **Site Meta Optimization** — helps an administrator generate the site’s meta title, description, and keywords from general settings.
 4. **Blog Post SEO Enhancement** — helps an administrator generate SEO fields for a blog post from its title and recent search results.
 
-The reference also shows that these functions depend on the SEO Tools extension and Serper API configuration. Public content will explain that setup is required without exposing keys or presenting administrator setup as an ordinary visitor workflow.
+Public pages and tutorials will cover only how the four functions are used. Installation, integrations, API keys, and technical setup will not be mentioned.
 
 ## Tool page
 
@@ -29,7 +29,7 @@ The reference also shows that these functions depend on the SEO Tools extension 
   - generating site meta title, description, and keywords as an administrator;
   - generating blog-post SEO fields from the post title and recent searches as an administrator.
 - Clearly mark administrator-only sections and keep the main writing workflow useful for ordinary users.
-- Keep API-key setup concise and security-safe: explain that an administrator must configure the search connection, but never expose or request a real key in tutorial content.
+- Exclude installation, integrations, API keys, and technical setup entirely from public pages and tutorials.
 - Reconcile the existing Article Wizard keyword tutorial so it remains a focused writing guide and does not contradict or needlessly duplicate the broader SEO Tools tutorial.
 - Update the internal tutorial-source record to show all four verified functions and that the reference contains no instructional screenshots.
 
