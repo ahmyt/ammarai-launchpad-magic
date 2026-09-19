@@ -2,7 +2,7 @@
 
 ## Homepage carousels
 
-- Replace **AI SEO Analyzer** with **AI Social Media Agent** in the eight-tool flagship carousel, keeping the flagship count and existing carousel behavior unchanged.
+- Replace **AI SEO Analyzer** with **AI Social Media Agent** in the eight-tool flagship carousel and place AI Social Media Agent second, keeping the flagship count and existing carousel behavior unchanged.
 - Update the flagship section introduction so it names AI Social Media Agent instead of AI SEO Analyzer and still accurately describes the eight tools.
 - Remove AI Social Media Agent from the 18-tool secondary carousel and add AI SEO Analyzer as the final card.
 - Give the new final AI SEO Analyzer card its verified outcome: search-informed article planning or reviewed site/blog metadata.
@@ -17,5 +17,5 @@
 ## Safeguards and verification
 
 - Do not change either tool’s URL, slug, tool page, tutorial, sitemap entry, metadata, or underlying capability content.
-- Verify both tools appear only in their intended homepage carousel, AI SEO Analyzer is last in the secondary carousel, every card retains an outcome, and the workspace section shows AI Social Media Agent.
+- Verify both tools appear only in their intended homepage carousel, AI Social Media Agent is second in the flagship carousel, AI SEO Analyzer is last in the secondary carousel, every card retains an outcome, and the workspace section shows AI Social Media Agent.
 - Check desktop and mobile carousel navigation, autoplay visibility behavior, links, numbering, overflow, and the latest preview build.
