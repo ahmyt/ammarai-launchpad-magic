@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { pillarDetails, pillarOrder, flagshipWorkflows, toolsInPillar } from "@/data/ecosystem";
 import type { Tool } from "@/data/types";
 import { Container, Section, SectionHeading } from "./primitives";
-import { ButtonLink } from "./Button";
+import { buttonClass } from "./Button";
 
 export function EcosystemOverview({ tools }: { tools: Tool[] }) {
   return (
@@ -34,9 +34,9 @@ export function EcosystemOverview({ tools }: { tools: Tool[] }) {
                     </li>
                   ))}
                 </ul>
-                <ButtonLink to="/ai-tools" search={{ pillar }} variant="ghost" size="sm" className="mt-auto self-start px-0">
+                <Link to="/ai-tools" search={{ pillar }} className={buttonClass("ghost", "sm", "mt-auto self-start px-0")}>
                   Explore {pillar} <ArrowRight className="size-4" aria-hidden="true" />
-                </ButtonLink>
+                </Link>
               </article>
             );
           })}

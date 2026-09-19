@@ -18,12 +18,9 @@ export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },
   validateSearch: (search: Record<string, unknown>): { pillar?: EcosystemPillar } => {
     const value = search["pillar"];
-    return {
-      pillar:
-        typeof value === "string" && (pillarOrder as string[]).includes(value)
-          ? (value as EcosystemPillar)
-          : undefined,
-    };
+    return typeof value === "string" && (pillarOrder as string[]).includes(value)
+      ? { pillar: value as EcosystemPillar }
+      : {};
   },
   loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
   head: () => ({
@@ -114,7 +111,7 @@ function ToolsDirectory() {
     setCategory("All");
     setQuery("");
     void navigate({
-      search: { pillar: item === "All" ? undefined : item },
+      search: item === "All" ? {} : { pillar: item },
       replace: true,
     });
   };
