@@ -317,3 +317,10 @@
 - [x] Add accurate sample names, rewritten copy, posters, and descriptive video labels
 - [x] Feature the grandparents dining sample for AI Video Pro on the homepage
 - [x] Verify tool-page and homepage playback, mobile layout, and build health
+
+## Production homepage 404 flash (host action required)
+- [x] Confirm root cause: `/` is intercepted and reaches the app as `/error_docs`; all other paths return 200
+- [x] Rule out page size and firewall (homepage is smaller than /about, /pricing, /ai-tools, all of which serve)
+- [x] Deliver the copy-paste support request (Files: host-support-request-ammarai.md)
+- [ ] Waiting on hosting provider to route `/` directly to the Passenger app or stop error-docs interception
+- [ ] After their fix: confirm `https://ammarai.com/` returns 200 with no flash, then request indexing in Search Console
