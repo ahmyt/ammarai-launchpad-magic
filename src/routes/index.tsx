@@ -153,7 +153,7 @@ export function Home() {
     title: page?.comparisonTitle || "Stop paying for five AI tools",
     intro:
       page?.comparisonIntro ||
-      "Stack a chat subscription, an image tool, a video tool and a voice tool and you are out $80\u2013120 a month \u2014 and still switching tabs. AmmarAI replaces all of them with one workspace.",
+      "Stack a chat subscription, an image tool, a video tool and a voice tool and you are out $80\u2013120 a month \u2014 and still switching tabs. AmmarAI replaces all of them.",
     oldLabel: page?.comparisonOldLabel || "The old way",
     oldItems: page?.comparisonOldItems?.length ? page.comparisonOldItems : oldWay,
     oldTotalLabel: page?.comparisonOldTotalLabel || "Total",

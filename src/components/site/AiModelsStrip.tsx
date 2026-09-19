@@ -36,7 +36,7 @@ export function AiModelsStrip() {
   return (
     <section aria-labelledby="ai-models-strip-heading" className="ai-model-strip border-y border-border bg-background py-10">
       <h2 id="ai-models-strip-heading" className="mb-7 text-center font-sans text-xs font-semibold uppercase text-muted-foreground">
-        AI models in one workspace
+        Every major AI model, built in
       </h2>
       <div className="ai-model-marquee" role="group" aria-label="AI models available in the AmmarAI workspace">
         <ModelTrack />
