@@ -154,7 +154,7 @@ export const seoAnalyzerTools: Tool[] = [
       },
       {
         q: "Does it fix the issues for me?",
-        a: "It names them and recommends the change. For the rewriting itself, hand the recommendations to the AI Writer or the Article Wizard.",
+        a: "It names them and recommends the change. For the rewriting itself, hand the recommendations to the AI Writer or the SEO Content Generator.",
       },
     ],
     related: [
