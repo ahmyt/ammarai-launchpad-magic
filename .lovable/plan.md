@@ -4,19 +4,22 @@ The files on the server are correct. The uploaded package is healthy — I ran i
 
 So the remaining question is not "which files" but "why won't it launch". The Plesk log screenshots only show the result (500 on every page) and a separate firewall block on the Passenger error page itself — never the reason. We need that one line.
 
-## Step 1 — Run the app by hand (fastest answer)
+## Step 1 — Show only the Node.js log (fastest answer)
 
-In the Node.js panel on ammarai.com, open the **Run Node.js commands** tab and run:
+Your latest screenshot shows the log page has a dropdown on the right listing log types. Open it, untick everything except **Node.js**, then press **Refresh**. That view contains the application's own startup output — the real reason it won't launch. Send me a screenshot of those lines.
+
+Everything currently visible is the wrong log: the Apache entries only show the resulting 500s, and the ModSecurity 403 is the firewall blocking the Passenger error page's own link, not our app.
+
+## Step 2 — Run the app by hand
+
+On the **Run Node.js commands** tab, the command box is prefixed by the small dropdown that currently says `npm` — that's why `node dist/server/index.mjs` came back as "Unknown command: node". Change that dropdown from **npm** to **node**, then type only:
 
 ```
-node dist/server/index.mjs
+dist/server/index.mjs
 ```
 
-This starts the app in the foreground and prints the real crash message — a missing module, an unreadable path, or a bad environment value. Send me that output. This is the single most useful thing; everything below is a fallback.
+and press the play button. It will print the crash message directly. Send me that output.
 
-## Step 2 — If that tab is unavailable, read the domain error log
-
-Websites & Domains → ammarai.com → Logs → the file selector at the top right → choose the domain's **error_log** (not the access log), then look at the lines written at the moment of the last restart. Passenger prints a block there beginning with "Error ID" followed by the actual message.
 
 ## Step 3 — Likely causes, in order, and what each needs
 
