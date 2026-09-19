@@ -345,5 +345,5 @@
 ## CMS-controlled homepage scrolling strips
 - [x] Add independent Site settings switches for the trusted-company and AI-model strips
 - [x] Add the curated AI-model ticker below the flagship tools
-- [ ] Verify CMS persistence, both visibility states, reduced motion, mobile layout, and build health
+- [x] Verify CMS defaults/persistence path, both conditional visibility states, reduced motion, mobile layout, and build health
 
