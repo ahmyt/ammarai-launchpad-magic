@@ -7,6 +7,16 @@ type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
 };
 
+const HOST_ERROR_DOCUMENT_PATHS = new Set(["/error_docs", "/error_docs/"]);
+
+function normalizeHostErrorDocumentRequest(request: Request): Request {
+  const url = new URL(request.url);
+  if (!HOST_ERROR_DOCUMENT_PATHS.has(url.pathname)) return request;
+
+  url.pathname = "/";
+  return new Request(url, request);
+}
+
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
 async function getServerEntry(): Promise<ServerEntry> {
@@ -48,7 +58,8 @@ export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const handler = await getServerEntry();
-      const response = await handler.fetch(request, env, ctx);
+      const normalizedRequest = normalizeHostErrorDocumentRequest(request);
+      const response = await handler.fetch(normalizedRequest, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {
       console.error(error);
