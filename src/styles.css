@@ -543,6 +543,24 @@ body:has(.home-premium) .site-header nav a:hover::after {
   -webkit-line-clamp: 3;
 }
 
+.studio-secondary-outcome {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid color-mix(in oklab, currentColor 18%, transparent);
+  padding-top: 1rem;
+  color: color-mix(in oklab, currentColor 78%, transparent);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+
+.studio-secondary-outcome strong {
+  color: var(--accent);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+}
+
 .studio-secondary-link {
   display: flex;
   align-items: center;
@@ -610,13 +628,18 @@ body:has(.home-premium) .site-header nav a:hover::after {
   }
 
   .studio-secondary-card {
-    min-height: 24rem;
+    min-height: 29rem;
     padding: 1.35rem;
     box-shadow: 6px 6px 0 color-mix(in oklab, var(--ink-foreground) 7%, transparent);
   }
 
   .studio-secondary-card h3 {
     font-size: clamp(1.9rem, 10vw, 2.65rem);
+  }
+
+  .studio-secondary-outcome {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
   }
 
   .studio-secondary-footer {

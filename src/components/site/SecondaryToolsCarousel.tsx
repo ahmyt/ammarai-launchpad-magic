@@ -25,6 +25,27 @@ const showcaseSlugs = [
   "ai-music-generator",
 ];
 
+const showcaseOutcomes: Record<(typeof showcaseSlugs)[number], string> = {
+  "ai-social-media-agent": "A planned, written, and scheduled month of social content that can adapt to performance.",
+  "ai-blogger-agent": "A consistent flow of researched, SEO-ready WordPress articles published on your schedule.",
+  "ai-phone-agent": "Answered calls, booked appointments, and logged conversations without missed follow-up.",
+  "ai-social-media-publisher": "Platform-ready posts previewed, scheduled, and published from one calendar.",
+  "ai-crm": "An organized sales pipeline with current contact context, deal updates, and clear next actions.",
+  "ai-deep-research": "A structured, cited report compiled from multiple live web sources.",
+  "ai-video-editor": "A polished, correctly paced video prepared in the format your channel needs.",
+  "ai-captions": "An accessible, social-ready captioned video with editable transcript and subtitle files.",
+  "ugc-factory": "A batch of creator-style videos with virtual talent, voiceover, and lip-synced delivery.",
+  "viral-clips": "Multiple captioned vertical clips built from the strongest moments in one long video.",
+  "ai-dubbing": "A naturally voiced, timing-matched localized video ready for a new language market.",
+  "ai-realtime-image": "A refined visual direction you can shape instantly as your prompt changes.",
+  "ai-photoshoot": "A coordinated set of commercial product images from one original product photo.",
+  "ai-creative-suite": "A consistent set of campaign visuals designed together in one editable workspace.",
+  "ai-council-mode": "Side-by-side model perspectives plus one consolidated answer for a better-informed decision.",
+  "content-manager": "A searchable media library where every uploaded and generated asset is ready to reuse.",
+  "ai-document-analyzer": "Cited answers, concise summaries, and structured data extracted from your documents.",
+  "ai-music-generator": "An original music track shaped around the mood, style, and purpose you describe.",
+};
+
 export function SecondaryToolsCarousel() {
   const tools = useMemo(
     () => showcaseSlugs.flatMap((slug) => {
@@ -150,6 +171,10 @@ export function SecondaryToolsCarousel() {
             <div className="mt-auto pt-12">
               <h3>{tool.name}</h3>
               <p>{tool.summary}</p>
+               <div className="studio-secondary-outcome">
+                 <strong>Outcome</strong>
+                 <span>{showcaseOutcomes[tool.slug]}</span>
+               </div>
               <span className="studio-secondary-link">
                 Explore tool <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </span>
