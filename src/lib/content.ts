@@ -1,4 +1,4 @@
-import { queryOptions } from "@tanstack/react-query";
+import { queryOptions, type QueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import type { Feature, Page, Post, Tool, UseCase } from "@/data/types";
 import { tools as staticTools } from "@/data/tools";
