@@ -310,8 +310,8 @@ export function Home() {
          <Container size="wide">
           <SectionHeading
             eyebrow="Flagship tools"
-            title="Eight flagship tools"
-            intro="AI Agent Builder, AI Social Media Agent, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video and Transcription form the core of AmmarAI — eight focused tools for creating, understanding, publishing and automating your work."
+            title="Ten flagship tools"
+            intro="AI Agent Builder, AI Social Media Agent, AI Phone Call Agent, AI CRM, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video and Transcription form the core of AmmarAI — ten focused tools for creating, understanding, selling, publishing and automating your work."
              scale="large"
              className="studio-heading-wide"
           />
