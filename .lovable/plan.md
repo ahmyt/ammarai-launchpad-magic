@@ -12,13 +12,13 @@ Everything currently visible is the wrong log: the Apache entries only show the 
 
 ## Step 2 — Run the app by hand
 
-On the **Run Node.js commands** tab, the command box is prefixed by the small dropdown that currently says `npm` — that's why `node dist/server/index.mjs` came back as "Unknown command: node". Change that dropdown from **npm** to **node**, then type only:
+Only `npm` and `yarn` are offered in that runner — fine, because the project's `package.json` already has a `start` script that runs `node dist/server/index.mjs`. Keep the dropdown on **npm**, type:
 
 ```
-dist/server/index.mjs
+run start
 ```
 
-and press the play button. It will print the crash message directly. Send me that output.
+and press the play button. This is exactly the same command Passenger runs, but its output is printed directly to you. Send me a screenshot of whatever it prints — if the app is fine it will say it's listening and keep running (press it a second time or go back to the Dashboard and use Restart App afterwards).
 
 
 ## Step 3 — Likely causes, in order, and what each needs
