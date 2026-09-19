@@ -322,5 +322,8 @@
 - [x] Confirm root cause: `/` is intercepted and reaches the app as `/error_docs`; all other paths return 200
 - [x] Rule out page size and firewall (homepage is smaller than /about, /pricing, /ai-tools, all of which serve)
 - [x] Deliver the copy-paste support request (Files: host-support-request-ammarai.md)
+- [x] Host replied claiming the app returns the 404 itself; disproved it — live homepage HTML router state reads `lastMatchId: "$slug error_docs"` while `/ai-tools` reads `lastMatchId: "ai-tools ai-tools"`
+- [x] Verified app side is clean: rebuilt production server bundle, requested `/` against it → HTTP 200 full homepage (no prerendered index.html, index route present)
+- [x] Deliver follow-up reply with the router-state proof (Files: host-support-request-ammarai-v2.md)
 - [ ] Waiting on hosting provider to route `/` directly to the Passenger app or stop error-docs interception
 - [ ] After their fix: confirm `https://ammarai.com/` returns 200 with no flash, then request indexing in Search Console
