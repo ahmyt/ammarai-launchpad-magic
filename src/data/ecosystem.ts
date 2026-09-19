@@ -108,11 +108,11 @@ export const flagshipWorkflows: FlagshipWorkflow[] = [
     useCaseSlugs: ["ai-for-small-business", "ai-for-agencies", "ai-for-entrepreneurs"],
   },
   {
-    slug: "ai-seo-analyzer",
-    bring: "An article topic, site positioning, or a blog post title that needs search-focused direction.",
-    process: "AmmarAI suggests recent-search keywords and questions in Article Wizard, or drafts site and post metadata for administrator review.",
-    get: "A search-informed article plan or clear metadata fields ready to refine before publishing.",
-    useCaseSlugs: ["ai-for-seo", "ai-for-marketing", "ai-for-small-business"],
+    slug: "ai-social-media-agent",
+    bring: "Your business context, target channels, campaign goals, content themes, and approval preferences.",
+    process: "AmmarAI plans and creates channel-ready posts, schedules them, and publishes after any approval step you choose.",
+    get: "A coordinated social content schedule ready to reach Facebook, Instagram, X, and LinkedIn.",
+    useCaseSlugs: ["ai-for-social-media", "ai-for-marketing", "ai-for-small-business"],
   },
 ];
 

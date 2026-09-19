@@ -92,13 +92,13 @@ export function toolsByCategory(category: ToolCategory) {
 
 const flagshipSlugs = [
   "ai-agent-builder",
+  "ai-social-media-agent",
   "ai-writer",
   "ai-chat",
   "ai-image-generator",
   "ai-video-generator",
   "ai-avatar-generator",
   "ai-transcription",
-  "ai-seo-analyzer",
 ];
 
 export const featuredTools = flagshipSlugs.flatMap((slug) => {
