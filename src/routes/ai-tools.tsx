@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { categoryOrder, suggestTools, TOOL_COUNT } from "@/data/tools";
@@ -16,6 +16,12 @@ const description =
 
 export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },
+  validateSearch: (search: Record<string, unknown>): { pillar?: EcosystemPillar } => {
+    const value = search["pillar"];
+    return typeof value === "string" && (pillarOrder as string[]).includes(value)
+      ? { pillar: value as EcosystemPillar }
+      : {};
+  },
   loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
   head: () => ({
     meta: [
@@ -95,9 +101,20 @@ export const Route = createFileRoute("/ai-tools")({
 function ToolsDirectory() {
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const tools = content.tools;
+  const navigate = useNavigate({ from: "/ai-tools" });
+  const search = Route.useSearch();
+  const pillar: "All" | EcosystemPillar = search["pillar"] ?? "All";
   const [query, setQuery] = useState("");
-  const [pillar, setPillar] = useState<"All" | EcosystemPillar>("All");
   const [category, setCategory] = useState<string>("All");
+
+  const selectPillar = (item: "All" | EcosystemPillar) => {
+    setCategory("All");
+    setQuery("");
+    void navigate({
+      search: item === "All" ? {} : { pillar: item },
+      replace: true,
+    });
+  };
 
   const usedCategories = useMemo(
     () => categoryOrder.filter((c) => tools.some((t) => t.category === c)),
@@ -182,7 +199,7 @@ function ToolsDirectory() {
                 <button
                   key={item}
                   type="button"
-                  onClick={() => { setPillar(item); setCategory("All"); setQuery(""); }}
+                  onClick={() => selectPillar(item)}
                   aria-pressed={pillar === item && !query}
                   className={pillar === item && !query ? "rounded-full bg-ink px-4 py-2 text-xs font-semibold text-ink-foreground" : "rounded-full px-4 py-2 text-xs font-semibold text-muted-foreground ring-1 ring-border transition-colors hover:text-foreground"}
                 >
@@ -193,14 +210,10 @@ function ToolsDirectory() {
           </div>
 
           <div className="mt-6 flex flex-wrap gap-2" aria-label="Filter tools by category">
-            <button
-              type="button"
-              onClick={() => {
-                setCategory("All");
-                setPillar("All");
-                setQuery("");
-              }}
-              aria-pressed={category === "All" && !query}
+              <button
+                type="button"
+                onClick={() => selectPillar("All")}
+                aria-pressed={category === "All" && !query}
               className={
                 category === "All" && !query
                   ? "rounded-full bg-ink px-3.5 py-1.5 text-xs font-semibold text-ink-foreground"
