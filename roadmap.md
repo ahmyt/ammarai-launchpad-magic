@@ -1,6 +1,12 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Homepage flagship and secondary carousel swap
+- [x] Place AI Social Media Agent second in the flagship carousel
+- [x] Move AI SEO Analyzer to the final secondary carousel position with an accurate outcome
+- [x] Replace AI SEO Analyzer with AI Social Media Agent in “How the workspace works”
+- [ ] Verify carousel counts, order, links, outcomes, desktop/mobile behavior and preview health
+
 ## AI SEO Analyzer alignment (approved)
 - [x] Confirm the four documented functions from the supplied reference screenshot
 - [x] Exclude installation, integrations, API keys and technical setup from public content

@@ -5,7 +5,6 @@ import { toolBySlug } from "@/data/tools";
 import { ActionButton, ButtonLink } from "@/components/site/Button";
 
 const showcaseSlugs = [
-  "ai-social-media-agent",
   "ai-blogger-agent",
   "ai-phone-agent",
   "ai-social-media-publisher",
@@ -23,10 +22,10 @@ const showcaseSlugs = [
   "content-manager",
   "ai-document-analyzer",
   "ai-music-generator",
+  "ai-seo-analyzer",
 ];
 
 const showcaseOutcomes: Record<(typeof showcaseSlugs)[number], string> = {
-  "ai-social-media-agent": "A planned, written, and scheduled month of social content that can adapt to performance.",
   "ai-blogger-agent": "A consistent flow of researched, SEO-ready WordPress articles published on your schedule.",
   "ai-phone-agent": "Answered calls, booked appointments, and logged conversations without missed follow-up.",
   "ai-social-media-publisher": "Platform-ready posts previewed, scheduled, and published from one calendar.",
@@ -44,6 +43,7 @@ const showcaseOutcomes: Record<(typeof showcaseSlugs)[number], string> = {
   "content-manager": "A searchable media library where every uploaded and generated asset is ready to reuse.",
   "ai-document-analyzer": "Cited answers, concise summaries, and structured data extracted from your documents.",
   "ai-music-generator": "An original music track shaped around the mood, style, and purpose you describe.",
+  "ai-seo-analyzer": "A search-informed article plan or clear site and blog metadata ready for human review.",
 };
 
 export function SecondaryToolsCarousel() {
