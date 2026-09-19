@@ -1,5 +1,5 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { siteContentQuery } from "@/lib/content";
+import { getSiteContent } from "@/lib/content";
 import { toolBySlug } from "@/data/tools";
 import { Container, Section, SectionHeading, Card } from "@/components/site/primitives";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/Breadcrumbs";
@@ -11,7 +11,7 @@ import { SITE, REGISTER_URL } from "@/lib/site";
 export const Route = createFileRoute("/features/$slug")({
   staticData: { sitemap: true },
   loader: async ({ params, context }) => {
-    const content = await context.queryClient.ensureQueryData(siteContentQuery);
+    const content = await getSiteContent(context.queryClient);
     const feature = content.features.find((f) => f.slug === params.slug);
     if (!feature) throw notFound();
     return { feature };

@@ -1,7 +1,7 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import type { Post } from "@/data/types";
-import { siteContentQuery } from "@/lib/content";
+import { getSiteContent, siteContentQuery } from "@/lib/content";
 import {
   articleCategory,
   articleDate,
@@ -19,7 +19,7 @@ import { SITE, REGISTER_URL } from "@/lib/site";
 export const Route = createFileRoute("/blog/$slug")({
   staticData: { sitemap: true },
   loader: async ({ params, context }) => {
-    const content = await context.queryClient.ensureQueryData(siteContentQuery);
+    const content = await getSiteContent(context.queryClient);
     const post = content.posts.find((p) => p.slug === params.slug);
     if (post) return { post, article: null };
 
