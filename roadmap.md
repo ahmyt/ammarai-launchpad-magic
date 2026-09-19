@@ -329,8 +329,8 @@
 - [x] Shipped a self-serve guard: `/error_docs` now renders the homepage (200, canonical `/`, noindex) instead of the 404 screen; genuine unknown slugs still 404
 - [x] Verified on the rebuilt node-server bundle: `/` 200, `/error_docs` 200 homepage, `/about` 200, `/ai-tools` 200, `/this-does-not-exist` 404
 - [x] Confirm the corrected source and a newer compiled bundle reached Plesk, and that repeated restarts did not activate the route-level guard
-- [x] Move the `/error_docs` and `/error_docs/` safeguard to the server entry before TanStack route matching
-- [x] Verify locally: `/`, `/error_docs`, `/error_docs/`, and `/about` return 200; a genuine missing path returns 404; build is clean
-- [ ] User to rebuild + restart on Plesk (`npm ci && npm run build`, then restart the Node app) and confirm the server-entry guard removes the flash
+- [x] Tested an earlier server-entry safeguard; reverted it after Passenger failed to start the rebuilt application
+- [ ] User to pull the revert, rebuild, and restart Plesk to restore the prior working state
+- [ ] Diagnose Passenger Error ID `707c56d3` from the server log before attempting another application-level workaround
 - [ ] Optional: host still asked to route `/` straight to Passenger (root cause); after deploy confirm 200 + no flash, then request indexing in Search Console
 
