@@ -352,4 +352,4 @@
 - [x] Flagship heading "Eight flagship tools, one workspace" -> "Eight flagship tools"
 - [x] Workspace section -> "How it works" 3-step flow + "Everything stays connected" chips label
 - [x] Feature cards trimmed 6 -> 3
-- [ ] Verify rendered copy: "one workspace" <= 2 occurrences; desktop/mobile/reduced-motion screenshots
+- [x] Verified: visible copy has "one workspace" once (comparison line); meta/og descriptions keep it for search snippets. Desktop/mobile/reduced-motion screenshots pass, no console errors
