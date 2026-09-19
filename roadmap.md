@@ -318,7 +318,7 @@
 - [x] Feature the grandparents dining sample for AI Video Pro on the homepage
 - [x] Verify tool-page and homepage playback, mobile layout, and build health
 
-## Production homepage 404 flash — cause confirmed and fixed in code; upload pending
+## Production homepage 404 flash — RESOLVED (live site serving fixed build)
 - [x] Confirm root cause: `/` is intercepted and reaches the app as `/error_docs`; all other paths return 200
 - [x] Rule out page size and firewall (homepage is smaller than /about, /pricing, /ai-tools, all of which serve)
 - [x] Deliver the copy-paste support request (Files: host-support-request-ammarai.md)
@@ -336,7 +336,9 @@
 - [x] Verified on the node-server bundle: `/` 121,979 bytes (was 1,141,480), `/about` 27,497, `/ai-tools` 154,295, `/blog` 59,882, `/use-cases` 135,924, `/tutorials` 60,553 — every page far below the 1,048,576 limit
 - [x] Behaviour preserved: `/error_docs` → 200 homepage, genuine unknown slugs → 404, sitemap/robots 200, CMS `showTutorialsNav` + the `youtube-video-to-blog-post` override still render, client-side navigation works, no console errors, typecheck clean, preview build OK
 - [x] Deliverable prepared: ready-to-upload build (Files: ammarai-plesk-build.zip with DEPLOY-PLESK.txt; `dist/public/media` intentionally excluded)
-- [ ] User to upload the package on Plesk: extract over `dist/server` and `dist/public/assets`, keep `dist/public/media`, confirm startup file `dist/server/index.mjs`, Restart App
-- [ ] Confirm https://ammarai.com/ loads with no "Page not found" flash and no "could not be started" screen, then request indexing in Search Console
+- [x] User uploaded the package on Plesk (clean `dist` swap, `media` preserved); Passenger 500 (Error ID bc90aac5) traced to a stuck Passenger process — resolved with Disable/Enable Node.js + Restart App
+- [x] Confirmed live: `/` 200 at 121,979 bytes, `/about` 200, `/ai-tools` 200, `/blog` 200, missing page → real 404, no flash
+- [ ] User: request indexing in Search Console for `/` (and optionally /ai-tools, /blog)
+- [ ] User: delete the `dist-old` backup folder in Plesk File Manager
 - [ ] Optional: host still asked to route `/` straight to Passenger and stop the `/error_docs` interception (root cause on their side)
 
