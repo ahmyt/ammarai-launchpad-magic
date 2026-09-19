@@ -13,7 +13,7 @@ const description =
 
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },
-  loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
+  loader: ({ context }) => context.queryClient.prefetchQuery(siteContentQuery),
   head: () => ({
     meta: [
       { title },

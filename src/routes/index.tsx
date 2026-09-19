@@ -109,7 +109,7 @@ const homepageUseCases = [
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
-  loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
+  loader: ({ context }) => context.queryClient.prefetchQuery(siteContentQuery),
   head: () => ({
     meta: [
       { title },

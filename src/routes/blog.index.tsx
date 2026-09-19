@@ -33,7 +33,7 @@ export const Route = createFileRoute("/blog/")({
   }),
   loader: async ({ context }) => {
     await Promise.all([
-      context.queryClient.ensureQueryData(siteContentQuery),
+      context.queryClient.prefetchQuery(siteContentQuery),
       context.queryClient.ensureQueryData(syndicatedArticlesQuery),
     ]);
   },

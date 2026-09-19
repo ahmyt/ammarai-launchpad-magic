@@ -114,9 +114,18 @@ export async function loadSiteContent(): Promise<SiteContent> {
   }
 }
 
+// The cache stores only the CMS rows (a few KB). The full catalogue is merged
+// from bundled data on demand via `select`, so page payloads stay small.
+export const siteContentRowsQuery = queryOptions({
+  queryKey: ["site-content"],
+  queryFn: fetchContentRows,
+  staleTime: 30_000,
+});
+
 export const siteContentQuery = queryOptions({
   queryKey: ["site-content"],
-  queryFn: loadSiteContent,
+  queryFn: fetchContentRows,
+  select: (rows: ContentRow[]) => mergeContent(rows),
   staleTime: 30_000,
 });
 

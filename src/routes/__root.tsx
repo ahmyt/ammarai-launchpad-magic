@@ -80,7 +80,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   staticData: { sitemap: false },
-  loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
+  loader: ({ context }) => context.queryClient.fetchQuery(siteContentRowsQuery),
   head: () => ({
     meta: [
       { charSet: "utf-8" },
