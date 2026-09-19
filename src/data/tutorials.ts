@@ -3173,90 +3173,105 @@ export const tutorials: Tutorial[] = [
   {
     slug: "how-to-audit-a-page-with-the-ai-seo-analyzer",
     category: "Productivity",
-    title: "How to Audit a Page With the AI SEO Analyzer | AmmarAI Tutorials",
+    title: "How to Use the Four AI SEO Tools | AmmarAI Tutorials",
     description:
-      "Score a live URL, check a draft before you publish and size up a keyword — and learn which of the reported issues to fix first.",
-    h1: "How to audit a page with the AI SEO Analyzer",
+      "Use AmmarAI for Article Wizard keyword ideas, search questions, site metadata and blog-post SEO fields.",
+    h1: "How to use the four AI SEO tools",
     intro: [
-      "Most SEO advice is a list of everything that could possibly matter. That is not useful when you have one page and an hour.",
-      "The AI SEO Analyzer scores the page you actually have, lists the issues behind that score, and lets you re-run the check after a fix to confirm the number moved.",
+      "AmmarAI places SEO assistance inside the writing and publishing workflows where it is useful, rather than presenting it as a separate technical audit.",
+      "Two functions help writers plan articles in Article Wizard. Two administrator functions help create metadata for the website and individual blog posts. Every suggestion is a draft that should be reviewed before publication.",
     ],
     whenToUse: [
-      "A page ranks below where you expect and you want to know why before rewriting it.",
-      "You are about to publish a draft and want a readability and density check first.",
-      "You are choosing between two keywords and need volume and difficulty side by side.",
+      "You need search-informed keyword ideas before drafting an article.",
+      "You want recent search questions to guide the article outline.",
+      "You are an administrator preparing site-level or blog-post metadata.",
     ],
     sections: [
       {
-        heading: "Score a live page",
+        heading: "Find keyword ideas in Article Wizard",
         steps: [
           {
-            title: "Run a URL analysis",
-            body: "Open the SEO Analyzer, stay on URL Analysis, paste the full address of the page including https, and run the check.",
+            title: "Start an article with a clear topic",
+            body: "Open Article Wizard and describe the subject in plain language. Include the intended reader or outcome when it changes what the article should cover.",
           },
           {
-            title: "Read the score with the issues, not on its own",
-            body: "The score is a summary; the issue list underneath is the actionable part. Work down it rather than chasing the number.",
+            title: "Request keyword suggestions",
+            body: "Use the keyword suggestion option inside Article Wizard. It returns SEO-focused phrases based on recent Google searches around the topic.",
           },
           {
-            title: "Check the crawler's view of the page",
-            body: "Confirm the title, meta description, status code and load time are what you intended. A wrong title or a slow response explains more rankings problems than most content edits.",
+            title: "Keep only relevant phrases",
+            body: "Select the phrases that match the article's purpose and the reader's likely intent. Do not force unrelated suggestions into the brief.",
+          },
+        ],
+        callouts: [{ type: "note", body: "The suggestions do not promise rankings or replace editorial judgement. They help you choose language before drafting begins." }],
+      },
+      {
+        heading: "Use search questions in the outline",
+        steps: [
+          {
+            title: "Continue to the outline step",
+            body: "After choosing the article direction and relevant keywords, move to the outline stage in Article Wizard.",
           },
           {
-            title: "Confirm the technical basics",
-            body: "HTTPS, mobile rendering, a reachable sitemap and a sane robots.txt all show in one card. Any red here outranks every content fix on your list.",
+            title: "Request recent search questions",
+            body: "Open the search-question suggestions for the topic. Review the questions people have recently searched for rather than treating the full list as required coverage.",
+          },
+          {
+            title: "Turn useful questions into sections",
+            body: "Keep the questions the article can answer well. Add them as headings or use them to improve existing sections, then answer each one directly.",
           },
         ],
         callouts: [
           {
             type: "tip",
-            body: "Fix one thing, re-run, and note the change. A single fix per run is the only way to learn which of them actually moves the score on your site.",
+            body: "Save strong unused questions for a separate article instead of stretching the current article beyond its purpose.",
           },
         ],
       },
       {
-        heading: "Check a draft before it goes live",
+        heading: "Generate site metadata (administrator)",
         steps: [
           {
-            title: "Switch to Text Analysis",
-            body: "Paste the draft instead of a URL. You get word count, reading time, readability and keyword density without needing the page published first.",
+            title: "Open the site's metadata controls",
+            body: "In the website's general settings, open the fields for the site meta title, description and keywords.",
           },
           {
-            title: "Treat density as a ceiling, not a target",
-            body: "If your keyword is over-represented, cut instances rather than adding synonyms. Readers notice repetition long before a search engine penalises it.",
+            title: "Generate a starting point",
+            body: "Use the AI action to draft the three metadata fields from the site's current positioning and content.",
           },
           {
-            title: "Act on the suggested edits",
-            body: "The report names specific sentences and structures to change. Apply the ones that also make the draft easier to read and ignore any that would make it worse.",
+            title: "Edit and apply the fields",
+            body: "Check that the title names the real offer, the description is accurate and readable, and the keywords remain relevant. Apply the metadata only after this review.",
           },
         ],
+        callouts: [{ type: "warning", body: "This is an administrator workflow because it changes site-wide metadata." }],
       },
       {
-        heading: "Size up a keyword before committing",
+        heading: "Enhance a blog post's SEO fields (administrator)",
         steps: [
           {
-            title: "Open the Keywords tab",
-            body: "Enter the term you are considering and read monthly volume, difficulty, CPC and competition together.",
+            title: "Open the finished blog post",
+            body: "Choose the post whose SEO fields you want to prepare. Confirm its title and content are accurate before generating metadata from them.",
           },
           {
-            title: "Pick the variant you can realistically win",
-            body: "Scan the related terms. A lower-volume phrase you can rank for this quarter beats a high-volume one you cannot.",
+            title: "Generate post-level SEO fields",
+            body: "Use the AI action in the blog SEO area. AmmarAI uses the post title and recent search context to suggest the fields.",
           },
           {
-            title: "Hand the chosen keyword to the writer",
-            body: "Take the term straight into the Article Wizard so the outline and headings are built around it from the start.",
+            title: "Verify against the article",
+            body: "Make sure the suggested title and description accurately represent the published content. Remove promises or phrases the article does not support, then save.",
           },
         ],
         callouts: [
           {
             type: "note",
-            body: "High CPC on a keyword is a buying-intent signal. Those terms convert, which is usually why they are also the hardest to rank for.",
+            body: "Generated metadata is a starting point. It does not replace a technical SEO review or guarantee search visibility.",
           },
         ],
       },
     ],
     relatedTools: ["ai-seo-analyzer", "article-wizard", "ai-blogger-agent"],
-    relatedTutorials: ["how-to-get-keyword-and-question-ideas-in-the-article-wizard"],
+    relatedTutorials: ["how-to-get-keyword-and-question-ideas-in-the-article-wizard", "how-to-use-ai-blogger-agent"],
     cta: { toolName: "AI SEO Analyzer", toolSlug: "ai-seo-analyzer" },
   },
   {

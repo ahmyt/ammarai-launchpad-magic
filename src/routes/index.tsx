@@ -188,7 +188,7 @@ export function Home() {
               <div className="studio-hero-aside">
                 <p className="text-pretty text-base leading-[1.7] text-muted-foreground sm:text-lg">
                   Build autonomous AI Agents, draft with AI Writer, think with Chat Pro, create with Image Pro
-                  and Video Pro, build talking avatars, transcribe recordings and audit SEO. Add CRM,
+                  and Video Pro, build talking avatars, transcribe recordings and plan search-led content. Add CRM,
                   voiceovers, document analysis and code tools — all in one connected workspace.
                 </p>
                 <div className="studio-hero-actions mt-8 flex flex-col gap-3 sm:flex-row">
@@ -290,7 +290,7 @@ export function Home() {
           <SectionHeading
             eyebrow="Flagship tools"
             title="Eight flagship tools, one workspace"
-            intro="AI Agent Builder, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video, Transcription and SEO Analyzer form the core of AmmarAI — eight focused tools for creating, understanding and improving your work."
+            intro="AI Agent Builder, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video, Transcription and SEO Analyzer form the core of AmmarAI — eight focused tools for creating, understanding, optimizing and automating your work."
              scale="large"
              className="studio-heading-wide"
           />

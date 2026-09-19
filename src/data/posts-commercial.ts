@@ -307,7 +307,7 @@ export const commercialPosts: Post[] = [
           head: ["Tool", "Entry paid price", "SEO depth", "Beyond text"],
           rows: [
             ["Writesonic", "$79/mo annual (Starter)", "High — articles, audits, AI-answer tracking", "Images"],
-            ["AmmarAI", "$9.99/mo (Starter)", "Built-in SEO analyzer and writer", "Images, video, voice, agents"],
+            ["AmmarAI", "$9.99/mo (Starter)", "SEO article planning, metadata and writer", "Images, video, voice, agents"],
             ["Jasper", "$69/mo (Pro)", "Medium, brand-led", "Images, some video"],
             ["ChatGPT Plus", "$20/mo", "Manual — no SEO tooling", "Images"],
             ["Copy.ai", "$49/mo (Starter)", "Low", "No"],
@@ -325,7 +325,7 @@ export const commercialPosts: Post[] = [
       {
         heading: "1. AmmarAI — broader scope, much lower entry price",
         paragraphs: [
-          "Our platform. AmmarAI includes an SEO analyzer and long-form writer alongside image, video, voice and agent tools in one workspace, starting at $9.99 per month with every tool on every plan.",
+          "Our platform. AmmarAI includes search-led article planning, metadata assistance and a long-form writer alongside image, video, voice and agent tools in one workspace, starting at $9.99 per month with every tool on every plan.",
           "Where Writesonic is ahead: dedicated AI-search visibility tracking and site audits. We do not track brand mentions across assistants, and if that is your reporting requirement you should buy the tool that does it. Where AmmarAI is ahead: you get writing, visuals, video and voice under one subscription for a fraction of the entry price.",
         ],
         links: [
@@ -387,7 +387,7 @@ export const commercialPosts: Post[] = [
       },
       {
         q: "What is a cheaper alternative to Writesonic?",
-        a: "AmmarAI at $9.99 per month covers writing plus images, video and voice with a built-in SEO analyzer. ChatGPT Plus at $20 per month writes well but leaves the SEO process to you.",
+        a: "AmmarAI at $9.99 per month covers writing plus images, video and voice, with keyword and question ideas for articles and metadata assistance. ChatGPT Plus at $20 per month writes well but leaves the SEO workflow to you.",
       },
     ],
     takeaways: [
@@ -424,7 +424,7 @@ export const commercialPosts: Post[] = [
           head: ["Tool", "Entry paid price", "Adds over Rytr", "Team seats"],
           rows: [
             ["Rytr", "$7.50/mo annual", "—", "No"],
-            ["AmmarAI", "$9.99/mo (Starter)", "Images, video, voice, agents, SEO analyzer", "Yes, on Ultimate"],
+            ["AmmarAI", "$9.99/mo (Starter)", "Images, video, voice, agents, SEO planning and metadata", "Yes, on Ultimate"],
             ["ChatGPT Plus", "$20/mo", "Stronger reasoning, long-form, images", "Business tiers"],
             ["Copy.ai", "$49/mo (Starter)", "GTM workflows", "5 on Advanced"],
             ["Jasper", "$69/mo (Pro)", "Brand voice governance, campaigns", "Yes"],
@@ -442,7 +442,7 @@ export const commercialPosts: Post[] = [
       {
         heading: "1. AmmarAI — the smallest step up in price, the biggest in scope",
         paragraphs: [
-          "Our platform, so judge it against the facts rather than the enthusiasm. Starter is $9.99 per month — roughly $2.50 more than Rytr Unlimited — and adds image generation, video, voice, transcription, document analysis, an SEO analyzer and AI agents, with every tool available on every plan.",
+          "Our platform, so judge it against the facts rather than the enthusiasm. Starter is $9.99 per month — roughly $2.50 more than Rytr Unlimited — and adds image generation, video, voice, transcription, document analysis, SEO article planning and metadata assistance, plus AI agents, with every tool available on every plan.",
           "Where Rytr is ahead: simplicity and price at the very bottom. If all you will ever do is short text, Rytr is cheaper and has fewer things to learn.",
         ],
         links: [
@@ -559,7 +559,7 @@ export const commercialPosts: Post[] = [
           caption: "AI writing tools compared — list pricing, 14 September 2026",
           head: ["Tool", "Free tier", "Entry paid", "SEO", "Brand voice", "Beyond text"],
           rows: [
-            ["AmmarAI", "Yes", "$9.99/mo", "SEO analyzer included", "Saved personas and tone", "Images, video, voice, agents"],
+            ["AmmarAI", "Yes", "$9.99/mo", "SEO planning and metadata included", "Saved personas and tone", "Images, video, voice, agents"],
             ["ChatGPT", "Yes", "$20/mo (Plus)", "Manual", "Memory and prompting", "Images"],
             ["Copy.ai", "Yes (chat)", "$49/mo", "Low", "Yes", "No"],
             ["Jasper", "Trial", "$69/mo (Pro)", "Medium", "Strongest here", "Images, some video"],

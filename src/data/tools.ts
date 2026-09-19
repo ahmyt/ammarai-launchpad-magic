@@ -350,7 +350,7 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
     ],
   },
   {
-    keywords: ["seo", "keyword", "rank", "search", "meta"],
+    keywords: ["seo", "keyword", "rank", "search", "meta", "meta title", "meta description", "search questions", "article seo"],
     slugs: [
       "ai-seo-analyzer",
       "keyword-generator",
@@ -361,8 +361,8 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
     ],
   },
   {
-    keywords: ["audit", "seo score", "site score", "readability", "difficulty", "search volume", "analyze url", "analyse url"],
-    slugs: ["ai-seo-analyzer", "keyword-generator", "landing-page-copy-generator"],
+    keywords: ["site metadata", "blog post seo", "seo fields", "keyword suggestions", "question ideas"],
+    slugs: ["ai-seo-analyzer", "article-wizard", "keyword-generator", "landing-page-copy-generator"],
   },
 
   {

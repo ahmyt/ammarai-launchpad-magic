@@ -328,17 +328,10 @@ export const toolKeywords: Record<string, ToolKeywords> = {
     difficulty: 89,
     relatedKeywords: [
       { keyword: "seo tools", volume: 550000 },
-      { keyword: "seo audit", volume: 22200 },
-      { keyword: "website checker", volume: 22200 },
-      { keyword: "seo checker", volume: 14800 },
       { keyword: "free seo tools", volume: 14800 },
     ],
     questions: [
       "how to analyze keywords for seo",
-      "how to analyze website for seo",
-      "how to analyze seo data",
-      "how to analyze a website for seo",
-      "how to analyze a website for seo purposes",
     ],
   },
 

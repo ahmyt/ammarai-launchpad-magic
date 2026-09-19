@@ -447,11 +447,11 @@ export const useCases: UseCase[] = [
     title: "AI for SEO: Content at the Pace Rankings Need | AmmarAI",
     description: "AmmarAI helps SEO professionals produce optimized blog content, meta descriptions, and FAQ sections at the volume organic growth actually requires.",
     h1: "AI Tools for SEO Work That Needs Volume, Not Just Strategy",
-    lede: "Keyword research and technical audits can be done in a day. Producing the actual content that targets those keywords, week after week, is the part that determines whether the strategy shows results.",
+    lede: "Finding a search direction is only the start. AmmarAI helps turn recent-search keyword and question ideas into article plans, then supports site and blog-post metadata before publishing.",
     summary: "Produce optimized blog posts, meta descriptions, and FAQ content at the volume organic growth actually requires.",
     intro: [
-      "SEO strategy work — keyword research, competitor analysis, technical audits — moves relatively fast. What slows most SEO efforts down is content production: turning a keyword list into actual published articles, meta descriptions, and FAQ sections at a pace that keeps up with a content calendar built for growth. A strategist can identify fifty target keywords in an afternoon and then spend the next three months writing content for them one article at a time.",
-      "AmmarAI is aimed at closing that production gap. It's built to turn a target keyword and brief into a structured, optimized draft — blog post, meta description, FAQ section — quickly enough that content production stops being the constraint on an SEO plan that's otherwise ready to execute."
+      "SEO content work begins with understanding the language and questions people use, then carrying that direction into a useful article. AmmarAI keeps those steps together by surfacing recent-search keyword ideas during article planning and search questions during outlining.",
+      "For publishing teams, the same SEO toolkit also supports site-level metadata and individual blog-post SEO fields. These are writing and metadata workflows rather than technical crawling, speed testing or site-health scoring."
     ],
     challenges: [
       { title: "Keyword lists outpace content production", body: "Research identifies far more opportunities than a small content team can realistically write for in a reasonable timeframe, so most keyword opportunities never get targeted at all." },
@@ -460,14 +460,16 @@ export const useCases: UseCase[] = [
       { title: "Content needs to satisfy both search intent and readability", body: "Ranking well requires covering a topic thoroughly, but stuffing content with keywords in an unnatural way hurts both readability and, increasingly, rankings." }
     ],
     workflows: [
-      { title: "Keyword to published article", body: "Take a target keyword and brief, generate a structured blog post draft, then generate a matching meta description and title before the post goes into editorial review." },
-      { title: "Site-wide metadata cleanup", body: "Work through a list of existing pages with thin or missing metadata, generating a title and meta description for each based on the page's actual content and target keyword." },
+      { title: "Search idea to published article", body: "Use recent-search keyword suggestions during the Article Wizard brief, add relevant search questions to the outline, then draft and review the article section by section." },
+      { title: "Site metadata refresh", body: "Generate a site meta title, description and keyword set from the current positioning, then have an administrator refine and apply the fields." },
+      { title: "Blog-post SEO enhancement", body: "Open a finished post, generate SEO fields from its title and recent search context, and verify that every field accurately represents the article before saving." },
       { title: "FAQ and schema content batch", body: "Generate a set of question-and-answer pairs targeting long-tail queries related to a core topic, structured for both readability and FAQ schema markup." },
       { title: "Content refresh cycle", body: "Rewrite underperforming or outdated content sections to better match current search intent, using the existing page as a base rather than starting over." },
       { title: "Keyword to auto-published blog", body: "Hand a keyword cluster to the AI Blogger Agent and let it research, draft, and schedule optimized articles to your WordPress site on a publishing calendar — your review happens before posts go live, not at the keyboard every day." }
     ],
     toolkit: [
       { slug: "article-wizard", why: "This is the core content production tool that lets a keyword list actually turn into published articles at a workable pace." },
+      { slug: "ai-seo-analyzer", why: "Brings recent-search keyword and question suggestions into article planning, then supports site and blog-post metadata for administrator review." },
       { slug: "landing-page-copy-generator", why: "Metadata is a small but constant task across every page, and it's the first thing to fall behind when a site grows faster than the content team." },
       { slug: "website-copy-generator", why: "FAQ sections targeting long-tail, question-based queries need per-topic thought, and this speeds up producing them without resorting to copy-pasted generic questions." },
       { slug: "ai-rephraser", why: "Refreshing older content to better match current search intent is often more valuable than writing something new, and this speeds up that specific task." },
@@ -486,8 +488,8 @@ export const useCases: UseCase[] = [
     faqs: [
       { q: "Will AI-generated SEO content actually rank?", a: "Rankings depend on many factors beyond the writing itself — search intent match, site authority, technical SEO, and competition — but a well-structured, genuinely useful draft is a reasonable starting point that you should still edit and fact-check." },
       { q: "Does it help avoid keyword stuffing?", a: "The keyword-based rewriting tools are designed to work a target term in naturally, but you should still review output for readability rather than assuming any tool gets the balance perfect every time." },
-      { q: "Can I generate metadata for existing pages, not just new content?", a: "Yes — feeding in an existing page's content and target keyword to generate a title and meta description is one of the most common cleanup workflows." },
-      { q: "Is this useful for technical SEO work too?", a: "It's focused on content production — writing and metadata — rather than technical audits, site speed, or crawlability, which need separate tools and expertise." }
+      { q: "Can I generate metadata for the whole site and individual posts?", a: "Yes. Administrators can generate site-level metadata from general settings and separate SEO fields for a blog post from its title and recent search context." },
+      { q: "Is this useful for technical SEO work too?", a: "No. The documented SEO functions focus on article ideas and metadata rather than technical audits, site speed, crawlability, sitemap checks or page scoring." }
     ]
   },
   {

@@ -109,9 +109,9 @@ export const flagshipWorkflows: FlagshipWorkflow[] = [
   },
   {
     slug: "ai-seo-analyzer",
-    bring: "A public page URL and the search performance questions you want answered.",
-    process: "AmmarAI reviews the page signals and organizes practical findings by priority.",
-    get: "An actionable SEO review that shows what to investigate and improve next.",
+    bring: "An article topic, site positioning, or a blog post title that needs search-focused direction.",
+    process: "AmmarAI suggests recent-search keywords and questions in Article Wizard, or drafts site and post metadata for administrator review.",
+    get: "A search-informed article plan or clear metadata fields ready to refine before publishing.",
     useCaseSlugs: ["ai-for-seo", "ai-for-marketing", "ai-for-small-business"],
   },
 ];
@@ -122,7 +122,7 @@ export const outcomeShortcuts = [
   { label: "Turn a document into a presentation", slug: "ai-presentation-maker" },
   { label: "Build a customer support AI agent", slug: "ai-agent-builder" },
   { label: "Create an AI phone receptionist", slug: "ai-phone-agent" },
-  { label: "Analyze my website SEO", slug: "ai-seo-analyzer" },
+  { label: "Plan an SEO article and its metadata", slug: "ai-seo-analyzer" },
   { label: "Create social content for my business", slug: "ai-social-media-agent" },
   { label: "Research a topic and produce a cited report", slug: "ai-deep-research" },
 ] as const;
