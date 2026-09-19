@@ -338,9 +338,9 @@
 - [x] Deliverable prepared: ready-to-upload build (Files: ammarai-plesk-build.zip with DEPLOY-PLESK.txt; `dist/public/media` intentionally excluded)
 - [x] User uploaded the package on Plesk (clean `dist` swap, `media` preserved); Passenger 500 (Error ID bc90aac5) traced to a stuck Passenger process — resolved with Disable/Enable Node.js + Restart App
 - [x] Confirmed live: `/` 200 at 121,979 bytes, `/about` 200, `/ai-tools` 200, `/blog` 200, missing page → real 404, no flash
-- [ ] User: request indexing in Search Console for `/` (and optionally /ai-tools, /blog)
+- [x] User: requested indexing in Search Console for `/`
 - [ ] User: delete the `dist-old` backup folder in Plesk File Manager
-- [ ] Optional: host still asked to route `/` straight to Passenger and stop the `/error_docs` interception (root cause on their side)
+- [x] Host routing request closed: the host declined the server-side change, and it is no longer needed — the homepage now sits far below the firewall's 1 MB response limit and the app renders `/error_docs` as the homepage if it ever arrives again
 
 ## CMS-controlled homepage scrolling strips
 - [x] Add independent Site settings switches for the trusted-company and AI-model strips
