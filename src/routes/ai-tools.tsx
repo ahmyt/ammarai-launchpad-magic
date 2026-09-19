@@ -16,6 +16,15 @@ const description =
 
 export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },
+  validateSearch: (search: Record<string, unknown>): { pillar?: EcosystemPillar } => {
+    const value = search["pillar"];
+    return {
+      pillar:
+        typeof value === "string" && (pillarOrder as string[]).includes(value)
+          ? (value as EcosystemPillar)
+          : undefined,
+    };
+  },
   loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
   head: () => ({
     meta: [
