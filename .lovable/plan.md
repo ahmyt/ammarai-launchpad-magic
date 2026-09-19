@@ -1,38 +1,45 @@
-# Homepage 404 flash — fix not yet on your GitHub repo
+# Homepage 404 flash — the fix never reached your GitHub repo
 
-## What I just verified
+## Confirmed
 
-1. Live site (checked just now): `https://ammarai.com/` still returns **404** with the old build — the response is 1,040,426 bytes and the embedded route state still reads `$slug error_docs`. So the running build still does **not** contain the guard.
-2. The fix exists here in the Lovable project: commit `61fc779 "Fixed homepage 404 with guard"` with the `HOST_ERROR_DOC_SLUG` guard in `src/routes/$slug.tsx`.
-3. This project's own git remote is Lovable's internal storage — **not your GitHub repository**. Since you pulled from GitHub and the live build is still old, the fix almost certainly never reached your GitHub repo (GitHub two-way sync is a separate workspace setting and may not be enabled or connected for this project).
+- You checked `src/routes/$slug.tsx` in your repo: no `HOST_ERROR_DOC_SLUG`. That matches the live site, which still returns 404 for the homepage with the old build.
+- The fix does exist in this Lovable project (commit "Fixed homepage 404 with guard"), but this project's code is not syncing to your GitHub repository — so every pull and redeploy you do keeps rebuilding the same old code.
 
-## The fix (two parts)
+Nothing is wrong with your deployment process. The code simply isn't in the repo you deploy from.
 
-### Part 1 — Get the fix onto GitHub
+## The fix
+
+### Step 1 — Get the code into your GitHub repo
 
 Choose one:
 
-- **Option A (recommended): turn on Lovable GitHub sync.** In Lovable: project Settings → Connect to GitHub, then push. Once connected, this project (including commit 61fc779) syncs to your repo, and your normal "pull from GitHub → build → restart" flow on Plesk will pick it up.
-- **Option B (manual, one-off):** I produce a ZIP of the current project source for you; you extract it over your repo (or just copy `src/routes/$slug.tsx`), commit, and push to GitHub yourself.
+- **Option A (recommended, permanent): connect GitHub sync.** In Lovable, open the Plus (+) menu in the chat input → GitHub → Connect project, authorize, and pick your account. From then on every change here pushes to GitHub automatically, and your pull-and-build flow on Plesk just works.
+- **Option B (one-off, manual): I prepare a download.** I give you the updated `src/routes/$slug.tsx` (or a ZIP of the current source); you commit it to your GitHub repo and push.
 
-To confirm the fix is in what you deploy, open `src/routes/$slug.tsx` in your repo and check it contains the line `const HOST_ERROR_DOC_SLUG = "error_docs";` — if it's not there, the build will behave exactly like the one live now.
+Before deploying, confirm the repo file contains:
 
-### Part 2 — Rebuild and restart on Plesk
+```text
+const HOST_ERROR_DOC_SLUG = "error_docs";
+```
 
-1. Pull from GitHub on the server (or upload the new package).
-2. Run `npm ci && npm run build`.
-3. Restart the Node app in Plesk.
+If that line is absent, the build will behave exactly like the one live now.
 
-## How we'll know it worked
+### Step 2 — Rebuild and restart on Plesk
 
-- `https://ammarai.com/` no longer flashes "Page not found" — the homepage shows immediately.
-- I re-check from here: `/` should return the homepage, and the embedded route state should no longer mention `error_docs` as a not-found slug.
-- Then request indexing for the homepage in Google Search Console (it has been served as a 404 to crawlers).
+1. Pull on the server.
+2. `npm ci && npm run build`
+3. Restart the Node app.
 
-## Still pending with your host (unchanged)
+### Step 3 — Verify
 
-The root cause stays on their side: the public request for `/` reaches the app as `error_docs`. The reply to paste into your existing ticket is saved as `host-support-request-ammarai-v3.md` in your Files. Even after the guard deploys (homepage shows correctly), ask them to fix the address swap so `/` returns a clean 200.
+- Refresh `https://ammarai.com/` — no "Page not found" flash.
+- I re-check from here and confirm the homepage returns a clean 200.
+- Then request indexing of the homepage in Google Search Console, since crawlers have been seeing a 404.
 
-## What I will not change
+## Still pending with your host
 
-No URLs, slugs, sitemap, metadata, tutorials, or tool content — only the already-written `error_docs` guard needs to reach your server.
+The underlying cause is theirs: the public request for `/` arrives at the app as `error_docs`. The reply to paste into your existing ticket is in your Files as `host-support-request-ammarai-v3.md`. The guard above stops the visible damage; their fix removes the cause.
+
+## Scope
+
+No URLs, slugs, sitemap, metadata, tutorials, or tool content change. The only code involved is the `error_docs` guard already written.
