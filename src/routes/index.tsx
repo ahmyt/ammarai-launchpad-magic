@@ -34,6 +34,24 @@ const workspaceBenefits = [
   { label: "Assistants & agents", icon: Bot },
 ];
 
+const howItWorks = [
+  {
+    step: 1,
+    title: "Pick a tool",
+    text: "Open the tool that matches the job — writing, chat, image, video, voice, transcription or an agent.",
+  },
+  {
+    step: 2,
+    title: "Describe the work",
+    text: "Brief it in plain language. Your brand voice, files and history carry over automatically.",
+  },
+  {
+    step: 3,
+    title: "Publish or automate",
+    text: "Export the result, or hand it to an agent that keeps producing on a schedule while you do something else.",
+  },
+];
+
 const homeFaqs = [
   {
     q: "What is AmmarAI?",
@@ -135,7 +153,7 @@ export function Home() {
     title: page?.comparisonTitle || "Stop paying for five AI tools",
     intro:
       page?.comparisonIntro ||
-      "Stack a chat subscription, an image tool, a video tool and a voice tool and you are out $80\u2013120 a month \u2014 and still switching tabs. AmmarAI replaces all of them with one workspace.",
+      "Stack a chat subscription, an image tool, a video tool and a voice tool and you are out $80\u2013120 a month \u2014 and still switching tabs. AmmarAI replaces all of them.",
     oldLabel: page?.comparisonOldLabel || "The old way",
     oldItems: page?.comparisonOldItems?.length ? page.comparisonOldItems : oldWay,
     oldTotalLabel: page?.comparisonOldTotalLabel || "Total",
@@ -292,7 +310,7 @@ export function Home() {
          <Container size="wide">
           <SectionHeading
             eyebrow="Flagship tools"
-            title="Eight flagship tools, one workspace"
+            title="Eight flagship tools"
             intro="AI Agent Builder, AI Social Media Agent, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video and Transcription form the core of AmmarAI — eight focused tools for creating, understanding, publishing and automating your work."
              scale="large"
              className="studio-heading-wide"
@@ -349,16 +367,26 @@ export function Home() {
       </Section>
 
       {/* Features */}
-       <Section tone="sand" className="studio-section studio-workspace-section">
-        <Container>
+        <Section tone="sand" className="studio-section studio-workspace-section">
+         <Container>
           <SectionHeading
-            eyebrow="Why one workspace"
-            title={`What makes ${TOOL_COUNT} tools feel like one product`}
-            intro="One account and subscription connect your history, brand voice, files, templates, AI models and assistants across every workflow."
+            eyebrow="How it works"
+            title="From idea to finished work in three steps"
+            intro="Every tool in AmmarAI follows the same simple flow — no setup, no switching between services."
              scale="large"
              className="studio-heading-wide"
           />
-           <ul className="studio-benefit-strip mt-10 grid gap-2 sm:grid-cols-2 lg:grid-cols-6" aria-label="Connected workspace benefits">
+           <ol className="studio-steps mt-10 grid gap-5 sm:grid-cols-3" aria-label="How AmmarAI works">
+            {howItWorks.map(({ step, title, text }) => (
+              <li key={step} className="studio-step rounded-xl border border-border bg-card p-6">
+                <span className="grid size-9 place-items-center rounded-lg bg-accent/10 text-sm font-bold text-accent" aria-hidden="true">{step}</span>
+                <h3 className="mt-4 text-base font-semibold text-foreground">{title}</h3>
+                <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">{text}</p>
+              </li>
+            ))}
+          </ol>
+           <p className="mt-12 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Everything stays connected</p>
+           <ul className="studio-benefit-strip mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-6" aria-label="Connected workspace benefits">
             {workspaceBenefits.map(({ label, icon: Icon }) => (
               <li key={label} className="studio-benefit flex items-center gap-3 rounded-xl border border-border bg-card p-4 text-sm font-semibold text-foreground">
                 <span className="grid size-8 place-items-center rounded-lg bg-accent/10"><Icon className="size-4 text-accent" aria-hidden="true" /></span>
@@ -367,7 +395,7 @@ export function Home() {
             ))}
           </ul>
            <div className="studio-feature-grid mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {features.slice(0, 6).map((f) => (
+             {features.slice(0, 3).map((f) => (
               <Card key={f.slug} interactive className="p-6">
                 <h3 className="text-base font-semibold">
                   <Link

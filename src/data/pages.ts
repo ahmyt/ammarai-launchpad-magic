@@ -52,7 +52,7 @@ export const pages: Page[] = [
     comparisonEyebrow: "The math",
     comparisonTitle: "Stop paying for five AI tools",
     comparisonIntro:
-      "Stack a chat subscription, an image tool, a video tool and a voice tool and you are out $80\u2013120 a month \u2014 and still switching tabs. AmmarAI replaces all of them with one workspace.",
+      "Stack a chat subscription, an image tool, a video tool and a voice tool and you are out $80\u2013120 a month \u2014 and still switching tabs. AmmarAI replaces all of them.",
     comparisonOldLabel: "The old way",
     comparisonOldItems: [
       "ChatGPT / Claude / Gemini subscription",
