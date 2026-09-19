@@ -92,5 +92,7 @@ export const pages: Page[] = [
     channels: [],
     showTutorialsNav: true,
     fadeHomepageLogos: true,
+    showHomepageTrustLogos: true,
+    showHomepageAiModels: true,
   },
 ];

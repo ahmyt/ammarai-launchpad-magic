@@ -204,8 +204,18 @@ const pageSettingsFields: FieldSpec[] = [
     type: "boolean",
   },
   {
+    name: "showHomepageTrustLogos",
+    label: "Show the Trusted by growing companies strip",
+    type: "boolean",
+  },
+  {
     name: "fadeHomepageLogos",
     label: "Fade scrolling logos until touched",
+    type: "boolean",
+  },
+  {
+    name: "showHomepageAiModels",
+    label: "Show the AI models scrolling strip",
     type: "boolean",
   },
 ];

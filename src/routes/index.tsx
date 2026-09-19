@@ -12,6 +12,7 @@ import { Container, Section, SectionHeading, Card } from "@/components/site/prim
 import { ExternalButton, ButtonLink } from "@/components/site/Button";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { TrustLogoStrip } from "@/components/site/TrustLogoStrip";
+import { AiModelsStrip } from "@/components/site/AiModelsStrip";
 import { CustomerReviews } from "@/components/site/CustomerReviews";
 import { SecondaryToolsCarousel } from "@/components/site/SecondaryToolsCarousel";
 import { useTheme } from "@/components/site/ThemeProvider";
@@ -282,7 +283,9 @@ export function Home() {
         </Container>
       </section>
 
-      <TrustLogoStrip faded={settings?.fadeHomepageLogos !== false} />
+      {settings?.showHomepageTrustLogos !== false ? (
+        <TrustLogoStrip faded={settings?.fadeHomepageLogos !== false} />
+      ) : null}
 
       {/* Featured */}
         <Section tone="sand" className="studio-section studio-flagships">
@@ -298,6 +301,8 @@ export function Home() {
            <SecondaryToolsCarousel />
         </Container>
       </Section>
+
+      {settings?.showHomepageAiModels !== false ? <AiModelsStrip /> : null}
 
       <EcosystemOverview tools={tools} />
       <WorkflowStories tools={tools} />
