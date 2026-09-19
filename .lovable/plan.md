@@ -1,49 +1,44 @@
-# Homepage 404 — the build is new, the running process is not
+# Fix the Plesk homepage 404 before routing starts
 
-## What your screenshots prove
+## Diagnosis
 
-- `$slug.tsx` — Sept 19, 05:24 PM (the fix)
-- `dist/server/index.mjs` — Sept 19, 05:50 PM (built *after* the fix)
+Your screenshots confirm all three deployment steps already happened:
 
-So the build did run with the fix included. Good.
+- the fixed `$slug.tsx` source is on Plesk;
+- `dist/server/index.mjs` was rebuilt afterwards;
+- the app has been restarted several times.
 
-## What the live site still shows (checked 16:02 UTC)
+The live response still enters TanStack as `$slug error_docs`. Therefore the route-level guard is too late or is being bypassed during Plesk's internal error-document request. More rebuilds and restarts of the same code will not change that.
 
-- `/` → 404, 1,040,426 bytes, still rendering the internal address `error_docs`
-- `/about` → 200
-- a genuinely wrong address → 404 at 1,040,362 bytes
+## Change
 
-The root response is still the old "page not found" render. A freshly built bundle is sitting on disk, but the process answering requests was started before 05:50 PM and is still running the old code in memory. Passenger keeps the old process alive until it is explicitly told to restart — rebuilding alone never swaps it.
+Move the Plesk safety rule to the server entry, before TanStack Router sees the request:
 
-## The one step left
+1. In `src/server.ts`, inspect the incoming request URL.
+2. When the pathname is exactly `/error_docs` or `/error_docs/`, clone the request with pathname `/` while preserving its method, headers, query string, and request context.
+3. Send that rewritten request to the normal TanStack server handler, so the dedicated homepage route renders immediately with HTTP 200.
+4. Leave all other paths unchanged, including genuine missing pages.
+5. Keep the existing route-level guard as a second safety net unless validation shows it is redundant.
 
-In Plesk: **Websites & Domains → ammarai.com → Node.js → Restart App**.
+## Why this is different
 
-If that button does nothing, force it from the server terminal in the application root:
+The existing guard waits for the dynamic page route to load. The new guard runs at the first application entry point, before route matching. Plesk's synthetic `error_docs` address therefore cannot become the 404 route state seen in the live HTML.
 
-```text
-mkdir -p tmp
-touch tmp/restart.txt
-```
+## Verification
 
-Passenger picks up `tmp/restart.txt` on the next request and starts a fresh process from the new build.
+Build the exact Node/Plesk output and test:
 
-## Then
+- `/` → homepage, HTTP 200
+- `/error_docs` → homepage, HTTP 200
+- `/error_docs/` → homepage, HTTP 200
+- `/about` → existing page, HTTP 200
+- a made-up URL → AmmarAI 404, HTTP 404
 
-Hard-refresh https://ammarai.com/ and tell me. I will confirm from here that:
+Then deploy, rebuild, and restart once. I will verify the public response no longer contains `$slug error_docs` and no longer flashes the 404 page.
 
-- `/` returns 200 with the homepage and no "Page not found" flash
-- a genuinely wrong address still returns a proper 404
+## Scope and SEO
 
-## If it is still 404 after a confirmed restart
-
-Then the process is running from a different folder than the one you rebuilt. In that case send me the Plesk Node.js screen showing **Document Root**, **Application Root**, and **Application Startup File**, and I will pinpoint the mismatch.
-
-## Afterwards
-
-- Send your host the reply saved in your Files (`host-support-request-ammarai-v3.md`) so they stop handing the app `error_docs` in place of `/`.
-- Request indexing of the homepage in Google Search Console, since crawlers have been served a 404.
-
-## Scope
-
-No code changes. The fix is already in the source, on GitHub, and in the built bundle on your server. This is a process restart only.
+- No public URL, slug, sitemap, content, tutorial, CMS, authentication, or backend changes.
+- Genuine missing URLs remain 404.
+- The homepage keeps its canonical `/` metadata.
+- The workaround only handles Plesk's two synthetic error-document paths.
