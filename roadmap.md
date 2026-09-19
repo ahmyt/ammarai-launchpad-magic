@@ -325,5 +325,9 @@
 - [x] Host replied claiming the app returns the 404 itself; disproved it — live homepage HTML router state reads `lastMatchId: "$slug error_docs"` while `/ai-tools` reads `lastMatchId: "ai-tools ai-tools"`
 - [x] Verified app side is clean: rebuilt production server bundle, requested `/` against it → HTTP 200 full homepage (no prerendered index.html, index route present)
 - [x] Deliver follow-up reply with the router-state proof (Files: host-support-request-ammarai-v2.md)
-- [ ] Waiting on hosting provider to route `/` directly to the Passenger app or stop error-docs interception
-- [ ] After their fix: confirm `https://ammarai.com/` returns 200 with no flash, then request indexing in Search Console
+- [x] Reproduced the real production build here (Nitro `node-server` preset, outside the Lovable build env): `/` → 200 (1,141,378 bytes), `/error_docs` → 404 (1,040,256 bytes) — byte-for-byte the size of the live root response, proving the live `/` response IS the `/error_docs` render
+- [x] Shipped a self-serve guard: `/error_docs` now renders the homepage (200, canonical `/`, noindex) instead of the 404 screen; genuine unknown slugs still 404
+- [x] Verified on the rebuilt node-server bundle: `/` 200, `/error_docs` 200 homepage, `/about` 200, `/ai-tools` 200, `/this-does-not-exist` 404
+- [ ] User to rebuild + restart on Plesk (`npm ci && npm run build`, then restart the Node app) and confirm the flash is gone
+- [ ] Optional: host still asked to route `/` straight to Passenger (root cause); after deploy confirm 200 + no flash, then request indexing in Search Console
+

@@ -16,6 +16,8 @@ import { toolDemoMedia, type ToolDemoMedia } from "@/data/tool-demos";
 import { tutorialsByTool } from "@/data/tutorials";
 import { flagshipWorkflows, pillarForTool } from "@/data/ecosystem";
 import { useCases } from "@/data/use-cases";
+import { Home } from "./index";
+
 
 /**
  * One sample per example. CMS overrides win: `demoVideoUrl` / `demoVideoCaption`
@@ -66,9 +68,18 @@ function useToolMap() {
   return new Map(data.tools.map((t) => [t.slug, t]));
 }
 
+// Some hosts (Plesk/Apache error documents) re-enter the app with the synthetic
+// path "/error_docs" when a visitor requests the bare domain root. Rendering the
+// homepage instead of a 404 keeps the root from flashing "Page not found".
+const HOST_ERROR_DOC_SLUG = "error_docs";
+
 export const Route = createFileRoute("/$slug")({
   staticData: { sitemap: true },
   loader: async ({ params, context }) => {
+    if (params.slug === HOST_ERROR_DOC_SLUG) {
+      await context.queryClient.ensureQueryData(siteContentQuery);
+      return { kind: "home" as const };
+    }
     const redirectTarget = retiredToolRedirects[params.slug];
     if (redirectTarget) {
       throw redirect({ to: "/$slug", params: { slug: redirectTarget }, statusCode: 301 });
@@ -84,6 +95,12 @@ export const Route = createFileRoute("/$slug")({
     if (!loaderData) {
       return {
         meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }],
+      };
+    }
+    if (loaderData.kind === "home") {
+      return {
+        meta: [{ name: "robots", content: "noindex" }],
+        links: [{ rel: "canonical", href: "https://ammarai.com/" }],
       };
     }
     const title =
@@ -110,9 +127,11 @@ export const Route = createFileRoute("/$slug")({
 
 function SlugPage() {
   const data = Route.useLoaderData();
+  if (data.kind === "home") return <Home />;
   if (data.kind === "tool") return <ToolPage tool={data.tool} />;
   return <UseCasePage useCase={data.useCase} />;
 }
+
 
 function Json({ data }: { data: unknown }) {
   return (
