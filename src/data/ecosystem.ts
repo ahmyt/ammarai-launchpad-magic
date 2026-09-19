@@ -73,6 +73,20 @@ export const flagshipWorkflows: FlagshipWorkflow[] = [
     useCaseSlugs: ["ai-for-marketing", "ai-for-ecommerce", "ai-for-content-creators"],
   },
   {
+    slug: "ai-avatar-generator",
+    bring: "A photo or video avatar plus the script or voice recording you want it to deliver.",
+    process: "AmmarAI animates the face and matches its lip movement and expressions to the speech.",
+    get: "A finished talking-avatar video for explainers, training, social content, or announcements.",
+    useCaseSlugs: ["ai-for-marketing", "ai-for-content-creators", "ai-for-productivity"],
+  },
+  {
+    slug: "ai-transcription",
+    bring: "An audio or video recording from a meeting, interview, podcast, lecture, or call.",
+    process: "AmmarAI converts the recording into timestamped text with speakers separated and labelled.",
+    get: "A searchable, speaker-labelled transcript ready for summaries, quotes, action items, or subtitles.",
+    useCaseSlugs: ["ai-for-productivity", "ai-for-content-creators", "ai-for-students"],
+  },
+  {
     slug: "ai-agent-builder",
     bring: "A repeatable task, the information it needs, connected steps, and approval rules.",
     process: "AmmarAI chains the workflow, runs it on a trigger or schedule, and pauses at the approval gates you set.",
