@@ -34,6 +34,24 @@ const workspaceBenefits = [
   { label: "Assistants & agents", icon: Bot },
 ];
 
+const howItWorks = [
+  {
+    step: 1,
+    title: "Pick a tool",
+    text: "Open the tool that matches the job — writing, chat, image, video, voice, transcription or an agent.",
+  },
+  {
+    step: 2,
+    title: "Describe the work",
+    text: "Brief it in plain language. Your brand voice, files and history carry over automatically.",
+  },
+  {
+    step: 3,
+    title: "Publish or automate",
+    text: "Export the result, or hand it to an agent that keeps producing on a schedule while you do something else.",
+  },
+];
+
 const homeFaqs = [
   {
     q: "What is AmmarAI?",
