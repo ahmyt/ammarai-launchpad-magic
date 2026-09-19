@@ -2,9 +2,9 @@
 # Roadmap
 
 ## Homepage flagship count correction (2026-09-19)
-- [ ] Expand the flagship carousel to 10 with AI Phone Call Agent and AI CRM
-- [ ] Remove AI Phone Call Agent and AI CRM from the secondary carousel
-- [ ] Verify counts, copy, links, desktop/mobile behavior, reduced motion, and preview health
+- [x] Expand the flagship carousel to 10 with AI Phone Call Agent and AI CRM
+- [x] Remove AI Phone Call Agent and AI CRM from the secondary carousel
+- [x] Verify counts, copy, links, desktop/mobile behavior, reduced motion, and preview health
 
 ## Homepage flagship and secondary carousel swap
 - [x] Place AI Social Media Agent second in the flagship carousel
