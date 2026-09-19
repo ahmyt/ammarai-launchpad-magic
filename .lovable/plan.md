@@ -1,32 +1,25 @@
-# Remove the production homepage 404 flash
+# Fix the locked Plesk root-route 404
 
-## Confirmed diagnosis
+## Confirmed
 
-- The Node.js values in the screenshot are internally consistent: production mode, application root `/ammarai.com`, application URL at the domain root, and startup file `dist/server/index.mjs`.
-- The live server currently returns a real HTTP **404** for `https://ammarai.com/`, while `https://ammarai.com/ai-tools` returns **200**.
-- HTTP and `www` redirects work normally. The fault is therefore limited to how Plesk handles the root `/` request before or while forwarding it to the Node application—not the site's page route or client-side navigation.
-- The warning beside Document Root is a security recommendation. It does not by itself explain why only `/` fails.
+- Your Node app is running: deep pages such as `/ai-tools` return HTTP 200 through Passenger.
+- Only the homepage `/` returns HTTP 404, and Plesk internally replaces it with `/error_docs` before the app displays the temporary not-found page.
+- Since **Custom error documents** and **Apache & nginx Settings** are unavailable, this cannot be corrected from those locked controls.
 
-## Plesk changes to verify
+## Next configuration change
 
-1. In **Node.js**, keep:
-   - Application mode: `production`
-   - Application URL: domain root `/`
-   - Application root: `/ammarai.com`
-   - Startup file: `dist/server/index.mjs`
-2. In **Apache & nginx Settings** for `ammarai.com`:
-   - Disable **Serve static files directly by nginx**.
-   - Remove any custom nginx rule that handles `/`, `index`, or `error_docs` before the Node proxy.
-3. In **Hosting Settings**:
-   - Disable **Custom error documents** for this domain while testing.
-4. Restart the Node.js application, then test in a private browser window.
-5. Verify the server result—not only the visual page:
-   - `/` must return HTTP 200 immediately.
-   - `/ai-tools` and another deep page must remain HTTP 200.
-   - Refreshing `/` must no longer show the temporary 404.
+1. Keep Application Root as `/ammarai.com`.
+2. Keep Application URL at the domain root.
+3. Keep startup file `dist/server/index.mjs`.
+4. Change Document Root from the application root to the app's public client-output subdirectory, matching the exact build output present on the server.
+5. Restart the Node application and confirm `/` returns HTTP 200 immediately while deep pages still work.
 
-## If `/` still returns 404
+## If the document root cannot be changed or the 404 remains
 
-Capture the domain's **Apache & nginx Settings** screen, especially the proxy/static-file controls and both custom-directive boxes. The remaining cause will be a domain-level routing directive or Plesk proxy rule, not the Node.js values shown here.
+Ask the hosting provider to route the domain root `/` to the existing Passenger Node application and disable the domain's internal `/error_docs` interception. Include this evidence:
 
-No Lovable project code changes are required for this diagnosis.
+- `GET https://ammarai.com/` returns 404 and reaches the app as `/$slug/error_docs`.
+- `GET https://ammarai.com/ai-tools` returns 200.
+- Passenger is running successfully, so this is a domain-root proxy mapping issue rather than an application crash.
+
+No application route, redirect, or sitemap change should be added to hide the server-level 404.
