@@ -1,6 +1,13 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## AI SEO Analyzer alignment (approved)
+- [x] Confirm the four documented functions from the supplied reference screenshot
+- [x] Exclude installation, integrations, API keys and technical setup from public content
+- [ ] Align the tool page, samples, tutorials, homepage, ecosystem, discovery and SEO use case
+- [ ] Remove unsupported audit, crawler, score, readability and keyword-metric claims
+- [ ] Verify metadata, links, desktop/mobile layouts and preview health
+
 ## Workflow-led AmmarAI ecosystem (approved)
 - [x] Phase 1: shared Create / Think / Automate / Grow taxonomy, dynamic tool count, grouped navigation
 - [x] Phase 2: outcome-led homepage structure and command center

@@ -54,9 +54,6 @@ import tryonInStripedShirt from "@/assets/tryon-in-striped-shirt.jpg";
 import tryonOutStripedShirt from "@/assets/tryon-out-striped-shirt.jpg";
 import creativeBrandKit from "@/assets/creative-out-brandkit.jpg";
 import creativeCampaign from "@/assets/creative-out-campaign.jpg";
-import seoReportUrlAudit from "@/assets/seo-report-url-audit.jpg";
-import seoReportTextAnalysis from "@/assets/seo-report-text-analysis.jpg";
-import seoReportKeywords from "@/assets/seo-report-keywords.jpg";
 import chatImgMenu from "@/assets/chatimg-in-menu.jpg";
 import chatImgWhiteboard from "@/assets/chatimg-in-whiteboard.jpg";
 import realtimeCartographer from "@/assets/realtime-out-cartographer.jpg";
@@ -558,22 +555,56 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
   ],
   "ai-seo-analyzer": [
     {
-      kind: "image",
-      url: seoReportUrlAudit,
-      caption:
-        "Sample output — the URL Analysis report for esimnow.net: score, page information as the crawler sees it, the two issues found, and the technical checks.",
+      kind: "scene",
+      caption: "Sample workflow — review current keyword suggestions inside Article Wizard before selecting the phrases that fit the article.",
+      scene: {
+        label: "Article Wizard · Keywords",
+        steps: [
+          { actor: "Topic", text: "Small-business seasonal marketing with AI", meta: "Added" },
+          { actor: "Suggest", text: "Recent-search keyword ideas requested", meta: "Ready" },
+          { actor: "Review", text: "Relevant phrases selected for the article brief", meta: "3 kept" },
+        ],
+        result: "A focused keyword direction ready for outlining.",
+      },
     },
     {
-      kind: "image",
-      url: seoReportTextAnalysis,
-      caption:
-        "Sample output — the Text Analysis report: content stats, readability, keyword density and the four edits it recommends first.",
+      kind: "scene",
+      caption: "Sample workflow — turn recent search questions into useful Article Wizard outline sections.",
+      scene: {
+        label: "Article Wizard · Outline",
+        steps: [
+          { actor: "Outline", text: "Search-question suggestions opened", meta: "Current" },
+          { actor: "Choose", text: "Questions matched to the article's purpose", meta: "4 kept" },
+          { actor: "Structure", text: "Selected questions added as direct-answer sections", meta: "Ready" },
+        ],
+        result: "A reader-focused outline shaped by recent questions.",
+      },
     },
     {
-      kind: "image",
-      url: seoReportKeywords,
-      caption:
-        "Sample output — the Keywords report: demand for the head term plus related variants ranked by volume, difficulty and CPC.",
+      kind: "scene",
+      caption: "Sample workflow — create a site meta title, description and keyword set for administrator review.",
+      scene: {
+        label: "Site settings · Metadata",
+        steps: [
+          { actor: "Context", text: "Website offer and audience reviewed", meta: "Site" },
+          { actor: "Generate", text: "Meta title, description and keywords drafted", meta: "3 fields" },
+          { actor: "Review", text: "Language refined before applying changes", meta: "Approved" },
+        ],
+        result: "Clear site metadata ready to save.",
+      },
+    },
+    {
+      kind: "scene",
+      caption: "Sample workflow — generate post-level SEO fields from the article title and recent search context.",
+      scene: {
+        label: "Blog post · SEO fields",
+        steps: [
+          { actor: "Post", text: "AI product video guide opened", meta: "Draft" },
+          { actor: "Generate", text: "SEO fields suggested from title and recent searches", meta: "Ready" },
+          { actor: "Verify", text: "Metadata checked against the finished article", meta: "Saved" },
+        ],
+        result: "Post metadata aligned with the article readers will see.",
+      },
     },
   ],
   "ai-document-analyzer": [
