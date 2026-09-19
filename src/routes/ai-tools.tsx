@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { categoryOrder, suggestTools, TOOL_COUNT } from "@/data/tools";
@@ -104,9 +104,20 @@ export const Route = createFileRoute("/ai-tools")({
 function ToolsDirectory() {
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const tools = content.tools;
+  const navigate = useNavigate({ from: "/ai-tools" });
+  const search = Route.useSearch();
+  const pillar: "All" | EcosystemPillar = search["pillar"] ?? "All";
   const [query, setQuery] = useState("");
-  const [pillar, setPillar] = useState<"All" | EcosystemPillar>("All");
   const [category, setCategory] = useState<string>("All");
+
+  const selectPillar = (item: "All" | EcosystemPillar) => {
+    setCategory("All");
+    setQuery("");
+    void navigate({
+      search: { pillar: item === "All" ? undefined : item },
+      replace: true,
+    });
+  };
 
   const usedCategories = useMemo(
     () => categoryOrder.filter((c) => tools.some((t) => t.category === c)),
