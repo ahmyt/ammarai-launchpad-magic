@@ -342,3 +342,8 @@
 - [ ] User: delete the `dist-old` backup folder in Plesk File Manager
 - [ ] Optional: host still asked to route `/` straight to Passenger and stop the `/error_docs` interception (root cause on their side)
 
+## CMS-controlled homepage scrolling strips
+- [x] Add independent Site settings switches for the trusted-company and AI-model strips
+- [x] Add the curated AI-model ticker below the flagship tools
+- [x] Verify CMS defaults/persistence path, both conditional visibility states, reduced motion, mobile layout, and build health
+

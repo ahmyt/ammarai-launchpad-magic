@@ -174,5 +174,9 @@ export interface Page {
   showTutorialsNav?: boolean;
   /** Fade homepage company logos until hover, focus, or touch */
   fadeHomepageLogos?: boolean;
+  /** Show the homepage trusted-company logo strip */
+  showHomepageTrustLogos?: boolean;
+  /** Show the homepage AI models strip */
+  showHomepageAiModels?: boolean;
 }
 
