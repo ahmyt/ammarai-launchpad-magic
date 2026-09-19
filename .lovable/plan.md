@@ -1,50 +1,55 @@
-# Align AI SEO Analyzer content with the verified SEO Tools documentation
+# Update AI SEO Analyzer from the four documented SEO Tools functions
 
-## Verified reference scope
+## Verified functions
 
-The supplied documentation supports two customer-facing SEO workflows, both inside Article Wizard:
+The supplied documentation and screenshot define four functions:
 
-1. Generate SEO-focused keyword suggestions based on recent Google searches.
-2. Bring recent search questions into the outline step to shape useful article sections.
+1. **Article Wizard Keyword Suggestions** — suggests SEO-focused keywords from recent Google searches inside Article Wizard.
+2. **Article Wizard Search Questions** — suggests recent Google search questions during the Article Wizard outline step.
+3. **Site Meta Optimization** — helps an administrator generate the site’s meta title, description, and keywords from general settings.
+4. **Blog Post SEO Enhancement** — helps an administrator generate SEO fields for a blog post from its title and recent search results.
 
-It does not document a standalone URL crawler, SEO score, technical audit, text-readability report, keyword volume/difficulty/CPC report, or competitor analysis. Site-wide meta optimisation, blog-post SEO fields, API keys, installation, and settings are administrator workflows and will remain excluded.
+The reference also shows that these functions depend on the SEO Tools extension and Serper API configuration. Public content will explain that setup is required without exposing keys or presenting administrator setup as an ordinary visitor workflow.
 
-## Content changes
+## Tool page
 
-### AI SEO Analyzer tool page
+- Keep the existing `/ai-seo-analyzer` URL, slug, category, flagship position, and design.
+- Rewrite its title, description, opening copy, capabilities, workflow, examples, audiences, use cases, tips, mistakes, FAQs, and related links around the four verified functions.
+- Organize the page into two clear areas: **Article planning** and **SEO metadata**.
+- Describe exactly where each function appears and who uses it: writers use the two Article Wizard functions; administrators use site and blog SEO enhancement.
+- Remove unsupported claims about URL crawling, SEO scores, technical checks, readability, keyword density, search volume, difficulty, CPC, competitor analysis, and automatic issue fixing.
+- Replace the current three unsupported report samples with four accurate workflow examples. Because the reference provides no product screenshots, use polished interface-style examples based only on the documented fields and actions, without copying source branding or inventing analytics.
 
-- Keep the existing `/ai-seo-analyzer` URL and slug so existing links and search indexing are not disrupted.
-- Retain the AmmarAI name, but rewrite the title, summary, opening copy, capabilities, steps, examples, audiences, use cases, tips, mistakes, FAQs, and related-tool links around the two verified Article Wizard workflows.
-- Explain clearly that the SEO assistance appears during article creation: keyword selection first, then search-question suggestions while building the outline.
-- Remove unsupported claims about crawling URLs, page scores, status/load-time checks, HTTPS/mobile/sitemap/robots checks, readability scoring, density reports, volume, difficulty, CPC, and re-running audits.
-- Remove the three unsupported report mockups and their captions from the tool samples. Do not invent replacement screenshots because the reference page provides none.
+## Tutorials
 
-### Tutorial content
+- Rewrite the existing AI SEO Analyzer tutorial at its current URL to cover all four functions.
+- Structure it into:
+  - finding keyword suggestions in Article Wizard;
+  - adding recent search questions during the outline step;
+  - generating site meta title, description, and keywords as an administrator;
+  - generating blog-post SEO fields from the post title and recent searches as an administrator.
+- Clearly mark administrator-only sections and keep the main writing workflow useful for ordinary users.
+- Keep API-key setup concise and security-safe: explain that an administrator must configure the search connection, but never expose or request a real key in tutorial content.
+- Reconcile the existing Article Wizard keyword tutorial so it remains a focused writing guide and does not contradict or needlessly duplicate the broader SEO Tools tutorial.
+- Update the internal tutorial-source record to show all four verified functions and that the reference contains no instructional screenshots.
 
-- Rewrite the current AI SEO Analyzer tutorial at its existing URL as an AmmarAI guide to using SEO keyword and question suggestions during Article Wizard creation.
-- Cover the verified sequence: enter a topic, request keyword suggestions, select relevant phrases, move to the outline, request current search questions, turn useful questions into headings, draft, and verify before publishing.
-- Keep the guide customer-facing and exclude installation, API keys, administrator settings, site meta settings, and blog administration.
-- Reconcile it with the existing Article Wizard keyword tutorial so the two pages are not contradictory or repetitive; preserve both existing URLs and give each a distinct purpose and internal links.
-- Update the internal tutorial-source matrix to record the new verified scope and the absence of reference screenshots.
+## Homepage and related pages
 
-### Homepage and connected pages
+- Update the homepage SEO flagship card, outcome text, shortcut, and workflow language to summarize all four functions accurately.
+- Update the SEO-professional use-case page to include the tool and distinguish article research from site/blog metadata work.
+- Align the AI Tools directory search terms, related-tool links, ecosystem workflow copy, and directly connected content with the four verified functions.
+- Preserve unrelated homepage sections, tools, tutorials, and CMS controls.
 
-- Update the homepage flagship description, SEO outcome shortcut, and SEO carousel workflow so they promise keyword and search-question guidance rather than a website audit.
-- Update the Create / Think / Automate / Grow ecosystem wording only where it describes the SEO tool’s outcome.
-- Add the tool to the existing SEO-professional use-case toolkit and align that page’s workflow copy with the verified capability.
-- Update tool discovery terms, related links, and any directly connected blog/tool references that currently promise unsupported analyzer features.
-- Preserve the existing tool count, catalogue category, homepage position, design, CMS behavior, and all unrelated content.
+## URLs and SEO safeguards
 
-## SEO and URL safeguards
-
-- Do not rename or remove existing public URLs or slugs.
-- Keep the existing sitemap generation; no manual sitemap change is required because these routes already participate automatically.
-- Update page titles, descriptions, Open Graph copy, structured data, headings, and internal anchor text to match the corrected capability.
-- Avoid redirects, duplicate pages, unsupported search-volume claims, and copied wording from the reference documentation.
+- Do not rename or remove any existing URL or slug.
+- Keep sitemap generation unchanged; the existing tool and tutorial URLs remain included automatically.
+- Update titles, descriptions, Open Graph copy, structured data, headings, and internal links so they describe the corrected feature set.
+- Do not copy the reference wording or branding, fabricate performance claims, or quote unsupported metrics.
 
 ## Verification
 
-- Confirm the tool page, both related tutorials, homepage carousel, homepage shortcut, directory search, and SEO use-case page all describe the same two workflows.
-- Confirm the unsupported audit/report claims and three mock report images no longer appear anywhere customer-facing.
-- Check every edited page on desktop and mobile, including tutorial navigation, related links, CTA destinations, metadata, structured data, and accessibility.
-- Run focused type checks and verify the latest preview build is clean.
+- Confirm the tool page, tutorial, Article Wizard guide, homepage, directory, ecosystem workflow, and SEO use-case page consistently describe the same four functions.
+- Confirm unsupported analyzer claims and the three old report images no longer appear on customer-facing pages.
+- Check the four replacement examples, links, metadata, structured data, and layouts on desktop and mobile.
+- Run focused checks and confirm the latest preview build is clean.
