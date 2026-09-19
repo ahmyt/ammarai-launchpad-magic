@@ -60,7 +60,7 @@ export function Header() {
                   <div key={pillar}>
                     <p className="eyebrow">{pillar}</p>
                     <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{pillarDetails[pillar].description}</p>
-                    <Link to="/ai-tools" className="mt-3 inline-flex text-xs font-semibold text-accent">Explore {pillar}</Link>
+                    <Link to="/ai-tools" search={{ pillar }} className="mt-3 inline-flex text-xs font-semibold text-accent">Explore {pillar}</Link>
                   </div>
                 ))}
               </div>
@@ -143,7 +143,7 @@ export function Header() {
             ))}
             <div className="grid grid-cols-2 gap-2 border-b border-border py-4">
               {pillarOrder.map((pillar) => (
-                <Link key={pillar} to="/ai-tools" onClick={() => setOpen(false)} className="text-xs font-semibold text-accent">
+                <Link key={pillar} to="/ai-tools" search={{ pillar }} onClick={() => setOpen(false)} className="text-xs font-semibold text-accent">
                   {pillar} tools
                 </Link>
               ))}

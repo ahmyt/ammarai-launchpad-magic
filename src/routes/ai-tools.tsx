@@ -202,7 +202,7 @@ function ToolsDirectory() {
                 <button
                   key={item}
                   type="button"
-                  onClick={() => { setPillar(item); setCategory("All"); setQuery(""); }}
+                  onClick={() => selectPillar(item)}
                   aria-pressed={pillar === item && !query}
                   className={pillar === item && !query ? "rounded-full bg-ink px-4 py-2 text-xs font-semibold text-ink-foreground" : "rounded-full px-4 py-2 text-xs font-semibold text-muted-foreground ring-1 ring-border transition-colors hover:text-foreground"}
                 >
@@ -213,14 +213,10 @@ function ToolsDirectory() {
           </div>
 
           <div className="mt-6 flex flex-wrap gap-2" aria-label="Filter tools by category">
-            <button
-              type="button"
-              onClick={() => {
-                setCategory("All");
-                setPillar("All");
-                setQuery("");
-              }}
-              aria-pressed={category === "All" && !query}
+              <button
+                type="button"
+                onClick={() => selectPillar("All")}
+                aria-pressed={category === "All" && !query}
               className={
                 category === "All" && !query
                   ? "rounded-full bg-ink px-3.5 py-1.5 text-xs font-semibold text-ink-foreground"
