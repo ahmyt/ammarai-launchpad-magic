@@ -488,7 +488,7 @@ export const useCases: UseCase[] = [
     faqs: [
       { q: "Will AI-generated SEO content actually rank?", a: "Rankings depend on many factors beyond the writing itself — search intent match, site authority, technical SEO, and competition — but a well-structured, genuinely useful draft is a reasonable starting point that you should still edit and fact-check." },
       { q: "Does it help avoid keyword stuffing?", a: "The keyword-based rewriting tools are designed to work a target term in naturally, but you should still review output for readability rather than assuming any tool gets the balance perfect every time." },
-      { q: "Can I generate metadata for existing pages, not just new content?", a: "Yes — feeding in an existing page's content and target keyword to generate a title and meta description is one of the most common cleanup workflows." },
+      { q: "Can I generate metadata for the whole site and individual posts?", a: "Yes. Administrators can generate site-level metadata from general settings and separate SEO fields for a blog post from its title and recent search context." },
       { q: "Is this useful for technical SEO work too?", a: "No. The documented SEO functions focus on article ideas and metadata rather than technical audits, site speed, crawlability, sitemap checks or page scoring." }
     ]
   },
