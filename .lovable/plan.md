@@ -1,43 +1,49 @@
-# Homepage 404 — verify the running bundle, not the source file
+# Homepage 404 — the build is new, the running process is not
 
-## Confirmed
+## What your screenshots prove
 
-- Your screenshot proves `src/routes/$slug.tsx` contains the new guard.
-- I checked `https://ammarai.com/` again at 15:57 UTC. It still returns HTTP 404, 1,040,426 bytes, with the old asset `index-Dkzq8ect.js` and route state `$slug error_docs`.
-- Therefore the updated source reached Plesk, but Passenger is still serving a previous compiled bundle.
+- `$slug.tsx` — Sept 19, 05:24 PM (the fix)
+- `dist/server/index.mjs` — Sept 19, 05:50 PM (built *after* the fix)
 
-## Next checks in Plesk
+So the build did run with the fix included. Good.
 
-1. Run `npm run build` from the **application root** — the same folder containing `package.json` and `src/`.
-2. Save the complete final build output. It must finish successfully and create a newly dated `dist/server/index.mjs`.
-3. In File Manager, check the modification time of `dist/server/index.mjs`. It must be later than the `$slug.tsx` update shown in your screenshot.
-4. In Node.js settings, confirm the startup file is exactly `dist/server/index.mjs`.
-5. Click **Restart App** only after steps 1–4 are confirmed.
+## What the live site still shows (checked 16:02 UTC)
 
-## If the build does not update `dist/server/index.mjs`
+- `/` → 404, 1,040,426 bytes, still rendering the internal address `error_docs`
+- `/about` → 200
+- a genuinely wrong address → 404 at 1,040,362 bytes
 
-Use the server terminal in the application root:
+The root response is still the old "page not found" render. A freshly built bundle is sitting on disk, but the process answering requests was started before 05:50 PM and is still running the old code in memory. Passenger keeps the old process alive until it is explicitly told to restart — rebuilding alone never swaps it.
+
+## The one step left
+
+In Plesk: **Websites & Domains → ammarai.com → Node.js → Restart App**.
+
+If that button does nothing, force it from the server terminal in the application root:
 
 ```text
-pwd
-node -v
-npm ci
-npm run build
-ls -l dist/server/index.mjs
+mkdir -p tmp
+touch tmp/restart.txt
 ```
 
-Do not use Plesk's Git **Deploy now** as a substitute for `npm run build`; Git deployment copies source but does not guarantee the Node bundle is rebuilt.
+Passenger picks up `tmp/restart.txt` on the next request and starts a fresh process from the new build.
 
-## What I need if it still fails
+## Then
 
-Send screenshots of:
+Hard-refresh https://ammarai.com/ and tell me. I will confirm from here that:
 
-- The final 20–30 lines of the `npm run build` output.
-- The modification time of `dist/server/index.mjs`.
-- The Plesk Node.js screen showing the application root and startup file.
+- `/` returns 200 with the homepage and no "Page not found" flash
+- a genuinely wrong address still returns a proper 404
 
-Those three items will identify whether the build failed, ran in the wrong folder, wrote elsewhere, or Passenger restarted from a different file.
+## If it is still 404 after a confirmed restart
 
-## Verification
+Then the process is running from a different folder than the one you rebuilt. In that case send me the Plesk Node.js screen showing **Document Root**, **Application Root**, and **Application Startup File**, and I will pinpoint the mismatch.
 
-After the restart, I will check the live status, response content, and bundle name. Success means `/` immediately returns the homepage with HTTP 200; genuine missing pages continue returning 404.
+## Afterwards
+
+- Send your host the reply saved in your Files (`host-support-request-ammarai-v3.md`) so they stop handing the app `error_docs` in place of `/`.
+- Request indexing of the homepage in Google Search Console, since crawlers have been served a 404.
+
+## Scope
+
+No code changes. The fix is already in the source, on GitHub, and in the built bundle on your server. This is a process restart only.
