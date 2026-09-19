@@ -1,31 +1,25 @@
-# Get the site back up: find why the server refuses to start
+# Get the site back up: the app runs fine by hand — restart the app manager cleanly
 
-The files on the server are correct. The uploaded package is healthy — I ran it here on the same Node version and the homepage serves at about 120 KB, well under the firewall limit that caused the original problem. The startup file on the server (104.5 KB) is exactly the one from that package, the application root and startup path are right, and the environment variables are in place.
+Good news from your last screenshot: `npm run start` launched `node dist/server/index.mjs` and printed **no error** — the app starts and stays running when launched by hand. So the deployed code is healthy. The failure happens only in the hand-off from Plesk's app manager (Passenger) to the app, which points at a stale or stuck Passenger process rather than broken files.
 
-So the remaining question is not "which files" but "why won't it launch". The Plesk log screenshots only show the result (500 on every page) and a separate firewall block on the Passenger error page itself — never the reason. We need that one line.
+## Step 1 — Stop the manual run, then force a clean restart
 
-## Step 1 — Show only the Node.js log (fastest answer)
+The manual `npm run start` may still be running in the background and can hold the port.
 
-Your latest screenshot shows the log page has a dropdown on the right listing log types. Open it, untick everything except **Node.js**, then press **Refresh**. That view contains the application's own startup output — the real reason it won't launch. Send me a screenshot of those lines.
+1. On the Node.js **Dashboard** tab, click **Disable Node.js**, wait ten seconds.
+2. Click **Enable Node.js** (same button), confirm Node.js version 22.23.2, Application Root `/ammarai.com`, Startup File `dist/server/index.mjs`.
+3. Click **Restart App**.
+4. Wait one minute, then open https://ammarai.com/ once.
 
-Everything currently visible is the wrong log: the Apache entries only show the resulting 500s, and the ModSecurity 403 is the firewall blocking the Passenger error page's own link, not our app.
+## Step 2 — If it still fails, capture the restart live
 
-## Step 2 — Run the app by hand
+1. Open the **Logs** page, keep **all** log types ticked, and press **Start real-time updates**.
+2. In another tab, open https://ammarai.com/ once.
+3. Send me a screenshot of the new lines that appear — the first request after a restart is when Passenger prints its real boot error (it never reached the Node.js log because the app was never launched through Passenger).
 
-Only `npm` and `yarn` are offered in that runner — fine, because the project's `package.json` already has a `start` script that runs `node dist/server/index.mjs`. Keep the dropdown on **npm**, type:
+## Step 3 — If no clear line appears, ask the host one question
 
-```
-run start
-```
-
-and press the play button. This is exactly the same command Passenger runs, but its output is printed directly to you. Send me a screenshot of whatever it prints — if the app is fine it will say it's listening and keep running (press it a second time or go back to the Dashboard and use Restart App afterwards).
-
-
-## Step 3 — Likely causes, in order, and what each needs
-
-1. **File ownership after extraction.** Files unzipped through File Manager sometimes end up owned by a different user than the one Passenger runs as, so the app cannot read them. Fix: in File Manager, select the `dist` folder → Change Permissions / ownership so it matches the other site files (compare against `dist-old`).
-2. **Leftover conflict.** If `dist-old` is still inside the application root and anything was copied back into `dist` by hand, remove stray extra copies so only the extracted `dist` remains (plus `dist/public/media`).
-3. **A dependency the server build expects from the site's `node_modules`.** Node.js panel → **NPM install**, then **Restart App**.
+Send your host this exact message: "Passenger fails to start my Node.js app (Error ID bc90aac5), but `node dist/server/index.mjs` runs cleanly by hand. Please check the Passenger application log for ammarai.com and tell me the startup error."
 
 ## Step 4 — Confirm the original problem is gone
 
@@ -33,6 +27,6 @@ Once the site answers again, open https://ammarai.com/ and refresh twice. The "P
 
 ## Notes
 
-- No code changes are needed for this; the fix is already in the deployed package and verified locally (homepage 121,979 bytes; `/error_docs` serves the homepage; genuine unknown addresses still return a real 404).
+- No code changes are needed; the deployed package is verified healthy (homepage 121,979 bytes; `/error_docs` serves the homepage; genuine unknown addresses still return a real 404).
 - Keep `dist-old` until the site is confirmed working, then delete it.
 - Still open separately: asking the host to send `/` straight to the app instead of through their error-document handling, and rewriting the AI SEO Analyzer tutorial page around the four documented functions.
