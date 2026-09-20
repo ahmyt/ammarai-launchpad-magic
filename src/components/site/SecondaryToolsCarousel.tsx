@@ -6,7 +6,6 @@ import { ActionButton, ButtonLink } from "@/components/site/Button";
 
 const showcaseSlugs = [
   "ai-blogger-agent",
-  "ai-social-media-publisher",
   "ai-deep-research",
   "ai-video-editor",
   "ai-captions",
@@ -21,6 +20,7 @@ const showcaseSlugs = [
   "ai-document-analyzer",
   "ai-music-generator",
   "ai-seo-analyzer",
+  "ai-social-media-publisher",
 ];
 
 const showcaseOutcomes: Record<(typeof showcaseSlugs)[number], string> = {
