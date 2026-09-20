@@ -253,12 +253,13 @@ function ToolPage({ tool }: { tool: Tool }) {
       <Section>
         <Container>
           <SectionHeading
-            eyebrow={hasAudioDemo ? "Hear it in action" : "Examples"}
+            eyebrow={hasAudioDemo ? "Audio samples" : "Examples"}
             title={
               hasAudioDemo
-                ? "Listen to sample output"
+                ? "Hear it in action"
                 : "What good input and output look like"
             }
+            intro={hasAudioDemo ? "Play the real sample output for each example below." : undefined}
           />
           <AnimatedExample
             examples={tool.examples}
