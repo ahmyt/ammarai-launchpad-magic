@@ -173,6 +173,21 @@ Node.js → Custom environment variables**:
 | `SMTP_PASS` | `••••••••` | Mailbox password |
 | `SMTP_FROM` | `support@ammarai.com` | Optional; defaults to `SMTP_USER` |
 
+## Contact form spam protection (Cloudflare Turnstile)
+
+| Variable | Example | Notes |
+| --- | --- | --- |
+| `VITE_TURNSTILE_SITE_KEY` | `0x4AAA...` | Public site key; must be set **before** `vite build` (optional if the key is entered in CMS → Site settings) |
+| `TURNSTILE_SECRET_KEY` | `0x4AAA...` | Secret key; server-only, set in Plesk environment variables |
+
+Create a free "Managed" Turnstile widget at
+<https://dash.cloudflare.com/?to=/:account/turnstile> for `ammarai.com`. The
+captcha is enforced only when `TURNSTILE_SECRET_KEY` is set **and** the CMS
+switch "Require captcha on the contact form" is on. Without the keys the form
+still works and the invisible checks (hidden trap field, minimum fill time,
+one message per minute, ten per day) stay active at all times.
+
+
 The CMS Contact page fields `fromName` and `notifyEmail` still apply. The
 authenticated `SMTP_USER` is always used as the envelope sender. `SMTP_FROM`
 must be that mailbox or an alias that Plesk explicitly permits; a different
