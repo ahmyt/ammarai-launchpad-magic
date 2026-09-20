@@ -184,5 +184,7 @@ export interface Page {
   requireContactCaptcha?: boolean;
   /** Cloudflare Turnstile site key (public value from the Turnstile widget) */
   turnstileSiteKey?: string;
+  /** Allow new content studio accounts to be created from /auth */
+  allowCmsSignup?: boolean;
 }
 
