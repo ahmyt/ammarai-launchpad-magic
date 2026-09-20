@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { siteContentQuery } from "@/lib/content";
 import type { Example } from "@/data/types";
 import type { ToolDemoMedia } from "@/data/tool-demos";
 import { cn } from "@/lib/utils";
@@ -59,6 +61,10 @@ export function AnimatedExample({
   className?: string;
 }) {
   const reduced = usePrefersReducedMotion();
+  const { data: siteContent } = useSuspenseQuery(siteContentQuery);
+  const allowDownload =
+    siteContent.pages.find((p) => p.slug === "settings")?.allowVideoDownload === true;
+  const downloadControls = allowDownload ? undefined : "nodownload";
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("typing");
   const [typed, setTyped] = useState("");
@@ -375,6 +381,7 @@ export function AnimatedExample({
                   src={media.inputVideo}
                   poster={videoPoster(media.inputVideo)}
                   controls
+                  controlsList={downloadControls}
                   muted
                   playsInline
                   preload="metadata"
@@ -600,6 +607,7 @@ export function AnimatedExample({
                         key={demoVideo.url}
                         src={demoVideo.url}
                         poster={demoVideo.poster ?? videoPoster(demoVideo.url)}
+                        controlsList={downloadControls}
                         title={`${toolName} — ${example.label}`}
                         className="aspect-video w-full object-contain"
                         autoPlay
