@@ -209,6 +209,48 @@ export const Route = createFileRoute("/api/contact")({
         }
         const { name, email, message } = parsed.data;
 
+        // Hidden trap field: only a bot fills it in. Report success so the
+        // sender learns nothing, but store and send nothing.
+        if (parsed.data.company && parsed.data.company.trim().length > 0) {
+          console.info("Contact submission rejected: honeypot filled");
+          return Response.json({ ok: true, saved: false, emailSent: false, confirmationSent: true });
+        }
+
+        // A form filled faster than a human can type is scripted.
+        if (parsed.data.elapsedMs !== undefined && parsed.data.elapsedMs < MIN_FILL_MS) {
+          return Response.json(
+            { error: "That was a little too quick — please try sending again." },
+            { status: 429 },
+          );
+        }
+
+        const forwarded = request.headers.get("x-forwarded-for") ?? "";
+        const clientIp =
+          forwarded.split(",")[0]?.trim() ||
+          request.headers.get("cf-connecting-ip") ||
+          request.headers.get("x-real-ip") ||
+          undefined;
+        const now = Date.now();
+        const keys = [`email:${email.toLowerCase()}`];
+        if (clientIp) keys.push(`ip:${await hashIp(clientIp)}`);
+        let tooSoon = false;
+        let tooMany = false;
+        for (const key of keys) {
+          const result = noteAndCheck(key, now);
+          tooSoon = tooSoon || result.tooSoon;
+          tooMany = tooMany || result.tooMany;
+        }
+        if (tooSoon || tooMany) {
+          return Response.json(
+            {
+              error: tooMany
+                ? "You have sent several messages today. Please email support@ammarai.com directly."
+                : "You just sent a message. Please wait a minute before sending another.",
+            },
+            { status: 429 },
+          );
+        }
+
         // Store the message first — it must never be lost, even if email fails.
         // Fall back to the build-time VITE_* config so self-hosted deployments
         // (e.g. Plesk) work without server-only env vars. These are the public
