@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ActionButton, ButtonLink } from "@/components/site/Button";
 import { LOGIN_URL } from "@/lib/site";
 import { siteContentQuery } from "@/lib/content";
+import { Turnstile } from "@/components/site/Turnstile";
 
 const title = "Contact AmmarAI: Sales, Support and Partnerships | AmmarAI";
 const description =
@@ -115,8 +116,18 @@ function Contact() {
   const [confirmationSent, setConfirmationSent] = useState(true);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [startedAt] = useState(() => Date.now());
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const page = content.pages.find((p) => p.slug === "contact");
+  const settings = content.pages.find((p) => p.slug === "settings");
+
+  const captchaEnabled = settings?.requireContactCaptcha !== false;
+  const siteKey =
+    (settings?.turnstileSiteKey ?? "").trim() ||
+    (import.meta.env["VITE_TURNSTILE_SITE_KEY"] as string | undefined)?.trim() ||
+    "";
+  const showCaptcha = captchaEnabled && siteKey.length > 0;
 
   const eyebrow = page?.eyebrow ?? "Contact";
   const h1 = page?.h1 ?? "Tell us what you are trying to build";
@@ -171,6 +182,10 @@ function Contact() {
                     if (sending) return;
                     const form = e.currentTarget;
                     const data = new FormData(form);
+                    if (showCaptcha && !captchaToken) {
+                      setError("Please complete the verification check below and try again.");
+                      return;
+                    }
                     setSending(true);
                     setError(null);
                     try {
@@ -181,6 +196,9 @@ function Contact() {
                           name: String(data.get("name") ?? ""),
                           email: String(data.get("email") ?? ""),
                           message: String(data.get("message") ?? ""),
+                          company: String(data.get("company") ?? ""),
+                          elapsedMs: Date.now() - startedAt,
+                          captchaToken: captchaToken ?? "",
                         }),
                       });
                       const raw = await res.text();
@@ -254,6 +272,12 @@ function Contact() {
                       className="mt-1.5 w-full rounded-md bg-background px-3.5 py-2.5 text-sm text-foreground ring-1 ring-border focus:outline-2 focus:outline-offset-2 focus:outline-ring"
                     />
                   </div>
+                  {/* Spam trap: hidden from people, tempting to bots. */}
+                  <div aria-hidden="true" className="hidden">
+                    <label htmlFor="company">Company</label>
+                    <input id="company" name="company" tabIndex={-1} autoComplete="off" />
+                  </div>
+                  {showCaptcha ? <Turnstile siteKey={siteKey} onToken={setCaptchaToken} /> : null}
                   {error ? (
                     <p role="alert" className="text-sm text-destructive">
                       {error}

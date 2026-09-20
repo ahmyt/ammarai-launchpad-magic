@@ -223,6 +223,16 @@ const pageSettingsFields: FieldSpec[] = [
     label: "Allow visitors to download videos",
     type: "boolean",
   },
+  {
+    name: "requireContactCaptcha",
+    label: "Require captcha on the contact form",
+    type: "boolean",
+  },
+  {
+    name: "turnstileSiteKey",
+    label: "Cloudflare Turnstile site key",
+    type: "text",
+  },
 ];
 
 /** Fields shown when editing a specific page — keeps Contact, Home and Settings separate. */

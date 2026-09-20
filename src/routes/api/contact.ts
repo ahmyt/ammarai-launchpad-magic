@@ -7,9 +7,70 @@ const contactSchema = z.object({
   name: z.string().trim().min(1).max(100),
   email: z.string().trim().email().max(255),
   message: z.string().trim().min(1).max(5000),
+  /** Hidden trap field — always empty for real visitors. */
+  company: z.string().max(200).optional(),
+  /** Milliseconds the visitor spent on the form before submitting. */
+  elapsedMs: z.number().int().nonnegative().optional(),
+  captchaToken: z.string().max(4096).optional(),
 });
 
 const DEFAULT_NOTIFY_EMAIL = "support@ammarai.com";
+
+/** Minimum time a genuine visitor needs to fill the form. */
+const MIN_FILL_MS = 3000;
+const RATE_WINDOW_MS = 60_000;
+const DAY_MS = 24 * 60 * 60 * 1000;
+const MAX_PER_DAY = 10;
+
+// In-process submission history, keyed by hashed IP and by email address.
+// Enough to stop scripted floods; the captcha handles distributed abuse.
+const recent = new Map<string, number[]>();
+
+const noteAndCheck = (key: string, now: number): { tooSoon: boolean; tooMany: boolean } => {
+  const history = (recent.get(key) ?? []).filter((t) => now - t < DAY_MS);
+  const tooSoon = history.some((t) => now - t < RATE_WINDOW_MS);
+  const tooMany = history.length >= MAX_PER_DAY;
+  history.push(now);
+  recent.set(key, history);
+  if (recent.size > 5000) {
+    for (const [k, v] of recent) if (v.every((t) => now - t >= DAY_MS)) recent.delete(k);
+  }
+  return { tooSoon, tooMany };
+};
+
+const hashIp = async (ip: string): Promise<string> => {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(ip));
+  return Array.from(new Uint8Array(digest).slice(0, 8))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+};
+
+/** Verifies a Turnstile token with Cloudflare. */
+const verifyCaptcha = async (token: string, ip: string | undefined): Promise<boolean> => {
+  const secret = process.env["TURNSTILE_SECRET_KEY"];
+  if (!secret) {
+    console.warn("TURNSTILE_SECRET_KEY is not configured — captcha verification skipped");
+    return true;
+  }
+  if (!token) return false;
+  try {
+    const body = new URLSearchParams({ secret, response: token });
+    if (ip) body.set("remoteip", ip);
+    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body,
+    });
+    const result = (await res.json()) as { success?: boolean; "error-codes"?: string[] };
+    if (!result.success) {
+      console.warn("Turnstile verification failed", result["error-codes"]);
+    }
+    return result.success === true;
+  } catch (error) {
+    console.error("Turnstile verification error", error);
+    return false;
+  }
+};
 
 type EmailSettings = {
   senderDomain?: string | undefined;
@@ -148,6 +209,48 @@ export const Route = createFileRoute("/api/contact")({
         }
         const { name, email, message } = parsed.data;
 
+        // Hidden trap field: only a bot fills it in. Report success so the
+        // sender learns nothing, but store and send nothing.
+        if (parsed.data.company && parsed.data.company.trim().length > 0) {
+          console.info("Contact submission rejected: honeypot filled");
+          return Response.json({ ok: true, saved: false, emailSent: false, confirmationSent: true });
+        }
+
+        // A form filled faster than a human can type is scripted.
+        if (parsed.data.elapsedMs !== undefined && parsed.data.elapsedMs < MIN_FILL_MS) {
+          return Response.json(
+            { error: "That was a little too quick — please try sending again." },
+            { status: 429 },
+          );
+        }
+
+        const forwarded = request.headers.get("x-forwarded-for") ?? "";
+        const clientIp =
+          forwarded.split(",")[0]?.trim() ||
+          request.headers.get("cf-connecting-ip") ||
+          request.headers.get("x-real-ip") ||
+          undefined;
+        const now = Date.now();
+        const keys = [`email:${email.toLowerCase()}`];
+        if (clientIp) keys.push(`ip:${await hashIp(clientIp)}`);
+        let tooSoon = false;
+        let tooMany = false;
+        for (const key of keys) {
+          const result = noteAndCheck(key, now);
+          tooSoon = tooSoon || result.tooSoon;
+          tooMany = tooMany || result.tooMany;
+        }
+        if (tooSoon || tooMany) {
+          return Response.json(
+            {
+              error: tooMany
+                ? "You have sent several messages today. Please email support@ammarai.com directly."
+                : "You just sent a message. Please wait a minute before sending another.",
+            },
+            { status: 429 },
+          );
+        }
+
         // Store the message first — it must never be lost, even if email fails.
         // Fall back to the build-time VITE_* config so self-hosted deployments
         // (e.g. Plesk) work without server-only env vars. These are the public
@@ -178,6 +281,30 @@ export const Route = createFileRoute("/api/contact")({
             },
           },
         });
+
+        // Captcha is enforced only when the CMS switch is on and a secret key
+        // is configured, so the form never blocks visitors during setup.
+        if (process.env["TURNSTILE_SECRET_KEY"]) {
+          const { data: settingsRow } = await supabase
+            .from("content")
+            .select("data")
+            .eq("kind", "page")
+            .eq("slug", "settings")
+            .maybeSingle();
+          const settings = (settingsRow?.data ?? {}) as { requireContactCaptcha?: boolean };
+          if (settings.requireContactCaptcha !== false) {
+            const passed = await verifyCaptcha(parsed.data.captchaToken ?? "", clientIp);
+            if (!passed) {
+              return Response.json(
+                {
+                  error:
+                    "The verification check did not pass. Please refresh the page and try again.",
+                },
+                { status: 400 },
+              );
+            }
+          }
+        }
 
         const messageId = crypto.randomUUID();
         const { error: insertError } = await supabase
