@@ -144,6 +144,8 @@ function Json({ data }: { data: unknown }) {
 
 function ToolPage({ tool }: { tool: Tool }) {
   const toolMap = useToolMap();
+  const demoMedia = resolveDemoVideos(tool);
+  const hasAudioDemo = (demoMedia ?? []).some((d) => d?.kind === "audio");
   const workflow = allToolWorkflows.find((item) => item.slug === tool.slug);
   const relatedSlugs = tool.related.length >= 4
     ? tool.related
@@ -250,11 +252,18 @@ function ToolPage({ tool }: { tool: Tool }) {
 
       <Section>
         <Container>
-          <SectionHeading eyebrow="Examples" title="What good input and output look like" />
+          <SectionHeading
+            eyebrow={hasAudioDemo ? "Hear it in action" : "Examples"}
+            title={
+              hasAudioDemo
+                ? "Listen to sample output"
+                : "What good input and output look like"
+            }
+          />
           <AnimatedExample
             examples={tool.examples}
             toolName={tool.name}
-            demoVideos={resolveDemoVideos(tool)}
+            demoVideos={demoMedia}
             className="mt-8 max-w-3xl"
           />
 
@@ -302,17 +311,37 @@ function ToolPage({ tool }: { tool: Tool }) {
 
       <Section>
         <Container>
-          <SectionHeading eyebrow="Who it is for" title="People who get the most from this" />
-          <div className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-2">
-            {tool.audiences.map((a) => (
-              <div key={a.who} className="border-t border-border pt-4">
-                <h3 className="text-base font-semibold text-foreground">{a.who}</h3>
-                <p className="mt-1.5 text-pretty text-sm leading-relaxed text-muted-foreground">
-                  {a.why}
-                </p>
-              </div>
-            ))}
-          </div>
+          <SectionHeading
+            eyebrow="Who it is for"
+            title={
+              tool.slug === "ai-phone-agent"
+                ? "Built for the businesses that miss calls"
+                : "People who get the most from this"
+            }
+          />
+          {tool.slug === "ai-phone-agent" ? (
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {tool.audiences.map((a) => (
+                <Card key={a.who} interactive className="p-6">
+                  <h3 className="text-base font-semibold text-foreground">{a.who}</h3>
+                  <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
+                    {a.why}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+              {tool.audiences.map((a) => (
+                <div key={a.who} className="border-t border-border pt-4">
+                  <h3 className="text-base font-semibold text-foreground">{a.who}</h3>
+                  <p className="mt-1.5 text-pretty text-sm leading-relaxed text-muted-foreground">
+                    {a.why}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
         </Container>
       </Section>
 
