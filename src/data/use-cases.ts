@@ -1,5 +1,6 @@
 import type { UseCase } from "./types";
 import { intentUseCases } from "./intent-use-cases";
+import { industryUseCases } from "./use-cases-industries";
 
 export const useCases: UseCase[] = [
   {
@@ -543,4 +544,5 @@ export const useCases: UseCase[] = [
     ]
   },
   ...intentUseCases,
+  ...industryUseCases,
 ];
