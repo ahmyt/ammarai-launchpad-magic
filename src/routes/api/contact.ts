@@ -282,6 +282,30 @@ export const Route = createFileRoute("/api/contact")({
           },
         });
 
+        // Captcha is enforced only when the CMS switch is on and a secret key
+        // is configured, so the form never blocks visitors during setup.
+        if (process.env["TURNSTILE_SECRET_KEY"]) {
+          const { data: settingsRow } = await supabase
+            .from("content")
+            .select("data")
+            .eq("kind", "page")
+            .eq("slug", "settings")
+            .maybeSingle();
+          const settings = (settingsRow?.data ?? {}) as { requireContactCaptcha?: boolean };
+          if (settings.requireContactCaptcha !== false) {
+            const passed = await verifyCaptcha(parsed.data.captchaToken ?? "", clientIp);
+            if (!passed) {
+              return Response.json(
+                {
+                  error:
+                    "The verification check did not pass. Please refresh the page and try again.",
+                },
+                { status: 400 },
+              );
+            }
+          }
+        }
+
         const messageId = crypto.randomUUID();
         const { error: insertError } = await supabase
           .from("contact_messages")
