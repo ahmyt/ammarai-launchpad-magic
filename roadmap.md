@@ -366,3 +366,8 @@
 - [x] CMS switch "Require captcha on the contact form"
 - [x] SELF_HOSTING.md env vars documented
 - [ ] User: create the Turnstile widget and add the two keys, then rebuild for Plesk
+
+## Extend workflow stories to 30 more major tools (2026-09-20)
+- [x] toolWorkflows (30 hand-written Bring/AmmarAI/Get entries) in src/data/ecosystem.ts
+- [x] $slug.tsx renders workflow card for all 40 tools; related-workflows fallback preserved
+- [x] Verified: new cards on major tools, none on template pages, homepage still 10 stories, build OK

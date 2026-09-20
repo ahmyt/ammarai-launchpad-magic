@@ -14,7 +14,7 @@ import { AnimatedExample } from "@/components/site/AnimatedExample";
 import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
 import { toolDemoMedia, type ToolDemoMedia } from "@/data/tool-demos";
 import { tutorialsByTool } from "@/data/tutorials";
-import { flagshipWorkflows, pillarForTool } from "@/data/ecosystem";
+import { allToolWorkflows, pillarForTool } from "@/data/ecosystem";
 import { useCases } from "@/data/use-cases";
 import { Home } from "./index";
 
@@ -144,7 +144,7 @@ function Json({ data }: { data: unknown }) {
 
 function ToolPage({ tool }: { tool: Tool }) {
   const toolMap = useToolMap();
-  const workflow = flagshipWorkflows.find((item) => item.slug === tool.slug);
+  const workflow = allToolWorkflows.find((item) => item.slug === tool.slug);
   const relatedSlugs = tool.related.length >= 4
     ? tool.related
     : [...new Set([
@@ -153,8 +153,11 @@ function ToolPage({ tool }: { tool: Tool }) {
           .filter((candidate) => candidate.slug !== tool.slug && pillarForTool(candidate) === pillarForTool(tool))
           .map((candidate) => candidate.slug),
       ])].slice(0, 4);
-  const relatedUseCases = workflow
+  const workflowUseCases = workflow
     ? workflow.useCaseSlugs.flatMap((slug) => useCases.find((item) => item.slug === slug) ?? [])
+    : [];
+  const relatedUseCases = workflowUseCases.length > 0
+    ? workflowUseCases
     : useCases.filter((item) => item.toolkit.some((entry) => entry.slug === tool.slug)).slice(0, 3);
   return (
     <article>
