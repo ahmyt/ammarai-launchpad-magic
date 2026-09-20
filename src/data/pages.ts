@@ -97,5 +97,6 @@ export const pages: Page[] = [
     allowVideoDownload: false,
     requireContactCaptcha: true,
     turnstileSiteKey: "",
+    allowCmsSignup: false,
   },
 ];

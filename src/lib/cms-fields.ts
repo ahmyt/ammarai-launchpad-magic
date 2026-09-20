@@ -233,6 +233,11 @@ const pageSettingsFields: FieldSpec[] = [
     label: "Cloudflare Turnstile site key",
     type: "text",
   },
+  {
+    name: "allowCmsSignup",
+    label: "Allow new content studio accounts (sign-up) — ask to also re-enable it in the backend",
+    type: "boolean",
+  },
 ];
 
 /** Fields shown when editing a specific page — keeps Contact, Home and Settings separate. */
