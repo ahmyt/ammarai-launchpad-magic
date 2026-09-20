@@ -181,6 +181,10 @@ function Contact() {
                     if (sending) return;
                     const form = e.currentTarget;
                     const data = new FormData(form);
+                    if (showCaptcha && !captchaToken) {
+                      setError("Please complete the verification check below and try again.");
+                      return;
+                    }
                     setSending(true);
                     setError(null);
                     try {
@@ -191,6 +195,9 @@ function Contact() {
                           name: String(data.get("name") ?? ""),
                           email: String(data.get("email") ?? ""),
                           message: String(data.get("message") ?? ""),
+                          company: String(data.get("company") ?? ""),
+                          elapsedMs: Date.now() - startedAt,
+                          captchaToken: captchaToken ?? "",
                         }),
                       });
                       const raw = await res.text();
