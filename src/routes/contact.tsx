@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ActionButton, ButtonLink } from "@/components/site/Button";
 import { LOGIN_URL } from "@/lib/site";
 import { siteContentQuery } from "@/lib/content";
+import { Turnstile } from "@/components/site/Turnstile";
 
 const title = "Contact AmmarAI: Sales, Support and Partnerships | AmmarAI";
 const description =
@@ -271,6 +272,12 @@ function Contact() {
                       className="mt-1.5 w-full rounded-md bg-background px-3.5 py-2.5 text-sm text-foreground ring-1 ring-border focus:outline-2 focus:outline-offset-2 focus:outline-ring"
                     />
                   </div>
+                  {/* Spam trap: hidden from people, tempting to bots. */}
+                  <div aria-hidden="true" className="hidden">
+                    <label htmlFor="company">Company</label>
+                    <input id="company" name="company" tabIndex={-1} autoComplete="off" />
+                  </div>
+                  {showCaptcha ? <Turnstile siteKey={siteKey} onToken={setCaptchaToken} /> : null}
                   {error ? (
                     <p role="alert" className="text-sm text-destructive">
                       {error}
