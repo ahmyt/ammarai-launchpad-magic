@@ -237,12 +237,24 @@ export const agentTools: Tool[] = [
     ],
     audiences: [
       {
-        who: "Clinics and salons",
-        why: "Take bookings while the team is with clients and the phone would otherwise ring out.",
+        who: "Clinics and dentists",
+        why: "Take bookings while the team is with patients and the phone would otherwise ring out.",
       },
       {
-        who: "Trades and service businesses",
-        why: "Never lose a job because you were up a ladder when they called.",
+        who: "Trades",
+        why: "Never lose a job because you were up a ladder or under a sink when they called.",
+      },
+      {
+        who: "Mechanics and auto services",
+        why: "Capture every booking and quote request while the team is in the workshop.",
+      },
+      {
+        who: "Restaurants and salons",
+        why: "Answer table and appointment requests during the rush instead of after it.",
+      },
+      {
+        who: "Home services",
+        why: "Book call-outs and give opening hours and prices while you're on another job.",
       },
       {
         who: "Sales teams",
