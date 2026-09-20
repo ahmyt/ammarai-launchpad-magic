@@ -1,6 +1,8 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { siteContentQuery } from "@/lib/content";
 import { lovable } from "@/integrations/lovable/index";
 import { Container, Section } from "@/components/site/primitives";
 
@@ -35,6 +37,9 @@ function isLovableHosted(hostname: string) {
 
 function AuthPage() {
   const navigate = useNavigate();
+  const { data: content } = useSuspenseQuery(siteContentQuery);
+  const settings = content.pages.find((p) => p.slug === "settings");
+  const signupAllowed = settings?.allowCmsSignup === true;
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -58,6 +63,11 @@ function AuthPage() {
     setBusy(true);
     setMessage(null);
     if (mode === "signup") {
+      if (!signupAllowed) {
+        setMessage("New accounts are disabled. Ask an administrator for access.");
+        setBusy(false);
+        return;
+      }
       const { error } = await supabase.auth.signUp({
         email,
         password,
@@ -103,7 +113,7 @@ function AuthPage() {
       <Container className="max-w-md">
         <p className="eyebrow">Content studio</p>
         <h1 className="mt-4 text-3xl sm:text-4xl">
-          {mode === "signin" ? "Sign in" : "Create an account"}
+          {mode === "signin" || !signupAllowed ? "Sign in" : "Create an account"}
         </h1>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
           Team access only. Once signed in you can edit every tool, use case, feature and blog post
@@ -143,7 +153,7 @@ function AuthPage() {
             disabled={busy}
             className="w-full rounded-md bg-ink px-4 py-3 text-sm font-semibold text-ink-foreground disabled:opacity-60"
           >
-            {busy ? "Working…" : mode === "signin" ? "Sign in" : "Create account"}
+            {busy ? "Working…" : mode === "signin" || !signupAllowed ? "Sign in" : "Create account"}
           </button>
         </form>
 
@@ -157,13 +167,15 @@ function AuthPage() {
 
         {message ? <p className="mt-4 text-sm text-muted-foreground">{message}</p> : null}
 
-        <button
-          type="button"
-          onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-          className="mt-6 text-sm text-accent underline underline-offset-4"
-        >
-          {mode === "signin" ? "Need an account? Sign up" : "Already have an account? Sign in"}
-        </button>
+        {signupAllowed ? (
+          <button
+            type="button"
+            onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
+            className="mt-6 text-sm text-accent underline underline-offset-4"
+          >
+            {mode === "signin" ? "Need an account? Sign up" : "Already have an account? Sign in"}
+          </button>
+        ) : null}
 
         <p className="mt-8 text-sm">
           <Link to="/" className="text-muted-foreground underline underline-offset-4">
