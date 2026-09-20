@@ -178,5 +178,7 @@ export interface Page {
   showHomepageTrustLogos?: boolean;
   /** Show the homepage AI models strip */
   showHomepageAiModels?: boolean;
+  /** Allow visitors to download videos from the browser player menu */
+  allowVideoDownload?: boolean;
 }
 

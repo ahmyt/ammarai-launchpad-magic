@@ -218,6 +218,11 @@ const pageSettingsFields: FieldSpec[] = [
     label: "Show the AI models scrolling strip",
     type: "boolean",
   },
+  {
+    name: "allowVideoDownload",
+    label: "Allow visitors to download videos",
+    type: "boolean",
+  },
 ];
 
 /** Fields shown when editing a specific page — keeps Contact, Home and Settings separate. */

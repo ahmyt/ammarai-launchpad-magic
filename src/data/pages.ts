@@ -94,5 +94,6 @@ export const pages: Page[] = [
     fadeHomepageLogos: true,
     showHomepageTrustLogos: true,
     showHomepageAiModels: true,
+    allowVideoDownload: false,
   },
 ];

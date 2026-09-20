@@ -340,6 +340,7 @@ export function Home() {
                <Card key={item.slug} className={`studio-video-card overflow-hidden p-0 ${index === 0 ? "studio-video-lead sm:col-span-2 lg:col-span-1 lg:row-span-2" : ""}`}>
                 <video
                   controls
+                  controlsList={settings?.allowVideoDownload === true ? undefined : "nodownload"}
                   muted
                   playsInline
                   preload="none"
