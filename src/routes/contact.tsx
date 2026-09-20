@@ -115,8 +115,18 @@ function Contact() {
   const [confirmationSent, setConfirmationSent] = useState(true);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [startedAt] = useState(() => Date.now());
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const page = content.pages.find((p) => p.slug === "contact");
+  const settings = content.pages.find((p) => p.slug === "settings");
+
+  const captchaEnabled = settings?.requireContactCaptcha !== false;
+  const siteKey =
+    (settings?.turnstileSiteKey ?? "").trim() ||
+    (import.meta.env["VITE_TURNSTILE_SITE_KEY"] as string | undefined)?.trim() ||
+    "";
+  const showCaptcha = captchaEnabled && siteKey.length > 0;
 
   const eyebrow = page?.eyebrow ?? "Contact";
   const h1 = page?.h1 ?? "Tell us what you are trying to build";
