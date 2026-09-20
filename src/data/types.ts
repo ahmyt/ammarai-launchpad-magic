@@ -180,5 +180,9 @@ export interface Page {
   showHomepageAiModels?: boolean;
   /** Allow visitors to download videos from the browser player menu */
   allowVideoDownload?: boolean;
+  /** Require the Cloudflare Turnstile captcha on the contact form */
+  requireContactCaptcha?: boolean;
+  /** Cloudflare Turnstile site key (public value from the Turnstile widget) */
+  turnstileSiteKey?: string;
 }
 

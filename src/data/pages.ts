@@ -95,5 +95,7 @@ export const pages: Page[] = [
     showHomepageTrustLogos: true,
     showHomepageAiModels: true,
     allowVideoDownload: false,
+    requireContactCaptcha: true,
+    turnstileSiteKey: "",
   },
 ];
