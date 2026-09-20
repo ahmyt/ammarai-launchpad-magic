@@ -358,3 +358,11 @@
 - [x] Workspace section -> "How it works" 3-step flow + "Everything stays connected" chips label
 - [x] Feature cards trimmed 6 -> 3
 - [x] Verified: visible copy has "one workspace" once (comparison line); meta/og descriptions keep it for search snippets. Desktop/mobile/reduced-motion screenshots pass, no console errors
+
+## Contact form spam protection (2026-09-20)
+- [x] Cloudflare Turnstile widget on /contact (site key from CMS Site settings or VITE_TURNSTILE_SITE_KEY)
+- [x] Server-side token verification with TURNSTILE_SECRET_KEY
+- [x] Invisible checks: honeypot, 3s minimum fill time, 1/min and 10/day limits
+- [x] CMS switch "Require captcha on the contact form"
+- [x] SELF_HOSTING.md env vars documented
+- [ ] User: create the Turnstile widget and add the two keys, then rebuild for Plesk
