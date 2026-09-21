@@ -9,7 +9,7 @@ export const coreToolsB: Tool[] = [
       "Turn any image into a talking avatar video with realistic lip-sync and natural expressions. Ideal for product explainers, social content, training videos, and personal branding.",
     title: "AI Avatar Video Generator: Talking Avatar Videos | AmmarAI",
     description:
-      "Turn any image into a talking avatar video with realistic lip-sync and natural expressions. Ideal for product explainers, social content, training videos and…",
+      "Turn any image into a talking avatar video with realistic lip-sync and natural expressions, ideal for explainers, social content and training videos too.",
     h1: "Create professional animated talking videos",
     lede: "Bring your visuals to life with AI-powered avatar talking videos. Turn any image or video into an engaging animated clip by adding your script or voice, with realistic lip-sync and natural facial expressions.",
     ctaLabel: "Create a talking avatar",

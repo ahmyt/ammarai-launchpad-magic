@@ -9,7 +9,7 @@ export const coreToolsA: Tool[] = [
       "A flexible writing workspace for drafts, long-form articles, rewrites, and brand-consistent content. Includes templates, the Article Wizard, Smart Editor, and tone controls so every piece stays on-brand.",
     title: "AI Writer: Draft, Edit and Rewrite Faster | AmmarAI",
     description:
-      "A flexible writing workspace for drafts, long-form articles and rewrites, with templates, the Article Wizard, Smart Editor and tone controls that keep every…",
+      "A flexible writing workspace for drafts, long-form articles and rewrites, with templates, the Article Wizard, Smart Editor and tone controls for any voice.",
     h1: "The writing surface where drafts actually get finished",
     lede: "AmmarAI's AI Writer is a full editor, not a one-shot text box. Draft, select, rewrite, expand and trim until the piece reads the way you would have written it on a good day.",
     ctaLabel: "Try AI Writer",
@@ -167,7 +167,7 @@ export const coreToolsA: Tool[] = [
       "A multi-model chat with personas, reusable skills, smart memory, live web search, file uploads and organised folders — and it hands finished work to the rest of the platform.",
     title: "AI Chat Pro: Multi-Model Chat With Memory and Skills | AmmarAI",
     description:
-      "Chat with several leading AI models in one thread, add personas and reusable skills, search the live web, upload files, keep smart memory across conversations…",
+      "Chat with several leading AI models in one thread. Add personas and skills, search the live web, upload files and keep memory across every conversation.",
     h1: "One chat window, every model, and a memory that carries over",
     lede: "AI Chat Pro is where you think out loud: pick the model that suits the job, give it a persona and a skill, let it search the live web or read your files, and keep the useful parts in memory for next time.",
     ctaLabel: "Open AI Chat Pro",
@@ -361,7 +361,7 @@ export const coreToolsA: Tool[] = [
       "A full image studio: generate from text, edit with a brush, keep one character or style consistent, swap backgrounds, upscale and export every size you need.",
     title: "AI Image Pro: Generate, Edit and Upscale Images | AmmarAI",
     description:
-      "Generate images from text, edit them with reference images and a brush, keep characters and styles consistent, remove or replace backgrounds, upscale and…",
+      "Generate images from text, edit them with reference images and a brush, keep characters and styles consistent, replace backgrounds and upscale for print.",
     h1: "A complete image studio, not just a prompt box",
     lede: "Image Pro generates, edits and finishes. Start from a description or an upload, paint over the part you want changed, hold one character or house style across a whole set, then upscale and export every ratio your campaign needs.",
     ctaLabel: "Open Image Pro",
@@ -808,7 +808,7 @@ export const coreToolsA: Tool[] = [
       "Generate natural-sounding voiceovers in 150+ languages and dialects. Clone your own voice or choose from a large library of neural voices, with control over tone, speed, and emotion.",
     title: "AI Voiceover & Voice Clone: Natural Narration | AmmarAI",
     description:
-      "Generate natural-sounding voiceovers in 150+ languages and dialects. Clone your own voice or pick from a neural voice library, with control over tone, speed…",
+      "Generate natural voiceovers in 150+ languages and dialects. Clone your own voice or pick a neural voice, with control over tone, speed and pronunciation.",
     h1: "Voiceover that sounds directed, not synthesised",
     lede: "Choose a voice, shape the delivery, and produce narration for video, courses and product audio without booking a studio.",
     ctaLabel: "Generate a voiceover",

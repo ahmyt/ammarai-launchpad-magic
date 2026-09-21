@@ -134,7 +134,7 @@ export const platformTools: Tool[] = [
       "Deploy a branded AI assistant on your website and messaging channels — trained on your content, able to take actions, capture leads and hand hard cases to a human.",
     title: "External Chatbot Builder: AI Agent on Your Site | AmmarAI",
     description:
-      "Build and embed a branded AI chatbot trained on your own content. It answers in any language, captures leads, takes real actions, escalates to a human and…",
+      "Build and embed a branded AI chatbot trained on your own content. It answers in any language, captures leads, takes real actions and escalates to a human.",
     h1: "Put a trained AI assistant on your own website",
     lede:
       "Build a chatbot that answers from your own content, matches your brand, speaks your customers' languages and knows when to fetch a human. Embed it in one line, connect it to your messaging channels, and read exactly what visitors ask.",
@@ -417,7 +417,7 @@ export const platformTools: Tool[] = [
       "Paste any product URL and get a complete video ad with voiceover, captions and an avatar — or turn long videos into viral short clips.",
     title: "AI URL to Video: Product Link to Video Ad | AmmarAI",
     description:
-      "Paste any product URL and automatically generate a complete video ad with voiceover, captions and avatar. Turn long-form videos into viral short clips and…",
+      "Paste any product URL and generate a complete video ad with voiceover, captions and an avatar, then turn long videos into viral short clips for social.",
     h1: "Paste a product link. Get a finished video ad.",
     lede: "Drop in any product URL and AmmarAI builds the ad for you — script, voiceover, captions and an on-screen avatar. The same toolkit turns long-form videos into short clips built for feeds, and creates influencer-style avatar videos without a shoot.",
     ctaLabel: "Generate a video ad",

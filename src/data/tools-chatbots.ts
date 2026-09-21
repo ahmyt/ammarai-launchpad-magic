@@ -9,7 +9,7 @@ export const chatbotTools: Tool[] = [
       "A gallery of creative virtual AI assistants — each trained with the knowledge of industry experts, ready to answer instantly and do its job.",
     title: "AI Chat Bots: Expert Virtual Assistants, Instantly | AmmarAI",
     description:
-      "Chat with AI assistants trained with the knowledge of industry and conversion experts — career counselors, chefs, financial analysts, coaches and more — and…",
+      "Chat with AI assistants trained on the knowledge of industry experts — career counselors, chefs, financial analysts, coaches and more — in one workspace.",
     h1: "Virtual assistants that already know the job.",
     lede:
       "Pick a specialist — a career counselor, a chef, a financial analyst, a travel guide, a debate coach — and start talking. Each AmmarAI Chat Bot is trained with the knowledge of industry experts and conversion experts, so it answers instantly, stays on task and gives you the information you actually asked for.",

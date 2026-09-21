@@ -9,7 +9,7 @@ export const visualTools: Tool[] = [
       "Edit a photo by describing the change — swap the background, remove objects, extend the frame, fix the light.",
     title: "AI Image Editor: Edit Photos by Describing the Change | AmmarAI",
     description:
-      "Upload a photo and say what to change. Remove objects, replace backgrounds, extend the frame, relight the scene and upscale — no masks, layers or design…",
+      "Upload a photo and say what to change: remove objects, replace backgrounds, extend the frame, relight the scene and upscale, with no masks or layers needed.",
     h1: "Say what you want changed. The photo changes.",
     lede:
       "Upload the picture you already have — a phone snapshot, an old product shot, a screenshot — and describe the edit in a sentence. The editor rebuilds only what you asked for and leaves the rest of the image alone.",
@@ -162,7 +162,7 @@ export const visualTools: Tool[] = [
       "Turn one plain product photo into a full commercial shoot — studio, lifestyle and seasonal scenes.",
     title: "AI Product Photoshoot: Studio Shots From One Photo | AmmarAI",
     description:
-      "Upload one plain photo of your product and get a full set of commercial images — studio sweeps, lifestyle scenes, seasonal sets — with the product itself…",
+      "Upload one plain product photo and get a full set of commercial images: studio sweeps, lifestyle scenes and seasonal sets, with your product kept accurate.",
     h1: "One photo in. A whole shoot out.",
     lede:
       "Photograph the product once against a plain wall. The photoshoot tool places that exact item into studio sweeps, kitchen counters, café tables, sunlit concrete and seasonal sets — same product, professional photography.",
@@ -484,7 +484,7 @@ export const visualTools: Tool[] = [
       "A drag-and-drop design editor with AI image generation — ads, social posts, invitations and banners that all match.",
     title: "AI Creative Suite: On-Brand Visual Sets in One Go | AmmarAI",
     description:
-      "Design on an infinite canvas with templates, layers, icons and fonts, and generate AI imagery in place — ad creatives, social posts, invitations and banners…",
+      "Design on an infinite canvas with templates, layers, icons and fonts, and generate AI imagery in place for ad creatives, social posts, banners and invites.",
     h1: "A whole visual set, not one lonely image",
     lede:
       "Most tools give you one picture at a time and none of them match. The Creative Suite works from a brand brief and produces a coordinated set — the same palette, the same style, every format your campaign needs.",
