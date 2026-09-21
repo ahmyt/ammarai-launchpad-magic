@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const companies = [
   { name: "ATNapps", src: "/media/trusted-companies/atnapps.png", alt: "ATNapps mobile app builder logo" },
   { name: "NureMath", src: "/media/trusted-companies/nuremath.webp", alt: "NureMath mathematics learning logo" },
-  { name: "MyMobile Unlocking", src: "/media/trusted-companies/mymobile-unlocking.png", alt: "MyMobile Unlocking logo" },
+  { name: "MyMobile Unlocking", src: "/media/trusted-companies/mymobile-unlocking.webp", alt: "MyMobile Unlocking logo" },
   { name: "Ice Land", src: "/media/trusted-companies/ice-land.png", alt: "Ice Land ice cream logo" },
   { name: "ATN Technology", src: "/media/trusted-companies/atn-technology.png", alt: "ATN Technology logo" },
   { name: "Ethio Game", src: "/media/trusted-companies/ethio-game.png", alt: "Ethio Game logo" },
