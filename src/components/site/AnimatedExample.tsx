@@ -161,7 +161,10 @@ export function AnimatedExample({
     }
 
     if (phase === "writing" && demoVideo) {
-      const hold = demoVideo.kind === "audio" ? 12000 : demoVideo.kind === "image" ? 4200 : 5200;
+      // Audio is visitor-controlled: keep the selected recording visible until
+      // they choose another sample so long conversations can finish naturally.
+      if (demoVideo.kind === "audio") return;
+      const hold = demoVideo.kind === "image" ? 4200 : 5200;
       const t = setTimeout(() => setPhase("resting"), hold);
       return () => clearTimeout(t);
     }

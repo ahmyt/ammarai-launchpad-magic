@@ -376,3 +376,4 @@
 - [x] Add the uploaded clinic appointment recording to the tool page
 - [x] Verify playback, privacy-safe caption, mobile layout, download control, and build health
 - [x] Replace the outbound qualification walkthrough with the genuine outbound clinic booking reminder recording
+- [x] Keep audio samples selected until the visitor manually changes them
