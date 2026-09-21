@@ -3,7 +3,7 @@ import { LegalPage, type LegalSection } from "@/components/site/LegalPage";
 
 const title = "AmmarAI Terms of Service | User Agreement & Policies";
 const description =
-  "The rules for using AmmarAI: accounts, subscriptions and credits, acceptable use, ownership of AI output, liability and how the agreement ends.";
+  "The rules for using AmmarAI: accounts, subscriptions and credits, acceptable use, ownership of AI output, liability and how the agreement can be ended.";
 
 const UPDATED = "14 September 2026";
 

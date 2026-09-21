@@ -8,7 +8,7 @@ import { ToolCard } from "@/components/site/ToolCard";
 
 const title = "Resources: Guides, Playbooks and Tool Picks | AmmarAI";
 const description =
-  "Practical guides to using AI well: writing workflows, video and voice production, SEO, prompting and platform features.";
+  "Practical guides to using AI well: writing workflows, video and voice production, SEO, prompting and AmmarAI platform features, gathered in one place.";
 
 const resourceGuides = posts.slice(0, 6);
 const resourceTools = [...featuredTools, ...popularTools].slice(0, 6);

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const title = "Pricing: One Subscription for Every AI Tool | AmmarAI";
 const description =
-  "Free, Starter, Professional and Ultimate plans. Every tool on every plan, with allowances that scale as your volume does.";
+  "AmmarAI pricing: Free, Starter, Professional and Ultimate plans. Every AI tool is on every plan, with monthly allowances that scale as your volume grows.";
 
 const faqs = [
   {
