@@ -11,7 +11,7 @@ export const seoAnalyzerTools: Tool[] = [
       "Find current keyword and search-question ideas while planning an article, then generate focused metadata for your site and blog posts.",
     title: "AI SEO Analyzer for Article Ideas and Metadata | AmmarAI",
     description:
-      "Use AmmarAI SEO tools for recent-search keyword suggestions, search-question ideas, site metadata and blog-post SEO fields.",
+      "Use AmmarAI SEO tools for recent-search keyword suggestions, search-question ideas, site metadata and blog-post SEO fields. Built for search-ready content.",
     h1: "Plan search-led articles and create clearer SEO metadata",
     lede: "Use four focused SEO functions in the places where the work happens. Find keyword ideas and recent search questions inside Article Wizard, then generate metadata for your site and individual blog posts.",
     ctaLabel: "Try the SEO tools",

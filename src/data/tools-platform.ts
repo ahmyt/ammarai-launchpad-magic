@@ -9,7 +9,7 @@ export const platformTools: Tool[] = [
       "Scan any text against online sources to check for duplicated or AI-generated content, with matched source links.",
     title: "AI Plagiarism Detector: Check Originality | AmmarAI",
     description:
-      "Scan any text against online sources to check for duplicated or AI-generated content, and get the matched source links.",
+      "Scan any text against online sources to check for duplicated or AI-generated content, and get the matched source links. Write faster without losing your tone.",
     h1: "Know whether the text is original before you publish it",
     lede: "Paste any draft and the Plagiarism Detector checks it against online sources, flags duplicated passages, estimates the likelihood of AI-generated text, and links you to the sources it matched.",
     ctaLabel: "Check a document",
@@ -134,7 +134,7 @@ export const platformTools: Tool[] = [
       "Deploy a branded AI assistant on your website and messaging channels — trained on your content, able to take actions, capture leads and hand hard cases to a human.",
     title: "External Chatbot Builder: AI Agent on Your Site | AmmarAI",
     description:
-      "Build and embed a branded AI chatbot trained on your own content. It answers in any language, captures leads, takes real actions, escalates to a human and reports on every conversation.",
+      "Build and embed a branded AI chatbot trained on your own content. It answers in any language, captures leads, takes real actions, escalates to a human and…",
     h1: "Put a trained AI assistant on your own website",
     lede:
       "Build a chatbot that answers from your own content, matches your brand, speaks your customers' languages and knows when to fetch a human. Embed it in one line, connect it to your messaging channels, and read exactly what visitors ask.",
@@ -302,7 +302,7 @@ export const platformTools: Tool[] = [
       "Generate complete, professionally designed slide decks from a topic or brief — layouts and visuals included.",
     title: "AI Presentation Maker: Decks From a Brief | AmmarAI",
     description:
-      "Generate complete, professionally designed slide decks from a topic or brief, including layouts, visuals, and export to PPTX.",
+      "Generate complete, professionally designed slide decks from a topic or brief, including layouts, visuals, and export to PPTX. Cut the busywork out of your day.",
     h1: "From a one-line brief to a finished deck",
     lede: "Describe the topic, the audience and the length, and the Presentation Maker produces a complete deck — structured content, designed layouts and visuals — ready to present or polish further.",
     ctaLabel: "Build a deck",
@@ -417,7 +417,7 @@ export const platformTools: Tool[] = [
       "Paste any product URL and get a complete video ad with voiceover, captions and an avatar — or turn long videos into viral short clips.",
     title: "AI URL to Video: Product Link to Video Ad | AmmarAI",
     description:
-      "Paste any product URL and automatically generate a complete video ad with voiceover, captions and avatar. Turn long-form videos into viral short clips and create influencer-style avatar videos.",
+      "Paste any product URL and automatically generate a complete video ad with voiceover, captions and avatar. Turn long-form videos into viral short clips and…",
     h1: "Paste a product link. Get a finished video ad.",
     lede: "Drop in any product URL and AmmarAI builds the ad for you — script, voiceover, captions and an on-screen avatar. The same toolkit turns long-form videos into short clips built for feeds, and creates influencer-style avatar videos without a shoot.",
     ctaLabel: "Generate a video ad",
@@ -546,7 +546,7 @@ export const platformTools: Tool[] = [
       "Merge audio, add background music, adjust voice speed and loudness, and fine-tune voiceovers in one place.",
     title: "Sound Studio: Mix and Fine-Tune Audio | AmmarAI",
     description:
-      "Merge audio tracks, add background music, adjust voice speed and loudness, and fine-tune AI voiceovers without a separate audio editor.",
+      "Merge audio tracks, add background music, adjust voice speed and loudness, and fine-tune AI voiceovers without a separate audio editor. Try it free in AmmarAI.",
     h1: "Finish your audio without leaving the platform",
     lede: "Sound Studio is where generated voiceovers become finished audio: merge tracks, lay background music underneath, and adjust speed and loudness until the mix sits right.",
     ctaLabel: "Open Sound Studio",
@@ -662,7 +662,7 @@ export const platformTools: Tool[] = [
       "Generate original music and background tracks for videos, ads, podcasts and presentations.",
     title: "AI Music Pro: Original Tracks on Demand | AmmarAI",
     description:
-      "Generate original music and background tracks for videos, ads, podcasts and presentations, matched to mood, genre and length.",
+      "Generate original music and background tracks for videos, ads, podcasts and presentations, matched to mood, genre and length. Free to start in AmmarAI.",
     h1: "Background music that fits, without the licensing maze",
     lede: "Describe the mood, genre and length, and AI Music generates an original track for your video, ad, podcast or presentation — ready to drop into Sound Studio or your edit.",
     ctaLabel: "Generate music",

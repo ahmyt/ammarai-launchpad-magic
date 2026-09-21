@@ -9,7 +9,7 @@ export const coreToolsB: Tool[] = [
       "Turn any image into a talking avatar video with realistic lip-sync and natural expressions. Ideal for product explainers, social content, training videos, and personal branding.",
     title: "AI Avatar Video Generator: Talking Avatar Videos | AmmarAI",
     description:
-      "Turn any image into a talking avatar video with realistic lip-sync and natural expressions. Ideal for product explainers, social content, training videos and personal branding.",
+      "Turn any image into a talking avatar video with realistic lip-sync and natural expressions. Ideal for product explainers, social content, training videos and…",
     h1: "Create professional animated talking videos",
     lede: "Bring your visuals to life with AI-powered avatar talking videos. Turn any image or video into an engaging animated clip by adding your script or voice, with realistic lip-sync and natural facial expressions.",
     ctaLabel: "Create a talking avatar",
@@ -166,7 +166,7 @@ export const coreToolsB: Tool[] = [
       "Animate a still image into a short clip with camera movement and controlled motion.",
     title: "AI Image to Video: Animate Any Still Image | AmmarAI",
     description:
-      "Turn a photo or generated image into a short animated clip with camera moves and subtle motion. Ideal for social and ads.",
+      "Turn a photo or generated image into a short animated clip with camera moves and subtle motion. Ideal for social and ads. Try it free in AmmarAI. Try it free.",
     h1: "Give a still image somewhere to go",
     lede: "Upload a photo or a generated still, describe the movement you want, and get a short clip with real camera motion instead of a static frame.",
     ctaLabel: "Animate an image",
@@ -314,7 +314,7 @@ export const coreToolsB: Tool[] = [
       "Generate code in multiple languages from natural language descriptions — functions, components, queries and tests, with explanations you can review.",
     title: "AI Code Generator: Functions, Tests and Queries | AmmarAI",
     description:
-      "Generate code in multiple languages from natural language descriptions: functions, components, SQL, tests and scripts, with explanations included.",
+      "Generate code in multiple languages from natural language descriptions: functions, components, SQL, tests and scripts, with explanations included. Try it free.",
     h1: "Code you can read, review and defend in a pull request",
     lede: "Describe the behaviour you need and get an implementation with the reasoning attached, from a single function to a component, a query or a test suite.",
     ctaLabel: "Generate code",
@@ -628,7 +628,7 @@ export const coreToolsB: Tool[] = [
       "Chat with uploaded documents — PDF, Word, CSV — and get summaries, answers with citations, and extracted structured data.",
     title: "AI Document Analyzer: Chat With Your Documents | AmmarAI",
     description:
-      "Chat with uploaded documents (PDF, Word, CSV). Get summaries, answers with citations and structured data extracted from the text.",
+      "Chat with uploaded documents (PDF, Word, CSV). Get summaries, answers with citations and structured data extracted from the text. Ask questions of any document.",
     h1: "Stop reading 60 pages to find the one clause that matters",
     lede: "Upload contracts, research, reports and statements, then ask questions and get answers pointing back to the exact section they came from.",
     ctaLabel: "Analyse a document",

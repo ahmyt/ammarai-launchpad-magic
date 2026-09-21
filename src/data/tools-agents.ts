@@ -9,7 +9,7 @@ export const agentTools: Tool[] = [
       "Build agents that run real workflows on a schedule or trigger — reading, deciding and acting without you.",
     title: "AI Agent Builder: Automate Real Workflows | AmmarAI",
     description:
-      "Build AI agents that run on a schedule or a trigger, read your data, make decisions and complete multi-step work without supervision.",
+      "Build AI agents that run on a schedule or a trigger, read your data, make decisions and complete multi-step work without supervision. Try it free in AmmarAI.",
     h1: "Build an agent that does the work, not just the writing",
     lede: "Describe the job in plain language, connect the tools it needs, and set when it should run. The agent then works through the steps on its own — reading, deciding and acting — and reports back when it is done.",
     ctaLabel: "Build an agent",
@@ -167,7 +167,7 @@ export const agentTools: Tool[] = [
       "A voice agent that answers and makes real phone calls, books appointments and logs every conversation.",
     title: "AI Phone Call Agent: Answer and Make Calls | AmmarAI",
     description:
-      "A natural-sounding AI voice agent that answers inbound calls, makes outbound calls, books appointments and logs every conversation.",
+      "A natural-sounding AI voice agent that answers inbound calls, makes outbound calls, books appointments and logs every conversation. Try it free in AmmarAI.",
     h1: "Every call answered, on the second ring",
     lede: "A voice agent that picks up the phone, holds a normal conversation, books the appointment, answers the common questions and writes the whole thing into your records — day, night and weekends.",
     ctaLabel: "Set up a phone agent",
@@ -321,7 +321,7 @@ export const agentTools: Tool[] = [
       "A CRM you talk to: ask about the pipeline, update deals and get reports without touching a spreadsheet.",
     title: "AI CRM: Manage Your Pipeline by Asking | AmmarAI",
     description:
-      "A CRM you run by asking. Track contacts and deals, update records in plain language, and get pipeline reports without spreadsheets.",
+      "A CRM you run by asking. Track contacts and deals, update records in plain language, and get pipeline reports without spreadsheets. Try it free in AmmarAI.",
     h1: "A CRM that answers you instead of asking you to fill in fields",
     lede: "Contacts, deals and pipeline in one place — with an assistant on top that you can simply ask. Move a deal, book a follow-up, or get March's numbers as a sentence rather than a saved view.",
     ctaLabel: "Open the CRM",
@@ -458,7 +458,7 @@ export const agentTools: Tool[] = [
       "An agent that plans, writes, schedules and adjusts a month of social posts across your accounts.",
     title: "AI Social Media Agent: Plan, Post, Adjust | AmmarAI",
     description:
-      "An AI agent that plans a month of social posts, writes them, schedules them across your accounts and adapts to what performs.",
+      "An AI agent that plans a month of social posts, writes them, schedules them across your accounts and adapts to what performs. Set it up once and let it run.",
     h1: "A month of social posts, planned and scheduled while you sleep",
     lede: "Give it your brand, your accounts and how often you want to post. It builds the calendar, writes every caption, schedules them at the right times, and changes the plan based on what actually performed.",
     ctaLabel: "Plan a month",
@@ -600,7 +600,7 @@ export const agentTools: Tool[] = [
       "An agent that researches keywords, writes SEO articles in bulk and publishes them to your blog on a schedule.",
     title: "AI Blogger Agent: Research, Write, Publish | AmmarAI",
     description:
-      "An AI agent that researches keywords, writes SEO-ready articles in bulk and publishes them to WordPress on a schedule.",
+      "An AI agent that researches keywords, writes SEO-ready articles in bulk and publishes them to WordPress on a schedule. Runs on a schedule while you work.",
     h1: "A blog that publishes itself, week after week",
     lede: "Give it a topic and a cadence. It researches what people actually search for, writes the articles properly, links them to each other, and publishes them to your blog on schedule — titles, meta descriptions and alt text included.",
     ctaLabel: "Queue a month of posts",
@@ -742,7 +742,7 @@ export const agentTools: Tool[] = [
       "Auto-reply to Instagram, Facebook and YouTube comments and DMs, capture leads and run campaign promotions.",
     title: "AI DM & Comment Agent: Auto-Reply to Social Messages | AmmarAI",
     description:
-      "An AI agent that watches your Instagram, Facebook and YouTube comments and DMs, answers instantly, captures leads and runs campaign promotions.",
+      "An AI agent that watches your Instagram, Facebook and YouTube comments and DMs, answers instantly, captures leads and runs campaign promotions. Free in AmmarAI.",
     h1: "Never leave a comment or DM unanswered again",
     lede: "Set the rules once and the agent replies to comments and DMs as they arrive, answers the same questions, collects lead details, sends follow-ups and flags anything that needs a human — across Instagram, Facebook, TikTok and YouTube.",
     ctaLabel: "Set up replies",
@@ -886,7 +886,7 @@ export const agentTools: Tool[] = [
       "Multi-source research runs with live web search, compiled into a clear, cited report.",
     title: "AI Deep Research: Multi-Source Research Agent | AmmarAI",
     description:
-      "Run deep research across live web sources. The agent searches, reads, compares and compiles everything into a cited report you can use.",
+      "Run deep research across live web sources. The agent searches, reads, compares and compiles everything into a cited report you can use. Try it free in AmmarAI.",
     h1: "Research that reads the live web, not just the training data",
     lede: "Give the agent a question or topic and it runs live searches, opens the relevant pages, extracts the key facts, compares sources and writes a structured report with citations — all without copying and pasting between tabs.",
     ctaLabel: "Run research",
