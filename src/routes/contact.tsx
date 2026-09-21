@@ -10,7 +10,7 @@ import { Turnstile } from "@/components/site/Turnstile";
 
 const title = "Contact AmmarAI: Sales, Support and Partnerships | AmmarAI";
 const description =
-  "Contact AmmarAI for plans, team and agency accounts, technical support, or partnerships. Send a message and get a reply within two working days.";
+  "Contact the AmmarAI team about plans, team and agency accounts, technical support or partnerships. Send a message and get a reply within two working days.";
 
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },

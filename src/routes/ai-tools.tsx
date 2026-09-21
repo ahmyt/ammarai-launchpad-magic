@@ -12,7 +12,7 @@ import { SITE, REGISTER_URL } from "@/lib/site";
 
 const title = `AI Tools Library: ${TOOL_COUNT}+ Tools, Agents & Templates | AmmarAI`;
 const description =
-  `Explore ${TOOL_COUNT} AI tools and templates for writing, chat, agents, marketing, SEO, images, video, voice, documents and code. Find the right tool and start free.`;
+  `Browse ${TOOL_COUNT} AI tools and templates for writing, chat, agents, marketing, SEO, images, video, voice and code. Find the right AI tool and start free today.`;
 
 export const Route = createFileRoute("/ai-tools")({
   staticData: { sitemap: true },

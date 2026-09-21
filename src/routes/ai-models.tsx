@@ -7,7 +7,7 @@ import { REGISTER_URL } from "@/lib/site";
 
 const title = "AI Models: Every Model in One Subscription | AmmarAI";
 const description =
-  "Chat, image, video, voice and transcription models available inside AmmarAI, what each one is good at, and how to pick the right model for the job.";
+  "Compare the chat, image, video, voice and transcription AI models inside AmmarAI, see what each one is best at, and pick the right model for every job.";
 
 const groups: { heading: string; blurb: string; rows: { name: string; best: string }[] }[] = [
   {
