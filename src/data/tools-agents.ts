@@ -211,10 +211,10 @@ export const agentTools: Tool[] = [
           "Answered in two rings, offered 9:20 and 11:05, booked 9:20, texted the confirmation and saved the call summary to the CRM. Total call: 41 seconds.",
       },
       {
-        label: "Outbound qualification",
-        input: "Call the leads who downloaded the pricing guide yesterday.",
+        label: "Outbound booking reminder",
+        input: "Call a patient to remind them about their upcoming clinic appointment.",
         output:
-          "Reached Sam, established a 12-seat support team, matched them to the Team plan and booked a 30-minute demo with Aisha on Tuesday. Deal updated with the transcript.",
+          "Placed the outbound reminder call, confirmed the appointment details and recorded the completed call for the clinic team.",
       },
     ],
     capabilities: [
