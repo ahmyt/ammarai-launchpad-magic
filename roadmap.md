@@ -382,3 +382,9 @@
 - [x] Verify playback, privacy-safe caption, mobile layout, download control, and build health
 - [x] Replace the outbound qualification walkthrough with the genuine outbound clinic booking reminder recording
 - [x] Keep audio samples selected until the visitor manually changes them
+
+## Broad-tool audience card rollout (2026-09-21)
+- [x] Extend the AI Phone Agent audience-card treatment to flagship, agent, and workspace products
+- [x] Keep narrow generators and template pages in the compact audience layout
+- [ ] Verify representative broad and narrow pages on desktop and mobile
+- [ ] Confirm build health
