@@ -31,6 +31,7 @@ import musicAdBed from "@/assets/demo-music-ad-bed.mp3.asset.json";
 import musicAmbientBed from "@/assets/demo-music-ambient-bed.mp3.asset.json";
 import phoneAgentClinicAppointment from "@/assets/ai-phone-agent-clinic-appointment.mp3.asset.json";
 import phoneAgentClinicReminder from "@/assets/ai-phone-agent-clinic-reminder.mp3.asset.json";
+import phoneAgentOutboundFollowup from "@/assets/ai-phone-agent-outbound-followup.mp3.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import videoEditorSource from "@/assets/demo-video-editor-source.mp4.asset.json";
 import ugcSkincareSerum from "@/assets/ai-ugc-skincare-serum.webm.asset.json";
@@ -729,6 +730,11 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       kind: "audio",
       url: phoneAgentClinicReminder.url,
       caption: "Outbound booking reminder — the phone agent calls a patient to remind them about an upcoming clinic appointment.",
+    },
+    {
+      kind: "audio",
+      url: phoneAgentOutboundFollowup.url,
+      caption: "Outbound follow-up — the phone agent continues a live customer conversation and records the outcome for the team.",
     },
   ],
   "ai-crm": [

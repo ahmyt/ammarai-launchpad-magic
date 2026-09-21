@@ -216,6 +216,12 @@ export const agentTools: Tool[] = [
         output:
           "Placed the outbound reminder call, confirmed the appointment details and recorded the completed call for the clinic team.",
       },
+      {
+        label: "Outbound follow-up",
+        input: "Follow up with a customer by phone and continue the conversation naturally.",
+        output:
+          "Placed the outbound follow-up call, handled the conversation and recorded the outcome for the team.",
+      },
     ],
     capabilities: [
       {
