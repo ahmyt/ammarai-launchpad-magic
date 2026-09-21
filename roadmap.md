@@ -1,6 +1,11 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Outbound AI Agent audio sample (2026-09-21)
+- [x] Add the genuine outbound follow-up recording to AI Phone Call Agent
+- [x] Match it to a dedicated Outbound follow-up option
+- [x] Verify playback, mobile layout, manual sample switching, download blocking, and preview health
+
 ## Homepage flagship count correction (2026-09-19)
 - [x] Expand the flagship carousel to 10 with AI Phone Call Agent and AI CRM
 - [x] Remove AI Phone Call Agent and AI CRM from the secondary carousel
