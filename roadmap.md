@@ -406,3 +406,11 @@
 - [x] Verify the live head output and build health
 - [ ] User: pull from GitHub and restart so ammarai.com serves the new description
 - [ ] Decide whether to bring the other out-of-range descriptions into 150-160 (12 site pages short, tutorials.index long, 145 of 151 tool pages outside the band)
+
+## SEO meta descriptions, keyword-informed (2026-09-21)
+- [x] Keyword research (Semrush US): "ai tools" 27.1k/mo, "ai writer" 33.1k/mo, "ai text generator" 33.1k/mo, "ai writing" 18.1k/mo — front-loaded "AI tools", "AI platform", "AI agents" and tool-name terms in descriptions
+- [x] All 151 tool page descriptions now 150-160 chars (src/data/tools-*.ts)
+- [x] All 24 use-case page descriptions 150-160 (use-cases.ts, intent-use-cases.ts, use-cases-industries.ts)
+- [x] All 15 blog post descriptions 150-160 (src/data/posts*.ts)
+- [x] Site pages fixed: home, about, ai-tools, ai-models, blog, contact, faq, features, pricing, refund-policy, resources, terms, tutorials (list + og)
+- [x] 13 long tool descriptions hand-rewritten instead of truncated (ai-writer, ai-chat, ai-image-generator, ai-voice-generator, ai-avatar-generator, ai-photoshoot, ai-image-editor, ai-realtime-image, ai-creative-suite, ai-social-media-publisher, external-chatbot, ai-url-to-video, ai-chat-bots)
