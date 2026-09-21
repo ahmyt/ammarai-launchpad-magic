@@ -30,6 +30,7 @@ import transcriptionWalkthrough from "@/assets/demo-transcription-walkthrough.mp
 import musicAdBed from "@/assets/demo-music-ad-bed.mp3.asset.json";
 import musicAmbientBed from "@/assets/demo-music-ambient-bed.mp3.asset.json";
 import phoneAgentClinicAppointment from "@/assets/ai-phone-agent-clinic-appointment.mp3.asset.json";
+import phoneAgentClinicReminder from "@/assets/ai-phone-agent-clinic-reminder.mp3.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import videoEditorSource from "@/assets/demo-video-editor-source.mp4.asset.json";
 import ugcSkincareSerum from "@/assets/ai-ugc-skincare-serum.webm.asset.json";
@@ -725,25 +726,9 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
       caption: "Clinic appointment booking — the phone agent answers a general check-up enquiry, offers an available time and explains what to bring.",
     },
     {
-      kind: "scene",
-      caption: "Sample call — an outbound follow-up that qualifies the lead and books the demo.",
-      scene: {
-        label: "Outbound call · 01:12",
-        connectors: [
-          { id: "phone", label: "Phone", note: "Dial lead" },
-          { id: "calendar", label: "Calendar", note: "Book demo" },
-          { id: "crm", label: "CRM", note: "Log deal" },
-        ],
-        steps: [
-          { actor: "Dial", text: "Calling a lead who downloaded the pricing guide", meta: "00:00", connector: "phone" },
-          { actor: "Agent", text: "Hi Sam — you looked at our pricing yesterday. Is now a bad time?", meta: "00:06" },
-          { actor: "Caller", text: "Two minutes is fine.", meta: "00:11" },
-          { actor: "Agent", text: "How many people would be using it?", meta: "00:14" },
-          { actor: "Caller", text: "About twelve, in support.", meta: "00:19" },
-          { actor: "Agent", text: "That's our Team plan. I can put 30 minutes in with Aisha on Tuesday.", meta: "00:34", connector: "calendar" },
-        ],
-        result: "Lead scored, demo booked, transcript and next step logged on the deal.",
-      },
+      kind: "audio",
+      url: phoneAgentClinicReminder.url,
+      caption: "Outbound booking reminder — the phone agent calls a patient to remind them about an upcoming clinic appointment.",
     },
   ],
   "ai-crm": [
