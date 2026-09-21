@@ -2,9 +2,9 @@
 # Roadmap
 
 ## AI Presentation Maker visual sample (2026-09-21)
-- [ ] Replace text-only sample output with a visual 6-slide presentation preview
-- [ ] Keep every slide readable and navigable on desktop and mobile
-- [ ] Verify sample switching, reduced motion, and preview health
+- [x] Replace text-only sample output with a visual 6-slide presentation preview
+- [x] Keep every slide readable and navigable on desktop and mobile
+- [x] Verify sample switching, reduced motion, and preview health
 
 ## Outbound AI Agent audio sample (2026-09-21)
 - [x] Add the genuine outbound follow-up recording to AI Phone Call Agent
