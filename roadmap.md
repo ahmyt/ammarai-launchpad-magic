@@ -4,7 +4,7 @@
 ## Outbound AI Agent audio sample (2026-09-21)
 - [x] Add the genuine outbound follow-up recording to AI Phone Call Agent
 - [x] Match it to a dedicated Outbound follow-up option
-- [ ] Verify playback, mobile layout, manual sample switching, download blocking, and preview health
+- [x] Verify playback, mobile layout, manual sample switching, download blocking, and preview health
 
 ## Homepage flagship count correction (2026-09-19)
 - [x] Expand the flagship carousel to 10 with AI Phone Call Agent and AI CRM
