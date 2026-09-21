@@ -74,9 +74,21 @@ export type ToolDemoScene = {
   result?: string;
 };
 
+export type ToolDemoPresentationSlide = {
+  kicker: string;
+  title: string;
+  detail: string;
+  layout: "cover" | "metrics" | "split" | "quote";
+};
+
+export type ToolDemoPresentation = {
+  title: string;
+  slides: ToolDemoPresentationSlide[];
+};
+
 export type ToolDemoMedia = {
   /** Output media kind. Omit for tools whose real output is text. */
-  kind?: "video" | "audio" | "image" | "code" | "scene";
+  kind?: "video" | "audio" | "image" | "code" | "scene" | "presentation";
   /** Output media URL (video, audio or image). Omit for text/code output. */
   url?: string;
   /** Optional local preview image used before a video starts playing. */
@@ -88,6 +100,8 @@ export type ToolDemoMedia = {
   language?: string;
   /** Animated step-by-step scene for tools with no single file output (kind: "scene"). */
   scene?: ToolDemoScene;
+  /** Visual slide deck preview (kind: "presentation"). */
+  presentation?: ToolDemoPresentation;
   /** Optional source still shown alongside the prompt (image-led tools). */
   inputImage?: string;
   inputImageAlt?: string;
@@ -108,6 +122,29 @@ export type ToolDemoMedia = {
  * `examples` array, so each tab shows input and output matching its own prompt.
  */
 export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
+  "ai-presentation-maker": [
+    {
+      kind: "presentation",
+      caption: "Sample output — a complete 12-slide sales deck with a consistent visual system, clear narrative and pricing close.",
+      presentation: {
+        title: "Stockroom, reimagined",
+        slides: [
+          { kicker: "01 / Introduction", title: "Stockroom, reimagined", detail: "Inventory clarity for modern retail teams", layout: "cover" },
+          { kicker: "02 / The challenge", title: "Retail teams are flying blind", detail: "Disconnected counts create missed sales and excess stock.", layout: "metrics" },
+          { kicker: "03 / The cost", title: "Small gaps become expensive", detail: "Lost availability, slower decisions and hours of manual reconciliation.", layout: "split" },
+          { kicker: "04 / The platform", title: "One live view of every item", detail: "Stock, locations and movement brought into one operational picture.", layout: "cover" },
+          { kicker: "05 / Visibility", title: "Know what is available now", detail: "See inventory by store, warehouse, product and variant.", layout: "metrics" },
+          { kicker: "06 / Automation", title: "Reorder before shelves run empty", detail: "Smart thresholds surface risk while teams still have time to act.", layout: "split" },
+          { kicker: "07 / Operations", title: "Move stock with confidence", detail: "Transfer recommendations balance supply across every location.", layout: "metrics" },
+          { kicker: "08 / Integrations", title: "Fits the tools you already use", detail: "Connect sales channels, purchasing and finance without a rebuild.", layout: "split" },
+          { kicker: "09 / Case study", title: "From weekly counts to daily clarity", detail: "A regional retailer reduced reconciliation work and improved availability.", layout: "quote" },
+          { kicker: "10 / Rollout", title: "Live in three focused steps", detail: "Connect your catalogue, map locations, then invite the operations team.", layout: "metrics" },
+          { kicker: "11 / Pricing", title: "Plans that scale with locations", detail: "Start with the essentials and add advanced controls as the team grows.", layout: "split" },
+          { kicker: "12 / Next step", title: "See your inventory clearly", detail: "Book a tailored walkthrough for your retail operation.", layout: "cover" },
+        ],
+      },
+    },
+  ],
   "ai-avatar-generator": [
     {
       kind: "video",
