@@ -23,7 +23,7 @@ import { tutorials } from "@/data/tutorials";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
 const description =
-  `Explore AmmarAI\u2019s ${TOOL_COUNT}-tool workspace for AI agents, writing, chat, images, video, voice, CRM and automation. Start creating free today \u2014 no card required.`;
+  `AmmarAI is an all-in-one AI platform with ${TOOL_COUNT} tools and agents for writing, chat, images, video, voice, CRM and automation. Start creating free, no card.`;
 
 const workspaceBenefits = [
   { label: "One account", icon: Check },

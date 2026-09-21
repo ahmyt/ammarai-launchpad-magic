@@ -15,7 +15,7 @@ export const commercialPosts: Post[] = [
     title: "7 Jasper AI Alternatives Worth Switching To in 2026",
     metaTitle: "7 Jasper AI Alternatives in 2026 (Pricing Compared) | AmmarAI",
     description:
-      "Jasper Pro now starts at $69/month. Here are seven Jasper AI alternatives compared on price, brand voice, SEO and multimodal output — including where Jasper still wins.",
+      "Jasper Pro now starts at $69/month. Here are seven Jasper AI alternatives compared on price, brand voice, SEO and multimodal output — including where Jasper.",
     category: "AI Writing",
     contentType: "alternatives",
     date: "2026-09-14",
@@ -286,7 +286,7 @@ export const commercialPosts: Post[] = [
     title: "6 Writesonic Alternatives After Its Shift to AI Search Visibility",
     metaTitle: "6 Writesonic Alternatives Compared (2026) | AmmarAI",
     description:
-      "Writesonic now sells AI search visibility tracking alongside SEO content, from $79/month billed annually. Six alternatives compared on price, scope and SEO depth.",
+      "Writesonic now sells AI search visibility tracking alongside SEO content, from $79/month billed annually. Six alternatives compared on price, scope and SEO.",
     category: "AI Writing",
     contentType: "alternatives",
     date: "2026-09-14",
@@ -403,7 +403,7 @@ export const commercialPosts: Post[] = [
     title: "6 Rytr Alternatives When You Outgrow Short-Form Copy",
     metaTitle: "6 Rytr Alternatives Compared (2026 Pricing) | AmmarAI",
     description:
-      "Rytr costs $7.50/month billed yearly and does short-form copy well. Six alternatives for when you need SEO, team features, images, video or voice.",
+      "Rytr costs $7.50/month billed yearly and does short-form copy well. Six alternatives for when you need SEO, team features, images, video or voice. Compared.",
     category: "AI Writing",
     contentType: "alternatives",
     date: "2026-09-14",

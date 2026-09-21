@@ -9,7 +9,7 @@ import { SITE, REGISTER_URL } from "@/lib/site";
 
 const title = "Platform Features: How AmmarAI Works | AmmarAI";
 const description =
-  "Multi-model AI, brand voice, templates, bulk generation, uploads, assistants, team workspaces, history and clean exports.";
+  `Multi-model AI, brand voice, ${TOOL_COUNT} tools and templates, bulk generation, uploads, assistants, team workspaces, history and clean exports in one platform.`;
 
 export const Route = createFileRoute("/features/")({
   staticData: { sitemap: true },

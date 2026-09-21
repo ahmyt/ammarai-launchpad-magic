@@ -7,7 +7,7 @@ export const industryUseCases: UseCase[] = [
     audience: "Clinics and Private Practices",
     title: "AI for Clinics: Patient Communication and Admin | AmmarAI",
     description:
-      "AmmarAI helps clinics and private practices handle appointment calls, patient-facing writing, review replies and routine admin, so front-desk time goes back to patients.",
+      "AmmarAI helps clinics and private practices handle appointment calls, patient-facing writing, review replies and routine admin, so front-desk time goes back.",
     h1: "AI Tools for Clinics That Are Short on Front-Desk Time",
     lede: "Most clinics don't have a marketing team or a spare receptionist. They have a phone that rings during appointments and a pile of patient-facing writing nobody has time for.",
     summary: "Answer routine calls, keep patient-facing content current and clear the admin writing a small practice never gets to.",
@@ -235,7 +235,7 @@ export const industryUseCases: UseCase[] = [
     audience: "Restaurants, Cafés and Hospitality",
     title: "AI for Restaurants: Bookings, Social, Reviews | AmmarAI",
     description:
-      "AmmarAI helps restaurants, cafés and hospitality venues answer booking calls, post daily social content, reply to reviews and shoot menu photography.",
+      "AmmarAI helps restaurants, cafés and hospitality venues answer booking calls, post daily social content, reply to reviews and shoot menu photography. Try free.",
     h1: "AI Tools for Venues Where Nobody Has Time to Post",
     lede: "Service runs from open to close, and marketing happens in whatever minutes are left over. AmmarAI fills those minutes so the venue stays visible.",
     summary: "Answer booking calls, keep social posting daily, reply to reviews and produce menu photography without a marketing hire.",
@@ -463,7 +463,7 @@ export const industryUseCases: UseCase[] = [
     audience: "Coaches, Consultants and Course Creators",
     title: "AI for Coaches: Content, Courses, Client Comms | AmmarAI",
     description:
-      "AmmarAI helps coaches, consultants and course creators produce lesson material, marketing content, client follow-ups and video lessons without a production team.",
+      "AmmarAI helps coaches, consultants and course creators produce lesson material, marketing content, client follow-ups and video lessons without a production.",
     h1: "AI Tools for Coaches Who Are Also the Marketing Department",
     lede: "Coaching pays for the hours you spend with clients. Everything else — the emails, the course modules, the weekly post — is unpaid time you still have to find.",
     summary: "Build course material, keep marketing content running and handle client follow-up without hiring a team.",

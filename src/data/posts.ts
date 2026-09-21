@@ -88,7 +88,7 @@ export const posts: Post[] = [
     title: "How to Write a Blog Post With AI (Step by Step)",
     metaTitle: "How to Write a Blog Post With AI | AmmarAI",
     description:
-      "A step-by-step process for writing a genuinely good blog post with AI assistance, from outline to publish-ready draft.",
+      "A step-by-step process for writing a genuinely good blog post with AI assistance, from outline to publish-ready draft. Step-by-step guide with real examples.",
     category: "AI Writing",
     date: "2025-10-20",
     readingTime: "8 min read",
@@ -166,7 +166,7 @@ export const posts: Post[] = [
     title: "How to Create AI Videos: A Realistic Production Guide",
     metaTitle: "How to Create AI Videos: A Production Guide | AmmarAI",
     description:
-      "Learn the real process behind creating AI videos — scripting, visuals, voice, and editing — including where generation still needs a human pass.",
+      "Learn the real process behind creating AI videos — scripting, visuals, voice, and editing — including where generation still needs a human pass. Free guide.",
     category: "AI Video",
     date: "2025-11-03",
     readingTime: "9 min read",
@@ -239,7 +239,7 @@ export const posts: Post[] = [
     title: "How to Generate AI Voiceovers That Don't Sound Robotic",
     metaTitle: "How to Generate Natural AI Voiceovers | AmmarAI",
     description:
-      "Practical tips for generating AI voiceovers that sound natural, including script writing, pacing, voice selection, and post-processing.",
+      "Practical tips for generating AI voiceovers that sound natural, including script writing, pacing, voice selection, and post-processing. Free tools included.",
     category: "AI Voice",
     date: "2025-11-17",
     readingTime: "7 min read",
@@ -309,7 +309,7 @@ export const posts: Post[] = [
     title: "How to Rewrite Content With AI Without Making It Worse",
     metaTitle: "How to Rewrite Content With AI | AmmarAI",
     description:
-      "A guide to rewriting content with AI for clarity, tone, or length — and how to avoid the flattened, generic feel of over-rewritten text.",
+      "A guide to rewriting content with AI for clarity, tone, or length — and how to avoid the flattened, generic feel of over-rewritten text. Free tools included.",
     category: "AI Writing",
     date: "2025-12-01",
     readingTime: "7 min read",
@@ -379,7 +379,7 @@ export const posts: Post[] = [
     title: "How to Use AI for SEO Without Getting Penalized for Thin Content",
     metaTitle: "How to Use AI for SEO the Right Way | AmmarAI",
     description:
-      "A practical look at using AI for SEO research, drafting, and optimization — and where mass-produced AI content puts rankings at risk.",
+      "A practical look at using AI for SEO research, drafting, and optimization — and where mass-produced AI content puts rankings at risk. Free tools included.",
     category: "AI SEO",
     date: "2025-12-15",
     readingTime: "9 min read",
@@ -456,7 +456,7 @@ export const posts: Post[] = [
     title: "AI Tools for Small Businesses: Where the Real ROI Is",
     metaTitle: "AI Tools for Small Businesses: Real ROI | AmmarAI",
     description:
-      "An honest look at which AI tools actually save small businesses time and money, and which ones are more hype than help.",
+      "An honest look at which AI tools actually save small businesses time and money, and which ones are more hype than help. Step-by-step guide with real examples.",
     category: "AI for Business",
     date: "2026-01-12",
     readingTime: "8 min read",
@@ -523,7 +523,7 @@ export const posts: Post[] = [
     title: "AI Tools for Marketers: What to Automate and What to Keep Human",
     metaTitle: "AI Tools for Marketers: Automate vs. Keep | AmmarAI",
     description:
-      "A breakdown of which marketing tasks benefit from AI automation and which ones still need human strategy and judgment.",
+      "A breakdown of which marketing tasks benefit from AI automation and which ones still need human strategy and judgment. Step-by-step guide with real examples.",
     category: "AI Marketing",
     date: "2026-02-02",
     readingTime: "8 min read",
@@ -590,7 +590,7 @@ export const posts: Post[] = [
     title: "AI Productivity Workflows That Actually Save Time",
     metaTitle: "AI Productivity Workflows That Save Time | AmmarAI",
     description:
-      "Real AI-assisted workflows for meetings, email, research, and daily planning — with honest notes on setup time and limitations.",
+      "Real AI-assisted workflows for meetings, email, research, and daily planning — with honest notes on setup time and limitations. With examples you can copy.",
     category: "AI Productivity",
     date: "2026-03-08",
     readingTime: "8 min read",
@@ -661,7 +661,7 @@ export const posts: Post[] = [
     title: "How to Write Better AI Prompts: A Practical Framework",
     metaTitle: "How to Write Better AI Prompts | AmmarAI",
     description:
-      "A practical framework for writing AI prompts that produce specific, useful output instead of generic filler — with real before-and-after examples.",
+      "A practical framework for writing AI prompts that produce specific, useful output instead of generic filler — with real before-and-after examples. Free.",
     category: "AI Guides",
     date: "2026-04-05",
     readingTime: "8 min read",

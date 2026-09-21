@@ -135,7 +135,7 @@ export const chatWorkspaceTools: Tool[] = [
       "One search box that finds the right tool, opens past work and starts the job — type what you want in plain language and press enter.",
     title: "AI Command Search: Find Any Tool Instantly | AmmarAI",
     description:
-      "Type what you want to do and jump straight to the right AI tool, a past conversation or a saved document. One command box across the whole workspace.",
+      "Type what you want to do and jump straight to the right AI tool, a past conversation or a saved document. One command box across the whole AmmarAI workspace.",
     h1: "Describe the job, land in the right tool",
     lede: "You should not have to remember what a tool is called. Type \"make this clip vertical with subtitles\" and command search takes you straight there, with the job already set up.",
     ctaLabel: "Try command search",

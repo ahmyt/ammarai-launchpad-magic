@@ -19,13 +19,13 @@ export const Route = createFileRoute("/tutorials/")({
       {
         name: "description",
         content:
-          "Step-by-step AmmarAI guides for chat, documents, images, video generation, viral clips, AI influencer videos, Fashion Studio, dubbing, captions, UGC videos and the shared media library.",
+          "Step-by-step AmmarAI tutorials for chat, documents, image generation, video creation, viral clips, AI influencers, dubbing, captions and UGC video clips.",
       },
       { property: "og:title", content: "AmmarAI Tutorials & Documentation" },
       {
         property: "og:description",
         content:
-          "Verified AmmarAI guides for chat, documents, image generation, video creation, video marketing and fashion.",
+          "Verified AmmarAI guides for chat, documents, image generation, video creation, dubbing, captions, UGC video and the shared media library, step by step.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

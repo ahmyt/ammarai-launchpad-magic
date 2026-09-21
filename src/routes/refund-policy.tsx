@@ -3,7 +3,7 @@ import { LegalPage, type LegalSection } from "@/components/site/LegalPage";
 
 const title = "Refund Policy: 7-Day Subscription Guarantee | AmmarAI";
 const description =
-  "When AmmarAI subscriptions are refundable, the 7-day first-purchase guarantee, how consumed credits are treated and how to request a refund.";
+  "When AmmarAI subscriptions are refundable, how the 7-day first-purchase guarantee works, how used credits are treated and how you request your refund.";
 
 const UPDATED = "14 September 2026";
 

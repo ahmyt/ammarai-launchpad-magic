@@ -17,7 +17,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 
 const title = "Blog: Practical AI Guides and Workflows | AmmarAI";
 const description =
-  "Long-form guides on writing, video, voice, SEO and productivity with AI, written for people shipping real work.";
+  "Long-form AI guides on writing, video, voice, SEO and productivity, written for people shipping real work. New articles every week from the AmmarAI team.";
 
 export const Route = createFileRoute("/blog/")({
   staticData: { sitemap: true },

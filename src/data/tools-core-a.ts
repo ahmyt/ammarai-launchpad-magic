@@ -9,7 +9,7 @@ export const coreToolsA: Tool[] = [
       "A flexible writing workspace for drafts, long-form articles, rewrites, and brand-consistent content. Includes templates, the Article Wizard, Smart Editor, and tone controls so every piece stays on-brand.",
     title: "AI Writer: Draft, Edit and Rewrite Faster | AmmarAI",
     description:
-      "A flexible writing workspace for drafts, long-form articles and rewrites, with templates, the Article Wizard, Smart Editor and tone controls that keep every piece on-brand.",
+      "A flexible writing workspace for drafts, long-form articles and rewrites, with templates, the Article Wizard, Smart Editor and tone controls for any voice.",
     h1: "The writing surface where drafts actually get finished",
     lede: "AmmarAI's AI Writer is a full editor, not a one-shot text box. Draft, select, rewrite, expand and trim until the piece reads the way you would have written it on a good day.",
     ctaLabel: "Try AI Writer",
@@ -167,7 +167,7 @@ export const coreToolsA: Tool[] = [
       "A multi-model chat with personas, reusable skills, smart memory, live web search, file uploads and organised folders — and it hands finished work to the rest of the platform.",
     title: "AI Chat Pro: Multi-Model Chat With Memory and Skills | AmmarAI",
     description:
-      "Chat with several leading AI models in one thread, add personas and reusable skills, search the live web, upload files, keep smart memory across conversations and organise everything in folders.",
+      "Chat with several leading AI models in one thread. Add personas and skills, search the live web, upload files and keep memory across every conversation.",
     h1: "One chat window, every model, and a memory that carries over",
     lede: "AI Chat Pro is where you think out loud: pick the model that suits the job, give it a persona and a skill, let it search the live web or read your files, and keep the useful parts in memory for next time.",
     ctaLabel: "Open AI Chat Pro",
@@ -361,7 +361,7 @@ export const coreToolsA: Tool[] = [
       "A full image studio: generate from text, edit with a brush, keep one character or style consistent, swap backgrounds, upscale and export every size you need.",
     title: "AI Image Pro: Generate, Edit and Upscale Images | AmmarAI",
     description:
-      "Generate images from text, edit them with reference images and a brush, keep characters and styles consistent, remove or replace backgrounds, upscale and export every ratio.",
+      "Generate images from text, edit them with reference images and a brush, keep characters and styles consistent, replace backgrounds and upscale for print.",
     h1: "A complete image studio, not just a prompt box",
     lede: "Image Pro generates, edits and finishes. Start from a description or an upload, paint over the part you want changed, hold one character or house style across a whole set, then upscale and export every ratio your campaign needs.",
     ctaLabel: "Open Image Pro",
@@ -550,7 +550,7 @@ export const coreToolsA: Tool[] = [
       "Create short videos from text prompts or still images. Includes text-to-video, image-to-video, smooth transitions, and options for captions and voiceover.",
     title: "AI Video Pro: Create Complete AI Videos | AmmarAI",
     description:
-      "Create short videos from text prompts or still images, with text-to-video, image-to-video, smooth transitions, and caption and voiceover options.",
+      "Create short videos from text prompts or still images, with text-to-video, image-to-video, smooth transitions, and caption and voiceover options. Try it free.",
     h1: "AI Video Pro, from script to finished cut",
     lede: "The AI Video Generator is the assembly layer: it takes your script, visuals and voice and produces a short video you can post, rather than an isolated clip you still have to edit.",
     ctaLabel: "Generate a video",
@@ -808,7 +808,7 @@ export const coreToolsA: Tool[] = [
       "Generate natural-sounding voiceovers in 150+ languages and dialects. Clone your own voice or choose from a large library of neural voices, with control over tone, speed, and emotion.",
     title: "AI Voiceover & Voice Clone: Natural Narration | AmmarAI",
     description:
-      "Generate natural-sounding voiceovers in 150+ languages and dialects. Clone your own voice or pick from a neural voice library, with control over tone, speed and emotion.",
+      "Generate natural voiceovers in 150+ languages and dialects. Clone your own voice or pick a neural voice, with control over tone, speed and pronunciation.",
     h1: "Voiceover that sounds directed, not synthesised",
     lede: "Choose a voice, shape the delivery, and produce narration for video, courses and product audio without booking a studio.",
     ctaLabel: "Generate a voiceover",
@@ -960,7 +960,7 @@ export const coreToolsA: Tool[] = [
       "Convert articles, documents and scripts into clear spoken audio, at length and at speed.",
     title: "AI Text to Speech: Turn Writing Into Audio | AmmarAI",
     description:
-      "Convert articles, documents and scripts into natural spoken audio. Built for long-form listening, accessibility and audio versions.",
+      "Convert articles, documents and scripts into natural spoken audio. Built for long-form listening, accessibility and audio versions. Try it free in AmmarAI.",
     h1: "Turn anything you have written into something you can listen to",
     lede: "Paste text, pick a voice, get audio. Text to Speech is the practical way to make long written material listenable, accessible and portable.",
     ctaLabel: "Convert text to speech",
@@ -1103,7 +1103,7 @@ export const coreToolsA: Tool[] = [
       "Fast, accurate conversion of speech into text, including live dictation and recorded audio.",
     title: "AI Speech to Text: Accurate Voice to Text | AmmarAI",
     description:
-      "Convert speech into accurate text from recordings or live dictation. Punctuation, formatting and multiple languages included.",
+      "Convert speech into accurate text from recordings or live dictation. Punctuation, formatting and multiple languages included. Free to start in AmmarAI.",
     h1: "Speak it once, get the text you can work with",
     lede: "Dictate notes, capture voice memos and convert recorded audio into clean, punctuated text you can edit immediately.",
     ctaLabel: "Convert speech to text",
@@ -1247,7 +1247,7 @@ export const coreToolsA: Tool[] = [
       "Accurately transcribe audio and video files into text with speaker labels and timestamps. Supports multiple languages and common audio formats.",
     title: "AI Transcription: Meetings and Interviews to Text | AmmarAI",
     description:
-      "Accurately transcribe audio and video files into text with speaker labels and timestamps, across multiple languages and common audio formats.",
+      "Accurately transcribe audio and video files into text with speaker labels and timestamps, across multiple languages and common audio formats. Free in AmmarAI.",
     h1: "Every recording becomes a searchable document",
     lede: "Upload audio or video and get a timestamped, speaker-labelled transcript you can search, summarise, quote and turn into subtitles.",
     ctaLabel: "Transcribe a recording",

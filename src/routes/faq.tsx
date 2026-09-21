@@ -7,7 +7,7 @@ import { SITE, REGISTER_URL } from "@/lib/site";
 
 const title = "AmmarAI FAQ: Plans, Output, Ownership and Limits | AmmarAI";
 const description =
-  "Straight answers about what the platform does, what it costs, who owns the output and where AI generation falls short.";
+  "Straight answers about what AmmarAI does, what it costs, who owns the AI output, how credits work and where AI generation still falls short right now.";
 
 const groups = [
   {
