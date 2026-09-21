@@ -340,9 +340,9 @@ export const platformTools: Tool[] = [
       {
         label: "Sales intro deck",
         input:
-          "12-slide deck introducing our inventory software to retail operations directors. Benefits-led, one case study, ends on pricing.",
+          "6-slide deck introducing our inventory software to retail operations directors. Benefits-led, one case study, ends with a clear next step.",
         output:
-          "A complete 12-slide deck with titled sections, benefit statements, a case-study slide and a closing pricing slide, exported to PPTX.",
+          "A complete 6-slide deck with designed layouts, benefit statements, a case-study slide and a clear closing slide, ready to export to PPTX.",
       },
     ],
     capabilities: [
@@ -408,7 +408,6 @@ export const platformTools: Tool[] = [
       },
     ],
     related: ["ai-writer", "ai-image-generator", "bullet-point-answer-generator", "ai-document-analyzer"],
-    hideDemoVideo: true,
   },
   {
     slug: "ai-url-to-video",
