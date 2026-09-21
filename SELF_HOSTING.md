@@ -65,6 +65,58 @@ All your content, admin users, and sign-ins keep working as-is.
 
 ---
 
+## 3b. Deploy from GitHub (recommended)
+
+The code syncs automatically to GitHub
+(`github.com/ahmyt/ammarai-launchpad-magic`, branch `main`), so the server can
+always build the latest version itself — no zip uploads needed. `dist/` is not
+stored in the repo; the server builds it. All media files (`public/media/`)
+**are** in the repo and arrive with every pull.
+
+### Option A — over SSH (most reliable)
+
+```bash
+cd /var/www/vhosts/ammarai.com/<your-app-folder>
+bash scripts/deploy-from-github.sh
+```
+
+The script pulls `main`, installs dependencies, builds
+`dist/server/index.mjs`, and asks Passenger to restart. Then in Plesk →
+Node.js click **Restart App** if it does not pick up the new build.
+
+First time only, clone instead:
+
+```bash
+cd /var/www/vhosts/ammarai.com
+git clone https://github.com/ahmyt/ammarai-launchpad-magic.git <your-app-folder>
+cd <your-app-folder>
+cp /path/to/.env .   # or create .env with the variables from section 3
+bash scripts/deploy-from-github.sh
+```
+
+### Option B — Plesk Git panel
+
+1. Plesk → **Websites & Domains → ammarai.com → Git**.
+2. Repository: `https://github.com/ahmyt/ammarai-launchpad-magic.git`,
+   branch `main`, deployment path = your app folder.
+3. Under **Additional deployment actions**, add (one per line):
+
+   ```bash
+   npm install
+   npm run build
+   touch tmp/restart.txt
+   ```
+
+   Plesk runs these after every "Deploy now" — without them a pull does not
+   rebuild or restart the app.
+4. Click **Deploy now** whenever you want the latest code live.
+
+Environment variables (section 3) still live in Plesk → Node.js → Custom
+environment variables and in `.env`; GitHub never contains secrets. Remember:
+changing `VITE_*` values requires a rebuild.
+
+---
+
 ## 4. Google sign-in
 
 The app no longer depends on the Lovable-hosted OAuth broker. On your own
