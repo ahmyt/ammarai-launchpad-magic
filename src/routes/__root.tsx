@@ -89,7 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          `${TOOL_COUNT} AI tools and templates in one workspace: create content, think through problems, and automate real work.`,
+          `Explore AmmarAI\u2019s ${TOOL_COUNT}-tool workspace for AI agents, writing, chat, images, video, voice, CRM and automation. Start creating free today \u2014 no card required.`,
       },
       { name: "author", content: "AmmarAI" },
       { property: "og:site_name", content: "AmmarAI" },
