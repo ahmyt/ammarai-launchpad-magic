@@ -73,6 +73,30 @@ function useToolMap() {
 // homepage instead of a 404 keeps the root from flashing "Page not found".
 const HOST_ERROR_DOC_SLUG = "error_docs";
 
+/**
+ * Broad products serve several distinct customer groups, so their audience
+ * content is easier to scan as cards. Narrow generators keep the compact list.
+ */
+const audienceCardToolSlugs = new Set([
+  "ai-agent-builder",
+  "ai-social-media-agent",
+  "ai-phone-agent",
+  "ai-crm",
+  "ai-writer",
+  "ai-chat",
+  "ai-image-generator",
+  "ai-video-generator",
+  "ai-avatar-generator",
+  "ai-transcription",
+  "ai-blogger-agent",
+  "ai-dm-comment-agent",
+  "ai-deep-research",
+  "ai-chat-bots",
+  "ai-smart-inbox",
+  "ai-marketing-bot",
+  "ai-personas",
+]);
+
 export const Route = createFileRoute("/$slug")({
   staticData: { sitemap: true },
   loader: async ({ params, context }) => {
@@ -146,6 +170,7 @@ function ToolPage({ tool }: { tool: Tool }) {
   const toolMap = useToolMap();
   const demoMedia = resolveDemoVideos(tool);
   const hasAudioDemo = (demoMedia ?? []).some((d) => d?.kind === "audio");
+  const showAudienceCards = audienceCardToolSlugs.has(tool.slug);
   const workflow = allToolWorkflows.find((item) => item.slug === tool.slug);
   const relatedSlugs = tool.related.length >= 4
     ? tool.related
@@ -320,7 +345,7 @@ function ToolPage({ tool }: { tool: Tool }) {
                 : "People who get the most from this"
             }
           />
-          {tool.slug === "ai-phone-agent" ? (
+          {showAudienceCards ? (
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {tool.audiences.map((a) => (
                 <Card key={a.who} interactive className="p-6">
