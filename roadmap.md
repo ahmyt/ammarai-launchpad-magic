@@ -1,6 +1,11 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## AI Presentation Maker visual sample (2026-09-21)
+- [ ] Replace text-only sample output with a visual 12-slide presentation preview
+- [ ] Keep every slide readable and navigable on desktop and mobile
+- [ ] Verify sample switching, reduced motion, and preview health
+
 ## Outbound AI Agent audio sample (2026-09-21)
 - [x] Add the genuine outbound follow-up recording to AI Phone Call Agent
 - [x] Match it to a dedicated Outbound follow-up option
