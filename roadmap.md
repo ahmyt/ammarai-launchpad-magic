@@ -371,3 +371,7 @@
 - [x] toolWorkflows (30 hand-written Bring/AmmarAI/Get entries) in src/data/ecosystem.ts
 - [x] $slug.tsx renders workflow card for all 40 tools; related-workflows fallback preserved
 - [x] Verified: new cards on major tools, none on template pages, homepage still 10 stories, build OK
+
+## AI Phone Agent genuine audio sample (2026-09-21)
+- [x] Add the uploaded clinic appointment recording to the tool page
+- [x] Verify playback, privacy-safe caption, mobile layout, download control, and build health

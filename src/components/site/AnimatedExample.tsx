@@ -365,6 +365,7 @@ export function AnimatedExample({
                   key={media.inputAudio}
                   src={media.inputAudio}
                   controls
+                  controlsList={downloadControls}
                   preload="none"
                   className="w-full"
                   aria-label={`${toolName} sample input recording`}
@@ -587,6 +588,7 @@ export function AnimatedExample({
                       key={demoVideo.url}
                       src={demoVideo.url}
                       controls
+                      controlsList={downloadControls}
                       preload="metadata"
                       className="w-full"
                       aria-label={`${toolName} sample output audio`}

@@ -29,6 +29,7 @@ import transcriptionInterview from "@/assets/demo-transcription-interview.mp3.as
 import transcriptionWalkthrough from "@/assets/demo-transcription-walkthrough.mp3.asset.json";
 import musicAdBed from "@/assets/demo-music-ad-bed.mp3.asset.json";
 import musicAmbientBed from "@/assets/demo-music-ambient-bed.mp3.asset.json";
+import phoneAgentClinicAppointment from "@/assets/ai-phone-agent-clinic-appointment.mp3.asset.json";
 import videoEditorDemo from "@/assets/demo-video-editor.mp4.asset.json";
 import videoEditorSource from "@/assets/demo-video-editor-source.mp4.asset.json";
 import ugcSkincareSerum from "@/assets/ai-ugc-skincare-serum.webm.asset.json";
@@ -719,26 +720,9 @@ CREATE INDEX CONCURRENTLY IF NOT EXISTS events_user_created_idx
   ],
   "ai-phone-agent": [
     {
-      kind: "scene",
-      caption: "Sample call — an inbound booking answered and confirmed without a human.",
-      scene: {
-        label: "Inbound call · 00:41",
-        connectors: [
-          { id: "phone", label: "Phone", note: "Answer call" },
-          { id: "calendar", label: "Calendar", note: "Book slot" },
-          { id: "sms", label: "SMS", note: "Confirm" },
-          { id: "crm", label: "CRM", note: "Log summary" },
-        ],
-        steps: [
-          { actor: "Ring", text: "Incoming call — answered on the second ring", meta: "00:02", connector: "phone" },
-          { actor: "Agent", text: "Good afternoon, Marlow Dental. How can I help?", meta: "00:04" },
-          { actor: "Caller", text: "I'd like to book a check-up, ideally Thursday morning.", meta: "00:09" },
-          { actor: "Agent", text: "I have 9:20 or 11:05 on Thursday. Which suits you?", meta: "00:15" },
-          { actor: "Caller", text: "Nine twenty, please.", meta: "00:22" },
-          { actor: "Agent", text: "Booked for Thursday 9:20. I've texted you the confirmation.", meta: "00:31", connector: "calendar" },
-        ],
-        result: "Appointment written to the calendar, SMS sent, call summary saved to the CRM.",
-      },
+      kind: "audio",
+      url: phoneAgentClinicAppointment.url,
+      caption: "Clinic appointment booking — the phone agent answers a general check-up enquiry, offers an available time and explains what to bring.",
     },
     {
       kind: "scene",
