@@ -1,6 +1,12 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Homepage meta description length (2026-09-21)
+- [x] Rewrite the homepage meta description to 150-160 characters with a free-start call to action
+- [x] Match the site-wide fallback description so no page inherits the short version
+- [x] Verify the rendered tag, its length, og:description parity, and preview health
+
+
 ## AI Presentation Maker visual sample (2026-09-21)
 - [x] Replace text-only sample output with a visual 6-slide presentation preview
 - [x] Keep every slide readable and navigable on desktop and mobile
