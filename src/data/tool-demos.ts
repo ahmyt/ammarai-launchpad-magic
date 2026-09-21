@@ -125,22 +125,16 @@ export const toolDemoMedia: Record<string, ToolDemoMedia[]> = {
   "ai-presentation-maker": [
     {
       kind: "presentation",
-      caption: "Sample output — a complete 12-slide sales deck with a consistent visual system, clear narrative and pricing close.",
+      caption: "Sample output — a six-slide preview from the complete sales deck, with a consistent visual system, clear narrative and pricing close.",
       presentation: {
         title: "Stockroom, reimagined",
         slides: [
           { kicker: "01 / Introduction", title: "Stockroom, reimagined", detail: "Inventory clarity for modern retail teams", layout: "cover" },
           { kicker: "02 / The challenge", title: "Retail teams are flying blind", detail: "Disconnected counts create missed sales and excess stock.", layout: "metrics" },
-          { kicker: "03 / The cost", title: "Small gaps become expensive", detail: "Lost availability, slower decisions and hours of manual reconciliation.", layout: "split" },
-          { kicker: "04 / The platform", title: "One live view of every item", detail: "Stock, locations and movement brought into one operational picture.", layout: "cover" },
-          { kicker: "05 / Visibility", title: "Know what is available now", detail: "See inventory by store, warehouse, product and variant.", layout: "metrics" },
-          { kicker: "06 / Automation", title: "Reorder before shelves run empty", detail: "Smart thresholds surface risk while teams still have time to act.", layout: "split" },
-          { kicker: "07 / Operations", title: "Move stock with confidence", detail: "Transfer recommendations balance supply across every location.", layout: "metrics" },
-          { kicker: "08 / Integrations", title: "Fits the tools you already use", detail: "Connect sales channels, purchasing and finance without a rebuild.", layout: "split" },
-          { kicker: "09 / Case study", title: "From weekly counts to daily clarity", detail: "A regional retailer reduced reconciliation work and improved availability.", layout: "quote" },
-          { kicker: "10 / Rollout", title: "Live in three focused steps", detail: "Connect your catalogue, map locations, then invite the operations team.", layout: "metrics" },
-          { kicker: "11 / Pricing", title: "Plans that scale with locations", detail: "Start with the essentials and add advanced controls as the team grows.", layout: "split" },
-          { kicker: "12 / Next step", title: "See your inventory clearly", detail: "Book a tailored walkthrough for your retail operation.", layout: "cover" },
+          { kicker: "03 / The platform", title: "One live view of every item", detail: "Stock, locations and movement brought into one operational picture.", layout: "cover" },
+          { kicker: "04 / Automation", title: "Reorder before shelves run empty", detail: "Smart thresholds surface risk while teams still have time to act.", layout: "split" },
+          { kicker: "05 / Case study", title: "From weekly counts to daily clarity", detail: "A regional retailer reduced reconciliation work and improved availability.", layout: "quote" },
+          { kicker: "06 / Next step", title: "See your inventory clearly", detail: "Book a tailored walkthrough for your retail operation.", layout: "cover" },
         ],
       },
     },

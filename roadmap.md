@@ -2,7 +2,7 @@
 # Roadmap
 
 ## AI Presentation Maker visual sample (2026-09-21)
-- [ ] Replace text-only sample output with a visual 12-slide presentation preview
+- [ ] Replace text-only sample output with a visual 6-slide presentation preview
 - [ ] Keep every slide readable and navigable on desktop and mobile
 - [ ] Verify sample switching, reduced motion, and preview health
 
