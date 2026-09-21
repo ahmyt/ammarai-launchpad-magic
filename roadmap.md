@@ -374,4 +374,4 @@
 
 ## AI Phone Agent genuine audio sample (2026-09-21)
 - [x] Add the uploaded clinic appointment recording to the tool page
-- [ ] Verify playback, privacy-safe caption, mobile layout, download control, and build health
+- [x] Verify playback, privacy-safe caption, mobile layout, download control, and build health
