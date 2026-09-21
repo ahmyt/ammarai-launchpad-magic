@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { siteContentQuery } from "@/lib/content";
 import type { Example } from "@/data/types";
-import type { ToolDemoMedia } from "@/data/tool-demos";
+import type { ToolDemoMedia, ToolDemoPresentationSlide } from "@/data/tool-demos";
 import { cn } from "@/lib/utils";
 import { assetUrl } from "@/lib/asset-url";
 
@@ -91,6 +91,7 @@ export function AnimatedExample({
   const demoVideo = media?.url ? media : undefined;
   const demoCode = media?.code ? media : undefined;
   const demoScene = media?.scene ? media.scene : undefined;
+  const demoPresentation = media?.presentation ? media.presentation : undefined;
   const outputWords = useMemo(() => (example?.output ?? "").split(" "), [example?.output]);
 
 
@@ -169,6 +170,8 @@ export function AnimatedExample({
       return () => clearTimeout(t);
     }
 
+    if (phase === "writing" && demoPresentation) return;
+
     if (phase === "writing") {
       const count = written ? written.split(" ").length : 0;
       if (count >= outputWords.length) {
@@ -199,6 +202,7 @@ export function AnimatedExample({
     demoVideo,
     demoCode,
     demoScene,
+    demoPresentation,
   ]);
 
   if (!example) return null;
@@ -207,6 +211,8 @@ export function AnimatedExample({
     ? "scene"
     : demoCode
       ? "code"
+      : demoPresentation
+        ? "presentation"
       : demoVideo?.kind === "audio"
         ? "audio"
         : demoVideo?.kind === "image"
@@ -220,7 +226,7 @@ export function AnimatedExample({
       ? "AmmarAI codes"
       : outputKind === "audio"
         ? "AmmarAI speaks"
-        : outputKind === "image" || outputKind === "video"
+        : outputKind === "image" || outputKind === "video" || outputKind === "presentation"
           ? "AmmarAI renders"
           : outputKind === "scene"
             ? "AmmarAI works"
@@ -246,7 +252,7 @@ export function AnimatedExample({
             ? 0.45 + (revealed / Math.max(demoScene.steps.length, 1)) * 0.5
             : demoCode
               ? 0.45 + (written.length / Math.max((demoCode.code ?? "").length, 1)) * 0.5
-              : demoVideo
+              : demoVideo || demoPresentation
                 ? 0.7
                 : 0.45 +
                   ((written ? written.split(" ").length : 0) / Math.max(outputWords.length, 1)) *
@@ -562,6 +568,12 @@ export function AnimatedExample({
                   {media?.caption ?? example.output}
                 </p>
               </div>
+            ) : demoPresentation ? (
+              <PresentationPreview
+                title={demoPresentation.title}
+                slides={demoPresentation.slides}
+                caption={media?.caption ?? example.output}
+              />
             ) : demoCode ? (
 
               <div className="demo-reveal">
@@ -673,6 +685,95 @@ export function AnimatedExample({
             </div>
           </div>
         ) : null}
+      </div>
+    </div>
+  );
+}
+
+function PresentationPreview({
+  title,
+  slides,
+  caption,
+}: {
+  title: string;
+  slides: ToolDemoPresentationSlide[];
+  caption: string;
+}) {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const slide = slides[activeSlide];
+  if (!slide) return null;
+
+  return (
+    <div className="demo-reveal">
+      <div className="flex items-center justify-between gap-3">
+        <span className="rounded-full bg-ink px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink-foreground">
+          Presentation
+        </span>
+        <span className="text-[11px] font-semibold tabular-nums text-muted-foreground">
+          {activeSlide + 1} / {slides.length} slides
+        </span>
+      </div>
+
+      <div className="mt-3 overflow-hidden rounded-xl bg-ink ring-1 ring-border/50">
+        <PresentationSlide slide={slide} deckTitle={title} />
+      </div>
+
+      <div className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-6" aria-label="12-slide presentation preview">
+        {slides.map((item, slideIndex) => (
+          <button
+            key={`${item.kicker}-${slideIndex}`}
+            type="button"
+            onClick={() => setActiveSlide(slideIndex)}
+            aria-label={`Show slide ${slideIndex + 1}: ${item.title}`}
+            aria-pressed={activeSlide === slideIndex}
+            className={cn(
+              "group/slide aspect-video overflow-hidden rounded-md bg-ink text-left ring-1 transition-all",
+              activeSlide === slideIndex
+                ? "ring-2 ring-accent"
+                : "ring-border/60 hover:ring-accent/70",
+            )}
+          >
+            <span className="flex h-full flex-col justify-between p-1.5">
+              <span className="text-[6px] font-semibold uppercase text-accent">{slideIndex + 1}</span>
+              <span className="line-clamp-2 text-[7px] font-semibold leading-tight text-ink-foreground">
+                {item.title}
+              </span>
+            </span>
+          </button>
+        ))}
+      </div>
+
+      <p className="mt-3 text-pretty text-xs leading-relaxed text-muted-foreground">{caption}</p>
+    </div>
+  );
+}
+
+function PresentationSlide({
+  slide,
+  deckTitle,
+}: {
+  slide: ToolDemoPresentationSlide;
+  deckTitle: string;
+}) {
+  return (
+    <div className="relative aspect-video overflow-hidden p-5 text-ink-foreground sm:p-8">
+      <div className="absolute inset-y-0 right-0 w-2/5 bg-accent/20" aria-hidden="true" />
+      <div className="absolute right-[8%] top-[16%] h-20 w-20 rotate-12 border border-accent/60 sm:h-32 sm:w-32" aria-hidden="true" />
+      <div className="absolute bottom-[12%] right-[18%] h-10 w-10 bg-accent sm:h-16 sm:w-16" aria-hidden="true" />
+      <div className="relative flex h-full max-w-[72%] flex-col">
+        <p className="text-[8px] font-semibold uppercase tracking-[0.18em] text-accent sm:text-[10px]">{slide.kicker}</p>
+        <h3 className="mt-auto text-balance text-xl font-semibold leading-[1.05] text-ink-foreground sm:text-4xl">
+          {slide.title}
+        </h3>
+        <p className="mt-2 max-w-md text-[9px] leading-relaxed text-ink-foreground/70 sm:text-sm">{slide.detail}</p>
+        <div className="mt-auto flex items-end justify-between gap-4 border-t border-ink-foreground/20 pt-2">
+          <span className="text-[7px] font-semibold uppercase text-ink-foreground/55 sm:text-[9px]">{deckTitle}</span>
+          <span className="flex gap-1" aria-hidden="true">
+            {[0, 1, 2].map((bar) => (
+              <span key={bar} className={cn("block w-5 bg-accent", bar === 1 ? "h-2" : bar === 2 ? "h-3" : "h-1")} />
+            ))}
+          </span>
+        </div>
       </div>
     </div>
   );
