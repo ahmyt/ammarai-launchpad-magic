@@ -6,7 +6,7 @@ const companies = [
   { name: "MyMobile Unlocking", src: "/media/trusted-companies/mymobile-unlocking.webp", alt: "MyMobile Unlocking logo" },
   { name: "Ice Land", src: "/media/trusted-companies/ice-land.webp", alt: "Ice Land ice cream logo" },
   { name: "ATN Technology", src: "/media/trusted-companies/atn-technology.webp", alt: "ATN Technology logo" },
-  { name: "Ethio Game", src: "/media/trusted-companies/ethio-game.png", alt: "Ethio Game logo" },
+  { name: "Ethio Game", src: "/media/trusted-companies/ethio-game.webp", alt: "Ethio Game logo" },
   { name: "AymarPOS", src: "/media/trusted-companies/aymarpos.png", alt: "AymarPOS point-of-sale logo" },
 ];
 
