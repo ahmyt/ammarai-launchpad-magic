@@ -386,5 +386,5 @@
 ## Broad-tool audience card rollout (2026-09-21)
 - [x] Extend the AI Phone Agent audience-card treatment to flagship, agent, and workspace products
 - [x] Keep narrow generators and template pages in the compact audience layout
-- [ ] Verify representative broad and narrow pages on desktop and mobile
-- [ ] Confirm build health
+- [x] Verify representative broad and narrow pages on desktop and mobile
+- [x] Confirm build health
