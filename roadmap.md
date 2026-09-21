@@ -399,3 +399,10 @@
 - [x] Keep narrow generators and template pages in the compact audience layout
 - [x] Verify representative broad and narrow pages on desktop and mobile
 - [x] Confirm build health
+
+## Use cases page meta description length (2026-09-21)
+- [x] Rewrite the /use-cases description to 154 characters (target 150-160)
+- [x] og:description and the CollectionPage JSON-LD pick up the same wording
+- [x] Verify the live head output and build health
+- [ ] User: pull from GitHub and restart so ammarai.com serves the new description
+- [ ] Decide whether to bring the other out-of-range descriptions into 150-160 (12 site pages short, tutorials.index long, 145 of 151 tool pages outside the band)

@@ -8,7 +8,7 @@ import { SITE, REGISTER_URL } from "@/lib/site";
 
 const title = "AI Use Cases by Role and Industry | AmmarAI Workflows";
 const description =
-  "See how marketers, creators, small businesses, agencies, students, developers and e-commerce teams use AmmarAI day to day — from hands-on creation to AI agents that schedule and publish for them.";
+  "See how marketers, creators, agencies and clinics use AmmarAI day to day — from hands-on content creation to AI agents that schedule and publish for them.";
 const url = "https://ammarai.com/use-cases";
 
 export const Route = createFileRoute("/use-cases")({
