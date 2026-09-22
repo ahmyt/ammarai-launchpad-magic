@@ -36,6 +36,13 @@
       "when": 1789362124913,
       "tag": "0004_cron_upsert_article_taxonomy",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1790110700489,
+      "tag": "0005_create_offers",
+      "breakpoints": true
     }
   ]
 }

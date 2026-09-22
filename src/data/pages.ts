@@ -98,5 +98,13 @@ export const pages: Page[] = [
     requireContactCaptcha: true,
     turnstileSiteKey: "",
     allowCmsSignup: false,
+    offerEnabled: true,
+    offerShowExitIntent: true,
+    offerShowTimed: true,
+    offerShowStickyMobile: true,
+    offerShowInline: true,
+    offerDelaySeconds: "30",
+    offerReshowDays: "3",
+    offerInlinePages: ["/pricing", "/ai-tools", "/features"],
   },
 ];

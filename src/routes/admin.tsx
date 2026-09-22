@@ -112,6 +112,12 @@ function AdminLayout() {
               >
                 Reviews
               </Link>
+              <Link
+                to="/admin/offers"
+                className="rounded-full px-3.5 py-1.5 text-xs font-semibold text-muted-foreground ring-1 ring-border hover:text-foreground [&.active]:bg-ink [&.active]:text-ink-foreground"
+              >
+                Offers
+              </Link>
             </>
           ) : null}
         </nav>

@@ -199,6 +199,98 @@ export type Database = {
           },
         ]
       }
+      offer_events: {
+        Row: {
+          created_at: string
+          event: string
+          id: string
+          ip_hash: string
+          offer_id: string
+          page: string
+          source: string
+        }
+        Insert: {
+          created_at?: string
+          event: string
+          id?: string
+          ip_hash?: string
+          offer_id: string
+          page?: string
+          source: string
+        }
+        Update: {
+          created_at?: string
+          event?: string
+          id?: string
+          ip_hash?: string
+          offer_id?: string
+          page?: string
+          source?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "offer_events_offer_id_fkey"
+            columns: ["offer_id"]
+            isOneToOne: false
+            referencedRelation: "offers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      offers: {
+        Row: {
+          code: string
+          created_at: string
+          discount_label: string
+          expires_at: string | null
+          headline: string
+          id: string
+          is_active: boolean
+          label: string
+          max_uses: number | null
+          slug: string
+          starts_at: string | null
+          terms: string
+          updated_at: string
+          use_type: string
+          used_count: number
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          discount_label?: string
+          expires_at?: string | null
+          headline: string
+          id?: string
+          is_active?: boolean
+          label?: string
+          max_uses?: number | null
+          slug: string
+          starts_at?: string | null
+          terms?: string
+          updated_at?: string
+          use_type?: string
+          used_count?: number
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          discount_label?: string
+          expires_at?: string | null
+          headline?: string
+          id?: string
+          is_active?: boolean
+          label?: string
+          max_uses?: number | null
+          slug?: string
+          starts_at?: string | null
+          terms?: string
+          updated_at?: string
+          use_type?: string
+          used_count?: number
+        }
+        Relationships: []
+      }
       review_settings: {
         Row: {
           date_from: string | null
@@ -424,11 +516,21 @@ export type Database = {
         }
         Returns: string
       }
+      admin_offer_stats: { Args: { _offer_id: string }; Returns: Json }
       admin_set_sync_time: {
         Args: { _id: string; _run_time: string }
         Returns: string
       }
       claim_first_admin: { Args: never; Returns: boolean }
+      claim_offer: {
+        Args: {
+          _ip_hash: string
+          _offer_id: string
+          _page: string
+          _source: string
+        }
+        Returns: Json
+      }
       cron_get_settings: {
         Args: { _id: string; _token: string }
         Returns: {
@@ -469,6 +571,22 @@ export type Database = {
         Args: { _id: string; _token: string }
         Returns: boolean
       }
+      get_active_offer: {
+        Args: never
+        Returns: {
+          code: string
+          discount_label: string
+          expires_at: string
+          headline: string
+          id: string
+          label: string
+          remaining: number
+          slug: string
+          starts_at: string
+          terms: string
+          use_type: string
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -486,6 +604,16 @@ export type Database = {
           _status: string
         }
         Returns: boolean
+      }
+      record_offer_event: {
+        Args: {
+          _event: string
+          _ip_hash: string
+          _offer_id: string
+          _page: string
+          _source: string
+        }
+        Returns: undefined
       }
     }
     Enums: {

@@ -414,3 +414,14 @@
 - [x] All 15 blog post descriptions 150-160 (src/data/posts*.ts)
 - [x] Site pages fixed: home, about, ai-tools, ai-models, blog, contact, faq, features, pricing, refund-policy, resources, terms, tutorials (list + og)
 - [x] 13 long tool descriptions hand-rewritten instead of truncated (ai-writer, ai-chat, ai-image-generator, ai-voice-generator, ai-avatar-generator, ai-photoshoot, ai-image-editor, ai-realtime-image, ai-creative-suite, ai-social-media-publisher, external-chatbot, ai-url-to-video, ai-chat-bots)
+
+## Offer & discount system (2026-09-22)
+- [ ] Migration: offers + offer_events tables, GRANTs, RLS, get_active_offer/claim_offer/record_offer_event/admin_offer_stats
+- [ ] Public server functions with per-IP rate limiting (src/lib/offers.functions.ts)
+- [ ] OfferProvider mounted client-side in __root SiteShell (homepage payload must stay ~120 KB)
+- [ ] Exit-intent card + timed card (desktop), sticky bar (mobile), inline block (high-intent pages)
+- [ ] Frequency capping in localStorage, reduced motion, keyboard close, focus trap
+- [ ] Studio Offers screen with expiry, single/multiple use, max uses, used count, active switch
+- [ ] Site settings: master switch, placement toggles, delay seconds, re-show days, inline pages
+- [ ] Verify on desktop and mobile, claim recorded in database, expired/exhausted offer hidden everywhere
+- [ ] User: pull from GitHub and restart so ammarai.com serves it

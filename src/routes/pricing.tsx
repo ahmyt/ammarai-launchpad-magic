@@ -4,6 +4,7 @@ import { Container, Section, SectionHeading } from "@/components/site/primitives
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { ExternalButton } from "@/components/site/Button";
+import { OfferInline } from "@/components/site/OfferInline";
 import { cn } from "@/lib/utils";
 
 const title = "Pricing: One Subscription for Every AI Tool | AmmarAI";
@@ -127,6 +128,8 @@ function Pricing() {
           </p>
         </Container>
       </Section>
+
+      <OfferInline />
 
       <Section tone="sand">
         <Container size="narrow">
