@@ -1,6 +1,17 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Offer & discount system (2026-09-22)
+- [x] Store campaigns with expiry, start date, single/multi use, usage cap and per-visitor lock
+- [x] Record views, copies and claims against a hashed fingerprint, never a raw IP address
+- [x] Show exit-intent card, timed card, mobile sticky bar and inline blocks on chosen pages
+- [x] Hide the offer once it ends, runs out, has not started, is switched off, or is already claimed
+- [x] Put every switch and spacing rule in Site settings and add an Offers studio screen with results
+- [x] Verify copy-to-clipboard, claim counting, single-use locking, mobile layout, reduced motion, build health
+- [ ] Verify the Offers studio screen end to end while signed in as an administrator
+
+
+
 ## Homepage meta description length (2026-09-21)
 - [x] Rewrite the homepage meta description to 150-160 characters with a free-start call to action
 - [x] Match the site-wide fallback description so no page inherits the short version
