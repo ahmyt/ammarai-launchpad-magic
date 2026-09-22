@@ -9,6 +9,7 @@
 - [x] Put every switch and spacing rule in Site settings and add an Offers studio screen with results
 - [x] Verify copy-to-clipboard, claim counting, single-use locking, mobile layout, reduced motion, build health
 - [x] Verify the Offers studio screen end to end while signed in as an administrator
+- [x] Record the campaign tables and functions in a database migration file; anonymous visitors hold no table privileges
 
 
 
