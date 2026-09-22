@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { ContentProtection } from "@/components/site/ContentProtection";
+import { OfferProvider } from "@/components/site/OfferProvider";
 import { ThemeProvider, useTheme } from "@/components/site/ThemeProvider";
 import { siteContentQuery, siteContentRowsQuery, type ContentRow } from "@/lib/content";
 
@@ -156,7 +157,7 @@ function SiteShell() {
   const { theme } = useTheme();
 
   return (
-    <>
+    <OfferProvider>
       <ContentProtection />
       <div className={`site-shell home-swiss flex min-h-screen flex-col bg-background text-foreground ${theme === "dark" ? "theme-dark" : ""}`}>
           <Header />
@@ -166,6 +167,6 @@ function SiteShell() {
           </main>
           <Footer />
         </div>
-    </>
+    </OfferProvider>
   );
 }

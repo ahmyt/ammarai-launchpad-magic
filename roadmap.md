@@ -1,6 +1,17 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Offer & discount system (2026-09-22)
+- [x] Store campaigns with expiry, start date, single/multi use, usage cap and per-visitor lock
+- [x] Record views, copies and claims against a hashed fingerprint, never a raw IP address
+- [x] Show exit-intent card, timed card, mobile sticky bar and inline blocks on chosen pages
+- [x] Hide the offer once it ends, runs out, has not started, is switched off, or is already claimed
+- [x] Put every switch and spacing rule in Site settings and add an Offers studio screen with results
+- [x] Verify copy-to-clipboard, claim counting, single-use locking, mobile layout, reduced motion, build health
+- [ ] Verify the Offers studio screen end to end while signed in as an administrator
+
+
+
 ## Homepage meta description length (2026-09-21)
 - [x] Rewrite the homepage meta description to 150-160 characters with a free-start call to action
 - [x] Match the site-wide fallback description so no page inherits the short version
@@ -414,3 +425,14 @@
 - [x] All 15 blog post descriptions 150-160 (src/data/posts*.ts)
 - [x] Site pages fixed: home, about, ai-tools, ai-models, blog, contact, faq, features, pricing, refund-policy, resources, terms, tutorials (list + og)
 - [x] 13 long tool descriptions hand-rewritten instead of truncated (ai-writer, ai-chat, ai-image-generator, ai-voice-generator, ai-avatar-generator, ai-photoshoot, ai-image-editor, ai-realtime-image, ai-creative-suite, ai-social-media-publisher, external-chatbot, ai-url-to-video, ai-chat-bots)
+
+## Offer & discount system (2026-09-22)
+- [ ] Migration: offers + offer_events tables, GRANTs, RLS, get_active_offer/claim_offer/record_offer_event/admin_offer_stats
+- [ ] Public server functions with per-IP rate limiting (src/lib/offers.functions.ts)
+- [ ] OfferProvider mounted client-side in __root SiteShell (homepage payload must stay ~120 KB)
+- [ ] Exit-intent card + timed card (desktop), sticky bar (mobile), inline block (high-intent pages)
+- [ ] Frequency capping in localStorage, reduced motion, keyboard close, focus trap
+- [ ] Studio Offers screen with expiry, single/multiple use, max uses, used count, active switch
+- [ ] Site settings: master switch, placement toggles, delay seconds, re-show days, inline pages
+- [ ] Verify on desktop and mobile, claim recorded in database, expired/exhausted offer hidden everywhere
+- [ ] User: pull from GitHub and restart so ammarai.com serves it

@@ -238,6 +238,48 @@ const pageSettingsFields: FieldSpec[] = [
     label: "Allow new content studio accounts (sign-up) — ask to also re-enable it in the backend",
     type: "boolean",
   },
+  {
+    name: "offerEnabled",
+    label: "Show discount campaigns to visitors",
+    type: "boolean",
+  },
+  {
+    name: "offerShowExitIntent",
+    label: "Offer: exit-intent card on desktop",
+    type: "boolean",
+  },
+  {
+    name: "offerShowTimed",
+    label: "Offer: card after a delay or half-way down the page",
+    type: "boolean",
+  },
+  {
+    name: "offerShowStickyMobile",
+    label: "Offer: sticky bar on phones",
+    type: "boolean",
+  },
+  {
+    name: "offerShowInline",
+    label: "Offer: permanent block on the pages below",
+    type: "boolean",
+  },
+  {
+    name: "offerDelaySeconds",
+    label: "Offer: delay before the timed card appears (seconds)",
+    type: "text",
+  },
+  {
+    name: "offerReshowDays",
+    label: "Offer: days before a dismissed offer shows again",
+    type: "text",
+  },
+  {
+    name: "offerInlinePages",
+    label: "Offer: pages with the permanent block",
+    type: "json",
+    hint: "Paths such as /pricing",
+    item: S("Page path"),
+  },
 ];
 
 /** Fields shown when editing a specific page — keeps Contact, Home and Settings separate. */

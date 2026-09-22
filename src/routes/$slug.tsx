@@ -12,6 +12,7 @@ import { ExternalButton, ButtonLink, buttonClass } from "@/components/site/Butto
 import { RelatedTools, ToolCard } from "@/components/site/ToolCard";
 import { AnimatedExample } from "@/components/site/AnimatedExample";
 import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
+import { OfferInline } from "@/components/site/OfferInline";
 import { toolDemoMedia, type ToolDemoMedia } from "@/data/tool-demos";
 import { tutorialsByTool } from "@/data/tutorials";
 import { allToolWorkflows, pillarForTool } from "@/data/ecosystem";
@@ -456,6 +457,8 @@ function ToolPage({ tool }: { tool: Tool }) {
           </Container>
         </Section>
       ) : null}
+
+      <OfferInline />
 
       <Section tone="ink" className="py-16 sm:py-20">
         <Container className="text-center">

@@ -186,5 +186,21 @@ export interface Page {
   turnstileSiteKey?: string;
   /** Allow new content studio accounts to be created from /auth */
   allowCmsSignup?: boolean;
+  /** Master switch: show discount campaigns to visitors */
+  offerEnabled?: boolean;
+  /** Show the exit-intent offer card on desktop */
+  offerShowExitIntent?: boolean;
+  /** Show the timed offer card on desktop */
+  offerShowTimed?: boolean;
+  /** Show the sticky offer bar on phones */
+  offerShowStickyMobile?: boolean;
+  /** Show the permanent offer block on the pages listed below */
+  offerShowInline?: boolean;
+  /** Seconds before the timed offer appears */
+  offerDelaySeconds?: string;
+  /** Days to wait before a dismissed offer may show again */
+  offerReshowDays?: string;
+  /** Pages that carry the permanent offer block */
+  offerInlinePages?: string[];
 }
 
