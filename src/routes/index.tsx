@@ -94,7 +94,7 @@ const videoLibrary = [
     label: "AI Video Pro",
     slug: "ai-video-generator",
     src: "/media/ai-video-pro-family-lunch.webm",
-    poster: "/media/ai-video-pro-family-lunch.poster.jpg",
+    poster: "/media/ai-video-pro-family-lunch.poster.webp",
     accessibilityLabel: "AI Video Pro sample: grandparents and grandchildren sharing a warm animated family meal at the table",
   },
   {
@@ -102,14 +102,14 @@ const videoLibrary = [
     label: "AI Video Editor",
     slug: "ai-video-editor",
     src: "/media/demo-video-editor.webm",
-    poster: "/media/demo-video-editor.poster.jpg",
+    poster: "/media/demo-video-editor.poster.webp",
   },
   {
     title: "Skincare serum creator review",
     label: "AI UGC Generator",
     slug: "ai-ugc-generator",
     src: "/media/ai-ugc-skincare-serum.webm",
-    poster: "/media/ai-ugc-skincare-serum.poster.jpg",
+    poster: "/media/ai-ugc-skincare-serum.poster.webp",
     accessibilityLabel: "AI UGC Generator sample: a woman presenting and demonstrating an amber-bottle facial serum",
   },
   {
@@ -117,7 +117,7 @@ const videoLibrary = [
     label: "AI Avatar Video Generator",
     slug: "ai-avatar-generator",
     src: "/media/demo-avatar-video.webm",
-    poster: "/media/demo-avatar-video.poster.jpg",
+    poster: "/media/demo-avatar-video.poster.webp",
   },
 ];
 
