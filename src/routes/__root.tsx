@@ -135,6 +135,17 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const rows = Route.useLoaderData() as ContentRow[] | undefined;
 
+  // Hydration can drop the stylesheet the inline loader added to <head>;
+  // make sure it is present (the browser already has it cached).
+  useEffect(() => {
+    if (document.querySelector('link[data-site-fonts]')) return;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = FONT_CSS;
+    link.dataset.siteFonts = "";
+    document.head.appendChild(link);
+  }, []);
+
   // The root loader carries only the CMS rows. Seed the cache with them so the
   // header, footer and page copy resolve without a second request.
   useMemo(() => {
