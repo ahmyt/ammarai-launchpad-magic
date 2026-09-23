@@ -442,6 +442,6 @@
 - [x] Fonts load without blocking first paint
 - [x] Logo and homepage video covers switched to lightweight WebP
 - [x] Split 151-tool catalogue + tutorials out of the startup bundle (main JS 1.67 MB → 0.71 MB raw; regenerate index with `bun scripts/gen-tools-index.ts`)
-- [ ] Split blog/use-case records from shared startup content and generate lightweight homepage previews
-- [ ] Defer offer lookup until its configured display delay
-- [ ] Verify bundle size, key routes, mobile layout, and preview health
+- [x] Split blog/use-case records from shared startup content and generate lightweight homepage previews
+- [x] Defer offer lookup until its configured display delay
+- [x] Verify key routes, 411px mobile layout, no overflow/errors, and clean preview build
