@@ -1,4 +1,4 @@
-import type { Tool, ToolCategory } from "./types";
+import type { ToolCategory, ToolSummary } from "./types";
 
 export type EcosystemPillar = "Create" | "Think" | "Automate" | "Grow";
 
@@ -27,11 +27,11 @@ export const categoryPillar = Object.fromEntries(
   pillarOrder.flatMap((pillar) => pillarDetails[pillar].categories.map((category) => [category, pillar])),
 ) as Record<ToolCategory, EcosystemPillar>;
 
-export function pillarForTool(tool: Tool): EcosystemPillar {
+export function pillarForTool(tool: Pick<ToolSummary, "slug" | "category">): EcosystemPillar {
   return categoryPillar[tool.category];
 }
 
-export function toolsInPillar(tools: Tool[], pillar: EcosystemPillar): Tool[] {
+export function toolsInPillar<T extends ToolSummary>(tools: T[], pillar: EcosystemPillar): T[] {
   return tools.filter((tool) => pillarForTool(tool) === pillar);
 }
 

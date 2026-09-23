@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { pillarDetails, pillarOrder, flagshipWorkflows, toolsInPillar } from "@/data/ecosystem";
-import type { Tool } from "@/data/types";
+import type { ToolSummary as Tool } from "@/data/types";
 import { Container, Section, SectionHeading } from "./primitives";
 import { buttonClass } from "./Button";
 

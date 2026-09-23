@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { siteContentQuery } from "@/lib/content";
-import { TOOL_COUNT } from "@/data/tools";
+import { TOOL_COUNT } from "@/data/tools-lite";
 import { Container, Section, Card } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";

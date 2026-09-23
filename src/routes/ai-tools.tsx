@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
-import { categoryOrder, suggestTools, TOOL_COUNT } from "@/data/tools";
+import { categoryOrder, suggestTools, TOOL_COUNT } from "@/data/tools-lite";
 import { pillarDetails, pillarForTool, pillarOrder, type EcosystemPillar } from "@/data/ecosystem";
 import { siteContentQuery } from "@/lib/content";
 import { Container, Section } from "@/components/site/primitives";

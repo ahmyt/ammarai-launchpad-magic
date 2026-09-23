@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowRight, Bot, Check, Files, History, Layers3, Search, Sparkles, SwatchBook, WandSparkles } from "lucide-react";
 import { siteContentQuery } from "@/lib/content";
-import { tools, featuredTools, TOOL_COUNT, suggestTools } from "@/data/tools";
+import { tools, featuredTools, TOOL_COUNT, suggestTools } from "@/data/tools-lite";
 import { useCases } from "@/data/use-cases";
 import { features } from "@/data/features";
 import { posts } from "@/data/posts";

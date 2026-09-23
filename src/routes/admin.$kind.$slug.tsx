@@ -2,7 +2,8 @@ import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-ro
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { contentKinds, contentRowsQuery, staticItems, type ContentKind } from "@/lib/content";
+import { contentKinds, contentRowsQuery, type ContentKind } from "@/lib/content";
+import { staticItems } from "@/lib/content-full";
 import { emptyDraft, fieldSpecs, pageFieldSpecs } from "@/lib/cms-fields";
 import { ListField } from "@/components/cms/ListField";
 import { RichTextArea } from "@/components/cms/RichTextArea";

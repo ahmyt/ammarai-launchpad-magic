@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { loadSiteContent } from "@/lib/content";
+import { loadFullSiteContent as loadSiteContent } from "@/lib/content-full";
 import { fetchSyndicatedArticles } from "@/lib/articles";
 import { tutorials } from "@/data/tutorials";
 
