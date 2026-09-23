@@ -22,7 +22,12 @@ import {
 export type FullSiteContent = Omit<SiteContent, "tools"> & { tools: Tool[] };
 
 export function mergeFullContent(rows: ContentRow[]): FullSiteContent {
-  return { ...mergeContent(rows), tools: mergeKind(staticTools, rows, "tool") };
+  return {
+    ...mergeContent(rows),
+    tools: mergeKind(staticTools, rows, "tool"),
+    useCases: mergeKind(staticUseCases, rows, "use_case"),
+    posts: mergeKind(staticPosts, rows, "post"),
+  };
 }
 
 export async function getFullSiteContent(queryClient: QueryClient): Promise<FullSiteContent> {

@@ -2,9 +2,7 @@ import { queryOptions, type QueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import type { Feature, Page, Post, ToolSummary, UseCase } from "@/data/types";
 import { toolSummaries as staticTools } from "@/data/tools-lite";
-import { useCases as staticUseCases } from "@/data/use-cases";
 import { features as staticFeatures } from "@/data/features";
-import { posts as staticPosts } from "@/data/posts";
 import { pages as staticPages } from "@/data/pages";
 
 export type ContentKind = "tool" | "use_case" | "feature" | "post" | "page";
@@ -36,9 +34,9 @@ export interface SiteContent {
 
 export const staticContent: SiteContent = {
   tools: staticTools,
-  useCases: staticUseCases,
+  useCases: [],
   features: staticFeatures,
-  posts: staticPosts,
+  posts: [],
   pages: staticPages,
 };
 
@@ -73,9 +71,9 @@ export function mergeKind<T extends { slug: string }>(
 export function mergeContent(rows: ContentRow[]): SiteContent {
   return {
     tools: mergeKind(staticTools, rows, "tool"),
-    useCases: mergeKind(staticUseCases, rows, "use_case"),
+    useCases: [],
     features: mergeKind(staticFeatures, rows, "feature"),
-    posts: mergeKind(staticPosts, rows, "post"),
+    posts: [],
     pages: mergeKind(staticPages, rows, "page"),
   };
 }

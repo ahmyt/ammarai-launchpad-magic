@@ -1,7 +1,10 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import type { Post } from "@/data/types";
-import { getSiteContent, siteContentQuery } from "@/lib/content";
+import {
+  getFullSiteContent as getSiteContent,
+  fullSiteContentQuery as siteContentQuery,
+} from "@/lib/content-full";
 import {
   articleCategory,
   articleDate,
@@ -263,7 +266,7 @@ function StaticPostView({ post }: { post: Post }) {
   const postBySlug = new Map(content.posts.map((p) => [p.slug, p]));
   const related = post.related
     .map((slug) => postBySlug.get(slug))
-    .filter((p): p is Post => Boolean(p) && p!.slug !== post.slug)
+    .filter((p): p is Post => Boolean(p) && p?.slug !== post.slug)
     .slice(0, 3);
 
   const relatedTools = pickRelatedTools(

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { getSiteContent, siteContentQuery } from "@/lib/content";
+import { getFullSiteContent as getSiteContent, fullSiteContentQuery as siteContentQuery } from "@/lib/content-full";
 import { Container, Section, Card } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";

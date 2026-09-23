@@ -68,8 +68,18 @@ export function OfferProvider({ children }: { children: ReactNode }) {
   const contentQuery = useQuery({ ...siteContentQuery, enabled: hydrated });
   const settings = contentQuery.data?.pages.find((page) => page.slug === "settings");
   const display = useMemo(() => offerDisplayFromPage(settings), [settings]);
+  const [delayElapsed, setDelayElapsed] = useState(false);
 
-  const ready = hydrated && contentQuery.isFetched && display.enabled;
+  useEffect(() => {
+    setDelayElapsed(false);
+    if (!hydrated || !contentQuery.isFetched || !display.enabled) return;
+    const timer = window.setTimeout(() => setDelayElapsed(true), display.delayMs);
+    return () => window.clearTimeout(timer);
+  }, [hydrated, contentQuery.isFetched, display.enabled, display.delayMs]);
+
+  // Do not request campaign data during startup. The offer cannot appear before
+  // this delay anyway, so the network and server work can wait too.
+  const ready = hydrated && contentQuery.isFetched && display.enabled && delayElapsed;
   const offerQuery = useQuery({
     queryKey: ["active-offer"],
     queryFn: () => getActiveOffer(),
@@ -90,8 +100,7 @@ export function OfferProvider({ children }: { children: ReactNode }) {
     setBarVisible(false);
     if (!offer || !isMobile || !display.stickyMobile) return;
     if (!offerIsEligible(offer.id, display.reshowMs)) return;
-    const timer = window.setTimeout(() => setBarVisible(true), display.delayMs);
-    return () => window.clearTimeout(timer);
+    setBarVisible(true);
   }, [offer, isMobile, display]);
 
   // Exit-intent and timed cards on desktop only.
@@ -102,12 +111,8 @@ export function OfferProvider({ children }: { children: ReactNode }) {
     if (!display.exitIntent && !display.timed) return;
     if (!offerIsEligible(offer.id, display.reshowMs)) return;
 
-    // Nothing may interrupt before the delay set in Site settings has passed.
-    const readyAt = Date.now() + display.delayMs;
-
     const openWith = (source: OfferSource) => {
       if (shownRef.current) return;
-      if (Date.now() < readyAt) return;
       shownRef.current = true;
       setMode(source);
       setOpen(true);
@@ -125,14 +130,11 @@ export function OfferProvider({ children }: { children: ReactNode }) {
       if (scrollable > 200 && window.scrollY >= scrollable / 2) openWith("timed");
     };
 
-    const timer = display.timed
-      ? window.setTimeout(() => openWith("timed"), display.delayMs)
-      : undefined;
+    if (display.timed) openWith("timed");
 
     document.addEventListener("mouseout", onMouseOut);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
-      if (timer !== undefined) window.clearTimeout(timer);
       document.removeEventListener("mouseout", onMouseOut);
       window.removeEventListener("scroll", onScroll);
     };
