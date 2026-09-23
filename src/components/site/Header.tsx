@@ -13,13 +13,18 @@ import { pillarDetails, pillarOrder } from "@/data/ecosystem";
 export function Wordmark({ className }: { className?: string }) {
   return (
     <span className="flex items-center gap-1.5">
-      <img
-        src={assetUrl(logoAsset.url)}
-        alt="AmmarAI logo"
-        width={32}
-        height={32}
-        className="rounded-md size-7 sm:size-8 shrink-0"
-      />
+      <picture>
+        <source srcSet="/media/ammarai-logo.webp" type="image/webp" />
+        <img
+          src={assetUrl(logoAsset.url)}
+          alt="AmmarAI logo"
+          width={32}
+          height={32}
+          decoding="async"
+          fetchPriority="high"
+          className="rounded-md size-7 sm:size-8 shrink-0"
+        />
+      </picture>
       <span className={className ?? "font-display text-2xl font-semibold tracking-tight"}>
         Ammar<span className="text-accent">AI</span>
       </span>

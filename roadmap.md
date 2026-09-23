@@ -437,3 +437,8 @@
 - [ ] Site settings: master switch, placement toggles, delay seconds, re-show days, inline pages
 - [ ] Verify on desktop and mobile, claim recorded in database, expired/exhausted offer hidden everywhere
 - [ ] User: pull from GitHub and restart so ammarai.com serves it
+
+## Mobile speed (2026-09-23)
+- [x] Fonts load without blocking first paint
+- [x] Logo and homepage video covers switched to lightweight WebP
+- [ ] Split 151-tool catalogue out of homepage bundle (deferred — large refactor touching CMS merge)
