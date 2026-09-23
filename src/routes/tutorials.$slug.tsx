@@ -4,11 +4,13 @@ import { ArrowRight, ChevronLeft, ChevronRight, Info, Lightbulb, TriangleAlert }
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { buttonClass } from "@/components/site/Button";
 import { Container } from "@/components/site/primitives";
-import { adjacentTutorials, getTutorial, type Tutorial, type TutorialCallout } from "@/data/tutorials";
+import { adjacentTutorials, type Tutorial, type TutorialCallout } from "@/data/tutorials";
 
 export const Route = createFileRoute("/tutorials/$slug")({
   staticData: { sitemap: true },
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
+    // Loaded on demand so the tutorial library stays out of the startup bundle.
+    const { getTutorial } = await import("@/data/tutorials");
     const tutorial = getTutorial(params.slug);
     if (!tutorial) throw notFound();
     return { tutorial };
