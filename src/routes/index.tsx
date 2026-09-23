@@ -4,9 +4,8 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowRight, Bot, Check, Files, History, Layers3, Search, Sparkles, SwatchBook, WandSparkles } from "lucide-react";
 import { siteContentQuery } from "@/lib/content";
 import { toolSummaries as tools, featuredTools, TOOL_COUNT, suggestTools } from "@/data/tools-lite";
-import { useCases } from "@/data/use-cases";
 import { features } from "@/data/features";
-import { posts } from "@/data/posts";
+import { homepagePosts, homepageUseCases } from "@/data/homepage-content";
 import { SITE, organizationJsonLd, REGISTER_URL } from "@/lib/site";
 import { Container, Section, SectionHeading, Card } from "@/components/site/primitives";
 import { ExternalButton, ButtonLink } from "@/components/site/Button";
@@ -121,11 +120,6 @@ const videoLibrary = [
   },
 ];
 
-const homepageUseCases = [
-  ...useCases.slice(0, 6),
-  ...useCases.filter((item) => item.slug === "ai-for-saas-companies" || item.slug === "ai-for-real-estate-agents"),
-];
-
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
   loader: ({ context }) => context.queryClient.prefetchQuery(siteContentQuery),
@@ -144,7 +138,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-export function Home() {
+function Home() {
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const page = content.pages.find((p) => p.slug === "home");
   const settings = content.pages.find((p) => p.slug === "settings");
@@ -531,7 +525,7 @@ export function Home() {
         <Container>
           <SectionHeading eyebrow="From the blog" title="Guides worth your time" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {posts.slice(0, 3).map((post) => (
+            {homepagePosts.map((post) => (
               <Card key={post.slug} interactive className="studio-journal-card p-6">
                 <p className="eyebrow">{post.category}</p>
                 <h3 className="mt-3 text-balance text-base font-semibold leading-snug">

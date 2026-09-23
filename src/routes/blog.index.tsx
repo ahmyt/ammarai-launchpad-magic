@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { siteContentQuery } from "@/lib/content";
+import { fullSiteContentQuery as siteContentQuery } from "@/lib/content-full";
 import {
   CONTENT_TYPES,
   articleCategory,

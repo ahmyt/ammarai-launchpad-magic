@@ -21,7 +21,6 @@ import { toolDemoMedia, type ToolDemoMedia } from "@/data/tool-demos";
 import { tutorialsByTool } from "@/data/tutorials";
 import { allToolWorkflows, pillarForTool } from "@/data/ecosystem";
 import { useCases } from "@/data/use-cases";
-import { Home } from "./index";
 
 
 /**
@@ -106,8 +105,7 @@ export const Route = createFileRoute("/$slug")({
   staticData: { sitemap: true },
   loader: async ({ params, context }) => {
     if (params.slug === HOST_ERROR_DOC_SLUG) {
-      await getSiteContent(context.queryClient);
-      return { kind: "home" as const };
+      throw redirect({ to: "/", statusCode: 302 });
     }
     const redirectTarget = retiredToolRedirects[params.slug];
     if (redirectTarget) {
@@ -124,12 +122,6 @@ export const Route = createFileRoute("/$slug")({
     if (!loaderData) {
       return {
         meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }],
-      };
-    }
-    if (loaderData.kind === "home") {
-      return {
-        meta: [{ name: "robots", content: "noindex" }],
-        links: [{ rel: "canonical", href: "https://ammarai.com/" }],
       };
     }
     const title =
@@ -156,7 +148,6 @@ export const Route = createFileRoute("/$slug")({
 
 function SlugPage() {
   const data = Route.useLoaderData();
-  if (data.kind === "home") return <Home />;
   if (data.kind === "tool") return <ToolPage tool={data.tool} />;
   return <UseCasePage useCase={data.useCase} />;
 }

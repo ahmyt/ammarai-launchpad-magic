@@ -1,7 +1,7 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import type { Post } from "@/data/types";
-import { getSiteContent, siteContentQuery } from "@/lib/content";
+import { getFullSiteContent as getSiteContent } from "@/lib/content-full";
 import {
   articleCategory,
   articleDate,
