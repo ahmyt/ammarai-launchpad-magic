@@ -204,3 +204,9 @@ export interface Page {
   offerInlinePages?: string[];
 }
 
+
+/** Lightweight tool record for cards, menus, search and counts. */
+export type ToolSummary = Pick<
+  Tool,
+  "slug" | "name" | "category" | "templateGroup" | "summary" | "featured" | "popular" | "recent"
+>;

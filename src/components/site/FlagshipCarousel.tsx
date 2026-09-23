@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { Tool } from "@/data/types";
+import type { ToolSummary as Tool } from "@/data/types";
 import { flagshipWorkflows } from "@/data/ecosystem";
 import { ActionButton } from "./Button";
 

@@ -1,7 +1,7 @@
 import { queryOptions, type QueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import type { Feature, Page, Post, Tool, UseCase } from "@/data/types";
-import { tools as staticTools } from "@/data/tools";
+import type { Feature, Page, Post, ToolSummary, UseCase } from "@/data/types";
+import { toolSummaries as staticTools } from "@/data/tools-lite";
 import { useCases as staticUseCases } from "@/data/use-cases";
 import { features as staticFeatures } from "@/data/features";
 import { posts as staticPosts } from "@/data/posts";
@@ -26,7 +26,8 @@ export interface ContentRow {
 }
 
 export interface SiteContent {
-  tools: Tool[];
+  /** Lightweight tool records (cards, menus, search). Full records: @/lib/content-full. */
+  tools: ToolSummary[];
   useCases: UseCase[];
   features: Feature[];
   posts: Post[];
@@ -41,22 +42,7 @@ export const staticContent: SiteContent = {
   pages: staticPages,
 };
 
-export function staticItems(kind: ContentKind): Record<string, unknown>[] {
-  switch (kind) {
-    case "tool":
-      return staticTools as unknown as Record<string, unknown>[];
-    case "use_case":
-      return staticUseCases as unknown as Record<string, unknown>[];
-    case "feature":
-      return staticFeatures as unknown as Record<string, unknown>[];
-    case "post":
-      return staticPosts as unknown as Record<string, unknown>[];
-    case "page":
-      return staticPages as unknown as Record<string, unknown>[];
-  }
-}
-
-function mergeKind<T extends { slug: string }>(
+export function mergeKind<T extends { slug: string }>(
   base: readonly T[],
   rows: ContentRow[],
   kind: ContentKind,

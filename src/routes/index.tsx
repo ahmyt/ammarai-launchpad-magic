@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowRight, Bot, Check, Files, History, Layers3, Search, Sparkles, SwatchBook, WandSparkles } from "lucide-react";
 import { siteContentQuery } from "@/lib/content";
-import { tools, featuredTools, TOOL_COUNT, suggestTools } from "@/data/tools";
+import { toolSummaries as tools, featuredTools, TOOL_COUNT, suggestTools } from "@/data/tools-lite";
 import { useCases } from "@/data/use-cases";
 import { features } from "@/data/features";
 import { posts } from "@/data/posts";
@@ -19,7 +19,7 @@ import { useTheme } from "@/components/site/ThemeProvider";
 import { outcomeShortcuts } from "@/data/ecosystem";
 import { EcosystemOverview, WorkflowStories } from "@/components/site/HomeEcosystem";
 import { FlagshipCarousel } from "@/components/site/FlagshipCarousel";
-import { tutorials } from "@/data/tutorials";
+import { featuredTutorials } from "@/data/tutorials-featured";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
 const description =
@@ -420,7 +420,7 @@ export function Home() {
         <Container>
           <SectionHeading eyebrow="Learn by doing" title="Practical guides for real workflows" intro="Open a focused walkthrough, follow the exact fields and controls, then continue into the matching AmmarAI tool." />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {tutorials.slice(0, 3).map((tutorial) => (
+            {featuredTutorials.map((tutorial) => (
               <Card key={tutorial.slug} interactive className="p-6">
                 <p className="eyebrow">{tutorial.category}</p>
                 <h3 className="mt-3 text-lg font-semibold"><Link to="/tutorials/$slug" params={{ slug: tutorial.slug }} className="text-foreground hover:text-accent">{tutorial.h1}</Link></h3>

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { toolBySlug } from "@/data/tools";
+import { toolSummaryBySlug } from "@/data/tools-lite";
 import { ActionButton, ButtonLink } from "@/components/site/Button";
 
 const showcaseSlugs = [
@@ -45,7 +45,7 @@ const showcaseOutcomes: Record<(typeof showcaseSlugs)[number], string> = {
 export function SecondaryToolsCarousel() {
   const tools = useMemo(
     () => showcaseSlugs.flatMap((slug) => {
-      const tool = toolBySlug.get(slug);
+      const tool = toolSummaryBySlug.get(slug);
       return tool ? [tool] : [];
     }),
     [],

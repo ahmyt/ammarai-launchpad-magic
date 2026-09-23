@@ -8,8 +8,10 @@ import { adjacentTutorials, getTutorial, type Tutorial, type TutorialCallout } f
 
 export const Route = createFileRoute("/tutorials/$slug")({
   staticData: { sitemap: true },
-  loader: ({ params }) => {
-    const tutorial = getTutorial(params.slug);
+  loader: async ({ params }) => {
+    // Loaded on demand so the tutorial library stays out of the startup bundle.
+    const library = await import("@/data/tutorials");
+    const tutorial = library.getTutorial(params.slug);
     if (!tutorial) throw notFound();
     return { tutorial };
   },

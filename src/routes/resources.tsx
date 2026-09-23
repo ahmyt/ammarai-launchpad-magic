@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { posts } from "@/data/posts";
-import { featuredTools, popularTools } from "@/data/tools";
+import { featuredTools, popularTools } from "@/data/tools-lite";
 import { features } from "@/data/features";
 import { Container, Section, SectionHeading, Card } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";

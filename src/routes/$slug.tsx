@@ -3,7 +3,11 @@ import { createFileRoute, notFound, redirect, Link } from "@tanstack/react-route
 import { retiredToolRedirects } from "@/data/retired-tools";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import type { Tool, UseCase } from "@/data/types";
-import { getSiteContent, siteContentQuery } from "@/lib/content";
+import { fullSiteContentQuery as siteContentQuery } from "@/lib/content-full";
+
+// Loaded on demand so the full catalogue never lands in the shared startup bundle.
+const getSiteContent: typeof import("@/lib/content-full").getFullSiteContent = async (queryClient) =>
+  (await import("@/lib/content-full")).getFullSiteContent(queryClient);
 import { SITE, softwareApplicationJsonLd, REGISTER_URL } from "@/lib/site";
 import { Container, Section, SectionHeading, Card, NumberedList, BulletList } from "@/components/site/primitives";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";

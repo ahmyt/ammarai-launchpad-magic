@@ -3,7 +3,7 @@ import { Container, Section, SectionHeading, Card } from "@/components/site/prim
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ButtonLink, ExternalButton } from "@/components/site/Button";
 import { SITE, REGISTER_URL } from "@/lib/site";
-import { tools, TOOL_COUNT } from "@/data/tools";
+import { toolSummaries as tools, TOOL_COUNT } from "@/data/tools-lite";
 
 const title = "About AmmarAI: One Workspace for AI Creation | AmmarAI";
 const description =

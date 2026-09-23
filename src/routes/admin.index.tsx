@@ -3,7 +3,8 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
-import { contentKinds, contentRowsQuery, staticItems } from "@/lib/content";
+import { contentKinds, contentRowsQuery } from "@/lib/content";
+import { staticItems } from "@/lib/content-full";
 import { allSyndicatedArticlesQuery } from "@/lib/articles";
 
 export const Route = createFileRoute("/admin/")({

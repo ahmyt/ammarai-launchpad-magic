@@ -16,7 +16,7 @@ import appCss from "../styles.css?url";
 const FONT_CSS =
   "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap";
 const FONT_LOADER = `(function(){var l=document.createElement('link');l.rel='stylesheet';l.setAttribute('data-site-fonts','');l.href=${JSON.stringify(FONT_CSS)};document.head.appendChild(l);})();`;
-import { TOOL_COUNT } from "@/data/tools";
+import { TOOL_COUNT } from "@/data/tools-lite";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";

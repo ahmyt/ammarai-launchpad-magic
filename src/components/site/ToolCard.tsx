@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import type { Tool } from "@/data/types";
+import type { ToolSummary as Tool } from "@/data/types";
 import { cn } from "@/lib/utils";
 
 export function ToolCard({

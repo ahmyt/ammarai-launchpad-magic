@@ -9,7 +9,7 @@ import {
   syndicatedArticlesQuery,
   type SyndicatedArticle,
 } from "@/lib/articles";
-import { tools, featuredTools } from "@/data/tools";
+import { toolSummaries as tools, featuredTools } from "@/data/tools-lite";
 import { brandCta, collapsibleFaqs, wrapTables } from "@/lib/article-html";
 import { Container, Section, BulletList } from "@/components/site/primitives";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/Breadcrumbs";
