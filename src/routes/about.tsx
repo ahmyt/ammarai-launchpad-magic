@@ -7,7 +7,7 @@ import { tools, TOOL_COUNT } from "@/data/tools";
 
 const title = "About AmmarAI: One Workspace for AI Creation | AmmarAI";
 const description =
-  `AmmarAI is an all-in-one AI platform: ${TOOL_COUNT} AI tools and agents for writing, chat, images, video, voice, SEO and automation. Meet the team that builds it.`;
+  `Explore AmmarAI, an all-in-one AI workspace with ${TOOL_COUNT} tools, agents and automation for content, media, SEO and publishing. Meet the team, then start free.`;
 
 const principles = [
   {
