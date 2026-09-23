@@ -146,7 +146,7 @@ function RootComponent() {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = FONT_CSS;
-    link.dataset.siteFonts = "";
+    link.setAttribute("data-site-fonts", "");
     document.head.appendChild(link);
   }, []);
 
