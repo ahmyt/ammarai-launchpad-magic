@@ -116,7 +116,7 @@ export const tutorials: Tutorial[] = [
             title: "Refine in the same thread",
             body: "Ask follow-up questions, correct assumptions or request a different format. Keep the conversation together while it is serving the same goal so Chat Pro can use the earlier context.",
             image: {
-              src: "/media/tutorials/tutorial-ai-chat-pro-5.png",
+              src: "/media/tutorials/tutorial-ai-chat-pro-5-v2.png",
               alt: "AI Chat Pro conversation showing a question, attached file and grounded answer",
               caption: "Continue in the same thread when the follow-up depends on the earlier request or source.",
               width: 1798,
@@ -242,7 +242,7 @@ export const tutorials: Tutorial[] = [
             title: "Review the answer and continue",
             body: "Read the answer against the source, then continue in the same thread with narrower questions. Ask for the relevant passage or location when you need to verify an important detail.",
             image: {
-              src: "/media/tutorials/document-chat-5.png",
+              src: "/media/tutorials/document-chat-5-v2.png",
               alt: "Document Chat conversation showing an answer based on an attached PDF",
               caption: "Review the document-grounded answer and ask follow-up questions.",
               width: 1798,
