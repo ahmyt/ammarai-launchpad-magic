@@ -183,7 +183,7 @@ export const tutorials: Tutorial[] = [
     h1: "How to chat with documents in AmmarAI",
     intro: [
       "Document Chat lets you add a document to a conversation and ask questions about its content, structure and context. It is useful for obtaining a summary, locating a detail or exploring a long file without losing the source conversation.",
-      "The sequence below follows the complete end-user upload and chat workflow. The screenshots are the original instructional images supplied by the reference documentation and are shown without cropping or alteration.",
+      "The steps below walk through the complete upload-and-chat workflow in AmmarAI, with a screenshot for each step.",
     ],
     whenToUse: [
       "You need a quick overview of a long report or PDF.",
