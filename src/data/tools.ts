@@ -63,3 +63,12 @@ export {
   toolSummaries,
   toolSummaryBySlug,
 } from "./tools-lite";
+
+// Keep the light index in sync: regenerate with `bun scripts/gen-tools-index.ts`.
+if (import.meta.env?.DEV) {
+  void import("./tools-index").then(({ toolIndex }) => {
+    const stale = tools.length !== toolIndex.length ||
+      tools.some((t, i) => t.slug !== toolIndex[i]?.slug || t.name !== toolIndex[i]?.name || t.summary !== toolIndex[i]?.summary || t.category !== toolIndex[i]?.category);
+    if (stale) console.warn("[tools] src/data/tools-index.ts is out of date — run: bun scripts/gen-tools-index.ts");
+  });
+}

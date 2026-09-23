@@ -1,6 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { getSiteContent } from "@/lib/content";
-import { toolBySlug } from "@/data/tools";
+import { toolSummaryBySlug as toolBySlug } from "@/data/tools-lite";
 import { Container, Section, SectionHeading, Card } from "@/components/site/primitives";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/Breadcrumbs";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
