@@ -441,4 +441,4 @@
 ## Mobile speed (2026-09-23)
 - [x] Fonts load without blocking first paint
 - [x] Logo and homepage video covers switched to lightweight WebP
-- [ ] Split 151-tool catalogue out of homepage bundle (deferred — large refactor touching CMS merge)
+- [x] Split 151-tool catalogue + tutorials out of the startup bundle (main JS 1.67 MB → 0.71 MB raw; regenerate index with `bun scripts/gen-tools-index.ts`)
