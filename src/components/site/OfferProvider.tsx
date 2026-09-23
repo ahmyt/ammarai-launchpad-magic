@@ -84,13 +84,14 @@ export function OfferProvider({ children }: { children: ReactNode }) {
   const [barVisible, setBarVisible] = useState(false);
   const shownRef = useRef(false);
 
-  // Sticky bar on phones: a plain region, not a modal.
+  // Sticky bar on phones: a plain region, not a modal. It waits out the same
+  // delay as the desktop card so nothing appears the instant a page loads.
   useEffect(() => {
-    if (!offer || !isMobile || !display.stickyMobile) {
-      setBarVisible(false);
-      return;
-    }
-    setBarVisible(offerIsEligible(offer.id, display.reshowMs));
+    setBarVisible(false);
+    if (!offer || !isMobile || !display.stickyMobile) return;
+    if (!offerIsEligible(offer.id, display.reshowMs)) return;
+    const timer = window.setTimeout(() => setBarVisible(true), display.delayMs);
+    return () => window.clearTimeout(timer);
   }, [offer, isMobile, display]);
 
   // Exit-intent and timed cards on desktop only.
@@ -101,8 +102,12 @@ export function OfferProvider({ children }: { children: ReactNode }) {
     if (!display.exitIntent && !display.timed) return;
     if (!offerIsEligible(offer.id, display.reshowMs)) return;
 
+    // Nothing may interrupt before the delay set in Site settings has passed.
+    const readyAt = Date.now() + display.delayMs;
+
     const openWith = (source: OfferSource) => {
       if (shownRef.current) return;
+      if (Date.now() < readyAt) return;
       shownRef.current = true;
       setMode(source);
       setOpen(true);
