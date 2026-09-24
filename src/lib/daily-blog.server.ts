@@ -547,7 +547,7 @@ export async function writeDailyPost(
       `Brief: ${topic.brief}`,
       ``,
       `PRIMARY KEYWORD: "${topic.primaryKeyword}"${topic.volume ? ` (${topic.volume.toLocaleString()} searches/month)` : ""}.`,
-      `The title MUST include the primary keyword and be under 60 characters. The metaDescription MUST include it and be under 155 characters.`,
+      `The title MUST include the primary keyword and be under 60 characters. The metaDescription MUST include it and be between 145 and 158 characters.`,
       typeBrief[topic.contentType] ?? "",
       `AmmarAI is an all-in-one AI workspace with ${TOOL_COUNT} tools on one subscription: writing, video, image, voice, agents, SEO and marketing.`,
       ...houseRules(topic.links, siblingLinks(topic.cluster, topic.links)),
@@ -577,7 +577,7 @@ export async function writeDailyPost(
       base.push(
         ``,
         `PRIMARY KEYWORD: "${kw.primaryKeyword}" (${kw.searchVolume.toLocaleString()} searches/month, difficulty ${kw.difficulty}/100).`,
-        `The title MUST include the primary keyword and be under 60 characters. The metaDescription MUST include it and be under 155 characters.`,
+        `The title MUST include the primary keyword and be under 60 characters. The metaDescription MUST include it and be between 145 and 158 characters.`,
         `Use the primary keyword naturally in the intro, at least one H2 heading and the closing section — do not stuff.`,
         `RELATED KEYWORDS to work in naturally: ${relatedList}.`,
         ``,

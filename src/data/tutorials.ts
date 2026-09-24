@@ -388,7 +388,7 @@ export const tutorials: Tutorial[] = [
     slug: "how-to-use-ai-video-pro",
     category: "Video",
     title: "How to Use AI Video Pro | AmmarAI Tutorials",
-    description: "Generate a video in AmmarAI AI Video Pro by choosing a model, entering a prompt or image, adjusting settings and creating the result.",
+    description: "Generate a video in AmmarAI AI Video Pro by choosing a model, entering a prompt or image, adjusting settings and creating the result. With screenshots.",
     h1: "How to use AI Video Pro",
     intro: [
       "AI Video Pro creates short videos from a written prompt or a source image. Available controls let you choose the generation approach and set options such as duration, resolution or style when the selected model supports them.",
@@ -1071,7 +1071,7 @@ export const tutorials: Tutorial[] = [
     category: "Automation",
     title: "How to Build an AI Agent | AmmarAI Tutorials",
     description:
-      "Build, test and monitor a multi-step workflow with AmmarAI AI Agent Builder using plain-language instructions, triggers and connected tools.",
+      "Build, test and monitor a multi-step workflow with AmmarAI AI Agent Builder using plain-language instructions, triggers and connected tools. Start free.",
     h1: "How to build an AI agent",
     intro: [
       "AI Agent Builder turns a plain-language job description into a workflow that can run on demand, on a schedule or when a message arrives. Each step can use the result from the step before it.",
@@ -1957,7 +1957,7 @@ export const tutorials: Tutorial[] = [
     slug: "how-to-create-an-ai-phone-agent",
     category: "Automation",
     title: "How to Create an AI Phone Agent | AmmarAI Tutorials",
-    description: "Create an AmmarAI AI Phone Agent, define its greeting and instructions, choose its voice and train it with approved business information.",
+    description: "Create an AmmarAI AI Phone Agent, define its greeting and instructions, choose its voice and train it with approved business information. With screenshots.",
     h1: "How to create an AI phone agent",
     intro: [
       "AI Phone Agent lets you create a voice agent for repeatable customer conversations such as enquiries, appointment requests and routine support calls.",
@@ -2070,7 +2070,7 @@ export const tutorials: Tutorial[] = [
     category: "Chat & Documents",
     title: "How to Build and Embed a Website Chatbot | AmmarAI Tutorials",
     description:
-      "Create an AmmarAI external chatbot, style it, train it on your own content and embed it on your website so visitors get answers day and night.",
+      "Create an AmmarAI external chatbot, style it, train it on your own content and embed it on your website so visitors get answers day and night. Start free.",
     h1: "How to build and embed a website chatbot",
     intro: [
       "An external chatbot is the assistant your visitors talk to on your own website. You give it a name and a voice, tell it what it is allowed to talk about, train it on your pages and documents, then paste a small snippet into your site.",
@@ -2186,7 +2186,7 @@ export const tutorials: Tutorial[] = [
     category: "Automation",
     title: "How to Run an AI Social Media Agent | AmmarAI Tutorials",
     description:
-      "Set up an AmmarAI social media agent that plans, writes and schedules posts for your accounts, then review, adjust and track them from one place.",
+      "Set up an AmmarAI social media agent that plans, writes and schedules posts for your accounts, then review, adjust and track them from one place. Start free.",
     h1: "How to run an AI social media agent",
     intro: [
       "A social media agent takes the repetitive part of posting off your hands. You describe the brand, the accounts and the kind of posts you want, and it drafts a schedule you can review before anything goes out.",
@@ -2322,7 +2322,7 @@ export const tutorials: Tutorial[] = [
     category: "Automation",
     title: "How to Hand Live Chats to a Human Agent | AmmarAI Tutorials",
     description:
-      "Let your AmmarAI chatbot pass a conversation to a person, then answer, tag, note and export those live chats from the Smart Inbox.",
+      "Let your AmmarAI chatbot pass a conversation to a person, then answer, tag, note and export those live chats from the Smart Inbox. Step-by-step guide.",
     h1: "How to hand live chats to a human agent",
     intro: [
       "An AI chatbot answers most questions on its own, but some conversations need a person — a refund, a complaint, a deal about to close. AmmarAI lets a visitor ask for a human and drops that conversation straight into your inbox.",
@@ -2443,7 +2443,7 @@ export const tutorials: Tutorial[] = [
     category: "Chat & Documents",
     title: "How to Compare Two AI Models in One Chat | AmmarAI Tutorials",
     description:
-      "Answer the same prompt with two AI models side by side in AmmarAI AI Chat Pro, then keep the response you prefer and carry on the thread.",
+      "Answer the same prompt with two AI models side by side in AmmarAI AI Chat Pro, then keep the response you prefer and carry on the thread. With screenshots.",
     h1: "How to compare two AI models in one chat",
     intro: [
       "Different models answer the same question in different ways. One may be more concise, another more thorough or better at reasoning through numbers. AI Chat Pro lets you run a single prompt through two models at once and read both answers next to each other.",
@@ -2498,7 +2498,7 @@ export const tutorials: Tutorial[] = [
     category: "Chat & Documents",
     title: "How to Take Bookings With Your Website Chatbot | AmmarAI Tutorials",
     description:
-      "Turn on the booking assistant in your AmmarAI website chatbot, decide when it should offer a meeting and paste in your scheduling embed code.",
+      "Turn on the booking assistant in your AmmarAI website chatbot, decide when it should offer a meeting and paste in your scheduling embed code. Start free.",
     h1: "How to take bookings with your website chatbot",
     intro: [
       "A chatbot that answers questions is useful. A chatbot that books the meeting while the visitor is still interested is better. The booking assistant adds a scheduler inside the chat window, so an interested visitor picks a slot without leaving the conversation.",
@@ -2743,7 +2743,7 @@ export const tutorials: Tutorial[] = [
     category: "Productivity",
     title: "How to Invite Teammates to Your Workspace | AmmarAI Tutorials",
     description:
-      "Invite colleagues into your AmmarAI workspace by email, see how they accept, and understand how team members draw on the workspace owner's credits.",
+      "Invite colleagues into your AmmarAI workspace by email, see how they accept, and understand how team members draw on the workspace owner's credits. Start free.",
     h1: "How to invite teammates to your workspace",
     intro: [
       "A workspace can be shared. Invite a colleague by email and they work alongside you with the same brand profiles, templates and assistants, instead of each person starting from a blank prompt box.",
@@ -2798,7 +2798,7 @@ export const tutorials: Tutorial[] = [
     category: "Productivity",
     title: "How to Publish a Post to WordPress | AmmarAI Tutorials",
     description:
-      "Connect your WordPress site to AmmarAI once, then send finished articles straight to your blog from the editor without copying and pasting.",
+      "Connect your WordPress site to AmmarAI once, then send finished articles straight to your blog from the editor without copying and pasting. Start free.",
     h1: "How to publish a post to WordPress",
     intro: [
       "Writing the article is only half the job. Getting it onto the blog — with the headings, links and formatting intact — is where most of the fiddling happens.",
@@ -2880,7 +2880,7 @@ export const tutorials: Tutorial[] = [
     category: "Automation",
     title: "How to Read WhatsApp and Telegram Messages in One Inbox | AmmarAI Tutorials",
     description:
-      "Bring WhatsApp, Telegram and your other message channels into a single AmmarAI inbox, filter by channel and reply without switching apps.",
+      "Bring WhatsApp, Telegram and your other message channels into a single AmmarAI inbox, filter by channel and reply without switching apps. With screenshots.",
     h1: "How to read WhatsApp and Telegram messages in one inbox",
     intro: [
       "Messages arrive everywhere: the website chat, a WhatsApp number, a Telegram account, social replies. Checking four apps is how a good lead goes cold.",
@@ -2949,7 +2949,7 @@ export const tutorials: Tutorial[] = [
     category: "Audio",
     title: "How to Clone Your Own Voice for Voiceovers | AmmarAI Tutorials",
     description:
-      "Record a short sample, create a clone of your own voice in AmmarAI, and use it for narration across videos, courses and product audio.",
+      "Record a short sample, create a clone of your own voice in AmmarAI, and use it for narration across videos, courses and product audio. With screenshots.",
     h1: "How to clone your own voice for voiceovers",
     intro: [
       "A cloned voice lets you narrate a video at midnight without setting up a microphone, and keeps every video in the same voice even when the script changes at the last minute.",
@@ -3279,7 +3279,7 @@ export const tutorials: Tutorial[] = [
     category: "Productivity",
     title: "How to Run a Cited Research Report With AI Deep Research | AmmarAI Tutorials",
     description:
-      "Frame the question, choose the depth, and turn a live multi-source research run into a report you can defend, with every claim linked to its source.",
+      "Frame the question, choose the depth, and turn a live multi-source research run into a report you can defend, with every claim linked to its source. Start free.",
     h1: "How to run a cited research report with AI Deep Research",
     intro: [
       "A normal chat answer stops at the model's training date and gives you no way to check where anything came from.",
