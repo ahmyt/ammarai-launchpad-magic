@@ -6,6 +6,7 @@ import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/Breadcrumbs";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { RelatedTools } from "@/components/site/ToolCard";
 import { ExternalButton, ButtonLink } from "@/components/site/Button";
+import { OfferInline } from "@/components/site/OfferInline";
 import { SITE, REGISTER_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/features/$slug")({
