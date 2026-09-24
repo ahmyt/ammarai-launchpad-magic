@@ -100,10 +100,11 @@ export function OfferProvider({ children }: { children: ReactNode }) {
   // delay as the desktop card so nothing appears the instant a page loads.
   useEffect(() => {
     setBarVisible(false);
-    if (!offer || !isMobile || !display.stickyMobile) return;
+    if (!offer || !ready || !isMobile || !display.stickyMobile) return;
     if (!offerIsEligible(offer.id, display.reshowMs)) return;
     setBarVisible(true);
-  }, [offer, isMobile, display]);
+  }, [offer, ready, isMobile, display]);
+
 
   // Exit-intent and timed cards on desktop only.
   useEffect(() => {
