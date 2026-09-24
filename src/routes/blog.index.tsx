@@ -30,6 +30,20 @@ export const Route = createFileRoute("/blog/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://ammarai.com/blog" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: title,
+          description,
+          url: "https://ammarai.com/blog",
+          isPartOf: { "@type": "WebSite", name: "AmmarAI", url: "https://ammarai.com" },
+        }),
+      },
+    ],
   }),
   loader: async ({ context }) => {
     await Promise.all([
