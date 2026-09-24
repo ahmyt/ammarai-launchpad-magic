@@ -32,6 +32,7 @@ export const Route = createFileRoute("/tutorials/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://ammarai.com/media/og-image.png" },
     ],
+    links: [{ rel: "canonical", href: "https://ammarai.com/tutorials" }],
   }),
   component: TutorialsIndexPage,
 });
