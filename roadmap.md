@@ -445,3 +445,10 @@
 - [x] Split blog/use-case records from shared startup content and generate lightweight homepage previews
 - [x] Defer offer lookup until its configured display delay
 - [x] Verify key routes, 411px mobile layout, no overflow/errors, and clean preview build
+
+## SEO fixes from audit comparison (2026-09-24)
+- [x] Canonical link added to /tutorials list page (tutorial detail pages already had one)
+- [x] Brand share image (og:image + twitter:image) added to 17 public page groups
+- [x] Organization data: absolute site URL, logo and image added; sameAs awaiting real social profile URLs from Ahmed
+- [x] Homepage heading now reads "One AI platform for everything you create" to match the page title keyword
+- [ ] Plesk: add Cache-Control and security headers (HSTS, X-Frame-Options, X-Content-Type-Options) in nginx directives
