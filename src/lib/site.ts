@@ -158,7 +158,15 @@ export const organizationJsonLd = {
   "@type": "Organization",
   name: SITE.name,
   description: SITE.description,
-  url: "/",
+  url: SITE.url,
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE.url}/media/ammarai-logo.webp`,
+  },
+  image: `${SITE.url}/media/og-image.png`,
+  // Add verified brand profile URLs here (X, LinkedIn, YouTube, Crunchbase)
+  // to strengthen entity recognition in Google and AI search.
+  sameAs: [SITE.appUrl],
 };
 
 export function softwareApplicationJsonLd(name: string, description: string, path: string) {
