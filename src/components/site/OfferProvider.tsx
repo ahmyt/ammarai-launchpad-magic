@@ -77,16 +77,18 @@ export function OfferProvider({ children }: { children: ReactNode }) {
     return () => window.clearTimeout(timer);
   }, [hydrated, contentQuery.isFetched, display.enabled, display.delayMs]);
 
-  // Do not request campaign data during startup. The offer cannot appear before
-  // this delay anyway, so the network and server work can wait too.
-  const ready = hydrated && contentQuery.isFetched && display.enabled && delayElapsed;
+  // The permanent inline block is not an interruption, so it may show at once.
+  // The pop-up and the sticky bar still wait out the configured delay below.
+  const canLoadOffer = hydrated && contentQuery.isFetched && display.enabled;
+  const ready = canLoadOffer && delayElapsed;
   const offerQuery = useQuery({
     queryKey: ["active-offer"],
     queryFn: () => getActiveOffer(),
-    enabled: ready,
+    enabled: canLoadOffer,
     staleTime: 5 * 60 * 1000,
   });
   const offer = offerQuery.data ?? null;
+
 
   const isMobile = useIsMobile();
   const [open, setOpen] = useState(false);
