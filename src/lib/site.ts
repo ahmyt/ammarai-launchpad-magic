@@ -164,9 +164,13 @@ export const organizationJsonLd = {
     url: `${SITE.url}/media/ammarai-logo.webp`,
   },
   image: `${SITE.url}/media/og-image.png`,
-  // Add verified brand profile URLs here (X, LinkedIn, YouTube, Crunchbase)
-  // to strengthen entity recognition in Google and AI search.
-  sameAs: [SITE.appUrl],
+  // Verified brand profile URLs — strengthen entity recognition in Google and AI search.
+  sameAs: [
+    SITE.appUrl,
+    "https://www.facebook.com/1FLnRPTArx",
+    "https://www.tiktok.com/@ammarai.com",
+    "https://www.instagram.com/ammarai_com",
+  ],
 };
 
 export function softwareApplicationJsonLd(name: string, description: string, path: string) {
