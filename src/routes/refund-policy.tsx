@@ -103,7 +103,9 @@ export const Route = createFileRoute("/refund-policy")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://ammarai.com/refund-policy" },
+      { property: "og:image", content: "https://ammarai.com/media/og-image.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ammarai.com/media/og-image.png" },
     ],
     links: [{ rel: "canonical", href: "https://ammarai.com/refund-policy" }],
     scripts: [

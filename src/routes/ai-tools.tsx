@@ -31,7 +31,9 @@ export const Route = createFileRoute("/ai-tools")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://ammarai.com/ai-tools" },
+      { property: "og:image", content: "https://ammarai.com/media/og-image.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ammarai.com/media/og-image.png" },
     ],
     links: [{ rel: "canonical", href: "https://ammarai.com/ai-tools" }],
     scripts: [
