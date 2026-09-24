@@ -13,8 +13,10 @@ import { useOfferContext } from "./OfferProvider";
 /**
  * The permanent block. It renders only on the paths listed in Site settings, so
  * one line in a page is enough and the studio decides where it appears.
+ * `matchPath` lets a page be covered by a settings entry that is not its own
+ * address — tool detail pages live at the root but belong to /ai-tools.
  */
-export function OfferInline() {
+export function OfferInline({ matchPath }: { matchPath?: string } = {}) {
   const context = useOfferContext();
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const [copied, setCopied] = useState(false);
@@ -22,7 +24,8 @@ export function OfferInline() {
   const show =
     Boolean(context) &&
     context!.display.inline &&
-    offerInlineMatches(pathname, context!.display.inlinePages);
+    offerInlineMatches(matchPath ?? pathname, context!.display.inlinePages);
+
 
   useEffect(() => {
     if (!show || !context?.offer) return;
