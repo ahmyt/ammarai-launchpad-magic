@@ -44,12 +44,41 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+// Plesk/Zap-Hosting webspace cannot add custom nginx directives, so the Node
+// app emits its own security + caching headers (their support recommended this).
+const IMMUTABLE_ASSET_RE = /^\/(assets|_build|_serverFn)\//;
+const LONG_LIVED_MEDIA_RE = /\.(?:webp|avif|png|jpe?g|gif|svg|ico|mp3|mp4|webm|woff2?|ttf|otf|eot)$/i;
+
+function withSiteHeaders(request: Request, response: Response): Response {
+  const headers = new Headers(response.headers);
+
+  headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  headers.set("X-Frame-Options", "SAMEORIGIN");
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+
+  if (!headers.has("Cache-Control") && response.status === 200) {
+    const pathname = new URL(request.url).pathname;
+    if (IMMUTABLE_ASSET_RE.test(pathname)) {
+      headers.set("Cache-Control", "public, max-age=15552000, immutable");
+    } else if (LONG_LIVED_MEDIA_RE.test(pathname)) {
+      headers.set("Cache-Control", "public, max-age=2592000, stale-while-revalidate=86400");
+    }
+  }
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return withSiteHeaders(request, await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {
@@ -59,3 +88,4 @@ export default {
     }
   },
 };
+
