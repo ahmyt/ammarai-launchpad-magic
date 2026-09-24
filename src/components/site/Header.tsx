@@ -38,6 +38,7 @@ export function Header() {
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const settings = content.pages.find((p) => p.slug === "settings");
   const showTutorials = settings?.showTutorialsNav !== false;
+  const showThemeToggle = settings?.showHeaderThemeToggle !== false;
   const navItems = showTutorials
     ? primaryNav
     : primaryNav.filter((item) => item.to !== "/tutorials");
