@@ -28,8 +28,11 @@ export const Route = createFileRoute("/tutorials/")({
           "Verified AmmarAI guides for chat, documents, image generation, video creation, dubbing, captions, UGC video and the shared media library, step by step.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:image", content: "https://ammarai.com/media/og-image.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ammarai.com/media/og-image.png" },
     ],
+    links: [{ rel: "canonical", href: "https://ammarai.com/tutorials" }],
   }),
   component: TutorialsIndexPage,
 });

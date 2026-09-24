@@ -68,7 +68,9 @@ export const Route = createFileRoute("/tutorials/$slug")({
         { property: "og:title", content: tutorial.title },
         { property: "og:description", content: tutorial.description },
         { property: "og:type", content: "article" },
-        { name: "twitter:card", content: "summary" },
+        { property: "og:image", content: "https://ammarai.com/media/og-image.png" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: "https://ammarai.com/media/og-image.png" },
       ],
       links: [
         { rel: "canonical", href: `https://ammarai.com/tutorials/${tutorial.slug}` },
