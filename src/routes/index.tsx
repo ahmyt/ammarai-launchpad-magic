@@ -196,8 +196,8 @@ function Home() {
             <p className="studio-kicker"><Sparkles className="size-3.5" /> AI workspace for serious creative teams</p>
             <div className="studio-hero-grid">
               <h1>
-                <span>One AI for</span>
-                <span>everything</span>
+                <span>One AI platform</span>
+                <span>for everything</span>
                 <span className="studio-accent-text">you create</span>
               </h1>
               <div className="studio-hero-aside">
