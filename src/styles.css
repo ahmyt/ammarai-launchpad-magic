@@ -1,6 +1,10 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+/* Self-hosted fonts — no Google Fonts round-trip holding up first paint. */
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/space-grotesk";
 
 @custom-variant dark (&:is(.dark *));
 

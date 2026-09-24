@@ -11,11 +11,8 @@ import { useEffect, useMemo, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 
-// Web fonts load without holding up the first paint: text renders at once in
-// the fallback font, then swaps when the font stylesheet arrives.
-const FONT_CSS =
-  "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap";
-const FONT_LOADER = `(function(){var l=document.createElement('link');l.rel='stylesheet';l.setAttribute('data-site-fonts','');l.href=${JSON.stringify(FONT_CSS)};document.head.appendChild(l);})();`;
+// Fonts are self-hosted via @fontsource packages imported in styles.css, so
+// no external font request holds up the first paint.
 import { TOOL_COUNT } from "@/data/tools-lite";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
@@ -107,9 +104,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "preload", as: "style", href: FONT_CSS },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
@@ -124,10 +118,6 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        <script dangerouslySetInnerHTML={{ __html: FONT_LOADER }} />
-        <noscript>
-          <link rel="stylesheet" href={FONT_CSS} />
-        </noscript>
       </head>
       <body>
         {children}
@@ -140,17 +130,6 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const rows = Route.useLoaderData() as ContentRow[] | undefined;
-
-  // Hydration can drop the stylesheet the inline loader added to <head>;
-  // make sure it is present (the browser already has it cached).
-  useEffect(() => {
-    if (document.querySelector('link[data-site-fonts]')) return;
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = FONT_CSS;
-    link.setAttribute("data-site-fonts", "");
-    document.head.appendChild(link);
-  }, []);
 
   // The root loader carries only the CMS rows. Seed the cache with them so the
   // header, footer and page copy resolve without a second request.
