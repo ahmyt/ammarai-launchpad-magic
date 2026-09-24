@@ -451,4 +451,4 @@
 - [x] Brand share image (og:image + twitter:image) added to 17 public page groups
 - [x] Organization data: absolute site URL, logo and image added; sameAs now lists Facebook, TikTok and Instagram
 - [x] Homepage heading now reads "One AI platform for everything you create" to match the page title keyword
-- [ ] Plesk: add Cache-Control and security headers (HSTS, X-Frame-Options, X-Content-Type-Options) in nginx directives
+- [x] Caching + security headers now sent by the app itself (src/server.ts + nitro routeRules for self-hosted builds), since Zap-Hosting webspace cannot add nginx directives
