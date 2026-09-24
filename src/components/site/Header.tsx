@@ -110,17 +110,20 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ActionButton
-            type="button"
-            variant="ghost"
-            size="sm"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
-            title={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
-            className="theme-toggle size-10 p-0"
-          >
-            {theme === "light" ? <Moon className="size-4" aria-hidden="true" /> : <Sun className="size-4" aria-hidden="true" />}
-          </ActionButton>
+          {showThemeToggle ? (
+            <ActionButton
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+              title={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+              className="theme-toggle size-10 p-0"
+            >
+              {theme === "light" ? <Moon className="size-4" aria-hidden="true" /> : <Sun className="size-4" aria-hidden="true" />}
+            </ActionButton>
+          ) : null}
+
           <ActionButton
             type="button"
             variant="outline"
