@@ -6,7 +6,7 @@ export const features: Feature[] = [
     name: "Multi-model AI",
     title: "Multi-Model AI: The Right Model For Each Task | AmmarAI",
     description:
-      "Route every task to a model suited to it, from fast drafting to careful reasoning, without juggling five subscriptions.",
+      "Route every task to a model suited to it, from fast drafting to careful reasoning, without juggling five subscriptions. Step-by-step guide with screenshots.",
     h1: "One workspace, several models, chosen per task",
     lede: "Different jobs want different models. AmmarAI routes each task to one that suits it, so you are not paying for five subscriptions to get one good answer.",
     summary: "Each task runs on a model suited to it, without you managing providers.",
@@ -45,7 +45,7 @@ export const features: Feature[] = [
     name: "Brand voice",
     title: "Brand Voice: Consistent Tone Across Every Tool | AmmarAI",
     description:
-      "Save your tone, vocabulary and rules once and apply them across writing, social, email and product copy.",
+      "Save your tone, vocabulary and rules once and apply them across writing, social, email and product copy. A step-by-step AmmarAI guide with screenshots.",
     h1: "Define your voice once, apply it everywhere",
     lede: "Save the way your brand writes, including the words you avoid, and every tool starts from that rather than from a generic default.",
     summary: "Save tone, vocabulary and rules once and reuse them across every writing tool.",
@@ -84,7 +84,7 @@ export const features: Feature[] = [
     name: "Templates library",
     title: "Templates Library: Reusable Structures That Work | AmmarAI",
     description:
-      "Start from proven structures for articles, ads, emails and listings, or save your own as reusable templates.",
+      "Start from proven structures for articles, ads, emails and listings, or save your own as reusable templates. A step-by-step AmmarAI guide with screenshots.",
     h1: "Stop rebuilding the same brief every week",
     lede: "Proven structures for the formats you produce repeatedly, plus the ability to save your own so a good result becomes a repeatable one.",
     summary: "Proven starting structures for common formats, plus your own saved templates.",
@@ -123,7 +123,7 @@ export const features: Feature[] = [
     name: "Bulk generation",
     title: "Bulk Generation: Produce at Catalogue Scale | AmmarAI",
     description:
-      "Run one prompt structure across hundreds of rows to generate descriptions, metadata and variations in a single pass.",
+      "Run one prompt structure across hundreds of rows to generate descriptions, metadata and variations in a single pass. Step-by-step guide with screenshots.",
     h1: "One structure, hundreds of outputs",
     lede: "Upload a spreadsheet, map the columns, and generate consistent output for every row: product descriptions, meta descriptions, ad variants and more.",
     summary: "Run one structure across hundreds of rows for catalogue-scale output.",
@@ -167,7 +167,7 @@ export const features: Feature[] = [
     name: "File uploads",
     title: "File Uploads: Bring Your Own Documents and Media | AmmarAI",
     description:
-      "Upload documents, images and audio so the AI works from your material instead of general knowledge.",
+      "Upload documents, images and audio so the AI works from your material instead of general knowledge. Available in AmmarAI — start free, no card required.",
     h1: "Work from your files, not from generic knowledge",
     lede: "Upload documents, spreadsheets, images and audio, and the tools reason about your material rather than the internet's average opinion.",
     summary: "Upload documents, images and audio so output is grounded in your own material.",
@@ -206,7 +206,7 @@ export const features: Feature[] = [
     name: "Custom AI assistants",
     title: "Custom AI Assistants: Persistent, Briefed Helpers | AmmarAI",
     description:
-      "Create assistants with a fixed brief, tone and reference material for recurring tasks and shared team use.",
+      "Create assistants with a fixed brief, tone and reference material for recurring tasks and shared team use. A step-by-step AmmarAI guide with screenshots.",
     h1: "Brief it once. Reuse it forever.",
     lede: "Create an assistant with a permanent brief, its own reference material and a defined tone, then use it every day without re-explaining anything.",
     summary: "Assistants with a fixed brief and reference material for recurring work.",
@@ -245,7 +245,7 @@ export const features: Feature[] = [
     name: "Team workspaces",
     title: "Team Workspaces: Shared Assets and Consistent Output | AmmarAI",
     description:
-      "Share brand voices, templates and assistants across a team so output stays consistent whoever produces it.",
+      "Share brand voices, templates and assistants across a team so output stays consistent whoever produces it. A step-by-step AmmarAI guide with screenshots.",
     h1: "Consistency that does not depend on who is at the keyboard",
     lede: "Shared brand voices, templates, assistants and history, so a new team member's first draft looks like your fifth year of work.",
     summary: "Shared brand assets and history so team output stays consistent.",
@@ -284,7 +284,7 @@ export const features: Feature[] = [
     name: "History and versions",
     title: "History and Versions: Nothing Good Gets Lost | AmmarAI",
     description:
-      "Every generation is saved and searchable, so you can recover an earlier draft or reuse a prompt that worked.",
+      "Every generation is saved and searchable, so you can recover an earlier draft or reuse a prompt that worked. A step-by-step AmmarAI guide with screenshots.",
     h1: "The draft you liked three iterations ago is still there",
     lede: "Every generation is stored, searchable and restorable, so iterating is not a gamble on losing the version that was actually working.",
     summary: "Every generation saved, searchable and restorable.",
@@ -323,7 +323,7 @@ export const features: Feature[] = [
     name: "Export and integrations",
     title: "Export and Integrations: Get Work Out Cleanly | AmmarAI",
     description:
-      "Export to the formats your workflow already uses, from clean HTML and Markdown to audio, video and CSV.",
+      "Export to the formats your workflow already uses, from clean HTML and Markdown to audio, video and CSV. A step-by-step AmmarAI guide with screenshots.",
     h1: "Output that lands where you actually work",
     lede: "Clean exports for every format the platform produces, so nothing needs reformatting by hand before it ships.",
     summary: "Clean exports in the formats your publishing workflow already uses.",
@@ -362,7 +362,7 @@ export const features: Feature[] = [
     name: "Privacy and control",
     title: "Privacy and Control: Your Content Stays Yours | AmmarAI",
     description:
-      "Clear ownership of generated output, control over your data, and honest limits on what AI generation can promise.",
+      "Clear ownership of generated output, control over your data, and honest limits on what AI generation can promise. Step-by-step guide with screenshots.",
     h1: "Clear ownership, clear limits",
     lede: "You own what you generate on paid plans, you control your stored data, and we are direct about what generative AI can and cannot guarantee.",
     summary: "Ownership of your output, control over your data, honest limits.",

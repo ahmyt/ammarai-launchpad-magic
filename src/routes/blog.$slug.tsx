@@ -57,6 +57,12 @@ export const Route = createFileRoute("/blog/$slug")({
             ]
           : []),
       ],
+      links: [
+        {
+          rel: "canonical",
+          href: `https://ammarai.com/blog/${loaderData.post?.slug ?? loaderData.article!.slug}`,
+        },
+      ],
     };
   },
   component: BlogPost,

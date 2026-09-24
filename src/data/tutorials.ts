@@ -54,7 +54,7 @@ export const tutorials: Tutorial[] = [
     category: "Chat & Documents",
     title: "How to Use AI Chat Pro | AmmarAI Tutorials",
     description:
-      "Use AmmarAI AI Chat Pro with model selection, skills, file uploads and web search for focused, well-grounded conversations.",
+      "Use AmmarAI AI Chat Pro with model selection, skills, file uploads and web search for focused, well-grounded conversations. Step-by-step guide with screenshots.",
     h1: "How to use AI Chat Pro",
     intro: [
       "AI Chat Pro is AmmarAI’s conversational workspace for research, planning, analysis and drafting. You can choose the model that fits the task, add a reusable skill, attach source material and bring current web information into one thread.",
@@ -179,7 +179,7 @@ export const tutorials: Tutorial[] = [
     category: "Chat & Documents",
     title: "How to Chat With Documents | AmmarAI Tutorials",
     description:
-      "Upload a document to AmmarAI, attach it to a chat, ask a focused question and continue with grounded follow-up questions.",
+      "Upload a document to AmmarAI, attach it to a chat, ask a focused question and continue with grounded follow-up questions. Step-by-step guide with screenshots.",
     h1: "How to chat with documents in AmmarAI",
     intro: [
       "Document Chat lets you add a document to a conversation and ask questions about its content, structure and context. It is useful for obtaining a summary, locating a detail or exploring a long file without losing the source conversation.",
@@ -302,7 +302,7 @@ export const tutorials: Tutorial[] = [
     slug: "how-to-use-ai-image-pro",
     category: "Image",
     title: "How to Use AI Image Pro | AmmarAI Tutorials",
-    description: "Create images in AmmarAI AI Image Pro by setting a prompt, variations, style, ratio and model, then reviewing the results.",
+    description: "Create images in AmmarAI AI Image Pro by setting a prompt, variations, style, ratio and model, then reviewing the results. Step-by-step guide with screenshots.",
     h1: "How to use AI Image Pro",
     intro: [
       "AI Image Pro turns a written idea into finished visual options. Its generator lets you control the number of results, visual style, aspect ratio and available image model before you create.",
@@ -388,7 +388,7 @@ export const tutorials: Tutorial[] = [
     slug: "how-to-use-ai-video-pro",
     category: "Video",
     title: "How to Use AI Video Pro | AmmarAI Tutorials",
-    description: "Generate a video in AmmarAI AI Video Pro by choosing a model, entering a prompt or image, adjusting settings and creating the result.",
+    description: "Generate a video in AmmarAI AI Video Pro by choosing a model, entering a prompt or image, adjusting settings and creating the result. With screenshots.",
     h1: "How to use AI Video Pro",
     intro: [
       "AI Video Pro creates short videos from a written prompt or a source image. Available controls let you choose the generation approach and set options such as duration, resolution or style when the selected model supports them.",
@@ -485,7 +485,7 @@ export const tutorials: Tutorial[] = [
     slug: "how-to-create-viral-clips",
     category: "Video Marketing",
     title: "How to Create Viral Clips | AmmarAI Tutorials",
-    description: "Turn a long video or video URL into short, shareable social clips with AmmarAI’s AI URL to Video tool.",
+    description: "Turn a long video or video URL into short, shareable social clips with AmmarAI’s AI URL to Video tool. Available in AmmarAI — start free, no card required.",
     h1: "How to create viral clips from a long video",
     intro: [
       "Viral Clips turns long-form footage into shorter moments for social publishing. Use it to repurpose webinars, interviews, podcasts and other extended videos into focused clips.",
@@ -534,7 +534,7 @@ export const tutorials: Tutorial[] = [
     slug: "how-to-create-ai-influencer-videos",
     category: "Video Marketing",
     title: "How to Create AI Influencer Videos | AmmarAI Tutorials",
-    description: "Create product-powered ads and presenter-led influencer videos with AmmarAI’s AI URL to Video & Influencer tool.",
+    description: "Create product-powered ads and presenter-led influencer videos with AmmarAI’s AI URL to Video & Influencer tool. A step-by-step AmmarAI guide with screenshots.",
     h1: "How to create AI influencer videos",
     intro: [
       "AI URL to Video & Influencer creates product-led ads from a product link or uploaded assets and presenter-led videos from a script. The workflow combines product details, format choices, a presenter, a voice and captions before rendering.",
@@ -624,7 +624,7 @@ export const tutorials: Tutorial[] = [
     category: "Fashion",
     title: "How to Use Fashion Studio | AmmarAI Tutorials",
     description:
-      "Create AI photoshoots, virtual try-on images, model swaps, edits and fashion videos with AmmarAI’s Fashion Studio workflow.",
+      "Create AI photoshoots, virtual try-on images, model swaps, edits and fashion videos with AmmarAI’s Fashion Studio workflow. Step-by-step guide with screenshots.",
     h1: "How to use Fashion Studio",
     intro: [
       "Fashion Studio is AmmarAI’s creative suite for visualising, styling and marketing apparel. Whether you run an e-commerce brand, style digitally or create content, it brings photoshoots, try-on, model swaps, editing and video into one workspace.",
@@ -866,7 +866,7 @@ export const tutorials: Tutorial[] = [
     category: "Video",
     title: "How to Dub a Video | AmmarAI Tutorials",
     description:
-      "Translate and re-voice an existing video into another language with AmmarAI AI Dubbing, from source selection to download.",
+      "Translate and re-voice an existing video into another language with AmmarAI AI Dubbing, from source selection to download. Step-by-step guide with screenshots.",
     h1: "How to dub a video into another language",
     intro: [
       "AI Dubbing translates and re-voices existing videos into other languages automatically. You supply a video by URL or direct upload, choose a target language and speaker configuration, and AmmarAI produces a dubbed version you can preview and download.",
@@ -936,7 +936,7 @@ export const tutorials: Tutorial[] = [
     category: "Video",
     title: "How to Use AI Captions | AmmarAI Tutorials",
     description:
-      "Upload a portrait video, choose a caption style and generate styled subtitles with AmmarAI AI Captions.",
+      "Upload a portrait video, choose a caption style and generate styled subtitles with AmmarAI AI Captions. A step-by-step AmmarAI guide with screenshots.",
     h1: "How to use AI Captions",
     intro: [
       "AI Captions adds animated, styled subtitles to short portrait videos. Upload the source video, preview the available caption templates and generate the captioned result before continuing in the video editor.",
@@ -1005,7 +1005,7 @@ export const tutorials: Tutorial[] = [
     category: "Video Marketing",
     title: "How to Create UGC Videos | AmmarAI Tutorials",
     description:
-      "Generate realistic user-generated-content videos with AmmarAI’s AI UGC Generator — script, voice, actor and scene in one pass.",
+      "Generate realistic user-generated-content videos with AmmarAI’s AI UGC Generator — script, voice, actor and scene in one pass. Learn how it works in AmmarAI.",
     h1: "How to create UGC videos",
     intro: [
       "The AI UGC Generator lets you create realistic user-generated-content videos for social media and marketing without actors, studios or cameras. You write a script, choose a voice, pick a pre-built AI actor and select a scene, and AmmarAI renders the finished video.",
@@ -1071,7 +1071,7 @@ export const tutorials: Tutorial[] = [
     category: "Automation",
     title: "How to Build an AI Agent | AmmarAI Tutorials",
     description:
-      "Build, test and monitor a multi-step workflow with AmmarAI AI Agent Builder using plain-language instructions, triggers and connected tools.",
+      "Build, test and monitor a multi-step workflow with AmmarAI AI Agent Builder using plain-language instructions, triggers and connected tools. Start free.",
     h1: "How to build an AI agent",
     intro: [
       "AI Agent Builder turns a plain-language job description into a workflow that can run on demand, on a schedule or when a message arrives. Each step can use the result from the step before it.",
@@ -1147,7 +1147,7 @@ export const tutorials: Tutorial[] = [
     category: "Automation",
     title: "How to Use AI Blogger Agent | AmmarAI Tutorials",
     description:
-      "Plan, schedule, review and measure a recurring content workflow with AmmarAI AI Blogger Agent.",
+      "Plan, schedule, review and measure a recurring content workflow with AmmarAI AI Blogger Agent. Follow the step-by-step guide with a screenshot for each step.",
     h1: "How to use AI Blogger Agent",
     intro: [
       "AI Blogger Agent organizes recurring content around a defined topic, format and schedule. Its dashboard brings drafts, scheduled posts, the calendar and recent activity into one working view.",
@@ -1195,7 +1195,7 @@ export const tutorials: Tutorial[] = [
     category: "Audio",
     title: "How to Use AI Music Pro | AmmarAI Tutorials",
     description:
-      "Generate an original track in AmmarAI AI Music Pro by defining its sound, duration and musical style.",
+      "Generate an original track in AmmarAI AI Music Pro by defining its sound, duration and musical style. Available in AmmarAI — start free, no card required.",
     h1: "How to use AI Music Pro",
     intro: [
       "AI Music Pro creates an original track from three creative inputs: a written description, a duration and a musical style.",
@@ -1381,7 +1381,7 @@ export const tutorials: Tutorial[] = [
     category: "Chat & Documents",
     title: "How to Use Realtime Voice Chat | AmmarAI Tutorials",
     description:
-      "Hold a live spoken conversation with AmmarAI: open a chat, switch on real-time voice and talk naturally with spoken replies.",
+      "Hold a live spoken conversation with AmmarAI: open a chat, switch on real-time voice and talk naturally with spoken replies. Learn how it works in AmmarAI.",
     h1: "How to use Realtime Voice Chat",
     intro: [
       "Realtime Voice Chat turns a normal AmmarAI chat into a spoken conversation. You talk out loud and the assistant answers in voice, without typing or waiting for a full written reply.",
@@ -1694,7 +1694,7 @@ export const tutorials: Tutorial[] = [
     slug: "how-to-create-a-video-ad-from-a-product-url",
     category: "Video Marketing",
     title: "How to Create a Video Ad from a Product URL | AmmarAI Tutorials",
-    description: "Turn a product page link into a finished video ad in AmmarAI: add the product, choose language, duration and ratio, then pick an avatar, voice and captions before rendering.",
+    description: "Turn a product page link into a finished video ad in AmmarAI: set language, duration and ratio, then pick an avatar, voice and captions before rendering.",
     h1: "How to create a video ad from a product URL",
     intro: [
       "AI URL to Video builds a complete short video ad from a product page. You supply the product link or your own product images, set the video details, then choose the presenter, the voice and the caption style before the finished cut is rendered.",
@@ -1872,7 +1872,7 @@ export const tutorials: Tutorial[] = [
     slug: "how-to-manage-sales-with-ai-crm",
     category: "Automation",
     title: "How to Manage Sales with AI CRM | AmmarAI Tutorials",
-    description: "Use AmmarAI AI CRM to manage contacts, companies, deals, projects, tasks and calendar activity from one customer workspace.",
+    description: "Use AmmarAI AI CRM to manage contacts, companies, deals, projects, tasks and calendar activity from one customer workspace. Step-by-step guide with screenshots.",
     h1: "How to manage sales with AI CRM",
     intro: [
       "AI CRM brings customer records and day-to-day sales work into one workspace. You can move from a contact to its company, deal, project, task and scheduled activity without rebuilding the context in separate tools.",
@@ -1957,7 +1957,7 @@ export const tutorials: Tutorial[] = [
     slug: "how-to-create-an-ai-phone-agent",
     category: "Automation",
     title: "How to Create an AI Phone Agent | AmmarAI Tutorials",
-    description: "Create an AmmarAI AI Phone Agent, define its greeting and instructions, choose its voice and train it with approved business information.",
+    description: "Create an AmmarAI AI Phone Agent, define its greeting and instructions, choose its voice and train it with approved business information. With screenshots.",
     h1: "How to create an AI phone agent",
     intro: [
       "AI Phone Agent lets you create a voice agent for repeatable customer conversations such as enquiries, appointment requests and routine support calls.",
@@ -2013,7 +2013,7 @@ export const tutorials: Tutorial[] = [
     slug: "how-to-create-outbound-ai-calls",
     category: "Automation",
     title: "How to Create Outbound AI Calls | AmmarAI Tutorials",
-    description: "Create individual or batch outbound calls with AmmarAI AI Phone Agent, then monitor each call from the outbound-call history.",
+    description: "Create individual or batch outbound calls with AmmarAI AI Phone Agent, then monitor each call from the outbound-call history. Learn how it works in AmmarAI.",
     h1: "How to create outbound AI calls",
     intro: [
       "Outbound Calls lets an existing AI Phone Agent place a single call or work through a contact list. It is designed for specific, permission-based tasks such as reminders, requested follow-ups and customer qualification.",
@@ -2070,7 +2070,7 @@ export const tutorials: Tutorial[] = [
     category: "Chat & Documents",
     title: "How to Build and Embed a Website Chatbot | AmmarAI Tutorials",
     description:
-      "Create an AmmarAI external chatbot, style it, train it on your own content and embed it on your website so visitors get answers day and night.",
+      "Create an AmmarAI external chatbot, style it, train it on your own content and embed it on your website so visitors get answers day and night. Start free.",
     h1: "How to build and embed a website chatbot",
     intro: [
       "An external chatbot is the assistant your visitors talk to on your own website. You give it a name and a voice, tell it what it is allowed to talk about, train it on your pages and documents, then paste a small snippet into your site.",
@@ -2186,7 +2186,7 @@ export const tutorials: Tutorial[] = [
     category: "Automation",
     title: "How to Run an AI Social Media Agent | AmmarAI Tutorials",
     description:
-      "Set up an AmmarAI social media agent that plans, writes and schedules posts for your accounts, then review, adjust and track them from one place.",
+      "Set up an AmmarAI social media agent that plans, writes and schedules posts for your accounts, then review, adjust and track them from one place. Start free.",
     h1: "How to run an AI social media agent",
     intro: [
       "A social media agent takes the repetitive part of posting off your hands. You describe the brand, the accounts and the kind of posts you want, and it drafts a schedule you can review before anything goes out.",
@@ -2322,7 +2322,7 @@ export const tutorials: Tutorial[] = [
     category: "Automation",
     title: "How to Hand Live Chats to a Human Agent | AmmarAI Tutorials",
     description:
-      "Let your AmmarAI chatbot pass a conversation to a person, then answer, tag, note and export those live chats from the Smart Inbox.",
+      "Let your AmmarAI chatbot pass a conversation to a person, then answer, tag, note and export those live chats from the Smart Inbox. Step-by-step guide.",
     h1: "How to hand live chats to a human agent",
     intro: [
       "An AI chatbot answers most questions on its own, but some conversations need a person — a refund, a complaint, a deal about to close. AmmarAI lets a visitor ask for a human and drops that conversation straight into your inbox.",
@@ -2443,7 +2443,7 @@ export const tutorials: Tutorial[] = [
     category: "Chat & Documents",
     title: "How to Compare Two AI Models in One Chat | AmmarAI Tutorials",
     description:
-      "Answer the same prompt with two AI models side by side in AmmarAI AI Chat Pro, then keep the response you prefer and carry on the thread.",
+      "Answer the same prompt with two AI models side by side in AmmarAI AI Chat Pro, then keep the response you prefer and carry on the thread. With screenshots.",
     h1: "How to compare two AI models in one chat",
     intro: [
       "Different models answer the same question in different ways. One may be more concise, another more thorough or better at reasoning through numbers. AI Chat Pro lets you run a single prompt through two models at once and read both answers next to each other.",
@@ -2498,7 +2498,7 @@ export const tutorials: Tutorial[] = [
     category: "Chat & Documents",
     title: "How to Take Bookings With Your Website Chatbot | AmmarAI Tutorials",
     description:
-      "Turn on the booking assistant in your AmmarAI website chatbot, decide when it should offer a meeting and paste in your scheduling embed code.",
+      "Turn on the booking assistant in your AmmarAI website chatbot, decide when it should offer a meeting and paste in your scheduling embed code. Start free.",
     h1: "How to take bookings with your website chatbot",
     intro: [
       "A chatbot that answers questions is useful. A chatbot that books the meeting while the visitor is still interested is better. The booking assistant adds a scheduler inside the chat window, so an interested visitor picks a slot without leaving the conversation.",
@@ -2623,7 +2623,7 @@ export const tutorials: Tutorial[] = [
     category: "Chat & Documents",
     title: "How to Use Temporary Chat in AI Chat Pro | AmmarAI Tutorials",
     description:
-      "Turn on temporary chat in AmmarAI's AI Chat Pro to hold a one-off conversation that is not kept in your chat history, and know exactly when it switches off again.",
+      "Turn on temporary chat in AmmarAI's AI Chat Pro for a one-off conversation that is not kept in your chat history, and see exactly when it switches off.",
     h1: "How to use temporary chat",
     intro: [
       "Temporary chat is for conversations you do not want kept. Switch it on and the exchange runs normally, but it is not written to your chat history.",
@@ -2680,7 +2680,7 @@ export const tutorials: Tutorial[] = [
     category: "Image",
     title: "How to Edit Part of an Image With Annotations | AmmarAI Tutorials",
     description:
-      "Mark a region on an image in the AmmarAI Creative Suite canvas, attach an instruction to it, and have the edit applied to that area only while the rest stays untouched.",
+      "Mark a region on an image in the AmmarAI Creative Suite canvas, attach an instruction, and have the edit applied to that area while the rest stays untouched.",
     h1: "How to edit part of an image with annotations",
     intro: [
       "Broad prompts change more of an image than you intended. Annotations let you draw on the exact area you want changed and attach the instruction to that region, so the rest of the picture is left alone.",
@@ -2743,7 +2743,7 @@ export const tutorials: Tutorial[] = [
     category: "Productivity",
     title: "How to Invite Teammates to Your Workspace | AmmarAI Tutorials",
     description:
-      "Invite colleagues into your AmmarAI workspace by email, see how they accept, and understand how team members draw on the workspace owner's credits.",
+      "Invite colleagues into your AmmarAI workspace by email, see how they accept, and understand how team members draw on the workspace owner's credits. Start free.",
     h1: "How to invite teammates to your workspace",
     intro: [
       "A workspace can be shared. Invite a colleague by email and they work alongside you with the same brand profiles, templates and assistants, instead of each person starting from a blank prompt box.",
@@ -2798,7 +2798,7 @@ export const tutorials: Tutorial[] = [
     category: "Productivity",
     title: "How to Publish a Post to WordPress | AmmarAI Tutorials",
     description:
-      "Connect your WordPress site to AmmarAI once, then send finished articles straight to your blog from the editor without copying and pasting.",
+      "Connect your WordPress site to AmmarAI once, then send finished articles straight to your blog from the editor without copying and pasting. Start free.",
     h1: "How to publish a post to WordPress",
     intro: [
       "Writing the article is only half the job. Getting it onto the blog — with the headings, links and formatting intact — is where most of the fiddling happens.",
@@ -2880,7 +2880,7 @@ export const tutorials: Tutorial[] = [
     category: "Automation",
     title: "How to Read WhatsApp and Telegram Messages in One Inbox | AmmarAI Tutorials",
     description:
-      "Bring WhatsApp, Telegram and your other message channels into a single AmmarAI inbox, filter by channel and reply without switching apps.",
+      "Bring WhatsApp, Telegram and your other message channels into a single AmmarAI inbox, filter by channel and reply without switching apps. With screenshots.",
     h1: "How to read WhatsApp and Telegram messages in one inbox",
     intro: [
       "Messages arrive everywhere: the website chat, a WhatsApp number, a Telegram account, social replies. Checking four apps is how a good lead goes cold.",
@@ -2949,7 +2949,7 @@ export const tutorials: Tutorial[] = [
     category: "Audio",
     title: "How to Clone Your Own Voice for Voiceovers | AmmarAI Tutorials",
     description:
-      "Record a short sample, create a clone of your own voice in AmmarAI, and use it for narration across videos, courses and product audio.",
+      "Record a short sample, create a clone of your own voice in AmmarAI, and use it for narration across videos, courses and product audio. With screenshots.",
     h1: "How to clone your own voice for voiceovers",
     intro: [
       "A cloned voice lets you narrate a video at midnight without setting up a microphone, and keeps every video in the same voice even when the script changes at the last minute.",
@@ -3175,7 +3175,7 @@ export const tutorials: Tutorial[] = [
     category: "Productivity",
     title: "How to Use the Four AI SEO Tools | AmmarAI Tutorials",
     description:
-      "Use AmmarAI for Article Wizard keyword ideas, search questions, site metadata and blog-post SEO fields.",
+      "Use AmmarAI for Article Wizard keyword ideas, search questions, site metadata and blog-post SEO fields. A step-by-step AmmarAI guide with screenshots.",
     h1: "How to use the four AI SEO tools",
     intro: [
       "AmmarAI places SEO assistance inside the writing and publishing workflows where it is useful, rather than presenting it as a separate technical audit.",
@@ -3279,7 +3279,7 @@ export const tutorials: Tutorial[] = [
     category: "Productivity",
     title: "How to Run a Cited Research Report With AI Deep Research | AmmarAI Tutorials",
     description:
-      "Frame the question, choose the depth, and turn a live multi-source research run into a report you can defend, with every claim linked to its source.",
+      "Frame the question, choose the depth, and turn a live multi-source research run into a report you can defend, with every claim linked to its source. Start free.",
     h1: "How to run a cited research report with AI Deep Research",
     intro: [
       "A normal chat answer stops at the model's training date and gives you no way to check where anything came from.",
@@ -3449,7 +3449,7 @@ export const tutorials: Tutorial[] = [
     category: "Audio",
     title: "How to Transcribe a Meeting or Interview | AmmarAI Tutorials",
     description:
-      "Turn a recording into a timestamped, speaker-labelled transcript you can search, quote, summarise and export as subtitles.",
+      "Turn a recording into a timestamped, speaker-labelled transcript you can search, quote, summarise and export as subtitles. Step-by-step guide with screenshots.",
     h1: "How to transcribe a meeting or interview",
     intro: [
       "An audio file is something you have to scrub through. A transcript is something you can search.",
