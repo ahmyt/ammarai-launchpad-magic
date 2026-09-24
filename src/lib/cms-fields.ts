@@ -204,6 +204,11 @@ const pageSettingsFields: FieldSpec[] = [
     type: "boolean",
   },
   {
+    name: "showHeaderThemeToggle",
+    label: "Show the light/dark theme switch in the header",
+    type: "boolean",
+  },
+  {
     name: "showHomepageTrustLogos",
     label: "Show the Trusted by growing companies strip",
     type: "boolean",

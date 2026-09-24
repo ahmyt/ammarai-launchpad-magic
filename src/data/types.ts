@@ -172,6 +172,8 @@ export interface Page {
   protectContent?: boolean;
   /** Show the Tutorials link in the top navigation (site settings page) */
   showTutorialsNav?: boolean;
+  /** Show the light/dark theme toggle in the site header */
+  showHeaderThemeToggle?: boolean;
   /** Fade homepage company logos until hover, focus, or touch */
   fadeHomepageLogos?: boolean;
   /** Show the homepage trusted-company logo strip */
