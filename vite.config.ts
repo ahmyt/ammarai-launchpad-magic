@@ -18,5 +18,28 @@ export default defineConfig({
   // the Lovable preview/published site keeps running on Cloudflare unchanged.
   // output.dir is pinned to "dist" so the server entry is always at
   // dist/server/index.mjs regardless of preset.
-  nitro: { preset: "node-server", output: { dir: "dist" } },
+  // routeRules add caching/security headers to statically served files too.
+  // Zap-Hosting's shared webspace cannot add nginx directives, so the app
+  // emits these headers itself.
+  nitro: {
+    preset: "node-server",
+    output: { dir: "dist" },
+    routeRules: {
+      "/**": {
+        headers: {
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Content-Type-Options": "nosniff",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+        },
+      },
+      "/assets/**": {
+        headers: { "Cache-Control": "public, max-age=15552000, immutable" },
+      },
+      "/media/**": {
+        headers: { "Cache-Control": "public, max-age=2592000, stale-while-revalidate=86400" },
+      },
+    },
+  },
+
 });
