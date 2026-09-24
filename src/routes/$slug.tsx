@@ -455,7 +455,7 @@ function ToolPage({ tool }: { tool: Tool }) {
         </Section>
       ) : null}
 
-      <OfferInline />
+      <OfferInline matchPath="/ai-tools" />
 
       <Section tone="ink" className="py-16 sm:py-20">
         <Container className="text-center">
