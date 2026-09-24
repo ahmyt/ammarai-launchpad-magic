@@ -123,6 +123,8 @@ function FeatureDetail() {
         </Container>
       </Section>
 
+      <OfferInline />
+
       <Section>
         <Container size="narrow">
           <FaqAccordion heading={`${feature.name} FAQ`} items={feature.faqs} />
