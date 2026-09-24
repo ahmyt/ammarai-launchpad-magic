@@ -84,17 +84,20 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <ActionButton
-            type="button"
-            variant="ghost"
-            size="sm"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
-            title={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
-            className="theme-toggle size-9 p-0"
-          >
-            {theme === "light" ? <Moon className="size-4" aria-hidden="true" /> : <Sun className="size-4" aria-hidden="true" />}
-          </ActionButton>
+          {showThemeToggle ? (
+            <ActionButton
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+              title={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+              className="theme-toggle size-9 p-0"
+            >
+              {theme === "light" ? <Moon className="size-4" aria-hidden="true" /> : <Sun className="size-4" aria-hidden="true" />}
+            </ActionButton>
+          ) : null}
+
           <a
             href={LOGIN_URL}
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
