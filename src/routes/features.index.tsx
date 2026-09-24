@@ -5,6 +5,7 @@ import { TOOL_COUNT } from "@/data/tools-lite";
 import { Container, Section, Card } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
+import { OfferInline } from "@/components/site/OfferInline";
 import { SITE, REGISTER_URL } from "@/lib/site";
 
 const title = "Platform Features: How AmmarAI Works | AmmarAI";
@@ -161,7 +162,10 @@ function FeaturesIndex() {
         </Container>
       </Section>
 
+      <OfferInline />
+
       <Section tone="ink" className="py-16">
+
         <Container className="text-center">
           <h2 className="text-balance text-3xl sm:text-4xl">See it on your own work</h2>
           <p className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed opacity-80">

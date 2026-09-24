@@ -8,6 +8,7 @@ import { Container, Section } from "@/components/site/primitives";
 import { ToolCard } from "@/components/site/ToolCard";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
+import { OfferInline } from "@/components/site/OfferInline";
 import { SITE, REGISTER_URL } from "@/lib/site";
 
 const title = `AI Tools Library: ${TOOL_COUNT}+ Tools, Agents & Templates | AmmarAI`;
@@ -291,7 +292,10 @@ function ToolsDirectory() {
         </Container>
       </Section>
 
+      <OfferInline />
+
       <Section tone="ink" className="py-16">
+
         <Container className="text-center">
           <h2 className="text-balance text-3xl sm:text-4xl">Every tool is on the free plan</h2>
           <p className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed opacity-80">
