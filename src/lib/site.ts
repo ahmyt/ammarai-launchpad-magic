@@ -167,7 +167,7 @@ export const organizationJsonLd = {
   // Verified brand profile URLs — strengthen entity recognition in Google and AI search.
   sameAs: [
     SITE.appUrl,
-    "https://www.facebook.com/1FLnRPTArx",
+    "https://www.facebook.com/profile.php?id=61594692873342",
     "https://www.tiktok.com/@ammarai.com",
     "https://www.instagram.com/ammarai_com",
   ],
