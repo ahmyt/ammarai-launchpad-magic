@@ -1,0 +1,261 @@
+# AmmarAI
+
+> One AI workspace for everything you create — writing, chat, images, video, voiceovers, transcription, document analysis and code across 151 tools. Brand voice, templates, assistants, bulk generation and team workspaces in one place. Free plan available.
+
+## AI Tools
+- [AI Agent Builder](https://ammarai.com/ai-agent-builder): Build agents that run real workflows on a schedule or trigger — reading, deciding and acting without you.
+- [AI Phone Call Agent](https://ammarai.com/ai-phone-agent): A voice agent that answers and makes real phone calls, books appointments and logs every conversation.
+- [AI CRM](https://ammarai.com/ai-crm): A CRM you talk to: ask about the pipeline, update deals and get reports without touching a spreadsheet.
+- [AI Social Media Agent](https://ammarai.com/ai-social-media-agent): An agent that plans, writes, schedules and adjusts a month of social posts across your accounts.
+- [AI Blogger Agent](https://ammarai.com/ai-blogger-agent): An agent that researches keywords, writes SEO articles in bulk and publishes them to your blog on a schedule.
+- [AI DM & Comment Agent](https://ammarai.com/ai-dm-comment-agent): Auto-reply to Instagram, Facebook and YouTube comments and DMs, capture leads and run campaign promotions.
+- [AI Deep Research](https://ammarai.com/ai-deep-research): Multi-source research runs with live web search, compiled into a clear, cited report.
+- [UGC Factory](https://ammarai.com/ugc-factory): Produce creator-style videos at volume with virtual actors, digital twins, voiceover and lip-synced delivery.
+- [Viral Clips](https://ammarai.com/viral-clips): Turn one long video into a set of short vertical clips built for TikTok, Reels and Shorts.
+- [AI Video Enhancer](https://ammarai.com/ai-video-enhancer): Upscale and restore video frame by frame for sharper detail and a higher output resolution.
+- [AI Council Mode](https://ammarai.com/ai-council-mode): Ask several AI models the same question at once and compare their answers side by side, or merge them into one.
+- [AI Social Media Publisher](https://ammarai.com/ai-social-media-publisher): Preview, schedule and publish posts to Facebook, Instagram, X and LinkedIn from one calendar.
+- [Content Manager](https://ammarai.com/content-manager): One library for everything you upload and generate — images, documents and video, searchable and reusable.
+- [AI ReWriter](https://ammarai.com/ai-rewriter): Rewrite existing text in a different tone, length or reading level while keeping the meaning intact.
+- [Brand Voice](https://ammarai.com/brand-voice): Define how your brand sounds once, and have every writing tool follow it.
+- [AI Editor](https://ammarai.com/ai-editor): A long-form document editor with AI help built into the page, for drafting and revising in one place.
+- [AI Image Assistant](https://ammarai.com/ai-image-assistant): Guided prompt help inside image generation — suggestions, refinements and follow-up edits in plain language.
+- [AI Realtime Image](https://ammarai.com/ai-realtime-image): Watch the image redraw as you type — change a word and see the result instantly, with no submit and wait.
+- [AI Personas & Skills](https://ammarai.com/ai-personas): Build reusable AI personas with their own role, tone, knowledge and skills, then use them anywhere in the workspace instead of retyping instructions.
+- [AI Command Search](https://ammarai.com/ai-command-search): One search box that finds the right tool, opens past work and starts the job — type what you want in plain language and press enter.
+- [AI Smart Inbox](https://ammarai.com/ai-smart-inbox): One inbox for every conversation — website chat, email, social DMs and comments — triaged, tagged and answered by AI.
+- [AI Marketing Bot](https://ammarai.com/ai-marketing-bot): Broadcast marketing messages to your WhatsApp and Telegram audiences — written by AI, segmented, scheduled and measured.
+- [AI Image Editor](https://ammarai.com/ai-image-editor): Edit a photo by describing the change — swap the background, remove objects, extend the frame, fix the light.
+- [AI Product Photoshoot](https://ammarai.com/ai-photoshoot): Turn one plain product photo into a full commercial shoot — studio, lifestyle and seasonal scenes.
+- [AI Fashion Studio](https://ammarai.com/ai-virtual-try-on): Put a garment on a model without a shoot — same clothes, real fit, any model, any setting.
+- [AI Creative Suite](https://ammarai.com/ai-creative-suite): A drag-and-drop design editor with AI image generation — ads, social posts, invitations and banners that all match.
+- [AI Video Editor](https://ammarai.com/ai-video-editor): Upload footage and describe the finished cut you want, from pacing and colour to transitions and sound.
+- [AI Captions](https://ammarai.com/ai-captions): Turn spoken video into accurately timed, styled captions ready for social platforms and accessible playback.
+- [AI Dubbing](https://ammarai.com/ai-dubbing): Translate spoken video into new languages with natural voices, matched timing and a finished localised video.
+- [AI UGC Creator](https://ammarai.com/ai-ugc-generator): Create authentic creator-style product videos from a brief, complete with hook, demonstration and call to action.
+- [AI YouTube & Shorts Publisher](https://ammarai.com/ai-youtube-publisher): Turn source footage into a packaged YouTube video or Short with edit, title, description, thumbnail direction and schedule.
+- [AI Writer](https://ammarai.com/ai-writer): A flexible writing workspace for drafts, long-form articles, rewrites, and brand-consistent content. Includes templates, the Article Wizard, Smart Editor, and tone controls so every piece stays on-brand.
+- [AI Chat Pro](https://ammarai.com/ai-chat): A multi-model chat with personas, reusable skills, smart memory, live web search, file uploads and organised folders — and it hands finished work to the rest of the platform.
+- [AI Image Pro](https://ammarai.com/ai-image-generator): A full image studio: generate from text, edit with a brush, keep one character or style consistent, swap backgrounds, upscale and export every size you need.
+- [AI Video Pro](https://ammarai.com/ai-video-generator): Create short videos from text prompts or still images. Includes text-to-video, image-to-video, smooth transitions, and options for captions and voiceover.
+- [AI Voiceover & Voice Clone](https://ammarai.com/ai-voice-generator): Generate natural-sounding voiceovers in 150+ languages and dialects. Clone your own voice or choose from a large library of neural voices, with control over tone, speed, and emotion.
+- [AI Text to Speech](https://ammarai.com/ai-text-to-speech): Convert articles, documents and scripts into clear spoken audio, at length and at speed.
+- [AI Speech to Text](https://ammarai.com/ai-speech-to-text): Fast, accurate conversion of speech into text, including live dictation and recorded audio.
+- [AI Transcription](https://ammarai.com/ai-transcription): Accurately transcribe audio and video files into text with speaker labels and timestamps. Supports multiple languages and common audio formats.
+- [AI Avatar Video Generator](https://ammarai.com/ai-avatar-generator): Turn any image into a talking avatar video with realistic lip-sync and natural expressions. Ideal for product explainers, social content, training videos, and personal branding.
+- [AI Image to Video](https://ammarai.com/ai-image-to-video): Animate a still image into a short clip with camera movement and controlled motion.
+- [AI Code Generator](https://ammarai.com/ai-code-generator): Generate code in multiple languages from natural language descriptions — functions, components, queries and tests, with explanations you can review.
+- [AI Vision](https://ammarai.com/ai-vision): Analyze images, chat with uploaded documents, or analyze any webpage — describe, extract text, compare, and question what you point it at.
+- [AI Document Analyzer](https://ammarai.com/ai-document-analyzer): Chat with uploaded documents — PDF, Word, CSV — and get summaries, answers with citations, and extracted structured data.
+- [AI SEO Analyzer](https://ammarai.com/ai-seo-analyzer): Find current keyword and search-question ideas while planning an article, then generate focused metadata for your site and blog posts.
+- [AI Plagiarism Detector](https://ammarai.com/ai-plagiarism-detector): Scan any text against online sources to check for duplicated or AI-generated content, with matched source links.
+- [External Chatbot Builder](https://ammarai.com/external-chatbot): Deploy a branded AI assistant on your website and messaging channels — trained on your content, able to take actions, capture leads and hand hard cases to a human.
+- [AI Presentation Maker](https://ammarai.com/ai-presentation-maker): Generate complete, professionally designed slide decks from a topic or brief — layouts and visuals included.
+- [AI URL to Video & Influencer](https://ammarai.com/ai-url-to-video): Paste any product URL and get a complete video ad with voiceover, captions and an avatar — or turn long videos into viral short clips.
+- [Sound Studio](https://ammarai.com/sound-studio): Merge audio, add background music, adjust voice speed and loudness, and fine-tune voiceovers in one place.
+- [AI Music Pro](https://ammarai.com/ai-music-generator): Generate original music and background tracks for videos, ads, podcasts and presentations.
+- [AI Chat Bots](https://ammarai.com/ai-chat-bots): A gallery of creative virtual AI assistants — each trained with the knowledge of industry experts, ready to answer instantly and do its job.
+- [Article Wizard](https://ammarai.com/article-wizard): A guided, step-by-step wizard that walks you from topic to finished long-form article.
+- [Blog Ideas Generator](https://ammarai.com/blog-ideas-generator): Turn a topic or niche into a list of fresh, specific blog post ideas.
+- [Blog Outline Generator](https://ammarai.com/blog-outline-generator): Turn a topic into a clear section-by-section outline before you write a word of prose.
+- [Blog Section Writer](https://ammarai.com/blog-section-writer): Write one section of a blog post at a time, in context with the rest of the piece.
+- [AI Content Detector](https://ammarai.com/ai-content-detector): Scan text and flag sections that read as AI-generated, with a confidence score to guide your edit pass.
+- [Web Page Chat](https://ammarai.com/web-page-chat): Paste a URL and ask questions about the page's content directly, without reading the whole thing.
+- [Chat With Image](https://ammarai.com/chat-with-image): Upload an image and ask questions about what's in it, in plain conversation.
+- [Realtime Voice Chat](https://ammarai.com/realtime-voice-chat): Talk out loud with AI and get spoken replies back, in a live back-and-forth conversation.
+- [Testimonial & Review Generator](https://ammarai.com/testimonial-generator): Turn real customer notes, quotes, and feedback into polished testimonial copy ready for your site.
+- [Product Name Ideas](https://ammarai.com/product-name-generator): Generate a spread of product name options based on your product's features, category, and target audience.
+- [Why Choose This Product](https://ammarai.com/why-choose-this-product): Write a clear, persuasive 'why choose us' section that highlights what actually sets your product apart.
+- [Product Review Generator](https://ammarai.com/product-review-generator): Draft long-form, honest-sounding review articles about a product based on real specs, use, and impressions you provide.
+- [Review Responder](https://ammarai.com/review-responder): Draft on-brand replies to customer reviews — positive, negative, or mixed — in seconds.
+- [Instagram Reel Script Generator](https://ammarai.com/instagram-reel-script-generator): Turn a topic or product into a scene-by-scene Reel script with hook, beats, and caption.
+- [TikTok Video Caption Generator](https://ammarai.com/tiktok-caption-generator): Generate TikTok captions with hooks, hashtags, and a tone that matches the video.
+- [Facebook Post Generator](https://ammarai.com/facebook-post-generator): Generate Facebook posts — announcements, promos, or community updates — in your brand's voice.
+- [Facebook Video Script Generator](https://ammarai.com/facebook-video-script-generator): Write Facebook video scripts built for feed viewing — hook first, sound-off friendly, clear close.
+- [X Thread Generator](https://ammarai.com/x-thread-generator): Turn one idea into a structured X (Twitter) thread with a hook tweet and a strong close.
+- [YouTube Video to Blog Post](https://ammarai.com/youtube-video-to-blog-post): Turn a YouTube video's content or transcript into a structured, readable blog post.
+- [Video Idea Generator](https://ammarai.com/video-idea-generator): Get a batch of video ideas tailored to your niche, platform, and goal.
+- [Video Description Generator](https://ammarai.com/video-description-generator): Write SEO-friendly video descriptions with timestamps, keywords, and calls to action.
+- [Viral Tweet Idea Generator](https://ammarai.com/viral-tweet-generator): Generate tweet ideas built around the patterns that tend to get shared and quoted.
+- [Clickbait Title Generator](https://ammarai.com/clickbait-title-generator): Generate curiosity-driven titles that earn clicks honestly, without misleading the reader.
+- [AMA Post Generator](https://ammarai.com/ama-post-generator): Draft an announcement post and starter questions to launch an Ask Me Anything session.
+- [Trending Post Generator](https://ammarai.com/trending-post-generator): Turn a current trend or topic into a post that fits your niche without forcing it.
+- [Viral Ideas Generator](https://ammarai.com/viral-ideas-generator): Generate content ideas across formats built around what tends to get shared and discussed.
+- [Storytelling Generator](https://ammarai.com/storytelling-generator): Turn a plain fact or experience into a short story-style post with a real narrative arc.
+- [Website Sitemap Generator](https://ammarai.com/sitemap-generator): Turn a business description into a full website structure of pages, sections, and navigation.
+- [Tagline Generator](https://ammarai.com/tagline-generator): Generate short, memorable taglines that sum up your brand in one line.
+- [UX Ideas Generator](https://ammarai.com/ux-ideas-generator): Get concrete UX improvement ideas for a page, flow, or feature you describe.
+- [Design Ideas Generator](https://ammarai.com/design-ideas-generator): Brainstorm visual design directions for a page, brand, or campaign from a short brief.
+- [Services Page Generator](https://ammarai.com/services-page-generator): Turn a list of services into a clear, structured services page with descriptions and calls to action.
+- [Features Page Generator](https://ammarai.com/features-page-generator): Turn a feature list into a structured features page with clear explanations and benefits.
+- [Keyword Generator](https://ammarai.com/keyword-generator): Generate relevant keyword ideas for a topic, product, or page to guide your SEO and content plans.
+- [Keyword Extractor](https://ammarai.com/keyword-extractor): Pull the key terms and phrases out of any existing text — a page, article, or document.
+- [Website Testimonials Generator](https://ammarai.com/website-testimonials-generator): Turn real customer feedback into polished, on-site testimonial blocks — never fabricated quotes.
+- [Landing Page Copy Generator](https://ammarai.com/landing-page-copy-generator): Generate full landing page copy — headline, subhead, sections, and CTA — from a short product brief.
+- [Website Copy Generator](https://ammarai.com/website-copy-generator): Generate copy for any website page — home, about, or product — from a short description of your business.
+- [Call to Action Generator](https://ammarai.com/call-to-action-generator): Generate strong call-to-action lines for buttons, emails, and landing pages that match your goal.
+- [Privacy Policy Generator](https://ammarai.com/privacy-policy-generator): Generate a starting-draft privacy policy from a description of your business and data practices — not legal advice.
+- [Terms and Conditions Generator](https://ammarai.com/terms-and-conditions-generator): Generate a starting-draft terms and conditions page from your business details — not legal advice.
+- [TV Ad Script Generator](https://ammarai.com/tv-ad-script-generator): Turn a product idea into a broadcast-ready TV commercial script with scenes, dialogue, and voiceover cues.
+- [YouTube Ads Generator](https://ammarai.com/youtube-ads-generator): Generate skippable and non-skippable YouTube ad scripts built around the first five seconds that matter most.
+- [Ad Script Generator](https://ammarai.com/ad-script-generator): Generate ad scripts for any channel — video, audio, or social — from a single product brief.
+- [Advertising Ideas Generator](https://ammarai.com/advertising-ideas-generator): Brainstorm campaign concepts and creative angles for any product before you write a single line of copy.
+- [App & SMS Notification Generator](https://ammarai.com/app-notification-generator): Write short push notifications and SMS messages that get opened, not swiped away.
+- [AIDA Framework Generator](https://ammarai.com/aida-framework-generator): Generate marketing copy structured around Attention, Interest, Desire, and Action for any product or offer.
+- [PAS Framework Generator](https://ammarai.com/pas-framework-generator): Write copy structured around Problem, Agitation, Solution to make an offer feel like the obvious next step.
+- [Marketing Plan Generator](https://ammarai.com/marketing-plan-generator): Turn a business goal into a structured marketing plan with channels, timeline, and key messages.
+- [Sales Pitch Generator](https://ammarai.com/sales-pitch-generator): Turn a product and audience into a tight sales pitch for calls, decks, or emails.
+- [Job Description Generator](https://ammarai.com/job-description-generator): Turn a role and a few requirements into a clear, complete job posting.
+- [AI Resume Builder](https://ammarai.com/ai-resume-builder): Turn your work history into a polished, well-structured resume.
+- [LinkedIn Profile Generator](https://ammarai.com/linkedin-profile-generator): Turn your career background into a strong LinkedIn headline, about section, and experience bullets.
+- [LinkedIn Post Generator](https://ammarai.com/linkedin-post-generator): Turn an idea, milestone, or insight into a LinkedIn post that reads like it came from a person, not a brand account.
+- [Startup Ideas Generator](https://ammarai.com/startup-ideas-generator): Turn an industry, skill set, or problem area into a list of concrete startup ideas worth exploring.
+- [Business Strategy Generator](https://ammarai.com/business-strategy-generator): Turn a business goal and current situation into a structured strategy outline.
+- [Personal Bio Generator](https://ammarai.com/personal-bio-generator): Turn your background and achievements into a polished bio for any platform.
+- [Cost Benefit Analysis Generator](https://ammarai.com/cost-benefit-analysis-generator): Turn a decision into a structured cost-benefit breakdown you can actually use.
+- [Brainstorming Generator](https://ammarai.com/brainstorming-generator): Turn a prompt or problem into a wide list of ideas to react to and refine.
+- [Cover Letter Generator](https://ammarai.com/cover-letter-generator): Turn a job posting and your background into a tailored, ready-to-edit cover letter.
+- [Application Letter Generator](https://ammarai.com/application-letter-generator): Draft formal application letters for jobs, programs, or memberships from a short brief.
+- [Math Question Solver](https://ammarai.com/math-question-solver): Get a math problem solved step by step, so you understand the method — not just the answer.
+- [Bullet Point Answer Generator](https://ammarai.com/bullet-point-answer-generator): Turn a study question into clear, organized bullet points you can review and learn from.
+- [Thesis Statement Generator](https://ammarai.com/thesis-statement-generator): Turn an essay topic into a focused, arguable thesis statement to build your paper around.
+- [AI Proofreader](https://ammarai.com/ai-proofreader): Catch grammar, spelling, and punctuation errors before you hit send or submit.
+- [AI Rephraser](https://ammarai.com/ai-rephraser): Rephrase sentences or paragraphs to improve clarity, tone, or flow while keeping the original meaning.
+- [Content Improver](https://ammarai.com/content-improver): Get targeted suggestions to sharpen weak sentences, tighten structure, and strengthen a draft overall.
+- [Career Advice Generator](https://ammarai.com/career-advice-generator): Get tailored career guidance on next steps, skill gaps, or a career change based on your situation.
+- [Welcome Email Generator](https://ammarai.com/welcome-email-generator): Write a warm, on-brand welcome email for new subscribers or customers in seconds.
+- [Invitation Email Generator](https://ammarai.com/invitation-email-generator): Draft clear, inviting event or meeting invitation emails in a fraction of the time.
+- [Reply Email Generator](https://ammarai.com/reply-email-generator): Turn an incoming email into a clear, appropriately toned reply in seconds.
+- [Apology Email Generator](https://ammarai.com/apology-email-generator): Write a sincere, well-structured apology email for mistakes, delays, or service issues.
+- [AI Bug Fix Assistant](https://ammarai.com/bug-fix-assistant): Paste broken code and an error message to get a diagnosis and a working fix.
+- [Explain Code](https://ammarai.com/explain-code): Paste any code snippet and get a plain-language explanation of what it does and why.
+- [Teach Me to Code](https://ammarai.com/teach-code): Get a beginner-friendly lesson on any coding concept, tailored to your current level.
+- [Changelog Generator](https://ammarai.com/changelog-generator): Turn a list of commits or updates into a clear, readable changelog for your users.
+- [AI Translator](https://ammarai.com/ai-translator): Translate text between languages while keeping tone, nuance, and meaning intact.
+- [Synonyms Generator](https://ammarai.com/synonyms-generator): Find the right word fast with context-aware synonym suggestions.
+- [Learn New Words](https://ammarai.com/learn-new-words): Build vocabulary with clear definitions, example sentences, and memory-friendly context.
+- [Social Media Reply Generator](https://ammarai.com/social-media-reply-generator): Draft quick, on-brand replies to comments and mentions across your social channels.
+- [Support Ticket Reply Generator](https://ammarai.com/support-ticket-reply-generator): Draft clear, helpful support ticket replies from the customer's message and your resolution.
+- [Song Lyrics Generator](https://ammarai.com/song-lyrics-generator): Turn a theme, genre, and mood into a structured set of song lyrics with verses, chorus, and bridge.
+- [Joke Generator](https://ammarai.com/joke-generator): Generate jokes, puns, and one-liners on any topic for speeches, captions, or just a laugh.
+- [AI Event Planner](https://ammarai.com/event-planner): Turn an event idea into a timeline, checklist, and budget outline in minutes.
+- [AI Travel Planner](https://ammarai.com/travel-planner): Turn a destination, dates, and budget into a day-by-day itinerary.
+- [Gift Ideas Generator](https://ammarai.com/gift-ideas-generator): Turn a recipient's interests, budget, and occasion into a shortlist of specific gift ideas.
+- [Workout Plan Generator](https://ammarai.com/workout-plan-generator): Generate a structured weekly workout plan based on your goals, experience, and available equipment.
+- [Meal Plan Generator](https://ammarai.com/meal-plan-generator): Generate a weekly meal plan based on your goals, preferences, and dietary style.
+- [eBook Generator](https://ammarai.com/ebook-generator): Turn a topic and outline into a full multi-chapter eBook draft, ready to design and publish.
+- [Book Ideas Generator](https://ammarai.com/book-ideas-generator): Get a batch of book concepts — premise, angle, and audience — from a genre or theme.
+- [Explain to a Child](https://ammarai.com/explain-to-a-child): Turn a complex topic into a simple explanation a child could follow, using plain words and relatable comparisons.
+- [News From a Journalist's View](https://ammarai.com/journalist-news-generator): Draft a news-style article structure from your notes — a writing aid, not a fact-generation tool.
+- [Generate From RSS Feed](https://ammarai.com/rss-feed-generator): Turn items from an RSS feed into fresh written content — summaries, roundups, or posts — ready to review.
+- [Undetectable AI Humanizer](https://ammarai.com/undetectable-ai-humanizer): Smooth out AI-drafted text so it reads naturally, in your own voice, instead of sounding stiff or templated.
+- [Pros and Cons Generator](https://ammarai.com/pros-and-cons-generator): Lay out the real advantages and disadvantages of any decision, side by side, before you commit.
+- [Real Estate Listing Generator](https://ammarai.com/real-estate-listing-generator): Turn property details into a compelling, ready-to-post real estate listing description.
+- [AI Prompt Generator](https://ammarai.com/prompt-generator): Turn a rough idea into a clear, detailed prompt that gets better results from any AI tool.
+- [AI Voice Isolator](https://ammarai.com/ai-voice-isolator): Strip background noise and music from a recording, leaving clean, clear speech behind.
+- [AI Video to Video](https://ammarai.com/ai-video-to-video): Restyle or enhance an existing video clip into a new finished version, based on your instructions.
+
+## Platform Features
+- [Multi-model AI](https://ammarai.com/features/multi-model-ai): Each task runs on a model suited to it, without you managing providers.
+- [Brand voice](https://ammarai.com/features/brand-voice): Save tone, vocabulary and rules once and reuse them across every writing tool.
+- [Templates library](https://ammarai.com/features/templates-library): Proven starting structures for common formats, plus your own saved templates.
+- [Bulk generation](https://ammarai.com/features/bulk-generation): Run one structure across hundreds of rows for catalogue-scale output.
+- [File uploads](https://ammarai.com/features/file-uploads): Upload documents, images and audio so output is grounded in your own material.
+- [Custom AI assistants](https://ammarai.com/features/ai-assistants): Assistants with a fixed brief and reference material for recurring work.
+- [Team workspaces](https://ammarai.com/features/team-workspaces): Shared brand assets and history so team output stays consistent.
+- [History and versions](https://ammarai.com/features/history-and-versions): Every generation saved, searchable and restorable.
+- [Export and integrations](https://ammarai.com/features/export-and-integrations): Clean exports in the formats your publishing workflow already uses.
+- [Privacy and control](https://ammarai.com/features/privacy-and-control): Ownership of your output, control over your data, honest limits.
+
+## Tutorials
+- [How to use AI Chat Pro](https://ammarai.com/tutorials/how-to-use-ai-chat-pro): Use AmmarAI AI Chat Pro with model selection, skills, file uploads and web search for focused, well-grounded conversations. Step-by-step guide with screenshots.
+- [How to chat with documents in AmmarAI](https://ammarai.com/tutorials/how-to-chat-with-documents): Upload a document to AmmarAI, attach it to a chat, ask a focused question and continue with grounded follow-up questions. Step-by-step guide with screenshots.
+- [How to use AI Image Pro](https://ammarai.com/tutorials/how-to-use-ai-image-pro): Create images in AmmarAI AI Image Pro by setting a prompt, variations, style, ratio and model, then reviewing the results. Step-by-step guide with screenshots.
+- [How to use AI Video Pro](https://ammarai.com/tutorials/how-to-use-ai-video-pro): Generate a video in AmmarAI AI Video Pro by choosing a model, entering a prompt or image, adjusting settings and creating the result. With screenshots.
+- [How to create viral clips from a long video](https://ammarai.com/tutorials/how-to-create-viral-clips): Turn a long video or video URL into short, shareable social clips with AmmarAI’s AI URL to Video tool. Available in AmmarAI — start free, no card required.
+- [How to create AI influencer videos](https://ammarai.com/tutorials/how-to-create-ai-influencer-videos): Create product-powered ads and presenter-led influencer videos with AmmarAI’s AI URL to Video & Influencer tool. A step-by-step AmmarAI guide with screenshots.
+- [How to use Fashion Studio](https://ammarai.com/tutorials/how-to-use-fashion-studio): Create AI photoshoots, virtual try-on images, model swaps, edits and fashion videos with AmmarAI’s Fashion Studio workflow. Step-by-step guide with screenshots.
+- [How to dub a video into another language](https://ammarai.com/tutorials/how-to-dub-a-video): Translate and re-voice an existing video into another language with AmmarAI AI Dubbing, from source selection to download. Step-by-step guide with screenshots.
+- [How to use AI Captions](https://ammarai.com/tutorials/how-to-use-ai-captions): Upload a portrait video, choose a caption style and generate styled subtitles with AmmarAI AI Captions. A step-by-step AmmarAI guide with screenshots.
+- [How to create UGC videos](https://ammarai.com/tutorials/how-to-create-ugc-videos): Generate realistic user-generated-content videos with AmmarAI’s AI UGC Generator — script, voice, actor and scene in one pass. Learn how it works in AmmarAI.
+- [How to build an AI agent](https://ammarai.com/tutorials/how-to-build-an-ai-agent): Build, test and monitor a multi-step workflow with AmmarAI AI Agent Builder using plain-language instructions, triggers and connected tools. Start free.
+- [How to use AI Blogger Agent](https://ammarai.com/tutorials/how-to-use-ai-blogger-agent): Plan, schedule, review and measure a recurring content workflow with AmmarAI AI Blogger Agent. Follow the step-by-step guide with a screenshot for each step.
+- [How to use AI Music Pro](https://ammarai.com/tutorials/how-to-use-ai-music-pro): Generate an original track in AmmarAI AI Music Pro by defining its sound, duration and musical style. Available in AmmarAI — start free, no card required.
+- [How to create a presentation with AI](https://ammarai.com/tutorials/how-to-create-ai-presentations): Build a complete slide deck in AmmarAI AI Presentation Maker: write the brief, set language, theme, slide count and images, then generate and download.
+- [How to use Realtime Voice Chat](https://ammarai.com/tutorials/how-to-use-realtime-voice-chat): Hold a live spoken conversation with AmmarAI: open a chat, switch on real-time voice and talk naturally with spoken replies. Learn how it works in AmmarAI.
+- [How to edit videos with the AI Video Editor](https://ammarai.com/tutorials/how-to-edit-videos-with-the-ai-video-editor): Create a project, arrange clips on the timeline and use the AI, voice and music panels inside the AmmarAI AI Video Editor, then export the finished video.
+- [How to use the AI Creative Suite](https://ammarai.com/tutorials/how-to-use-the-ai-creative-suite): Generate images with your chosen AI engine, start from a template or artboard, then refine type, colour and layout in the AmmarAI AI Creative Suite canvas.
+- [How to create a video ad from a product URL](https://ammarai.com/tutorials/how-to-create-a-video-ad-from-a-product-url): Turn a product page link into a finished video ad in AmmarAI: set language, duration and ratio, then pick an avatar, voice and captions before rendering.
+- [How to use the Content Manager media library](https://ammarai.com/tutorials/how-to-use-the-content-manager): Upload, find and insert images, videos, documents and stock media from the AmmarAI Content Manager, the shared library that opens from every upload button.
+- [How to manage sales with AI CRM](https://ammarai.com/tutorials/how-to-manage-sales-with-ai-crm): Use AmmarAI AI CRM to manage contacts, companies, deals, projects, tasks and calendar activity from one customer workspace. Step-by-step guide with screenshots.
+- [How to create an AI phone agent](https://ammarai.com/tutorials/how-to-create-an-ai-phone-agent): Create an AmmarAI AI Phone Agent, define its greeting and instructions, choose its voice and train it with approved business information. With screenshots.
+- [How to create outbound AI calls](https://ammarai.com/tutorials/how-to-create-outbound-ai-calls): Create individual or batch outbound calls with AmmarAI AI Phone Agent, then monitor each call from the outbound-call history. Learn how it works in AmmarAI.
+- [How to build and embed a website chatbot](https://ammarai.com/tutorials/how-to-build-and-embed-a-website-chatbot): Create an AmmarAI external chatbot, style it, train it on your own content and embed it on your website so visitors get answers day and night. Start free.
+- [How to run an AI social media agent](https://ammarai.com/tutorials/how-to-run-a-social-media-agent): Set up an AmmarAI social media agent that plans, writes and schedules posts for your accounts, then review, adjust and track them from one place. Start free.
+- [How to hand live chats to a human agent](https://ammarai.com/tutorials/how-to-hand-chats-to-a-human-agent): Let your AmmarAI chatbot pass a conversation to a person, then answer, tag, note and export those live chats from the Smart Inbox. Step-by-step guide.
+- [How to compare two AI models in one chat](https://ammarai.com/tutorials/how-to-compare-two-ai-models-in-one-chat): Answer the same prompt with two AI models side by side in AmmarAI AI Chat Pro, then keep the response you prefer and carry on the thread. With screenshots.
+- [How to take bookings with your website chatbot](https://ammarai.com/tutorials/how-to-take-bookings-with-your-website-chatbot): Turn on the booking assistant in your AmmarAI website chatbot, decide when it should offer a meeting and paste in your scheduling embed code. Start free.
+- [How to answer shop questions with your chatbot](https://ammarai.com/tutorials/how-to-answer-shop-questions-with-your-chatbot): Connect your online store to an AmmarAI website chatbot so it can answer order, tracking and product questions, and choose which shop details it may use.
+- [How to use temporary chat](https://ammarai.com/tutorials/how-to-use-temporary-chat): Turn on temporary chat in AmmarAI's AI Chat Pro for a one-off conversation that is not kept in your chat history, and see exactly when it switches off.
+- [How to edit part of an image with annotations](https://ammarai.com/tutorials/how-to-edit-part-of-an-image-with-annotations): Mark a region on an image in the AmmarAI Creative Suite canvas, attach an instruction, and have the edit applied to that area while the rest stays untouched.
+- [How to invite teammates to your workspace](https://ammarai.com/tutorials/how-to-invite-teammates-to-your-workspace): Invite colleagues into your AmmarAI workspace by email, see how they accept, and understand how team members draw on the workspace owner's credits. Start free.
+- [How to publish a post to WordPress](https://ammarai.com/tutorials/how-to-publish-a-post-to-wordpress): Connect your WordPress site to AmmarAI once, then send finished articles straight to your blog from the editor without copying and pasting. Start free.
+- [How to read WhatsApp and Telegram messages in one inbox](https://ammarai.com/tutorials/how-to-read-whatsapp-and-telegram-messages-in-one-inbox): Bring WhatsApp, Telegram and your other message channels into a single AmmarAI inbox, filter by channel and reply without switching apps. With screenshots.
+- [How to clone your own voice for voiceovers](https://ammarai.com/tutorials/how-to-clone-your-own-voice-for-voiceovers): Record a short sample, create a clone of your own voice in AmmarAI, and use it for narration across videos, courses and product audio. With screenshots.
+- [How to get keyword and question ideas in the Article Wizard](https://ammarai.com/tutorials/how-to-get-keyword-and-question-ideas-in-the-article-wizard): Use live keyword suggestions and real search questions inside the AmmarAI Article Wizard so your article answers what people are actually searching for.
+- [How to connect your chatbot to messaging channels](https://ammarai.com/tutorials/how-to-connect-your-chatbot-to-messaging-channels): Use the Channel step in the AmmarAI chatbot builder to let the same trained bot answer on WhatsApp, Telegram, Messenger and Instagram as well as your website.
+- [How to use the four AI SEO tools](https://ammarai.com/tutorials/how-to-audit-a-page-with-the-ai-seo-analyzer): Use AmmarAI for Article Wizard keyword ideas, search questions, site metadata and blog-post SEO fields. A step-by-step AmmarAI guide with screenshots.
+- [How to run a cited research report with AI Deep Research](https://ammarai.com/tutorials/how-to-run-a-cited-research-report-with-ai-deep-research): Frame the question, choose the depth, and turn a live multi-source research run into a report you can defend, with every claim linked to its source. Start free.
+- [How to put a garment on a model with AI Fashion Try-On](https://ammarai.com/tutorials/how-to-put-a-garment-on-a-model-with-ai-fashion-try-on): Turn the flat garment photo you already have into worn product imagery — correct fit and drape, several body types, one consistent look across a collection.
+- [How to transcribe a meeting or interview](https://ammarai.com/tutorials/how-to-transcribe-a-meeting-or-interview): Turn a recording into a timestamped, speaker-labelled transcript you can search, quote, summarise and export as subtitles. Step-by-step guide with screenshots.
+
+## Use Cases
+- [AI for Marketing Teams](https://ammarai.com/ai-for-marketing): Turn a single campaign brief into ads, emails, and landing pages without the usual back-and-forth.
+- [AI for Content Creators](https://ammarai.com/ai-for-content-creators): Turn one video or post idea into scripts, captions, and titles without losing a whole afternoon to it.
+- [AI for Small Business](https://ammarai.com/ai-for-small-business): Write website copy, ads, and customer emails yourself, without hiring an agency you can't yet afford.
+- [AI for Entrepreneurs](https://ammarai.com/ai-for-entrepreneurs): Turn a new idea into a landing page, pitch copy, and outreach emails fast enough to actually test it.
+- [AI for Students](https://ammarai.com/ai-for-students): Summarize readings, brainstorm outlines, and check grammar — as study support, not a way to submit work you didn't write.
+- [AI for Developers](https://ammarai.com/ai-for-developers): Generate boilerplate, draft documentation, and explain technical work without switching out of flow.
+- [AI for Agencies](https://ammarai.com/ai-for-agencies): Produce deliverables across multiple client accounts at once, without hiring at the same pace as new business.
+- [AI for E-commerce](https://ammarai.com/ai-for-ecommerce): Write product descriptions, titles, and listing copy across a whole catalog without hiring a copywriter per SKU.
+- [AI for Social Media Managers](https://ammarai.com/ai-for-social-media): Draft captions, hashtags, and post ideas across platforms so the calendar never runs empty mid-month.
+- [AI for SEO Professionals](https://ammarai.com/ai-for-seo): Produce optimized blog posts, meta descriptions, and FAQ content at the volume organic growth actually requires.
+- [AI for Personal Productivity](https://ammarai.com/ai-for-productivity): Draft emails, summarize documents, and clear routine writing tasks faster, so the backlog stops growing.
+- [AI Marketing Video Maker](https://ammarai.com/ai-marketing-video-maker): Create campaign, ad and explainer video concepts from a brief in one connected workflow.
+- [AI Product Demo Video Maker](https://ammarai.com/ai-product-demo-video-maker): Build on-camera or scene-led product demonstrations from a focused product brief.
+- [AI Social Media Video Maker](https://ammarai.com/ai-social-media-video-maker): Create, caption and prepare short-form video for a connected social publishing workflow.
+- [AI Product Photo Generator](https://ammarai.com/ai-product-photo-generator): Create studio, lifestyle and seasonal product visuals from one source photo.
+- [AI Customer Support Agent](https://ammarai.com/ai-customer-support-agent): Triage requests, answer from approved knowledge and hand sensitive conversations to people.
+- [AI Sales Agent](https://ammarai.com/ai-sales-agent): Connect lead qualification, phone conversations and CRM follow-up in one sales workflow.
+- [AI for SaaS Companies](https://ammarai.com/ai-for-saas-companies): Connect product marketing, support, sales follow-up and recurring SaaS operations.
+- [AI for Real Estate Agents](https://ammarai.com/ai-for-real-estate-agents): Create listings and campaign assets, then organize inquiry and follow-up workflows.
+- [AI for Healthcare Clinics](https://ammarai.com/ai-for-healthcare-clinics): Answer routine calls, keep patient-facing content current and clear the admin writing a small practice never gets to.
+- [AI for Law Firms](https://ammarai.com/ai-for-law-firms): Capture intake calls, keep practice-area content current and cut the reading and drafting load around client work.
+- [AI for Restaurants and Hospitality](https://ammarai.com/ai-for-restaurants): Answer booking calls, keep social posting daily, reply to reviews and produce menu photography without a marketing hire.
+- [AI for Recruiting and HR Teams](https://ammarai.com/ai-for-recruiting-teams): Write job ads faster, keep candidates informed, and turn interview notes into usable summaries.
+- [AI for Coaches and Course Creators](https://ammarai.com/ai-for-coaches): Build course material, keep marketing content running and handle client follow-up without hiring a team.
+
+## Blog
+- [How to Use AI for Content Creation (Without Losing Your Voice)](https://ammarai.com/blog/how-to-use-ai-for-content-creation)
+- [How to Write a Blog Post With AI (Step by Step)](https://ammarai.com/blog/how-to-write-a-blog-post-with-ai)
+- [How to Create AI Videos: A Realistic Production Guide](https://ammarai.com/blog/how-to-create-ai-videos)
+- [How to Generate AI Voiceovers That Don't Sound Robotic](https://ammarai.com/blog/how-to-generate-ai-voiceovers)
+- [How to Rewrite Content With AI Without Making It Worse](https://ammarai.com/blog/how-to-rewrite-content-with-ai)
+- [How to Use AI for SEO Without Getting Penalized for Thin Content](https://ammarai.com/blog/how-to-use-ai-for-seo)
+- [AI Tools for Small Businesses: Where the Real ROI Is](https://ammarai.com/blog/ai-tools-for-small-businesses)
+- [AI Tools for Marketers: What to Automate and What to Keep Human](https://ammarai.com/blog/ai-tools-for-marketers)
+- [AI Productivity Workflows That Actually Save Time](https://ammarai.com/blog/ai-productivity-workflows)
+- [How to Write Better AI Prompts: A Practical Framework](https://ammarai.com/blog/how-to-write-better-ai-prompts)
+- [7 Jasper AI Alternatives Worth Switching To in 2026](https://ammarai.com/blog/jasper-ai-alternatives)
+- [6 Copy.ai Alternatives for Teams That Just Want to Write](https://ammarai.com/blog/copy-ai-alternatives)
+- [6 Writesonic Alternatives After Its Shift to AI Search Visibility](https://ammarai.com/blog/writesonic-alternatives)
+- [6 Rytr Alternatives When You Outgrow Short-Form Copy](https://ammarai.com/blog/rytr-alternatives)
+- [The Best AI Writing Tools in 2026, Compared Honestly](https://ammarai.com/blog/best-ai-writing-tools)
+
+## Company
+- [About](https://ammarai.com/about): What AmmarAI is and who it is for
+- [Pricing](https://ammarai.com/pricing): Free, Starter, Professional and Ultimate plans
+- [AI Tools directory](https://ammarai.com/ai-tools): Browse all 151 tools
+- [FAQ](https://ammarai.com/faq): Common questions about the platform
+- [Resources](https://ammarai.com/resources): Guides and help
+- [Contact](https://ammarai.com/contact): Sales, support and partnerships

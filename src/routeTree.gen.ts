@@ -19,7 +19,6 @@ import { Route as AiToolsRouteImport } from './routes/ai-tools'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
-import { Route as LlmsDottxtRouteImport } from './routes/llms[.]txt'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
@@ -94,11 +93,6 @@ const ContactRoute = ContactRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LlmsDottxtRoute = LlmsDottxtRouteImport.update({
-  id: '/llms.txt',
-  path: '/llms.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -239,7 +233,6 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/llms.txt': typeof LlmsDottxtRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
@@ -276,7 +269,6 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/llms.txt': typeof LlmsDottxtRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
@@ -314,7 +306,6 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
-  '/llms.txt': typeof LlmsDottxtRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
@@ -354,7 +345,6 @@ export interface FileRouteTypes {
     | '/auth'
     | '/contact'
     | '/faq'
-    | '/llms.txt'
     | '/pricing'
     | '/privacy'
     | '/refund-policy'
@@ -391,7 +381,6 @@ export interface FileRouteTypes {
     | '/auth'
     | '/contact'
     | '/faq'
-    | '/llms.txt'
     | '/pricing'
     | '/privacy'
     | '/refund-policy'
@@ -428,7 +417,6 @@ export interface FileRouteTypes {
     | '/auth'
     | '/contact'
     | '/faq'
-    | '/llms.txt'
     | '/pricing'
     | '/privacy'
     | '/refund-policy'
@@ -467,7 +455,6 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
-  LlmsDottxtRoute: typeof LlmsDottxtRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   RefundPolicyRoute: typeof RefundPolicyRoute
@@ -556,13 +543,6 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/llms.txt': {
-      id: '/llms.txt'
-      path: '/llms.txt'
-      fullPath: '/llms.txt'
-      preLoaderRoute: typeof LlmsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -790,7 +770,6 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
-  LlmsDottxtRoute: LlmsDottxtRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   RefundPolicyRoute: RefundPolicyRoute,
