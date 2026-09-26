@@ -17,7 +17,11 @@ import {
 
 function Stars({ rating, label }: { rating: number; label?: string }) {
   return (
-    <span className="inline-flex items-center gap-0.5 text-accent" aria-label={label ?? `${rating} out of 5 stars`}>
+    <span
+      role="img"
+      className="inline-flex items-center gap-0.5 text-accent"
+      aria-label={label ?? `${rating} out of 5 stars`}
+    >
       {Array.from({ length: 5 }, (_, index) => (
         <Star key={index} className="size-4" fill={index < Math.round(rating) ? "currentColor" : "none"} />
       ))}
