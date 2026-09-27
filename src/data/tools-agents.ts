@@ -208,7 +208,7 @@ export const agentTools: Tool[] = [
         label: "Inbound booking",
         input: "A caller wants a dental check-up on Thursday morning.",
         output:
-          "Answered in two rings, offered 9:20 and 11:05, booked 9:20, texted the confirmation and saved the call summary to the CRM. Total call: 41 seconds.",
+          "Answered in two rings, offered 10:30am and 2pm, booked 2pm, texted the confirmation and saved the call summary to the CRM. Total call: 91 seconds.",
       },
       {
         label: "Outbound booking reminder",
