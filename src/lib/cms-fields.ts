@@ -317,6 +317,12 @@ const pageSettingsFields: FieldSpec[] = [
     label: "Country filter: secret preview key (visit ?bypass_country=YOURKEY to skip the block)",
     type: "text",
   },
+  {
+    name: "geoBlockCacheHours",
+    label: "Country filter: how long a visitor's country is remembered (hours)",
+    type: "text",
+    hint: "Minimum 1 hour, maximum 168 hours (7 days). Leave empty for the default of 6 hours.",
+  },
 ];
 
 /** Fields shown when editing a specific page — keeps Contact, Home and Settings separate. */
