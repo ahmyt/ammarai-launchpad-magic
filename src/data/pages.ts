@@ -114,5 +114,6 @@ export const pages: Page[] = [
     geoBlockMessage:
       "We are carrying out scheduled maintenance for visitors in your country. Please check back shortly \u2014 everything will be back to normal soon.",
     geoBlockBypassKey: "",
+    geoBlockCacheHours: "6",
   },
 ];
