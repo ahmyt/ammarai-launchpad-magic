@@ -19,7 +19,13 @@ export interface GeoGateSettings {
   title: string;
   message: string;
   bypassKey: string;
+  /** How long a visitor's country is remembered, in milliseconds. */
+  cacheMs: number;
 }
+
+const DEFAULT_CACHE_HOURS = 6;
+const MIN_CACHE_HOURS = 1;
+const MAX_CACHE_HOURS = 168;
 
 const DEFAULTS: GeoGateSettings = {
   enabled: false,
@@ -29,10 +35,10 @@ const DEFAULTS: GeoGateSettings = {
   message:
     "We are carrying out scheduled maintenance for visitors in your country. Please check back shortly — everything will be back to normal soon.",
   bypassKey: "",
+  cacheMs: DEFAULT_CACHE_HOURS * 60 * 60 * 1000,
 };
 
 const SETTINGS_TTL_MS = 60_000;
-const GEO_TTL_MS = 6 * 60 * 60 * 1000;
 const GEO_CACHE_MAX = 5000;
 const BYPASS_COOKIE = "ammarai_geo_bypass";
 
@@ -62,6 +68,13 @@ const toList = (value: unknown): string[] => {
     .filter((entry) => /^[A-Z]{2}$/.test(entry));
 };
 
+/** Hours the visitor's country stays remembered; clamped to 1-168, default 6. */
+function cacheHours(value: unknown): number {
+  const parsed = Number.parseFloat(String(value ?? "").trim());
+  if (!Number.isFinite(parsed) || parsed <= 0) return DEFAULT_CACHE_HOURS;
+  return Math.min(MAX_CACHE_HOURS, Math.max(MIN_CACHE_HOURS, parsed));
+}
+
 function normalise(data: Record<string, unknown> | undefined): GeoGateSettings {
   if (!data) return DEFAULTS;
   const countries = toList(data["geoBlockCountries"]);
@@ -72,6 +85,7 @@ function normalise(data: Record<string, unknown> | undefined): GeoGateSettings {
     title: String(data["geoBlockTitle"] ?? "").trim() || DEFAULTS.title,
     message: String(data["geoBlockMessage"] ?? "").trim() || DEFAULTS.message,
     bypassKey: String(data["geoBlockBypassKey"] ?? "").trim(),
+    cacheMs: cacheHours(data["geoBlockCacheHours"]) * 60 * 60 * 1000,
   };
 }
 
@@ -144,10 +158,10 @@ function headerCountry(request: Request): string {
  * Country for this IP, or "" when unknown. Never awaits: an unknown IP is
  * resolved in the background so this and every later request stay instant.
  */
-function cachedCountry(ip: string): string {
+function cachedCountry(ip: string, ttlMs: number = DEFAULTS.cacheMs): string {
   if (!ip || PRIVATE_IP_RE.test(ip)) return "";
   const hit = geoCache.get(ip);
-  if (hit && Date.now() - hit.at < GEO_TTL_MS) return hit.country;
+  if (hit && Date.now() - hit.at < ttlMs) return hit.country;
   if (!geoInFlight.has(ip)) {
     geoInFlight.add(ip);
     void lookupCountry(ip)
@@ -208,7 +222,7 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   let fresh = false;
   if (!country) {
     const ip = clientIp(request);
-    country = cachedCountry(ip);
+    country = cachedCountry(ip, config.cacheMs);
     if (!country && ip && !PRIVATE_IP_RE.test(ip)) {
       // Only while the filter is ON, and only on a visitor's first page view:
       // wait briefly so the first and later page views give the same answer.
@@ -222,7 +236,8 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   }
   const response = evaluateGeoGate(request, config, country === "XX" ? "" : country);
   if (!fresh || !country) return { block: response, cookie: null };
-  const cookie = `${COUNTRY_COOKIE}=${country}; Path=/; Max-Age=21600; HttpOnly; Secure; SameSite=Lax`;
+  const maxAge = Math.round(config.cacheMs / 1000);
+  const cookie = `${COUNTRY_COOKIE}=${country}; Path=/; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Lax`;
   if (response) response.headers.append("set-cookie", cookie);
   return { block: response, cookie };
 }
@@ -262,7 +277,7 @@ export function evaluateGeoGate(
   if (cookies.includes("sb-") && cookies.includes("-auth-token")) return null; // signed-in staff
 
   const country =
-    knownCountry ?? (headerCountry(request) || cachedCountry(clientIp(request)));
+    knownCountry ?? (headerCountry(request) || cachedCountry(clientIp(request), config.cacheMs));
   if (!isBlocked(country, config)) return null;
 
   return new Response(maintenanceHtml(config), {

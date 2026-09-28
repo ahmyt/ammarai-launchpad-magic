@@ -216,6 +216,8 @@ export interface Page {
   geoBlockMessage?: string;
   /** Secret used as ?bypass_country=... to view the site from a blocked country */
   geoBlockBypassKey?: string;
+  /** How long a visitor's country is remembered, in hours (1-168, default 6) */
+  geoBlockCacheHours?: string;
 }
 
 

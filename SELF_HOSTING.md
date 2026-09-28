@@ -360,9 +360,10 @@ instead of the site. Everything is controlled in CMS → Pages → Site settings
 | --- | --- |
 | Country filter: show a maintenance page… | Master switch (off by default) |
 | Country filter: mode | `block` = listed countries see maintenance; `allow` = only listed countries see the site |
-| Country filter: two-letter country codes | One per block, e.g. `US`, `GB`, `DE` |
+| Country filter: country codes | One per block, two or three letters, e.g. `FR` or `FRA`, `US`, `GB` |
 | Country filter: maintenance page heading / message | Wording shown to blocked visitors |
 | Country filter: secret preview key | Visit `https://ammarai.com/?bypass_country=YOURKEY` once to view the site from a blocked country for 7 days |
+| Country filter: how long a visitor's country is remembered | Hours, minimum 1, maximum 168 (7 days). Empty or invalid falls back to 6 |
 
 How it stays fast and SEO-safe (`src/lib/geo-gate.server.ts`, called from
 `src/server.ts` before rendering):
@@ -370,8 +371,8 @@ How it stays fast and SEO-safe (`src/lib/geo-gate.server.ts`, called from
 - Settings are cached in memory for 60 seconds — no database call per request.
 - The country comes from a proxy header (`cf-ipcountry`, `x-country-code`, …)
   when present. On direct Plesk hosting there is no such header, so the IP is
-  resolved in the **background** and cached for 6 hours; the request itself
-  never waits on the lookup (measured ~1µs per request).
+  resolved and cached for the duration set in Site settings (default 6 hours,
+  clamped to 1–168). The visitor's cookie uses the same duration.
 - The very first request from a brand-new IP passes through; enforcement
   begins once the background lookup lands (a second or two later).
 - Blocked visitors get **HTTP 503 + `Cache-Control: private, no-store` +
