@@ -222,7 +222,7 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   let fresh = false;
   if (!country) {
     const ip = clientIp(request);
-    country = cachedCountry(ip);
+    country = cachedCountry(ip, config.cacheMs);
     if (!country && ip && !PRIVATE_IP_RE.test(ip)) {
       // Only while the filter is ON, and only on a visitor's first page view:
       // wait briefly so the first and later page views give the same answer.
@@ -236,7 +236,8 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   }
   const response = evaluateGeoGate(request, config, country === "XX" ? "" : country);
   if (!fresh || !country) return { block: response, cookie: null };
-  const cookie = `${COUNTRY_COOKIE}=${country}; Path=/; Max-Age=21600; HttpOnly; Secure; SameSite=Lax`;
+  const maxAge = Math.round(config.cacheMs / 1000);
+  const cookie = `${COUNTRY_COOKIE}=${country}; Path=/; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Lax`;
   if (response) response.headers.append("set-cookie", cookie);
   return { block: response, cookie };
 }
