@@ -319,9 +319,9 @@ const pageSettingsFields: FieldSpec[] = [
   },
   {
     name: "geoBlockCacheHours",
-    label: "Country filter: how long a visitor's country is remembered (hours)",
+    label:
+      "Country filter: how long a visitor's country is remembered, in hours — minimum 1, maximum 168 (7 days), leave empty for 6",
     type: "text",
-    hint: "Minimum 1 hour, maximum 168 hours (7 days). Leave empty for the default of 6 hours.",
   },
 ];
 
