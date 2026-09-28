@@ -204,6 +204,18 @@ export interface Page {
   offerReshowDays?: string;
   /** Pages that carry the permanent offer block */
   offerInlinePages?: string[];
+  /** Show a maintenance page to visitors from the countries listed below */
+  geoBlockEnabled?: boolean;
+  /** "block" = the listed countries see maintenance, "allow" = only they see the site */
+  geoBlockMode?: string;
+  /** Two-letter country codes, e.g. US, GB, DE */
+  geoBlockCountries?: string[];
+  /** Heading on the maintenance page */
+  geoBlockTitle?: string;
+  /** Message on the maintenance page */
+  geoBlockMessage?: string;
+  /** Secret used as ?bypass_country=... to view the site from a blocked country */
+  geoBlockBypassKey?: string;
 }
 
 
