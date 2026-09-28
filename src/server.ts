@@ -2,6 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { geoMaintenanceResponse } from "./lib/geo-gate.server";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -76,6 +77,8 @@ function withSiteHeaders(request: Request, response: Response): Response {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const gated = geoMaintenanceResponse(request);
+      if (gated) return gated;
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return withSiteHeaders(request, await normalizeCatastrophicSsrResponse(response));

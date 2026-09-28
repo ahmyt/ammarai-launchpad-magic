@@ -350,3 +350,39 @@ an app bug — the app code needs no change. Fix it on the server:
 
 After delisting, propagation to receiving providers can take up to 24–48
 hours. Re-test by submitting the contact form to an external address.
+
+## Country maintenance mode (CMS → Pages → Site settings)
+
+Visitors from selected countries can be shown a lightweight maintenance page
+instead of the site. Everything is controlled in CMS → Pages → Site settings:
+
+| Field | Meaning |
+| --- | --- |
+| Country filter: show a maintenance page… | Master switch (off by default) |
+| Country filter: mode | `block` = listed countries see maintenance; `allow` = only listed countries see the site |
+| Country filter: two-letter country codes | One per block, e.g. `US`, `GB`, `DE` |
+| Country filter: maintenance page heading / message | Wording shown to blocked visitors |
+| Country filter: secret preview key | Visit `https://ammarai.com/?bypass_country=YOURKEY` once to view the site from a blocked country for 7 days |
+
+How it stays fast and SEO-safe (`src/lib/geo-gate.server.ts`, called from
+`src/server.ts` before rendering):
+
+- Settings are cached in memory for 60 seconds — no database call per request.
+- The country comes from a proxy header (`cf-ipcountry`, `x-country-code`, …)
+  when present. On direct Plesk hosting there is no such header, so the IP is
+  resolved in the **background** and cached for 6 hours; the request itself
+  never waits on the lookup (measured ~1µs per request).
+- The very first request from a brand-new IP passes through; enforcement
+  begins once the background lookup lands (a second or two later).
+- Blocked visitors get **HTTP 503 + `Cache-Control: private, no-store` +
+  `X-Robots-Tag: noindex`**, so nothing is indexed or cached.
+- Search engines and preview bots (Googlebot, Bingbot, Lighthouse/PageSpeed,
+  social unfurlers) always pass through.
+- `/admin`, `/auth`, `/api`, `/assets`, `/fonts`, `/media`, `robots.txt`,
+  `sitemap.xml`, `llms.txt` and any file with an extension always pass, and a
+  signed-in studio session is never blocked — you cannot lock yourself out.
+- If the settings or geo lookup fail, the gate fails open (site stays up).
+
+Optional: putting the domain behind Cloudflare's free proxy adds the
+`cf-ipcountry` header, which makes detection instant and exact for every
+visitor with no outbound lookup at all.

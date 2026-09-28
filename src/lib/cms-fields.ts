@@ -285,6 +285,38 @@ const pageSettingsFields: FieldSpec[] = [
     hint: "Paths such as /pricing",
     item: S("Page path"),
   },
+  {
+    name: "geoBlockEnabled",
+    label: "Country filter: show a maintenance page to the countries below",
+    type: "boolean",
+  },
+  {
+    name: "geoBlockMode",
+    label: "Country filter: mode — type block (listed countries see maintenance) or allow (only listed countries see the site)",
+    type: "text",
+  },
+  {
+    name: "geoBlockCountries",
+    label: "Country filter: two-letter country codes",
+    type: "json",
+    hint: "One per block, e.g. US, GB, DE",
+    item: S("Country code"),
+  },
+  {
+    name: "geoBlockTitle",
+    label: "Country filter: maintenance page heading",
+    type: "text",
+  },
+  {
+    name: "geoBlockMessage",
+    label: "Country filter: maintenance page message",
+    type: "textarea",
+  },
+  {
+    name: "geoBlockBypassKey",
+    label: "Country filter: secret preview key (visit ?bypass_country=YOURKEY to skip the block)",
+    type: "text",
+  },
 ];
 
 /** Fields shown when editing a specific page — keeps Contact, Home and Settings separate. */
