@@ -77,11 +77,13 @@ function withSiteHeaders(request: Request, response: Response): Response {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
-      const gated = geoMaintenanceResponse(request);
-      if (gated) return gated;
+      const gate = await geoMaintenanceResponse(request);
+      if (gate.block) return gate.block;
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return withSiteHeaders(request, await normalizeCatastrophicSsrResponse(response));
+      const final = withSiteHeaders(request, await normalizeCatastrophicSsrResponse(response));
+      if (gate.cookie) final.headers.append("set-cookie", gate.cookie);
+      return final;
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {

@@ -297,9 +297,9 @@ const pageSettingsFields: FieldSpec[] = [
   },
   {
     name: "geoBlockCountries",
-    label: "Country filter: two-letter country codes",
+    label: "Country filter: country codes",
     type: "json",
-    hint: "One per block, e.g. US, GB, DE",
+    hint: "One per block, two or three letters, e.g. FR or FRA, US, GB",
     item: S("Country code"),
   },
   {

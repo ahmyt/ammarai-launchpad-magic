@@ -200,9 +200,9 @@ p{margin:0;font-size:16px;color:#55504a}
  */
 const COUNTRY_COOKIE = "ammarai_cc";
 
-export async function geoMaintenanceResponse(request: Request): Promise<Response | null> {
+export async function geoMaintenanceResponse(request: Request): Promise<{ block: Response | null; cookie: string | null }> {
   const config = settings();
-  if (!config.enabled) return null;
+  if (!config.enabled) return { block: null, cookie: null };
   const cookies = request.headers.get("cookie") ?? "";
   let country = headerCountry(request) || (cookies.match(/ammarai_cc=([A-Z]{2}|XX)/)?.[1] ?? "");
   let fresh = false;
@@ -221,13 +221,10 @@ export async function geoMaintenanceResponse(request: Request): Promise<Response
     fresh = true;
   }
   const response = evaluateGeoGate(request, config, country === "XX" ? "" : country);
-  if (!fresh || !country) return response;
+  if (!fresh || !country) return { block: response, cookie: null };
   const cookie = `${COUNTRY_COOKIE}=${country}; Path=/; Max-Age=21600; HttpOnly; Secure; SameSite=Lax`;
-  if (response) {
-    response.headers.append("set-cookie", cookie);
-    return response;
-  }
-  return { passCookie: cookie } as unknown as Response;
+  if (response) response.headers.append("set-cookie", cookie);
+  return { block: response, cookie };
 }
 
 /** Pure gate decision — exported so the behaviour can be tested directly. */
