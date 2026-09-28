@@ -371,8 +371,8 @@ How it stays fast and SEO-safe (`src/lib/geo-gate.server.ts`, called from
 - Settings are cached in memory for 60 seconds — no database call per request.
 - The country comes from a proxy header (`cf-ipcountry`, `x-country-code`, …)
   when present. On direct Plesk hosting there is no such header, so the IP is
-  resolved in the **background** and cached for 6 hours; the request itself
-  never waits on the lookup (measured ~1µs per request).
+  resolved and cached for the duration set in Site settings (default 6 hours,
+  clamped to 1–168). The visitor's cookie uses the same duration.
 - The very first request from a brand-new IP passes through; enforcement
   begins once the background lookup lands (a second or two later).
 - Blocked visitors get **HTTP 503 + `Cache-Control: private, no-store` +
