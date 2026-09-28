@@ -43,6 +43,13 @@ let settingsInFlight: Promise<void> | null = null;
 const geoCache = new Map<string, { country: string; at: number }>();
 const geoInFlight = new Set<string>();
 
+// Three-letter codes (e.g. "FRA") are accepted and converted to two-letter.
+const ALPHA3: Record<string, string> = Object.fromEntries(
+  "AFG:AF ALB:AL DZA:DZ AND:AD AGO:AO ARG:AR ARM:AM AUS:AU AUT:AT AZE:AZ BHS:BS BHR:BH BGD:BD BLR:BY BEL:BE BLZ:BZ BEN:BJ BTN:BT BOL:BO BIH:BA BWA:BW BRA:BR BRN:BN BGR:BG BFA:BF BDI:BI KHM:KH CMR:CM CAN:CA CPV:CV CAF:CF TCD:TD CHL:CL CHN:CN COL:CO COM:KM COG:CG COD:CD CRI:CR CIV:CI HRV:HR CUB:CU CYP:CY CZE:CZ DNK:DK DJI:DJ DOM:DO ECU:EC EGY:EG SLV:SV GNQ:GQ ERI:ER EST:EE SWZ:SZ ETH:ET FJI:FJ FIN:FI FRA:FR GAB:GA GMB:GM GEO:GE DEU:DE GHA:GH GRC:GR GTM:GT GIN:GN GNB:GW GUY:GY HTI:HT HND:HN HKG:HK HUN:HU ISL:IS IND:IN IDN:ID IRN:IR IRQ:IQ IRL:IE ISR:IL ITA:IT JAM:JM JPN:JP JOR:JO KAZ:KZ KEN:KE PRK:KP KOR:KR KWT:KW KGZ:KG LAO:LA LVA:LV LBN:LB LSO:LS LBR:LR LBY:LY LIE:LI LTU:LT LUX:LU MAC:MO MDG:MG MWI:MW MYS:MY MDV:MV MLI:ML MLT:MT MRT:MR MUS:MU MEX:MX MDA:MD MCO:MC MNG:MN MNE:ME MAR:MA MOZ:MZ MMR:MM NAM:NA NPL:NP NLD:NL NZL:NZ NIC:NI NER:NE NGA:NG MKD:MK NOR:NO OMN:OM PAK:PK PSE:PS PAN:PA PNG:PG PRY:PY PER:PE PHL:PH POL:PL PRT:PT PRI:PR QAT:QA ROU:RO RUS:RU RWA:RW SAU:SA SEN:SN SRB:RS SLE:SL SGP:SG SVK:SK SVN:SI SOM:SO ZAF:ZA SSD:SS ESP:ES LKA:LK SDN:SD SUR:SR SWE:SE CHE:CH SYR:SY TWN:TW TJK:TJ TZA:TZ THA:TH TLS:TL TGO:TG TTO:TT TUN:TN TUR:TR TKM:TM UGA:UG UKR:UA ARE:AE GBR:GB USA:US URY:UY UZB:UZ VEN:VE VNM:VN YEM:YE ZMB:ZM ZWE:ZW"
+    .split(" ")
+    .map((pair) => pair.split(":") as [string, string]),
+);
+
 const toList = (value: unknown): string[] => {
   const raw = Array.isArray(value)
     ? value
@@ -51,6 +58,7 @@ const toList = (value: unknown): string[] => {
       : [];
   return raw
     .map((entry) => String(entry).trim().toUpperCase())
+    .map((entry) => (entry.length === 3 ? (ALPHA3[entry] ?? "") : entry))
     .filter((entry) => /^[A-Z]{2}$/.test(entry));
 };
 
@@ -190,12 +198,41 @@ p{margin:0;font-size:16px;color:#55504a}
  * Returns a maintenance Response when this visitor's country is switched off
  * in the CMS, otherwise null so the site renders as normal.
  */
-export function geoMaintenanceResponse(request: Request): Response | null {
-  return evaluateGeoGate(request, settings());
+const COUNTRY_COOKIE = "ammarai_cc";
+
+export async function geoMaintenanceResponse(request: Request): Promise<{ block: Response | null; cookie: string | null }> {
+  const config = settings();
+  if (!config.enabled) return { block: null, cookie: null };
+  const cookies = request.headers.get("cookie") ?? "";
+  let country = headerCountry(request) || (cookies.match(/ammarai_cc=([A-Z]{2}|XX)/)?.[1] ?? "");
+  let fresh = false;
+  if (!country) {
+    const ip = clientIp(request);
+    country = cachedCountry(ip);
+    if (!country && ip && !PRIVATE_IP_RE.test(ip)) {
+      // Only while the filter is ON, and only on a visitor's first page view:
+      // wait briefly so the first and later page views give the same answer.
+      country = await Promise.race([
+        lookupCountry(ip).catch(() => ""),
+        new Promise<string>((r) => setTimeout(() => r(""), 1200)),
+      ]);
+      if (country) geoCache.set(ip, { country, at: Date.now() });
+    }
+    fresh = true;
+  }
+  const response = evaluateGeoGate(request, config, country === "XX" ? "" : country);
+  if (!fresh || !country) return { block: response, cookie: null };
+  const cookie = `${COUNTRY_COOKIE}=${country}; Path=/; Max-Age=21600; HttpOnly; Secure; SameSite=Lax`;
+  if (response) response.headers.append("set-cookie", cookie);
+  return { block: response, cookie };
 }
 
 /** Pure gate decision — exported so the behaviour can be tested directly. */
-export function evaluateGeoGate(request: Request, config: GeoGateSettings): Response | null {
+export function evaluateGeoGate(
+  request: Request,
+  config: GeoGateSettings,
+  knownCountry?: string,
+): Response | null {
   if (!config.enabled) return null;
 
 
@@ -224,7 +261,8 @@ export function evaluateGeoGate(request: Request, config: GeoGateSettings): Resp
   if (hasBypassCookie) return null;
   if (cookies.includes("sb-") && cookies.includes("-auth-token")) return null; // signed-in staff
 
-  const country = headerCountry(request) || cachedCountry(clientIp(request));
+  const country =
+    knownCountry ?? (headerCountry(request) || cachedCountry(clientIp(request)));
   if (!isBlocked(country, config)) return null;
 
   return new Response(maintenanceHtml(config), {
