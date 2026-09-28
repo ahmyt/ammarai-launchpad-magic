@@ -47,7 +47,7 @@ let settingsFetchedAt = 0;
 let settingsInFlight: Promise<void> | null = null;
 
 const geoCache = new Map<string, { country: string; at: number }>();
-const geoInFlight = new Set<string>();
+const geoInFlight = new Map<string, Promise<string>>();
 
 // Three-letter codes (e.g. "FRA") are accepted and converted to two-letter.
 const ALPHA3: Record<string, string> = Object.fromEntries(
@@ -106,17 +106,17 @@ async function refreshSettings(): Promise<void> {
   settingsFetchedAt = Date.now();
 }
 
-function settings(): GeoGateSettings {
-  if (Date.now() - settingsFetchedAt > SETTINGS_TTL_MS && !settingsInFlight) {
-    settingsInFlight = refreshSettings()
-      .catch(() => {
-        /* keep the last known settings; the gate fails open */
-      })
-      .finally(() => {
-        settingsInFlight = null;
-        settingsFetchedAt = Math.max(settingsFetchedAt, Date.now() - SETTINGS_TTL_MS + 10_000);
-      });
+async function settings(): Promise<GeoGateSettings> {
+  if (Date.now() - settingsFetchedAt <= SETTINGS_TTL_MS) return settingsCache;
+  if (!settingsInFlight) {
+    settingsInFlight = refreshSettings().finally(() => {
+      settingsInFlight = null;
+      settingsFetchedAt = Math.max(settingsFetchedAt, Date.now() - SETTINGS_TTL_MS + 10_000);
+    });
   }
+  // The first request after expiry must use the newly saved CMS value. This
+  // happens only once per minute; failures retain the last known good value.
+  await settingsInFlight.catch(() => undefined);
   return settingsCache;
 }
 
@@ -154,37 +154,67 @@ function headerCountry(request: Request): string {
   return /^[A-Z]{2}$/.test(code) ? code : "";
 }
 
-/**
- * Country for this IP, or "" when unknown. Never awaits: an unknown IP is
- * resolved in the background so this and every later request stay instant.
- */
 function cachedCountry(ip: string, ttlMs: number = DEFAULTS.cacheMs): string {
   if (!ip || PRIVATE_IP_RE.test(ip)) return "";
   const hit = geoCache.get(ip);
   if (hit && Date.now() - hit.at < ttlMs) return hit.country;
-  if (!geoInFlight.has(ip)) {
-    geoInFlight.add(ip);
-    void lookupCountry(ip)
-      .then((country) => {
-        if (geoCache.size > GEO_CACHE_MAX) geoCache.clear();
-        geoCache.set(ip, { country, at: Date.now() });
-      })
-      .catch(() => {
-        geoCache.set(ip, { country: "", at: Date.now() });
-      })
-      .finally(() => geoInFlight.delete(ip));
-  }
   return hit?.country ?? "";
 }
 
+async function fetchCountry(url: string, json = false): Promise<string> {
+  try {
+    const response = await fetch(url, {
+      headers: { accept: json ? "application/json" : "text/plain", "user-agent": "ammarai-geo-gate" },
+      signal: AbortSignal.timeout(1400),
+    });
+    if (!response.ok) return "";
+    const value = json
+      ? String(((await response.json()) as { country_code?: unknown }).country_code ?? "")
+      : await response.text();
+    const code = value.trim().toUpperCase();
+    return /^[A-Z]{2}$/.test(code) ? code : "";
+  } catch {
+    return "";
+  }
+}
+
 async function lookupCountry(ip: string): Promise<string> {
-  const response = await fetch(`https://ipapi.co/${encodeURIComponent(ip)}/country/`, {
-    headers: { accept: "text/plain", "user-agent": "ammarai-geo-gate" },
-    signal: AbortSignal.timeout(4000),
+  const encodedIp = encodeURIComponent(ip);
+  const requests = [
+    fetchCountry(`https://ipwho.is/${encodedIp}?fields=country_code`, true),
+    fetchCountry(`https://ipapi.co/${encodedIp}/country/`),
+  ];
+  return new Promise((resolve) => {
+    let remaining = requests.length;
+    let settled = false;
+    for (const request of requests) {
+      void request.then((country) => {
+        if (!settled && country) {
+          settled = true;
+          resolve(country);
+          return;
+        }
+        remaining -= 1;
+        if (!settled && remaining === 0) resolve("");
+      });
+    }
   });
-  if (!response.ok) return "";
-  const code = (await response.text()).trim().toUpperCase();
-  return /^[A-Z]{2}$/.test(code) ? code : "";
+}
+
+function resolveCountry(ip: string, ttlMs: number): Promise<string> {
+  const cached = cachedCountry(ip, ttlMs);
+  if (cached) return Promise.resolve(cached);
+  const active = geoInFlight.get(ip);
+  if (active) return active;
+  const lookup = lookupCountry(ip)
+    .then((country) => {
+      if (geoCache.size >= GEO_CACHE_MAX) geoCache.clear();
+      geoCache.set(ip, { country, at: Date.now() });
+      return country;
+    })
+    .finally(() => geoInFlight.delete(ip));
+  geoInFlight.set(ip, lookup);
+  return lookup;
 }
 
 function isBlocked(country: string, config: GeoGateSettings): boolean {
@@ -215,7 +245,7 @@ p{margin:0;font-size:16px;color:#55504a}
 const COUNTRY_COOKIE = "ammarai_cc";
 
 export async function geoMaintenanceResponse(request: Request): Promise<{ block: Response | null; cookie: string | null }> {
-  const config = settings();
+  const config = await settings();
   if (!config.enabled) return { block: null, cookie: null };
   const cookies = request.headers.get("cookie") ?? "";
   let country = headerCountry(request) || (cookies.match(/ammarai_cc=([A-Z]{2}|XX)/)?.[1] ?? "");
@@ -224,13 +254,9 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
     const ip = clientIp(request);
     country = cachedCountry(ip, config.cacheMs);
     if (!country && ip && !PRIVATE_IP_RE.test(ip)) {
-      // Only while the filter is ON, and only on a visitor's first page view:
-      // wait briefly so the first and later page views give the same answer.
-      country = await Promise.race([
-        lookupCountry(ip).catch(() => ""),
-        new Promise<string>((r) => setTimeout(() => r(""), 1200)),
-      ]);
-      if (country) geoCache.set(ip, { country, at: Date.now() });
+      // While the filter is on, resolve before rendering so a new visitor gets
+      // the same decision on the first request and every refresh after it.
+      country = await resolveCountry(ip, config.cacheMs);
     }
     fresh = true;
   }
