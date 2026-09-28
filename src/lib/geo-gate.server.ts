@@ -191,8 +191,13 @@ p{margin:0;font-size:16px;color:#55504a}
  * in the CMS, otherwise null so the site renders as normal.
  */
 export function geoMaintenanceResponse(request: Request): Response | null {
-  const config = settings();
+  return evaluateGeoGate(request, settings());
+}
+
+/** Pure gate decision — exported so the behaviour can be tested directly. */
+export function evaluateGeoGate(request: Request, config: GeoGateSettings): Response | null {
   if (!config.enabled) return null;
+
 
   const url = new URL(request.url);
   if (SKIP_PATH_RE.test(url.pathname)) return null;
