@@ -19,7 +19,13 @@ export interface GeoGateSettings {
   title: string;
   message: string;
   bypassKey: string;
+  /** How long a visitor's country is remembered, in milliseconds. */
+  cacheMs: number;
 }
+
+const DEFAULT_CACHE_HOURS = 6;
+const MIN_CACHE_HOURS = 1;
+const MAX_CACHE_HOURS = 168;
 
 const DEFAULTS: GeoGateSettings = {
   enabled: false,
@@ -29,10 +35,10 @@ const DEFAULTS: GeoGateSettings = {
   message:
     "We are carrying out scheduled maintenance for visitors in your country. Please check back shortly — everything will be back to normal soon.",
   bypassKey: "",
+  cacheMs: DEFAULT_CACHE_HOURS * 60 * 60 * 1000,
 };
 
 const SETTINGS_TTL_MS = 60_000;
-const GEO_TTL_MS = 6 * 60 * 60 * 1000;
 const GEO_CACHE_MAX = 5000;
 const BYPASS_COOKIE = "ammarai_geo_bypass";
 
