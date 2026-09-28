@@ -158,10 +158,10 @@ function headerCountry(request: Request): string {
  * Country for this IP, or "" when unknown. Never awaits: an unknown IP is
  * resolved in the background so this and every later request stay instant.
  */
-function cachedCountry(ip: string): string {
+function cachedCountry(ip: string, ttlMs: number = DEFAULTS.cacheMs): string {
   if (!ip || PRIVATE_IP_RE.test(ip)) return "";
   const hit = geoCache.get(ip);
-  if (hit && Date.now() - hit.at < GEO_TTL_MS) return hit.country;
+  if (hit && Date.now() - hit.at < ttlMs) return hit.country;
   if (!geoInFlight.has(ip)) {
     geoInFlight.add(ip);
     void lookupCountry(ip)
