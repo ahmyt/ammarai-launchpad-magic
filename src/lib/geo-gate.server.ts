@@ -277,7 +277,7 @@ export function evaluateGeoGate(
   if (cookies.includes("sb-") && cookies.includes("-auth-token")) return null; // signed-in staff
 
   const country =
-    knownCountry ?? (headerCountry(request) || cachedCountry(clientIp(request)));
+    knownCountry ?? (headerCountry(request) || cachedCountry(clientIp(request), config.cacheMs));
   if (!isBlocked(country, config)) return null;
 
   return new Response(maintenanceHtml(config), {
