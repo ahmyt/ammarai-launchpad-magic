@@ -68,6 +68,13 @@ const toList = (value: unknown): string[] => {
     .filter((entry) => /^[A-Z]{2}$/.test(entry));
 };
 
+/** Hours the visitor's country stays remembered; clamped to 1-168, default 6. */
+function cacheHours(value: unknown): number {
+  const parsed = Number.parseFloat(String(value ?? "").trim());
+  if (!Number.isFinite(parsed) || parsed <= 0) return DEFAULT_CACHE_HOURS;
+  return Math.min(MAX_CACHE_HOURS, Math.max(MIN_CACHE_HOURS, parsed));
+}
+
 function normalise(data: Record<string, unknown> | undefined): GeoGateSettings {
   if (!data) return DEFAULTS;
   const countries = toList(data["geoBlockCountries"]);
@@ -78,6 +85,7 @@ function normalise(data: Record<string, unknown> | undefined): GeoGateSettings {
     title: String(data["geoBlockTitle"] ?? "").trim() || DEFAULTS.title,
     message: String(data["geoBlockMessage"] ?? "").trim() || DEFAULTS.message,
     bypassKey: String(data["geoBlockBypassKey"] ?? "").trim(),
+    cacheMs: cacheHours(data["geoBlockCacheHours"]) * 60 * 60 * 1000,
   };
 }
 
