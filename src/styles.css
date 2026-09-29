@@ -4906,7 +4906,7 @@ body:has(.home-swiss-dark) {
   --primary-foreground: oklch(0.105 0.008 270);
   --secondary: oklch(0.18 0.01 270);
   --secondary-foreground: oklch(0.975 0.004 95);
-  --accent: oklch(0.64 0.23 264);
+  --accent: oklch(0.54 0.23 264);
   --accent-foreground: oklch(0.99 0.002 95);
   --success: oklch(0.73 0.16 151);
   --success-foreground: oklch(0.105 0.008 270);
@@ -4932,7 +4932,7 @@ body:has(.home-swiss-dark) .site-shell {
   --primary-foreground: oklch(0.105 0.008 270);
   --secondary: oklch(0.18 0.01 270);
   --secondary-foreground: oklch(0.975 0.004 95);
-  --accent: oklch(0.64 0.23 264);
+  --accent: oklch(0.54 0.23 264);
   --accent-foreground: oklch(0.99 0.002 95);
   --success: oklch(0.73 0.16 151);
   --success-foreground: oklch(0.105 0.008 270);
@@ -4957,7 +4957,7 @@ body:has(.home-swiss-dark) .site-shell {
   --primary-foreground: oklch(0.105 0.008 270);
   --secondary: oklch(0.18 0.01 270);
   --secondary-foreground: oklch(0.975 0.004 95);
-  --accent: oklch(0.64 0.23 264);
+  --accent: oklch(0.54 0.23 264);
   --accent-foreground: oklch(0.99 0.002 95);
   --success: oklch(0.73 0.16 151);
   --success-foreground: oklch(0.105 0.008 270);

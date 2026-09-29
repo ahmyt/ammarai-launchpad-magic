@@ -26,6 +26,9 @@ const selfHostedRouteRules = {
   "/assets/**": {
     headers: { "Cache-Control": "public, max-age=15552000, immutable" },
   },
+  "/fonts/**": {
+    headers: { "Cache-Control": "public, max-age=31536000, immutable" },
+  },
   "/media/**": {
     headers: { "Cache-Control": "public, max-age=2592000, stale-while-revalidate=86400" },
   },
