@@ -5457,6 +5457,11 @@ body:has(.home-swiss-dark) .site-footer {
   font-weight: 700;
 }
 
+.ecosystem-pillar .ecosystem-number,
+.ecosystem-pillar .eyebrow {
+  color: var(--foreground);
+}
+
 .ecosystem-pillar h3,
 .workflow-story h3 {
   margin-top: 2.5rem;
