@@ -58,10 +58,13 @@ function withSiteHeaders(request: Request, response: Response): Response {
   headers.set("X-Content-Type-Options", "nosniff");
   headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
 
-  if (!headers.has("Cache-Control") && response.status === 200) {
+  if (response.status === 200) {
     const pathname = new URL(request.url).pathname;
-    if (IMMUTABLE_ASSET_RE.test(pathname)) {
-      headers.set("Cache-Control", "public, max-age=15552000, immutable");
+    if (pathname.startsWith("/fonts/")) {
+      // Always override: the static server sends no-cache for public files.
+      headers.set("Cache-Control", "public, max-age=31536000, immutable");
+    } else if (IMMUTABLE_ASSET_RE.test(pathname) && pathname !== "/_serverFn/" && !pathname.startsWith("/_serverFn/")) {
+      if (!headers.has("Cache-Control")) headers.set("Cache-Control", "public, max-age=15552000, immutable");
     } else if (LONG_LIVED_MEDIA_RE.test(pathname)) {
       headers.set("Cache-Control", "public, max-age=2592000, stale-while-revalidate=86400");
     }
