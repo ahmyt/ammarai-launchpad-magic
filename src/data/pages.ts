@@ -75,7 +75,7 @@ export const pages: Page[] = [
       "One subscription. One workspace.",
     ],
     comparisonNewTotalLabel: "Total",
-    comparisonNewTotal: "One subscription",
+    comparisonNewTotal: "From $9.99/month",
     comparisonCtaLabel: "Start free \u2014 no card required",
     comparisonSecondaryLabel: "Compare plans",
     protectContent: true,

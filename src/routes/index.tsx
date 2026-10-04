@@ -159,7 +159,7 @@ function Home() {
     newLabel: page?.comparisonNewLabel || "AmmarAI",
     newItems: page?.comparisonNewItems?.length ? page.comparisonNewItems : ammarAi,
     newTotalLabel: page?.comparisonNewTotalLabel || "Total",
-    newTotal: page?.comparisonNewTotal || "One subscription",
+    newTotal: page?.comparisonNewTotal || "From $9.99/month",
     ctaLabel: page?.comparisonCtaLabel || "Start free \u2014 no card required",
     secondaryLabel: page?.comparisonSecondaryLabel || "Compare plans",
   };
