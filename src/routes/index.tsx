@@ -301,6 +301,67 @@ function Home() {
         <TrustLogoStrip faded={settings?.fadeHomepageLogos !== false} />
       ) : null}
 
+      {/* Value comparison */}
+       <Section className="studio-section studio-comparison">
+         <Container size="wide">
+           <SectionHeading eyebrow={cmp.eyebrow} title={cmp.title} intro={cmp.intro} align="center" scale="large" className="studio-comparison-heading" />
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {/* The old way */}
+            <div className="studio-comparison-card studio-comparison-old flex flex-col rounded-xl bg-card p-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                {cmp.oldLabel}
+              </p>
+              <ul className="mt-5 flex flex-1 flex-col gap-3">
+                {cmp.oldItems.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-3 text-sm leading-relaxed text-muted-foreground"
+                  >
+                    <span aria-hidden="true" className="text-muted-foreground/50">
+                      —
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 border-t border-border pt-4">
+                <p className="text-xs text-muted-foreground">{cmp.oldTotalLabel}</p>
+                <p className="font-display text-2xl font-semibold tabular-nums text-foreground">
+                  {cmp.oldTotal}
+                </p>
+              </div>
+            </div>
+
+            {/* AmmarAI */}
+            <div className="studio-comparison-card studio-comparison-winner flex flex-col rounded-xl bg-ink p-7 text-ink-foreground">
+              <p className="eyebrow">{cmp.newLabel}</p>
+              <ul className="mt-5 flex flex-1 flex-col gap-3">
+                {cmp.newItems.map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm leading-relaxed">
+                    <span aria-hidden="true" className="text-accent">
+                      ✓
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 border-t border-ink-foreground/20 pt-4">
+                <p className="text-xs opacity-70">{cmp.newTotalLabel}</p>
+                <p className="font-display text-2xl font-semibold tabular-nums">{cmp.newTotal}</p>
+              </div>
+            </div>
+          </div>
+           <div className="mt-12 flex flex-wrap justify-center gap-3">
+            <ExternalButton href={REGISTER_URL} size="lg">
+              {cmp.ctaLabel}
+            </ExternalButton>
+            <ButtonLink to="/pricing" variant="outline" size="lg">
+              {cmp.secondaryLabel}
+            </ButtonLink>
+          </div>
+        </Container>
+      </Section>
+
       {/* Featured */}
         <Section tone="sand" className="studio-section studio-flagships">
          <Container size="wide">
@@ -428,66 +489,6 @@ function Home() {
         </Container>
       </Section>
 
-      {/* Value comparison */}
-       <Section className="studio-section studio-comparison">
-         <Container size="wide">
-           <SectionHeading eyebrow={cmp.eyebrow} title={cmp.title} intro={cmp.intro} align="center" scale="large" className="studio-comparison-heading" />
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {/* The old way */}
-            <div className="studio-comparison-card studio-comparison-old flex flex-col rounded-xl bg-card p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                {cmp.oldLabel}
-              </p>
-              <ul className="mt-5 flex flex-1 flex-col gap-3">
-                {cmp.oldItems.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-3 text-sm leading-relaxed text-muted-foreground"
-                  >
-                    <span aria-hidden="true" className="text-muted-foreground/50">
-                      —
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 border-t border-border pt-4">
-                <p className="text-xs text-muted-foreground">{cmp.oldTotalLabel}</p>
-                <p className="font-display text-2xl font-semibold tabular-nums text-foreground">
-                  {cmp.oldTotal}
-                </p>
-              </div>
-            </div>
-
-            {/* AmmarAI */}
-            <div className="studio-comparison-card studio-comparison-winner flex flex-col rounded-xl bg-ink p-7 text-ink-foreground">
-              <p className="eyebrow">{cmp.newLabel}</p>
-              <ul className="mt-5 flex flex-1 flex-col gap-3">
-                {cmp.newItems.map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-sm leading-relaxed">
-                    <span aria-hidden="true" className="text-accent">
-                      ✓
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 border-t border-ink-foreground/20 pt-4">
-                <p className="text-xs opacity-70">{cmp.newTotalLabel}</p>
-                <p className="font-display text-2xl font-semibold tabular-nums">{cmp.newTotal}</p>
-              </div>
-            </div>
-          </div>
-           <div className="mt-12 flex flex-wrap justify-center gap-3">
-            <ExternalButton href={REGISTER_URL} size="lg">
-              {cmp.ctaLabel}
-            </ExternalButton>
-            <ButtonLink to="/pricing" variant="outline" size="lg">
-              {cmp.secondaryLabel}
-            </ButtonLink>
-          </div>
-        </Container>
-      </Section>
 
       <CustomerReviews />
 
