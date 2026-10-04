@@ -80,10 +80,10 @@ const oldWay = [
 ];
 
 const ammarAi = [
-  "AI Writer + Chat Pro",
-  "AI Video Pro",
+  "AI writing & Chat Pro",
+  "AI video generation & editing",
   "Voiceovers & transcription",
-  "Image Pro generation & editing",
+  "AI image generation & design",
   "AI Agent Builder & automation",
   "Shared brand voice and history",
   "One subscription. One workspace.",

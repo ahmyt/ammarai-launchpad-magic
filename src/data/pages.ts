@@ -66,10 +66,10 @@ export const pages: Page[] = [
     comparisonOldTotal: "$80\u2013120+/month",
     comparisonNewLabel: "AmmarAI",
     comparisonNewItems: [
-      "AI Writer + Chat Pro",
-      "AI Video Pro",
+      "AI writing & Chat Pro",
+      "AI video generation & editing",
       "Voiceovers & transcription",
-      "Image Pro generation & editing",
+      "AI image generation & design",
       "AI Agent Builder & automation",
       "Shared brand voice and history",
       "One subscription. One workspace.",
