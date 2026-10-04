@@ -80,7 +80,7 @@ const oldWay = [
 ];
 
 const ammarAi = [
-  "AI writing & Chat Pro",
+  "AI writing & chat assistant",
   "AI video generation & editing",
   "Voiceovers & transcription",
   "AI image generation & design",
