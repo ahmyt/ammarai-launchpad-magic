@@ -75,6 +75,7 @@ const oldWay = [
   "Separate image tool",
   "Separate video tool",
   "Separate voice tool",
+  "Separate automation / agent tool",
   "Constant tab switching",
 ];
 
@@ -83,6 +84,7 @@ const ammarAi = [
   "Image generation",
   "Video generation",
   "Voiceover & transcription",
+  "AI Agents & automation",
   "Shared brand voice and history",
   "One subscription. One workspace.",
 ];
