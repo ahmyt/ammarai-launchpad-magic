@@ -71,20 +71,20 @@ const homeFaqs = [
 ];
 
 const oldWay = [
-  "ChatGPT / Claude / Gemini subscription",
-  "Separate image tool",
-  "Separate video tool",
-  "Separate voice tool",
-  "Separate automation / agent tool",
-  "Constant tab switching",
+  "ChatGPT / Claude / Gemini for chat",
+  "Runway or Pika for video",
+  "ElevenLabs for voice & dubbing",
+  "Midjourney for images",
+  "Separate AI agent / automation tool",
+  "Five logins and constant tab switching",
 ];
 
 const ammarAi = [
-  "Writing + Chat",
-  "Image generation",
-  "Video generation",
-  "Voiceover & transcription",
-  "AI Agents & automation",
+  "AI Writer + Chat Pro",
+  "AI Video Pro",
+  "Voiceovers & transcription",
+  "Image Pro generation & editing",
+  "AI Agent Builder & automation",
   "Shared brand voice and history",
   "One subscription. One workspace.",
 ];
@@ -303,6 +303,21 @@ function Home() {
         <TrustLogoStrip faded={settings?.fadeHomepageLogos !== false} />
       ) : null}
 
+      {/* Featured */}
+        <Section tone="sand" className="studio-section studio-flagships">
+         <Container size="wide">
+          <SectionHeading
+            eyebrow="Flagship tools"
+            title="Ten flagship tools"
+            intro="AI Agent Builder, AI Social Media Agent, AI Phone Call Agent, AI CRM, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video and Transcription form the core of AmmarAI — ten focused tools for creating, understanding, selling, publishing and automating your work."
+             scale="large"
+             className="studio-heading-wide"
+          />
+           <FlagshipCarousel tools={featuredTools} />
+           <SecondaryToolsCarousel />
+        </Container>
+      </Section>
+
       {/* Value comparison */}
        <Section className="studio-section studio-comparison">
          <Container size="wide">
@@ -361,21 +376,6 @@ function Home() {
               {cmp.secondaryLabel}
             </ButtonLink>
           </div>
-        </Container>
-      </Section>
-
-      {/* Featured */}
-        <Section tone="sand" className="studio-section studio-flagships">
-         <Container size="wide">
-          <SectionHeading
-            eyebrow="Flagship tools"
-            title="Ten flagship tools"
-            intro="AI Agent Builder, AI Social Media Agent, AI Phone Call Agent, AI CRM, AI Writer, Chat Pro, Image Pro, Video Pro, Avatar Video and Transcription form the core of AmmarAI — ten focused tools for creating, understanding, selling, publishing and automating your work."
-             scale="large"
-             className="studio-heading-wide"
-          />
-           <FlagshipCarousel tools={featuredTools} />
-           <SecondaryToolsCarousel />
         </Container>
       </Section>
 
