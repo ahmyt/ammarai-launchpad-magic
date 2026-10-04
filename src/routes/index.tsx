@@ -365,6 +365,7 @@ function Home() {
               <div className="mt-6 border-t border-ink-foreground/20 pt-4">
                 <p className="text-xs opacity-70">{cmp.newTotalLabel}</p>
                 <p className="font-display text-2xl font-semibold tabular-nums">{cmp.newTotal}</p>
+                <p className="mt-1 text-xs opacity-80">Free plan available</p>
               </div>
             </div>
           </div>
