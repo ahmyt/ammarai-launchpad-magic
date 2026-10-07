@@ -323,6 +323,16 @@ const pageSettingsFields: FieldSpec[] = [
       "Country filter: how long a visitor's country is remembered, in hours — minimum 1, maximum 168 (7 days), leave empty for 6",
     type: "text",
   },
+  { name: "showAuthorCard", label: "Blog: show the About the author card on every post", type: "boolean" },
+  { name: "authorName", label: "Author: name (card stays hidden while empty)", type: "text" },
+  { name: "authorRole", label: "Author: role / title", type: "text" },
+  { name: "authorBio", label: "Author: short bio (1–3 sentences)", type: "textarea" },
+  { name: "authorAvatarUrl", label: "Author: photo URL (https://…)", type: "text" },
+  { name: "authorWebsite", label: "Author: website URL", type: "text" },
+  { name: "authorLinkedin", label: "Author: LinkedIn URL", type: "text" },
+  { name: "authorX", label: "Author: X (Twitter) URL", type: "text" },
+  { name: "authorYoutube", label: "Author: YouTube URL", type: "text" },
+  { name: "authorInstagram", label: "Author: Instagram URL", type: "text" },
 ];
 
 /** Fields shown when editing a specific page — keeps Contact, Home and Settings separate. */

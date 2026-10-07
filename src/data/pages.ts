@@ -94,6 +94,7 @@ export const pages: Page[] = [
     channels: [],
     showTutorialsNav: true,
     showHeaderThemeToggle: true,
+    showAuthorCard: true,
     fadeHomepageLogos: true,
     showHomepageTrustLogos: true,
     showHomepageAiModels: true,
