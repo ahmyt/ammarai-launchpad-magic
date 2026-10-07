@@ -18,6 +18,7 @@ import { Container, Section, BulletList } from "@/components/site/primitives";
 import { Breadcrumbs, breadcrumbJsonLd } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { SITE, REGISTER_URL } from "@/lib/site";
+import { AuthorCard, useArticleAuthor } from "@/components/site/AuthorCard";
 
 export const Route = createFileRoute("/blog/$slug")({
   staticData: { sitemap: true },
@@ -163,6 +164,7 @@ function RecommendedReading({ article }: { article: SyndicatedArticle }) {
 }
 
 function SyndicatedArticleView({ article }: { article: SyndicatedArticle }) {
+  const author = useArticleAuthor(SITE.name);
   const jsonLd = article.json_ld ?? {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -170,7 +172,7 @@ function SyndicatedArticleView({ article }: { article: SyndicatedArticle }) {
     description: article.meta_description ?? undefined,
     datePublished: article.published_at ?? article.synced_at,
     image: article.hero_image_url ?? undefined,
-    author: { "@type": "Organization", name: SITE.name },
+    author,
     publisher: { "@type": "Organization", name: SITE.name },
   };
 
@@ -239,6 +241,8 @@ function SyndicatedArticleView({ article }: { article: SyndicatedArticle }) {
         </Container>
       </Section>
 
+      <AuthorCard />
+
       <RecommendedReading article={article} />
 
       <Section tone="ink" className="py-16">
@@ -268,6 +272,7 @@ function headingId(heading: string) {
 }
 
 function StaticPostView({ post }: { post: Post }) {
+  const author = useArticleAuthor(SITE.name);
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const postBySlug = new Map(content.posts.map((p) => [p.slug, p]));
   const related = post.related
@@ -299,7 +304,7 @@ function StaticPostView({ post }: { post: Post }) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    author: { "@type": "Organization", name: SITE.name },
+    author,
     publisher: { "@type": "Organization", name: SITE.name },
   };
 
@@ -487,6 +492,8 @@ function StaticPostView({ post }: { post: Post }) {
           <BulletList items={post.takeaways} className="mt-5" />
         </Container>
       </Section>
+
+      <AuthorCard />
 
       {related.length > 0 || relatedTools.length > 0 ? (
         <Section>
