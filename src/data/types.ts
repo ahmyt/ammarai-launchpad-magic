@@ -218,6 +218,17 @@ export interface Page {
   geoBlockBypassKey?: string;
   /** How long a visitor's country is remembered, in hours (1-168, default 6) */
   geoBlockCacheHours?: string;
+  /** Blog "About the author" card */
+  showAuthorCard?: boolean;
+  authorName?: string;
+  authorRole?: string;
+  authorBio?: string;
+  authorAvatarUrl?: string;
+  authorWebsite?: string;
+  authorLinkedin?: string;
+  authorX?: string;
+  authorYoutube?: string;
+  authorInstagram?: string;
 }
 
 
