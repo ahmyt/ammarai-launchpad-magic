@@ -251,7 +251,7 @@ export const plans: Plan[] = [
     blurb: "For agencies and power users running full-scale content and automation operations.",
     features: [
       "200,000 plan credits per month",
-      "AI agents, UGC ads and dubbing",
+      "Agent Builder, UGC ads and dubbing",
       "3 team seats included",
     ],
     featureCount: 196,
