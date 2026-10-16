@@ -1,6 +1,12 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Pricing screenshot alignment (2026-10-16)
+- [x] Match all five plans' allowances, counts and card inclusions to the admin screenshots; add all legible included templates from the recording
+- [x] Include inherited features in each pop-up and the website voice bot in Standard
+- [x] Verify all five pop-ups on desktop and mobile
+- [ ] Complete the remaining individual template names and resolve Starter Brand Voice inclusion: needs a full feature export or clear recording (current recording has gaps and conflicting Brand Voice status)
+
 ## Offer & discount system (2026-09-22)
 - [x] Store campaigns with expiry, start date, single/multi use, usage cap and per-visitor lock
 - [x] Record views, copies and claims against a hashed fingerprint, never a raw IP address
