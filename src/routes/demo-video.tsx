@@ -42,8 +42,8 @@ export const Route = createFileRoute("/demo-video")({
 });
 
 function DemoVideoPage() {
-  const [activeId, setActiveId] = useState(demos[0].id);
-  const active = demos.find((d) => d.id === activeId) ?? demos[0];
+  const [activeId, setActiveId] = useState("text");
+  const active: Demo = demos.find((d) => d.id === activeId) ?? demos[0]!;
 
   return (
     <Section>
