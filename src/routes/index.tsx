@@ -18,6 +18,8 @@ import { useTheme } from "@/components/site/ThemeProvider";
 import { outcomeShortcuts } from "@/data/ecosystem";
 import { EcosystemOverview, WorkflowStories } from "@/components/site/HomeEcosystem";
 import { FlagshipCarousel } from "@/components/site/FlagshipCarousel";
+import { TryLiveSection, TRY_CHAT_URL } from "@/components/site/TryLiveSection";
+import { Zap } from "lucide-react";
 import { featuredTutorials } from "@/data/tutorials-featured";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
@@ -212,9 +214,9 @@ function Home() {
                   <ExternalButton href={REGISTER_URL} size="lg" className="studio-primary-cta w-full sm:w-auto">
                     Start creating free <ArrowRight className="size-4" />
                   </ExternalButton>
-                  <ButtonLink to="/ai-tools" variant="outline" size="lg" className="w-full sm:w-auto">
-                    Explore AI tools
-                  </ButtonLink>
+                  <ExternalButton href={TRY_CHAT_URL} variant="outline" size="lg" className="w-full sm:w-auto">
+                    <Zap className="size-4" /> Try live demo (no account)
+                  </ExternalButton>
                 </div>
                 <p className="studio-hero-note mt-5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required. Every tool included.</p>
               </div>
@@ -317,6 +319,9 @@ function Home() {
            <SecondaryToolsCarousel />
         </Container>
       </Section>
+
+      <TryLiveSection />
+
 
       {/* Value comparison */}
        <Section className="studio-section studio-comparison">

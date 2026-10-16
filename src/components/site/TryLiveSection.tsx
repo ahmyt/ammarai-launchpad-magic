@@ -1,0 +1,62 @@
+import { ArrowRight, ImageIcon, MessageSquare } from "lucide-react";
+import { Container, Section, SectionHeading } from "@/components/site/primitives";
+
+export const TRY_CHAT_URL = "https://app.ammarai.com/chat";
+export const TRY_IMAGE_URL = "https://app.ammarai.com/ai-chat-image/chat";
+
+const cards = [
+  {
+    title: "AI Chat Pro",
+    text: "Test reasoning, writing and code help in real time. Ask anything and see the answer stream in.",
+    sample: "“Write a launch email for my new skincare line.”",
+    href: TRY_CHAT_URL,
+    cta: "Try AI Chat free",
+    icon: MessageSquare,
+  },
+  {
+    title: "AI Image Pro",
+    text: "Describe a picture and generate realistic visuals in seconds, straight from a text prompt.",
+    sample: "“A minimalist coffee shop at sunrise, soft light.”",
+    href: TRY_IMAGE_URL,
+    cta: "Try Image Generator free",
+    icon: ImageIcon,
+  },
+];
+
+export function TryLiveSection() {
+  return (
+    <Section className="studio-section" id="try-live">
+      <Container size="wide">
+        <SectionHeading
+          eyebrow="Try it live"
+          title="Test the speed before you sign up"
+          intro="Try 2 free prompts in AI Chat or generate 2 free images right now. No account, no credit card."
+          align="center"
+        />
+        <ul className="mx-auto mt-6 flex flex-wrap justify-center gap-2 text-xs font-semibold text-muted-foreground">
+          {["2 guest prompts", "No credit card", "Instant results"].map((b) => (
+            <li key={b} className="rounded-full border border-border bg-secondary px-3 py-1">{b}</li>
+          ))}
+        </ul>
+        <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-2">
+          {cards.map(({ title, text, sample, href, cta, icon: Icon }) => (
+            <div key={title} className="flex flex-col border border-border bg-card p-6 sm:p-8">
+              <span className="grid size-11 place-items-center bg-accent text-accent-foreground"><Icon className="size-5" /></span>
+              <h3 className="mt-5 text-xl font-semibold text-foreground">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
+              <p className="mt-4 border-l-2 border-accent bg-secondary/60 px-3 py-2 text-sm italic text-foreground">{sample}</p>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener"
+                className="mt-6 inline-flex items-center justify-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                {cta} <ArrowRight className="size-4" />
+              </a>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
