@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Info, X } from "lucide-react";
+import { ChevronDown, Info, X } from "lucide-react";
 import { plans, REGISTER_URL, type Plan } from "@/lib/site";
 import { Container, Section, SectionHeading } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -57,6 +57,7 @@ export const Route = createFileRoute("/pricing")({
 
 function PlanFeaturesDialog({ plan, onClose }: { plan: Plan; onClose: () => void }) {
   const dialogRef = useRef<HTMLDivElement>(null);
+  const [expandedTool, setExpandedTool] = useState<string | null>(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -114,13 +115,34 @@ function PlanFeaturesDialog({ plan, onClose }: { plan: Plan; onClose: () => void
                 ? "Included in Starter:"
                 : `New in ${plan.name} — everything in the previous plan, plus:`}
             </h4>
-            <ul className="mt-2.5 flex flex-col gap-2">
+            <ul className="mt-2.5 flex flex-col gap-1">
               {plan.newInPlan.map((item) => (
-                <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-foreground">
-                  <span aria-hidden="true" className="text-accent">
-                    ✓
-                  </span>
-                  <span>{item}</span>
+                <li key={item.title}>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setExpandedTool((cur) => (cur === item.title ? null : item.title))
+                    }
+                    aria-expanded={expandedTool === item.title}
+                    className="flex w-full items-start gap-2.5 rounded-lg px-2 py-1.5 text-left text-sm leading-relaxed text-foreground transition-colors hover:bg-accent/10"
+                  >
+                    <span aria-hidden="true" className="text-accent">
+                      ✓
+                    </span>
+                    <span className="flex-1 font-medium">{item.title}</span>
+                    <ChevronDown
+                      aria-hidden="true"
+                      className={cn(
+                        "mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-transform",
+                        expandedTool === item.title && "rotate-180",
+                      )}
+                    />
+                  </button>
+                  {expandedTool === item.title ? (
+                    <p className="px-2 pb-2 pl-8 text-sm leading-relaxed text-muted-foreground">
+                      {item.description}
+                    </p>
+                  ) : null}
                 </li>
               ))}
             </ul>
