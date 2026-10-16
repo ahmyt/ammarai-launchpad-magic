@@ -110,47 +110,78 @@ export interface Plan {
   highlight: boolean;
 }
 
+const starterInclusions: PlanFeatureGroup[] = [
+  {
+    heading: "Writing & Chat",
+    items: ["Access to all 90+ prompt templates", "AI Writer", "AI Editor", "AI Chat", "AI Assistant", "Brand Voice"],
+  },
+  {
+    heading: "Image, Presentations & Code",
+    items: ["AI Image Generation", "AI Code Generator", "AI Presentation Maker", "AI Captions"],
+  },
+  { heading: "Support", items: ["Standard email support"] },
+];
+
+const basicInclusions: PlanFeatureGroup[] = [
+  {
+    heading: "Agents, Video & Automation",
+    items: ["AI Agent", "AI Video Generation", "AI Social Media & Automation"],
+  },
+  {
+    heading: "Writing & Content Checks",
+    items: ["Article Wizard", "AI ReWriter", "AI Plagiarism Detector", "AI Content Detector"],
+  },
+  {
+    heading: "Image Tools",
+    items: ["AI Image Editor", "AI Realtime Image", "AI Vision", "AI Chat Image"],
+  },
+  {
+    heading: "Audio & Research",
+    items: ["Text-to-Speech", "Speech-to-Text", "AI Realtime Voice Chat", "AI File Chat", "AI Web Chat", "SEO Tool", "Multi Model Support"],
+  },
+];
+
+const standardInclusions: PlanFeatureGroup[] = [
+  {
+    heading: "Video & Publishing",
+    items: ["AI YouTube (YouTube videos into blog posts)", "AI URL to Video & Influencer", "AI Video Editor", "AI Auto Blog to WordPress"],
+  },
+  {
+    heading: "Website Bots & Chat Pro",
+    items: ["External Chatbot Builder (website embed)", "AI Voice Bots for Websites", "AI Chat Pro Skills"],
+  },
+  {
+    heading: "Product & Fashion",
+    items: ["AI Product Photography", "AI Fashion Studio"],
+  },
+  {
+    heading: "Business & Deep Research",
+    items: ["AI CRM", "AI Sales", "Deep Research", "Model Council Support"],
+  },
+];
+
+const ultimateInclusions: PlanFeatureGroup[] = [
+  {
+    heading: "Advanced Media",
+    items: ["UGC Factory", "AI Viral Clips", "AI Video Dubbing (multi-language lip-sync)", "Creative Suite"],
+  },
+  {
+    heading: "Agent Builder & Connections",
+    items: ["Unlimited AI Agent Builder & full CRM", "All connectors", "Chatbot Training"],
+  },
+];
+
 export const plans: Plan[] = [
   {
     name: "Starter",
     price: "$9.99",
     period: "/month",
     blurb: "For individuals and solo creators exploring AI writing, image creation, and everyday tools.",
-    features: [
-      "15,000 plan credits per month",
-      "AI chat, image generation and presentations",
-      "Code generator and AI captions",
-    ],
+    features: ["2,000 plan credits per month", "AI chat, images, presentations & code", "7-day free trial"],
     featureCount: 154,
     featureGroups: [
-      {
-        heading: "Writing & Chat",
-        items: [
-          "AI Writer with economical models",
-          "AI Article Wizard",
-          "AI Rewriter & Content Improver",
-          "Blog post, ad copy and email templates",
-          "AI Chat (standard models)",
-        ],
-      },
-      {
-        heading: "Image & Design",
-        items: [
-          "AI Image Generation (economical models)",
-          "Stock image search (Unsplash, Pexels)",
-          "AI Presentation Maker",
-        ],
-      },
-      {
-        heading: "Everyday Tools",
-        items: [
-          "AI Code Generator",
-          "AI Captions",
-          "AI Document & PDF analysis",
-          "Saved prompts and history",
-          "1 seat — solo workspace",
-        ],
-      },
+      { heading: "Plan Allowance", items: ["2,000 plan credits per month", "7-day free trial"] },
+      ...starterInclusions,
     ],
     cta: "Choose Starter",
     highlight: false,
@@ -160,44 +191,12 @@ export const plans: Plan[] = [
     price: "$24.99",
     period: "/month",
     blurb: "For freelancers and professionals creating content, audio and presentations regularly.",
-    features: [
-      "35,000 plan credits per month",
-      "AI Agent and AI video generation",
-      "AI chat, images, audio and SEO tools",
-    ],
-    featureCount: 168,
+    features: ["5,000 plan credits per month", "AI Agent & AI video generation", "Everything in Starter, plus audio & automation"],
+    featureCount: 170,
     featureGroups: [
-      {
-        heading: "Everything in Starter, plus",
-        items: [
-          "Higher credit allowance across all tools",
-          "Standard image models",
-          "AI Chat (standard models)",
-        ],
-      },
-      {
-        heading: "Agents & Video",
-        items: [
-          "AI Agent",
-          "AI Video Generation",
-        ],
-      },
-      {
-        heading: "Content Production",
-        items: [
-          "AI Voiceover (standard voices)",
-          "Speech-to-text transcription",
-          "Plagiarism & content detector",
-        ],
-      },
-      {
-        heading: "Growth Tools",
-        items: [
-          "AI SEO tools and keyword research",
-          "AI Social Media post generator",
-          "1 seat — solo workspace",
-        ],
-      },
+      { heading: "Plan Allowance", items: ["5,000 plan credits per month"] },
+      ...starterInclusions,
+      ...basicInclusions,
     ],
     cta: "Choose Basic",
     highlight: false,
@@ -207,39 +206,13 @@ export const plans: Plan[] = [
     price: "$59.99",
     period: "/month",
     blurb: "For marketers and small teams producing video, social and research at scale.",
-    features: [
-      "80,000 plan credits per month",
-      "AI Chat Pro with skills",
-      "2 team seats included",
-    ],
-    featureCount: 183,
+    features: ["15,000 plan credits per month", "AI Chat Pro Skills & website voice bots", "Everything in Basic, plus CRM & deep research"],
+    featureCount: 188,
     featureGroups: [
-      {
-        heading: "Everything in Basic, plus",
-        items: [
-          "AI Chat Pro with skills",
-          "Frontier and research chat models",
-          "Premium image models",
-          "2 team seats with shared workspace",
-        ],
-      },
-      {
-        heading: "Video & Social",
-        items: [
-          "Higher AI video generation allowance",
-          "AI Video Editor",
-          "Social media scheduling tools",
-        ],
-      },
-      {
-        heading: "Business & Research",
-        items: [
-          "AI Chatbot for your website",
-          "AI Web Research (live data)",
-          "AI Vision & image analysis",
-          "Brand voice and personas",
-        ],
-      },
+      { heading: "Plan Allowance", items: ["15,000 plan credits per month"] },
+      ...starterInclusions,
+      ...basicInclusions,
+      ...standardInclusions,
     ],
     cta: "Choose Standard",
     highlight: true,
@@ -249,38 +222,15 @@ export const plans: Plan[] = [
     price: "$129.99",
     period: "/month",
     blurb: "For agencies and power users running full-scale content and automation operations.",
-    features: [
-      "200,000 plan credits per month",
-      "Agent Builder, UGC ads and dubbing",
-      "3 team seats included",
-    ],
-    featureCount: 196,
+    features: ["35,000 plan credits per month", "120 inbound & outbound phone minutes", "3 team seats · everything in Standard"],
+    featureCount: 201,
     featureGroups: [
-      {
-        heading: "Everything in Standard, plus",
-        items: [
-          "All models unlocked — switch freely",
-          "Highest credit allowance",
-          "3 team seats with shared workspace",
-        ],
-      },
-      {
-        heading: "Agents & Automation",
-        items: [
-          "AI Agent Builder (custom agents)",
-          "AI Blog automation",
-          "Full CRM & lead tools",
-        ],
-      },
-      {
-        heading: "Advanced Media",
-        items: [
-          "UGC-style video ads",
-          "AI Video Dubbing & translation",
-          "Viral clips generator",
-          "Voice cloning (premium voices)",
-        ],
-      },
+      { heading: "Plan Allowance & Team", items: ["35,000 plan credits per month", "3 team seats included"] },
+      ...starterInclusions,
+      ...basicInclusions,
+      ...standardInclusions,
+      ...ultimateInclusions,
+      { heading: "AI Phone Call Agent", items: ["AI Phone Call Agent (inbound & outbound)", "120 phone minutes included per month"] },
     ],
     cta: "Choose Ultimate",
     highlight: false,
@@ -290,29 +240,15 @@ export const plans: Plan[] = [
     price: "$349.99",
     period: "/month",
     blurb: "For businesses and agencies running high-volume AI phone operations and follow-ups.",
-    features: [
-      "75,000 plan credits per month",
-      "800 voice minutes — inbound & outbound",
-      "5 team seats included",
-    ],
+    features: ["75,000 plan credits per month", "800 voice minutes & automated follow-ups", "5 team seats · everything in Ultimate"],
     featureCount: 201,
     featureGroups: [
-      {
-        heading: "Everything in Ultimate, plus",
-        items: [
-          "5 team seats — shared workspace & call logs",
-          "Full Ultimate tool suite included",
-        ],
-      },
-      {
-        heading: "AI Phone Agent",
-        items: [
-          "AI Phone Call Agent (inbound & outbound)",
-          "800 voice minutes included per month",
-          "Automated follow-up calls (reminders & confirmations)",
-          "Call recordings, transcripts and summaries",
-        ],
-      },
+      { heading: "Plan Allowance & Team", items: ["75,000 plan credits per month", "5 team seats included", "Shared team workspace & call logs"] },
+      ...starterInclusions,
+      ...basicInclusions,
+      ...standardInclusions,
+      ...ultimateInclusions,
+      { heading: "AI Phone Call Agent & Follow-Ups", items: ["AI Phone Call Agent (inbound & outbound)", "800 voice minutes included per month", "Automated Follow-Up Calls (reminders & confirmations)"] },
     ],
     cta: "Choose Voice Scale",
     highlight: false,
