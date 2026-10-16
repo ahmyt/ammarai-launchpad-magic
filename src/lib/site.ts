@@ -118,36 +118,37 @@ export const plans: Plan[] = [
     blurb: "For individuals and solo creators exploring AI writing, image creation, and everyday tools.",
     features: [
       "15,000 plan credits per month",
-      "AI writing, chat and image tools",
-      "1 seat — solo workspace",
+      "AI chat, image generation and presentations",
+      "Code generator and AI captions",
     ],
     featureCount: 154,
     featureGroups: [
       {
-        heading: "Writing & Content",
+        heading: "Writing & Chat",
         items: [
           "AI Writer with economical models",
           "AI Article Wizard",
           "AI Rewriter & Content Improver",
           "Blog post, ad copy and email templates",
-          "AI Chat Pro (standard models)",
+          "AI Chat (standard models)",
         ],
       },
       {
         heading: "Image & Design",
         items: [
-          "AI Image Generator (economical models)",
+          "AI Image Generation (economical models)",
           "Stock image search (Unsplash, Pexels)",
-          "Basic image editing tools",
+          "AI Presentation Maker",
         ],
       },
       {
         heading: "Everyday Tools",
         items: [
+          "AI Code Generator",
+          "AI Captions",
           "AI Document & PDF analysis",
-          "Basic transcription",
-          "AI Code assistant",
           "Saved prompts and history",
+          "1 seat — solo workspace",
         ],
       },
     ],
@@ -161,8 +162,8 @@ export const plans: Plan[] = [
     blurb: "For freelancers and professionals creating content, audio and presentations regularly.",
     features: [
       "35,000 plan credits per month",
-      "Presentations, audio and SEO tools",
-      "1 seat — solo workspace",
+      "AI Agent and AI video generation",
+      "AI chat, images, audio and SEO tools",
     ],
     featureCount: 168,
     featureGroups: [
@@ -170,13 +171,20 @@ export const plans: Plan[] = [
         heading: "Everything in Starter, plus",
         items: [
           "Higher credit allowance across all tools",
-          "Standard chat and image models",
+          "Standard image models",
+          "AI Chat (standard models)",
+        ],
+      },
+      {
+        heading: "Agents & Video",
+        items: [
+          "AI Agent",
+          "AI Video Generation",
         ],
       },
       {
         heading: "Content Production",
         items: [
-          "AI Presentation Maker",
           "AI Voiceover (standard voices)",
           "Speech-to-text transcription",
           "Plagiarism & content detector",
@@ -187,7 +195,7 @@ export const plans: Plan[] = [
         items: [
           "AI SEO tools and keyword research",
           "AI Social Media post generator",
-          "Export to common document formats",
+          "1 seat — solo workspace",
         ],
       },
     ],
@@ -201,7 +209,7 @@ export const plans: Plan[] = [
     blurb: "For marketers and small teams producing video, social and research at scale.",
     features: [
       "80,000 plan credits per month",
-      "AI video, social media and chatbots",
+      "AI Chat Pro with skills",
       "2 team seats included",
     ],
     featureCount: 183,
@@ -209,6 +217,7 @@ export const plans: Plan[] = [
       {
         heading: "Everything in Basic, plus",
         items: [
+          "AI Chat Pro with skills",
           "Frontier and research chat models",
           "Premium image models",
           "2 team seats with shared workspace",
@@ -217,8 +226,8 @@ export const plans: Plan[] = [
       {
         heading: "Video & Social",
         items: [
-          "AI Video Generator (standard models)",
-          "AI Video Editor & AI Captions",
+          "Higher AI video generation allowance",
+          "AI Video Editor",
           "Social media scheduling tools",
         ],
       },
