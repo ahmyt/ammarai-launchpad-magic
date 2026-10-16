@@ -104,6 +104,8 @@ export interface Plan {
   features: string[];
   /** Total feature count shown next to the info icon */
   featureCount: number;
+  /** Tools newly unlocked at this tier, highlighted at the top of the pop-up */
+  newInPlan: string[];
   /** Full feature list shown in the pop-up */
   featureGroups: PlanFeatureGroup[];
   cta: string;
@@ -193,6 +195,7 @@ export const plans: Plan[] = [
     blurb: "For individuals and solo creators exploring AI writing, image creation, and everyday tools.",
     features: ["2,000 plan credits per month", "AI chat, images, presentations & code", "Access to all 90+ prompt templates"],
     featureCount: 154,
+    newInPlan: ["AI Writer, Editor, Chat & Assistant", "AI Image Generation", "AI Presentation Maker", "AI Code Generator", "AI Captions", "All 90+ prompt templates"],
     featureGroups: [
       { heading: "Plan Allowance", items: ["2,000 plan credits per month"] },
       ...starterInclusions,
@@ -208,6 +211,7 @@ export const plans: Plan[] = [
     blurb: "For freelancers and professionals creating content, audio and presentations regularly.",
     features: ["5,000 plan credits per month", "AI Agent & AI video generation", "3-day free trial · everything in Starter"],
     featureCount: 170,
+    newInPlan: ["AI Agent", "AI Video Generation", "AI Social Media & Automation", "Article Wizard & AI ReWriter", "Plagiarism & Content Detectors", "AI Image Editor, Vision & Realtime Image", "Text-to-Speech & Speech-to-Text", "AI Realtime Voice Chat", "AI File & Web Chat", "SEO Tool & Multi Model Support"],
     featureGroups: [
       { heading: "Plan Allowance", items: ["5,000 plan credits per month", "3-day free trial"] },
       ...starterInclusions,
@@ -224,6 +228,7 @@ export const plans: Plan[] = [
     blurb: "For marketers and small teams producing video, social and research at scale.",
     features: ["15,000 plan credits per month", "AI Chat Pro Skills & website voice bots", "Everything in Basic, plus CRM & deep research"],
     featureCount: 188,
+    newInPlan: ["AI Chat Pro Skills", "AI Voice Bots for Websites", "External Chatbot Builder (website embed)", "AI YouTube to Blog", "AI URL to Video & Influencer", "AI Video Editor", "AI Auto Blog to WordPress", "AI Product Photography & Fashion Studio", "AI CRM & AI Sales", "Deep Research & Model Council"],
     featureGroups: [
       { heading: "Plan Allowance", items: ["15,000 plan credits per month"] },
       ...starterInclusions,
@@ -241,6 +246,7 @@ export const plans: Plan[] = [
     blurb: "For agencies and power users running full-scale content and automation operations.",
     features: ["35,000 plan credits per month", "120 inbound & outbound phone minutes", "3 team seats · everything in Standard"],
     featureCount: 201,
+    newInPlan: ["AI Phone Call Agent (inbound & outbound)", "120 phone minutes per month", "3 team seats", "UGC Factory & AI Viral Clips", "AI Video Dubbing (multi-language lip-sync)", "Creative Suite", "Unlimited AI Agent Builder & full CRM", "All connectors & Chatbot Training"],
     featureGroups: [
       { heading: "Plan Allowance & Team", items: ["35,000 plan credits per month", "3 team seats included"] },
       ...starterInclusions,
@@ -260,6 +266,7 @@ export const plans: Plan[] = [
     blurb: "For businesses and agencies running high-volume AI phone operations and follow-ups.",
     features: ["75,000 plan credits per month", "800 voice minutes & automated follow-ups", "5 team seats · everything in Ultimate"],
     featureCount: 201,
+    newInPlan: ["800 voice minutes per month", "Automated Follow-Up Calls (reminders & confirmations)", "5 team seats", "Shared team workspace & call logs"],
     featureGroups: [
       { heading: "Plan Allowance & Team", items: ["75,000 plan credits per month", "5 team seats included", "Shared team workspace & call logs"] },
       ...starterInclusions,
