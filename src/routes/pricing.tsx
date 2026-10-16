@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Info, X } from "lucide-react";
+import { ChevronDown, Info, X } from "lucide-react";
 import { plans, REGISTER_URL, type Plan } from "@/lib/site";
 import { Container, Section, SectionHeading } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -57,6 +57,7 @@ export const Route = createFileRoute("/pricing")({
 
 function PlanFeaturesDialog({ plan, onClose }: { plan: Plan; onClose: () => void }) {
   const dialogRef = useRef<HTMLDivElement>(null);
+  const [expandedTool, setExpandedTool] = useState<string | null>(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
