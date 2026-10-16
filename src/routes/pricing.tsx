@@ -5,7 +5,7 @@ import { plans, REGISTER_URL, type Plan } from "@/lib/site";
 import { Container, Section, SectionHeading } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
-import { ExternalButton } from "@/components/site/Button";
+import { ActionButton, ExternalButton } from "@/components/site/Button";
 import { OfferInline } from "@/components/site/OfferInline";
 import { cn } from "@/lib/utils";
 
@@ -97,14 +97,15 @@ function PlanFeaturesDialog({ plan, onClose }: { plan: Plan; onClose: () => void
               {plan.period} · {plan.featureCount} features
             </p>
           </div>
-          <button
+          <ActionButton
+            variant="ghost"
             type="button"
             onClick={onClose}
             aria-label="Close feature list"
             className="rounded-full p-2 text-muted-foreground ring-1 ring-border transition-colors hover:bg-secondary hover:text-foreground"
           >
             <X className="h-4 w-4" aria-hidden="true" />
-          </button>
+          </ActionButton>
         </div>
         <div className="mt-6 flex flex-col gap-6">
           {plan.featureGroups.map((group) => (
@@ -112,7 +113,7 @@ function PlanFeaturesDialog({ plan, onClose }: { plan: Plan; onClose: () => void
               <h4 className="text-sm font-semibold text-foreground">{group.heading}</h4>
               <ul className="mt-2.5 flex flex-col gap-2">
                 {group.items.map((item) => (
-                  <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-foreground">
+                  <li key={`${group.heading}-${item}`} className="flex gap-2.5 text-sm leading-relaxed text-foreground">
                     <span aria-hidden="true" className="text-accent">
                       ✓
                     </span>
@@ -180,15 +181,16 @@ function Pricing() {
                 <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground">
                   {plan.blurb}
                 </p>
-                <button
+                 <ActionButton
+                   variant="ghost"
                   type="button"
                   onClick={() => setOpenPlan(plan)}
-                  className="mt-5 inline-flex items-center gap-1.5 self-start text-sm font-medium text-accent underline-offset-2 transition-colors hover:underline"
+                   className="mt-5 inline-flex items-center gap-1.5 self-start px-0 py-0 text-sm font-medium text-accent underline-offset-2 transition-colors hover:underline"
                   aria-haspopup="dialog"
                 >
                   <Info className="h-4 w-4" aria-hidden="true" />
                   Access {plan.featureCount} features
-                </button>
+                 </ActionButton>
                 <ul className="mt-4 flex flex-1 flex-col gap-2.5">
                   {plan.features.map((f) => (
                     <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-foreground">
@@ -211,11 +213,11 @@ function Pricing() {
           </div>
           <p className="mt-6 text-xs text-muted-foreground">
             Prices shown in USD. Annual billing reduces the effective monthly rate on paid plans.
-            Every plan opens the whole{" "}
+            Explore the{" "}
             <Link to="/ai-models" className="underline underline-offset-2 hover:text-foreground">
               model library
             </Link>
-            ; your plan sets the allowance, not which models you may use.
+            . Available tools and allowances vary by plan.
           </p>
         </Container>
       </Section>

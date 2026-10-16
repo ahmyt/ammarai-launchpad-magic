@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Country filtering waits for the once-per-minute settings refresh and a shared dual-provider first-visit lookup, because access decisions must not change after refresh.
+- Compose pricing pop-ups from shared tier inclusion groups and plan-specific allowances; this keeps inherited tools complete without inheriting lower-tier credit, trial, seat or call limits.
