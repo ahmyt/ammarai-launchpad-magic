@@ -191,7 +191,7 @@ export const plans: Plan[] = [
     price: "$9.99",
     period: "/month",
     blurb: "For individuals and solo creators exploring AI writing, image creation, and everyday tools.",
-    features: ["2,000 plan credits per month", "AI chat, images, presentations & code", "7-day refund guarantee on your first subscription"],
+    features: ["2,000 plan credits per month", "AI chat, images, presentations & code", "Access to all 90+ prompt templates"],
     featureCount: 154,
     featureGroups: [
       { heading: "Plan Allowance", items: ["2,000 plan credits per month"] },
@@ -206,10 +206,10 @@ export const plans: Plan[] = [
     price: "$24.99",
     period: "/month",
     blurb: "For freelancers and professionals creating content, audio and presentations regularly.",
-    features: ["5,000 plan credits per month", "AI Agent & AI video generation", "7-day free trial · everything in Starter"],
+    features: ["5,000 plan credits per month", "AI Agent & AI video generation", "3-day free trial · everything in Starter"],
     featureCount: 170,
     featureGroups: [
-      { heading: "Plan Allowance", items: ["5,000 plan credits per month", "7-day free trial"] },
+      { heading: "Plan Allowance", items: ["5,000 plan credits per month", "3-day free trial"] },
       ...starterInclusions,
       ...basicInclusions,
       ...includedTemplates,
