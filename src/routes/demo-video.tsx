@@ -68,8 +68,8 @@ function DemoVideoPage() {
                 onClick={() => setActiveId(d.id)}
                 className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                   d.id === active.id
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-background text-foreground hover:bg-muted"
+                    ? "border-accent bg-accent text-accent-foreground"
+                    : "border-border bg-background text-foreground hover:bg-secondary"
                 }`}
               >
                 {d.tab}
@@ -102,7 +102,7 @@ function DemoVideoPage() {
                 <p className="mt-1 text-muted-foreground">{active.blurb}</p>
               </div>
               {active.slug && (
-                <ButtonLink to="/tools/$slug" params={{ slug: active.slug }} variant="outline">
+                <ButtonLink to="/$slug" params={{ slug: active.slug }} variant="outline">
                   About this tool
                 </ButtonLink>
               )}
