@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, Section } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { ButtonLink, ExternalButton } from "@/components/site/Button";
+import { ButtonLink, ExternalButton, buttonClass } from "@/components/site/Button";
 import { REGISTER_URL } from "@/lib/site";
 import demoVideo from "@/assets/ammarai-free-demo.mp4.asset.json";
 
@@ -102,9 +102,9 @@ function DemoVideoPage() {
                 <p className="mt-1 text-muted-foreground">{active.blurb}</p>
               </div>
               {active.slug && (
-                <ButtonLink to="/$slug" params={{ slug: active.slug }} variant="outline">
+                <Link to="/$slug" params={{ slug: active.slug }} className={buttonClass("outline")}>
                   About this tool
-                </ButtonLink>
+                </Link>
               )}
             </div>
           </div>
