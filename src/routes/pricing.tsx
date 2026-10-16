@@ -16,7 +16,7 @@ const description =
 const faqs = [
   {
     q: "Is there a free way to try the platform?",
-    a: "Yes. You can create a free account and explore the platform before choosing a paid plan. No card is required to start.",
+    a: "Yes. Create a free account and explore the platform before paying, or start the 3-day free trial on Basic to test AI agents and video. No card is required to start.",
   },
   {
     q: "What are plan credits?",
@@ -252,7 +252,8 @@ function Pricing() {
           </div>
           <p className="mt-6 text-xs text-muted-foreground">
             Prices shown in USD. Annual billing reduces the effective monthly rate on paid plans.
-            Explore the{" "}
+            Every new account starts free — no card required — and Basic includes a 3-day free
+            trial. Explore the{" "}
             <Link to="/ai-models" className="underline underline-offset-2 hover:text-foreground">
               model library
             </Link>
