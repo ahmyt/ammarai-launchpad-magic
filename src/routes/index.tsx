@@ -18,7 +18,7 @@ import { useTheme } from "@/components/site/ThemeProvider";
 import { outcomeShortcuts } from "@/data/ecosystem";
 import { EcosystemOverview, WorkflowStories } from "@/components/site/HomeEcosystem";
 import { FlagshipCarousel } from "@/components/site/FlagshipCarousel";
-import { TryLiveSection, TRY_CHAT_URL } from "@/components/site/TryLiveSection";
+import { TryLiveSection } from "@/components/site/TryLiveSection";
 import { Zap } from "lucide-react";
 import { featuredTutorials } from "@/data/tutorials-featured";
 
