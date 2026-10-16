@@ -214,10 +214,23 @@ function Home() {
                   <ExternalButton href={REGISTER_URL} size="lg" className="studio-primary-cta w-full sm:w-auto">
                     Start creating free <ArrowRight className="size-4" />
                   </ExternalButton>
-                  <ExternalButton href={TRY_CHAT_URL} variant="outline" size="lg" className="w-full sm:w-auto">
+                  <a
+                    href="#try-live"
+                    onClick={(e) => {
+                      const el = document.getElementById("try-live");
+                      if (el) {
+                        e.preventDefault();
+                        el.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
+                    }}
+                    className="inline-flex h-12 w-full items-center justify-center gap-2 border border-border bg-background px-6 text-sm font-semibold text-foreground transition-colors hover:bg-secondary sm:w-auto"
+                  >
                     <Zap className="size-4" /> Try live demo (no account)
-                  </ExternalButton>
+                  </a>
                 </div>
+                <Link to="/ai-tools" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
+                  Or explore all {tools.length} AI tools <ArrowRight className="size-3.5" />
+                </Link>
                 <p className="studio-hero-note mt-5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required. Every tool included.</p>
               </div>
             </div>
