@@ -18,6 +18,7 @@ import { Route as AiTextToVideoRouteImport } from './routes/ai-text-to-video'
 import { Route as AiToolsRouteImport } from './routes/ai-tools'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DemoVideoRouteImport } from './routes/demo-video'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -88,6 +89,11 @@ const AuthRoute = AuthRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoVideoRoute = DemoVideoRouteImport.update({
+  id: '/demo-video',
+  path: '/demo-video',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -232,6 +238,7 @@ export interface FileRoutesByFullPath {
   '/ai-tools': typeof AiToolsRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
+  '/demo-video': typeof DemoVideoRoute
   '/faq': typeof FaqRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
@@ -268,6 +275,7 @@ export interface FileRoutesByTo {
   '/ai-tools': typeof AiToolsRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
+  '/demo-video': typeof DemoVideoRoute
   '/faq': typeof FaqRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
@@ -305,6 +313,7 @@ export interface FileRoutesById {
   '/ai-tools': typeof AiToolsRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
+  '/demo-video': typeof DemoVideoRoute
   '/faq': typeof FaqRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
@@ -344,6 +353,7 @@ export interface FileRouteTypes {
     | '/ai-tools'
     | '/auth'
     | '/contact'
+    | '/demo-video'
     | '/faq'
     | '/pricing'
     | '/privacy'
@@ -380,6 +390,7 @@ export interface FileRouteTypes {
     | '/ai-tools'
     | '/auth'
     | '/contact'
+    | '/demo-video'
     | '/faq'
     | '/pricing'
     | '/privacy'
@@ -416,6 +427,7 @@ export interface FileRouteTypes {
     | '/ai-tools'
     | '/auth'
     | '/contact'
+    | '/demo-video'
     | '/faq'
     | '/pricing'
     | '/privacy'
@@ -454,6 +466,7 @@ export interface RootRouteChildren {
   AiToolsRoute: typeof AiToolsRoute
   AuthRoute: typeof AuthRoute
   ContactRoute: typeof ContactRoute
+  DemoVideoRoute: typeof DemoVideoRoute
   FaqRoute: typeof FaqRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -536,6 +549,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo-video': {
+      id: '/demo-video'
+      path: '/demo-video'
+      fullPath: '/demo-video'
+      preLoaderRoute: typeof DemoVideoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -769,6 +789,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiToolsRoute: AiToolsRoute,
   AuthRoute: AuthRoute,
   ContactRoute: ContactRoute,
+  DemoVideoRoute: DemoVideoRoute,
   FaqRoute: FaqRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
