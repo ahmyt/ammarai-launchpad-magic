@@ -134,7 +134,6 @@ const starterInclusions: PlanFeatureGroup[] = [
     items: ["AI Image Generation", "AI Code Generator", "AI Presentation Maker", "AI Captions"],
   },
   { heading: "Support", items: ["Standard email support"] },
-  ...includedTemplates,
 ];
 
 const basicInclusions: PlanFeatureGroup[] = [
@@ -197,6 +196,7 @@ export const plans: Plan[] = [
     featureGroups: [
       { heading: "Plan Allowance", items: ["2,000 plan credits per month", "7-day free trial"] },
       ...starterInclusions,
+      ...includedTemplates,
     ],
     cta: "Choose Starter",
     highlight: false,
@@ -212,6 +212,7 @@ export const plans: Plan[] = [
       { heading: "Plan Allowance", items: ["5,000 plan credits per month"] },
       ...starterInclusions,
       ...basicInclusions,
+      ...includedTemplates,
     ],
     cta: "Choose Basic",
     highlight: false,
@@ -228,6 +229,7 @@ export const plans: Plan[] = [
       ...starterInclusions,
       ...basicInclusions,
       ...standardInclusions,
+      ...includedTemplates,
     ],
     cta: "Choose Standard",
     highlight: true,
@@ -246,6 +248,7 @@ export const plans: Plan[] = [
       ...standardInclusions,
       ...ultimateInclusions,
       { heading: "AI Phone Call Agent", items: ["AI Phone Call Agent (inbound & outbound)", "120 phone minutes included per month"] },
+      ...includedTemplates,
     ],
     cta: "Choose Ultimate",
     highlight: false,
@@ -264,6 +267,7 @@ export const plans: Plan[] = [
       ...standardInclusions,
       ...ultimateInclusions,
       { heading: "AI Phone Call Agent & Follow-Ups", items: ["AI Phone Call Agent (inbound & outbound)", "800 voice minutes included per month", "Automated Follow-Up Calls (reminders & confirmations)"] },
+      ...includedTemplates,
     ],
     cta: "Choose Voice Scale",
     highlight: false,
