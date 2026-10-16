@@ -82,7 +82,7 @@ function DemoVideoPage() {
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <ExternalButton href={REGISTER_URL}>Start free</ExternalButton>
-              <ButtonLink to="/pricing" variant="secondary">See plans</ButtonLink>
+              <ButtonLink to="/pricing" variant="outline">See plans</ButtonLink>
             </div>
           </div>
         </div>
