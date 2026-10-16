@@ -231,7 +231,7 @@ function Home() {
                 <Link to="/ai-tools" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
                   Or explore all {tools.length} AI tools <ArrowRight className="size-3.5" />
                 </Link>
-                <p className="studio-hero-note mt-5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> No card required. Every tool included.</p>
+                <p className="studio-hero-note mt-5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> Free plan available · No card required · 3-day trial on Basic</p>
               </div>
             </div>
           </div>
@@ -383,7 +383,7 @@ function Home() {
               <div className="mt-6 border-t border-ink-foreground/20 pt-4">
                 <p className="text-xs opacity-70">{cmp.newTotalLabel}</p>
                 <p className="font-display text-2xl font-semibold tabular-nums">{cmp.newTotal}</p>
-                <p className="mt-1 text-xs opacity-80">Free plan available</p>
+                <p className="mt-1 text-xs opacity-80">Free plan available · 3-day trial on Basic</p>
               </div>
             </div>
           </div>

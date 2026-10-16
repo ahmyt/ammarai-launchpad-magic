@@ -236,7 +236,7 @@ export const plans: Plan[] = [
       ...basicInclusions,
       ...includedTemplates,
     ],
-    cta: "Choose Basic",
+    cta: "Start 3-day free trial",
     highlight: false,
   },
   {
