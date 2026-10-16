@@ -104,8 +104,8 @@ export interface Plan {
   features: string[];
   /** Total feature count shown next to the info icon */
   featureCount: number;
-  /** Tools newly unlocked at this tier, highlighted at the top of the pop-up */
-  newInPlan: string[];
+  /** Tools newly unlocked at this tier, highlighted at the top of the pop-up (tap to expand) */
+  newInPlan: { title: string; description: string }[];
   /** Full feature list shown in the pop-up */
   featureGroups: PlanFeatureGroup[];
   cta: string;
