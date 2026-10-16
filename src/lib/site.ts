@@ -110,6 +110,20 @@ export interface Plan {
   highlight: boolean;
 }
 
+const includedTemplates: PlanFeatureGroup[] = [
+  { heading: "Blog & Writing Templates", items: ["Article Generator", "Blog Section", "Blog Post Ideas", "Blog Intros", "Blog Conclusion", "Paragraph Generator", "Grammar Correction", "TL;DR Summarization"] },
+  { heading: "Ecommerce Templates", items: ["Product Description", "Product Name Generator", "Testimonial Review", "Product Features", "Product Name Ideas", "Why Choose This Product", "Reviews", "Review Responder", "Amazon"] },
+  { heading: "Development Templates", items: ["Problem Agitate Solution", "Pros & Cons", "Meta Description"] },
+  { heading: "Social Media Templates", items: ["Youtube Video Description", "Youtube Video Title", "Youtube Video Tag", "Instagram Captions", "Instagram Hashtags", "Social Media Post Tweet", "Social Media Post Business", "Facebook Headlines", "IG Reel Script", "IG Captions", "TikTok Script", "TikTok Video Caption", "Viral Tweet Idea", "Clickbait Titles", "App and SMS Notifications", "AMA Post", "Trending Post"] },
+  { heading: "Email Templates", items: ["Email Generator", "Email Answer Generator", "Newsletter Generator", "Welcome Email", "Invitation Mail", "Follow up Email", "Reply Email", "Newsletter", "Press Release"] },
+  { heading: "Academic Templates", items: ["Cover Letter", "Math Question", "Bullet Point Answer", "Academic Essay", "Thesis Statement", "Proofreading"] },
+  { heading: "Business Templates", items: ["Cost Benefit Analysis", "Brainstorming", "Linkedin Post", "Sales Pitch", "Newsletter", "Strategy", "Marketing Plan"] },
+  { heading: "Customer Service Templates", items: ["Social Media Reply", "Apology Email", "Ticket Reply", "Article Generator - Documentation"] },
+  { heading: "Advertising Templates", items: ["Advertising Ideas", "FB Ad", "Google Ad", "Ad Script", "TV Ads", "Youtube Ads"] },
+  { heading: "Language Templates", items: ["Translate", "Grammar Check", "List Synonyms"] },
+  { heading: "Additional Included Templates", items: ["Terms and Conditions", "Generate From RSS Feed", "Undetectable AI", "Pros and Cons", "Real Estate Listing", "Prompt Generator", "Storytelling", "Viral Ideas"] },
+];
+
 const starterInclusions: PlanFeatureGroup[] = [
   {
     heading: "Writing & Chat",
@@ -120,6 +134,7 @@ const starterInclusions: PlanFeatureGroup[] = [
     items: ["AI Image Generation", "AI Code Generator", "AI Presentation Maker", "AI Captions"],
   },
   { heading: "Support", items: ["Standard email support"] },
+  ...includedTemplates,
 ];
 
 const basicInclusions: PlanFeatureGroup[] = [
