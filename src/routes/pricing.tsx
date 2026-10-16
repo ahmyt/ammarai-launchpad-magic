@@ -108,6 +108,21 @@ function PlanFeaturesDialog({ plan, onClose }: { plan: Plan; onClose: () => void
           </ActionButton>
         </div>
         <div className="mt-6 flex flex-col gap-6">
+          <div className="rounded-xl bg-accent/5 p-4 ring-1 ring-accent/20">
+            <h4 className="text-sm font-semibold text-accent">
+              New in {plan.name} — everything in the previous plan, plus:
+            </h4>
+            <ul className="mt-2.5 flex flex-col gap-2">
+              {plan.newInPlan.map((item) => (
+                <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-foreground">
+                  <span aria-hidden="true" className="text-accent">
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
           {plan.featureGroups.map((group) => (
             <div key={group.heading}>
               <h4 className="text-sm font-semibold text-foreground">{group.heading}</h4>
