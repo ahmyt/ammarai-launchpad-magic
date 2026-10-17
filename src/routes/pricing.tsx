@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { ActionButton, ExternalButton } from "@/components/site/Button";
 import { OfferInline } from "@/components/site/OfferInline";
+import { ChatbotCallout } from "@/components/site/LiveChatbot";
 import { cn } from "@/lib/utils";
 
 const title = "Pricing: One Subscription for Every AI Tool | AmmarAI";
@@ -262,6 +263,7 @@ function Pricing() {
         </Container>
       </Section>
 
+      <ChatbotCallout pricing />
       <OfferInline />
 
       <Section tone="sand">

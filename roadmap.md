@@ -1,6 +1,12 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Live chatbot experience (2026-10-17)
+- [x] Embed the supplied chatbot with delayed loading and hide it on admin/auth pages
+- [x] Add a homepage live bot card, dismissible invitation, and Features/Pricing callouts
+- [x] Verify opening, real chatbot reply, mobile clearance, admin exclusion and preview health
+- [ ] Verify voice and appointment completion on the live site: requires microphone interaction and a configured booking destination
+
 ## Pricing screenshot alignment (2026-10-16)
 - [x] Match all five plans' allowances, counts and card inclusions to the admin screenshots; add all legible included templates from the recording
 - [x] Include inherited features in each pop-up and the website voice bot in Standard

@@ -6,6 +6,7 @@ import { Container, Section, Card } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { OfferInline } from "@/components/site/OfferInline";
+import { ChatbotCallout } from "@/components/site/LiveChatbot";
 import { SITE, REGISTER_URL } from "@/lib/site";
 
 const title = "Platform Features: How AmmarAI Works | AmmarAI";
@@ -162,6 +163,7 @@ function FeaturesIndex() {
         </Container>
       </Section>
 
+      <ChatbotCallout />
       <OfferInline />
 
       <Section tone="ink" className="py-16">
