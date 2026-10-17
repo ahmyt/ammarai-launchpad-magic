@@ -15,6 +15,7 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [ready, setReady] = useState(false);
   const [teaserDismissed, setTeaserDismissed] = useState(false);
   const pendingOpen = useRef(false);
   const timeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -70,6 +71,7 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
       if (!wrapper) return;
       const ready = wrapper.dataset['ready'] === "true";
       if (ready) {
+        setReady(true);
         setLoading(false);
         setError(false);
         clearTimeout(timeout.current);
@@ -94,7 +96,7 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   return (
     <ChatbotContext.Provider value={{ openChatbot, loading, error }}>
       {children}
-      {!hidden && !isOpen && !teaserDismissed && (
+      {!hidden && ready && !isOpen && !teaserDismissed && (
         <aside aria-label="Try the live chatbot" className="live-chatbot-teaser fixed z-40 flex max-w-[calc(100vw-6rem)] items-center gap-2 border border-border bg-card p-3 text-foreground shadow-lg">
           <ActionButton variant="ghost" className="flex flex-col items-start gap-1 px-1 py-0 text-left" onClick={openChatbot}>
             <span className="text-sm font-semibold text-foreground">Try our live AI bot</span>
