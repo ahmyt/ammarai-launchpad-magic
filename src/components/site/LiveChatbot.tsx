@@ -141,7 +141,7 @@ function VoiceLauncher() {
       {bubble && !open && (
         <div className="ammarai-voice-bubble" role="status">
           <button type="button" className="ammarai-voice-bubble-text" onClick={() => { hideBubble(); setOpen(true); }}>
-            📞 Talk to our AI voice agent — live, free
+            📞 Live AI Demo: Try live voice call
           </button>
           <button type="button" aria-label="Dismiss" className="ammarai-voice-bubble-close" onClick={hideBubble}>
             <X className="h-3.5 w-3.5" />
