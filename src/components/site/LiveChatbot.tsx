@@ -7,6 +7,8 @@ import "./live-chatbot.css";
 
 const SCRIPT_URL = "https://app.ammarai.com/vendor/chatbot/js/external-chatbot.js";
 const UUID = "452e5efe-b3b9-480c-bd8f-96425acf5caf";
+const VOICE_SCRIPT_URL = "https://app.ammarai.com/vendor/chatbot-voice/js/external-chatbot-voice.js";
+const VOICE_UUID = "81795591-8d41-4e29-b815-27ff987e117a";
 const ChatbotContext = createContext({ openChatbot: () => {}, loading: false, error: false });
 
 export function LiveChatbotProvider({ children }: { children: ReactNode }) {
@@ -16,6 +18,18 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   const [error, setError] = useState(false);
   const pendingOpen = useRef(false);
   const timeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  function loadVoiceChatbot() {
+    if (document.getElementById("ammarai-voice-chatbot-script")) return;
+    const script = document.createElement("script");
+    script.id = "ammarai-voice-chatbot-script";
+    script.src = VOICE_SCRIPT_URL;
+    script.defer = true;
+    script.dataset['chatbotUuid'] = VOICE_UUID;
+    script.dataset['language'] = "en";
+    script.onerror = () => script.remove();
+    document.body.appendChild(script);
+  }
 
   function loadChatbot() {
     if (document.getElementById("ammarai-chatbot-script")) return;
@@ -58,7 +72,10 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
       if (wrapper?.dataset['windowState'] === "open") wrapper.querySelector<HTMLButtonElement>(".lqd-ext-chatbot-trigger")?.click();
       return;
     }
-    const timer = setTimeout(loadChatbot, 4000);
+    const timer = setTimeout(() => {
+      loadChatbot();
+      loadVoiceChatbot();
+    }, 4000);
     return () => clearTimeout(timer);
   }, [hidden]);
 

@@ -1,6 +1,11 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Standalone voice bot test (2026-10-17)
+- [x] Embed the supplied voice bot alongside the existing chatbot without a custom teaser
+- [ ] Test readiness, opening, desktop/phone clearance and admin exclusion
+- [ ] Verify a completed voice conversation: requires microphone audio and a successful provider connection
+
 ## Live chatbot experience (2026-10-17)
 - [x] Embed the supplied chatbot with delayed loading and hide it on admin/auth pages
 - [x] Add a homepage live bot card and Features/Pricing callouts; the bot's own teaser bubble is the invitation (our custom one removed)
