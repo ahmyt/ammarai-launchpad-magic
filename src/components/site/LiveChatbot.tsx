@@ -27,10 +27,10 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
     script.id = "ammarai-chatbot-script";
     script.src = SCRIPT_URL;
     script.defer = true;
-    script.dataset.chatbotUuid = UUID;
-    script.dataset.iframeWidth = "420";
-    script.dataset.iframeHeight = "745";
-    script.dataset.language = "en";
+    script.dataset['chatbotUuid'] = UUID;
+    script.dataset['iframeWidth'] = "420";
+    script.dataset['iframeHeight'] = "745";
+    script.dataset['language'] = "en";
     script.onerror = () => { setError(true); setLoading(false); script.remove(); };
     document.body.appendChild(script);
     timeout.current = setTimeout(() => {
@@ -42,8 +42,8 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
 
   function openChatbot() {
     const wrapper = document.getElementById("lqd-ext-chatbot-wrap");
-    if (wrapper?.dataset.ready === "true") {
-      if (wrapper.dataset.windowState !== "open") {
+    if (wrapper?.dataset['ready'] === "true") {
+      if (wrapper.dataset['windowState'] !== "open") {
         wrapper.querySelector<HTMLButtonElement>(".lqd-ext-chatbot-trigger:not(.lqd-ext-chatbot-trigger-mobile)")?.click();
       }
       return;
@@ -57,7 +57,7 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
     if (hidden) {
       pendingOpen.current = false;
       const wrapper = document.getElementById("lqd-ext-chatbot-wrap");
-      if (wrapper?.dataset.windowState === "open") wrapper.querySelector<HTMLButtonElement>(".lqd-ext-chatbot-trigger")?.click();
+      if (wrapper?.dataset['windowState'] === "open") wrapper.querySelector<HTMLButtonElement>(".lqd-ext-chatbot-trigger")?.click();
       return;
     }
     const timer = setTimeout(loadChatbot, 4000);
@@ -68,7 +68,7 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
     const observer = new MutationObserver(() => {
       const wrapper = document.getElementById("lqd-ext-chatbot-wrap");
       if (!wrapper) return;
-      const ready = wrapper.dataset.ready === "true";
+      const ready = wrapper.dataset['ready'] === "true";
       if (ready) {
         setLoading(false);
         setError(false);
@@ -77,15 +77,15 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
         trigger?.setAttribute("aria-label", "Open or close AmmarAI live chatbot");
         if (pendingOpen.current) {
           pendingOpen.current = false;
-          if (wrapper.dataset.windowState !== "open") trigger?.click();
+          if (wrapper.dataset['windowState'] !== "open") trigger?.click();
         }
       }
-      setIsOpen(wrapper.dataset.windowState === "open");
+      setIsOpen(wrapper.dataset['windowState'] === "open");
     });
     observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["data-ready", "data-window-state"] });
     const onKey = (event: KeyboardEvent) => {
       const wrapper = document.getElementById("lqd-ext-chatbot-wrap");
-      if (event.key === "Escape" && wrapper?.dataset.windowState === "open") wrapper.querySelector<HTMLButtonElement>(".lqd-ext-chatbot-trigger")?.click();
+      if (event.key === "Escape" && wrapper?.dataset['windowState'] === "open") wrapper.querySelector<HTMLButtonElement>(".lqd-ext-chatbot-trigger")?.click();
     };
     document.addEventListener("keydown", onKey);
     return () => { observer.disconnect(); clearTimeout(timeout.current); document.removeEventListener("keydown", onKey); };
