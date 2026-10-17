@@ -3,7 +3,7 @@
 
 ## Live chatbot experience (2026-10-17)
 - [x] Embed the supplied chatbot with delayed loading and hide it on admin/auth pages
-- [x] Add a homepage live bot card, dismissible invitation, and Features/Pricing callouts
+- [x] Add a homepage live bot card and Features/Pricing callouts; the bot's own teaser bubble is the invitation (our custom one removed)
 - [x] Verify opening, real chatbot reply, mobile clearance, admin exclusion and preview health
 - [ ] Verify voice and appointment completion on the live site: requires microphone interaction and a configured booking destination
 
