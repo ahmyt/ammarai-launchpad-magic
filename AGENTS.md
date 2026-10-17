@@ -11,3 +11,4 @@
 
 - Country filtering waits for the once-per-minute settings refresh and a shared dual-provider first-visit lookup, because access decisions must not change after refresh.
 - Compose pricing pop-ups from shared tier inclusion groups and plan-specific allowances; this keeps inherited tools complete without inheriting lower-tier credit, trial, seat or call limits.
+- Load the external live chatbot once through the shared provider after initial paint; open it through its native launcher and hide it on admin/auth pages because the vendor exposes no teardown API.

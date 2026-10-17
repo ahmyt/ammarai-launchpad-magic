@@ -21,6 +21,7 @@ import { Footer } from "@/components/site/Footer";
 import { ContentProtection } from "@/components/site/ContentProtection";
 import { OfferProvider } from "@/components/site/OfferProvider";
 import { ThemeProvider, useTheme } from "@/components/site/ThemeProvider";
+import { LiveChatbotProvider } from "@/components/site/LiveChatbot";
 import { siteContentQuery, siteContentRowsQuery, type ContentRow } from "@/lib/content";
 
 function NotFoundComponent() {
@@ -174,6 +175,7 @@ function SiteShell() {
 
   return (
     <OfferProvider>
+      <LiveChatbotProvider>
       <ContentProtection />
       <div className={`site-shell home-swiss flex min-h-screen flex-col bg-background text-foreground ${theme === "dark" ? "theme-dark" : ""}`}>
           <Header />
@@ -183,6 +185,7 @@ function SiteShell() {
           </main>
           <Footer />
         </div>
+      </LiveChatbotProvider>
     </OfferProvider>
   );
 }

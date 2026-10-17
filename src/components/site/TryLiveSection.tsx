@@ -1,5 +1,7 @@
-import { ArrowRight, ImageIcon, MessageSquare } from "lucide-react";
+import { ArrowRight, ImageIcon, MessageSquare, Mic } from "lucide-react";
 import { Container, Section, SectionHeading } from "@/components/site/primitives";
+import { ChatbotTryButton } from "./LiveChatbot";
+import { ExternalButton } from "./Button";
 
 export const TRY_CHAT_URL = "https://app.ammarai.com/chat";
 export const TRY_IMAGE_URL = "https://app.ammarai.com/ai-chat-image/chat";
@@ -38,23 +40,30 @@ export function TryLiveSection() {
             <li key={b} className="rounded-full border border-border bg-secondary px-3 py-1">{b}</li>
           ))}
         </ul>
-        <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-3">
           {cards.map(({ title, text, sample, href, cta, icon: Icon }) => (
             <div key={title} className="flex flex-col border border-border bg-card p-6 sm:p-8">
               <span className="grid size-11 place-items-center bg-accent text-accent-foreground"><Icon className="size-5" /></span>
               <h3 className="mt-5 text-xl font-semibold text-foreground">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
               <p className="mt-4 border-l-2 border-accent bg-secondary/60 px-3 py-2 text-sm italic text-foreground">{sample}</p>
-              <a
+              <ExternalButton
                 href={href}
                 target="_blank"
                 rel="noopener"
                 className="mt-6 inline-flex items-center justify-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
                 {cta} <ArrowRight className="size-4" />
-              </a>
+              </ExternalButton>
             </div>
           ))}
+          <div className="flex flex-col border border-border bg-card p-6 sm:p-8">
+            <span className="grid size-11 place-items-center bg-accent text-accent-foreground"><Mic className="size-5" /></span>
+            <h3 className="mt-5 text-xl font-semibold text-foreground">AI Website & Voice Bot</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Talk with our website bot. Ask about AmmarAI, try voice chat and explore appointment scheduling.</p>
+            <p className="mt-4 border-l-2 border-accent bg-secondary/60 px-3 py-2 text-sm italic text-foreground">“Can you help me choose a plan?”</p>
+            <ChatbotTryButton className="mt-auto pt-6" />
+          </div>
         </div>
       </Container>
     </Section>
