@@ -8,7 +8,7 @@ import "./live-chatbot.css";
 const SCRIPT_URL = "https://app.ammarai.com/vendor/chatbot/js/external-chatbot.js";
 const UUID = "452e5efe-b3b9-480c-bd8f-96425acf5caf";
 const VOICE_SCRIPT_URL = "https://app.ammarai.com/vendor/chatbot-voice/js/external-chatbot-voice.js";
-const VOICE_UUID = "81795591-8d41-4e29-b815-27ff987e117a";
+const VOICE_UUID = "fca4a0d6-2cc4-4091-a92f-d59f36e60524";
 const ChatbotContext = createContext({ openChatbot: () => {}, loading: false, error: false });
 
 export function LiveChatbotProvider({ children }: { children: ReactNode }) {
