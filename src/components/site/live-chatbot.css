@@ -3,9 +3,9 @@ body.chatbot-hidden #lqd-ext-chatbot-wrap { display: none !important; }
 body.chatbot-hidden #lqd-ext-voice-chatbot-wrapper { display: none !important; }
 /* Keep the standalone voice demo opposite the existing chat launcher. */
 #lqd-ext-voice-chatbot-wrapper {
-  left: 20px !important;
-  right: auto !important;
-  bottom: 20px !important;
+  left: auto !important;
+  right: 20px !important;
+  bottom: 148px !important;
   max-width: calc(100vw - 40px) !important;
   max-height: calc(100dvh - 110px) !important;
   z-index: 45 !important;
@@ -22,8 +22,8 @@ body.chatbot-hidden #lqd-ext-voice-chatbot-wrapper { display: none !important; }
 }
 @media (max-width: 768px) {
   #lqd-ext-voice-chatbot-wrapper {
-    left: 12px !important;
-    bottom: 84px !important;
+    right: 12px !important;
+    bottom: 212px !important;
     max-width: calc(100vw - 24px) !important;
   }
   #lqd-ext-chatbot-wrap { right: 12px !important; bottom: 84px !important; }
@@ -36,3 +36,23 @@ body.chatbot-hidden #lqd-ext-voice-chatbot-wrapper { display: none !important; }
 @media (prefers-reduced-motion: reduce) {
   #lqd-ext-chatbot-wrap, #lqd-ext-chatbot-wrap * { transition: none !important; animation: none !important; }
 }
+
+/* Voice card stays hidden until the phone icon above the chat launcher is tapped. */
+body:not(.voice-open) #lqd-ext-voice-chatbot-wrapper { display: none !important; }
+.ammarai-voice-launcher {
+  position: fixed; right: 24px; bottom: 88px; z-index: 46;
+  width: 52px; height: 52px; border-radius: 9999px;
+  display: grid; place-items: center;
+  box-shadow: 0 8px 24px -6px hsl(0 0% 0% / 0.35);
+  transition: transform .2s ease;
+}
+.ammarai-voice-launcher:hover { transform: scale(1.06); }
+.ammarai-voice-pulse {
+  position: absolute; inset: 0; border-radius: inherit;
+  border: 2px solid currentColor; opacity: .5;
+  animation: ammarai-voice-ring 2s ease-out infinite;
+}
+@keyframes ammarai-voice-ring { from { transform: scale(1); opacity: .55; } to { transform: scale(1.5); opacity: 0; } }
+body.chatbot-hidden .ammarai-voice-launcher { display: none; }
+@media (prefers-reduced-motion: reduce) { .ammarai-voice-pulse { animation: none; } }
+@media (max-width: 768px) { .ammarai-voice-launcher { right: 16px; bottom: 152px; } }

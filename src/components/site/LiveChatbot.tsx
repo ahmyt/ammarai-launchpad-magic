@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { useRouterState } from "@tanstack/react-router";
-import { CalendarDays, MessageSquare, Mic } from "lucide-react";
+import { CalendarDays, MessageSquare, Mic, Phone, X } from "lucide-react";
 import { ActionButton } from "./Button";
 import { Container, Section } from "./primitives";
 import "./live-chatbot.css";
@@ -105,7 +105,41 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
     return () => { observer.disconnect(); clearTimeout(timeout.current); document.removeEventListener("keydown", onKey); };
   }, []);
 
-  return <ChatbotContext.Provider value={{ openChatbot, loading, error }}>{children}</ChatbotContext.Provider>;
+  return (
+    <ChatbotContext.Provider value={{ openChatbot, loading, error }}>
+      {children}
+      {!hidden && <VoiceLauncher />}
+    </ChatbotContext.Provider>
+  );
+}
+
+function VoiceLauncher() {
+  const [ready, setReady] = useState(false);
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const check = () => setReady(!!document.getElementById("lqd-ext-voice-chatbot-wrapper"));
+    check();
+    const observer = new MutationObserver(check);
+    observer.observe(document.body, { childList: true });
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    document.body.classList.toggle("voice-open", open);
+    return () => document.body.classList.remove("voice-open");
+  }, [open]);
+  if (!ready) return null;
+  return (
+    <button
+      type="button"
+      onClick={() => setOpen((v) => !v)}
+      aria-label={open ? "Close AI voice demo" : "Talk to our AI voice agent"}
+      aria-pressed={open}
+      className="ammarai-voice-launcher bg-primary text-primary-foreground"
+    >
+      {open ? <X className="h-5 w-5" /> : <Phone className="h-5 w-5" />}
+      {!open && <span className="ammarai-voice-pulse" aria-hidden="true" />}
+    </button>
+  );
 }
 
 export function ChatbotTryButton({ className }: { className?: string }) {
