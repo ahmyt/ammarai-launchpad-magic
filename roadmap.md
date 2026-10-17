@@ -3,8 +3,9 @@
 
 ## Standalone voice bot test (2026-10-17)
 - [x] Embed the supplied voice bot alongside the existing chatbot without a custom teaser
-- [ ] Test readiness, opening, desktop/phone clearance and admin exclusion
-- [ ] Verify a completed voice conversation: requires microphone audio and a successful provider connection
+- [x] Test readiness, native Voice Chat/End Call controls, desktop/phone bounds and admin exclusion; phone widget remains in-screen but overlays page content
+- [x] Verify provider connection with a simulated microphone: balance checks return 200, call reaches speaking, End Call restores launcher
+- [ ] Verify a completed two-way voice conversation: requires a person speaking through a real microphone
 
 ## Live chatbot experience (2026-10-17)
 - [x] Embed the supplied chatbot with delayed loading and hide it on admin/auth pages
