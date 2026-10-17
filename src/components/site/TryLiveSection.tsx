@@ -1,4 +1,4 @@
-import { ArrowRight, ImageIcon, MessageSquare, Mic } from "lucide-react";
+import { ArrowRight, CalendarDays, ImageIcon, MessageSquare } from "lucide-react";
 import { Container, Section, SectionHeading } from "@/components/site/primitives";
 import { ChatbotTryButton } from "./LiveChatbot";
 import { ExternalButton } from "./Button";
@@ -58,10 +58,10 @@ export function TryLiveSection() {
             </div>
           ))}
           <div className="flex flex-col border border-border bg-card p-6 sm:p-8">
-            <span className="grid size-11 place-items-center bg-accent text-accent-foreground"><Mic className="size-5" /></span>
-            <h3 className="mt-5 text-xl font-semibold text-foreground">AI Website & Voice Bot</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Talk with our website bot. Ask about AmmarAI, try voice chat and explore appointment scheduling.</p>
-            <p className="mt-4 border-l-2 border-accent bg-secondary/60 px-3 py-2 text-sm italic text-foreground">“Can you help me choose a plan?”</p>
+            <span className="grid size-11 place-items-center bg-accent text-accent-foreground"><CalendarDays className="size-5" /></span>
+            <h3 className="mt-5 text-xl font-semibold text-foreground">AI Website & Booking Bot</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Chat with our 24/7 website assistant. Ask about AmmarAI, leave your details and book an appointment automatically.</p>
+            <p className="mt-4 border-l-2 border-accent bg-secondary/60 px-3 py-2 text-sm italic text-foreground">“Can I book an appointment for tomorrow at 2 PM?”</p>
             <ChatbotTryButton className="mt-auto pt-6" />
           </div>
         </div>
