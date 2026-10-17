@@ -40,19 +40,26 @@ body.chatbot-hidden #lqd-ext-voice-chatbot-wrapper { display: none !important; }
 /* Voice card stays hidden until the phone icon above the chat launcher is tapped. */
 body:not(.voice-open) #lqd-ext-voice-chatbot-wrapper { display: none !important; }
 .ammarai-voice-launcher {
+  --voice-ring: oklch(0.74 0.19 152);
   position: fixed; right: 24px; bottom: 88px; z-index: 46;
   width: 52px; height: 52px; border-radius: 9999px;
   display: grid; place-items: center;
-  box-shadow: 0 8px 24px -6px hsl(0 0% 0% / 0.35);
-  transition: transform .2s ease;
+  background: var(--voice-ring) !important;
+  color: oklch(0.99 0 0) !important;
+  box-shadow: 0 0 0 3px oklch(1 0 0 / 0.9), 0 8px 24px -6px color-mix(in oklab, var(--voice-ring) 70%, transparent);
+  transition: transform .2s ease, opacity .2s ease;
 }
 .ammarai-voice-launcher:hover { transform: scale(1.06); }
-.ammarai-voice-pulse {
+.ammarai-voice-pulse, .ammarai-voice-pulse::after {
   position: absolute; inset: 0; border-radius: inherit;
-  border: 2px solid currentColor; opacity: .5;
+  background: var(--voice-ring);
   animation: ammarai-voice-ring 2s ease-out infinite;
+  z-index: -1;
 }
-@keyframes ammarai-voice-ring { from { transform: scale(1); opacity: .55; } to { transform: scale(1.5); opacity: 0; } }
+.ammarai-voice-pulse::after { content: ""; animation-delay: 1s; }
+@keyframes ammarai-voice-ring { from { transform: scale(1); opacity: .6; } to { transform: scale(1.8); opacity: 0; } }
+/* Step aside while the chat window is open so it doesn't cover the chat tabs. */
+body:has(#lqd-ext-chatbot-wrap[data-window-state="open"]) .ammarai-voice-launcher { opacity: 0; pointer-events: none; }
 body.chatbot-hidden .ammarai-voice-launcher { display: none; }
 @media (prefers-reduced-motion: reduce) { .ammarai-voice-pulse { animation: none; } }
 @media (max-width: 768px) { .ammarai-voice-launcher { right: 16px; bottom: 152px; } }

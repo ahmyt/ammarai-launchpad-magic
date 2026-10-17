@@ -134,7 +134,7 @@ function VoiceLauncher() {
       onClick={() => setOpen((v) => !v)}
       aria-label={open ? "Close AI voice demo" : "Talk to our AI voice agent"}
       aria-pressed={open}
-      className="ammarai-voice-launcher bg-primary text-primary-foreground"
+      className="ammarai-voice-launcher"
     >
       {open ? <X className="h-5 w-5" /> : <Phone className="h-5 w-5" />}
       {!open && <span className="ammarai-voice-pulse" aria-hidden="true" />}
