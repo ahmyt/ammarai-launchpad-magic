@@ -9,10 +9,11 @@ import { ActionButton, ExternalButton } from "@/components/site/Button";
 import { OfferInline } from "@/components/site/OfferInline";
 import { ChatbotCallout } from "@/components/site/LiveChatbot";
 import { cn } from "@/lib/utils";
+import { freePlan } from "@/data/free-plan";
 
 const title = "Pricing: One Subscription for Every AI Tool | AmmarAI";
 const description =
-  "AmmarAI pricing: Starter, Basic, Standard, Ultimate and Voice Scale plans. Every plan includes a monthly credit allowance across writing, image, video, voice and AI agent tools.";
+  "Compare AmmarAI's Free plan with 500 monthly credits and five paid plans from $9.99/month. Explore AI tools or start the 3-day free trial on Basic.";
 
 const faqs = [
   {
@@ -199,6 +200,38 @@ function Pricing() {
 
       <Section className="pt-4">
         <Container size="wide">
+          <div className="mb-8 border-y border-border bg-secondary/40 px-5 py-7 sm:px-7">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div className="min-w-0">
+                <p className="eyebrow text-accent">Free plan</p>
+                <h2 className="mt-2 font-display text-2xl font-semibold text-foreground">
+                  Just exploring? Start with our permanent Free plan
+                </h2>
+                <ul className="mt-4 flex flex-col gap-x-6 gap-y-2 text-sm text-muted-foreground sm:flex-row sm:flex-wrap">
+                  {[
+                    `${freePlan.monthlyCredits} credits every month`,
+                    "AI Chat & essential writing tools",
+                    "90+ prompt templates",
+                  ].map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <span aria-hidden="true" className="text-accent">✓</span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex shrink-0 flex-col items-start gap-3 lg:items-end">
+                <p className="flex items-baseline gap-1">
+                  <span className="font-display text-3xl font-semibold text-foreground">${freePlan.monthlyPrice}</span>
+                  <span className="text-sm text-muted-foreground">/month</span>
+                </p>
+                <ExternalButton href={REGISTER_URL} variant="outline" className="w-full sm:w-auto">
+                  Create Free Account
+                </ExternalButton>
+                {freePlan.requiresCard ? null : <p className="text-xs text-muted-foreground">No card required</p>}
+              </div>
+            </div>
+          </div>
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-5">
             {plans.map((plan) => (
               <div
