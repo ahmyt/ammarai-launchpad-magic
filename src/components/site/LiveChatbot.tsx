@@ -127,18 +127,38 @@ function VoiceLauncher() {
     document.body.classList.toggle("voice-open", open);
     return () => document.body.classList.remove("voice-open");
   }, [open]);
+  const [bubble, setBubble] = useState(false);
+  useEffect(() => {
+    if (!ready) return;
+    if (sessionStorage.getItem("ammarai-voice-bubble") === "off") return;
+    const t = setTimeout(() => setBubble(true), 1500);
+    return () => clearTimeout(t);
+  }, [ready]);
+  const hideBubble = () => { setBubble(false); sessionStorage.setItem("ammarai-voice-bubble", "off"); };
   if (!ready) return null;
   return (
-    <button
-      type="button"
-      onClick={() => setOpen((v) => !v)}
-      aria-label={open ? "Close AI voice demo" : "Talk to our AI voice agent"}
-      aria-pressed={open}
-      className="ammarai-voice-launcher"
-    >
-      {open ? <X className="h-5 w-5" /> : <Phone className="h-5 w-5" />}
-      {!open && <span className="ammarai-voice-pulse" aria-hidden="true" />}
-    </button>
+    <>
+      {bubble && !open && (
+        <div className="ammarai-voice-bubble" role="status">
+          <button type="button" className="ammarai-voice-bubble-text" onClick={() => { hideBubble(); setOpen(true); }}>
+            📞 Talk to our AI voice agent — live, free
+          </button>
+          <button type="button" aria-label="Dismiss" className="ammarai-voice-bubble-close" onClick={hideBubble}>
+            <X className="h-3.5 w-3.5" />
+          </button>
+        </div>
+      )}
+      <button
+        type="button"
+        onClick={() => { hideBubble(); setOpen((v) => !v); }}
+        aria-label={open ? "Close AI voice demo" : "Talk to our AI voice agent"}
+        aria-pressed={open}
+        className="ammarai-voice-launcher"
+      >
+        {open ? <X className="h-5 w-5" /> : <Phone className="h-5 w-5" />}
+        {!open && <span className="ammarai-voice-pulse" aria-hidden="true" />}
+      </button>
+    </>
   );
 }
 

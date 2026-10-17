@@ -63,3 +63,22 @@ body:has(#lqd-ext-chatbot-wrap[data-window-state="open"]) .ammarai-voice-launche
 body.chatbot-hidden .ammarai-voice-launcher { display: none; }
 @media (prefers-reduced-motion: reduce) { .ammarai-voice-pulse { animation: none; } }
 @media (max-width: 768px) { .ammarai-voice-launcher { right: 16px; bottom: 152px; } }
+/* Invitation bubble beside the voice icon. */
+.ammarai-voice-bubble {
+  position: fixed; right: 88px; bottom: 96px; z-index: 46;
+  display: flex; align-items: center; gap: 4px;
+  max-width: min(240px, calc(100vw - 120px));
+  padding: 8px 6px 8px 12px; border-radius: 14px 14px 4px 14px;
+  background: var(--card); color: var(--foreground);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--foreground) 35%, transparent);
+  font-size: 13px; font-weight: 600; line-height: 1.3;
+  animation: ammarai-bubble-in .35s ease-out;
+}
+.ammarai-voice-bubble-text { text-align: left; }
+.ammarai-voice-bubble-close { padding: 4px; border-radius: 9999px; color: var(--muted-foreground); }
+.ammarai-voice-bubble-close:hover { background: var(--secondary); }
+@keyframes ammarai-bubble-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+body:has(#lqd-ext-chatbot-wrap[data-window-state="open"]) .ammarai-voice-bubble, body.chatbot-hidden .ammarai-voice-bubble { display: none; }
+@media (max-width: 768px) { .ammarai-voice-bubble { right: 78px; bottom: 160px; } }
+@media (prefers-reduced-motion: reduce) { .ammarai-voice-bubble { animation: none; } }
