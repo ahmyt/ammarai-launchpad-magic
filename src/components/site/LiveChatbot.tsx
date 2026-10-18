@@ -16,32 +16,40 @@ const ChatbotContext = createContext({ openChatbot: () => {}, loading: false, er
 export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const hidden = /^\/(admin|auth)(\/|$)/.test(pathname);
+  const contentQuery = useQuery(siteContentQuery);
+  const settings = contentQuery.data?.pages.find((page) => page.slug === "settings");
+  const scriptUrl = (settings?.chatbotScriptUrl ?? DEFAULT_SCRIPT_URL).trim();
+  const uuid = (settings?.chatbotUuid ?? DEFAULT_UUID).trim();
+  const voiceScriptUrl = (settings?.voiceScriptUrl ?? DEFAULT_VOICE_SCRIPT_URL).trim();
+  const voiceUuid = (settings?.voiceUuid ?? DEFAULT_VOICE_UUID).trim();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const pendingOpen = useRef(false);
   const timeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   function loadVoiceChatbot() {
+    if (!voiceScriptUrl || !voiceUuid) return;
     if (document.getElementById("ammarai-voice-chatbot-script")) return;
     const script = document.createElement("script");
     script.id = "ammarai-voice-chatbot-script";
-    script.src = VOICE_SCRIPT_URL;
+    script.src = voiceScriptUrl;
     script.defer = true;
-    script.dataset['chatbotUuid'] = VOICE_UUID;
+    script.dataset['chatbotUuid'] = voiceUuid;
     script.dataset['language'] = "en";
     script.onerror = () => script.remove();
     document.body.appendChild(script);
   }
 
   function loadChatbot() {
+    if (!scriptUrl || !uuid) return;
     if (document.getElementById("ammarai-chatbot-script")) return;
     setLoading(true);
     setError(false);
     const script = document.createElement("script");
     script.id = "ammarai-chatbot-script";
-    script.src = SCRIPT_URL;
+    script.src = scriptUrl;
     script.defer = true;
-    script.dataset['chatbotUuid'] = UUID;
+    script.dataset['chatbotUuid'] = uuid;
     script.dataset['iframeWidth'] = "420";
     script.dataset['iframeHeight'] = "745";
     script.dataset['language'] = "en";
