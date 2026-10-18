@@ -218,6 +218,13 @@ export interface Page {
   geoBlockBypassKey?: string;
   /** How long a visitor's country is remembered, in hours (1-168, default 6) */
   geoBlockCacheHours?: string;
+  /** Live demo widgets (embed code or UUID pasted from MagicAI) */
+  chatbotEnabled?: boolean;
+  chatbotEmbed?: string;
+  voiceBotEnabled?: boolean;
+  voiceBotEmbed?: string;
+  voiceBubbleEnabled?: boolean;
+  voiceBubbleText?: string;
   /** Blog "About the author" card */
   showAuthorCard?: boolean;
   authorName?: string;
