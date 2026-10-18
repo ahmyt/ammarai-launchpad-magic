@@ -1,18 +1,51 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { useRouterState } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
 import { CalendarDays, MessageSquare, Mic, Phone, X } from "lucide-react";
 import { ActionButton } from "./Button";
 import { Container, Section } from "./primitives";
+import { siteContentQuery } from "@/lib/content";
 import "./live-chatbot.css";
 
-const SCRIPT_URL = "https://app.ammarai.com/vendor/chatbot/js/external-chatbot.js";
-const UUID = "452e5efe-b3b9-480c-bd8f-96425acf5caf";
-const VOICE_SCRIPT_URL = "https://app.ammarai.com/vendor/chatbot-voice/js/external-chatbot-voice.js";
-const VOICE_UUID = "81795591-8d41-4e29-b815-27ff987e117a";
+const DEFAULT_BUBBLE = "📞 Live AI Demo: Try live voice call";
 const ChatbotContext = createContext({ openChatbot: () => {}, loading: false, error: false });
+
+type Embed = { src: string; data: Record<string, string> };
+
+/** Reads src + data-* attributes from a pasted <script> tag; only https scripts are accepted. */
+function parseEmbed(code: string | undefined): Embed | null {
+  if (!code) return null;
+  const src = code.match(/src\s*=\s*["']([^"']+)["']/i)?.[1];
+  if (!src || !/^https:\/\//i.test(src)) return null;
+  const data: Record<string, string> = {};
+  for (const m of code.matchAll(/data-([a-z0-9-]+)\s*=\s*["']([^"']*)["']/gi)) {
+    const key = m[1]!.toLowerCase().replace(/-([a-z0-9])/g, (_, c: string) => c.toUpperCase());
+    data[key] = m[2]!;
+  }
+  if (!data["chatbotUuid"]) return null;
+  return { src, data };
+}
+
+function injectScript(id: string, embed: Embed, onError?: () => void) {
+  if (document.getElementById(id)) return;
+  const script = document.createElement("script");
+  script.id = id;
+  script.src = embed.src;
+  script.defer = true;
+  for (const [k, v] of Object.entries(embed.data)) script.dataset[k] = v;
+  script.onerror = () => { onError?.(); script.remove(); };
+  document.body.appendChild(script);
+}
 
 export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => setHydrated(true), []);
+  const { data: content } = useQuery({ ...siteContentQuery, enabled: hydrated });
+  const settings = content?.pages.find((p) => p.slug === "settings");
+  const chatEmbed = settings?.chatbotEnabled === false ? null : parseEmbed(settings?.chatbotEmbed);
+  const voiceEmbed = settings?.voiceBotEnabled === false ? null : parseEmbed(settings?.voiceBotEmbed);
+  const bubbleText = settings?.voiceBubbleEnabled === false ? "" : settings?.voiceBubbleText?.trim() || DEFAULT_BUBBLE;
   const hidden = /^\/(admin|auth)(\/|$)/.test(pathname);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -20,31 +53,14 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   const timeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   function loadVoiceChatbot() {
-    if (document.getElementById("ammarai-voice-chatbot-script")) return;
-    const script = document.createElement("script");
-    script.id = "ammarai-voice-chatbot-script";
-    script.src = VOICE_SCRIPT_URL;
-    script.defer = true;
-    script.dataset['chatbotUuid'] = VOICE_UUID;
-    script.dataset['language'] = "en";
-    script.onerror = () => script.remove();
-    document.body.appendChild(script);
+    if (voiceEmbed) injectScript("ammarai-voice-chatbot-script", voiceEmbed);
   }
 
   function loadChatbot() {
-    if (document.getElementById("ammarai-chatbot-script")) return;
+    if (!chatEmbed || document.getElementById("ammarai-chatbot-script")) return;
     setLoading(true);
     setError(false);
-    const script = document.createElement("script");
-    script.id = "ammarai-chatbot-script";
-    script.src = SCRIPT_URL;
-    script.defer = true;
-    script.dataset['chatbotUuid'] = UUID;
-    script.dataset['iframeWidth'] = "420";
-    script.dataset['iframeHeight'] = "745";
-    script.dataset['language'] = "en";
-    script.onerror = () => { setError(true); setLoading(false); script.remove(); };
-    document.body.appendChild(script);
+    injectScript("ammarai-chatbot-script", chatEmbed, () => { setError(true); setLoading(false); });
     timeout.current = setTimeout(() => {
       if (document.querySelector('#lqd-ext-chatbot-wrap[data-ready="true"]')) return;
       setError(true);
