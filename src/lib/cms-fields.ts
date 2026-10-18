@@ -244,6 +244,26 @@ const pageSettingsFields: FieldSpec[] = [
     type: "boolean",
   },
   {
+    name: "chatbotScriptUrl",
+    label: "Chatbot embed: script URL (from the vendor embed code; empty = chat widget off)",
+    type: "text",
+  },
+  {
+    name: "chatbotUuid",
+    label: "Chatbot embed: chatbot UUID (data-chatbot-uuid)",
+    type: "text",
+  },
+  {
+    name: "voiceScriptUrl",
+    label: "Voice bot embed: script URL (from the vendor embed code; empty = voice widget off)",
+    type: "text",
+  },
+  {
+    name: "voiceUuid",
+    label: "Voice bot embed: chatbot UUID (data-chatbot-uuid)",
+    type: "text",
+  },
+  {
     name: "offerEnabled",
     label: "Show discount campaigns to visitors",
     type: "boolean",
