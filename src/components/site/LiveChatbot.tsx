@@ -88,12 +88,14 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
       if (wrapper?.dataset['windowState'] === "open") wrapper.querySelector<HTMLButtonElement>(".lqd-ext-chatbot-trigger")?.click();
       return;
     }
+    if (!content) return;
     const timer = setTimeout(() => {
       loadChatbot();
       loadVoiceChatbot();
     }, 4000);
     return () => clearTimeout(timer);
-  }, [hidden]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hidden, content, settings?.chatbotEmbed, settings?.voiceBotEmbed, settings?.chatbotEnabled, settings?.voiceBotEnabled]);
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
@@ -124,19 +126,19 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   return (
     <ChatbotContext.Provider value={{ openChatbot, loading, error }}>
       {children}
-      {!hidden && <VoiceLauncher />}
+      {!hidden && voiceEmbed && <VoiceLauncher bubbleText={bubbleText} />}
     </ChatbotContext.Provider>
   );
 }
 
-function VoiceLauncher() {
+function VoiceLauncher({ bubbleText }: { bubbleText: string }) {
   const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => {
     const check = () => setReady(!!document.getElementById("lqd-ext-voice-chatbot-wrapper"));
     check();
     const observer = new MutationObserver(check);
-    observer.observe(document.body, { childList: true });
+    observer.observe(document.body, { childList: true, subtree: true });
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
@@ -144,20 +146,20 @@ function VoiceLauncher() {
     return () => document.body.classList.remove("voice-open");
   }, [open]);
   const [bubble, setBubble] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
   useEffect(() => {
-    if (!ready) return;
-    if (sessionStorage.getItem("ammarai-voice-bubble") === "off") return;
+    if (!ready || !bubbleText || dismissed) return;
     const t = setTimeout(() => setBubble(true), 1500);
     return () => clearTimeout(t);
-  }, [ready]);
-  const hideBubble = () => { setBubble(false); sessionStorage.setItem("ammarai-voice-bubble", "off"); };
+  }, [ready, bubbleText, dismissed]);
+  const hideBubble = () => { setBubble(false); setDismissed(true); };
   if (!ready) return null;
   return (
     <>
-      {bubble && !open && (
+      {bubble && bubbleText && !open && (
         <div className="ammarai-voice-bubble" role="status">
           <button type="button" className="ammarai-voice-bubble-text" onClick={() => { hideBubble(); setOpen(true); }}>
-            📞 Live AI Demo: Try live voice call
+            {bubbleText}
           </button>
           <button type="button" aria-label="Dismiss" className="ammarai-voice-bubble-close" onClick={hideBubble}>
             <X className="h-3.5 w-3.5" />
