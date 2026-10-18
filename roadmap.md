@@ -1,6 +1,11 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Mobile admin cursor (2026-10-19)
+- [x] Check the signed-in Site settings author fields and field switching
+- [x] Explicitly dismiss text-field focus on touch taps outside controls, preserving toolbar actions
+- [x] Verify the updated signed-in mobile editor and preview health; touch dismissal, field switching and bio formatting pass without saving test changes
+
 ## Standalone voice bot test (2026-10-17)
 - [x] Embed the supplied voice bot alongside the existing chatbot without a custom teaser
 - [x] Test readiness, native Voice Chat/End Call controls, desktop/phone bounds and admin exclusion; phone widget remains in-screen but overlays page content
