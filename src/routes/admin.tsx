@@ -132,23 +132,7 @@ function AdminLayout() {
           </div>
         ) : null}
 
-        <div
-          className="admin-content mt-8 min-w-0"
-          onPointerDownCapture={(event) => {
-            // Mobile browsers can retain the caret/keyboard when blank form
-            // space is tapped. Do not interfere with another field or toolbar.
-            if (event.pointerType !== "touch" || !(event.target instanceof Element)) return;
-            if (event.target.closest("input, textarea, select, button, a, label, [role='button'], [contenteditable]")) return;
-            const active = document.activeElement;
-            if (
-              active instanceof HTMLElement &&
-              event.currentTarget.contains(active) &&
-              active.matches("input, textarea, [contenteditable='true']")
-            ) {
-              active.blur();
-            }
-          }}
-        >
+        <div className="admin-content mt-8 min-w-0">
           <Outlet />
         </div>
       </Container>

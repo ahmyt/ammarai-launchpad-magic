@@ -218,14 +218,6 @@ export interface Page {
   geoBlockBypassKey?: string;
   /** How long a visitor's country is remembered, in hours (1-168, default 6) */
   geoBlockCacheHours?: string;
-  /** Live chatbot embed: vendor script URL (leave empty to disable the chat widget) */
-  chatbotScriptUrl?: string;
-  /** Live chatbot embed: chatbot UUID from the vendor embed code */
-  chatbotUuid?: string;
-  /** Voice bot embed: vendor script URL (leave empty to disable the voice widget) */
-  voiceScriptUrl?: string;
-  /** Voice bot embed: chatbot UUID from the vendor embed code */
-  voiceUuid?: string;
   /** Blog "About the author" card */
   showAuthorCard?: boolean;
   authorName?: string;

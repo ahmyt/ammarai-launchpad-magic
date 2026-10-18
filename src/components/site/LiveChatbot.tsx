@@ -1,55 +1,45 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { useRouterState } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
-import { siteContentQuery } from "@/lib/content";
 import { CalendarDays, MessageSquare, Mic, Phone, X } from "lucide-react";
 import { ActionButton } from "./Button";
 import { Container, Section } from "./primitives";
 import "./live-chatbot.css";
 
-const DEFAULT_SCRIPT_URL = "https://app.ammarai.com/vendor/chatbot/js/external-chatbot.js";
-const DEFAULT_UUID = "452e5efe-b3b9-480c-bd8f-96425acf5caf";
-const DEFAULT_VOICE_SCRIPT_URL = "https://app.ammarai.com/vendor/chatbot-voice/js/external-chatbot-voice.js";
-const DEFAULT_VOICE_UUID = "fca4a0d6-2cc4-4091-a92f-d59f36e60524";
+const SCRIPT_URL = "https://app.ammarai.com/vendor/chatbot/js/external-chatbot.js";
+const UUID = "452e5efe-b3b9-480c-bd8f-96425acf5caf";
+const VOICE_SCRIPT_URL = "https://app.ammarai.com/vendor/chatbot-voice/js/external-chatbot-voice.js";
+const VOICE_UUID = "81795591-8d41-4e29-b815-27ff987e117a";
 const ChatbotContext = createContext({ openChatbot: () => {}, loading: false, error: false });
 
 export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const hidden = /^\/(admin|auth)(\/|$)/.test(pathname);
-  const contentQuery = useQuery(siteContentQuery);
-  const settings = contentQuery.data?.pages.find((page) => page.slug === "settings");
-  const scriptUrl = (settings?.chatbotScriptUrl ?? DEFAULT_SCRIPT_URL).trim();
-  const uuid = (settings?.chatbotUuid ?? DEFAULT_UUID).trim();
-  const voiceScriptUrl = (settings?.voiceScriptUrl ?? DEFAULT_VOICE_SCRIPT_URL).trim();
-  const voiceUuid = (settings?.voiceUuid ?? DEFAULT_VOICE_UUID).trim();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const pendingOpen = useRef(false);
   const timeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   function loadVoiceChatbot() {
-    if (!voiceScriptUrl || !voiceUuid) return;
     if (document.getElementById("ammarai-voice-chatbot-script")) return;
     const script = document.createElement("script");
     script.id = "ammarai-voice-chatbot-script";
-    script.src = voiceScriptUrl;
+    script.src = VOICE_SCRIPT_URL;
     script.defer = true;
-    script.dataset['chatbotUuid'] = voiceUuid;
+    script.dataset['chatbotUuid'] = VOICE_UUID;
     script.dataset['language'] = "en";
     script.onerror = () => script.remove();
     document.body.appendChild(script);
   }
 
   function loadChatbot() {
-    if (!scriptUrl || !uuid) return;
     if (document.getElementById("ammarai-chatbot-script")) return;
     setLoading(true);
     setError(false);
     const script = document.createElement("script");
     script.id = "ammarai-chatbot-script";
-    script.src = scriptUrl;
+    script.src = SCRIPT_URL;
     script.defer = true;
-    script.dataset['chatbotUuid'] = uuid;
+    script.dataset['chatbotUuid'] = UUID;
     script.dataset['iframeWidth'] = "420";
     script.dataset['iframeHeight'] = "745";
     script.dataset['language'] = "en";
@@ -87,8 +77,7 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
       loadVoiceChatbot();
     }, 4000);
     return () => clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hidden, scriptUrl, uuid, voiceScriptUrl, voiceUuid]);
+  }, [hidden]);
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
@@ -141,10 +130,11 @@ function VoiceLauncher() {
   const [bubble, setBubble] = useState(false);
   useEffect(() => {
     if (!ready) return;
+    if (sessionStorage.getItem("ammarai-voice-bubble") === "off") return;
     const t = setTimeout(() => setBubble(true), 1500);
     return () => clearTimeout(t);
   }, [ready]);
-  const hideBubble = () => setBubble(false);
+  const hideBubble = () => { setBubble(false); sessionStorage.setItem("ammarai-voice-bubble", "off"); };
   if (!ready) return null;
   return (
     <>
