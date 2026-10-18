@@ -141,11 +141,10 @@ function VoiceLauncher() {
   const [bubble, setBubble] = useState(false);
   useEffect(() => {
     if (!ready) return;
-    if (sessionStorage.getItem("ammarai-voice-bubble") === "off") return;
     const t = setTimeout(() => setBubble(true), 1500);
     return () => clearTimeout(t);
   }, [ready]);
-  const hideBubble = () => { setBubble(false); sessionStorage.setItem("ammarai-voice-bubble", "off"); };
+  const hideBubble = () => setBubble(false);
   if (!ready) return null;
   return (
     <>
