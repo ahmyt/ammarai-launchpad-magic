@@ -87,7 +87,8 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
       loadVoiceChatbot();
     }, 4000);
     return () => clearTimeout(timer);
-  }, [hidden]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hidden, scriptUrl, uuid, voiceScriptUrl, voiceUuid]);
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
