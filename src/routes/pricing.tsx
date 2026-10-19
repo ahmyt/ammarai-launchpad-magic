@@ -13,7 +13,7 @@ import { freePlan } from "@/data/free-plan";
 
 const title = "Pricing: One Subscription for Every AI Tool | AmmarAI";
 const description =
-  "Compare AmmarAI's Free plan with 500 monthly credits and five paid plans from $9.99/month. Explore AI tools or start the 3-day free trial on Basic.";
+  "Compare AmmarAI plans, from a permanent free tier with 500 monthly credits to paid plans from $9.99/month. Find your fit or try Basic free for 3 days.";
 
 const faqs = [
   {
