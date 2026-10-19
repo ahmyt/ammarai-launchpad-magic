@@ -323,6 +323,12 @@ const pageSettingsFields: FieldSpec[] = [
       "Country filter: how long a visitor's country is remembered, in hours — minimum 1, maximum 168 (7 days), leave empty for 6",
     type: "text",
   },
+  {
+    name: "geoBlockVpn",
+    label:
+      "Country filter: also block VPNs, proxies and devices whose clock is set to a blocked country's timezone",
+    type: "boolean",
+  },
   { name: "chatbotEnabled", label: "Live chatbot: show on the website", type: "boolean" },
   {
     name: "chatbotEmbed",

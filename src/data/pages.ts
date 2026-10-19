@@ -118,6 +118,7 @@ export const pages: Page[] = [
       "We are carrying out scheduled maintenance for visitors in your country. Please check back shortly \u2014 everything will be back to normal soon.",
     geoBlockBypassKey: "",
     geoBlockCacheHours: "6",
+    geoBlockVpn: false,
     chatbotEnabled: true,
     chatbotEmbed:
       '<script defer src="https://app.ammarai.com/vendor/chatbot/js/external-chatbot.js" data-chatbot-uuid="452e5efe-b3b9-480c-bd8f-96425acf5caf" data-iframe-width="420" data-iframe-height="745" data-language="en" ></script>',
