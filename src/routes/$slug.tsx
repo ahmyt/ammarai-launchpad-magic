@@ -1,3 +1,4 @@
+import { SEO_OVERRIDES } from "@/data/seo-overrides";
 import { renderInline } from "@/components/cms/RichTextArea";
 import { createFileRoute, notFound, redirect, Link } from "@tanstack/react-router";
 import { retiredToolRedirects } from "@/data/retired-tools";
@@ -124,12 +125,15 @@ export const Route = createFileRoute("/$slug")({
         meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }],
       };
     }
+    const override = SEO_OVERRIDES[params.slug];
     const title =
-      loaderData.kind === "tool" ? loaderData.tool.title : loaderData.useCase.title;
+      override?.title ??
+      (loaderData.kind === "tool" ? loaderData.tool.title : loaderData.useCase.title);
     const description =
-      loaderData.kind === "tool"
+      override?.description ??
+      (loaderData.kind === "tool"
         ? loaderData.tool.description
-        : loaderData.useCase.description;
+        : loaderData.useCase.description);
     return {
       meta: [
         { title },
@@ -143,6 +147,14 @@ export const Route = createFileRoute("/$slug")({
         { name: "twitter:image", content: "https://ammarai.com/media/og-image.png" },
       ],
       links: [{ rel: "canonical", href: `https://ammarai.com/${params.slug}` }],
+      scripts: override
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({ "@context": "https://schema.org", "@graph": override.graph }),
+            },
+          ]
+        : [],
     };
   },
   component: SlugPage,

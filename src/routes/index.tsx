@@ -24,7 +24,7 @@ import { featuredTutorials } from "@/data/tutorials-featured";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
 const description =
-  `AmmarAI is an all-in-one AI platform with ${TOOL_COUNT} tools and agents for writing, chat, images, video, voice, CRM and automation. Start creating free, no card.`;
+  "One AI platform for everything you create. Build autonomous AI agents, write, generate images and videos, transcribe, and automate workflows. Start free today."
 
 const workspaceBenefits = [
   { label: "One account", icon: Check },

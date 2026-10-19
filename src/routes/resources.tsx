@@ -6,9 +6,9 @@ import { Container, Section, SectionHeading, Card } from "@/components/site/prim
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ToolCard } from "@/components/site/ToolCard";
 
-const title = "Resources: Guides, Playbooks and Tool Picks | AmmarAI";
+const title = "AI Guides, Writing Tools & Workflows for Content Creation";
 const description =
-  "Practical guides to using AI well: writing workflows, video and voice production, SEO, prompting and AmmarAI platform features, gathered in one place.";
+  "Explore practical AI guides for content, blogs, video, voiceovers, and SEO, plus tools for agents and CRM. Find an AI workflow that fits your everyday work."
 
 const resourceGuides = posts.slice(0, 6);
 const resourceTools = [...featuredTools, ...popularTools].slice(0, 6);
