@@ -218,6 +218,8 @@ export interface Page {
   geoBlockBypassKey?: string;
   /** How long a visitor's country is remembered, in hours (1-168, default 6) */
   geoBlockCacheHours?: string;
+  /** Also block VPN/proxy/datacenter IPs and blocked-country device timezones. */
+  geoBlockVpn?: boolean;
   /** Live demo widgets (embed code or UUID pasted from MagicAI) */
   chatbotEnabled?: boolean;
   chatbotEmbed?: string;

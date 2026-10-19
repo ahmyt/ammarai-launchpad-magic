@@ -173,6 +173,24 @@ function RootComponent() {
 function SiteShell() {
   const { theme } = useTheme();
 
+  // Country filter, VPN layer: remember the device timezone in a cookie after
+  // page load (never blocks rendering). If it changed, ask the server once
+  // whether this device should see the maintenance page.
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (/^\/(admin|auth)/.test(path)) return;
+    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (!zone) return;
+    const value = encodeURIComponent(zone);
+    if (document.cookie.includes(`ammarai_tz=${value}`)) return;
+    document.cookie = `ammarai_tz=${value}; Path=/; Max-Age=2592000; SameSite=Lax; Secure`;
+    void fetch(window.location.href, { method: "HEAD", cache: "no-store" })
+      .then((res) => {
+        if (res.status === 503) window.location.reload();
+      })
+      .catch(() => undefined);
+  }, []);
+
   return (
     <OfferProvider>
       <LiveChatbotProvider>
