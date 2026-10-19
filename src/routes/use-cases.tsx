@@ -8,7 +8,7 @@ import { SITE, REGISTER_URL } from "@/lib/site";
 
 const title = "AI Tools for Every Role: Marketing, Sales, Content & More";
 const description =
-  "Explore AI tools and workflows for marketers, creators, students, and developers. Find practical ways to create content, automate workflows, and work faster."
+  "Explore how AmmarAI helps marketers, creators, agencies, and more create content, write copy, and tackle everyday tasks. Find the workflow that fits you."
 const url = "https://ammarai.com/use-cases";
 
 export const Route = createFileRoute("/use-cases")({
