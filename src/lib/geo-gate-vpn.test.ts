@@ -1,4 +1,4 @@
-import { expect, test } from "bun:test";
+import { expect, test } from "vitest";
 import { evaluateGeoGate, isVpnNetwork } from "./geo-gate.server";
 const cfg = { enabled: true, mode: "block" as const, countries: ["GB"], title: "t", message: "m", bypassKey: "", cacheMs: 1, blockVpn: true };
 const req = (cookie = "", ua = "Mozilla") => new Request("https://ammarai.com/pricing", { headers: { cookie, "user-agent": ua } });
