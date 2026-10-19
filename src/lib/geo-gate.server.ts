@@ -1,3 +1,5 @@
+import { TIMEZONE_COUNTRY } from "./timezone-countries";
+
 /**
  * Country maintenance gate.
  *
@@ -21,6 +23,8 @@ export interface GeoGateSettings {
   bypassKey: string;
   /** How long a visitor's country is remembered, in milliseconds. */
   cacheMs: number;
+  /** Also block VPN/proxy/datacenter IPs and devices whose timezone is in a blocked country. */
+  blockVpn: boolean;
 }
 
 const DEFAULT_CACHE_HOURS = 6;
@@ -36,6 +40,7 @@ const DEFAULTS: GeoGateSettings = {
     "We are carrying out scheduled maintenance for visitors in your country. Please check back shortly — everything will be back to normal soon.",
   bypassKey: "",
   cacheMs: DEFAULT_CACHE_HOURS * 60 * 60 * 1000,
+  blockVpn: false,
 };
 
 const SETTINGS_TTL_MS = 60_000;
@@ -46,8 +51,20 @@ let settingsCache: GeoGateSettings = DEFAULTS;
 let settingsFetchedAt = 0;
 let settingsInFlight: Promise<void> | null = null;
 
-const geoCache = new Map<string, { country: string; at: number }>();
-const geoInFlight = new Map<string, Promise<string>>();
+interface GeoInfo {
+  country: string;
+  /** True when the IP belongs to a VPN, proxy or hosting/datacenter network. */
+  vpn: boolean;
+}
+
+const geoCache = new Map<string, GeoInfo & { at: number }>();
+const geoInFlight = new Map<string, Promise<GeoInfo>>();
+
+// Networks that residential visitors never browse from: VPN brands, proxy
+// relays and cloud/datacenter hosts. Matched against the IP owner's org/ISP.
+const VPN_NETWORK_RE =
+  /(vpn|proxy|m247|datacamp|cdn77|packethub|tzulo|hostroyale|leaseweb|ovh|hetzner|digitalocean|linode|akamai connected cloud|vultr|choopa|contabo|amazon|aws|google cloud|google llc|microsoft|azure|oracle|alibaba|tencent|scaleway|online s\.a\.s|hostinger|ionos|godaddy|hostwinds|psychz|quadranet|colocrossing|zenlayer|g-core|gcore|cogent|clouvider|performive|wholesale internet|frantech|buyvm|servers\.com|hivelocity|serverius|worldstream|nforce|i3d|creanova|zscaler|cloudflare|fastly|private internet access|nordvpn|expressvpn|surfshark|mullvad|protonvpn|proton ag|cyberghost|ipvanish|windscribe|hide\.me|kape|tefincom|data ?cent|hosting|server|cloud)/i;
+
 
 // Three-letter codes (e.g. "FRA") are accepted and converted to two-letter.
 const ALPHA3: Record<string, string> = Object.fromEntries(
@@ -86,6 +103,7 @@ function normalise(data: Record<string, unknown> | undefined): GeoGateSettings {
     message: String(data["geoBlockMessage"] ?? "").trim() || DEFAULTS.message,
     bypassKey: String(data["geoBlockBypassKey"] ?? "").trim(),
     cacheMs: cacheHours(data["geoBlockCacheHours"]) * 60 * 60 * 1000,
+    blockVpn: data["geoBlockVpn"] === true,
   };
 }
 
@@ -154,11 +172,14 @@ function headerCountry(request: Request): string {
   return /^[A-Z]{2}$/.test(code) ? code : "";
 }
 
-function cachedCountry(ip: string, ttlMs: number = DEFAULTS.cacheMs): string {
-  if (!ip || PRIVATE_IP_RE.test(ip)) return "";
+function cachedGeo(ip: string): GeoInfo | null {
+  if (!ip || PRIVATE_IP_RE.test(ip)) return null;
   const hit = geoCache.get(ip);
-  if (hit && Date.now() - hit.at < ttlMs) return hit.country;
-  return hit?.country ?? "";
+  return hit && hit.country ? { country: hit.country, vpn: hit.vpn } : null;
+}
+
+function cachedCountry(ip: string): string {
+  return cachedGeo(ip)?.country ?? "";
 }
 
 async function fetchCountry(url: string, json = false): Promise<string> {
@@ -178,39 +199,51 @@ async function fetchCountry(url: string, json = false): Promise<string> {
   }
 }
 
-async function lookupCountry(ip: string): Promise<string> {
-  const encodedIp = encodeURIComponent(ip);
-  const requests = [
-    fetchCountry(`https://ipwho.is/${encodedIp}?fields=country_code`, true),
-    fetchCountry(`https://ipapi.co/${encodedIp}/country/`),
-  ];
-  return new Promise((resolve) => {
-    let remaining = requests.length;
-    let settled = false;
-    for (const request of requests) {
-      void request.then((country) => {
-        if (!settled && country) {
-          settled = true;
-          resolve(country);
-          return;
-        }
-        remaining -= 1;
-        if (!settled && remaining === 0) resolve("");
-      });
-    }
-  });
+/** ipwho.is returns country plus network owner, so it also powers VPN detection. */
+async function fetchIpWho(ip: string): Promise<GeoInfo | null> {
+  try {
+    const response = await fetch(
+      `https://ipwho.is/${encodeURIComponent(ip)}?fields=country_code,connection`,
+      { headers: { accept: "application/json", "user-agent": "ammarai-geo-gate" }, signal: AbortSignal.timeout(1400) },
+    );
+    if (!response.ok) return null;
+    const body = (await response.json()) as {
+      country_code?: unknown;
+      connection?: { org?: unknown; isp?: unknown; domain?: unknown };
+    };
+    const country = String(body.country_code ?? "").trim().toUpperCase();
+    if (!/^[A-Z]{2}$/.test(country)) return null;
+    return { country, vpn: isVpnNetwork(body.connection) };
+  } catch {
+    return null;
+  }
 }
 
-function resolveCountry(ip: string, ttlMs: number): Promise<string> {
-  const cached = cachedCountry(ip, ttlMs);
+export function isVpnNetwork(connection?: { org?: unknown; isp?: unknown; domain?: unknown }): boolean {
+  if (!connection) return false;
+  const owner = [connection.org, connection.isp, connection.domain].map((v) => String(v ?? "")).join(" ");
+  return VPN_NETWORK_RE.test(owner);
+}
+
+async function lookupCountry(ip: string): Promise<GeoInfo> {
+  // ipwho.is is preferred because it carries network data; ipapi.co is the
+  // fallback for the country only. Both run in parallel, capped at 1.4s.
+  const backup = fetchCountry(`https://ipapi.co/${encodeURIComponent(ip)}/country/`);
+  const primary = await fetchIpWho(ip);
+  if (primary) return primary;
+  return { country: await backup, vpn: false };
+}
+
+function resolveCountry(ip: string): Promise<GeoInfo> {
+  const cached = cachedGeo(ip);
   if (cached) return Promise.resolve(cached);
   const active = geoInFlight.get(ip);
   if (active) return active;
   const lookup = lookupCountry(ip)
-    .then((country) => {
+    .then((info) => {
       if (geoCache.size >= GEO_CACHE_MAX) geoCache.clear();
-      geoCache.set(ip, { country, at: Date.now() });
-      return country;
+      geoCache.set(ip, { ...info, at: Date.now() });
+      return info;
     })
     .finally(() => geoInFlight.delete(ip));
   geoInFlight.set(ip, lookup);
@@ -248,22 +281,29 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   const config = await settings();
   if (!config.enabled) return { block: null, cookie: null };
   const cookies = request.headers.get("cookie") ?? "";
-  let country = headerCountry(request) || (cookies.match(/ammarai_cc=([A-Z]{2}|XX)/)?.[1] ?? "");
+  // Cookie value: "GB" (residential) or "GB-V" (VPN/datacenter network).
+  const remembered = cookies.match(/ammarai_cc=([A-Z]{2}|XX)(-V)?/);
+  let info: GeoInfo | null = remembered ? { country: remembered[1]!, vpn: Boolean(remembered[2]) } : null;
+  const header = headerCountry(request);
+  if (header && !config.blockVpn) info = { country: header, vpn: false };
   let fresh = false;
-  if (!country) {
+  if (!info) {
     const ip = clientIp(request);
-    country = cachedCountry(ip, config.cacheMs);
-    if (!country && ip && !PRIVATE_IP_RE.test(ip)) {
+    info = cachedGeo(ip);
+    if (!info && ip && !PRIVATE_IP_RE.test(ip)) {
       // While the filter is on, resolve before rendering so a new visitor gets
       // the same decision on the first request and every refresh after it.
-      country = await resolveCountry(ip, config.cacheMs);
+      info = await resolveCountry(ip);
     }
+    if (info && header) info = { ...info, country: header };
     fresh = true;
   }
-  const response = evaluateGeoGate(request, config, country === "XX" ? "" : country);
+  const country = info?.country ?? "";
+  const response = evaluateGeoGate(request, config, country === "XX" ? "" : country, info?.vpn ?? false);
   if (!fresh || !country) return { block: response, cookie: null };
   const maxAge = Math.round(config.cacheMs / 1000);
-  const cookie = `${COUNTRY_COOKIE}=${country}; Path=/; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Lax`;
+  const value = `${country}${info?.vpn ? "-V" : ""}`;
+  const cookie = `${COUNTRY_COOKIE}=${value}; Path=/; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Lax`;
   if (response) response.headers.append("set-cookie", cookie);
   return { block: response, cookie };
 }
@@ -273,6 +313,7 @@ export function evaluateGeoGate(
   request: Request,
   config: GeoGateSettings,
   knownCountry?: string,
+  vpn = false,
 ): Response | null {
   if (!config.enabled) return null;
 
@@ -303,8 +344,15 @@ export function evaluateGeoGate(
   if (cookies.includes("sb-") && cookies.includes("-auth-token")) return null; // signed-in staff
 
   const country =
-    knownCountry ?? (headerCountry(request) || cachedCountry(clientIp(request), config.cacheMs));
-  if (!isBlocked(country, config)) return null;
+    knownCountry ?? (headerCountry(request) || cachedCountry(clientIp(request)));
+  // Device timezone is written by a tiny browser script after page load.
+  const tzRaw = cookies.match(/ammarai_tz=([^;]+)/)?.[1];
+  const tzCountry = tzRaw ? (TIMEZONE_COUNTRY[decodeURIComponent(tzRaw)] ?? "") : "";
+  const blocked =
+    isBlocked(country, config) ||
+    (config.blockVpn && vpn) ||
+    (config.blockVpn && tzCountry !== "" && config.mode === "block" && isBlocked(tzCountry, config));
+  if (!blocked) return null;
 
   return new Response(maintenanceHtml(config), {
     status: 503,
