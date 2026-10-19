@@ -6,9 +6,9 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { SITE, REGISTER_URL } from "@/lib/site";
 
-const title = "AI Use Cases by Role and Industry | AmmarAI Workflows";
+const title = "AI Tools for Every Role: Marketing, Sales, Content & More";
 const description =
-  "See how marketers, creators, agencies and clinics use AmmarAI day to day — from hands-on content creation to AI agents that schedule and publish for them.";
+  "Explore AI tools and workflows for marketers, creators, students, and developers. Find practical ways to create content, automate workflows, and work faster."
 const url = "https://ammarai.com/use-cases";
 
 export const Route = createFileRoute("/use-cases")({
