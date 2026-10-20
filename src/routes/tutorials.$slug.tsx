@@ -4,6 +4,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, Info, Lightbulb, TriangleAlert }
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { buttonClass } from "@/components/site/Button";
 import { Container } from "@/components/site/primitives";
+import { TutorialFigure } from "@/components/site/TutorialFigure";
 import { adjacentTutorials, getTutorial, type Tutorial, type TutorialCallout } from "@/data/tutorials";
 
 export const Route = createFileRoute("/tutorials/$slug")({
@@ -210,19 +211,7 @@ function TutorialPage() {
                       <div className="tutorial-step-content">
                         <h3>{step.title}</h3>
                         <p>{step.body}</p>
-                        {step.image ? (
-                          <figure className="tutorial-step-figure">
-                            <img
-                              src={step.image.src}
-                              alt={step.image.alt}
-                              width={step.image.width}
-                              height={step.image.height}
-                              loading="lazy"
-                              decoding="async"
-                            />
-                            {step.image.caption ? <figcaption>{step.image.caption}</figcaption> : null}
-                          </figure>
-                        ) : null}
+                        {step.image ? <TutorialFigure image={step.image} /> : null}
                       </div>
                     </li>
                   ))}
