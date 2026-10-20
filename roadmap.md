@@ -470,3 +470,8 @@
 - [x] Organization data: absolute site URL, logo and image added; sameAs now lists Facebook, TikTok and Instagram
 - [x] Homepage heading now reads "One AI platform for everything you create" to match the page title keyword
 - [x] Caching + security headers now sent by the app itself (src/server.ts + nitro routeRules for self-hosted builds), since Zap-Hosting webspace cannot add nginx directives
+
+## Tutorials expansion (2026-10-20)
+- [x] Replace remaining "Magic AI" wording site-wide with AmmarAI
+- [x] Add tutorials for newer tools (Video Agent, Auto Edit Videos, Chat Pro Connectors) with AmmarAI-branded screenshots
+- [ ] Add screenshots to existing text-only guides: reference docs have no user-facing captures for them (voice clone, SEO, deep research, try-on, transcription); needs real AmmarAI dashboard screenshots from the user
