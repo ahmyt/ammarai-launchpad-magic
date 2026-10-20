@@ -286,11 +286,13 @@ function ToolPage({ tool }: { tool: Tool }) {
           {tool.slug === "ai-video-agent" ? (
             <div className="mt-8 max-w-3xl">
               <TutorialFigure
-                src="/media/tutorials/tutorial-video-agent-1.png"
-                alt="AmmarAI Video Agent with Avatar, Voice, Look Pack and Brand selectors, description box and Send button"
-                caption="The Video Agent workspace: describe your video and choose presenter, voice, look and brand."
-                width={760}
-                height={445}
+                image={{
+                  src: "/media/tutorials/tutorial-video-agent-1.png",
+                  alt: "AmmarAI Video Agent with Avatar, Voice, Look Pack and Brand selectors, description box and Send button",
+                  caption: "The Video Agent workspace: describe your video and choose presenter, voice, look and brand.",
+                  width: 760,
+                  height: 445,
+                }}
               />
             </div>
           ) : null}
