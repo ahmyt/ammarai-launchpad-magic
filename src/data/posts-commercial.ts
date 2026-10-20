@@ -115,7 +115,7 @@ export const commercialPosts: Post[] = [
       {
         heading: "7. Self-hosted and white-label platforms",
         paragraphs: [
-          "Codebases like MagicAI are sold as white-label AI SaaS you host and rebrand yourself, under many reseller domains with their own prices. Feature breadth is wide — chat, copy, image, video, voice, phone agents — but there is no single authoritative price, and support and reliability depend entirely on which reseller you buy from.",
+          "Many AI SaaS codebases are sold as white-label AI SaaS you host and rebrand yourself, under many reseller domains with their own prices. Feature breadth is wide — chat, copy, image, video, voice, phone agents — but there is no single authoritative price, and support and reliability depend entirely on which reseller you buy from.",
           "This is a sensible route if you are an agency launching your own branded product. It is a poor route if you just want a working tool on Monday.",
         ],
       },
