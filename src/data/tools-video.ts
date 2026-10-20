@@ -8,6 +8,50 @@ const sharedTips = [
 
 export const videoTools: Tool[] = [
   {
+    slug: "ai-video-agent",
+    name: "AI Video Agent",
+    category: "AI Video",
+    summary: "Turn a written brief into a presenter video with avatar, voice, look and brand choices, plus optional storyboard review.",
+    title: "AI Video Agent: Brief to Presenter Video | AmmarAI",
+    description: "Create presenter videos from a brief with AmmarAI's AI Video Agent. Choose avatar, voice, brand and format, review a storyboard, then render and download.",
+    h1: "AI Video Agent",
+    lede: "Describe the video you want, choose a presenter and brand style, and turn your brief into a playable video. Render directly or review the storyboard first.",
+    ctaLabel: "Create a presenter video",
+    recent: true,
+    what: [
+      "AI Video Agent turns a plain-language description into a finished presenter video. It brings avatar, voice, Look Pack and saved Brand choices into one workflow, with optional product photos or script references.",
+      "Leave the settings on Auto for a first draft, or choose the duration and orientation yourself. One-shot renders directly; Review storyboard lets you approve the structure before the final video is rendered.",
+      "Use AI Video Pro for generated motion scenes, AI Avatar for a talking-avatar workflow, and AI Video Editor for existing footage. AI Video Agent is the brief-to-presenter-video option.",
+    ],
+    canDo: ["Create presenter and explainer videos from a description", "Attach product photos or script references", "Choose avatar, voice, Look Pack and saved Brand", "Set duration and portrait or landscape orientation", "Render directly or review the storyboard first", "Play and download completed videos from Recent Videos"],
+    how: [
+      { title: "Describe the video", body: "Open Video Agent and write the subject, audience, tone and message. Attach reference files if needed." },
+      { title: "Choose presenter and format", body: "Keep avatar, voice, look and brand on Auto, or select them. Set the duration and orientation and add custom instructions under More." },
+      { title: "Pick the review mode", body: "Use One-shot to render directly or Review storyboard to approve the structure first." },
+      { title: "Render and review", body: "Click Send, wait for Processing to finish, then play and download the result from Recent Videos." },
+    ],
+    examples: [
+      { label: "Product explainer brief", input: "Describe a 30-second portrait presenter video explaining how our product helps a busy team. Use the attached product photo, a warm voice and our saved Brand. Review the storyboard first.", output: "An illustrative workflow: a storyboard to review, followed by a rendered presenter video using the selected format and brand direction." },
+      { label: "Launch announcement brief", input: "Create a 15-second landscape presenter video announcing our new service. Keep the message clear and welcoming, choose avatar and voice automatically, and use One-shot.", output: "An illustrative workflow: a directly rendered announcement video available to play and download in Recent Videos." },
+    ],
+    capabilities: [
+      { title: "Presenter choices in one place", body: "Choose avatar, voice, visual Look Pack and saved Brand, or leave them on Auto." },
+      { title: "Storyboard approval", body: "Review the proposed structure before rendering, rather than waiting for a finished video to assess the idea." },
+      { title: "Format control", body: "Choose Auto, 15 seconds, 30 seconds or 1 minute; use Auto, Portrait (9:16) or Landscape (16:9) orientation." },
+    ],
+    audiences: [{ who: "Marketing teams", why: "Turn approved messages into presenter-led explainers and announcements." }, { who: "Product teams", why: "Use product references and a clear brief to communicate a product story." }, { who: "Content creators", why: "Prepare short presenter videos in portrait or landscape without a filming session." }],
+    useCases: [{ title: "Product explainers", body: "Describe the product and its value, attach references and review the storyboard before rendering." }, { title: "Brand announcements", body: "Combine a short announcement brief with saved brand choices and a suitable presenter." }],
+    tips: ["Give the video one audience and one clear message.", "Use Review storyboard when the structure needs approval.", "Check product details, narration and brand presentation before publishing."],
+    mistakes: ["Treating a generated testimonial-style video as a genuine customer review", "Leaving important product facts out of the brief", "Publishing without watching the completed render"],
+    faqs: [
+      { q: "How is AI Video Agent different from AI Video Pro?", a: "AI Video Agent focuses on presenter videos from a brief with avatar, voice, look, brand and storyboard choices. AI Video Pro is the generated-scene and motion-video tool." },
+      { q: "Can I approve a storyboard first?", a: "Yes. Choose Review storyboard instead of One-shot to review the structure before the final render." },
+      { q: "Do I have to choose every setting?", a: "No. Avatar, voice, look, brand, duration and orientation can stay on Auto." },
+      { q: "Where is the finished video?", a: "Recent Videos shows Processing while rendering. Once ready, the video can be played and downloaded." },
+    ],
+    related: ["ai-video-generator", "ai-avatar-generator", "ai-video-editor", "ai-captions"],
+  },
+  {
     slug: "ai-video-editor",
     name: "AI Video Editor",
     category: "AI Video",
@@ -36,7 +80,7 @@ export const videoTools: Tool[] = [
     tips: sharedTips,
     mistakes: ["Uploading only low-resolution previews", "Asking for several conflicting editing styles", "Publishing without checking the final crop"],
     faqs: [{ q: "Does it output a real video?", a: "Yes. The result is a playable video file, not a written edit plan." }, { q: "Can I keep my original footage?", a: "Yes. The source is preserved and each edit is a separate version." }],
-    related: ["ai-video-generator", "ai-captions", "ai-dubbing", "ai-image-to-video"],
+    related: ["ai-video-agent", "ai-video-generator", "ai-captions", "ai-dubbing", "ai-image-to-video"],
   },
   {
     slug: "ai-captions",

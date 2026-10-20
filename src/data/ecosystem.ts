@@ -238,6 +238,13 @@ export const toolWorkflows: FlagshipWorkflow[] = [
   },
   // Video
   {
+    slug: "ai-video-agent",
+    bring: "A video brief, optional product photos or script references, and your presenter and brand choices.",
+    process: "AmmarAI uses your avatar, voice, look and format choices to render directly or prepare a storyboard for approval first.",
+    get: "A finished presenter video available to play and download in Recent Videos.",
+    useCaseSlugs: ["ai-marketing-video-maker", "ai-product-demo-video-maker", "ai-social-media-video-maker"],
+  },
+  {
     slug: "ai-video-editor",
     bring: "Your raw footage and a description of the finished cut — pacing, colour, transitions and sound.",
     process: "AmmarAI trims weak takes, reorders scenes, grades colour, cleans dialogue, balances music and reframes for vertical.",

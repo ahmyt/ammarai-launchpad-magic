@@ -7,6 +7,7 @@ import { ActionButton, ButtonLink } from "@/components/site/Button";
 const showcaseSlugs = [
   "ai-blogger-agent",
   "ai-deep-research",
+  "ai-video-agent",
   "ai-video-editor",
   "ai-captions",
   "ugc-factory",
@@ -27,6 +28,7 @@ const showcaseOutcomes: Record<(typeof showcaseSlugs)[number], string> = {
   "ai-blogger-agent": "A consistent flow of researched, SEO-ready WordPress articles published on your schedule.",
   "ai-social-media-publisher": "Platform-ready posts previewed, scheduled, and published from one calendar.",
   "ai-deep-research": "A structured, cited report compiled from multiple live web sources.",
+  "ai-video-agent": "A presenter video shaped by your brief, avatar, voice and brand, with optional storyboard approval.",
   "ai-video-editor": "A polished, correctly paced video prepared in the format your channel needs.",
   "ai-captions": "An accessible, social-ready captioned video with editable transcript and subtitle files.",
   "ugc-factory": "A batch of creator-style videos with virtual talent, voiceover, and lip-synced delivery.",

@@ -68,6 +68,10 @@ export const recentTools = toolSummaries.filter((t) => t.recent).slice(0, 6);
 /** Frontend-only intent matcher used by the discovery search. No AI backend. */
 const intentMap: { keywords: string[]; slugs: string[] }[] = [
   {
+    keywords: ["video agent", "presenter video", "storyboard", "explainer video", "announcement video"],
+    slugs: ["ai-video-agent", "ai-avatar-generator", "ai-video-generator", "ai-video-editor"],
+  },
+  {
     keywords: ["template", "templates", "generator", "generators", "quick copy", "short copy", "framework"],
     slugs: [
       "article-wizard",
@@ -255,6 +259,7 @@ const intentMap: { keywords: string[]; slugs: string[] }[] = [
     keywords: ["video", "reel", "short", "youtube", "tiktok"],
     slugs: [
       "ai-video-generator",
+      "ai-video-agent",
       "ai-video-editor",
       "ai-captions",
       "ai-dubbing",
