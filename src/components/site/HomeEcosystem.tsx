@@ -18,7 +18,9 @@ export function EcosystemOverview({ tools }: { tools: Tool[] }) {
         />
         <div className="ecosystem-pillar-grid mt-12">
           {pillarOrder.map((pillar, index) => {
-            const pillarTools = toolsInPillar(tools, pillar);
+            const pillarTools = [...toolsInPillar(tools, pillar)].sort(
+              (a, b) => Number(b.slug === "ai-video-agent") - Number(a.slug === "ai-video-agent"),
+            );
             return (
               <article key={pillar} className="ecosystem-pillar">
                 <div className="flex items-start justify-between gap-4">

@@ -27,3 +27,20 @@ describe("AI Video Agent discovery", () => {
     expect(allToolWorkflows.find((item) => item.slug === "ai-video-agent")?.useCaseSlugs).toHaveLength(3);
   });
 });
+import { featuredTools } from "./tools-lite";
+import { pillarForTool } from "./ecosystem";
+import { plans } from "../lib/site";
+describe("AI Video Agent flagship placement", () => {
+  test("is the 11th flagship, right after AI Phone Agent", () => {
+    const slugs = featuredTools.map((t) => t.slug);
+    expect(slugs).toHaveLength(11);
+    expect(slugs.indexOf("ai-video-agent")).toBe(slugs.indexOf("ai-phone-agent") + 1);
+  });
+  test("sits in the Automate pillar", () => {
+    expect(pillarForTool(toolSummaryBySlug.get("ai-video-agent"))).toBe("Automate");
+  });
+  test("is listed in Basic plan features", () => {
+    const basic = plans.find((p) => p.name === "Basic");
+    expect(basic.newInPlan.map((i) => i.title)).toContain("AI Video Agent");
+  });
+});
