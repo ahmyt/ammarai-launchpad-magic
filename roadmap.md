@@ -478,3 +478,8 @@
 - [x] Review richer guides: Blogger Agent expanded from eleven to sixteen image-led steps; other reviewed guides already contain their verified screenshot sequences
 - [x] Verify four expanded/reviewed guides at 1280px and 390px: all 30 images decode, enlarged/original-size viewer opens and closes, no horizontal overflow or runtime errors
 - [ ] Add screenshots to existing text-only guides: reference docs have no user-facing captures for them (voice clone, SEO, deep research, try-on, transcription); needs real AmmarAI dashboard screenshots from the user
+
+## AI Video Agent website coverage (2026-10-20)
+- [x] Add a tutorial-backed tool page, catalogue/search entry, homepage showcase and workflow card
+- [x] Link from relevant video tools and marketing/product/social video use cases without changing pricing or tutorial wording
+- [x] Verify discovery-to-tool-to-tutorial navigation and mobile layout; four focused tests pass, screenshot loads, SEO metadata present and build OK

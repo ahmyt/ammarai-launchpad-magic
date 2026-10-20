@@ -189,6 +189,13 @@ export const toolIndex: ToolSummary[] = [
   "recent": true
  },
  {
+  "slug": "ai-video-agent",
+  "name": "AI Video Agent",
+  "category": "AI Video",
+  "summary": "Turn a written brief into a presenter video with avatar, voice, look and brand choices, plus optional storyboard review.",
+  "recent": true
+ },
+ {
   "slug": "ai-video-editor",
   "name": "AI Video Editor",
   "category": "AI Video",

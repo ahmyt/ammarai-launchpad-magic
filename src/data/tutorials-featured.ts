@@ -4,18 +4,18 @@ export const featuredTutorials = [
   "slug": "how-to-use-ai-chat-pro",
   "category": "Chat & Documents",
   "h1": "How to use AI Chat Pro",
-  "description": "Use AmmarAI AI Chat Pro with model selection, skills, file uploads and web search for focused, well-grounded conversations."
+  "description": "Use AmmarAI AI Chat Pro with model selection, skills, file uploads and web search for focused, well-grounded conversations. Step-by-step guide with screenshots."
  },
  {
   "slug": "how-to-chat-with-documents",
   "category": "Chat & Documents",
   "h1": "How to chat with documents in AmmarAI",
-  "description": "Upload a document to AmmarAI, attach it to a chat, ask a focused question and continue with grounded follow-up questions."
+  "description": "Upload a document to AmmarAI, attach it to a chat, ask a focused question and continue with grounded follow-up questions. Step-by-step guide with screenshots."
  },
  {
   "slug": "how-to-use-ai-image-pro",
   "category": "Image",
   "h1": "How to use AI Image Pro",
-  "description": "Create images in AmmarAI AI Image Pro by setting a prompt, variations, style, ratio and model, then reviewing the results."
+  "description": "Create images in AmmarAI AI Image Pro by setting a prompt, variations, style, ratio and model, then reviewing the results. Step-by-step guide with screenshots."
  }
 ];

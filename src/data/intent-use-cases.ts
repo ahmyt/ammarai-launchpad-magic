@@ -26,6 +26,7 @@ export const intentUseCases: UseCase[] = [
     ],
     toolkit: [
       { slug: "ai-video-generator", why: "Generates the core video from a script or prompt, including scene direction, voice and pacing choices." },
+      { slug: "ai-video-agent", why: "Creates presenter-led campaign explainers from a brief, with avatar, voice, brand choices and optional storyboard review." },
       { slug: "ad-script-generator", why: "Develops multiple campaign hooks and script angles before video generation begins." },
       { slug: "ai-captions", why: "Adds readable captions for silent viewing and social delivery." },
     ],
@@ -61,6 +62,7 @@ export const intentUseCases: UseCase[] = [
     ],
     toolkit: [
       { slug: "ai-ugc-generator", why: "Creates on-camera product demonstrations and testimonial-style video from a product brief." },
+      { slug: "ai-video-agent", why: "Turns a product brief and reference photos into a presenter-led explainer with storyboard approval before rendering." },
       { slug: "ai-video-generator", why: "Creates scene-led product explainers, ad variants and promotional sequences." },
       { slug: "ai-captions", why: "Creates captions for product demos viewed without sound." },
     ],
@@ -96,6 +98,7 @@ export const intentUseCases: UseCase[] = [
     ],
     toolkit: [
       { slug: "ai-video-generator", why: "Creates prompt- or image-led video for short-form campaigns." },
+      { slug: "ai-video-agent", why: "Creates short portrait presenter videos from a brief with avatar, voice and saved brand choices." },
       { slug: "ai-captions", why: "Creates captions that make the clip understandable without sound." },
       { slug: "ai-social-media-agent", why: "Prepares, schedules and publishes approved social content across connected channels." },
     ],
