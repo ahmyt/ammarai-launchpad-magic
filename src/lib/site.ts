@@ -220,6 +220,7 @@ export const plans: Plan[] = [
     featureCount: 170,
     newInPlan: [
       { title: "AI Agent", description: "An autonomous agent that plans and completes multi-step tasks for you." },
+      { title: "AI Video Agent", description: "Turn a brief into a presenter video using your avatar, voice and brand choices, with optional storyboard approval." },
       { title: "AI Video Generation", description: "Create videos from text prompts or images, ready for social and ads." },
       { title: "AI Social Media & Automation", description: "Schedule and auto-publish AI-generated posts across your social channels." },
       { title: "Article Wizard & AI ReWriter", description: "Generate full structured articles step by step, or rewrite existing content in a fresh voice." },
