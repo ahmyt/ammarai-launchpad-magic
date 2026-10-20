@@ -20,6 +20,7 @@ import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
 import { OfferInline } from "@/components/site/OfferInline";
 import { toolDemoMedia, type ToolDemoMedia } from "@/data/tool-demos";
 import { tutorialsByTool } from "@/data/tutorials";
+import { TutorialFigure } from "@/components/site/TutorialFigure";
 import { allToolWorkflows, pillarForTool } from "@/data/ecosystem";
 import { useCases } from "@/data/use-cases";
 
@@ -91,6 +92,7 @@ const audienceCardToolSlugs = new Set([
   "ai-chat",
   "ai-image-generator",
   "ai-video-generator",
+  "ai-video-agent",
   "ai-avatar-generator",
   "ai-transcription",
   "ai-blogger-agent",
@@ -281,6 +283,17 @@ function ToolPage({ tool }: { tool: Tool }) {
       <Section tone="sand">
         <Container>
           <SectionHeading eyebrow="How it works" title={`Using the ${tool.name}`} />
+          {tool.slug === "ai-video-agent" ? (
+            <div className="mt-8 max-w-3xl">
+              <TutorialFigure
+                src="/media/tutorials/tutorial-video-agent-1.png"
+                alt="AmmarAI Video Agent with Avatar, Voice, Look Pack and Brand selectors, description box and Send button"
+                caption="The Video Agent workspace: describe your video and choose presenter, voice, look and brand."
+                width={760}
+                height={445}
+              />
+            </div>
+          ) : null}
           <NumberedList items={tool.how} />
         </Container>
       </Section>

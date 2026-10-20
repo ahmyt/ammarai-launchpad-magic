@@ -3802,6 +3802,13 @@ for (const tutorial of tutorials) {
   tutorialByTool.set(tutorial.cta.toolSlug, tutorial);
 }
 
+// Associate the newly catalogued tool without rewriting its verified tutorial.
+const videoAgentTutorial = tutorialBySlug.get("how-to-create-a-video-with-the-video-agent");
+if (videoAgentTutorial) {
+  tutorialByTool.set("ai-video-agent", videoAgentTutorial);
+  tutorialsByTool.set("ai-video-agent", [videoAgentTutorial]);
+}
+
 export function tutorialsByCategory(category: TutorialCategory): Tutorial[] {
   return tutorials.filter((tutorial) => tutorial.category === category);
 }

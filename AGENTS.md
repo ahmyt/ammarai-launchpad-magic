@@ -15,3 +15,4 @@
 - Load the external chat and standalone voice widgets once through the shared provider after initial paint; preserve native launchers, keep them on opposite screen edges, and hide both on admin/auth pages because the vendors expose no teardown API.
 - Country-filter VPN layer combines IP network-owner matching with a client-set device-timezone cookie checked server-side, so blocking stays a server 503 and adds no render-blocking work.
 - Render tutorial step media through TutorialFigure with an accessible fit/original-size viewer so native-resolution reference controls remain inspectable on small screens.
+- Register new video tools in the shared video catalogue and regenerate the lightweight index; associate existing tutorials without rewriting their verified copy so discovery, CMS and tutorial links stay aligned.
