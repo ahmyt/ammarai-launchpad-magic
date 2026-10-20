@@ -3533,6 +3533,206 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-use-ai-captions"],
     cta: { toolName: "AI Transcription", toolSlug: "ai-transcription" },
   },
+  {
+    slug: "how-to-create-a-video-with-the-video-agent",
+    category: "Video",
+    title: "How to Create a Video with the Video Agent | AmmarAI",
+    description:
+      "Describe a video in plain language, pick avatar, voice, look and brand, then let the AmmarAI Video Agent render it. Step-by-step guide with screenshots.",
+    h1: "How to create a video with the Video Agent",
+    intro: [
+      "The Video Agent turns a plain-language description into a finished presenter video. You describe what the video should say, choose an avatar, voice, visual look and brand, and AmmarAI renders the result for you.",
+      "Every setting can stay on Auto, so a first video only needs a clear description. Use the extra controls when you want tighter control over the presenter, length or format.",
+    ],
+    whenToUse: [
+      "You need a short presenter or explainer video without filming anything.",
+      "You want a product demo, testimonial-style or announcement video from a written brief.",
+      "You want to review a storyboard before the final render.",
+    ],
+    sections: [
+      {
+        heading: "Open the Video Agent and describe the video",
+        steps: [
+          {
+            title: "Open the Video Agent",
+            body: "Choose Video Agent from the AmmarAI side menu. The page shows the description box at the top, a session counter at the top left and your recent videos below.",
+            image: { src: "/media/tutorials/tutorial-video-agent-1.png", alt: "AmmarAI Video Agent panel with Avatar, Voice, Look Pack and Brand selectors above the description box and the Send button", caption: "Describe the video, then set avatar, voice, look and brand.", width: 760, height: 445 },
+          },
+          {
+            title: "Write the description",
+            body: "Type what the video is about, its tone and what it should communicate — for example “See how our product demo turns ideas into results fast”. The box accepts up to 10,000 characters.",
+          },
+          {
+            title: "Attach reference files (optional)",
+            body: "Click the + button to attach up to 20 reference files, such as product photos or a script, to steer the result.",
+          },
+        ],
+      },
+      {
+        heading: "Choose the presenter and format",
+        steps: [
+          {
+            title: "Pick avatar, voice, look and brand",
+            body: "Leave each selector on Auto to let AmmarAI choose, or pick a specific avatar, voice, Look Pack (overall visual style) and saved Brand (colours, logo and fonts).",
+          },
+          {
+            title: "Set duration and orientation",
+            body: "Choose Auto, 15 seconds, 30 seconds or 1 minute, and Auto, Portrait (9:16) or Landscape (16:9). Use portrait for Reels, Shorts and TikTok, landscape for websites and YouTube.",
+          },
+          {
+            title: "Add custom instructions",
+            body: "Open More to add directives for this video only, such as pacing, tone or on-screen text requirements.",
+          },
+        ],
+      },
+      {
+        heading: "Generate and review",
+        steps: [
+          {
+            title: "Choose the generation mode",
+            body: "One-shot renders the video directly from your description. Review storyboard first produces a storyboard you can approve before the final video is rendered.",
+          },
+          {
+            title: "Send and wait for the render",
+            body: "Click Send. The video card shows Processing in Recent Videos while it renders, then becomes available to play and download.",
+          },
+          {
+            title: "Manage recent videos",
+            body: "Recent Videos lists every generated video with its prompt and time. Use Select All for bulk actions.",
+          },
+        ],
+        callouts: [
+          { type: "tip", body: "Choose Review storyboard for longer or client-facing videos so you can fix the structure before credits are spent on the final render." },
+        ],
+      },
+    ],
+    relatedTools: ["ai-video-generator", "ai-avatar-generator", "ai-video-editor"],
+    relatedTutorials: ["how-to-edit-videos-automatically-with-a-prompt", "how-to-create-ai-influencer-videos"],
+    cta: { toolName: "AI Video Pro", toolSlug: "ai-video-generator" },
+  },
+  {
+    slug: "how-to-edit-videos-automatically-with-a-prompt",
+    category: "Video",
+    title: "How to Auto Edit Videos with a Prompt | AmmarAI",
+    description:
+      "Attach a clip, describe the edit — highlights, captions, music, colour — and let AmmarAI Auto Edit Videos produce the cut. Step-by-step guide with a screenshot.",
+    h1: "How to edit videos automatically with a prompt",
+    intro: [
+      "Auto Edit Videos edits existing footage from a plain-language instruction. Attach a video, describe the edit you want, set the output size and AmmarAI produces the edited version automatically.",
+    ],
+    whenToUse: [
+      "You want a highlight reel cut from a long interview or recording.",
+      "You want captions, background music or colour correction added without a timeline editor.",
+      "You need the same clip reformatted for vertical, square or widescreen.",
+    ],
+    sections: [
+      {
+        heading: "Attach the video and describe the edit",
+        steps: [
+          {
+            title: "Open Auto Edit Videos",
+            body: "Choose Auto Edit Videos from the AmmarAI side menu. The edit box sits at the top and your recent edits appear below.",
+            image: { src: "/media/tutorials/tutorial-auto-edit-videos-1.png", alt: "AmmarAI Auto Edit Videos panel with an edit instruction, duration, 1080p resolution, 16:9 aspect ratio and the Start editing button", caption: "Describe the edit and choose duration, resolution and aspect ratio.", width: 760, height: 417 },
+          },
+          {
+            title: "Attach a video",
+            body: "Click + and choose Upload files to add a video from your device, or Add from URL to paste a direct link to a video file.",
+          },
+          {
+            title: "Describe the edit",
+            body: "Write exactly what should happen, for example “Cut this interview into a 90 second highlight reel, remove the silences, add captions and background music” or “Add captions in red and yellow background”.",
+          },
+        ],
+      },
+      {
+        heading: "Set the output and start",
+        steps: [
+          {
+            title: "Choose duration, resolution and aspect ratio",
+            body: "Duration can be Auto, 15, 30, 60, 90 or 180 seconds. Resolution can be 720p, 1080p or 4K. Aspect ratio can be 16:9, 9:16 or 1:1.",
+          },
+          {
+            title: "Add style notes (optional)",
+            body: "Click the equaliser icon next to + to add style guidance — a consistent look, tone or branding rules for the output.",
+          },
+          {
+            title: "Start editing",
+            body: "Click Start editing. The finished video appears in Recent Videos when the render completes, with your instruction and the time it was made.",
+          },
+        ],
+        callouts: [
+          { type: "note", body: "You are only charged once a render finishes. Failed edits cost nothing." },
+        ],
+      },
+    ],
+    relatedTools: ["ai-video-editor", "ai-captions", "ai-video-generator"],
+    relatedTutorials: ["how-to-edit-videos-with-the-ai-video-editor", "how-to-use-ai-captions", "how-to-create-viral-clips"],
+    cta: { toolName: "AI Video Editor", toolSlug: "ai-video-editor" },
+  },
+  {
+    slug: "how-to-connect-gmail-drive-notion-and-calendar-to-ai-chat-pro",
+    category: "Chat & Documents",
+    title: "How to Connect Gmail, Drive & Notion to AI Chat Pro",
+    description:
+      "Link Gmail, Outlook, Notion, Google Drive and Google Calendar to AmmarAI AI Chat Pro so answers use your own emails, files and schedule. Guide with screenshots.",
+    h1: "How to connect Gmail, Drive, Notion and Calendar to AI Chat Pro",
+    intro: [
+      "Connectors let AI Chat Pro read context from the services you already use — Gmail, Outlook, Notion, Google Drive and Google Calendar. Once a service is connected, the chat pulls in relevant emails, files, notes or events only when your question needs them.",
+    ],
+    whenToUse: [
+      "You want a summary of your latest unread emails.",
+      "You need to find a file in Drive or a note in Notion without leaving the chat.",
+      "You want to plan your day around the meetings already in your calendar.",
+    ],
+    sections: [
+      {
+        heading: "Open the Connectors window",
+        steps: [
+          {
+            title: "Open the + menu in the chat box",
+            body: "In AI Chat Pro, click the + button at the left of the message box and choose Connectors. The same menu also holds Upload Files, Web Search, Deep Research, Canvas, Prompt library, Skills and Brand Voice.",
+            image: { src: "/media/tutorials/tutorial-chat-connectors-1.png", alt: "AmmarAI AI Chat Pro with the + menu open and Connectors highlighted above the message box", caption: "Click + in the message box and choose Connectors.", width: 1901, height: 932 },
+          },
+        ],
+      },
+      {
+        heading: "Connect a service",
+        steps: [
+          {
+            title: "Choose the service and click Connect",
+            body: "The Connectors window lists Gmail, Outlook, Notion, Google Drive and Google Calendar. Use the search field to find one, then click Connect next to it.",
+            image: { src: "/media/tutorials/tutorial-chat-connectors-2.png", alt: "Connectors window listing Gmail, Outlook, Notion, Google Drive and Google Calendar, each with a Connect button", caption: "Pick a service and click Connect.", width: 1908, height: 940 },
+          },
+          {
+            title: "Sign in and approve access",
+            body: "Sign in to the service in the window that opens and approve the requested access. You return to AI Chat Pro and the service shows as connected.",
+          },
+        ],
+        callouts: [
+          { type: "note", body: "Only the services enabled for your workspace appear in the list. If one is missing, contact your workspace administrator." },
+        ],
+      },
+      {
+        heading: "Ask questions that use your data",
+        steps: [
+          {
+            title: "Ask naturally",
+            body: "Try “Summarize my latest unread emails”, “Find the contract file in Drive”, “What meetings do I have tomorrow?” or “Search my Notion notes about marketing”.",
+          },
+          {
+            title: "Check the source badges",
+            body: "Answers that used a connector show a source badge, so you can see whether the information came from Gmail, Drive, Notion, Outlook or Calendar.",
+          },
+        ],
+        callouts: [
+          { type: "tip", body: "AI Chat Pro only retrieves connected data when your question calls for it, so ordinary chats stay unaffected." },
+        ],
+      },
+    ],
+    relatedTools: ["ai-chat", "ai-document-analyzer"],
+    relatedTutorials: ["how-to-use-ai-chat-pro", "how-to-chat-with-documents", "how-to-use-temporary-chat"],
+    cta: { toolName: "AI Chat Pro", toolSlug: "ai-chat" },
+  },
 ];
 
 

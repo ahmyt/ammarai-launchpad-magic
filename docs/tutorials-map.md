@@ -228,3 +228,11 @@ The reference documentation is now exhausted for end-user content: every remaini
 | how-to-run-a-cited-research-report-with-ai-deep-research | ai-deep-research | Brief, depth, citations check |
 | how-to-put-a-garment-on-a-model-with-ai-fashion-try-on | ai-virtual-try-on | Flat lay upload, model/setting, QA |
 | how-to-transcribe-a-meeting-or-interview | ai-transcription | Recording quality, speaker labels, exports |
+
+## Batch 20 (newer tools)
+
+| Reference page | AmmarAI equivalent | Decision | Notes |
+| --- | --- | --- | --- |
+| video-agent | Video Agent (CTA `ai-video-generator`) | Included — `how-to-create-a-video-with-the-video-agent` | Requirements, activation, provider key, webhook and admin modules excluded. One capture (23-09-2026-01-02-30) cropped to the generation panel (700,105)-(1460,550), removing the source sidebar wordmark and admin top bar. |
+| auto-edit-videos | Auto Edit Videos (CTA `ai-video-editor`) | Included — `how-to-edit-videos-automatically-with-a-prompt` | Provider key, public media URL and plan setup excluded. One capture (23-09-2026-01-36-51) cropped to (710,108)-(1470,525); the "not configured" admin notice was painted out with the sampled panel background. |
+| ai-chat-pro-connectors | AI Chat Pro (`ai-chat`) | Included — `how-to-connect-gmail-drive-notion-and-calendar-to-ai-chat-pro` | All OAuth credential setup excluded. con3/con4 at native size: centre wordmark (931,12)-(1022,35)/(930,13)-(1028,40) and far-right avatar (1858,14)-(1877,33)/(1857,15)-(1879,37) replaced with the AmmarAI logo and wordmark; con4's dimmed modal backdrop matched at 45% opacity. |

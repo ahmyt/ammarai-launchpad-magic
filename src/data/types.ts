@@ -220,7 +220,7 @@ export interface Page {
   geoBlockCacheHours?: string;
   /** Also block VPN/proxy/datacenter IPs and blocked-country device timezones. */
   geoBlockVpn?: boolean;
-  /** Live demo widgets (embed code or UUID pasted from MagicAI) */
+  /** Live demo widgets (embed code or UUID pasted from the AmmarAI dashboard) */
   chatbotEnabled?: boolean;
   chatbotEmbed?: string;
   voiceBotEnabled?: boolean;

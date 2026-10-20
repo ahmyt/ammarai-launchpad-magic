@@ -332,13 +332,13 @@ const pageSettingsFields: FieldSpec[] = [
   { name: "chatbotEnabled", label: "Live chatbot: show on the website", type: "boolean" },
   {
     name: "chatbotEmbed",
-    label: "Live chatbot: embed code from MagicAI (paste the full <script> tag)",
+    label: "Live chatbot: embed code from your AmmarAI dashboard (paste the full <script> tag)",
     type: "textarea",
   },
   { name: "voiceBotEnabled", label: "Voice chatbot: show the phone button", type: "boolean" },
   {
     name: "voiceBotEmbed",
-    label: "Voice chatbot: embed code from MagicAI (paste the full <script> tag)",
+    label: "Voice chatbot: embed code from your AmmarAI dashboard (paste the full <script> tag)",
     type: "textarea",
   },
   { name: "voiceBubbleEnabled", label: "Voice chatbot: show the pop-up bubble", type: "boolean" },
