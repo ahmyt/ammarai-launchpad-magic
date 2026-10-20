@@ -480,6 +480,6 @@
 - [ ] Add screenshots to existing text-only guides: reference docs have no user-facing captures for them (voice clone, SEO, deep research, try-on, transcription); needs real AmmarAI dashboard screenshots from the user
 
 ## AI Video Agent website coverage (2026-10-20)
-- [ ] Add a tutorial-backed tool page, catalogue/search entry, homepage showcase and workflow card
-- [ ] Link from relevant video tools and marketing/product/social video use cases without changing pricing or tutorial wording
-- [ ] Verify discovery-to-tool-to-tutorial navigation and mobile layout
+- [x] Add a tutorial-backed tool page, catalogue/search entry, homepage showcase and workflow card
+- [x] Link from relevant video tools and marketing/product/social video use cases without changing pricing or tutorial wording
+- [x] Verify discovery-to-tool-to-tutorial navigation and mobile layout; four focused tests pass, screenshot loads, SEO metadata present and build OK
