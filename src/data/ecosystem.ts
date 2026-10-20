@@ -27,8 +27,11 @@ export const categoryPillar = Object.fromEntries(
   pillarOrder.flatMap((pillar) => pillarDetails[pillar].categories.map((category) => [category, pillar])),
 ) as Record<ToolCategory, EcosystemPillar>;
 
+/** Tools whose workspace pillar differs from their catalogue category. */
+const slugPillar: Record<string, EcosystemPillar> = { "ai-video-agent": "Automate" };
+
 export function pillarForTool(tool: Pick<ToolSummary, "slug" | "category">): EcosystemPillar {
-  return categoryPillar[tool.category];
+  return slugPillar[tool.slug] ?? categoryPillar[tool.category];
 }
 
 export function toolsInPillar<T extends ToolSummary>(tools: T[], pillar: EcosystemPillar): T[] {
@@ -99,6 +102,13 @@ export const flagshipWorkflows: FlagshipWorkflow[] = [
     process: "AmmarAI handles the conversation, follows the guidance, and records the outcome.",
     get: "A repeatable phone workflow for reception, qualification, support, or bookings.",
     useCaseSlugs: ["ai-for-small-business", "ai-for-entrepreneurs", "ai-for-agencies"],
+  },
+  {
+    slug: "ai-video-agent",
+    bring: "A video brief, optional product photos or script references, and your presenter and brand choices.",
+    process: "AmmarAI uses your avatar, voice, look and format choices to render directly or prepare a storyboard for approval first.",
+    get: "A finished presenter video available to play and download in Recent Videos.",
+    useCaseSlugs: ["ai-for-marketing", "ai-for-content-creators", "ai-for-small-business"],
   },
   {
     slug: "ai-crm",

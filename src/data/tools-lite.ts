@@ -49,6 +49,7 @@ const flagshipSlugs = [
   "ai-agent-builder",
   "ai-social-media-agent",
   "ai-phone-agent",
+  "ai-video-agent",
   "ai-crm",
   "ai-writer",
   "ai-chat",

@@ -141,7 +141,7 @@ const starterInclusions: PlanFeatureGroup[] = [
 const basicInclusions: PlanFeatureGroup[] = [
   {
     heading: "Agents, Video & Automation",
-    items: ["AI Agent", "AI Video Generation", "AI Social Media & Automation"],
+    items: ["AI Agent", "AI Video Agent", "AI Video Generation", "AI Social Media & Automation"],
   },
   {
     heading: "Writing & Content Checks",
