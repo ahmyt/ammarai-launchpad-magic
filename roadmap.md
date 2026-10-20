@@ -474,4 +474,7 @@
 ## Tutorials expansion (2026-10-20)
 - [x] Replace remaining "Magic AI" wording site-wide with AmmarAI
 - [x] Add tutorials for newer tools (Video Agent, Auto Edit Videos, Chat Pro Connectors) with AmmarAI-branded screenshots
+- [ ] Expand AI Agent Builder and Phone Agent visual workflows against the current end-user references
+- [ ] Review Social Media Agent, Blogger Agent, External Chatbot, Photoshoot, Influencer and Smart Inbox for missing verified visual steps
+- [ ] Verify expanded guides, AmmarAI branding, image loading and phone/desktop presentation
 - [ ] Add screenshots to existing text-only guides: reference docs have no user-facing captures for them (voice clone, SEO, deep research, try-on, transcription); needs real AmmarAI dashboard screenshots from the user
