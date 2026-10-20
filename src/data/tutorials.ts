@@ -1,3 +1,19 @@
+import { assetUrl } from "@/lib/asset-url";
+import screenshot0 from "@/assets/tutorials/tutorial-agent-builder-01-v2.webp.asset.json";
+import screenshot1 from "@/assets/tutorials/tutorial-agent-builder-02-v2.webp.asset.json";
+import screenshot2 from "@/assets/tutorials/tutorial-agent-builder-04-v2.webp.asset.json";
+import screenshot3 from "@/assets/tutorials/tutorial-agent-builder-05-v2.webp.asset.json";
+import screenshot4 from "@/assets/tutorials/tutorial-agent-builder-06-v2.webp.asset.json";
+import screenshot5 from "@/assets/tutorials/tutorial-blogger-agent-11-v2.webp.asset.json";
+import screenshot6 from "@/assets/tutorials/tutorial-blogger-agent-16-v2.webp.asset.json";
+import screenshot7 from "@/assets/tutorials/tutorial-outbound-calls-2-v3.webp.asset.json";
+import screenshot8 from "@/assets/tutorials/tutorial-outbound-calls-3-v3.webp.asset.json";
+import screenshot9 from "@/assets/tutorials/tutorial-blogger-agent-06.webp.asset.json";
+import screenshot10 from "@/assets/tutorials/tutorial-blogger-agent-08.webp.asset.json";
+import screenshot11 from "@/assets/tutorials/tutorial-blogger-agent-12.webp.asset.json";
+import screenshot12 from "@/assets/tutorials/tutorial-blogger-agent-13.webp.asset.json";
+import screenshot13 from "@/assets/tutorials/tutorial-blogger-agent-14.webp.asset.json";
+
 /**
  * AmmarAI tutorials verified against both the public AmmarAI tool catalogue and
  * a corresponding end-user reference guide. Administrative and setup material
@@ -1089,12 +1105,12 @@ export const tutorials: Tutorial[] = [
           {
             title: "Open the agent dashboard",
             body: "Open AI Agent Builder. Start with the plain-language description box, open the visual builder, or choose a featured starting point such as a daily report, weekly summary or morning briefing.",
-            image: { src: "/media/tutorials/tutorial-agent-builder-01.png", alt: "AmmarAI Agent Builder dashboard with a plain-language agent description field and featured workflows", caption: "Choose a starting point for the workflow.", width: 1644, height: 815 },
+            image: { src: assetUrl(screenshot0.url), alt: "AmmarAI Agent Builder dashboard with a plain-language agent description field and featured workflows", caption: "Choose a starting point for the workflow.", width: 1644, height: 815 },
           },
           {
             title: "Connect only the services the job needs",
             body: "Open Manage Connectors, select Add Connector and link the account needed by this workflow. Keep access narrow: an email workflow needs its mailbox, while an unrelated service can remain disconnected.",
-            image: { src: "/media/tutorials/tutorial-agent-builder-02.png", alt: "AmmarAI Agent Builder dashboard with the Manage Connectors action highlighted", caption: "Open the connector manager from the agent dashboard.", width: 1523, height: 490 },
+            image: { src: assetUrl(screenshot1.url), alt: "AmmarAI Agent Builder dashboard with the Manage Connectors action highlighted", caption: "Open the connector manager from the agent dashboard.", width: 1523, height: 490 },
           },
           {
             title: "Choose the relevant connector",
@@ -1109,15 +1125,19 @@ export const tutorials: Tutorial[] = [
           {
             title: "Describe the complete job",
             body: "State what should happen, when it should run and where the result belongs. For example: every weekday morning, summarize yesterday’s messages and send the briefing to a chosen channel. Continue the conversation to refine the workflow.",
-            image: { src: "/media/tutorials/tutorial-agent-builder-04.png", alt: "AmmarAI Agent Builder description box and workflow starting options", caption: "Describe the goal, timing and destination in one clear brief.", width: 1637, height: 839 },
+            image: { src: assetUrl(screenshot2.url), alt: "AmmarAI Agent Builder description box and workflow starting options", caption: "Describe the goal, timing and destination in one clear brief.", width: 1637, height: 839 },
           },
           {
-            title: "Set the trigger and chain the actions",
-            body: "Choose a schedule or an incoming channel message as the trigger. Add the required actions in order and pass useful output forward, such as reading messages, summarizing them and sending the final report.",
+            title: "Choose when the agent starts",
+            body: "In the Visual Builder, select the Trigger node. Choose Schedule for a recurring job, using a preset or a custom schedule. Choose Channel Message when the workflow should react to an incoming message on a connected channel. Check that the trigger matches your brief before adding actions.",
+          },
+          {
+            title: "Add and connect the actions",
+            body: "Use + to open Add Step. Choose actions such as Ask Agent, Send Message, Generate Report, Gmail or Outlook according to the job. Put them in execution order and use the previous step’s output where needed. For an email briefing, read the messages first, summarize them next and send the final report last. Use a Path step when the next action depends on a condition.",
           },
           {
             title: "Test, save and activate",
-            body: "Run a test, inspect the result and correct any vague instruction. Save the agent only when the test follows the intended path, then switch it to Active. You can pause it at any time.",
+            body: "For a Channel Message workflow, use Test Agent to send a sample message and inspect the result. Correct vague instructions or missing connections, then Save and set the agent Active. For scheduled work, review the first scheduled run in the agent’s history. Pause the agent while correcting an unexpected result.",
           },
         ],
       },
@@ -1127,12 +1147,12 @@ export const tutorials: Tutorial[] = [
           {
             title: "Review every agent from one list",
             body: "Open Agents to compare statuses and last-run times. Use the options menu to edit, pause or remove a workflow, or start a conversation with an agent directly.",
-            image: { src: "/media/tutorials/tutorial-agent-builder-05.png", alt: "AmmarAI agents list with status, last-run information and agent options", caption: "Check status and recent activity across all agents.", width: 1736, height: 639 },
+            image: { src: assetUrl(screenshot3.url), alt: "AmmarAI agents list with status, last-run information and agent options", caption: "Check status and recent activity across all agents.", width: 1736, height: 639 },
           },
           {
             title: "Inspect messages and run details",
-            body: "Open Channel Messages, select a conversation and read the full history. Use Details and Logs to verify what the agent received, which steps ran and what it produced before expanding the workflow’s responsibility.",
-            image: { src: "/media/tutorials/tutorial-agent-builder-06.png", alt: "AmmarAI agent conversation with Details and Logs for a completed workflow", caption: "Use the conversation history and logs to audit each run.", width: 1693, height: 661 },
+            body: "Open Channel Messages and filter by channel to find a conversation. Read the full history, then use Details and Logs to check the configuration, incoming message, execution path and output. Reply directly when a conversation needs your attention. Review the first runs before expanding the agent’s responsibility.",
+            image: { src: assetUrl(screenshot4.url), alt: "AmmarAI agent conversation with Details and Logs for a completed workflow", caption: "Use the conversation history and logs to audit each run.", width: 1693, height: 661 },
           },
         ],
         callouts: [{ type: "tip", body: "Begin with one narrow job and review its first runs in full before increasing its schedule or access." }],
@@ -1171,8 +1191,10 @@ export const tutorials: Tutorial[] = [
         heading: "Create a focused blogger agent",
         steps: [
           { title: "Start a new agent", body: "Open Agents and select Add Agent. Keep one clear niche or publishing purpose per agent so its drafts remain consistent.", image: { src: "/media/tutorials/tutorial-blogger-agent-04.png", alt: "AmmarAI Blogger Agent list with the Add Agent action", caption: "Create a separate agent for each distinct content strategy.", width: 1918, height: 946 } },
-          { title: "Define the niche and article type", body: "Enter the main subject, then choose the article format that best fits the audience and publishing destination.", image: { src: "/media/tutorials/tutorial-blogger-agent-05.png", alt: "Blogger Agent setup asking for the content niche", caption: "Begin with one specific subject area.", width: 1912, height: 877 } },
+          { title: "Define the niche", body: "Enter the main subject for the agent. Make the niche specific enough to guide every article, then continue to the article-type step.", image: { src: "/media/tutorials/tutorial-blogger-agent-05.png", alt: "Blogger Agent setup asking for the content niche", caption: "Begin with one specific subject area.", width: 1912, height: 877 } },
+          { title: "Choose the article type", body: "Select the structure that fits the topic: a how-to guide, listicle, informational article, comparison or another available format. Continue once the format matches what readers need.", image: { src: assetUrl(screenshot9.url), alt: "Blogger Agent article-type step with guide, listicle and comparison format choices", caption: "Choose the article structure separately from its subject.", width: 1919, height: 872 } },
           { title: "Set the content preferences", body: "Choose whether posts should include images, emojis or current web research, and set the language and tone required for this agent.", image: { src: "/media/tutorials/tutorial-blogger-agent-07.png", alt: "Blogger Agent setup with content preference fields", caption: "Set the output rules before scheduling posts.", width: 1911, height: 857 } },
+          { title: "Review language, length and research choices", body: "Before continuing, check the language, approximate article length and tone. Enable web or keyword research only when it is relevant to the subject, and confirm whether images and emojis should appear in the output.", image: { src: assetUrl(screenshot10.url), alt: "Blogger Agent personalization step with research toggles, language, article length and tone", caption: "Review the output preferences before scheduling.", width: 1911, height: 857 } },
           { title: "Choose the schedule", body: "Select the posting days, time and frequency. Use a sustainable cadence that leaves enough time to review early drafts.", image: { src: "/media/tutorials/tutorial-blogger-agent-09.png", alt: "Blogger Agent schedule step with posting cadence controls", caption: "Choose when and how often the agent should prepare content.", width: 1915, height: 815 } },
           { title: "Name and create the agent", body: "Give the agent a recognizable name, check the summary and create it. The name will identify its work in the post library and reports.", image: { src: "/media/tutorials/tutorial-blogger-agent-10.png", alt: "Final Blogger Agent setup step with agent name and create action", caption: "Name the agent so its posts are easy to trace.", width: 1911, height: 845 } },
         ],
@@ -1180,9 +1202,12 @@ export const tutorials: Tutorial[] = [
       {
         heading: "Manage posts, dates and results",
         steps: [
-          { title: "Filter the post library", body: "Open Posts and sort or filter by date, status or title. Drafts remain editable, while scheduled and published items provide a clear record of the queue.", image: { src: "/media/tutorials/tutorial-blogger-agent-11.png", alt: "AmmarAI Blogger Agent post library with filters and status columns", caption: "Use the post library to find drafts and scheduled work quickly.", width: 1907, height: 863 } },
+          { title: "Filter the post library", body: "Open Posts and sort or filter by date, status or title. Drafts remain editable, while scheduled and published items provide a clear record of the queue.", image: { src: assetUrl(screenshot5.url), alt: "AmmarAI Blogger Agent post library with filters and status columns", caption: "Use the post library to find drafts and scheduled work quickly.", width: 1907, height: 863 } },
+          { title: "Duplicate a post for a new draft", body: "Open the actions menu beside a post and choose Duplicate when you want a separate version to adapt. Review and edit the copy before using it; duplicating an item is not a substitute for checking its accuracy.", image: { src: assetUrl(screenshot11.url), alt: "Blogger Agent post actions menu with Duplicate highlighted", caption: "Create a separate copy from the post’s actions menu.", width: 1911, height: 827 } },
+          { title: "Share a published post", body: "Use the share action on a published row to open the available destinations, including X, WhatsApp and Telegram. Select the destination you intend and review the message before sending it.", image: { src: assetUrl(screenshot12.url), alt: "Blogger Agent published post share menu with X, WhatsApp and Telegram destinations", caption: "Choose a sharing destination for a published item.", width: 1919, height: 803 } },
+          { title: "Check the selected row before sharing", body: "The same share menu can appear beside other post statuses. Confirm which row you opened and whether the article is ready to be shared; a scheduled label does not mean the article has already published.", image: { src: assetUrl(screenshot13.url), alt: "Blogger Agent share menu opened beside a scheduled post", caption: "Check the post and its status before sending a link.", width: 1911, height: 815 } },
           { title: "Use the full calendar", body: "Open Calendar for a month-level view of every scheduled and published item. Check for empty stretches and crowded publishing days before changing the cadence.", image: { src: "/media/tutorials/tutorial-blogger-agent-15.png", alt: "AmmarAI Blogger Agent monthly content calendar", caption: "The calendar shows the complete publishing rhythm.", width: 1914, height: 937 } },
-          { title: "Review reports and analytics", body: "Use Reports and Analytics to compare posting volume and activity by agent. Use what you learn to adjust future topics, formats and frequency.", image: { src: "/media/tutorials/tutorial-blogger-agent-16.png", alt: "AmmarAI Blogger Agent reports and analytics dashboard", caption: "Measure activity before revising the content plan.", width: 1920, height: 864 } },
+          { title: "Review reports and analytics", body: "Use Reports and Analytics to compare posting volume and activity by agent. Use what you learn to adjust future topics, formats and frequency.", image: { src: assetUrl(screenshot6.url), alt: "AmmarAI Blogger Agent reports and analytics dashboard", caption: "Measure activity before revising the content plan.", width: 1920, height: 864 } },
         ],
       },
     ],
@@ -1995,6 +2020,27 @@ export const tutorials: Tutorial[] = [
         ],
       },
       {
+        heading: "Review the conversation settings",
+        table: {
+          head: ["Field", "What to check"],
+          rows: [
+            ["Agent Title", "Use an internal name that makes the agent’s purpose recognizable in the list."],
+            ["Welcome Message", "Write the first spoken line: identify the business and ask one clear opening question."],
+            ["Agent Instructions", "Define the job, permitted answers, information to collect and when a person should take over."],
+            ["Language", "Choose the conversation language, or use Auto when that option is available and language detection is appropriate."],
+            ["Max Call Duration", "Check the per-call limit before saving so a routine conversation has enough time to finish."],
+            ["Voice", "Choose an available voice that callers can understand clearly. Available voices depend on the workspace configuration."],
+            ["Booking Assistant", "Enable it only for an agent intended to handle appointments and with a configured booking destination."],
+          ],
+        },
+        paragraphs: ["The phone preview updates the agent name and greeting as you edit. Read both back before continuing. Training is optional: choose URL, PDF or Text for business-specific answers, then use Next or Skip as appropriate."],
+      },
+      {
+        heading: "Review calls after saving",
+        steps: [{ title: "Open Call History", body: "From the Phone Call Agent dashboard, choose Call History. Review the assigned agent, call status, duration and start/end times, then read the transcript to confirm how the conversation was handled. Use a completed call to refine unclear instructions, and investigate failed calls before sending more customers to the agent." }],
+        callouts: [{ type: "note", body: "Creating an agent is not the same as making it reachable by phone. An assigned, working phone number is required for inbound calls. This guide leaves provider credentials and phone-number setup out of the customer-facing workflow." }],
+      },
+      {
         heading: "Write safer instructions",
         bullets: [
           "State the agent's purpose in one sentence before adding detailed rules.",
@@ -2036,12 +2082,12 @@ export const tutorials: Tutorial[] = [
           {
             title: "Place a single call",
             body: "Choose Place a Call, select the phone agent, enter the destination number and write a concise instruction for this conversation. Review the number and the brief, then create the call.",
-            image: { src: "/media/tutorials/tutorial-outbound-calls-2.png", alt: "AmmarAI Place a Call dialog with agent, phone number and instruction fields", caption: "A single call needs an agent, a destination and a clear brief.", width: 1777, height: 738 },
+            image: { src: assetUrl(screenshot7.url), alt: "AmmarAI Place a Call dialog with agent, phone number and instruction fields", caption: "A single call needs an agent, a destination and a clear brief.", width: 1777, height: 738 },
           },
           {
             title: "Create a batch call",
             body: "Choose New Batch Call when the same approved workflow applies to several recipients. Name the batch, choose the agent, add the contact source and write the shared instruction. Check the list before starting so every recipient belongs in this campaign.",
-            image: { src: "/media/tutorials/tutorial-outbound-calls-3.png", alt: "AmmarAI New Batch Call dialog with batch name, agent, phone numbers and instruction fields", caption: "Use a batch only when one call brief fits every selected recipient.", width: 1478, height: 838 },
+            image: { src: assetUrl(screenshot8.url), alt: "AmmarAI New Batch Call dialog with batch name, agent, phone numbers and instruction fields", caption: "Use a batch only when one call brief fits every selected recipient.", width: 1478, height: 838 },
           },
           {
             title: "Monitor the call history",
