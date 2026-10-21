@@ -48,14 +48,12 @@ export function TryLiveSection() {
               <h3 className="mt-5 text-xl font-semibold text-foreground">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
               <p className="mt-4 border-l-2 border-accent bg-secondary/60 px-3 py-2 text-sm italic text-foreground">{sample}</p>
-              <ExternalButton
-                href={href}
-                target="_blank"
-                rel="noopener"
-                className="mt-6 inline-flex items-center justify-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                {cta} <ArrowRight className="size-4" />
-              </ExternalButton>
+              <div className="mt-auto pt-6">
+                <ExternalButton href={href} target="_blank" rel="noopener" className="w-full sm:w-auto">
+                  <Icon className="size-4 shrink-0" aria-hidden="true" />
+                  {cta} <ArrowRight className="size-4" />
+                </ExternalButton>
+              </div>
             </div>
           ))}
           <div className="flex flex-col border border-border bg-card p-6 sm:p-8">
