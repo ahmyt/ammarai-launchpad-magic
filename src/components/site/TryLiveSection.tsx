@@ -1,6 +1,7 @@
-import { ArrowRight, CalendarDays, ImageIcon, MessageSquare } from "lucide-react";
+import { ArrowRight, CalendarDays, ImageIcon, MessageSquare, Phone } from "lucide-react";
 import { Container, Section, SectionHeading } from "@/components/site/primitives";
 import { ChatbotTryButton } from "./LiveChatbot";
+import { PhoneDemoButton } from "./PhoneDemoDialog";
 import { ExternalButton } from "./Button";
 
 export const TRY_CHAT_URL = "https://app.ammarai.com/chat";
