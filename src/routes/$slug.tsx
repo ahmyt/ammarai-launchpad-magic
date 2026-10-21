@@ -19,6 +19,7 @@ import { AnimatedExample } from "@/components/site/AnimatedExample";
 import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
 import { OfferInline } from "@/components/site/OfferInline";
 import { toolDemoMedia, type ToolDemoMedia } from "@/data/tool-demos";
+import { PhoneDemoButton } from "@/components/site/PhoneDemoDialog";
 import { tutorialsByTool } from "@/data/tutorials";
 import { TutorialFigure } from "@/components/site/TutorialFigure";
 import { allToolWorkflows, pillarForTool } from "@/data/ecosystem";
@@ -317,6 +318,18 @@ function ToolPage({ tool }: { tool: Tool }) {
             demoVideos={demoMedia}
             className="mt-8 max-w-3xl"
           />
+
+          {tool.slug === "ai-phone-agent" ? (
+            <div className="mt-8 max-w-3xl border border-border bg-card p-6 sm:p-8">
+              <h3 className="text-lg font-semibold text-foreground">Hear it live — call the demo agent</h3>
+              <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
+                The recordings above are real conversations. Want to try it yourself? Call our live demo
+                number and talk with an AmmarAI phone agent right now — no account needed.
+              </p>
+              <PhoneDemoButton className="mt-5" label="Show the demo phone number" />
+            </div>
+          ) : null}
+
 
           {tool.examples.length > 2 ? (
             <SamplePromptAccordion examples={tool.examples} />
