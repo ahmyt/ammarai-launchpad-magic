@@ -41,7 +41,7 @@ export function TryLiveSection() {
             <li key={b} className="rounded-full border border-border bg-secondary px-3 py-1">{b}</li>
           ))}
         </ul>
-        <div className="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-3">
+        <div className="mx-auto mt-10 grid max-w-6xl gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {cards.map(({ title, text, sample, href, cta, icon: Icon }) => (
             <div key={title} className="flex flex-col border border-border bg-card p-6 sm:p-8">
               <span className="grid size-11 place-items-center bg-accent text-accent-foreground"><Icon className="size-5" /></span>
@@ -64,6 +64,13 @@ export function TryLiveSection() {
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Chat with our 24/7 website assistant. Ask about AmmarAI, leave your details and book an appointment automatically.</p>
             <p className="mt-4 border-l-2 border-accent bg-secondary/60 px-3 py-2 text-sm italic text-foreground">“Can I book an appointment for tomorrow at 2 PM?”</p>
             <ChatbotTryButton className="mt-auto pt-6" />
+          </div>
+          <div className="flex flex-col border border-border bg-card p-6 sm:p-8">
+            <span className="grid size-11 place-items-center bg-accent text-accent-foreground"><Phone className="size-5" /></span>
+            <h3 className="mt-5 text-xl font-semibold text-foreground">AI Phone Call Agent</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Call our live demo number and have a real conversation with an AI phone agent — it answers, asks questions and books appointments.</p>
+            <p className="mt-4 border-l-2 border-accent bg-secondary/60 px-3 py-2 text-sm italic text-foreground">“Hi, I'd like to book a check-up for next week.”</p>
+            <PhoneDemoButton className="mt-auto pt-6" />
           </div>
         </div>
       </Container>
