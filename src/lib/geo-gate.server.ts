@@ -278,7 +278,7 @@ p{margin:0;font-size:16px;color:#55504a}
 const COUNTRY_COOKIE = "ammarai_cc";
 
 /** Own servers (e.g. the app.ammarai.com Plesk host) always pass the gate. */
-export const ALLOWED_SERVER_IPS = new Set(["185.223.31.164"]);
+export const ALLOWED_SERVER_IPS = new Set(["185.223.31.164", "194.156.89.107"]);
 
 export async function geoMaintenanceResponse(request: Request): Promise<{ block: Response | null; cookie: string | null }> {
   const config = await settings();
