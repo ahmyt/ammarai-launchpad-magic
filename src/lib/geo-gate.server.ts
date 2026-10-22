@@ -277,9 +277,13 @@ p{margin:0;font-size:16px;color:#55504a}
  */
 const COUNTRY_COOKIE = "ammarai_cc";
 
+/** Own servers (e.g. the app.ammarai.com Plesk host) always pass the gate. */
+export const ALLOWED_SERVER_IPS = new Set(["185.223.31.164"]);
+
 export async function geoMaintenanceResponse(request: Request): Promise<{ block: Response | null; cookie: string | null }> {
   const config = await settings();
   if (!config.enabled) return { block: null, cookie: null };
+  if (ALLOWED_SERVER_IPS.has(clientIp(request))) return { block: null, cookie: null };
   const cookies = request.headers.get("cookie") ?? "";
   // Cookie value: "GB" (residential) or "GB-V" (VPN/datacenter network).
   const remembered = cookies.match(/ammarai_cc=([A-Z]{2}|XX)(-V)?/);
