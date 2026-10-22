@@ -9,3 +9,12 @@ test("US residential passes", () => expect(evaluateGeoGate(req("ammarai_tz=Ameri
 test("googlebot passes", () => expect(evaluateGeoGate(req("", "Googlebot"), cfg, "US", true)).toBeNull());
 test("nord detected", () => expect(isVpnNetwork({ org: "M247 Europe SRL" })).toBe(true));
 test("BT not vpn", () => expect(isVpnNetwork({ org: "British Telecommunications PLC", isp: "BT" })).toBe(false));
+// Both Plesk outgoing addresses must stay allowlisted, otherwise MagicAI's
+// agent training gets 503 when it scrapes ammarai.com.
+test("both plesk outgoing ips allowlisted", () => {
+  expect(ALLOWED_SERVER_IPS.has("185.223.31.164")).toBe(true);
+  expect(ALLOWED_SERVER_IPS.has("194.156.89.107")).toBe(true);
+});
+// The allowlist must not weaken the gate for real visitors.
+test("residential visitor in blocked country still gets 503", () =>
+  expect(evaluateGeoGate(req(), cfg, "GB", false)?.status).toBe(503));
