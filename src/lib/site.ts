@@ -153,7 +153,7 @@ const basicInclusions: PlanFeatureGroup[] = [
   },
   {
     heading: "Audio & Research",
-    items: ["Text-to-Speech", "Speech-to-Text", "AI Realtime Voice Chat", "AI File Chat", "AI Web Chat", "SEO Tool", "Multi Model Support"],
+    items: ["AI Music Pro (Music Generation)", "Text-to-Speech", "Speech-to-Text", "AI Realtime Voice Chat", "AI File Chat", "AI Web Chat", "SEO Tool", "Multi Model Support"],
   },
 ];
 
@@ -226,6 +226,7 @@ export const plans: Plan[] = [
       { title: "Article Wizard & AI ReWriter", description: "Generate full structured articles step by step, or rewrite existing content in a fresh voice." },
       { title: "Plagiarism & Content Detectors", description: "Check content for originality and detect AI-generated text before publishing." },
       { title: "AI Image Editor, Vision & Realtime Image", description: "Edit images with AI, analyze pictures, and generate images in real time as you type." },
+      { title: "AI Music Pro (Music Generation)", description: "Generate original music and background tracks for videos, ads, podcasts and presentations by mood, genre and length." },
       { title: "Text-to-Speech & Speech-to-Text", description: "Turn scripts into natural voiceovers and transcribe audio or video to text." },
       { title: "AI Realtime Voice Chat", description: "Talk with the AI live by voice, with instant spoken responses." },
       { title: "AI File & Web Chat", description: "Chat with your documents or any webpage to get answers and summaries." },

@@ -44,3 +44,9 @@ describe("AI Video Agent flagship placement", () => {
     expect(basic.newInPlan.map((i) => i.title)).toContain("AI Video Agent");
   });
 });
+describe("Basic plan music generation", () => {
+  test("Basic includes AI Music Pro", () => {
+    const basic = plans.find((p) => p.name === "Basic");
+    expect(basic.newInPlan.map((i) => i.title)).toContain("AI Music Pro (Music Generation)");
+  });
+});
