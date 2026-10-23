@@ -3779,6 +3779,160 @@ export const tutorials: Tutorial[] = [
     relatedTutorials: ["how-to-use-ai-chat-pro", "how-to-chat-with-documents", "how-to-use-temporary-chat"],
     cta: { toolName: "AI Chat Pro", toolSlug: "ai-chat" },
   },
+  {
+    slug: "how-to-automate-your-crm-with-ai-agents",
+    category: "Automation",
+    title: "How to Automate Your CRM with AI Agents | AmmarAI Tutorials",
+    description:
+      "Use ready-made AI Agent Builder templates to capture leads, open deals, log notes, create follow-up tasks and send daily or weekly pipeline digests from AI CRM.",
+    h1: "How to automate your CRM with AI agents",
+    intro: [
+      "AI Agent Builder connects directly to AI CRM, so incoming messages and scheduled reports can update your contacts, deals and tasks without manual entry.",
+      "Six ready-made CRM templates cover the most common jobs, and you can describe your own workflow in plain language when you need something different.",
+    ],
+    whenToUse: [
+      "Enquiries arrive on WhatsApp, Telegram or web chat and should become CRM contacts automatically.",
+      "You want every opportunity message to open a deal or a follow-up task.",
+      "You want a pipeline summary posted to your channel every morning or every Monday.",
+    ],
+    sections: [
+      {
+        heading: "Open the CRM templates",
+        steps: [
+          { title: "Open AI Agent", body: "Choose AI Agent from the side menu, then click New Agent to open the template picker." },
+          { title: "Filter to CRM", body: "Select the CRM filter tab to show only the CRM templates." },
+          { title: "Pick a template", body: "Choose the template that matches your job. Each one opens on the visual canvas with its trigger and actions already connected." },
+        ],
+      },
+      {
+        heading: "The six ready-made templates",
+        table: {
+          head: ["Template", "Trigger", "What it does in the CRM"],
+          rows: [
+            ["Capture Lead from Message", "Channel message", "Extracts name, email or phone and creates a contact; asks the sender for details if none are found."],
+            ["Create Deal from Message", "Channel message", "Summarises the opportunity into a deal title and opens it at the Lead stage."],
+            ["Log Interaction as Note", "Channel message", "Identifies the related contact and adds the message as an activity note."],
+            ["Message to Follow-up Task", "Channel message", "Drafts an actionable task title and creates a Pending task."],
+            ["Daily Pipeline Digest", "Schedule, 9:00 UTC daily", "Fetches pipeline analytics and posts a plain-language summary."],
+            ["Weekly Deal Review", "Schedule, Monday 9:00 UTC", "Posts a review of moving, stalled and newly added deals."],
+          ],
+        },
+      },
+      {
+        heading: "Activate a template",
+        steps: [
+          { title: "Confirm the trigger", body: "For message templates, choose the channel to monitor. For digests, choose the channel where the summary should be posted." },
+          { title: "Adjust the schedule", body: "Scheduled templates run in UTC. Change the trigger time so it matches your own morning." },
+          { title: "Save and set Active", body: "Click Save, then switch the agent to Active. Send a test message to confirm the contact, deal, note or task appears in AI CRM." },
+        ],
+        callouts: [{ type: "note", body: "Each template replies to the sender with a short confirmation, such as telling them their details were saved, so they know a person will follow up." }],
+      },
+      {
+        heading: "Build a custom CRM agent",
+        paragraphs: [
+          "Type what you want in the chat panel and the builder lays out the steps on the canvas. For example: \"When a message mentions a meeting, create a task with the follow-up details and confirm it.\"",
+        ],
+        bullets: [
+          "CRM actions: Create Contact, Create Deal, Create Task, Add Note and Get CRM Analytics.",
+          "Triggers: Channel Message, Schedule and Webhook.",
+          "From the Agents page you can Edit, Pause, Show Logs, Delete or Start Conversation to test an agent.",
+        ],
+      },
+    ],
+    relatedTools: ["ai-agent-builder", "ai-crm"],
+    relatedTutorials: ["how-to-build-an-ai-agent", "how-to-manage-sales-with-ai-crm"],
+    cta: { toolName: "AI Agent Builder", toolSlug: "ai-agent-builder" },
+  },
+  {
+    slug: "how-to-create-product-photos-with-ai-photoshoot",
+    category: "Image",
+    title: "How to Create Product Photos with AI Photoshoot | AmmarAI Tutorials",
+    description:
+      "Create studio-quality product images with AI Photoshoot: custom prompt shoots, template scenes, background replacement and image editing, step by step.",
+    h1: "How to create product photos with AI Photoshoot",
+    intro: [
+      "AI Photoshoot is a product photography studio. Start from a product photo or a description and get studio, lifestyle or seasonal images without a camera crew.",
+      "It offers three creation flows plus an editor for refining any image, including ones you generated earlier.",
+    ],
+    whenToUse: [
+      "You need consistent product images for a store, ad or social post.",
+      "You have one plain product photo and want several styled scenes.",
+      "You want to swap a cluttered background for a clean or branded one.",
+    ],
+    sections: [
+      {
+        heading: "1. Custom Photoshoot",
+        steps: [
+          { title: "Open Custom Photoshoot", body: "Choose AI Photoshoot from the side menu, then Custom Photoshoot. This flow works from a text description with no template." },
+          { title: "Add a reference (optional)", body: "Upload a product or reference image up to 5 MB to guide the result." },
+          { title: "Describe the shot", body: "Write a detailed prompt: surface, lighting, props, mood and camera angle. Choose the ratio, then generate." },
+        ],
+      },
+      {
+        heading: "2. Template Photoshoot",
+        steps: [
+          { title: "Upload the product image", body: "Open Template Photoshoot and upload the product image (required, up to 5 MB)." },
+          { title: "Choose ratio and templates", body: "Pick the ratio, then select up to four scene templates. Each template produces its own styled image." },
+          { title: "Generate and compare", body: "Generate and keep the scenes that suit your listing or campaign." },
+        ],
+      },
+      {
+        heading: "3. Replace Background",
+        steps: [
+          { title: "Upload the product image", body: "Open Replace Background and upload the photo. The product itself is preserved." },
+          { title: "Choose a background source", body: "Pick a background preset, describe a background in words, or upload your own background image." },
+          { title: "Generate", body: "Generate and download the version you prefer." },
+        ],
+      },
+      {
+        heading: "Edit any image",
+        steps: [
+          { title: "Open Edit Image", body: "Upload any image, including a previous photoshoot result." },
+          { title: "Describe the change", body: "Explain what to change, such as the lighting, a colour or an added prop, and generate the edited version." },
+        ],
+        callouts: [{ type: "tip", body: "Use a sharp, evenly lit product photo. The clearer the product edges, the cleaner every scene and background swap will be." }],
+      },
+    ],
+    relatedTools: ["ai-photoshoot", "ai-image-generator"],
+    relatedTutorials: ["how-to-use-fashion-studio", "how-to-use-ai-image-pro"],
+    cta: { toolName: "AI Photoshoot", toolSlug: "ai-photoshoot" },
+  },
+  {
+    slug: "how-to-generate-a-design-template-with-ai",
+    category: "Image",
+    title: "How to Generate a Design Template with AI | AmmarAI Tutorials",
+    description:
+      "Describe a design in AI Creative Suite and get a fully editable template with text layers, images and layout, ready to customise and export.",
+    h1: "How to generate a design template with AI",
+    intro: [
+      "AI Creative Suite can build a complete, editable design from one sentence: layout, text layers, shapes and generated images placed on the canvas.",
+    ],
+    whenToUse: [
+      "You need an Instagram story, post, flyer or banner fast.",
+      "You want a starting layout to adjust instead of a blank canvas.",
+    ],
+    sections: [
+      {
+        heading: "Generate the template",
+        steps: [
+          { title: "Open AI Creative Suite", body: "Choose Creative Suite from the side menu. The home screen opens on the Start with AI Template tab." },
+          { title: "Describe the design", body: "Type what you want, for example: \"Create a clean, cozy Instagram Story for a coffee shop's new autumn menu.\" Include format, mood, colours and the exact text." },
+          { title: "Generate", body: "The suite builds the layout and fills the image placeholders, then opens the result on the canvas." },
+        ],
+      },
+      {
+        heading: "Edit and export",
+        steps: [
+          { title: "Edit any layer", body: "Every text, shape and image is a separate layer you can change, move, recolour or replace." },
+          { title: "Export", body: "Download the finished design when it is ready." },
+        ],
+        callouts: [{ type: "tip", body: "Prefer a blank start? Choose Start with a Blank Template to open the canvas without AI generation." }],
+      },
+    ],
+    relatedTools: ["ai-creative-suite"],
+    relatedTutorials: ["how-to-use-the-ai-creative-suite", "how-to-edit-part-of-an-image-with-annotations"],
+    cta: { toolName: "AI Creative Suite", toolSlug: "ai-creative-suite" },
+  },
 ];
 
 
