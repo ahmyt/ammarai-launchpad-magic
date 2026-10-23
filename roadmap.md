@@ -1,6 +1,10 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## New tutorial screenshots (2026-10-23)
+- [x] Add verified end-user screenshots to CRM automation, AI Photoshoot and AI design-template guides, replacing source branding without changing controls
+- [x] Verify all twelve images load, fit/original-size viewing works and no overflow or runtime errors occur at 1280px and 390px
+
 ## Standalone voice bot test (2026-10-17)
 - [x] Embed the supplied voice bot alongside the existing chatbot without a custom teaser
 - [x] Test readiness, native Voice Chat/End Call controls, desktop/phone bounds and admin exclusion; phone widget remains in-screen but overlays page content

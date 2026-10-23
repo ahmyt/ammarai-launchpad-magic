@@ -13,6 +13,18 @@ import screenshot10 from "@/assets/tutorials/tutorial-blogger-agent-08.webp.asse
 import screenshot11 from "@/assets/tutorials/tutorial-blogger-agent-12.webp.asset.json";
 import screenshot12 from "@/assets/tutorials/tutorial-blogger-agent-13.webp.asset.json";
 import screenshot13 from "@/assets/tutorials/tutorial-blogger-agent-14.webp.asset.json";
+import tutorialVisual0 from "@/assets/tutorials/tutorial-crm-automation-1.webp.asset.json";
+import tutorialVisual1 from "@/assets/tutorials/tutorial-crm-automation-2.webp.asset.json";
+import tutorialVisual2 from "@/assets/tutorials/tutorial-crm-automation-3.webp.asset.json";
+import tutorialVisual3 from "@/assets/tutorials/tutorial-crm-automation-4.webp.asset.json";
+import tutorialVisual4 from "@/assets/tutorials/tutorial-crm-automation-5.webp.asset.json";
+import tutorialVisual5 from "@/assets/tutorials/tutorial-crm-automation-6.webp.asset.json";
+import tutorialVisual6 from "@/assets/tutorials/tutorial-product-photoshoot-1.webp.asset.json";
+import tutorialVisual7 from "@/assets/tutorials/tutorial-product-photoshoot-2.webp.asset.json";
+import tutorialVisual8 from "@/assets/tutorials/tutorial-product-photoshoot-3.webp.asset.json";
+import tutorialVisual9 from "@/assets/tutorials/tutorial-product-photoshoot-4.webp.asset.json";
+import tutorialVisual10 from "@/assets/tutorials/tutorial-product-photoshoot-5.webp.asset.json";
+import tutorialVisual11 from "@/assets/tutorials/tutorial-ai-design-template-1.webp.asset.json";
 
 /**
  * AmmarAI tutorials verified against both the public AmmarAI tool catalogue and
@@ -3799,9 +3811,9 @@ export const tutorials: Tutorial[] = [
       {
         heading: "Open the CRM templates",
         steps: [
-          { title: "Open AI Agent", body: "Choose AI Agent from the side menu, then click New Agent to open the template picker." },
-          { title: "Filter to CRM", body: "Select the CRM filter tab to show only the CRM templates." },
-          { title: "Pick a template", body: "Choose the template that matches your job. Each one opens on the visual canvas with its trigger and actions already connected." },
+          { title: "Open AI Agent", body: "Choose AI Agent from the side menu, then click New Agent to open the template picker.", image: { src: assetUrl(tutorialVisual5.url), alt: "AmmarAI Agents page with New Agent and existing CRM agents", caption: "Open New Agent from the Agents page.", width: 1791, height: 730 } },
+          { title: "Filter to CRM", body: "Select the CRM filter tab to show only the CRM templates.", image: { src: assetUrl(tutorialVisual0.url), alt: "AmmarAI AI Agent dashboard with featured CRM templates", caption: "The AI Agent dashboard also offers shortcuts to featured CRM workflows.", width: 1854, height: 660 } },
+          { title: "Pick a template", body: "Choose the template that matches your job. Each one opens on the visual canvas with its trigger and actions already connected.", image: { src: assetUrl(tutorialVisual1.url), alt: "AmmarAI AI Agent dashboard with Capture Lead from Message highlighted", caption: "Capture Lead from Message is one of the featured CRM templates.", width: 1694, height: 718 } },
         ],
       },
       {
@@ -3817,13 +3829,17 @@ export const tutorials: Tutorial[] = [
             ["Weekly Deal Review", "Schedule, Monday 9:00 UTC", "Posts a review of moving, stalled and newly added deals."],
           ],
         },
+        steps: [
+          { title: "Create deals from incoming messages", body: "Choose Create Deal from Message when a sales enquiry should become a new opportunity in the pipeline.", image: { src: assetUrl(tutorialVisual2.url), alt: "AmmarAI AI Agent dashboard with Create Deal from Message highlighted", caption: "Choose the deal template for incoming sales opportunities.", width: 1627, height: 705 } },
+          { title: "Summarise the pipeline daily", body: "Choose Daily Pipeline Digest for a scheduled summary of CRM activity, then review the destination channel and UTC schedule before activating it.", image: { src: assetUrl(tutorialVisual4.url), alt: "AmmarAI AI Agent dashboard with Daily Pipeline Digest highlighted", caption: "The digest template summarises your pipeline on a schedule.", width: 1710, height: 737 } },
+        ],
       },
       {
         heading: "Activate a template",
         steps: [
           { title: "Confirm the trigger", body: "For message templates, choose the channel to monitor. For digests, choose the channel where the summary should be posted." },
           { title: "Adjust the schedule", body: "Scheduled templates run in UTC. Change the trigger time so it matches your own morning." },
-          { title: "Save and set Active", body: "Click Save, then switch the agent to Active. Send a test message to confirm the contact, deal, note or task appears in AI CRM." },
+          { title: "Save and set Active", body: "Click Save, then switch the agent to Active. Send a test message to confirm the contact, deal, note or task appears in AI CRM.", image: { src: assetUrl(tutorialVisual3.url), alt: "AmmarAI CRM Deals Pipeline with staged opportunities", caption: "Check AI CRM to confirm the automation created the expected record.", width: 1707, height: 854 } },
         ],
         callouts: [{ type: "note", body: "Each template replies to the sender with a short confirmation, such as telling them their details were saved, so they know a person will follow up." }],
       },
@@ -3863,16 +3879,16 @@ export const tutorials: Tutorial[] = [
       {
         heading: "1. Custom Photoshoot",
         steps: [
-          { title: "Open Custom Photoshoot", body: "Choose AI Photoshoot from the side menu, then Custom Photoshoot. This flow works from a text description with no template." },
+          { title: "Open Custom Photoshoot", body: "Choose AI Photoshoot from the side menu, then Custom Photoshoot. This flow works from a text description with no template.", image: { src: assetUrl(tutorialVisual6.url), alt: "AmmarAI AI Photoshoots overview with template, custom and background workflows", caption: "The Photoshoots overview brings the three creation flows together.", width: 1817, height: 705 } },
           { title: "Add a reference (optional)", body: "Upload a product or reference image up to 5 MB to guide the result." },
-          { title: "Describe the shot", body: "Write a detailed prompt: surface, lighting, props, mood and camera angle. Choose the ratio, then generate." },
+          { title: "Describe the shot", body: "Write a detailed prompt: surface, lighting, props, mood and camera angle. Choose the ratio, then generate.", image: { src: assetUrl(tutorialVisual7.url), alt: "AmmarAI Custom Photoshoot with reference upload, prompt, ratio and image count controls", caption: "Describe the shot and set the output options in Custom Photoshoot.", width: 1812, height: 861 } },
         ],
       },
       {
         heading: "2. Template Photoshoot",
         steps: [
           { title: "Upload the product image", body: "Open Template Photoshoot and upload the product image (required, up to 5 MB)." },
-          { title: "Choose ratio and templates", body: "Pick the ratio, then select up to four scene templates. Each template produces its own styled image." },
+          { title: "Choose ratio and templates", body: "Pick the ratio, then select up to four scene templates. Each template produces its own styled image.", image: { src: assetUrl(tutorialVisual8.url), alt: "AmmarAI Template Photoshoot with product upload and scene template selection", caption: "Upload your product and choose the scene templates.", width: 1891, height: 779 } },
           { title: "Generate and compare", body: "Generate and keep the scenes that suit your listing or campaign." },
         ],
       },
@@ -3880,7 +3896,7 @@ export const tutorials: Tutorial[] = [
         heading: "3. Replace Background",
         steps: [
           { title: "Upload the product image", body: "Open Replace Background and upload the photo. The product itself is preserved." },
-          { title: "Choose a background source", body: "Pick a background preset, describe a background in words, or upload your own background image." },
+          { title: "Choose a background source", body: "Pick a background preset, describe a background in words, or upload your own background image.", image: { src: assetUrl(tutorialVisual9.url), alt: "AmmarAI Replace Background with product upload and background presets", caption: "Choose a preset, a prompt or your own background.", width: 1877, height: 773 } },
           { title: "Generate", body: "Generate and download the version you prefer." },
         ],
       },
@@ -3888,7 +3904,7 @@ export const tutorials: Tutorial[] = [
         heading: "Edit any image",
         steps: [
           { title: "Open Edit Image", body: "Upload any image, including a previous photoshoot result." },
-          { title: "Describe the change", body: "Explain what to change, such as the lighting, a colour or an added prop, and generate the edited version." },
+          { title: "Describe the change", body: "Explain what to change, such as the lighting, a colour or an added prop, and generate the edited version.", image: { src: assetUrl(tutorialVisual10.url), alt: "AmmarAI Edit Image with upload and editing instruction fields", caption: "Upload an image and describe the change you want.", width: 1792, height: 752 } },
         ],
         callouts: [{ type: "tip", body: "Use a sharp, evenly lit product photo. The clearer the product edges, the cleaner every scene and background swap will be." }],
       },
@@ -3915,7 +3931,7 @@ export const tutorials: Tutorial[] = [
       {
         heading: "Generate the template",
         steps: [
-          { title: "Open AI Creative Suite", body: "Choose Creative Suite from the side menu. The home screen opens on the Start with AI Template tab." },
+          { title: "Open AI Creative Suite", body: "Choose Creative Suite from the side menu. The home screen opens on the Start with AI Template tab.", image: { src: assetUrl(tutorialVisual11.url), alt: "AmmarAI Creative Suite with Start with AI Template selected and a design prompt field", caption: "Start with AI Template turns a design brief into an editable layout.", width: 1478, height: 547 } },
           { title: "Describe the design", body: "Type what you want, for example: \"Create a clean, cozy Instagram Story for a coffee shop's new autumn menu.\" Include format, mood, colours and the exact text." },
           { title: "Generate", body: "The suite builds the layout and fills the image placeholders, then opens the result on the canvas." },
         ],
