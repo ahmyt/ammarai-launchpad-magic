@@ -2161,12 +2161,12 @@ export const tutorials: Tutorial[] = [
           {
             title: "Decide how conversations are handled",
             body: "Set the interaction type to choose whether the assistant answers alone or can pass a conversation to a person, and write the connect message the visitor sees when that happens. The same panel has optional extras such as feedback collection, a voice call agent and booking or shopping help.",
-            image: { src: "/media/tutorials/tutorial-site-chatbot-5.png", alt: "Interaction type, connect message and optional assistant toggles in the chatbot editor", caption: "Decide what happens when the assistant cannot answer.", width: 1938, height: 1446 },
+            image: { src: "/media/tutorials/tutorial-site-chatbot-9.png", alt: "Interaction type, connect message and optional assistant toggles in the chatbot editor", caption: "Decide what happens when the assistant cannot answer.", width: 850, height: 896 },
           },
           {
             title: "Offer starter questions",
             body: "Turn on Suggested Prompts/Questions and add a few openers, such as your pricing, delivery or booking questions. Visitors who do not know what to ask will usually pick one of these, which keeps the conversation on ground the assistant knows well.",
-            image: { src: "/media/tutorials/tutorial-site-chatbot-9.png", alt: "Suggested Prompts and Questions panel with an Add Prompt button", caption: "Starter prompts guide visitors into useful questions.", width: 850, height: 896 },
+            image: { src: "/media/tutorials/tutorial-site-chatbot-8.png", alt: "Suggested Prompts and Questions panel with an Add Prompt button", caption: "Starter prompts guide visitors into useful questions.", width: 792, height: 637 },
           },
         ],
       },
@@ -2176,7 +2176,7 @@ export const tutorials: Tutorial[] = [
           {
             title: "Choose the look",
             body: "In the customise step, upload your logo, pick an avatar and an accent colour, then decide whether to show the logo and timestamps. You can set the size of the launcher and place it on the left or the right of the page.",
-            image: { src: "/media/tutorials/tutorial-site-chatbot-6.png", alt: "Chatbot customise step with logo upload, avatar choices, colour swatches and position controls", caption: "Match the assistant to your site before anyone sees it.", width: 756, height: 754 },
+            image: { src: "/media/tutorials/tutorial-site-chatbot-5.png", alt: "Chatbot customise step with logo upload, avatar choices, colour swatches and position controls", caption: "Match the assistant to your site before anyone sees it.", width: 1938, height: 1446 },
           },
           {
             title: "Pick the bubble design",
@@ -2191,17 +2191,16 @@ export const tutorials: Tutorial[] = [
           {
             title: "Train it on your own content",
             body: "Training is optional but it is what makes the answers yours. Point it at your website, upload a PDF, paste text, or write question-and-answer pairs for the things you are asked most. Start with the pages you would send a customer to anyway.",
-            image: { src: "/media/tutorials/tutorial-site-chatbot-7.png", alt: "Chatbot training step with Website, PDF, Text and Q&A sources and an Add URL field", caption: "Website, PDF, text and Q&A are all accepted as training sources.", width: 753, height: 1148 },
+            image: { src: "/media/tutorials/tutorial-site-chatbot-6.png", alt: "Chatbot training step with Website, PDF, Text and Q&A sources and an Add URL field", caption: "Website, PDF, text and Q&A are all accepted as training sources.", width: 756, height: 754 },
           },
           {
             title: "Check it before it goes live",
             body: "Use the preview to ask the questions your customers actually ask, including one the assistant should refuse. Adjust the instructions or add training material until the answers read the way you would answer yourself.",
-            image: { src: "/media/tutorials/tutorial-site-chatbot-8.png", alt: "Chatbot editor preview pane showing a test conversation", caption: "Test the awkward questions, not just the easy ones.", width: 792, height: 637 },
           },
           {
             title: "Embed it on your website",
             body: "The final step gives you a small snippet and a width and height for the window. Copy the snippet and paste it just before the closing </body> tag of your site, then save and refresh the page to see the assistant appear.",
-            image: { src: "/media/tutorials/tutorial-site-chatbot-2.png", alt: "Test and Embed step with the copyable embed snippet and window size controls", caption: "One snippet, pasted before the closing body tag.", width: 2034, height: 1507 },
+            image: { src: "/media/tutorials/tutorial-site-chatbot-7.png", alt: "Test and Embed step with the copyable embed snippet and window size controls", caption: "One snippet, pasted before the closing body tag.", width: 753, height: 1148 },
           },
         ],
         callouts: [
