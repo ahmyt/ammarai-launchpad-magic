@@ -267,6 +267,15 @@
 - [Ultimate](https://ammarai.com/pricing): $129.99/month — 35,000 plan credits per month; 120 inbound & outbound phone minutes; 3 team seats · everything in Standard. Adds: AI Phone Call Agent (inbound & outbound), 120 phone minutes per month, 3 team seats, UGC Factory & AI Viral Clips, AI Video Dubbing (multi-language lip-sync), Creative Suite, Unlimited AI Agent Builder & full CRM, All connectors & Chatbot Training.
 - [Voice Scale](https://ammarai.com/pricing): $349.99/month — 75,000 plan credits per month; 800 voice minutes & automated follow-ups; 5 team seats · everything in Ultimate. Adds: 800 voice minutes per month, Automated Follow-Up Calls (reminders & confirmations), 5 team seats, Shared team workspace & call logs.
 
+## Demos & Directories
+- [Live demos](https://ammarai.com/demo-video): Watch the AmmarAI demo video and try guest AI Chat Pro and AI Image Pro demos, plus website chatbot, voice bot and phone agent demos
+- [AI Phone Call Agent demo line](https://ammarai.com/ai-phone-agent): Call +1 (833) 772-9060 to talk to the demo AI phone agent
+- [AI Models](https://ammarai.com/ai-models): The AI models available inside AmmarAI
+- [Tutorials](https://ammarai.com/tutorials): All 46 step-by-step guides
+- [Use Cases](https://ammarai.com/use-cases): How teams and creators use AmmarAI
+- [Features](https://ammarai.com/features): Platform features across every tool
+- [Blog](https://ammarai.com/blog): Guides, comparisons and honest alternatives
+
 ## Company
 - [About](https://ammarai.com/about): What AmmarAI is and who it is for
 - [Pricing](https://ammarai.com/pricing): Free, Starter, Basic, Standard, Ultimate, Voice Scale plans
@@ -274,3 +283,8 @@
 - [FAQ](https://ammarai.com/faq): Common questions about the platform
 - [Resources](https://ammarai.com/resources): Guides and help
 - [Contact](https://ammarai.com/contact): Sales, support and partnerships
+
+## Optional
+- [Privacy Policy](https://ammarai.com/privacy): Mobile Unlocking LLC, US
+- [Terms of Service](https://ammarai.com/terms): Mobile Unlocking LLC, US
+- [Refund Policy](https://ammarai.com/refund-policy): Mobile Unlocking LLC, US

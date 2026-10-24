@@ -55,6 +55,27 @@ for (const plan of plans) {
 }
 lines.push("");
 
+lines.push("## Demos & Directories");
+const hubLinks = [
+  {
+    label: "Live demos",
+    path: "/demo-video",
+    desc: "Watch the AmmarAI demo video and try guest AI Chat Pro and AI Image Pro demos, plus website chatbot, voice bot and phone agent demos",
+  },
+  {
+    label: "AI Phone Call Agent demo line",
+    path: "/ai-phone-agent",
+    desc: "Call +1 (833) 772-9060 to talk to the demo AI phone agent",
+  },
+  { label: "AI Models", path: "/ai-models", desc: "The AI models available inside AmmarAI" },
+  { label: "Tutorials", path: "/tutorials", desc: `All ${tutorials.length} step-by-step guides` },
+  { label: "Use Cases", path: "/use-cases", desc: "How teams and creators use AmmarAI" },
+  { label: "Features", path: "/features", desc: "Platform features across every tool" },
+  { label: "Blog", path: "/blog", desc: "Guides, comparisons and honest alternatives" },
+];
+for (const link of hubLinks) lines.push(`- [${link.label}](${BASE_URL}${link.path}): ${link.desc}`);
+lines.push("");
+
 lines.push("## Company");
 const companyLinks = [
   { label: "About", path: "/about", desc: "What AmmarAI is and who it is for" },
@@ -69,6 +90,15 @@ const companyLinks = [
   { label: "Contact", path: "/contact", desc: "Sales, support and partnerships" },
 ];
 for (const link of companyLinks) lines.push(`- [${link.label}](${BASE_URL}${link.path}): ${link.desc}`);
+lines.push("");
+
+lines.push("## Optional");
+const legalLinks = [
+  { label: "Privacy Policy", path: "/privacy" },
+  { label: "Terms of Service", path: "/terms" },
+  { label: "Refund Policy", path: "/refund-policy" },
+];
+for (const link of legalLinks) lines.push(`- [${link.label}](${BASE_URL}${link.path}): Mobile Unlocking LLC, US`);
 lines.push("");
 
 writeFileSync(new URL("../public/llms.txt", import.meta.url), lines.join("\n"));
