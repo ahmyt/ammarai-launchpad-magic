@@ -199,6 +199,27 @@ export type Database = {
           },
         ]
       }
+      geo_bypass_claims: {
+        Row: {
+          claimed_at: string | null
+          code_hash: string
+          device_hash: string | null
+          expires_at: string | null
+        }
+        Insert: {
+          claimed_at?: string | null
+          code_hash: string
+          device_hash?: string | null
+          expires_at?: string | null
+        }
+        Update: {
+          claimed_at?: string | null
+          code_hash?: string
+          device_hash?: string | null
+          expires_at?: string | null
+        }
+        Relationships: []
+      }
       offer_events: {
         Row: {
           created_at: string
@@ -517,11 +538,16 @@ export type Database = {
         Returns: string
       }
       admin_offer_stats: { Args: { _offer_id: string }; Returns: Json }
+      admin_reset_geo_bypass: { Args: { _code_hash: string }; Returns: boolean }
       admin_set_sync_time: {
         Args: { _id: string; _run_time: string }
         Returns: string
       }
       claim_first_admin: { Args: never; Returns: boolean }
+      claim_geo_bypass: {
+        Args: { _code_hash: string; _device_hash: string }
+        Returns: boolean
+      }
       claim_offer: {
         Args: {
           _ip_hash: string
@@ -614,6 +640,10 @@ export type Database = {
           _source: string
         }
         Returns: undefined
+      }
+      verify_geo_bypass: {
+        Args: { _code_hash: string; _device_hash: string }
+        Returns: boolean
       }
     }
     Enums: {

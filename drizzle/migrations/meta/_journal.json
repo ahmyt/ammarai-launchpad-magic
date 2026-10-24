@@ -50,6 +50,13 @@
       "when": 1790112465254,
       "tag": "0006_offer_campaigns",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1792877991700,
+      "tag": "0007_single_browser_country_bypass",
+      "breakpoints": true
     }
   ]
 }
