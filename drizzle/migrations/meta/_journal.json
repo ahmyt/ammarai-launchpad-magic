@@ -71,6 +71,13 @@
       "when": 1792878180958,
       "tag": "0009_strip_public_bypass_codes",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1792878204427,
+      "tag": "0010_tighten_bypass_table_grants",
+      "breakpoints": true
     }
   ]
 }
