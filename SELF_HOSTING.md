@@ -362,27 +362,33 @@ instead of the site. Everything is controlled in CMS → Pages → Site settings
 | Country filter: mode | `block` = listed countries see maintenance; `allow` = only listed countries see the site |
 | Country filter: country codes | One per block, two or three letters, e.g. `FR` or `FRA`, `US`, `GB` |
 | Country filter: maintenance page heading / message | Wording shown to blocked visitors |
-| Country filter: secret preview key | Visit `https://ammarai.com/?bypass_country=YOURKEY` once to view the site from a blocked country for 7 days |
+| Country filter: bypass codes | Comma-separated codes; each code is claimed by the first browser opening `https://ammarai.com/?bypass_country=YOURKEY`, with access lasting 7 days |
 | Country filter: how long a visitor's country is remembered | Hours, minimum 1, maximum 168 (7 days). Empty or invalid falls back to 6 |
 
 How it stays fast and SEO-safe (`src/lib/geo-gate.server.ts`, called from
 `src/server.ts` before rendering):
 
-- Settings are cached in memory for 60 seconds — no database call per request.
+- Settings are cached in memory for 60 seconds. Requests carrying a bypass cookie verify its durable claim on every page request so an admin reset takes effect immediately.
 - The country comes from a proxy header (`cf-ipcountry`, `x-country-code`, …)
   when present. On direct Plesk hosting there is no such header, so the IP is
   resolved and cached for the duration set in Site settings (default 6 hours,
   clamped to 1–168). The visitor's cookie uses the same duration.
-- The very first request from a brand-new IP passes through; enforcement
-  begins once the background lookup lands (a second or two later).
+- The first request from a brand-new IP waits for the shared, bounded dual-provider lookup so the decision remains consistent on refresh.
 - Blocked visitors get **HTTP 503 + `Cache-Control: private, no-store` +
   `X-Robots-Tag: noindex`**, so nothing is indexed or cached.
 - Search engines and preview bots (Googlebot, Bingbot, Lighthouse/PageSpeed,
   social unfurlers) always pass through.
 - `/admin`, `/auth`, `/api`, `/assets`, `/fonts`, `/media`, `robots.txt`,
-  `sitemap.xml`, `llms.txt` and any file with an extension always pass, and a
-  signed-in studio session is never blocked — you cannot lock yourself out.
+  `sitemap.xml`, `llms.txt` and any file with an extension always pass. Admin and auth pages remain accessible; an auth-looking cookie does not exempt public pages.
 - If the settings or geo lookup fail, the gate fails open (site stays up).
+
+### First-browser bypass ownership
+
+Apply `drizzle/migrations/0007_single_browser_country_bypass.sql` to the production backend before deploying this code if Plesk uses a separate database. The gate needs the existing server-only service-role configuration for its claim/verification RPCs. Never expose that key to browsers.
+
+In **CMS → Pages → Site settings → Bypass device claims**, administrators can reset an individual saved code. This immediately revokes its existing browser, and the next browser visiting the code link can claim it. Save edited codes first; claims correspond to saved codes in their displayed order. Expired claims remain assigned until reset. Existing raw-code cookies stop working after deployment and must be reclaimed using the link.
+
+Ownership uses an opaque, Secure, HttpOnly browser cookie, not a hardware identifier. Clearing cookies, incognito mode or a different browser requires an admin reset. Deliberately copying a complete browser cookie can transfer access; this is not hardware-level protection. Share the code link privately. Bypass verification failures deny bypass access while retaining ordinary country filtering behavior.
 
 Optional: putting the domain behind Cloudflare's free proxy adds the
 `cf-ipcountry` header, which makes detection instant and exact for every
