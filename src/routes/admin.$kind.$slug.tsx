@@ -7,9 +7,18 @@ import { staticItems } from "@/lib/content-full";
 import { emptyDraft, fieldSpecs, pageFieldSpecs } from "@/lib/cms-fields";
 import { ListField } from "@/components/cms/ListField";
 import { RichTextArea } from "@/components/cms/RichTextArea";
+import { GeoBypassClaims } from "@/components/cms/GeoBypassClaims";
 
 export const Route = createFileRoute("/admin/$kind/$slug")({
   staticData: { sitemap: false },
+  head: () => ({ meta: [
+    { title: "Content Editor | AmmarAI Studio" },
+    { name: "description", content: "Manage AmmarAI content and site settings." },
+    { property: "og:title", content: "Content Editor | AmmarAI Studio" },
+    { property: "og:description", content: "Manage AmmarAI content and site settings." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   loader: ({ params }) => {
     const meta = contentKinds.find((k) => k.kind === params.kind);
     if (!meta) throw notFound();
@@ -193,6 +202,8 @@ function ContentEditor() {
           );
         })}
       </div>
+
+      {kind === "page" && slug === "settings" ? <GeoBypassClaims /> : null}
 
       <div className="sticky bottom-0 mt-8 flex items-center gap-4 border-t border-border bg-background py-4">
         <button

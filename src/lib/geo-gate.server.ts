@@ -1,4 +1,5 @@
 import { TIMEZONE_COUNTRY } from "./timezone-countries";
+import { resolveGeoBypass } from "./geo-bypass.server";
 
 /**
  * Country maintenance gate.
@@ -45,7 +46,6 @@ const DEFAULTS: GeoGateSettings = {
 
 const SETTINGS_TTL_MS = 60_000;
 const GEO_CACHE_MAX = 5000;
-const BYPASS_COOKIE = "ammarai_geo_bypass";
 
 let settingsCache: GeoGateSettings = DEFAULTS;
 let settingsFetchedAt = 0;
@@ -258,7 +258,7 @@ function isBlocked(country: string, config: GeoGateSettings): boolean {
 
 function maintenanceHtml(config: GeoGateSettings): string {
   const escape = (value: string) =>
-    value.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
+    value.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c] ?? c);
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>${escape(config.title)}</title><style>
 :root{color-scheme:light}
 *{box-sizing:border-box}
@@ -284,10 +284,14 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   const config = await settings();
   if (!config.enabled) return { block: null, cookie: null };
   if (ALLOWED_SERVER_IPS.has(clientIp(request))) return { block: null, cookie: null };
+  const path = new URL(request.url).pathname;
+  if (SKIP_PATH_RE.test(path) || /\.[a-z0-9]{2,5}$/i.test(path) || CRAWLER_RE.test(request.headers.get("user-agent") ?? "")) return { block: null, cookie: null };
+  const bypass = await resolveGeoBypass(request, config.bypassKey);
+  if (bypass.response || bypass.allowed) return { block: bypass.response, cookie: null };
   const cookies = request.headers.get("cookie") ?? "";
   // Cookie value: "GB" (residential) or "GB-V" (VPN/datacenter network).
   const remembered = cookies.match(/ammarai_cc=([A-Z]{2}|XX)(-V)?/);
-  let info: GeoInfo | null = remembered ? { country: remembered[1]!, vpn: Boolean(remembered[2]) } : null;
+  let info: GeoInfo | null = remembered?.[1] ? { country: remembered[1], vpn: Boolean(remembered[2]) } : null;
   const header = headerCountry(request);
   if (header && !config.blockVpn) info = { country: header, vpn: false };
   let fresh = false;
@@ -330,28 +334,15 @@ export function evaluateGeoGate(
   if (CRAWLER_RE.test(agent)) return null;
 
   const cookies = request.headers.get("cookie") ?? "";
-  const hasBypassCookie =
-    config.bypassKey.length > 0 && cookies.includes(`${BYPASS_COOKIE}=${config.bypassKey}`);
-  const bypassParam = url.searchParams.get("bypass_country");
-  if (config.bypassKey && bypassParam === config.bypassKey) {
-    url.searchParams.delete("bypass_country");
-    return new Response(null, {
-      status: 302,
-      headers: {
-        location: url.pathname + (url.search || "") ,
-        "set-cookie": `${BYPASS_COOKIE}=${config.bypassKey}; Path=/; Max-Age=604800; HttpOnly; Secure; SameSite=Lax`,
-        "cache-control": "private, no-store",
-      },
-    });
-  }
-  if (hasBypassCookie) return null;
-  if (cookies.includes("sb-") && cookies.includes("-auth-token")) return null; // signed-in staff
+  // Bypass credentials are verified against durable browser claims above.
+  // Cookie names alone (including auth-looking names) are not authorization.
 
   const country =
     knownCountry ?? (headerCountry(request) || cachedCountry(clientIp(request)));
   // Device timezone is written by a tiny browser script after page load.
   const tzRaw = cookies.match(/ammarai_tz=([^;]+)/)?.[1];
-  const tzCountry = tzRaw ? (TIMEZONE_COUNTRY[decodeURIComponent(tzRaw)] ?? "") : "";
+  let tzCountry = "";
+  try { tzCountry = tzRaw ? (TIMEZONE_COUNTRY[decodeURIComponent(tzRaw)] ?? "") : ""; } catch { /* Ignore malformed cookies. */ }
   const blocked =
     isBlocked(country, config) ||
     (config.blockVpn && vpn) ||

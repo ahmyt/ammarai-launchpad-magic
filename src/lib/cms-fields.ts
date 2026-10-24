@@ -314,7 +314,7 @@ const pageSettingsFields: FieldSpec[] = [
   },
   {
     name: "geoBlockBypassKey",
-    label: "Country filter: secret preview key (visit ?bypass_country=YOURKEY to skip the block)",
+    label: "Country filter: bypass codes (comma-separated; each code belongs to the first browser that visits ?bypass_country=YOURKEY, until reset)",
     type: "text",
   },
   {
