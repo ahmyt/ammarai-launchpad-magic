@@ -4,7 +4,7 @@
 ## Single-browser country bypass
 - [x] Bind each bypass code to its first browser and provide an admin reset
 - [x] Verify claims, rejection on another browser, expiry and reset against real claim storage and 18 focused tests
-- [ ] Verify the admin reset button while signed in: needs administrator preview sign-in; requesting-user session mint found no matching account
+- [x] Verify the admin reset button while signed in as administrator: a blocked-country visitor without a code gets 503, a second browser on an already-claimed code gets 403 with the "already claimed" message, the button's confirm dialog and "next browser can claim it" status work, the row flips to Unclaimed, the freed code is claimable again, and a second reset revokes that browser's live access (503 again)
 
 ## New tutorial screenshots (2026-10-23)
 - [x] Add verified end-user screenshots to CRM automation, AI Photoshoot and AI design-template guides, replacing source branding without changing controls
