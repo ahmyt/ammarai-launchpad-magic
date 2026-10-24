@@ -220,6 +220,21 @@ export type Database = {
         }
         Relationships: []
       }
+      geo_bypass_config: {
+        Row: {
+          codes: string
+          id: string
+        }
+        Insert: {
+          codes?: string
+          id?: string
+        }
+        Update: {
+          codes?: string
+          id?: string
+        }
+        Relationships: []
+      }
       offer_events: {
         Row: {
           created_at: string
