@@ -120,7 +120,13 @@ async function refreshSettings(): Promise<void> {
   if (!response.ok) return;
   const rows = (await response.json()) as { data?: Record<string, unknown>; is_hidden?: boolean }[];
   const row = rows?.[0];
-  settingsCache = row && !row.is_hidden ? normalise(row.data) : DEFAULTS;
+  let bypassKey = "";
+  try {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const privateConfig = await supabaseAdmin.from("geo_bypass_config").select("codes").eq("id", "settings").maybeSingle();
+    if (!privateConfig.error) bypassKey = privateConfig.data?.codes ?? "";
+  } catch { /* Missing private configuration disables bypass only. */ }
+  settingsCache = row && !row.is_hidden ? { ...normalise(row.data), bypassKey } : DEFAULTS;
   settingsFetchedAt = Date.now();
 }
 

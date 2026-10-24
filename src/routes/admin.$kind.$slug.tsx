@@ -8,6 +8,7 @@ import { emptyDraft, fieldSpecs, pageFieldSpecs } from "@/lib/cms-fields";
 import { ListField } from "@/components/cms/ListField";
 import { RichTextArea } from "@/components/cms/RichTextArea";
 import { GeoBypassClaims } from "@/components/cms/GeoBypassClaims";
+import { useAuth } from "@/hooks/useAuth";
 
 export const Route = createFileRoute("/admin/$kind/$slug")({
   staticData: { sitemap: false },
@@ -41,7 +42,16 @@ function ContentEditor() {
   const isNew = slug === "new";
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const { isAdmin } = useAuth();
   const { data: rows = [], isLoading } = useQuery(contentRowsQuery);
+  const privateCodes = useQuery({
+    queryKey: ["geo-bypass-config"], enabled: isAdmin && kind === "page" && slug === "settings",
+    queryFn: async () => {
+      const result = await supabase.from("geo_bypass_config").select("codes").eq("id", "settings").maybeSingle();
+      if (result.error) throw result.error;
+      return result.data?.codes ?? "";
+    },
+  });
 
   const specs = typedKind === "page" ? pageFieldSpecs(slug) : fieldSpecs[typedKind];
   const base = useMemo(
@@ -73,6 +83,10 @@ function ContentEditor() {
     setFlags(nextFlags);
   }, [isLoading, rows.length, slug, kind]);
 
+  useEffect(() => {
+    if (privateCodes.data !== undefined) setValues((current) => ({ ...current, geoBlockBypassKey: privateCodes.data }));
+  }, [privateCodes.data]);
+
   const save = async () => {
     setStatus(null);
     const finalSlug = isNew ? slugify(draftSlug) : slug;
@@ -84,7 +98,9 @@ function ContentEditor() {
     // Start from previously saved data so fields hidden on this page's form
     // (e.g. Home fields while editing Contact) are never wiped.
     const payload: Record<string, unknown> = { ...(row?.data ?? {}), slug: finalSlug };
+    delete payload["geoBlockBypassKey"];
     for (const spec of specs) {
+      if (spec.name === "geoBlockBypassKey") continue;
       if (spec.type === "boolean") {
         payload[spec.name] = flags[spec.name] ?? false;
         continue;
@@ -102,6 +118,11 @@ function ContentEditor() {
     }
 
     setSaving(true);
+    if (isAdmin && typedKind === "page" && finalSlug === "settings") {
+      if (privateCodes.isPending || privateCodes.error) { setSaving(false); setStatus("Wait until bypass codes finish loading before saving."); return; }
+      const privateSave = await supabase.from("geo_bypass_config").upsert({ id: "settings", codes: values["geoBlockBypassKey"] ?? "" });
+      if (privateSave.error) { setSaving(false); setStatus("Could not save private bypass codes."); return; }
+    }
     const { error } = await supabase.from("content").upsert(
       {
         kind: typedKind,
@@ -156,6 +177,7 @@ function ContentEditor() {
         ) : null}
 
         {specs.map((spec) => {
+          if (spec.name === "geoBlockBypassKey" && !isAdmin) return null;
           if (spec.type === "boolean") {
             return (
               <label key={spec.name} className="flex items-center gap-3 text-sm">

@@ -384,7 +384,7 @@ How it stays fast and SEO-safe (`src/lib/geo-gate.server.ts`, called from
 
 ### First-browser bypass ownership
 
-Apply `drizzle/migrations/0007_single_browser_country_bypass.sql` to the production backend before deploying this code if Plesk uses a separate database. The gate needs the existing server-only service-role configuration for its claim/verification RPCs. Never expose that key to browsers.
+Apply the country-bypass migrations (`0007_single_browser_country_bypass.sql`, `0008_private_country_bypass_codes.sql`, and `0009_strip_public_bypass_codes.sql`) to the production backend before deploying this code if Plesk uses a separate database. Migration 0008 copies existing codes into admin-only storage; 0009 removes public legacy copies. The gate needs the existing server-only service-role configuration for its private settings and claim/verification RPCs. Never expose that key to browsers.
 
 In **CMS → Pages → Site settings → Bypass device claims**, administrators can reset an individual saved code. This immediately revokes its existing browser, and the next browser visiting the code link can claim it. Save edited codes first; claims correspond to saved codes in their displayed order. Expired claims remain assigned until reset. Existing raw-code cookies stop working after deployment and must be reclaimed using the link.
 

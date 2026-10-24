@@ -7,10 +7,9 @@ export const listGeoBypasses = createServerFn({ method: "GET" })
   .handler(async ({ context }) => {
     const role = await context.supabase.rpc("has_role", { _user_id: context.userId, _role: "admin" });
     if (role.error || role.data !== true) throw new Error("Forbidden");
-    const settings = await context.supabase.from("content").select("data").eq("kind", "page").eq("slug", "settings").maybeSingle();
+    const settings = await context.supabase.from("geo_bypass_config").select("codes").eq("id", "settings").maybeSingle();
     if (settings.error) throw settings.error;
-    const data = settings.data?.data;
-    const keys = data && typeof data === "object" && !Array.isArray(data) ? String(data["geoBlockBypassKey"] ?? "") : "";
+    const keys = settings.data?.codes ?? "";
     const claims = await context.supabase.from("geo_bypass_claims").select("code_hash,claimed_at,expires_at");
     if (claims.error) throw claims.error;
     return Promise.all(bypassCodes(keys).map(async (code, index) => {
