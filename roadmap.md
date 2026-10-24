@@ -1,6 +1,11 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Single-browser country bypass
+- [x] Bind each bypass code to its first browser and provide an admin reset
+- [x] Verify claims, rejection on another browser, expiry and reset against real claim storage and 18 focused tests
+- [ ] Verify the admin reset button while signed in: needs administrator preview sign-in; requesting-user session mint found no matching account
+
 ## New tutorial screenshots (2026-10-23)
 - [x] Add verified end-user screenshots to CRM automation, AI Photoshoot and AI design-template guides, replacing source branding without changing controls
 - [x] Verify all twelve images load, fit/original-size viewing works and no overflow or runtime errors occur at 1280px and 390px
