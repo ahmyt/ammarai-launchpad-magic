@@ -64,7 +64,7 @@ const hubLinks = [
   },
   {
     label: "AI Phone Call Agent demo line",
-    path: "/ai-phone-call-agent",
+    path: "/ai-phone-agent",
     desc: "Call +1 (833) 772-9060 to talk to the demo AI phone agent",
   },
   { label: "AI Models", path: "/ai-models", desc: "The AI models available inside AmmarAI" },
