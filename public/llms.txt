@@ -1,6 +1,6 @@
 # AmmarAI
 
-> One AI workspace for everything you create — writing, chat, images, video, voiceovers, transcription, document analysis and code across 151 tools. Brand voice, templates, assistants, bulk generation and team workspaces in one place. Free plan available.
+> One AI workspace for everything you create — writing, chat, images, video, voiceovers, transcription, document analysis and code across 152 tools. Brand voice, templates, assistants, bulk generation and team workspaces in one place. Free plan available.
 
 ## AI Tools
 - [AI Agent Builder](https://ammarai.com/ai-agent-builder): Build agents that run real workflows on a schedule or trigger — reading, deciding and acting without you.
@@ -29,6 +29,7 @@
 - [AI Product Photoshoot](https://ammarai.com/ai-photoshoot): Turn one plain product photo into a full commercial shoot — studio, lifestyle and seasonal scenes.
 - [AI Fashion Studio](https://ammarai.com/ai-virtual-try-on): Put a garment on a model without a shoot — same clothes, real fit, any model, any setting.
 - [AI Creative Suite](https://ammarai.com/ai-creative-suite): A drag-and-drop design editor with AI image generation — ads, social posts, invitations and banners that all match.
+- [AI Video Agent](https://ammarai.com/ai-video-agent): Turn a written brief into a presenter video with avatar, voice, look and brand choices, plus optional storyboard review.
 - [AI Video Editor](https://ammarai.com/ai-video-editor): Upload footage and describe the finished cut you want, from pacing and colour to transitions and sound.
 - [AI Captions](https://ammarai.com/ai-captions): Turn spoken video into accurately timed, styled captions ready for social platforms and accessible playback.
 - [AI Dubbing](https://ammarai.com/ai-dubbing): Translate spoken video into new languages with natural voices, matched timing and a finished localised video.
@@ -208,6 +209,12 @@
 - [How to run a cited research report with AI Deep Research](https://ammarai.com/tutorials/how-to-run-a-cited-research-report-with-ai-deep-research): Frame the question, choose the depth, and turn a live multi-source research run into a report you can defend, with every claim linked to its source. Start free.
 - [How to put a garment on a model with AI Fashion Try-On](https://ammarai.com/tutorials/how-to-put-a-garment-on-a-model-with-ai-fashion-try-on): Turn the flat garment photo you already have into worn product imagery — correct fit and drape, several body types, one consistent look across a collection.
 - [How to transcribe a meeting or interview](https://ammarai.com/tutorials/how-to-transcribe-a-meeting-or-interview): Turn a recording into a timestamped, speaker-labelled transcript you can search, quote, summarise and export as subtitles. Step-by-step guide with screenshots.
+- [How to create a video with the Video Agent](https://ammarai.com/tutorials/how-to-create-a-video-with-the-video-agent): Describe a video in plain language, pick avatar, voice, look and brand, then let the AmmarAI Video Agent render it. Step-by-step guide with screenshots.
+- [How to edit videos automatically with a prompt](https://ammarai.com/tutorials/how-to-edit-videos-automatically-with-a-prompt): Attach a clip, describe the edit — highlights, captions, music, colour — and let AmmarAI Auto Edit Videos produce the cut. Step-by-step guide with a screenshot.
+- [How to connect Gmail, Drive, Notion and Calendar to AI Chat Pro](https://ammarai.com/tutorials/how-to-connect-gmail-drive-notion-and-calendar-to-ai-chat-pro): Link Gmail, Outlook, Notion, Google Drive and Google Calendar to AmmarAI AI Chat Pro so answers use your own emails, files and schedule. Guide with screenshots.
+- [How to automate your CRM with AI agents](https://ammarai.com/tutorials/how-to-automate-your-crm-with-ai-agents): Use ready-made AI Agent Builder templates to capture leads, open deals, log notes, create follow-up tasks and send daily or weekly pipeline digests from AI CRM.
+- [How to create product photos with AI Photoshoot](https://ammarai.com/tutorials/how-to-create-product-photos-with-ai-photoshoot): Create studio-quality product images with AI Photoshoot: custom prompt shoots, template scenes, background replacement and image editing, step by step.
+- [How to generate a design template with AI](https://ammarai.com/tutorials/how-to-generate-a-design-template-with-ai): Describe a design in AI Creative Suite and get a fully editable template with text layers, images and layout, ready to customise and export.
 
 ## Use Cases
 - [AI for Marketing Teams](https://ammarai.com/ai-for-marketing): Turn a single campaign brief into ads, emails, and landing pages without the usual back-and-forth.
@@ -252,10 +259,18 @@
 - [6 Rytr Alternatives When You Outgrow Short-Form Copy](https://ammarai.com/blog/rytr-alternatives)
 - [The Best AI Writing Tools in 2026, Compared Honestly](https://ammarai.com/blog/best-ai-writing-tools)
 
+## Pricing
+- [Free](https://ammarai.com/pricing): $0/month — 500 plan credits per month, no card required. AI Writer, AI Chat, AI Image, Image Assistant and all prompt templates.
+- [Starter](https://ammarai.com/pricing): $9.99/month — 2,000 plan credits per month; AI chat, images, presentations & code; Access to all 90+ prompt templates. Adds: AI Writer, Editor, Chat & Assistant, AI Image Generation, AI Presentation Maker, AI Code Generator, AI Captions, All 90+ prompt templates.
+- [Basic](https://ammarai.com/pricing): $24.99/month — 5,000 plan credits per month; AI Agent & AI video generation; 3-day free trial · everything in Starter. Adds: AI Agent, AI Video Agent, AI Video Generation, AI Social Media & Automation, Article Wizard & AI ReWriter, Plagiarism & Content Detectors, AI Image Editor, Vision & Realtime Image, AI Music Pro (Music Generation), Text-to-Speech & Speech-to-Text, AI Realtime Voice Chat, AI File & Web Chat, SEO Tool & Multi Model Support.
+- [Standard](https://ammarai.com/pricing): $59.99/month — 15,000 plan credits per month; AI Chat Pro Skills & website voice bots; Everything in Basic, plus CRM & deep research. Adds: AI Chat Pro Skills, AI Voice Bots for Websites, External Chatbot Builder (website embed), AI YouTube to Blog, AI URL to Video & Influencer, AI Video Editor, AI Auto Blog to WordPress, AI Product Photography & Fashion Studio, AI CRM & AI Sales, Deep Research & Model Council.
+- [Ultimate](https://ammarai.com/pricing): $129.99/month — 35,000 plan credits per month; 120 inbound & outbound phone minutes; 3 team seats · everything in Standard. Adds: AI Phone Call Agent (inbound & outbound), 120 phone minutes per month, 3 team seats, UGC Factory & AI Viral Clips, AI Video Dubbing (multi-language lip-sync), Creative Suite, Unlimited AI Agent Builder & full CRM, All connectors & Chatbot Training.
+- [Voice Scale](https://ammarai.com/pricing): $349.99/month — 75,000 plan credits per month; 800 voice minutes & automated follow-ups; 5 team seats · everything in Ultimate. Adds: 800 voice minutes per month, Automated Follow-Up Calls (reminders & confirmations), 5 team seats, Shared team workspace & call logs.
+
 ## Company
 - [About](https://ammarai.com/about): What AmmarAI is and who it is for
-- [Pricing](https://ammarai.com/pricing): Free, Starter, Professional and Ultimate plans
-- [AI Tools directory](https://ammarai.com/ai-tools): Browse all 151 tools
+- [Pricing](https://ammarai.com/pricing): Free, Starter, Basic, Standard, Ultimate, Voice Scale plans
+- [AI Tools directory](https://ammarai.com/ai-tools): Browse all 152 tools
 - [FAQ](https://ammarai.com/faq): Common questions about the platform
 - [Resources](https://ammarai.com/resources): Guides and help
 - [Contact](https://ammarai.com/contact): Sales, support and partnerships

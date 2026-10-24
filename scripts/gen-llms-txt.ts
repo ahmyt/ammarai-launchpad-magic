@@ -6,6 +6,8 @@ import { features } from "../src/data/features";
 import { useCases } from "../src/data/use-cases";
 import { posts } from "../src/data/posts";
 import { tutorials } from "../src/data/tutorials";
+import { plans } from "../src/lib/site";
+import { freePlan } from "../src/data/free-plan";
 
 const BASE_URL = "https://ammarai.com";
 const lines: string[] = [];
@@ -41,10 +43,26 @@ lines.push("## Blog");
 for (const post of posts) lines.push(`- [${post.title}](${BASE_URL}/blog/${post.slug})`);
 lines.push("");
 
+lines.push("## Pricing");
+lines.push(
+  `- [Free](${BASE_URL}/pricing): $${freePlan.monthlyPrice}/month — ${freePlan.monthlyCredits.toLocaleString("en-US")} plan credits per month, no card required. AI Writer, AI Chat, AI Image, Image Assistant and all prompt templates.`,
+);
+for (const plan of plans) {
+  const highlights = plan.newInPlan.map((item) => item.title).join(", ");
+  lines.push(
+    `- [${plan.name}](${BASE_URL}/pricing): ${plan.price}${plan.period} — ${plan.features.join("; ")}. Adds: ${highlights}.`,
+  );
+}
+lines.push("");
+
 lines.push("## Company");
 const companyLinks = [
   { label: "About", path: "/about", desc: "What AmmarAI is and who it is for" },
-  { label: "Pricing", path: "/pricing", desc: "Free, Starter, Professional and Ultimate plans" },
+  {
+    label: "Pricing",
+    path: "/pricing",
+    desc: `Free, ${plans.map((p) => p.name).join(", ")} plans`,
+  },
   { label: "AI Tools directory", path: "/ai-tools", desc: `Browse all ${tools.length} tools` },
   { label: "FAQ", path: "/faq", desc: "Common questions about the platform" },
   { label: "Resources", path: "/resources", desc: "Guides and help" },
