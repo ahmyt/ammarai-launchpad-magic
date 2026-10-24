@@ -99,7 +99,6 @@ const legalLinks = [
   { label: "Refund Policy", path: "/refund-policy" },
 ];
 for (const link of legalLinks) lines.push(`- [${link.label}](${BASE_URL}${link.path}): Mobile Unlocking LLC, US`);
-for (const link of companyLinks) lines.push(`- [${link.label}](${BASE_URL}${link.path}): ${link.desc}`);
 lines.push("");
 
 writeFileSync(new URL("../public/llms.txt", import.meta.url), lines.join("\n"));
