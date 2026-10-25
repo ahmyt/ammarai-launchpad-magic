@@ -327,6 +327,12 @@ function ToolPage({ tool }: { tool: Tool }) {
                 number and talk with an AmmarAI phone agent right now — no account needed.
               </p>
               <PhoneDemoButton className="mt-5" label="Show the demo phone number" />
+              <p className="mt-6 border-t border-border pt-5 text-sm text-muted-foreground">
+                Running a restaurant?{" "}
+                <Link to="/restaurant-phone-ordering" className="font-semibold text-accent underline-offset-4 hover:underline">
+                  See the takeout phone ordering agent with POS and kitchen display →
+                </Link>
+              </p>
             </div>
           ) : null}
 
