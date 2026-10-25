@@ -283,6 +283,27 @@ p{margin:0;font-size:16px;color:#55504a}
  */
 const COUNTRY_COOKIE = "ammarai_cc";
 
+/** Short non-secret fingerprint of an IP, stored in the remember cookie. */
+export function ipFingerprint(ip: string): string {
+  let hash = 5381;
+  for (let i = 0; i < ip.length; i++) hash = ((hash << 5) + hash + ip.charCodeAt(i)) >>> 0;
+  return hash.toString(16).padStart(8, "0");
+}
+
+const REMEMBERED_RE = /ammarai_cc=([A-Z]{2}|XX)(-V)?(?:\.([0-9a-f]{8}))?\b/;
+
+/**
+ * Trust the remember cookie only when it carries a fingerprint of the
+ * current IP. Legacy cookies without a fingerprint, and cookies issued to a
+ * different IP, are ignored so the visitor is re-checked.
+ */
+export function parseRememberedGeo(cookieHeader: string, ip: string): GeoInfo | null {
+  const match = cookieHeader.match(REMEMBERED_RE);
+  if (!match?.[1] || !ip || PRIVATE_IP_RE.test(ip)) return null;
+  if (match[3] !== ipFingerprint(ip)) return null;
+  return { country: match[1], vpn: Boolean(match[2]) };
+}
+
 /** Own servers (e.g. the app.ammarai.com Plesk host) always pass the gate. */
 export const ALLOWED_SERVER_IPS = new Set(["185.223.31.164", "194.156.89.107"]);
 
@@ -295,14 +316,15 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   const bypass = await resolveGeoBypass(request, config.bypassKey);
   if (bypass.response || bypass.allowed) return { block: bypass.response, cookie: null };
   const cookies = request.headers.get("cookie") ?? "";
-  // Cookie value: "GB" (residential) or "GB-V" (VPN/datacenter network).
-  const remembered = cookies.match(/ammarai_cc=([A-Z]{2}|XX)(-V)?/);
-  let info: GeoInfo | null = remembered?.[1] ? { country: remembered[1], vpn: Boolean(remembered[2]) } : null;
+  const ip = clientIp(request);
+  // The remember cookie is bound to the IP it was issued for: switching
+  // networks or turning on a VPN changes the IP, so the old pass is never
+  // trusted and the visitor is re-checked immediately.
+  let info: GeoInfo | null = parseRememberedGeo(cookies, ip);
   const header = headerCountry(request);
   if (header && !config.blockVpn) info = { country: header, vpn: false };
   let fresh = false;
   if (!info) {
-    const ip = clientIp(request);
     info = cachedGeo(ip);
     if (!info && ip && !PRIVATE_IP_RE.test(ip)) {
       // While the filter is on, resolve before rendering so a new visitor gets
@@ -316,7 +338,7 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   const response = evaluateGeoGate(request, config, country === "XX" ? "" : country, info?.vpn ?? false);
   if (!fresh || !country) return { block: response, cookie: null };
   const maxAge = Math.round(config.cacheMs / 1000);
-  const value = `${country}${info?.vpn ? "-V" : ""}`;
+  const value = `${country}${info?.vpn ? "-V" : ""}.${ipFingerprint(ip)}`;
   const cookie = `${COUNTRY_COOKIE}=${value}; Path=/; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Lax`;
   if (response) response.headers.append("set-cookie", cookie);
   return { block: response, cookie };
