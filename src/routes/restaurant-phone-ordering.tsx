@@ -113,7 +113,7 @@ export const Route = createFileRoute("/restaurant-phone-ordering")({
 
 function RestaurantOrderingPage() {
   const [active, setActive] = useState(0);
-  const step = steps[active];
+  const step = steps[active] ?? steps[0]!;
 
   return (
     <>
