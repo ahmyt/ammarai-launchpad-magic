@@ -32,7 +32,7 @@ test("codes are case-insensitive and ignore surrounding whitespace", async () =>
   const { store } = storeFixture();
   expect(bypassCodes("One, TWO  three")).toEqual(["one", "two", "three"]);
   expect((await resolveGeoBypass(request("ONE"), store)).response.status).toBe(302);
-  expect((await resolveGeoBypass(request(" one "), store)).allowed).toBe(true);
+  expect((await resolveGeoBypass(request(" one "), storeFixture().store)).allowed).toBe(true);
 });
 test("an unconfigured code is denied", async () => {
   const { store } = storeFixture();
