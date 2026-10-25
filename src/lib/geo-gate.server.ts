@@ -311,7 +311,7 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   if (ALLOWED_SERVER_IPS.has(clientIp(request))) return { block: null, cookie: null };
   const path = new URL(request.url).pathname;
   if (SKIP_PATH_RE.test(path) || /\.[a-z0-9]{2,5}$/i.test(path) || CRAWLER_RE.test(request.headers.get("user-agent") ?? "")) return { block: null, cookie: null };
-  const bypass = await resolveGeoBypass(request, config.bypassKey);
+  const bypass = await resolveGeoBypass(request);
   if (bypass.response || bypass.allowed) return { block: bypass.response, cookie: null };
   const cookies = request.headers.get("cookie") ?? "";
   const ip = clientIp(request);
