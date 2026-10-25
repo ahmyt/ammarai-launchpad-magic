@@ -295,14 +295,15 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   const bypass = await resolveGeoBypass(request, config.bypassKey);
   if (bypass.response || bypass.allowed) return { block: bypass.response, cookie: null };
   const cookies = request.headers.get("cookie") ?? "";
-  // Cookie value: "GB" (residential) or "GB-V" (VPN/datacenter network).
-  const remembered = cookies.match(/ammarai_cc=([A-Z]{2}|XX)(-V)?/);
-  let info: GeoInfo | null = remembered?.[1] ? { country: remembered[1], vpn: Boolean(remembered[2]) } : null;
+  const ip = clientIp(request);
+  // The remember cookie is bound to the IP it was issued for: switching
+  // networks or turning on a VPN changes the IP, so the old pass is never
+  // trusted and the visitor is re-checked immediately.
+  let info: GeoInfo | null = parseRememberedGeo(cookies, ip);
   const header = headerCountry(request);
   if (header && !config.blockVpn) info = { country: header, vpn: false };
   let fresh = false;
   if (!info) {
-    const ip = clientIp(request);
     info = cachedGeo(ip);
     if (!info && ip && !PRIVATE_IP_RE.test(ip)) {
       // While the filter is on, resolve before rendering so a new visitor gets
