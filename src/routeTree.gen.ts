@@ -24,6 +24,7 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
 import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as RestaurantPhoneOrderingRouteImport } from './routes/restaurant-phone-ordering'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TutorialsRouteImport } from './routes/tutorials'
@@ -119,6 +120,11 @@ const RefundPolicyRoute = RefundPolicyRouteImport.update({
 const ResourcesRoute = ResourcesRouteImport.update({
   id: '/resources',
   path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantPhoneOrderingRoute = RestaurantPhoneOrderingRouteImport.update({
+  id: '/restaurant-phone-ordering',
+  path: '/restaurant-phone-ordering',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -244,6 +250,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
+  '/restaurant-phone-ordering': typeof RestaurantPhoneOrderingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/tutorials': typeof TutorialsRouteWithChildren
@@ -281,6 +288,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
+  '/restaurant-phone-ordering': typeof RestaurantPhoneOrderingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/use-cases': typeof UseCasesRoute
@@ -319,6 +327,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
+  '/restaurant-phone-ordering': typeof RestaurantPhoneOrderingRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/tutorials': typeof TutorialsRouteWithChildren
@@ -359,6 +368,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/refund-policy'
     | '/resources'
+    | '/restaurant-phone-ordering'
     | '/sitemap.xml'
     | '/terms'
     | '/tutorials'
@@ -396,6 +406,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/refund-policy'
     | '/resources'
+    | '/restaurant-phone-ordering'
     | '/sitemap.xml'
     | '/terms'
     | '/use-cases'
@@ -433,6 +444,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/refund-policy'
     | '/resources'
+    | '/restaurant-phone-ordering'
     | '/sitemap.xml'
     | '/terms'
     | '/tutorials'
@@ -472,6 +484,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   RefundPolicyRoute: typeof RefundPolicyRoute
   ResourcesRoute: typeof ResourcesRoute
+  RestaurantPhoneOrderingRoute: typeof RestaurantPhoneOrderingRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   TutorialsRoute: typeof TutorialsRouteWithChildren
@@ -591,6 +604,13 @@ declare module '@tanstack/react-router' {
       path: '/resources'
       fullPath: '/resources'
       preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant-phone-ordering': {
+      id: '/restaurant-phone-ordering'
+      path: '/restaurant-phone-ordering'
+      fullPath: '/restaurant-phone-ordering'
+      preLoaderRoute: typeof RestaurantPhoneOrderingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -795,6 +815,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   RefundPolicyRoute: RefundPolicyRoute,
   ResourcesRoute: ResourcesRoute,
+  RestaurantPhoneOrderingRoute: RestaurantPhoneOrderingRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   TutorialsRoute: TutorialsRouteWithChildren,
