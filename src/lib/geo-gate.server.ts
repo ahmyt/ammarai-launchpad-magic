@@ -120,13 +120,11 @@ async function refreshSettings(): Promise<void> {
   if (!response.ok) return;
   const rows = (await response.json()) as { data?: Record<string, unknown>; is_hidden?: boolean }[];
   const row = rows?.[0];
-  let bypassKey = "";
-  try {
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const privateConfig = await supabaseAdmin.from("geo_bypass_config").select("codes").eq("id", "settings").maybeSingle();
-    if (!privateConfig.error) bypassKey = privateConfig.data?.codes ?? "";
-  } catch { /* Missing private configuration disables bypass only. */ }
-  settingsCache = row && !row.is_hidden ? { ...normalise(row.data), bypassKey } : DEFAULTS;
+  // Bypass codes stay in the admin-only geo_bypass_config table; the gate
+  // never reads them. Code matching and claiming happen inside the
+  // security-definer gate_* database functions (see geo-bypass.server.ts),
+  // so this server only needs the publishable key.
+  settingsCache = row && !row.is_hidden ? normalise(row.data) : DEFAULTS;
   settingsFetchedAt = Date.now();
 }
 

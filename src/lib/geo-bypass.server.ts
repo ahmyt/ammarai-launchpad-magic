@@ -1,28 +1,50 @@
-import { BYPASS_COOKIE, BYPASS_MAX_AGE, bypassCodes, bypassHash, parseBypassCookie, readCookie } from "./geo-bypass";
+import { createClient } from "@supabase/supabase-js";
+import { BYPASS_COOKIE, BYPASS_MAX_AGE, bypassHash, parseBypassCookie, readCookie } from "./geo-bypass";
 
 type BypassStore = (action: "claim" | "verify", codeHash: string, deviceHash: string) => Promise<boolean>;
 
+// The gate runs on the public site with only the publishable key, so code
+// matching and claiming happen inside security-definer database functions
+// (gate_claim_geo_bypass / gate_verify_geo_bypass). The publishable key is an
+// opaque string, not a JWT: send it as apikey only, never as a bearer token.
+const gateFetch = (key: string): typeof fetch => (input, init) => {
+  const headers = new Headers(input instanceof Request ? input.headers : undefined);
+  if (init?.headers) new Headers(init.headers).forEach((value, name) => headers.set(name, value));
+  if (headers.get("Authorization") === `Bearer ${key}`) headers.delete("Authorization");
+  headers.set("apikey", key);
+  return fetch(input, { ...init, headers });
+};
+
+let gateClient: ReturnType<typeof createClient> | undefined;
+function client() {
+  if (!gateClient) {
+    const url = process.env["SUPABASE_URL"] ?? process.env["VITE_SUPABASE_URL"];
+    const key = process.env["SUPABASE_PUBLISHABLE_KEY"] ?? process.env["VITE_SUPABASE_PUBLISHABLE_KEY"];
+    if (!url || !key) throw new Error("Bypass store unavailable");
+    gateClient = createClient(url, key, {
+      global: { fetch: gateFetch(key) },
+      auth: { persistSession: false, autoRefreshToken: false },
+    });
+  }
+  return gateClient;
+}
+
 const databaseStore: BypassStore = async (action, codeHash, deviceHash) => {
-  // Only reached after matching a configured code or its hash. No public RPC
-  // may claim ownership; otherwise callers could pre-claim someone else's code.
-  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-  const { data, error } = await supabaseAdmin.rpc(
-    action === "claim" ? "claim_geo_bypass" : "verify_geo_bypass",
+  const { data, error } = await client().rpc(
+    action === "claim" ? "gate_claim_geo_bypass" : "gate_verify_geo_bypass",
     { _code_hash: codeHash, _device_hash: deviceHash },
   );
   if (error) throw new Error("Bypass verification unavailable");
   return data === true;
 };
 
-export async function resolveGeoBypass(request: Request, configured: string, store: BypassStore = databaseStore): Promise<{ allowed: boolean; response: Response | null }> {
+export async function resolveGeoBypass(request: Request, store: BypassStore = databaseStore): Promise<{ allowed: boolean; response: Response | null }> {
   const url = new URL(request.url);
   const code = url.searchParams.get("bypass_country")?.trim().toLowerCase() ?? null;
-  const codes = bypassCodes(configured);
   const saved = parseBypassCookie(readCookie(request, BYPASS_COOKIE));
-  const hashes = await Promise.all(codes.map(bypassHash));
   try {
     if (code !== null) {
-      if (!codes.includes(code)) return { allowed: false, response: denied() };
+      if (code.length === 0 || code.length > 64) return { allowed: false, response: denied() };
       const codeHash = await bypassHash(code);
       const token = saved?.codeHash === codeHash ? saved.token :
         Array.from(crypto.getRandomValues(new Uint8Array(32)), (byte) => byte.toString(16).padStart(2, "0")).join("");
@@ -39,7 +61,7 @@ export async function resolveGeoBypass(request: Request, configured: string, sto
         },
       }) };
     }
-    if (!saved || !hashes.includes(saved.codeHash)) return { allowed: false, response: null };
+    if (!saved) return { allowed: false, response: null };
     return { allowed: await store("verify", saved.codeHash, await bypassHash(saved.token)), response: null };
   } catch {
     // Fail closed for bypass credentials, without changing ordinary country decisions.
