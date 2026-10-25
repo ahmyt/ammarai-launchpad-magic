@@ -1,4 +1,5 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "@/integrations/supabase/types";
 import { BYPASS_COOKIE, BYPASS_MAX_AGE, bypassHash, parseBypassCookie, readCookie } from "./geo-bypass";
 
 type BypassStore = (action: "claim" | "verify", codeHash: string, deviceHash: string) => Promise<boolean>;
@@ -15,13 +16,13 @@ const gateFetch = (key: string): typeof fetch => (input, init) => {
   return fetch(input, { ...init, headers });
 };
 
-let gateClient: ReturnType<typeof createClient> | undefined;
+let gateClient: SupabaseClient<Database> | undefined;
 function client() {
   if (!gateClient) {
     const url = process.env["SUPABASE_URL"] ?? process.env["VITE_SUPABASE_URL"];
     const key = process.env["SUPABASE_PUBLISHABLE_KEY"] ?? process.env["VITE_SUPABASE_PUBLISHABLE_KEY"];
     if (!url || !key) throw new Error("Bypass store unavailable");
-    gateClient = createClient(url, key, {
+    gateClient = createClient<Database>(url, key, {
       global: { fetch: gateFetch(key) },
       auth: { persistSession: false, autoRefreshToken: false },
     });
