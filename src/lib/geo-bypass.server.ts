@@ -30,10 +30,11 @@ function client() {
 }
 
 const databaseStore: BypassStore = async (action, codeHash, deviceHash) => {
-  const { data, error } = await client().rpc(
-    action === "claim" ? "gate_claim_geo_bypass" : "gate_verify_geo_bypass",
-    { _code_hash: codeHash, _device_hash: deviceHash },
-  );
+  const args = { _code_hash: codeHash, _device_hash: deviceHash };
+  const { data, error } =
+    action === "claim"
+      ? await client().rpc("gate_claim_geo_bypass", args)
+      : await client().rpc("gate_verify_geo_bypass", args);
   if (error) throw new Error("Bypass verification unavailable");
   return data === true;
 };
