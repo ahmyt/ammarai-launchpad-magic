@@ -612,6 +612,14 @@ export type Database = {
         Args: { _id: string; _token: string }
         Returns: boolean
       }
+      gate_claim_geo_bypass: {
+        Args: { _code_hash: string; _device_hash: string }
+        Returns: boolean
+      }
+      gate_verify_geo_bypass: {
+        Args: { _code_hash: string; _device_hash: string }
+        Returns: boolean
+      }
       get_active_offer: {
         Args: never
         Returns: {
