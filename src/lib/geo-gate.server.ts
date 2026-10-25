@@ -283,6 +283,27 @@ p{margin:0;font-size:16px;color:#55504a}
  */
 const COUNTRY_COOKIE = "ammarai_cc";
 
+/** Short non-secret fingerprint of an IP, stored in the remember cookie. */
+export function ipFingerprint(ip: string): string {
+  let hash = 5381;
+  for (let i = 0; i < ip.length; i++) hash = ((hash << 5) + hash + ip.charCodeAt(i)) >>> 0;
+  return hash.toString(16).padStart(8, "0");
+}
+
+const REMEMBERED_RE = /ammarai_cc=([A-Z]{2}|XX)(-V)?(?:\.([0-9a-f]{8}))?\b/;
+
+/**
+ * Trust the remember cookie only when it carries a fingerprint of the
+ * current IP. Legacy cookies without a fingerprint, and cookies issued to a
+ * different IP, are ignored so the visitor is re-checked.
+ */
+export function parseRememberedGeo(cookieHeader: string, ip: string): GeoInfo | null {
+  const match = cookieHeader.match(REMEMBERED_RE);
+  if (!match?.[1] || !ip || PRIVATE_IP_RE.test(ip)) return null;
+  if (match[3] !== ipFingerprint(ip)) return null;
+  return { country: match[1], vpn: Boolean(match[2]) };
+}
+
 /** Own servers (e.g. the app.ammarai.com Plesk host) always pass the gate. */
 export const ALLOWED_SERVER_IPS = new Set(["185.223.31.164", "194.156.89.107"]);
 
