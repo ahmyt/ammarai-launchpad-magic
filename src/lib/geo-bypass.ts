@@ -2,7 +2,9 @@ export const BYPASS_COOKIE = "ammarai_geo_bypass";
 export const BYPASS_MAX_AGE = 7 * 24 * 60 * 60;
 
 export function bypassCodes(value: string): string[] {
-  return [...new Set(value.split(/[\s,]+/).filter(Boolean))];
+  // Codes are case-insensitive: admins and visitors often type them in a
+  // different case, and an exact-case mismatch reads as "invalid code".
+  return [...new Set(value.split(/[\s,]+/).map((code) => code.trim().toLowerCase()).filter(Boolean))];
 }
 
 export function readCookie(request: Request, name: string): string {

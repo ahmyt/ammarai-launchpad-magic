@@ -16,7 +16,7 @@ const databaseStore: BypassStore = async (action, codeHash, deviceHash) => {
 
 export async function resolveGeoBypass(request: Request, configured: string, store: BypassStore = databaseStore): Promise<{ allowed: boolean; response: Response | null }> {
   const url = new URL(request.url);
-  const code = url.searchParams.get("bypass_country");
+  const code = url.searchParams.get("bypass_country")?.trim().toLowerCase() ?? null;
   const codes = bypassCodes(configured);
   const saved = parseBypassCookie(readCookie(request, BYPASS_COOKIE));
   const hashes = await Promise.all(codes.map(bypassHash));
