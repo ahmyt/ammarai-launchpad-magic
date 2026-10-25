@@ -338,7 +338,7 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   const response = evaluateGeoGate(request, config, country === "XX" ? "" : country, info?.vpn ?? false);
   if (!fresh || !country) return { block: response, cookie: null };
   const maxAge = Math.round(config.cacheMs / 1000);
-  const value = `${country}${info?.vpn ? "-V" : ""}`;
+  const value = `${country}${info?.vpn ? "-V" : ""}.${ipFingerprint(ip)}`;
   const cookie = `${COUNTRY_COOKIE}=${value}; Path=/; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Lax`;
   if (response) response.headers.append("set-cookie", cookie);
   return { block: response, cookie };
