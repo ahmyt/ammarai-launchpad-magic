@@ -11,6 +11,8 @@ import { RestaurantOnboarding, RestaurantConnections } from "@/components/site/R
 import { ChatbotTryButton } from "@/components/site/LiveChatbot";
 import { restaurantOffer } from "@/data/restaurant-offer";
 import restaurantImage from "@/assets/anchor-restaurant.jpg";
+import callPoster from "@/assets/anchor-call-poster.jpg";
+import callVideo from "@/assets/anchor-fish-wings-call-demo.mp4.asset.json";
 
 const url = "https://ammarai.com/restaurant-phone-ordering";
 const title = "AI Restaurant Phone Ordering Agent with POS & KDS | AmmarAI";
@@ -241,14 +243,20 @@ function RestaurantOrderingPage() {
 
       <Section>
         <Container>
-          <SectionHeading eyebrow="The complete picture" title="One call. Three connected moments." intro="Illustrative preview: the conversation, the order ticket and an optional customer update. Real restaurant screen recording coming soon." />
+          <SectionHeading eyebrow="The complete picture" title="One call. Three connected moments." intro="A real test call recording: the AI agent takes the order, the ticket reaches the POS and kitchen, and the customer receives an update." />
+          <figure className="mt-10 border border-border">
+            <video className="aspect-video w-full bg-secondary" controls preload="none" playsInline poster={callPoster} src={callVideo.url}>
+              Your browser does not support video playback.
+            </video>
+            <figcaption className="border-t border-border px-4 py-3 text-xs text-muted-foreground">Recorded test call · Anchor Fish & Wings demo menu · 2 min 41 s</figcaption>
+          </figure>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <div className="border border-border p-6"><Phone className="size-6 text-accent" /><p className="mt-5 text-xs text-muted-foreground">01 / THE CALL</p><h3 className="mt-2 text-lg">Anchor Fish & Wings</h3><div className="restaurant-wave my-5 flex h-10 items-center gap-1" aria-hidden="true">{Array.from({length: 16}, (_, i) => <span key={i} className="w-1 flex-1 bg-accent" />)}</div><p className="text-sm leading-relaxed text-muted-foreground">“Two wing combos and a fish sandwich. Is that correct?”</p></div>
             <div className="border border-border p-6"><MonitorSmartphone className="size-6 text-accent" /><p className="mt-5 text-xs text-muted-foreground">02 / POS → KITCHEN</p><h3 className="mt-2 text-lg">Order #104</h3><div className="my-5 space-y-3 border-y border-dashed border-border py-4 text-sm"><p>2 × Wing combo</p><p>1 × Fish sandwich</p><p className="flex items-center gap-2 text-success"><Check className="size-4" />Confirmed → kitchen ticket</p></div><p className="text-xs text-muted-foreground">Example ticket · Not a live order</p></div>
             <div className="border border-border p-6"><MessageSquare className="size-6 text-accent" /><p className="mt-5 text-xs text-muted-foreground">03 / CUSTOMER UPDATE</p><h3 className="mt-2 text-lg">Pickup confirmed</h3><p className="my-5 border-l-2 border-accent bg-secondary/50 p-4 text-sm leading-relaxed">Anchor Fish & Wings: your order #104 is confirmed. Your pickup details will appear here.</p><p className="text-xs leading-relaxed text-muted-foreground">Optional SMS requires a configured messaging service and customer consent; not active in this preview.</p></div>
           </div>
           <div className="mt-10 flex flex-col justify-between gap-6 border-y border-border py-8 md:flex-row md:items-center">
-            <div className="max-w-xl"><p className="eyebrow">Speak with AmmarAI</p><h3 className="mt-3 text-2xl">Try a live AI conversation</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Our general AmmarAI demo is available now. The dedicated Anchor Fish & Wings browser-call demo is coming once its restaurant agent is connected.</p></div>
+            <div className="max-w-xl"><p className="eyebrow">Speak with AmmarAI</p><h3 className="mt-3 text-2xl">Try a live AI conversation</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Tap the voice button on this page to talk to the Anchor Fish & Wings agent from your browser. Orders placed in this demo are for testing only.</p></div>
             <div className="flex shrink-0 flex-col gap-3"><PhoneDemoButton label="Call the AmmarAI demo" /><ChatbotTryButton /></div>
           </div>
         </Container>
