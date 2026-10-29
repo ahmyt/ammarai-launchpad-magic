@@ -69,6 +69,11 @@ export function Header() {
                     <Link to="/ai-tools" search={{ pillar }} className="mt-3 inline-flex text-xs font-semibold text-accent">Explore {pillar}</Link>
                   </div>
                 ))}
+                <div>
+                  <p className="eyebrow">For restaurants</p>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">AI answers calls, takes pickup orders and sends tickets to your POS and kitchen.</p>
+                  <Link to="/restaurant-phone-ordering" className="mt-3 inline-flex text-xs font-semibold text-accent">Restaurant Phone Ordering</Link>
+                </div>
               </div>
             </div>
           ) : (
@@ -160,6 +165,9 @@ export function Header() {
                 </Link>
               ))}
             </div>
+            <Link to="/restaurant-phone-ordering" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
+              Restaurant Phone Ordering Agent →
+            </Link>
             <div className="flex items-center gap-3 pt-4">
               <ExternalButton
                 href={REGISTER_URL}
