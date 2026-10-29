@@ -1,6 +1,12 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Restaurant phone ordering upgrade (2026-10-29)
+- [x] Add Anchor Fish & Wings demonstration, animated onboarding and POS compatibility showcase
+- [x] Present the approved separate $349/month restaurant offer and retain general Voice Scale pricing
+- [x] Verify page interactions, desktop/mobile layout and reduced motion; three offer tests pass
+- [ ] Connect restaurant-specific live voice demo and real call/POS/SMS recording: requires supplied restaurant embed and recording
+
 ## Single-browser country bypass
 - [x] Bind each bypass code to its first browser and provide an admin reset
 - [x] Verify claims, rejection on another browser, expiry and reset against real claim storage and 18 focused tests

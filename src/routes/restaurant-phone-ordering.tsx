@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, ChefHat, CreditCard, MonitorSmartphone, Phone, Receipt, Utensils } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ChefHat, CreditCard, MessageSquare, Mic, MonitorSmartphone, Phone, Receipt, ShieldCheck, Utensils } from "lucide-react";
 import { Card, Container, Section, SectionHeading } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ButtonLink } from "@/components/site/Button";
 import { PhoneDemoButton } from "@/components/site/PhoneDemoDialog";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { RestaurantOnboarding, RestaurantConnections } from "@/components/site/RestaurantVisuals";
+import { ChatbotTryButton } from "@/components/site/LiveChatbot";
+import { restaurantOffer } from "@/data/restaurant-offer";
+import restaurantImage from "@/assets/anchor-restaurant.jpg";
 
 const url = "https://ammarai.com/restaurant-phone-ordering";
 const title = "AI Restaurant Phone Ordering Agent with POS & KDS | AmmarAI";
@@ -18,7 +23,7 @@ const steps: Step[] = [
   {
     title: "Greet the caller",
     speaker: "agent",
-    lines: [{ who: "Agent", text: "Thanks for calling JJ Fish & Chicken! I can take your takeout order. What would you like today?" }],
+    lines: [{ who: "Agent", text: "Thanks for calling Anchor Fish & Wings! I can take your takeout order. What would you like today?" }],
   },
   {
     title: "Collect items, quantities and modifiers",
@@ -73,13 +78,6 @@ const integration = [
   { icon: CreditCard, title: "Optional phone payment", body: "If you need it, we connect your payment provider so orders are paid on the call." },
 ];
 
-const service = [
-  { title: "We train the agent", body: "We load your menu, modifiers, hours and pickup times, and tune the voice and greeting." },
-  { title: "We connect your POS", body: "We map your menu to the POS and set up order creation through its API." },
-  { title: "We push orders to the kitchen", body: "Confirmed orders reach your kitchen display system automatically." },
-  { title: "We test and go live", body: "Test calls with your team, then switch your phone line over." },
-];
-
 export const Route = createFileRoute("/restaurant-phone-ordering")({
   staticData: { sitemap: true },
   head: () => ({
@@ -113,47 +111,54 @@ export const Route = createFileRoute("/restaurant-phone-ordering")({
 
 function RestaurantOrderingPage() {
   const [active, setActive] = useState(0);
-  const step = steps[active] ?? steps[0]!;
+  const step = steps[active];
+  if (!step) return null;
 
   return (
     <>
-      <Section>
-        <Container>
-          <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "AI Phone Call Agent", to: "/ai-phone-agent" }, { label: "Restaurant Phone Ordering" }]} />
-          <div className="mt-8 max-w-3xl">
-            <p className="eyebrow">Restaurant phone ordering · Takeout</p>
-            <h1 className="mt-4 text-balance text-4xl leading-[1.02] sm:text-5xl">
-              Every takeout call answered — and sent straight to your kitchen
-            </h1>
-            <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-              An AI phone agent that takes takeout orders, confirms them with the caller, creates the order in your
-              POS and sends the ticket to your kitchen display. Full service: we set it up for you.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink to="/contact" size="lg">Book a restaurant setup call</ButtonLink>
-              <PhoneDemoButton label="Call the demo agent" />
+      <section className="restaurant-hero">
+        <img src={restaurantImage} alt="Fish and wings takeout counter with a POS terminal and kitchen display" width={1536} height={1024} fetchPriority="high" className="restaurant-hero-image" />
+        <Container className="relative z-10 py-12 sm:py-16">
+          <p className="text-xs font-semibold uppercase tracking-wide">AmmarAI / For restaurants</p>
+          <div className="mt-10 max-w-2xl">
+            <h1 className="text-balance text-4xl leading-tight sm:text-5xl">AI restaurant phone ordering</h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed">Every takeout call answered. Every confirmed order sent to your POS and kitchen. Your team stays focused on the food.</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <ButtonLink to="/contact" size="lg"><Phone className="size-4" />Book a restaurant setup call</ButtonLink>
+              <a href="#restaurant-demo" className="restaurant-hero-link"><ArrowRight className="size-4" />Explore the demo</a>
             </div>
+            <p className="mt-6 text-sm">${restaurantOffer.monthlyPrice}/month · Unlimited inbound calls · Zero per-order commissions</p>
           </div>
         </Container>
-      </Section>
+      </section>
+      <div className="border-b border-border bg-secondary/40">
+        <Container className="flex flex-wrap gap-x-8 gap-y-3 py-5 text-sm font-semibold">
+          <span className="flex items-center gap-2"><Utensils className="size-4 text-accent" />Your menu, your rules</span>
+          <span className="flex items-center gap-2"><Phone className="size-4 text-accent" />Keep your existing number</span>
+          <span className="flex items-center gap-2"><Receipt className="size-4 text-accent" />POS & kitchen workflow</span>
+        </Container>
+      </div>
 
-      <Section tone="sand">
+      <Section tone="sand" id="restaurant-demo">
         <Container>
+          <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Restaurant Phone Ordering" }]} />
           <SectionHeading
-            eyebrow="How a call works"
-            title="A real takeout order, step by step"
-            intro="Example: JJ Fish & Chicken. Tap each step to see what happens on the call and behind the counter."
+            className="mt-8"
+            eyebrow="Anchor Fish & Wings · Fictional demo restaurant"
+            title="From the first hello to the kitchen ticket"
+            intro="An illustrative takeout conversation—not a live transaction. Confirm items, modifiers and customer details before sending an order."
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
             <ol className="space-y-2">
               {steps.map((s, i) => (
                 <li key={s.title}>
-                  <button
+                  <Button
+                    variant="ghost"
                     type="button"
                     onClick={() => setActive(i)}
                     aria-current={i === active ? "step" : undefined}
                     className={cn(
-                      "flex w-full items-center gap-4 rounded-lg border px-4 py-3 text-left text-sm transition-colors",
+                      "h-auto min-h-14 w-full justify-start gap-4 whitespace-normal rounded-lg border px-4 py-3 text-left text-sm transition-colors",
                       i === active ? "border-accent bg-card text-foreground" : "border-border text-muted-foreground hover:bg-card",
                     )}
                   >
@@ -161,12 +166,12 @@ function RestaurantOrderingPage() {
                       {i < active ? <Check className="size-3.5" aria-hidden="true" /> : i + 1}
                     </span>
                     <span className="font-semibold">{s.title}</span>
-                  </button>
+                  </Button>
                 </li>
               ))}
             </ol>
 
-            <Card className="p-6 sm:p-8">
+            <div className="border-t-2 border-accent bg-background p-6 sm:p-8">
               <p className="eyebrow">Step {active + 1} of {steps.length}</p>
               <h3 className="mt-2 text-xl font-semibold text-foreground">{step.title}</h3>
               <div className="mt-6 space-y-3" aria-live="polite">
@@ -192,10 +197,10 @@ function RestaurantOrderingPage() {
                 </div>
               ) : null}
               <div className="mt-6 flex gap-3">
-                <button type="button" className="text-sm font-semibold text-muted-foreground disabled:opacity-40" disabled={active === 0} onClick={() => setActive(active - 1)}>← Back</button>
-                <button type="button" className="text-sm font-semibold text-accent disabled:opacity-40" disabled={active === steps.length - 1} onClick={() => setActive(active + 1)}>Next step →</button>
+                <Button variant="ghost" aria-label="Previous call step" disabled={active === 0} onClick={() => setActive(active - 1)}><ArrowLeft />Back</Button>
+                <Button variant="outline" disabled={active === steps.length - 1} onClick={() => setActive(active + 1)}>Next step<ArrowRight /></Button>
               </div>
-            </Card>
+            </div>
           </div>
         </Container>
       </Section>
@@ -220,31 +225,44 @@ function RestaurantOrderingPage() {
         </Container>
       </Section>
 
+      <Section>
+        <Container>
+          <SectionHeading eyebrow="POS connections" title="Your phone agent. Your POS." intro="A tested AymarPOS order flow, plus API-based options we assess for your restaurant. API availability does not mean an integration is already live." />
+          <RestaurantConnections />
+        </Container>
+      </Section>
+
       <Section tone="sand">
         <Container>
-          <SectionHeading eyebrow="Watch it work" title="Real call, POS screen and kitchen display" />
-          <Card className="mt-8 grid aspect-video place-items-center p-6 text-center">
-            <div>
-              <MonitorSmartphone className="mx-auto size-8 text-accent" aria-hidden="true" />
-              <p className="mt-3 text-sm text-muted-foreground">
-                Screen recording coming soon: a live phone order appearing in the POS and on the kitchen display.
-              </p>
-            </div>
-          </Card>
+          <SectionHeading eyebrow="Full-service onboarding" title="From your menu to your first call" intro="We handle training, connection setup and launch testing with your team. Timing depends on menu complexity, phone provider and POS access." />
+          <RestaurantOnboarding />
         </Container>
       </Section>
 
       <Section>
         <Container>
-          <SectionHeading eyebrow="Full service" title="We set it up for you" />
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {service.map((s, i) => (
-              <Card key={s.title} className="p-6">
-                <p className="font-display text-sm font-semibold text-accent tabular-nums">{String(i + 1).padStart(2, "0")}</p>
-                <h3 className="mt-2 text-base font-semibold text-foreground">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-              </Card>
-            ))}
+          <SectionHeading eyebrow="The complete picture" title="One call. Three connected moments." intro="Illustrative preview: the conversation, the order ticket and an optional customer update. Real restaurant screen recording coming soon." />
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <div className="border border-border p-6"><Phone className="size-6 text-accent" /><p className="mt-5 text-xs text-muted-foreground">01 / THE CALL</p><h3 className="mt-2 text-lg">Anchor Fish & Wings</h3><div className="restaurant-wave my-5 flex h-10 items-center gap-1" aria-hidden="true">{Array.from({length: 16}, (_, i) => <span key={i} className="w-1 flex-1 bg-accent" />)}</div><p className="text-sm leading-relaxed text-muted-foreground">“Two wing combos and a fish sandwich. Is that correct?”</p></div>
+            <div className="border border-border p-6"><MonitorSmartphone className="size-6 text-accent" /><p className="mt-5 text-xs text-muted-foreground">02 / POS → KITCHEN</p><h3 className="mt-2 text-lg">Order #104</h3><div className="my-5 space-y-3 border-y border-dashed border-border py-4 text-sm"><p>2 × Wing combo</p><p>1 × Fish sandwich</p><p className="flex items-center gap-2 text-success"><Check className="size-4" />Confirmed → kitchen ticket</p></div><p className="text-xs text-muted-foreground">Example ticket · Not a live order</p></div>
+            <div className="border border-border p-6"><MessageSquare className="size-6 text-accent" /><p className="mt-5 text-xs text-muted-foreground">03 / CUSTOMER UPDATE</p><h3 className="mt-2 text-lg">Pickup confirmed</h3><p className="my-5 border-l-2 border-accent bg-secondary/50 p-4 text-sm leading-relaxed">Anchor Fish & Wings: your order #104 is confirmed. Your pickup details will appear here.</p><p className="text-xs leading-relaxed text-muted-foreground">Optional SMS requires a configured messaging service and customer consent; not active in this preview.</p></div>
+          </div>
+          <div className="mt-10 flex flex-col justify-between gap-6 border-y border-border py-8 md:flex-row md:items-center">
+            <div className="max-w-xl"><p className="eyebrow">Speak with AmmarAI</p><h3 className="mt-3 text-2xl">Try a live AI conversation</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Our general AmmarAI demo is available now. The dedicated Anchor Fish & Wings browser-call demo is coming once its restaurant agent is connected.</p></div>
+            <div className="flex shrink-0 flex-col gap-3"><PhoneDemoButton label="Call the AmmarAI demo" /><ChatbotTryButton /></div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section tone="sand">
+        <Container>
+          <SectionHeading eyebrow="Built-in guardrails" title="Your restaurant sets the rules" />
+          <div className="mt-8 grid gap-8 sm:grid-cols-3">
+            {[
+              ["Hours & future pickups", "Configure local opening hours and pickup windows, including the full date and time for tomorrow or a later day."],
+              ["Confirm before sending", "Read back items and modifiers. Submit only after the caller confirms. Never guess an unavailable item or price."],
+              ["Private order status", "Match the customer-facing order number and phone number before sharing order status or pickup details."],
+            ].map(([heading, body]) => <div key={heading} className="border-t border-border pt-5"><ShieldCheck className="size-5 text-accent" /><h3 className="mt-4 text-lg">{heading}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p></div>)}
           </div>
         </Container>
       </Section>
@@ -253,14 +271,16 @@ function RestaurantOrderingPage() {
         <Container>
           <div className="max-w-2xl">
             <p className="eyebrow">Pricing</p>
-            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl">Runs on the Voice Scale plan</h2>
+            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl">Restaurant phone ordering</h2>
+            <p className="mt-6 text-5xl font-semibold">${restaurantOffer.monthlyPrice}<span className="text-base font-normal"> / month</span></p>
             <p className="mt-4 text-pretty leading-relaxed opacity-80">
-              Voice Scale ($349.99/month) includes 800 call minutes per month. Setup — menu training, POS connection,
-              kitchen display and optional phone payments — is quoted per restaurant.
+              Unlimited inbound calls. Zero per-order commissions. Menu training, POS connection and kitchen-workflow testing are included for the agreed setup. We confirm POS compatibility and any optional payment or messaging services before you sign up.
+            </p>
+            <p className="mt-4 text-sm opacity-80">This is a separate restaurant service, not the general Voice Scale plan. Optional phone payment and SMS are scoped separately; any additional charges require your approval.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink to="/contact" variant="onInk" size="lg">Get a setup quote</ButtonLink>
-              <ButtonLink to="/pricing" variant="outline" size="lg" className="text-ink-foreground">See all plans</ButtonLink>
+              <ButtonLink to="/contact" variant="onInk" size="lg">Discuss your restaurant</ButtonLink>
+              <ButtonLink to="/pricing" variant="outline" size="lg" className="text-ink-foreground">Compare AI workspace plans</ButtonLink>
             </div>
           </div>
         </Container>
