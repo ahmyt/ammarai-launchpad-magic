@@ -2,9 +2,9 @@
 # Roadmap
 
 ## Restaurant search and blog coverage (2026-10-29)
-- [ ] Include restaurant phone ordering in the existing sitemap and regenerate llms.txt
-- [ ] Research US restaurant keywords and add evidence-backed briefs to the automatic blog queue
-- [ ] Verify sitemap output, AI guide and topic selection without publishing a new article
+- [x] Confirm restaurant phone ordering is already included once in the existing sitemap; regenerate llms.txt with the solution and approved offer
+- [x] Research US restaurant keywords with Semrush and add three prioritized briefs to the automatic blog queue
+- [x] Verify served sitemap and AI guide plus ten focused tests; no new article generated or published
 
 ## Restaurant phone ordering upgrade (2026-10-29)
 - [x] Correct Anchor Fish demo phone to +1 (888) 800-0616; keep regular AmmarAI number unchanged
