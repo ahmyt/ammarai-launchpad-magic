@@ -256,7 +256,7 @@ function RestaurantOrderingPage() {
             <div className="border border-border p-6"><MessageSquare className="size-6 text-accent" /><p className="mt-5 text-xs text-muted-foreground">03 / CUSTOMER UPDATE</p><h3 className="mt-2 text-lg">Pickup confirmed</h3><p className="my-5 border-l-2 border-accent bg-secondary/50 p-4 text-sm leading-relaxed">Anchor Fish & Wings: your order #104 is confirmed. Your pickup details will appear here.</p><p className="text-xs leading-relaxed text-muted-foreground">Optional SMS requires a configured messaging service and customer consent; not active in this preview.</p></div>
           </div>
           <div className="mt-10 flex flex-col justify-between gap-6 border-y border-border py-8 md:flex-row md:items-center">
-            <div className="max-w-xl"><p className="eyebrow">Speak with AmmarAI</p><h3 className="mt-3 text-2xl">Try a live AI conversation</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Our general AmmarAI demo is available now. The dedicated Anchor Fish & Wings browser-call demo is coming once its restaurant agent is connected.</p></div>
+            <div className="max-w-xl"><p className="eyebrow">Speak with AmmarAI</p><h3 className="mt-3 text-2xl">Try a live AI conversation</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Tap the voice button on this page to talk to the Anchor Fish & Wings agent from your browser. Orders placed in this demo are for testing only.</p></div>
             <div className="flex shrink-0 flex-col gap-3"><PhoneDemoButton label="Call the AmmarAI demo" /><ChatbotTryButton /></div>
           </div>
         </Container>
