@@ -49,7 +49,7 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   const chatEmbed = settings?.chatbotEnabled === false ? null : parseEmbed(settings?.chatbotEmbed);
   const isRestaurantPage = /^\/restaurant-phone-ordering\/?$/.test(pathname);
   const voiceEmbed = isRestaurantPage
-    ? parseEmbed(RESTAURANT_VOICE_EMBED)
+    ? (parseEmbed(settings?.restaurantVoiceBotEmbed) ?? parseEmbed(RESTAURANT_VOICE_EMBED))
     : settings?.voiceBotEnabled === false ? null : parseEmbed(settings?.voiceBotEmbed);
   const bubbleText = settings?.voiceBubbleEnabled === false ? "" : settings?.voiceBubbleText?.trim() || DEFAULT_BUBBLE;
   const hidden = /^\/(admin|auth)(\/|$)/.test(pathname);
@@ -106,7 +106,7 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
     }, 4000);
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hidden, content, settings?.chatbotEmbed, settings?.voiceBotEmbed, settings?.chatbotEnabled, settings?.voiceBotEnabled, isRestaurantPage]);
+  }, [hidden, content, settings?.chatbotEmbed, settings?.voiceBotEmbed, settings?.chatbotEnabled, settings?.voiceBotEnabled, settings?.restaurantVoiceBotEmbed, isRestaurantPage]);
 
   useEffect(() => {
     const observer = new MutationObserver(() => {

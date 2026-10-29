@@ -225,6 +225,8 @@ export interface Page {
   chatbotEmbed?: string;
   voiceBotEnabled?: boolean;
   voiceBotEmbed?: string;
+  /** Voice agent used only on /restaurant-phone-ordering */
+  restaurantVoiceBotEmbed?: string;
   voiceBubbleEnabled?: boolean;
   voiceBubbleText?: string;
   /** Blog "About the author" card */
