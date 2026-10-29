@@ -14,6 +14,7 @@ import { restaurantOffer } from "@/data/restaurant-offer";
 import restaurantImage from "@/assets/anchor-restaurant.jpg";
 import callPoster from "@/assets/anchor-call-poster.jpg";
 import callVideo from "@/assets/anchor-fish-wings-call-demo.mp4.asset.json";
+import { assetUrl } from "@/lib/asset-url";
 
 const url = "https://ammarai.com/restaurant-phone-ordering";
 const title = "AI Restaurant Phone Ordering Agent with POS & KDS | AmmarAI";
@@ -281,7 +282,7 @@ function RestaurantOrderingPage() {
         <Container>
           <SectionHeading eyebrow="The complete picture" title="One call. Three connected moments." intro="A real test call recording: the AI agent takes the order, the ticket reaches the POS and kitchen, and the customer receives an update." />
           <figure className="mt-10 border border-border">
-            <video className="aspect-video w-full bg-secondary" controls preload="none" playsInline poster={callPoster} src={callVideo.url}>
+            <video className="aspect-video w-full bg-secondary" controls preload="none" playsInline poster={callPoster} src={assetUrl(callVideo.url)}>
               Your browser does not support video playback.
             </video>
             <figcaption className="border-t border-border px-4 py-3 text-xs text-muted-foreground">Recorded test call · Anchor Fish & Wings demo menu · 2 min 41 s</figcaption>
