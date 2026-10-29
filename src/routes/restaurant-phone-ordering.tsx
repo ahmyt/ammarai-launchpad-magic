@@ -257,7 +257,7 @@ function RestaurantOrderingPage() {
           </div>
           <div className="mt-10 flex flex-col justify-between gap-6 border-y border-border py-8 md:flex-row md:items-center">
             <div className="max-w-xl"><p className="eyebrow">Speak with AmmarAI</p><h3 className="mt-3 text-2xl">Try a live AI conversation</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Tap the voice button on this page to talk to the Anchor Fish & Wings agent from your browser. Orders placed in this demo are for testing only.</p></div>
-            <div className="flex shrink-0 flex-col gap-3"><PhoneDemoButton label="Call the AmmarAI demo" /><ChatbotTryButton /></div>
+            <div className="flex shrink-0 flex-col gap-3"><PhoneDemoButton label="Call the Anchor Fish demo" agentName="Anchor Fish & Wings" phoneNumber={restaurantOffer.demoPhone} phoneNumberFormatted={restaurantOffer.demoPhoneFormatted} /><ChatbotTryButton /></div>
           </div>
         </Container>
       </Section>

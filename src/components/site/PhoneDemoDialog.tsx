@@ -19,9 +19,15 @@ export const PHONE_DEMO_NUMBER_FORMATTED = "+1 (833) 772-9060";
 export function PhoneDemoButton({
   className,
   label = "Call the live demo agent",
+  phoneNumber = PHONE_DEMO_NUMBER,
+  phoneNumberFormatted = PHONE_DEMO_NUMBER_FORMATTED,
+  agentName = "AmmarAI",
 }: {
   className?: string;
   label?: string;
+  phoneNumber?: string;
+  phoneNumberFormatted?: string;
+  agentName?: string;
 }) {
   const [open, setOpen] = useState(false);
   return (
@@ -33,9 +39,9 @@ export function PhoneDemoButton({
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Talk to our demo AI phone agent</DialogTitle>
+            <DialogTitle>Talk to the {agentName} demo phone agent</DialogTitle>
             <DialogDescription>
-              Call the number below from any phone. A live AmmarAI phone agent will
+              Call the number below from any phone. A live {agentName} phone agent will
               answer, chat with you and show how it handles a real conversation.
             </DialogDescription>
           </DialogHeader>
@@ -44,10 +50,10 @@ export function PhoneDemoButton({
               <PhoneCall className="size-5" aria-hidden="true" />
             </span>
             <a
-              href={`tel:${PHONE_DEMO_NUMBER}`}
+              href={`tel:${phoneNumber}`}
               className="text-2xl font-semibold tracking-tight text-foreground underline-offset-4 hover:text-accent hover:underline sm:text-3xl"
             >
-              {PHONE_DEMO_NUMBER_FORMATTED}
+              {phoneNumberFormatted}
             </a>
             <p className="text-xs leading-relaxed text-muted-foreground">
               Tap the number to call on mobile, or dial it from any phone.
