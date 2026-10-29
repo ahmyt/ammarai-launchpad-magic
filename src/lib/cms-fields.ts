@@ -341,6 +341,11 @@ const pageSettingsFields: FieldSpec[] = [
     label: "Voice chatbot: embed code from your AmmarAI dashboard (paste the full <script> tag)",
     type: "textarea",
   },
+  {
+    name: "restaurantVoiceBotEmbed",
+    label: "Restaurant voice agent: embed code used only on the Restaurant Phone Ordering page (paste the full <script> tag; empty uses the built-in Anchor Fish & Wings agent)",
+    type: "textarea",
+  },
   { name: "voiceBubbleEnabled", label: "Voice chatbot: show the pop-up bubble", type: "boolean" },
   { name: "voiceBubbleText", label: "Voice chatbot: pop-up bubble text", type: "text" },
   { name: "showAuthorCard", label: "Blog: show the About the author card on every post", type: "boolean" },
