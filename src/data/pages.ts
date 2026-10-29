@@ -124,7 +124,7 @@ export const pages: Page[] = [
       '<script defer src="https://app.ammarai.com/vendor/chatbot/js/external-chatbot.js" data-chatbot-uuid="452e5efe-b3b9-480c-bd8f-96425acf5caf" data-iframe-width="420" data-iframe-height="745" data-language="en" ></script>',
     voiceBotEnabled: true,
     voiceBotEmbed:
-      '<script defer src="https://app.ammarai.com/vendor/chatbot-voice/js/external-chatbot-voice.js" data-chatbot-uuid="d5c64510-8d02-4491-bcb5-153f59b458d3" data-language="en" ></script>',
+      '<script defer src="https://app.ammarai.com/vendor/chatbot-voice/js/external-chatbot-voice.js" data-chatbot-uuid="81795591-8d41-4e29-b815-27ff987e117a" data-language="en" ></script>',
     voiceBubbleEnabled: true,
     voiceBubbleText: "\u{1F4DE} Live AI Demo: Try live voice call",
   },
