@@ -37,6 +37,9 @@ function injectScript(id: string, embed: Embed, onError?: () => void) {
   document.body.appendChild(script);
 }
 
+const RESTAURANT_VOICE_EMBED =
+  '<script defer src="https://app.ammarai.com/vendor/chatbot-voice/js/external-chatbot-voice.js" data-chatbot-uuid="d5c64510-8d02-4491-bcb5-153f59b458d3" data-language="en" ></script>';
+
 export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const [hydrated, setHydrated] = useState(false);
@@ -44,7 +47,10 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   const { data: content } = useQuery({ ...siteContentQuery, enabled: hydrated });
   const settings = content?.pages.find((p) => p.slug === "settings");
   const chatEmbed = settings?.chatbotEnabled === false ? null : parseEmbed(settings?.chatbotEmbed);
-  const voiceEmbed = settings?.voiceBotEnabled === false ? null : parseEmbed(settings?.voiceBotEmbed);
+  const isRestaurantPage = /^\/restaurant-phone-ordering\/?$/.test(pathname);
+  const voiceEmbed = isRestaurantPage
+    ? parseEmbed(RESTAURANT_VOICE_EMBED)
+    : settings?.voiceBotEnabled === false ? null : parseEmbed(settings?.voiceBotEmbed);
   const bubbleText = settings?.voiceBubbleEnabled === false ? "" : settings?.voiceBubbleText?.trim() || DEFAULT_BUBBLE;
   const hidden = /^\/(admin|auth)(\/|$)/.test(pathname);
   const [loading, setLoading] = useState(false);
@@ -53,7 +59,12 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
   const timeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   function loadVoiceChatbot() {
-    if (voiceEmbed) injectScript("ammarai-voice-chatbot-script", voiceEmbed);
+    if (!voiceEmbed) return;
+    // The vendor voice widget has no teardown, so switching agents needs a fresh page load.
+    const loaded = document.getElementById("ammarai-voice-chatbot-script") as HTMLScriptElement | null;
+    const wanted = voiceEmbed.data["chatbotUuid"];
+    if (loaded && loaded.dataset["chatbotUuid"] !== wanted) { window.location.reload(); return; }
+    injectScript("ammarai-voice-chatbot-script", voiceEmbed);
   }
 
   function loadChatbot() {
@@ -95,7 +106,7 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
     }, 4000);
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hidden, content, settings?.chatbotEmbed, settings?.voiceBotEmbed, settings?.chatbotEnabled, settings?.voiceBotEnabled]);
+  }, [hidden, content, settings?.chatbotEmbed, settings?.voiceBotEmbed, settings?.chatbotEnabled, settings?.voiceBotEnabled, isRestaurantPage]);
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
