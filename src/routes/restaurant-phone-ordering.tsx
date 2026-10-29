@@ -8,6 +8,7 @@ import { PhoneDemoButton } from "@/components/site/PhoneDemoDialog";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { RestaurantOnboarding, RestaurantConnections } from "@/components/site/RestaurantVisuals";
+import { RestaurantRoiCalculator, RestaurantRush, RestaurantUpsell, RestaurantScenarios, RestaurantPipeline, RestaurantSafetyNet } from "@/components/site/RestaurantGrowth";
 import { ChatbotTryButton } from "@/components/site/LiveChatbot";
 import { restaurantOffer } from "@/data/restaurant-offer";
 import restaurantImage from "@/assets/anchor-restaurant.jpg";
@@ -227,6 +228,41 @@ function RestaurantOrderingPage() {
         </Container>
       </Section>
 
+      <Section tone="sand">
+        <Container>
+          <SectionHeading eyebrow="Missed-call calculator" title="What are unanswered calls costing you?" intro="Move the sliders to estimate the takeout revenue that rings out during busy hours." />
+          <RestaurantRoiCalculator />
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <SectionHeading eyebrow="Order flow" title="From ring to kitchen ticket" intro="Follow one confirmed order through every step. Tap any step to pause." />
+          <RestaurantPipeline />
+        </Container>
+      </Section>
+
+      <Section tone="sand">
+        <Container>
+          <SectionHeading eyebrow="Friday night rush" title="Your busiest hour, before and after" intro="Switch between the two to see what changes at the counter." />
+          <RestaurantRush />
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <SectionHeading eyebrow="Smart add-ons" title="Bigger tickets, without the pushy sell" intro="Busy staff often skip add-ons. The agent offers the ones you choose, every time." />
+          <RestaurantUpsell />
+        </Container>
+      </Section>
+
+      <Section tone="sand">
+        <Container>
+          <SectionHeading eyebrow="Call scenarios" title="Hear how it handles the tricky calls" intro="Pick a situation your staff deals with every week." />
+          <RestaurantScenarios />
+        </Container>
+      </Section>
+
       <Section>
         <Container>
           <SectionHeading eyebrow="POS connections" title="Your phone agent. Your POS." intro="A tested AymarPOS order flow, plus API-based options we assess for your restaurant. API availability does not mean an integration is already live." />
@@ -272,6 +308,13 @@ function RestaurantOrderingPage() {
               ["Private order status", "Match the customer-facing order number and phone number before sharing order status or pickup details."],
             ].map(([heading, body]) => <div key={heading} className="border-t border-border pt-5"><ShieldCheck className="size-5 text-accent" /><h3 className="mt-4 text-lg">{heading}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p></div>)}
           </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <SectionHeading eyebrow="Safety net" title="When a call needs a person" intro="You decide what the agent handles and what goes to your team." />
+          <RestaurantSafetyNet />
         </Container>
       </Section>
 

@@ -6254,6 +6254,15 @@ body:has(.home-swiss-dark) .site-footer {
 @keyframes restaurant-reveal { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes restaurant-route { from { transform: translateX(-120%); } to { transform: translateX(400%); } }
 @keyframes restaurant-wave { from { transform: scaleY(0.5); } to { transform: scaleY(1); } }
+.restaurant-rise { animation: restaurant-reveal 400ms ease both; }
+.restaurant-count { animation: restaurant-reveal 250ms ease both; }
+.restaurant-bar { transition: width 400ms ease; }
+.restaurant-pulse { animation: restaurant-pulse 1.6s ease-out infinite; }
+.restaurant-ring { animation: restaurant-ring 0.9s ease-in-out infinite; }
+.restaurant-lift { transition: transform 200ms ease, border-color 200ms ease; }
+.restaurant-lift:hover { transform: translateY(-3px); border-color: var(--accent); }
+@keyframes restaurant-pulse { from { transform: scale(1); opacity: 0.8; } to { transform: scale(1.5); opacity: 0; } }
+@keyframes restaurant-ring { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-12deg); } 75% { transform: rotate(12deg); } }
 @media (max-width: 639px) {
   .restaurant-hero::after { background: var(--restaurant-cover-scrim); }
   .restaurant-hero-image { object-position: 65% center; }
@@ -6261,7 +6270,8 @@ body:has(.home-swiss-dark) .site-footer {
   .restaurant-timeline-tab { gap: 0.65rem; padding: 0.75rem 0.4rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .restaurant-stage, .restaurant-signal span, .restaurant-connection-line::after, .restaurant-wave span { animation: none; }
+  .restaurant-stage, .restaurant-signal span, .restaurant-connection-line::after, .restaurant-wave span, .restaurant-rise, .restaurant-count, .restaurant-pulse, .restaurant-ring { animation: none; }
+  .restaurant-lift, .restaurant-bar { transition: none; }
   .restaurant-timeline-tab::after { transition: none; }
 }
 
