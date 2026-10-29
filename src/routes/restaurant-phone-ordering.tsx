@@ -11,6 +11,8 @@ import { RestaurantOnboarding, RestaurantConnections } from "@/components/site/R
 import { ChatbotTryButton } from "@/components/site/LiveChatbot";
 import { restaurantOffer } from "@/data/restaurant-offer";
 import restaurantImage from "@/assets/anchor-restaurant.jpg";
+import callPoster from "@/assets/anchor-call-poster.jpg";
+import callVideo from "@/assets/anchor-fish-wings-call-demo.mp4.asset.json";
 
 const url = "https://ammarai.com/restaurant-phone-ordering";
 const title = "AI Restaurant Phone Ordering Agent with POS & KDS | AmmarAI";
@@ -241,7 +243,13 @@ function RestaurantOrderingPage() {
 
       <Section>
         <Container>
-          <SectionHeading eyebrow="The complete picture" title="One call. Three connected moments." intro="Illustrative preview: the conversation, the order ticket and an optional customer update. Real restaurant screen recording coming soon." />
+          <SectionHeading eyebrow="The complete picture" title="One call. Three connected moments." intro="A real test call recording: the AI agent takes the order, the ticket reaches the POS and kitchen, and the customer receives an update." />
+          <figure className="mt-10 border border-border">
+            <video className="aspect-video w-full bg-secondary" controls preload="none" playsInline poster={callPoster} src={callVideo.url}>
+              Your browser does not support video playback.
+            </video>
+            <figcaption className="border-t border-border px-4 py-3 text-xs text-muted-foreground">Recorded test call · Anchor Fish & Wings demo menu · 2 min 41 s</figcaption>
+          </figure>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <div className="border border-border p-6"><Phone className="size-6 text-accent" /><p className="mt-5 text-xs text-muted-foreground">01 / THE CALL</p><h3 className="mt-2 text-lg">Anchor Fish & Wings</h3><div className="restaurant-wave my-5 flex h-10 items-center gap-1" aria-hidden="true">{Array.from({length: 16}, (_, i) => <span key={i} className="w-1 flex-1 bg-accent" />)}</div><p className="text-sm leading-relaxed text-muted-foreground">“Two wing combos and a fish sandwich. Is that correct?”</p></div>
             <div className="border border-border p-6"><MonitorSmartphone className="size-6 text-accent" /><p className="mt-5 text-xs text-muted-foreground">02 / POS → KITCHEN</p><h3 className="mt-2 text-lg">Order #104</h3><div className="my-5 space-y-3 border-y border-dashed border-border py-4 text-sm"><p>2 × Wing combo</p><p>1 × Fish sandwich</p><p className="flex items-center gap-2 text-success"><Check className="size-4" />Confirmed → kitchen ticket</p></div><p className="text-xs text-muted-foreground">Example ticket · Not a live order</p></div>
