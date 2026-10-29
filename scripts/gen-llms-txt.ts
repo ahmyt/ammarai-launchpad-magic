@@ -8,6 +8,7 @@ import { posts } from "../src/data/posts";
 import { tutorials } from "../src/data/tutorials";
 import { plans } from "../src/lib/site";
 import { freePlan } from "../src/data/free-plan";
+import { restaurantOffer } from "../src/data/restaurant-offer";
 
 const BASE_URL = "https://ammarai.com";
 const lines: string[] = [];
@@ -41,6 +42,12 @@ lines.push("");
 
 lines.push("## Blog");
 for (const post of posts) lines.push(`- [${post.title}](${BASE_URL}/blog/${post.slug})`);
+lines.push("");
+
+lines.push("## Restaurant Phone Ordering");
+lines.push(
+  `- [AI Restaurant Phone Ordering Agent](${BASE_URL}/restaurant-phone-ordering): Answer restaurant calls, confirm takeout items and pickup date/time, and send confirmed orders to the POS and kitchen. Includes menu training and setup, with a tested AymarPOS flow; other POS connections require compatibility assessment. Separate $${restaurantOffer.monthlyPrice}/month service with unlimited inbound calls and zero per-order commissions. Optional phone payment and SMS are scoped separately. Anchor Fish & Wings is a fictional demo; call ${restaurantOffer.demoPhoneFormatted}.`,
+);
 lines.push("");
 
 lines.push("## Pricing");

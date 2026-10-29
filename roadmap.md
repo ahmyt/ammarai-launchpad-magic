@@ -1,6 +1,11 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Restaurant search and blog coverage (2026-10-29)
+- [x] Confirm restaurant phone ordering is already included once in the existing sitemap; regenerate llms.txt with the solution and approved offer
+- [x] Research US restaurant keywords with Semrush and add three prioritized briefs to the automatic blog queue
+- [x] Verify served sitemap and AI guide plus ten focused tests; no new article generated or published
+
 ## Restaurant phone ordering upgrade (2026-10-29)
 - [x] Correct Anchor Fish demo phone to +1 (888) 800-0616; keep regular AmmarAI number unchanged
 - [x] Add Anchor Fish & Wings demonstration, animated onboarding and POS compatibility showcase

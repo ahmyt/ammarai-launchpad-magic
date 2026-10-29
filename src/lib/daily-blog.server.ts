@@ -10,9 +10,7 @@ import { SITE } from "@/lib/site";
 import { getToolKeywords } from "@/data/tool-keywords";
 import {
   BANNED_PHRASES,
-  BLOG_TOPICS,
-  TYPE_ROTATION,
-  bucketOf,
+  selectQueuedTopic,
   type BlogTopic,
 } from "@/lib/blog-topics";
 
@@ -70,23 +68,13 @@ function pickTool(published: string[]) {
 
 /**
  * Decide what to write next: the roadmap queue drives commercial, comparison
- * and use-case slots, while informational slots stay tool-led. The rotation
+ * and use-case slots, with queued guides before tool-led informational posts. The rotation
  * holds the 30/30/25/15 content mix automatically.
  */
 async function pickAssignment(supabase: SupabaseClient<Database>): Promise<Assignment> {
   const published = await publishedIds(supabase);
-  const doneTopics = new Set(
-    published.filter((id) => id.startsWith("daily:topic:")).map((id) => id.slice("daily:topic:".length)),
-  );
-  const remaining = BLOG_TOPICS.filter((topic) => !doneTopics.has(topic.id));
-  const wanted = TYPE_ROTATION[published.length % TYPE_ROTATION.length]!;
-
-  if (wanted !== "informational") {
-    const match = remaining.find((topic) => bucketOf(topic) === wanted);
-    if (match) return { kind: "topic", topic: match };
-    const any = remaining.find((topic) => bucketOf(topic) !== "informational");
-    if (any) return { kind: "topic", topic: any };
-  }
+  const topic = selectQueuedTopic(published);
+  if (topic) return { kind: "topic", topic };
   return { kind: "tool", tool: pickTool(published) };
 }
 
@@ -491,6 +479,7 @@ function siblingLinks(cluster: string, exclude: string[]): string[] {
     image: ["/blog/how-to-use-ai-for-content-creation"],
     marketing: ["/blog/ai-tools-for-marketers"],
     business: ["/blog/ai-tools-for-small-businesses"],
+    restaurants: ["/blog/ai-tools-for-small-businesses", "/blog/ai-productivity-workflows"],
     content: ["/blog/how-to-use-ai-for-content-creation"],
     audio: ["/blog/how-to-generate-ai-voiceovers"],
     seo: ["/blog/how-to-use-ai-for-seo"],
