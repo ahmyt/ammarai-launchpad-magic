@@ -2,6 +2,8 @@
 
 Prepared 14 September 2026; keyword coverage refreshed 17 September 2026. No existing article was removed.
 
+Restaurant phone-ordering research refreshed 29 October 2026 (Semrush, US). Existing articles and categories are preserved.
+
 Sources: `src/data/posts.ts` (10 hand-written guides), the `syndicated_articles` table (19 live rows), and the public tool catalogue for internal-link targets. Original roadmap figures are US Semrush data pulled on 14 Sep 2026; new and updated tool figures were refreshed on 17 Sep 2026. Missing data means unknown, never zero.
 
 ---
@@ -80,6 +82,28 @@ BabyLoveGrowth synced articles — mostly B2B informational:
 Priority tiers: **P1** ship first, **P2** next, **P3** once the clusters are established.
 
 ### Tier P1 — highest commercial return per effort
+
+### Restaurant launch priority — October 29 refresh
+
+The existing `/restaurant-phone-ordering` solution page serves buying/demo intent. Supporting blog posts must answer distinct questions rather than duplicate that page. These three briefs are now first in `BLOG_TOPICS`, eligible in their matching content-rotation slots:
+
+| Planned article | Type | Exact primary keyword | Semrush US monthly estimate | Difficulty | Role |
+|---|---|---|---:|---:|---|
+| Restaurant Answering Service: What to Check | Best-of / buyer checklist | restaurant answering service | 210 | 9/100 | Compare human answering, AI answering and complete ordering; practical selection criteria |
+| AI Restaurant Phone Ordering: Call to Kitchen | Tutorial | ai restaurant phone ordering | Unknown | Unknown | Menu → confirmed order → POS → KOT/KDS, with pickup and status-verification checks |
+| AI Phone Answering for Restaurants: Setup Checklist | Guide | ai phone answering for restaurants | 30 | 0/100 | Phone forwarding, opening hours, menu updates, staff routing and acceptance testing |
+
+Source: Semrush keyword research and SERP analysis, US database, 29 October 2026. Related research returned “restaurant phone answering service” (260/month) and “restaurant voice ai” (590/month); their difficulty was not returned, so neither inherits the primary keyword's difficulty. These are supporting language only, not additional near-duplicate posts. Missing data for the exact ordering keyword means unknown demand and difficulty, not zero or easy rankings. Difficulty estimates do not promise rankings.
+
+The “restaurant answering service” SERP includes Loman, Slang, Responsive Answering, Moneypenny, SevenRooms and an owner discussion on Reddit. It mixes product and informational intent. Guide pages inspected during research include https://voiceagentindex.com/guides/ai-phone-ordering-systems-restaurants/ and https://pulseai.studio/website/blog/restaurant-phone-ordering-system.html. Competitor claims are not AmmarAI evidence; re-verify named vendor capabilities and pricing at writing time or compare approaches instead.
+
+**What AmmarAI can add:** a concrete, explicitly fictional Anchor Fish & Wings call-to-kitchen example; the tested AymarPOS order flow; a practical menu/modifier and pickup-time checklist; customer-facing order numbers; and a requirement to verify order number plus phone before discussing status. Present opening-hours and privacy checks as implementation/acceptance-test requirements, not guarantees enforced by an AI prompt alone. Avoid private customer data, unverified vendor claims and guaranteed revenue improvements.
+
+**Offer boundary:** the separate restaurant service is $349/month, unlimited inbound calls, zero per-order commissions; it is not the general Voice Scale tier. Other POS vendors require a compatibility assessment. Optional phone payment and SMS are scoped separately. Use shared restaurant offer data in executable briefs so price changes stay aligned.
+
+Every restaurant brief links to `/restaurant-phone-ordering` and `/ai-phone-agent`, plus the relevant restaurant use case or verified phone-agent tutorial. Existing `/blog/ai-tools-for-small-businesses` and `/blog/ai-productivity-workflows` provide published supporting links until restaurant siblings actually exist; never invent unpublished blog links. Retain bordered contents lists and distinct article imagery through the existing writer.
+
+The router-derived sitemap already includes `/restaurant-phone-ordering` (verified in served XML); no hard-coded duplicate or generated `lastmod` is needed. Regenerated `llms.txt` lists the actual solution and approved offer, not planned/unpublished article URLs. The daily writer now consumes queued informational guides as well as commercial and tutorial briefs while preserving its 20-slot rotation and completed-topic exclusions. This update queues future articles; it does not generate or publish a new article.
 
 | Article | Type | Cluster | Target term | Volume | Difficulty | Links to |
 |---|---|---|---|---|---|---|
