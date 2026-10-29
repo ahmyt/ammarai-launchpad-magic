@@ -2,9 +2,9 @@
 # Roadmap
 
 ## Restaurant phone ordering upgrade (2026-10-29)
-- [ ] Add Anchor Fish & Wings demonstration, animated onboarding and POS compatibility showcase
-- [ ] Present the approved separate $349/month restaurant offer and retain general Voice Scale pricing
-- [ ] Verify page interactions, desktop/mobile layout and reduced motion
+- [x] Add Anchor Fish & Wings demonstration, animated onboarding and POS compatibility showcase
+- [x] Present the approved separate $349/month restaurant offer and retain general Voice Scale pricing
+- [x] Verify page interactions, desktop/mobile layout and reduced motion; three offer tests pass
 - [ ] Connect restaurant-specific live voice demo and real call/POS/SMS recording: requires supplied restaurant embed and recording
 
 ## Single-browser country bypass
