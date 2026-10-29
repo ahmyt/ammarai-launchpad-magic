@@ -18,3 +18,4 @@
 - Render tutorial step media through TutorialFigure with an accessible fit/original-size viewer so native-resolution reference controls remain inspectable on small screens.
 - Register new video tools in the shared video catalogue and regenerate the lightweight index; associate existing tutorials without rewriting their verified copy so discovery, CMS and tutorial links stay aligned.
 - Keep restaurant offer values in a browser-safe data module with focused tests, separate from general plan allowances; restaurant visual components use local state and the existing shared demo provider to avoid duplicate vendor loads.
+- Keep restaurant discovery in the router-derived sitemap and generated llms guide; schedule restaurant blog briefs through the shared type-rotated topic selector so guides are not silently skipped and completed topic IDs are not repeated.

@@ -1,6 +1,7 @@
 // The daily writer's topic queue, in the priority order set out in
 // docs/blog-content-strategy.md (Part 3). The writer works down this list and
 // skips anything already published, instead of picking a tool at random.
+import { restaurantOffer } from "@/data/restaurant-offer";
 
 export type BlogContentType = "guide" | "best-of" | "comparison" | "alternatives" | "tutorial" | "use-case";
 
@@ -24,6 +25,44 @@ export interface BlogTopic {
 }
 
 export const BLOG_TOPICS: BlogTopic[] = [
+  // Restaurant launch priority. Semrush US research checked 29 October 2026.
+  {
+    id: "restaurant-answering-service",
+    workingTitle: "Restaurant Answering Service: What to Check",
+    contentType: "best-of",
+    category: "AI for Business",
+    primaryKeyword: "restaurant answering service",
+    volume: 210,
+    difficulty: 9,
+    links: ["/restaurant-phone-ordering", "/ai-phone-agent", "/ai-for-restaurants", "/contact"],
+    cluster: "restaurants",
+    brief:
+      `Buyer checklist comparing human answering, AI answering and full phone ordering. Explain that answering FAQs is not the same as writing a confirmed POS order. Evaluate menu modifiers, busy-period handling, staff escalation, POS/KDS compatibility, pickup scheduling, privacy and pilot testing. AmmarAI's separate restaurant service is $${restaurantOffer.monthlyPrice}/month, unlimited inbound calls, zero per-order commissions; not Voice Scale. Anchor Fish & Wings is a fictional demo, not a customer result. AymarPOS has a tested order flow; other POS connections need assessment. Optional phone payment and SMS are scoped separately. Use current verified sources for named vendors or compare approaches without invented vendor facts. No guaranteed savings or revenue; label any ROI calculation illustrative.`,
+  },
+  {
+    id: "ai-restaurant-phone-ordering-workflow",
+    workingTitle: "AI Restaurant Phone Ordering: Call to Kitchen",
+    contentType: "tutorial",
+    category: "AI for Business",
+    primaryKeyword: "ai restaurant phone ordering",
+    links: ["/restaurant-phone-ordering", "/ai-phone-agent", "/tutorials/how-to-create-an-ai-phone-agent"],
+    cluster: "restaurants",
+    brief:
+      "Walk through menu training with real item IDs, sizes and modifiers; greeting once; collecting and reading back the order; customer confirmation; POS order creation; kitchen ticket; and returning the customer-facing order number, not the internal record ID. Use fictional Anchor Fish & Wings as an explicitly illustrative scenario. Explain business-hours/timezone checks, future pickup as a full date and local time, and testing that pickup_date and the note agree. For status checks require both order number and phone to match before any disclosure, then read the stored pickup date/time without guessing. These are setup and acceptance-test requirements, not guarantees that a prompt alone enforces hours or privacy. Only describe the tested AymarPOS flow; assess other integrations individually. No credentials, real customer data, invented screenshots or unsupported endpoint details.",
+  },
+  {
+    id: "ai-phone-answering-for-restaurants",
+    workingTitle: "AI Phone Answering for Restaurants: Setup Checklist",
+    contentType: "guide",
+    category: "AI for Business",
+    primaryKeyword: "ai phone answering for restaurants",
+    volume: 30,
+    difficulty: 0,
+    links: ["/restaurant-phone-ordering", "/ai-phone-agent", "/ai-for-restaurants"],
+    cluster: "restaurants",
+    brief:
+      "Answer restaurant owners' setup questions about forwarding an existing number, menu updates, opening hours, local timezone, sold-out items, noisy calls, unanswered callers and escalation. Focus on answering and safe routing, not repeating the call-to-POS tutorial. Distinguish accepting orders during allowed hours from answering calls outside hours. Describe order-status verification as a required tested safeguard, not a prompt-only security guarantee. Explain a small pilot and manual checks without invented performance statistics. Link the restaurant service and explicitly label the Anchor Fish & Wings example fictional. Verify POS compatibility before promising order creation, and treat SMS and phone payment as separately scoped options.",
+  },
   // ---- Tier P1 (writing cluster already published as hand-written pages) ----
   {
     id: "best-ai-video-generators",
@@ -432,6 +471,15 @@ export function bucketOf(topic: BlogTopic): "informational" | "best-of" | "versu
   if (topic.contentType === "comparison" || topic.contentType === "alternatives") return "versus";
   if (topic.contentType === "use-case" || topic.contentType === "tutorial") return "use-case";
   return "informational";
+}
+
+/** Pick the next unpublished brief without changing the existing content rotation. */
+export function selectQueuedTopic(published: string[]): BlogTopic | undefined {
+  const done = new Set(published.filter((id) => id.startsWith("daily:topic:")).map((id) => id.slice("daily:topic:".length)));
+  const remaining = BLOG_TOPICS.filter((topic) => !done.has(topic.id));
+  const wanted = TYPE_ROTATION[published.length % TYPE_ROTATION.length] ?? "informational";
+  return remaining.find((topic) => bucketOf(topic) === wanted)
+    ?? (wanted === "informational" ? undefined : remaining.find((topic) => bucketOf(topic) !== "informational"));
 }
 
 /** Openings and phrasing the writer may never use. */
