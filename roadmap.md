@@ -2,7 +2,7 @@
 # Roadmap
 
 ## Restaurant phone ordering upgrade (2026-10-29)
-- [ ] Correct Anchor Fish demo phone to +1 (888) 800-0616; keep regular AmmarAI number unchanged
+- [x] Correct Anchor Fish demo phone to +1 (888) 800-0616; keep regular AmmarAI number unchanged
 - [x] Add Anchor Fish & Wings demonstration, animated onboarding and POS compatibility showcase
 - [x] Present the approved separate $349/month restaurant offer and retain general Voice Scale pricing
 - [x] Verify page interactions, desktop/mobile layout and reduced motion; three offer tests pass
