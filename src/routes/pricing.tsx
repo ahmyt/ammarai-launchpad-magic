@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { restaurantOffer } from "@/data/restaurant-offer";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Info, X } from "lucide-react";
 import { plans, REGISTER_URL, type Plan } from "@/lib/site";
