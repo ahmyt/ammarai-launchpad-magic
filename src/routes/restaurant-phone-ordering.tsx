@@ -216,7 +216,7 @@ function RestaurantOrderingPage() {
           <SectionHeading
             eyebrow="Integration"
             title="From the phone to the POS to the kitchen"
-            intro="Takeout only, so the agent stays focused and orders stay accurate."
+            intro="Takeout, pickup and delivery orders, captured accurately and sent straight to your team."
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {integration.map((it, i) => (
