@@ -43,6 +43,7 @@ import { Route as TutorialsIndexRouteImport } from './routes/tutorials.index'
 import { Route as TutorialsSlugRouteImport } from './routes/tutorials.$slug'
 import { Route as AdminKindIndexRouteImport } from './routes/admin.$kind.index'
 import { Route as AdminKindSlugRouteImport } from './routes/admin.$kind.$slug'
+import { Route as ApiPublicWhatsappWebhookRouteImport } from './routes/api/public/whatsapp-webhook'
 import { Route as ApiPublicBlogImageFileRouteImport } from './routes/api/public/blog-image.$file'
 import { Route as ApiPublicCronBabylovegrowthRouteImport } from './routes/api/public/cron/babylovegrowth'
 import { Route as ApiPublicCronDailyBlogRouteImport } from './routes/api/public/cron/daily-blog'
@@ -217,6 +218,12 @@ const AdminKindSlugRoute = AdminKindSlugRouteImport.update({
   path: '/$kind/$slug',
   getParentRoute: () => AdminRoute,
 } as any)
+const ApiPublicWhatsappWebhookRoute =
+  ApiPublicWhatsappWebhookRouteImport.update({
+    id: '/api/public/whatsapp-webhook',
+    path: '/api/public/whatsapp-webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicBlogImageFileRoute = ApiPublicBlogImageFileRouteImport.update({
   id: '/api/public/blog-image/$file',
   path: '/api/public/blog-image/$file',
@@ -268,6 +275,7 @@ export interface FileRoutesByFullPath {
   '/features/': typeof FeaturesIndexRoute
   '/tutorials/': typeof TutorialsIndexRoute
   '/admin/$kind/$slug': typeof AdminKindSlugRoute
+  '/api/public/whatsapp-webhook': typeof ApiPublicWhatsappWebhookRoute
   '/admin/$kind/': typeof AdminKindIndexRoute
   '/api/public/blog-image/$file': typeof ApiPublicBlogImageFileRoute
   '/api/public/cron/babylovegrowth': typeof ApiPublicCronBabylovegrowthRoute
@@ -305,6 +313,7 @@ export interface FileRoutesByTo {
   '/features': typeof FeaturesIndexRoute
   '/tutorials': typeof TutorialsIndexRoute
   '/admin/$kind/$slug': typeof AdminKindSlugRoute
+  '/api/public/whatsapp-webhook': typeof ApiPublicWhatsappWebhookRoute
   '/admin/$kind': typeof AdminKindIndexRoute
   '/api/public/blog-image/$file': typeof ApiPublicBlogImageFileRoute
   '/api/public/cron/babylovegrowth': typeof ApiPublicCronBabylovegrowthRoute
@@ -345,6 +354,7 @@ export interface FileRoutesById {
   '/features/': typeof FeaturesIndexRoute
   '/tutorials/': typeof TutorialsIndexRoute
   '/admin/$kind/$slug': typeof AdminKindSlugRoute
+  '/api/public/whatsapp-webhook': typeof ApiPublicWhatsappWebhookRoute
   '/admin/$kind/': typeof AdminKindIndexRoute
   '/api/public/blog-image/$file': typeof ApiPublicBlogImageFileRoute
   '/api/public/cron/babylovegrowth': typeof ApiPublicCronBabylovegrowthRoute
@@ -386,6 +396,7 @@ export interface FileRouteTypes {
     | '/features/'
     | '/tutorials/'
     | '/admin/$kind/$slug'
+    | '/api/public/whatsapp-webhook'
     | '/admin/$kind/'
     | '/api/public/blog-image/$file'
     | '/api/public/cron/babylovegrowth'
@@ -423,6 +434,7 @@ export interface FileRouteTypes {
     | '/features'
     | '/tutorials'
     | '/admin/$kind/$slug'
+    | '/api/public/whatsapp-webhook'
     | '/admin/$kind'
     | '/api/public/blog-image/$file'
     | '/api/public/cron/babylovegrowth'
@@ -462,6 +474,7 @@ export interface FileRouteTypes {
     | '/features/'
     | '/tutorials/'
     | '/admin/$kind/$slug'
+    | '/api/public/whatsapp-webhook'
     | '/admin/$kind/'
     | '/api/public/blog-image/$file'
     | '/api/public/cron/babylovegrowth'
@@ -494,6 +507,7 @@ export interface RootRouteChildren {
   FeaturesSlugRoute: typeof FeaturesSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   FeaturesIndexRoute: typeof FeaturesIndexRoute
+  ApiPublicWhatsappWebhookRoute: typeof ApiPublicWhatsappWebhookRoute
   ApiPublicBlogImageFileRoute: typeof ApiPublicBlogImageFileRoute
   ApiPublicCronBabylovegrowthRoute: typeof ApiPublicCronBabylovegrowthRoute
   ApiPublicCronDailyBlogRoute: typeof ApiPublicCronDailyBlogRoute
@@ -739,6 +753,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminKindSlugRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/api/public/whatsapp-webhook': {
+      id: '/api/public/whatsapp-webhook'
+      path: '/api/public/whatsapp-webhook'
+      fullPath: '/api/public/whatsapp-webhook'
+      preLoaderRoute: typeof ApiPublicWhatsappWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/blog-image/$file': {
       id: '/api/public/blog-image/$file'
       path: '/api/public/blog-image/$file'
@@ -825,6 +846,7 @@ const rootRouteChildren: RootRouteChildren = {
   FeaturesSlugRoute: FeaturesSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   FeaturesIndexRoute: FeaturesIndexRoute,
+  ApiPublicWhatsappWebhookRoute: ApiPublicWhatsappWebhookRoute,
   ApiPublicBlogImageFileRoute: ApiPublicBlogImageFileRoute,
   ApiPublicCronBabylovegrowthRoute: ApiPublicCronBabylovegrowthRoute,
   ApiPublicCronDailyBlogRoute: ApiPublicCronDailyBlogRoute,
