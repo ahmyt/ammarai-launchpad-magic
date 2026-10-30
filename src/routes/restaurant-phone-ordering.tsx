@@ -15,6 +15,7 @@ import restaurantImage from "@/assets/anchor-restaurant.jpg";
 import callPoster from "@/assets/anchor-call-poster.jpg";
 import callVideo from "@/assets/anchor-fish-wings-call-demo.mp4.asset.json";
 import { assetUrl } from "@/lib/asset-url";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 
 const url = "https://ammarai.com/restaurant-phone-ordering";
 const title = "AI Restaurant Phone Ordering Agent with POS & KDS | AmmarAI";
@@ -333,6 +334,7 @@ function RestaurantOrderingPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink to="/contact" search={{ topic: "restaurant" } as never} variant="onInk" size="lg">Message us about your restaurant</ButtonLink>
+              <WhatsAppButton message="Hi AmmarAI, I'm interested in the Restaurant Phone Ordering agent." />
               <ButtonLink to="/pricing" variant="outline" size="lg" className="text-ink-foreground">Compare AI workspace plans</ButtonLink>
             </div>
           </div>

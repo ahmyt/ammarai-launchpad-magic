@@ -229,6 +229,10 @@ export interface Page {
   restaurantVoiceBotEmbed?: string;
   voiceBubbleEnabled?: boolean;
   voiceBubbleText?: string;
+  /** WhatsApp intake bot */
+  whatsappEnabled?: boolean;
+  whatsappNumber?: string;
+  whatsappMessage?: string;
   /** Blog "About the author" card */
   showAuthorCard?: boolean;
   authorName?: string;
