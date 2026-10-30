@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { restaurantOffer } from "@/data/restaurant-offer";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Container, Section, Card } from "@/components/site/primitives";
