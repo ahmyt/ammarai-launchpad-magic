@@ -18,7 +18,7 @@ const fieldClass =
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },
   validateSearch: (s: Record<string, unknown>): { topic?: "restaurant" } =>
-    s.topic === "restaurant" ? { topic: "restaurant" } : {},
+    s["topic"] === "restaurant" ? { topic: "restaurant" } : {},
   loader: ({ context }) => context.queryClient.prefetchQuery(siteContentQuery),
   head: () => ({
     meta: [
