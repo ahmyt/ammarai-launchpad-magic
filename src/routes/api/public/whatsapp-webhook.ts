@@ -15,13 +15,19 @@ export const Route = createFileRoute("/api/public/whatsapp-webhook")({
       GET: async ({ request }) => {
         const url = new URL(request.url);
         const mode = url.searchParams.get("hub.mode");
-        const token = url.searchParams.get("hub.verify_token") ?? "";
+        const token = (url.searchParams.get("hub.verify_token") ?? "").trim();
         const challenge = url.searchParams.get("hub.challenge") ?? "";
-        const expected = process.env["WHATSAPP_VERIFY_TOKEN"];
-        if (mode === "subscribe" && expected && safeEqual(token, expected) && /^[\w-]{1,200}$/.test(challenge)) {
-          return new Response(challenge, { status: 200, headers: { "Content-Type": "text/plain" } });
+        const expected = (process.env["WHATSAPP_VERIFY_TOKEN"] ?? "").trim();
+        if (!expected) {
+          return new Response("Forbidden: verify token is not configured on this server", { status: 403 });
         }
-        return new Response("Forbidden", { status: 403 });
+        if (mode !== "subscribe" || !challenge || challenge.length > 200) {
+          return new Response("Forbidden: invalid verification request", { status: 403 });
+        }
+        if (!safeEqual(token, expected)) {
+          return new Response("Forbidden: verify token does not match", { status: 403 });
+        }
+        return new Response(challenge, { status: 200, headers: { "Content-Type": "text/plain" } });
       },
       // Incoming messages (signature-verified when app secret is configured)
       POST: async ({ request }) => {
