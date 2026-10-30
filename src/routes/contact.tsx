@@ -297,8 +297,8 @@ function Contact() {
                         </select>
                       </div>
                       <div>
-                        <label htmlFor="callback" className="text-xs font-semibold text-foreground">Best phone number and time to talk</label>
-                        <input id="callback" name="callback" required maxLength={150} className={fieldClass} />
+                        <label htmlFor="callback" className="text-xs font-semibold text-foreground">Best phone number (optional)</label>
+                        <input id="callback" name="callback" maxLength={150} className={fieldClass} />
                       </div>
                     </fieldset>
                   ) : null}
