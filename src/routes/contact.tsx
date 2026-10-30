@@ -12,8 +12,13 @@ const title = "Contact AmmarAI: Sales, Support and Partnerships | AmmarAI";
 const description =
   "Contact the AmmarAI team about plans, team and agency accounts, technical support or partnerships. Send a message and get a reply within two working days.";
 
+const fieldClass =
+  "mt-1.5 w-full rounded-md bg-background px-3.5 py-2.5 text-sm text-foreground ring-1 ring-border focus:outline-2 focus:outline-offset-2 focus:outline-ring";
+
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },
+  validateSearch: (s: Record<string, unknown>): { topic?: "restaurant" } =>
+    s.topic === "restaurant" ? { topic: "restaurant" } : {},
   loader: ({ context }) => context.queryClient.prefetchQuery(siteContentQuery),
   head: () => ({
     meta: [
@@ -114,6 +119,7 @@ type ContactResponse = {
 };
 
 function Contact() {
+  const isRestaurant = Route.useSearch().topic === "restaurant";
   const [sent, setSent] = useState(false);
   const [confirmationSent, setConfirmationSent] = useState(true);
   const [sending, setSending] = useState(false);
@@ -197,7 +203,16 @@ function Contact() {
                         body: JSON.stringify({
                           name: String(data.get("name") ?? ""),
                           email: String(data.get("email") ?? ""),
-                          message: String(data.get("message") ?? ""),
+                          message: isRestaurant
+                            ? [
+                                "[Restaurant Phone Ordering inquiry]",
+                                `Restaurant: ${String(data.get("restaurant") ?? "").trim()}`,
+                                `POS: ${String(data.get("pos") ?? "").trim()}`,
+                                `Best phone/time: ${String(data.get("callback") ?? "").trim()}`,
+                                "",
+                                String(data.get("message") ?? "").trim() || "(no extra notes)",
+                              ].join("\n")
+                            : String(data.get("message") ?? ""),
                           company: String(data.get("company") ?? ""),
                           elapsedMs: Date.now() - startedAt,
                           captchaToken: captchaToken ?? "",
@@ -262,16 +277,41 @@ function Contact() {
                       className="mt-1.5 w-full rounded-md bg-background px-3.5 py-2.5 text-sm text-foreground ring-1 ring-border focus:outline-2 focus:outline-offset-2 focus:outline-ring"
                     />
                   </div>
+                  {isRestaurant ? (
+                    <fieldset className="flex flex-col gap-4 rounded-md border border-border p-4">
+                      <legend className="px-1 text-xs font-semibold text-foreground">
+                        Restaurant Phone Ordering · ${restaurantOffer.monthlyPrice}/month
+                      </legend>
+                      <div>
+                        <label htmlFor="restaurant" className="text-xs font-semibold text-foreground">Restaurant name and city</label>
+                        <input id="restaurant" name="restaurant" required maxLength={150} className={fieldClass} />
+                      </div>
+                      <div>
+                        <label htmlFor="pos" className="text-xs font-semibold text-foreground">POS system</label>
+                        <select id="pos" name="pos" required defaultValue="" className={fieldClass}>
+                          <option value="" disabled>Choose your POS</option>
+                          {["Toast", "Square", "Clover", "AymarPOS", "Other / not sure"].map((p) => (
+                            <option key={p} value={p}>{p}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label htmlFor="callback" className="text-xs font-semibold text-foreground">Best phone number and time to talk</label>
+                        <input id="callback" name="callback" required maxLength={150} className={fieldClass} />
+                      </div>
+                    </fieldset>
+                  ) : null}
                   <div>
                     <label htmlFor="message" className="text-xs font-semibold text-foreground">
-                      What are you working on?
+                      {isRestaurant ? "Anything else we should know? (call volume, hours, menu link)" : "What are you working on?"}
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={5}
-                      required
-                      className="mt-1.5 w-full rounded-md bg-background px-3.5 py-2.5 text-sm text-foreground ring-1 ring-border focus:outline-2 focus:outline-offset-2 focus:outline-ring"
+                      required={!isRestaurant}
+                      maxLength={4000}
+                      className={fieldClass}
                     />
                   </div>
                   {/* Spam trap: hidden from people, tempting to bots. */}
