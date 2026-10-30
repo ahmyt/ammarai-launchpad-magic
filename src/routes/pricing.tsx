@@ -305,7 +305,7 @@ function Pricing() {
             <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">
               A separate plan from Voice Scale: unlimited inbound calls and zero per-order commissions. An AI agent takes
               takeout orders by phone, creates them in your POS and sends them to your kitchen display. Activated after a
-              setup call to confirm your POS and train your menu.
+              quick email or chat consultation to confirm your POS and train your menu — no call needed.
             </p>
             <Link to="/restaurant-phone-ordering" className="mt-4 inline-block text-sm font-semibold text-accent hover:underline">
               See how restaurant ordering works →

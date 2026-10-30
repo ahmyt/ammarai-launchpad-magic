@@ -128,10 +128,11 @@ function RestaurantOrderingPage() {
             <h1 className="text-balance text-4xl leading-tight sm:text-5xl">AI restaurant phone ordering</h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed">Every takeout call answered. Every confirmed order sent to your POS and kitchen. Your team stays focused on the food.</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <ButtonLink to="/contact" search={{ topic: "restaurant" } as never} size="lg"><Phone className="size-4" />Book a restaurant setup call</ButtonLink>
+              <ButtonLink to="/contact" search={{ topic: "restaurant" } as never} size="lg"><Phone className="size-4" />Start with a quick message</ButtonLink>
               <a href="#restaurant-demo" className="restaurant-hero-link"><ArrowRight className="size-4" />Explore the demo</a>
             </div>
             <p className="mt-6 text-sm">${restaurantOffer.monthlyPrice}/month · Unlimited inbound calls · Zero per-order commissions</p>
+            <p className="mt-2 text-sm">No call needed — we handle the whole consultation by email or chat and reply within one business day.</p>
           </div>
         </Container>
       </section>
@@ -331,7 +332,7 @@ function RestaurantOrderingPage() {
             <p className="mt-4 text-sm opacity-80">This is a separate restaurant service, not the general Voice Scale plan. Optional phone payment and SMS are scoped separately; any additional charges require your approval.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink to="/contact" search={{ topic: "restaurant" } as never} variant="onInk" size="lg">Discuss your restaurant</ButtonLink>
+              <ButtonLink to="/contact" search={{ topic: "restaurant" } as never} variant="onInk" size="lg">Message us about your restaurant</ButtonLink>
               <ButtonLink to="/pricing" variant="outline" size="lg" className="text-ink-foreground">Compare AI workspace plans</ButtonLink>
             </div>
           </div>
