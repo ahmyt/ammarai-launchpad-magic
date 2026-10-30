@@ -300,10 +300,11 @@ function Pricing() {
         <Container>
           <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
             <p className="eyebrow">For restaurants</p>
-            <h2 className="mt-3 text-2xl">Restaurant Phone Ordering runs on Voice Scale</h2>
+            <h2 className="mt-3 text-2xl">Restaurant Phone Ordering · ${restaurantOffer.monthlyPrice}/month</h2>
             <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">
-              An AI agent takes takeout orders by phone, creates them in your POS and sends them to your kitchen display.
-              Uses Voice Scale's 800 monthly call minutes; full-service setup is quoted per restaurant.
+              A separate plan from Voice Scale: unlimited inbound calls and zero per-order commissions. An AI agent takes
+              takeout orders by phone, creates them in your POS and sends them to your kitchen display. Activated after a
+              setup call to confirm your POS and train your menu.
             </p>
             <Link to="/restaurant-phone-ordering" className="mt-4 inline-block text-sm font-semibold text-accent hover:underline">
               See how restaurant ordering works →
