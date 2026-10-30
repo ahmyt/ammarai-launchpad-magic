@@ -8,6 +8,7 @@ function safeEqual(a: string, b: string) {
 }
 
 export const Route = createFileRoute("/api/public/whatsapp-webhook")({
+  staticData: { sitemap: false },
   server: {
     handlers: {
       // Meta verification handshake
@@ -16,7 +17,7 @@ export const Route = createFileRoute("/api/public/whatsapp-webhook")({
         const mode = url.searchParams.get("hub.mode");
         const token = url.searchParams.get("hub.verify_token") ?? "";
         const challenge = url.searchParams.get("hub.challenge") ?? "";
-        const expected = process.env.WHATSAPP_VERIFY_TOKEN;
+        const expected = process.env["WHATSAPP_VERIFY_TOKEN"];
         if (mode === "subscribe" && expected && safeEqual(token, expected) && /^[\w-]{1,200}$/.test(challenge)) {
           return new Response(challenge, { status: 200, headers: { "Content-Type": "text/plain" } });
         }
@@ -25,7 +26,7 @@ export const Route = createFileRoute("/api/public/whatsapp-webhook")({
       // Incoming messages (signature-verified when app secret is configured)
       POST: async ({ request }) => {
         const body = await request.text();
-        const appSecret = process.env.WHATSAPP_APP_SECRET;
+        const appSecret = process.env["WHATSAPP_APP_SECRET"];
         if (!appSecret) return new Response("ok", { status: 200 }); // not processing yet
         const sig = request.headers.get("x-hub-signature-256") ?? "";
         const expected = "sha256=" + createHmac("sha256", appSecret).update(body).digest("hex");
