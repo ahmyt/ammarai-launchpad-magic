@@ -260,7 +260,7 @@
 - [The Best AI Writing Tools in 2026, Compared Honestly](https://ammarai.com/blog/best-ai-writing-tools)
 
 ## Restaurant Phone Ordering
-- [AI Restaurant Phone Ordering Agent](https://ammarai.com/restaurant-phone-ordering): Answer restaurant calls, confirm takeout items and pickup date/time, and send confirmed orders to the POS and kitchen. Includes menu training and setup, with a tested AymarPOS flow; other POS connections require compatibility assessment. Separate $349/month service with unlimited inbound calls and zero per-order commissions. Optional phone payment and SMS are scoped separately. Anchor Fish & Wings is a fictional demo; call +1 (888) 800-0616.
+- [AI Restaurant Phone Ordering Agent](https://ammarai.com/restaurant-phone-ordering): Answer restaurant calls, confirm takeout items and pickup date/time, and send confirmed orders to the POS and kitchen. Includes menu training and setup, with a tested AymarPOS flow; other POS connections require compatibility assessment. Separate $399/month service with unlimited inbound calls and zero per-order commissions. Optional phone payment and SMS are scoped separately. Anchor Fish & Wings is a fictional demo; call +1 (888) 800-0616.
 
 ## Pricing
 - [Free](https://ammarai.com/pricing): $0/month — 500 plan credits per month, no card required. AI Writer, AI Chat, AI Image, Image Assistant and all prompt templates.
