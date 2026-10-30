@@ -80,7 +80,9 @@ function withSiteHeaders(request: Request, response: Response): Response {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
-      const gate = await geoMaintenanceResponse(request);
+      // External webhooks/cron (Meta, schedulers) verify callers themselves; never geo-gate them.
+      const isPublicApi = new URL(request.url).pathname.startsWith("/api/public/");
+      const gate = isPublicApi ? { block: null, cookie: null } : await geoMaintenanceResponse(request);
       if (gate.block) return gate.block;
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
