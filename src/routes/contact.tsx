@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ActionButton, ButtonLink } from "@/components/site/Button";
 import { LOGIN_URL } from "@/lib/site";
 import { siteContentQuery } from "@/lib/content";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Turnstile } from "@/components/site/Turnstile";
 
 const title = "Contact AmmarAI: Sales, Support and Partnerships | AmmarAI";
@@ -334,6 +335,7 @@ function Contact() {
             </Card>
 
             <div className="flex flex-col gap-5">
+              <WhatsAppButton className="self-start" />
               {channels.map((c) => (
                 <Card key={c.title} className="p-6">
                   <h2 className="text-base font-semibold text-foreground">{c.title}</h2>

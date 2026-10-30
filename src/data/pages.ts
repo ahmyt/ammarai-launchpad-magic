@@ -127,5 +127,8 @@ export const pages: Page[] = [
       '<script defer src="https://app.ammarai.com/vendor/chatbot-voice/js/external-chatbot-voice.js" data-chatbot-uuid="81795591-8d41-4e29-b815-27ff987e117a" data-language="en" ></script>',
     voiceBubbleEnabled: true,
     voiceBubbleText: "\u{1F4DE} Live AI Demo: Try live voice call",
+    whatsappEnabled: true,
+    whatsappNumber: "",
+    whatsappMessage: "Hi AmmarAI, I'd like to ask about your services.",
   },
 ];
