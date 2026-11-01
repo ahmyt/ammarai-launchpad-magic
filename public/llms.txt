@@ -268,7 +268,8 @@
 - [Basic](https://ammarai.com/pricing): $24.99/month — 5,000 plan credits per month; AI Agent & AI video generation; 3-day free trial · everything in Starter. Adds: AI Agent, AI Video Agent, AI Video Generation, AI Social Media & Automation, Article Wizard & AI ReWriter, Plagiarism & Content Detectors, AI Image Editor, Vision & Realtime Image, AI Music Pro (Music Generation), Text-to-Speech & Speech-to-Text, AI Realtime Voice Chat, AI File & Web Chat, SEO Tool & Multi Model Support.
 - [Standard](https://ammarai.com/pricing): $59.99/month — 15,000 plan credits per month; AI Chat Pro Skills & website voice bots; Everything in Basic, plus CRM & deep research. Adds: AI Chat Pro Skills, AI Voice Bots for Websites, External Chatbot Builder (website embed), AI YouTube to Blog, AI URL to Video & Influencer, AI Video Editor, AI Auto Blog to WordPress, AI Product Photography & Fashion Studio, AI CRM & AI Sales, Deep Research & Model Council.
 - [Ultimate](https://ammarai.com/pricing): $129.99/month — 35,000 plan credits per month; 120 inbound & outbound phone minutes; 3 team seats · everything in Standard. Adds: AI Phone Call Agent (inbound & outbound), 120 phone minutes per month, 3 team seats, UGC Factory & AI Viral Clips, AI Video Dubbing (multi-language lip-sync), Creative Suite, Unlimited AI Agent Builder & full CRM, All connectors & Chatbot Training.
-- [Voice Scale](https://ammarai.com/pricing): $349.99/month — 75,000 plan credits per month; 800 voice minutes & automated follow-ups; 5 team seats · everything in Ultimate. Adds: 800 voice minutes per month, Automated Follow-Up Calls (reminders & confirmations), 5 team seats, Shared team workspace & call logs.
+- [Voice Scale](https://ammarai.com/pricing): $349.99/month — 75,000 plan credits per month; 800 voice minutes & automated follow-ups; 5 team seats · everything in Ultimate. Adds: 800 voice minutes per month, Automated Follow-Up Calls (reminders & confirmations), 5 team seats, Shared team workspace & call logs. General business phone-agent plan, not the unlimited restaurant phone ordering service.
+- [Restaurant Phone Ordering](https://ammarai.com/restaurant-phone-ordering): $399/month — unlimited inbound calls and zero per-order commissions. Separate from Voice Scale; request setup by email or chat via https://ammarai.com/contact?topic=restaurant.
 
 ## Demos & Directories
 - [Live demos](https://ammarai.com/demo-video): Watch the AmmarAI demo video and try guest AI Chat Pro and AI Image Pro demos, plus website chatbot, voice bot and phone agent demos
@@ -281,7 +282,7 @@
 
 ## Company
 - [About](https://ammarai.com/about): What AmmarAI is and who it is for
-- [Pricing](https://ammarai.com/pricing): Free, Starter, Basic, Standard, Ultimate, Voice Scale plans
+- [Pricing](https://ammarai.com/pricing): Free, Starter, Basic, Standard, Ultimate, Voice Scale plans, plus separate Restaurant Phone Ordering at $399/month
 - [AI Tools directory](https://ammarai.com/ai-tools): Browse all 152 tools
 - [FAQ](https://ammarai.com/faq): Common questions about the platform
 - [Resources](https://ammarai.com/resources): Guides and help
