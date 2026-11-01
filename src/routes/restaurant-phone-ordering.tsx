@@ -119,7 +119,8 @@ export const Route = createFileRoute("/restaurant-phone-ordering")({
 
 function RestaurantOrderingPage() {
   const { data: content } = useSuspenseQuery(siteContentQuery);
-  const allowVideoDownload = content?.settings?.allowVideoDownload === true;
+  const settings = content.pages.find((p) => p.slug === "settings");
+  const allowVideoDownload = settings?.allowVideoDownload === true;
   const [active, setActive] = useState(0);
   const step = steps[active];
   if (!step) return null;
