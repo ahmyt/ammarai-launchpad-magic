@@ -4,7 +4,7 @@
 ## Restaurant AI guide pricing check (2026-11-01)
 - [x] Confirm live restaurant pricing is $399 and the sitemap includes the restaurant page once
 - [x] Clarify the separate restaurant price in the generated pricing list without changing Voice Scale
-- [ ] Regenerate and validate llms.txt; provide a versioned downloadable text file
+- [x] Regenerate and validate llms.txt; provide a versioned downloadable text file
 
 ## Restaurant search and blog coverage (2026-10-29)
 - [x] Confirm restaurant phone ordering is already included once in the existing sitemap; regenerate llms.txt with the solution and approved offer
