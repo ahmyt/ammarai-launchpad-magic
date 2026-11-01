@@ -179,6 +179,46 @@ function Json({ data }: { data: unknown }) {
   );
 }
 
+// Screen-recorded how-to walkthroughs. preload="none" + poster keeps them off the critical path.
+const howToVideos: Record<string, { file: string; title: string; duration: string }> = {
+  "ai-virtual-try-on": { file: "howto-ai-fashion-studio", title: "How to use AI Fashion Studio", duration: "1 min 46 s" },
+  "ai-image-generator": { file: "howto-ai-image-pro", title: "How to create commercial product photos with AI Image Pro", duration: "1 min 12 s" },
+  "ai-chat": { file: "howto-ai-chat-pro", title: "How to create content end to end with AI Chat Pro", duration: "1 min 12 s" },
+  "ai-video-generator": { file: "howto-ai-video-pro", title: "How to make a cinematic text-to-video with AI Video Pro", duration: "1 min 34 s" },
+};
+
+function HowToVideo({ slug, name }: { slug: string; name: string }) {
+  const { data } = useSuspenseQuery(siteContentQuery);
+  const video = howToVideos[slug];
+  if (!video) return null;
+  const settings = data.pages.find((p) => p.slug === "settings") as { allowVideoDownload?: boolean } | undefined;
+  const allowDownload = settings?.allowVideoDownload === true;
+  return (
+    <Section className="py-10 sm:py-14">
+      <Container>
+        <SectionHeading eyebrow="How-to video" title={video.title} intro={`A screen recording of a real ${name} session, step by step.`} />
+        <figure className="mt-8 border border-border">
+          <video
+            className="aspect-video w-full bg-secondary"
+            controls
+            controlsList={allowDownload ? undefined : "nodownload"}
+            onContextMenu={allowDownload ? undefined : (e) => e.preventDefault()}
+            preload="none"
+            playsInline
+            width={1280}
+            height={720}
+            poster={`/media/${video.file}.poster.webp`}
+            src={`/media/${video.file}.mp4`}
+          >
+            Your browser does not support video playback.
+          </video>
+          <figcaption className="border-t border-border px-4 py-3 text-xs text-muted-foreground">How-to screen recording · {name} · {video.duration}</figcaption>
+        </figure>
+      </Container>
+    </Section>
+  );
+}
+
 function ToolPage({ tool }: { tool: Tool }) {
   const toolMap = useToolMap();
   const demoMedia = resolveDemoVideos(tool);
@@ -237,6 +277,8 @@ function ToolPage({ tool }: { tool: Tool }) {
           </div>
         </Container>
       </Section>
+
+      <HowToVideo slug={tool.slug} name={tool.name} />
 
       {workflow ? (
         <Section className="tool-workflow-section">
