@@ -1,6 +1,11 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Restaurant AI guide pricing check (2026-11-01)
+- [x] Confirm live restaurant pricing is $399 and the sitemap includes the restaurant page once
+- [x] Clarify the separate restaurant price in the generated pricing list without changing Voice Scale
+- [ ] Regenerate and validate llms.txt; provide a versioned downloadable text file
+
 ## Restaurant search and blog coverage (2026-10-29)
 - [x] Confirm restaurant phone ordering is already included once in the existing sitemap; regenerate llms.txt with the solution and approved offer
 - [x] Research US restaurant keywords with Semrush and add three prioritized briefs to the automatic blog queue
@@ -9,7 +14,7 @@
 ## Restaurant phone ordering upgrade (2026-10-29)
 - [x] Correct Anchor Fish demo phone to +1 (888) 800-0616; keep regular AmmarAI number unchanged
 - [x] Add Anchor Fish & Wings demonstration, animated onboarding and POS compatibility showcase
-- [x] Present the approved separate $349/month restaurant offer and retain general Voice Scale pricing
+- [x] Present the approved separate $399/month restaurant offer and retain general Voice Scale pricing
 - [x] Verify page interactions, desktop/mobile layout and reduced motion; three offer tests pass
 - [ ] Connect restaurant-specific live voice demo and real call/POS/SMS recording: requires supplied restaurant embed and recording
 
