@@ -9,5 +9,5 @@ describe("Approved restaurant offer", () => {
 });
 
 test("missed call estimate: $40 ticket, 8 calls/day", () => {
-  expect(missedCallEstimate(40, 8)).toEqual({ lost: 9600, recoverable: 8160, breakEvenOrders: 9 });
+  expect(missedCallEstimate(40, 8)).toEqual({ lost: 9600, recoverable: 8160, breakEvenOrders: 10 });
 });

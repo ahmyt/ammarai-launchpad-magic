@@ -56,10 +56,16 @@ lines.push(
 );
 for (const plan of plans) {
   const highlights = plan.newInPlan.map((item) => item.title).join(", ");
+  const distinction = plan.name === "Voice Scale"
+    ? " General business phone-agent plan, not the unlimited restaurant phone ordering service."
+    : "";
   lines.push(
-    `- [${plan.name}](${BASE_URL}/pricing): ${plan.price}${plan.period} — ${plan.features.join("; ")}. Adds: ${highlights}.`,
+    `- [${plan.name}](${BASE_URL}/pricing): ${plan.price}${plan.period} — ${plan.features.join("; ")}. Adds: ${highlights}.${distinction}`,
   );
 }
+lines.push(
+  `- [Restaurant Phone Ordering](${BASE_URL}/restaurant-phone-ordering): $${restaurantOffer.monthlyPrice}/month — unlimited inbound calls and zero per-order commissions. Separate from Voice Scale; request setup by email or chat via ${BASE_URL}/contact?topic=restaurant.`,
+);
 lines.push("");
 
 lines.push("## Demos & Directories");
@@ -89,7 +95,7 @@ const companyLinks = [
   {
     label: "Pricing",
     path: "/pricing",
-    desc: `Free, ${plans.map((p) => p.name).join(", ")} plans`,
+    desc: `Free, ${plans.map((p) => p.name).join(", ")} plans, plus separate Restaurant Phone Ordering at $${restaurantOffer.monthlyPrice}/month`,
   },
   { label: "AI Tools directory", path: "/ai-tools", desc: `Browse all ${tools.length} tools` },
   { label: "FAQ", path: "/faq", desc: "Common questions about the platform" },
