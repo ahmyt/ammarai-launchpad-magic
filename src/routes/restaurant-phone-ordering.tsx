@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { siteContentQuery } from "@/lib/content";
 import { ArrowLeft, ArrowRight, Check, ChefHat, CreditCard, MessageSquare, Mic, MonitorSmartphone, Phone, Receipt, ShieldCheck, Utensils } from "lucide-react";
 import { Card, Container, Section, SectionHeading } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -111,10 +113,13 @@ export const Route = createFileRoute("/restaurant-phone-ordering")({
       },
     ],
   }),
+  loader: ({ context }) => context.queryClient.prefetchQuery(siteContentQuery),
   component: RestaurantOrderingPage,
 });
 
 function RestaurantOrderingPage() {
+  const { data: content } = useSuspenseQuery(siteContentQuery);
+  const allowVideoDownload = content?.settings?.allowVideoDownload === true;
   const [active, setActive] = useState(0);
   const step = steps[active];
   if (!step) return null;
@@ -284,7 +289,16 @@ function RestaurantOrderingPage() {
         <Container>
           <SectionHeading eyebrow="The complete picture" title="One call. Three connected moments." intro="A real test call recording: the AI agent takes the order, the ticket reaches the POS and kitchen, and the customer receives an update." />
           <figure className="mt-10 border border-border">
-            <video className="aspect-video w-full bg-secondary" controls preload="none" playsInline poster={callPoster} src={assetUrl(callVideo.url)}>
+            <video
+              className="aspect-video w-full bg-secondary"
+              controls
+              controlsList={allowVideoDownload ? undefined : "nodownload"}
+              onContextMenu={allowVideoDownload ? undefined : (e) => e.preventDefault()}
+              preload="none"
+              playsInline
+              poster={callPoster}
+              src={assetUrl(callVideo.url)}
+            >
               Your browser does not support video playback.
             </video>
             <figcaption className="border-t border-border px-4 py-3 text-xs text-muted-foreground">Recorded test call · Anchor Fish & Wings demo menu · 2 min 41 s</figcaption>
