@@ -12,6 +12,9 @@ import clinicImage from "@/assets/clinic-reception.jpg";
 import appointmentAudio from "@/assets/ai-phone-agent-clinic-appointment.mp3.asset.json";
 import reminderAudio from "@/assets/ai-phone-agent-clinic-reminder.mp3.asset.json";
 import { assetUrl } from "@/lib/asset-url";
+import { plans } from "@/lib/site";
+
+const voiceScale = plans.find((p) => p.name === "Voice Scale");
 
 const url = "https://ammarai.com/clinic-phone-agent";
 const title = "AI Phone Receptionist for Clinics & Dental Offices | AmmarAI";
@@ -105,7 +108,8 @@ function ClinicPage() {
               <ButtonLink to="/contact" search={{ topic: "clinic" } as never} size="lg"><Phone className="size-4" />Request a clinic demo</ButtonLink>
               <a href="#clinic-demo" className="restaurant-hero-link"><ArrowRight className="size-4" />Explore the demo</a>
             </div>
-            <p className="mt-6 text-sm">Dental · Medical · MedSpa · Physical therapy · Veterinary</p>
+            <p className="mt-6 text-sm">{voiceScale?.price ?? "$349.99"}/month · 800 voice minutes · Reminder &amp; confirmation calls</p>
+            <p className="mt-2 text-sm">Dental · Medical · MedSpa · Physical therapy · Veterinary</p>
             <p className="mt-2 text-sm">No call needed — we handle the consultation by email or chat and reply within one business day.</p>
           </div>
         </Container>
@@ -122,6 +126,7 @@ function ClinicPage() {
         <Container>
           <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Clinic Phone Agent" }]} />
           <SectionHeading className="mt-8" eyebrow="Peachtree Smile Dental · Fictional demo practice" title="From the first ring to a booked appointment" intro="An illustrative new-patient call—not a real patient or live booking." />
+          <p className="mt-4 inline-block border border-dashed border-accent px-3 py-2 text-xs text-muted-foreground">Example only: Peachtree Smile Dental, Dr. Lee, Maya Patel, phone numbers and insurance names are fictional and used to show how a call flows.</p>
           <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
             <ol className="space-y-2">
               {steps.map((s, i) => (
@@ -240,9 +245,13 @@ function ClinicPage() {
       <Section tone="ink">
         <Container>
           <div className="max-w-2xl">
-            <p className="eyebrow">Get started</p>
-            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl">See it set up for your practice</h2>
-            <p className="mt-4 text-pretty leading-relaxed opacity-80">Tell us about your practice, call volume and calendar. We reply by email within one business day with a setup plan and pricing for your needs.</p>
+            <p className="eyebrow">Pricing</p>
+            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl">{voiceScale?.name ?? "Voice Scale"} plan</h2>
+            <p className="mt-6 text-5xl font-semibold">{voiceScale?.price ?? "$349.99"}<span className="text-base font-normal"> {voiceScale?.period ?? "/month"}</span></p>
+            <ul className="mt-6 space-y-2 text-sm">
+              {(voiceScale?.features ?? []).map((f) => <li key={f} className="flex items-center gap-2"><Check className="size-4" />{f}</li>)}
+            </ul>
+            <p className="mt-4 text-pretty text-sm leading-relaxed opacity-80">Includes inbound and outbound calling with automated reminder and confirmation calls. Tell us about your practice, call volume and calendar, and we reply by email within one business day with a setup plan.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink to="/contact" search={{ topic: "clinic" } as never} variant="onInk" size="lg">Request a clinic demo</ButtonLink>
               <ButtonLink to="/ai-phone-agent" variant="outline" size="lg" className="text-ink-foreground">See the general phone agent</ButtonLink>

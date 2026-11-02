@@ -113,7 +113,7 @@ export function ClinicRush() {
 const scenarios = [
   { icon: Moon, label: "After-hours booking", caller: "Hi, it's 9 pm—can I book a cleaning for next week?", agent: "Of course. I have Tuesday at 10:30 am or Thursday at 2:00 pm. Which works better?", note: "Booked into your calendar; your team sees it in the morning." },
   { icon: CalendarCheck, label: "Reschedule", caller: "I need to move my appointment on Friday.", agent: "No problem. I can confirm your name and date of birth, then offer the next open times.", note: "Identity checks follow the steps your practice defines." },
-  { icon: Stethoscope, label: "Insurance question", caller: "Do you take Delta Dental?", agent: "Our practice lists Delta Dental as accepted. Coverage depends on your plan, so our team can confirm details before your visit.", note: "Answers only from the information you approve." },
+  { icon: Stethoscope, label: "Insurance question", caller: "Do you take Delta Dental?", agent: "Our practice lists Delta Dental as accepted. Coverage depends on your plan, so our team can confirm details before your visit.", note: "Example only — the agent answers from the insurance list your practice approves." },
   { icon: ShieldAlert, label: "Urgent symptoms", caller: "I have severe chest pain right now.", agent: "Please hang up and call 911 now. I'm not able to give medical advice.", note: "Emergency wording is set by your practice; the agent never diagnoses." },
 ];
 
