@@ -1,6 +1,16 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Google Ads connection and conversion tracking (2026-11-02)
+- [x] Connect Google Ads; selected existing account 7648807292 (USD, billing active, ready)
+- [x] Created conversion action 7886771918 "Contact form submission (ammarai.com)", primary for bidding
+- [x] Installed account-wide Google tag (AW-653618937) under advanced Consent Mode with the regional consent banner
+- [x] Added same-origin /cdn-cgi/trace fallback so the region lookup works on Plesk; exempted the path from the geo gate
+- [x] Verified in preview: tag on all pages, conversion event fires on completed contact form, Accept/Decline persist, footer "Cookie settings" reopens, trace endpoint answers
+- [x] Updated the privacy policy cookies section (Google Ads, purposes, opt-out, Google business privacy link)
+- [ ] User: redeploy to Plesk so the tag goes live on ammarai.com, then verify receipt in Google Ads (Goals > Conversions)
+
+
 ## Restaurant AI guide pricing check (2026-11-01)
 - [x] Confirm live restaurant pricing is $399 and the sitemap includes the restaurant page once
 - [x] Clarify the separate restaurant price in the generated pricing list without changing Voice Scale
@@ -509,6 +519,8 @@
 - [x] Add a tutorial-backed tool page, catalogue/search entry, homepage showcase and workflow card
 - [x] Link from relevant video tools and marketing/product/social video use cases without changing pricing or tutorial wording
 - [x] Verify discovery-to-tool-to-tutorial navigation and mobile layout; four focused tests pass, screenshot loads, SEO metadata present and build OK
-- [ ] Connect Google Ads in Lovable (sign-in + account selection) — paused when user asked about Plesk placement
-- [ ] Answer where the Google Ads tag should live: Lovable site (ammarai.com, deployed to Plesk) vs MagicAI app (app.ammarai.com)
-- [ ] Install conversion tag for completed contact forms once account is connected
+- [x] Connect Google Ads in Lovable; selected existing account 7648807292 (USD, billing active)
+- [x] Answered tag placement: tag lives in the Lovable site code (ammarai.com) and ships to Plesk on redeploy
+- [x] Created conversion action 7886771918 (contact form submissions) and installed Google tag + event
+- [x] Regional consent banner + same-origin /cdn-cgi/trace fallback; privacy policy updated
+- [ ] User: redeploy to Plesk so the tag goes live on ammarai.com; then verify in Google Ads (Goals > Conversions)

@@ -71,9 +71,18 @@ export function Footer() {
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} {SITE.name}. An AI creation workspace.
           </p>
-          <Link to="/" className="site-footer-back text-xs text-muted-foreground transition-colors hover:text-foreground">
-            Back to top <span aria-hidden="true">↑</span>
-          </Link>
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("ammarai:cookie-settings"))}
+              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Cookie settings
+            </button>
+            <Link to="/" className="site-footer-back text-xs text-muted-foreground transition-colors hover:text-foreground">
+              Back to top <span aria-hidden="true">↑</span>
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

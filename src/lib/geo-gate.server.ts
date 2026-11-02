@@ -143,7 +143,7 @@ async function settings(): Promise<GeoGateSettings> {
 }
 
 const SKIP_PATH_RE =
-  /^\/(admin|auth|api|assets|fonts|media|_build|_serverFn|favicon|robots\.txt|sitemap\.xml|llms\.txt)/;
+  /^\/(admin|auth|api|cdn-cgi|assets|fonts|media|_build|_serverFn|favicon|robots\.txt|sitemap\.xml|llms\.txt)/;
 
 const CRAWLER_RE =
   /(googlebot|bingbot|google-inspectiontool|duckduckbot|yandexbot|baiduspider|slurp|applebot|petalbot|ahrefsbot|semrushbot|lighthouse|chrome-lighthouse|pagespeed|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot)/i;
@@ -304,6 +304,21 @@ export function parseRememberedGeo(cookieHeader: string, ip: string): GeoInfo | 
 
 /** Own servers (e.g. the app.ammarai.com Plesk host) always pass the gate. */
 export const ALLOWED_SERVER_IPS = new Set(["185.223.31.164", "194.156.89.107"]);
+
+/**
+ * Country for this request — powers the same-origin /cdn-cgi/trace fallback
+ * that the consent banner's region lookup reads on self-hosted deployments
+ * without Cloudflare. An edge/header-provided country wins; otherwise the
+ * cached or fresh IP lookup answers. Empty when it cannot be determined.
+ */
+export async function visitorCountry(request: Request): Promise<string> {
+  const header = headerCountry(request);
+  if (header) return header;
+  const ip = clientIp(request);
+  if (!ip || PRIVATE_IP_RE.test(ip)) return "";
+  const info = cachedGeo(ip) ?? (await resolveCountry(ip));
+  return info?.country ?? "";
+}
 
 export async function geoMaintenanceResponse(request: Request): Promise<{ block: Response | null; cookie: string | null }> {
   const config = await settings();
