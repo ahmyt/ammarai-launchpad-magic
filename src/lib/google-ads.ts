@@ -1,4 +1,4 @@
-import { updateConsent } from "./consent";
+import { canTrackAds, updateConsent } from "./consent";
 
 // Google Ads account-wide tag for ammarai.com (conversion tracking).
 // The conversion event itself fires from the contact form on success.
@@ -23,5 +23,3 @@ export async function loadGoogleAds(
   script.setAttribute("data-google-ads", "");
   document.head.appendChild(script);
 }
-
-import { canTrackAds } from "./consent";
