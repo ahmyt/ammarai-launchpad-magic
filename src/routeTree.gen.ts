@@ -17,6 +17,7 @@ import { Route as AiModelsRouteImport } from './routes/ai-models'
 import { Route as AiTextToVideoRouteImport } from './routes/ai-text-to-video'
 import { Route as AiToolsRouteImport } from './routes/ai-tools'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ClinicPhoneAgentRouteImport } from './routes/clinic-phone-agent'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DemoVideoRouteImport } from './routes/demo-video'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -87,6 +88,11 @@ const AiToolsRoute = AiToolsRouteImport.update({
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClinicPhoneAgentRoute = ClinicPhoneAgentRouteImport.update({
+  id: '/clinic-phone-agent',
+  path: '/clinic-phone-agent',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -256,6 +262,7 @@ export interface FileRoutesByFullPath {
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
   '/auth': typeof AuthRoute
+  '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
   '/contact': typeof ContactRoute
   '/demo-video': typeof DemoVideoRoute
   '/faq': typeof FaqRoute
@@ -296,6 +303,7 @@ export interface FileRoutesByTo {
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
   '/auth': typeof AuthRoute
+  '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
   '/contact': typeof ContactRoute
   '/demo-video': typeof DemoVideoRoute
   '/faq': typeof FaqRoute
@@ -337,6 +345,7 @@ export interface FileRoutesById {
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
   '/auth': typeof AuthRoute
+  '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
   '/contact': typeof ContactRoute
   '/demo-video': typeof DemoVideoRoute
   '/faq': typeof FaqRoute
@@ -380,6 +389,7 @@ export interface FileRouteTypes {
     | '/ai-text-to-video'
     | '/ai-tools'
     | '/auth'
+    | '/clinic-phone-agent'
     | '/contact'
     | '/demo-video'
     | '/faq'
@@ -420,6 +430,7 @@ export interface FileRouteTypes {
     | '/ai-text-to-video'
     | '/ai-tools'
     | '/auth'
+    | '/clinic-phone-agent'
     | '/contact'
     | '/demo-video'
     | '/faq'
@@ -460,6 +471,7 @@ export interface FileRouteTypes {
     | '/ai-text-to-video'
     | '/ai-tools'
     | '/auth'
+    | '/clinic-phone-agent'
     | '/contact'
     | '/demo-video'
     | '/faq'
@@ -502,6 +514,7 @@ export interface RootRouteChildren {
   AiTextToVideoRoute: typeof AiTextToVideoRoute
   AiToolsRoute: typeof AiToolsRoute
   AuthRoute: typeof AuthRoute
+  ClinicPhoneAgentRoute: typeof ClinicPhoneAgentRoute
   ContactRoute: typeof ContactRoute
   DemoVideoRoute: typeof DemoVideoRoute
   FaqRoute: typeof FaqRoute
@@ -582,6 +595,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clinic-phone-agent': {
+      id: '/clinic-phone-agent'
+      path: '/clinic-phone-agent'
+      fullPath: '/clinic-phone-agent'
+      preLoaderRoute: typeof ClinicPhoneAgentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -849,6 +869,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiTextToVideoRoute: AiTextToVideoRoute,
   AiToolsRoute: AiToolsRoute,
   AuthRoute: AuthRoute,
+  ClinicPhoneAgentRoute: ClinicPhoneAgentRoute,
   ContactRoute: ContactRoute,
   DemoVideoRoute: DemoVideoRoute,
   FaqRoute: FaqRoute,

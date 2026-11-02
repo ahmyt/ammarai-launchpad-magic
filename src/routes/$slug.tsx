@@ -375,6 +375,12 @@ function ToolPage({ tool }: { tool: Tool }) {
                   See the takeout phone ordering agent with POS and kitchen display →
                 </Link>
               </p>
+              <p className="mt-3 text-sm text-muted-foreground">
+                Running a clinic or dental office?{" "}
+                <Link to="/clinic-phone-agent" className="font-semibold text-accent underline-offset-4 hover:underline">
+                  See the AI phone receptionist for clinics →
+                </Link>
+              </p>
             </div>
           ) : null}
 
