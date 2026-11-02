@@ -509,6 +509,8 @@
 - [x] Add a tutorial-backed tool page, catalogue/search entry, homepage showcase and workflow card
 - [x] Link from relevant video tools and marketing/product/social video use cases without changing pricing or tutorial wording
 - [x] Verify discovery-to-tool-to-tutorial navigation and mobile layout; four focused tests pass, screenshot loads, SEO metadata present and build OK
-- [ ] Connect Google Ads in Lovable (sign-in + account selection) — paused when user asked about Plesk placement
-- [ ] Answer where the Google Ads tag should live: Lovable site (ammarai.com, deployed to Plesk) vs MagicAI app (app.ammarai.com)
-- [ ] Install conversion tag for completed contact forms once account is connected
+- [x] Connect Google Ads in Lovable; selected existing account 7648807292 (USD, billing active)
+- [x] Answered tag placement: tag lives in the Lovable site code (ammarai.com) and ships to Plesk on redeploy
+- [x] Created conversion action 7886771918 (contact form submissions) and installed Google tag + event
+- [x] Regional consent banner + same-origin /cdn-cgi/trace fallback; privacy policy updated
+- [ ] User: redeploy to Plesk so the tag goes live on ammarai.com; then verify in Google Ads (Goals > Conversions)
