@@ -23,6 +23,8 @@ import { OfferProvider } from "@/components/site/OfferProvider";
 import { ThemeProvider, useTheme } from "@/components/site/ThemeProvider";
 import { LiveChatbotProvider } from "@/components/site/LiveChatbot";
 import { siteContentQuery, siteContentRowsQuery, type ContentRow } from "@/lib/content";
+import { ConsentBanner } from "@/components/site/ConsentBanner";
+import { loadGoogleAds } from "@/lib/google-ads";
 
 function NotFoundComponent() {
   return (
@@ -124,6 +126,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
+    scripts: [
+      {
+        // Consent Mode defaults: advertising granted globally, then denied in
+        // consent-required regions until the visitor chooses in the banner.
+        children:
+          "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500,region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH','CA-QC']});",
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -191,10 +201,18 @@ function SiteShell() {
       .catch(() => undefined);
   }, []);
 
+  // Google Ads tag under advanced Consent Mode: the tag loads on every page;
+  // visitors in consent-required regions keep denied signals until they choose
+  // in the regional banner, and everyone else tracks under ordinary defaults.
+  useEffect(() => {
+    void loadGoogleAds(true);
+  }, []);
+
   return (
     <OfferProvider>
       <LiveChatbotProvider>
       <ContentProtection />
+      <ConsentBanner />
       <div className={`site-shell home-swiss flex min-h-screen flex-col bg-background text-foreground ${theme === "dark" ? "theme-dark" : ""}`}>
           <Header />
           <main className="flex-1">

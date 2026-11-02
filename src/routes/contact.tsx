@@ -9,6 +9,7 @@ import { LOGIN_URL } from "@/lib/site";
 import { siteContentQuery } from "@/lib/content";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Turnstile } from "@/components/site/Turnstile";
+import { loadGoogleAds } from "@/lib/google-ads";
 
 const title = "Contact AmmarAI: Sales, Support and Partnerships | AmmarAI";
 const description =
@@ -245,6 +246,14 @@ function Contact() {
                       }
                       setConfirmationSent(payload?.confirmationSent ?? true);
                       setSent(true);
+                      // Google Ads conversion: a completed contact form.
+                      void loadGoogleAds(true).then(() => {
+                        window.gtag?.("event", "conversion", {
+                          send_to: "AW-653618937/B7PACM6t2rAdEPnd1bcC",
+                          value: 1,
+                          currency: "USD",
+                        });
+                      });
                     } catch {
                       setError(
                         "The message could not be sent. Please email support@ammarai.com directly.",

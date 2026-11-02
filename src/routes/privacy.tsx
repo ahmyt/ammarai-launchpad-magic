@@ -110,7 +110,7 @@ const sections: LegalSection[] = [
   {
     heading: "Cookies and similar technologies",
     paragraphs: [
-      "We use strictly necessary cookies and local storage to keep you signed in and remember workspace preferences. Optional analytics cookies help us understand which pages and tools are used. You can block or clear cookies in your browser, though sign-in will not work without the necessary ones.",
+      "We use strictly necessary cookies and local storage to keep you signed in and remember workspace preferences. Optional analytics cookies help us understand which pages and tools are used. We also use Google Ads to measure advertising: when you visit from a Google ad or submit a contact form, Google may receive data about that visit so we can tell whether our ads lead to enquiries. In regions that require consent we show a banner, and advertising measurement stays off there until you accept; you can change or withdraw your choice anytime from the \"Cookie settings\" link in the footer. You can also block or clear cookies in your browser, though sign-in will not work without the necessary ones. Google's business privacy notice is at https://business.safety.google/privacy/.",
     ],
   },
   {
