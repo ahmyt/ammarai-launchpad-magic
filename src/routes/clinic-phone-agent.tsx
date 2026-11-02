@@ -108,7 +108,8 @@ function ClinicPage() {
               <ButtonLink to="/contact" search={{ topic: "clinic" } as never} size="lg"><Phone className="size-4" />Request a clinic demo</ButtonLink>
               <a href="#clinic-demo" className="restaurant-hero-link"><ArrowRight className="size-4" />Explore the demo</a>
             </div>
-            <p className="mt-6 text-sm">Dental · Medical · MedSpa · Physical therapy · Veterinary</p>
+            <p className="mt-6 text-sm">{voiceScale?.price ?? "$349.99"}/month · 800 voice minutes · Reminder &amp; confirmation calls</p>
+            <p className="mt-2 text-sm">Dental · Medical · MedSpa · Physical therapy · Veterinary</p>
             <p className="mt-2 text-sm">No call needed — we handle the consultation by email or chat and reply within one business day.</p>
           </div>
         </Container>
