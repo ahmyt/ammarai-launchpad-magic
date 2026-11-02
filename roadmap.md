@@ -509,3 +509,6 @@
 - [x] Add a tutorial-backed tool page, catalogue/search entry, homepage showcase and workflow card
 - [x] Link from relevant video tools and marketing/product/social video use cases without changing pricing or tutorial wording
 - [x] Verify discovery-to-tool-to-tutorial navigation and mobile layout; four focused tests pass, screenshot loads, SEO metadata present and build OK
+- [ ] Connect Google Ads in Lovable (sign-in + account selection) — paused when user asked about Plesk placement
+- [ ] Answer where the Google Ads tag should live: Lovable site (ammarai.com, deployed to Plesk) vs MagicAI app (app.ammarai.com)
+- [ ] Install conversion tag for completed contact forms once account is connected
