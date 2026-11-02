@@ -20,8 +20,8 @@ const fieldClass =
 
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },
-  validateSearch: (s: Record<string, unknown>): { topic?: "restaurant" } =>
-    s["topic"] === "restaurant" ? { topic: "restaurant" } : {},
+  validateSearch: (s: Record<string, unknown>): { topic?: "restaurant" | "clinic" } =>
+    s["topic"] === "restaurant" ? { topic: "restaurant" } : s["topic"] === "clinic" ? { topic: "clinic" } : {},
   loader: ({ context }) => context.queryClient.prefetchQuery(siteContentQuery),
   head: () => ({
     meta: [
@@ -122,7 +122,9 @@ type ContactResponse = {
 };
 
 function Contact() {
-  const isRestaurant = Route.useSearch().topic === "restaurant";
+  const topic = Route.useSearch().topic;
+  const isRestaurant = topic === "restaurant";
+  const isClinic = topic === "clinic";
   const [sent, setSent] = useState(false);
   const [confirmationSent, setConfirmationSent] = useState(true);
   const [sending, setSending] = useState(false);
@@ -212,6 +214,15 @@ function Contact() {
                                 `Restaurant: ${String(data.get("restaurant") ?? "").trim()}`,
                                 `POS: ${String(data.get("pos") ?? "").trim()}`,
                                 `Best phone/time: ${String(data.get("callback") ?? "").trim()}`,
+                                "",
+                                String(data.get("message") ?? "").trim() || "(no extra notes)",
+                              ].join("\n")
+                            : isClinic
+                            ? [
+                                "[Clinic Phone Agent inquiry]",
+                                `Practice: ${String(data.get("practice") ?? "").trim()}`,
+                                `Type: ${String(data.get("specialty") ?? "").trim()}`,
+                                `Scheduling system: ${String(data.get("scheduler") ?? "").trim()}`,
                                 "",
                                 String(data.get("message") ?? "").trim() || "(no extra notes)",
                               ].join("\n")
@@ -312,15 +323,37 @@ function Contact() {
                       </div>
                     </fieldset>
                   ) : null}
+                  {isClinic ? (
+                    <fieldset className="flex flex-col gap-4 rounded-md border border-border p-4">
+                      <legend className="px-1 text-xs font-semibold text-foreground">Clinic AI Phone Receptionist</legend>
+                      <div>
+                        <label htmlFor="practice" className="text-xs font-semibold text-foreground">Practice name and city</label>
+                        <input id="practice" name="practice" required maxLength={150} className={fieldClass} />
+                      </div>
+                      <div>
+                        <label htmlFor="specialty" className="text-xs font-semibold text-foreground">Practice type</label>
+                        <select id="specialty" name="specialty" required defaultValue="" className={fieldClass}>
+                          <option value="" disabled>Choose your practice type</option>
+                          {["Dental", "Medical / primary care", "MedSpa / aesthetics", "Physical therapy / chiropractic", "Veterinary", "Other"].map((p) => (
+                            <option key={p} value={p}>{p}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label htmlFor="scheduler" className="text-xs font-semibold text-foreground">Scheduling or calendar system (optional)</label>
+                        <input id="scheduler" name="scheduler" maxLength={150} placeholder="e.g. Google Calendar, Dentrix, Jane" className={fieldClass} />
+                      </div>
+                    </fieldset>
+                  ) : null}
                   <div>
                     <label htmlFor="message" className="text-xs font-semibold text-foreground">
-                      {isRestaurant ? "Anything else we should know? (call volume, hours, menu link)" : "What are you working on?"}
+                      {isRestaurant ? "Anything else we should know? (call volume, hours, menu link)" : isClinic ? "Anything else? (daily call volume, hours, what callers ask most)" : "What are you working on?"}
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={5}
-                      required={!isRestaurant}
+                      required={!isRestaurant && !isClinic}
                       maxLength={4000}
                       className={fieldClass}
                     />
