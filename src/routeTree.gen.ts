@@ -37,6 +37,7 @@ import { Route as AdminReviewsRouteImport } from './routes/admin.reviews'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as CdnCgiTraceRouteImport } from './routes/cdn-cgi/trace'
 import { Route as FeaturesIndexRouteImport } from './routes/features.index'
 import { Route as FeaturesSlugRouteImport } from './routes/features.$slug'
 import { Route as TutorialsIndexRouteImport } from './routes/tutorials.index'
@@ -188,6 +189,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CdnCgiTraceRoute = CdnCgiTraceRouteImport.update({
+  id: '/cdn-cgi/trace',
+  path: '/cdn-cgi/trace',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FeaturesIndexRoute = FeaturesIndexRouteImport.update({
   id: '/features/',
   path: '/features/',
@@ -268,6 +274,7 @@ export interface FileRoutesByFullPath {
   '/admin/reviews': typeof AdminReviewsRoute
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/cdn-cgi/trace': typeof CdnCgiTraceRoute
   '/features/$slug': typeof FeaturesSlugRoute
   '/tutorials/$slug': typeof TutorialsSlugRoute
   '/admin/': typeof AdminIndexRoute
@@ -306,6 +313,7 @@ export interface FileRoutesByTo {
   '/admin/reviews': typeof AdminReviewsRoute
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/cdn-cgi/trace': typeof CdnCgiTraceRoute
   '/features/$slug': typeof FeaturesSlugRoute
   '/tutorials/$slug': typeof TutorialsSlugRoute
   '/admin': typeof AdminIndexRoute
@@ -347,6 +355,7 @@ export interface FileRoutesById {
   '/admin/reviews': typeof AdminReviewsRoute
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/cdn-cgi/trace': typeof CdnCgiTraceRoute
   '/features/$slug': typeof FeaturesSlugRoute
   '/tutorials/$slug': typeof TutorialsSlugRoute
   '/admin/': typeof AdminIndexRoute
@@ -389,6 +398,7 @@ export interface FileRouteTypes {
     | '/admin/reviews'
     | '/api/contact'
     | '/blog/$slug'
+    | '/cdn-cgi/trace'
     | '/features/$slug'
     | '/tutorials/$slug'
     | '/admin/'
@@ -427,6 +437,7 @@ export interface FileRouteTypes {
     | '/admin/reviews'
     | '/api/contact'
     | '/blog/$slug'
+    | '/cdn-cgi/trace'
     | '/features/$slug'
     | '/tutorials/$slug'
     | '/admin'
@@ -467,6 +478,7 @@ export interface FileRouteTypes {
     | '/admin/reviews'
     | '/api/contact'
     | '/blog/$slug'
+    | '/cdn-cgi/trace'
     | '/features/$slug'
     | '/tutorials/$slug'
     | '/admin/'
@@ -504,6 +516,7 @@ export interface RootRouteChildren {
   UseCasesRoute: typeof UseCasesRoute
   ApiContactRoute: typeof ApiContactRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  CdnCgiTraceRoute: typeof CdnCgiTraceRoute
   FeaturesSlugRoute: typeof FeaturesSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   FeaturesIndexRoute: typeof FeaturesIndexRoute
@@ -711,6 +724,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cdn-cgi/trace': {
+      id: '/cdn-cgi/trace'
+      path: '/cdn-cgi/trace'
+      fullPath: '/cdn-cgi/trace'
+      preLoaderRoute: typeof CdnCgiTraceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/features/': {
       id: '/features/'
       path: '/features'
@@ -843,6 +863,7 @@ const rootRouteChildren: RootRouteChildren = {
   UseCasesRoute: UseCasesRoute,
   ApiContactRoute: ApiContactRoute,
   BlogSlugRoute: BlogSlugRoute,
+  CdnCgiTraceRoute: CdnCgiTraceRoute,
   FeaturesSlugRoute: FeaturesSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   FeaturesIndexRoute: FeaturesIndexRoute,
