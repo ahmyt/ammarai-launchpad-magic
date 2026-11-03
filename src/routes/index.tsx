@@ -330,13 +330,23 @@ function Home() {
           />
            <FlagshipCarousel tools={featuredTools} />
            <SecondaryToolsCarousel />
-           <div className="mt-10 flex flex-col gap-4 border border-border bg-background p-6 sm:flex-row sm:items-center sm:justify-between">
-             <div>
-               <p className="eyebrow">For restaurants</p>
-               <p className="mt-2 text-lg font-semibold text-foreground">Restaurant Phone Ordering Agent</p>
-               <p className="mt-1 text-sm text-muted-foreground">Answers every call, takes and confirms pickup orders, and sends them straight to your POS and kitchen screen.</p>
+           <div className="mt-10 grid gap-4 sm:grid-cols-2">
+             <div className="flex flex-col gap-4 border border-border bg-background p-6">
+               <div>
+                 <p className="eyebrow">For restaurants</p>
+                 <p className="mt-2 text-lg font-semibold text-foreground">Restaurant Phone Ordering Agent</p>
+                 <p className="mt-1 text-sm text-muted-foreground">Answers every call, takes and confirms pickup orders, and sends them straight to your POS and kitchen screen.</p>
+               </div>
+               <Link to="/restaurant-phone-ordering" className="mt-auto inline-flex w-fit items-center justify-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">See how it works →</Link>
              </div>
-             <Link to="/restaurant-phone-ordering" className="inline-flex shrink-0 items-center justify-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">See how it works →</Link>
+             <div className="flex flex-col gap-4 border border-border bg-background p-6">
+               <div>
+                 <p className="eyebrow">For clinics</p>
+                 <p className="mt-2 text-lg font-semibold text-foreground">Clinic Phone Agent</p>
+                 <p className="mt-1 text-sm text-muted-foreground">AI receptionist answers patient calls, books appointments into your calendar and sends reminder calls.</p>
+               </div>
+               <Link to="/clinic-phone-agent" className="mt-auto inline-flex w-fit items-center justify-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">See how it works →</Link>
+             </div>
            </div>
         </Container>
       </Section>

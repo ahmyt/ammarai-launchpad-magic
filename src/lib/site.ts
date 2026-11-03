@@ -36,6 +36,7 @@ export type StaticPath =
   | "/privacy"
   | "/terms"
   | "/refund-policy"
+  | "/clinic-phone-agent"
   | "/auth";
 
 export type SiteLink = { label: string; to: StaticPath } | { label: string; slug: string };
@@ -73,6 +74,7 @@ export const footerNav: { heading: string; links: SiteLink[] }[] = [
       { label: "AI for SEO", slug: "ai-for-seo" },
       { label: "AI for Students", slug: "ai-for-students" },
       { label: "Restaurant Phone Ordering", slug: "restaurant-phone-ordering" },
+      { label: "Clinic Phone Agent", to: "/clinic-phone-agent" },
     ],
   },
 

@@ -310,6 +310,18 @@ function Pricing() {
             <Link to="/restaurant-phone-ordering" className="mt-4 inline-block text-sm font-semibold text-accent hover:underline">
               See how restaurant ordering works →
             </Link>
+            <div className="mt-6 border-t border-border pt-6">
+              <p className="eyebrow">For clinics</p>
+              <h2 className="mt-3 text-2xl">Clinic Phone Agent · Voice Scale</h2>
+              <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">
+                An AI receptionist for dental, medical, medspa, physical therapy and veterinary practices: answers patient
+                calls, books appointments into your calendar and sends reminder calls. Runs on the Voice Scale plan with
+                800 voice minutes per month.
+              </p>
+              <Link to="/clinic-phone-agent" className="mt-4 inline-block text-sm font-semibold text-accent hover:underline">
+                See how the clinic phone agent works →
+              </Link>
+            </div>
           </div>
         </Container>
       </Section>
