@@ -74,6 +74,11 @@ export function Header() {
                   <p className="mt-2 text-xs leading-relaxed text-muted-foreground">AI answers calls, takes pickup orders and sends tickets to your POS and kitchen.</p>
                   <Link to="/restaurant-phone-ordering" className="mt-3 inline-flex text-xs font-semibold text-accent">Restaurant Phone Ordering</Link>
                 </div>
+                <div>
+                  <p className="eyebrow">For clinics</p>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">AI receptionist answers patient calls, books appointments into your calendar and sends reminders.</p>
+                  <Link to="/clinic-phone-agent" className="mt-3 inline-flex text-xs font-semibold text-accent">Clinic Phone Agent</Link>
+                </div>
               </div>
             </div>
           ) : (
@@ -167,6 +172,9 @@ export function Header() {
             </div>
             <Link to="/restaurant-phone-ordering" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
               Restaurant Phone Ordering Agent →
+            </Link>
+            <Link to="/clinic-phone-agent" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
+              Clinic Phone Agent →
             </Link>
             <div className="flex items-center gap-3 pt-4">
               <ExternalButton

@@ -73,6 +73,7 @@ export const footerNav: { heading: string; links: SiteLink[] }[] = [
       { label: "AI for SEO", slug: "ai-for-seo" },
       { label: "AI for Students", slug: "ai-for-students" },
       { label: "Restaurant Phone Ordering", slug: "restaurant-phone-ordering" },
+      { label: "Clinic Phone Agent", to: "/clinic-phone-agent" },
     ],
   },
 
