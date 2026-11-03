@@ -12,6 +12,8 @@ import clinicImage from "@/assets/clinic-reception.jpg";
 import appointmentAudio from "@/assets/ai-phone-agent-clinic-appointment.mp3.asset.json";
 import reminderAudio from "@/assets/ai-phone-agent-clinic-reminder.mp3.asset.json";
 import { assetUrl } from "@/lib/asset-url";
+import walkthroughVideo from "@/assets/clinic_agent_walkthrough.mp4.asset.json";
+import walkthroughPoster from "@/assets/clinic_agent_walkthrough_poster.jpg.asset.json";
 import { plans } from "@/lib/site";
 
 const voiceScale = plans.find((p) => p.name === "Voice Scale");
@@ -121,6 +123,20 @@ function ClinicPage() {
           <span className="flex items-center gap-2"><ShieldCheck className="size-4 text-accent" />Never gives medical advice</span>
         </Container>
       </div>
+
+      <Section>
+        <Container>
+          <SectionHeading eyebrow="How-to video" title="Set up your clinic phone agent" intro="Watch the full setup in AmmarAI: agent instructions, voice, calendar booking, and a real test call where the agent books an appointment." />
+          <figure className="mt-10 border border-border">
+            <video className="aspect-video w-full bg-secondary" controls controlsList="nodownload" preload="none" playsInline poster={assetUrl(walkthroughPoster.url)} src={assetUrl(walkthroughVideo.url)}>
+              Your browser does not support video playback.
+            </video>
+            <figcaption className="border-t border-border px-4 py-3 text-xs text-muted-foreground">Peachtree Smile Dental demo agent · 3 min 9 s</figcaption>
+          </figure>
+        </Container>
+      </Section>
+
+
 
       <Section tone="sand" id="clinic-demo">
         <Container>
