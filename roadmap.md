@@ -1,6 +1,12 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Clinic walkthrough playback on Plesk (2026-11-03)
+- [x] Confirm live clinic page requests missing local video and poster files
+- [x] Use public hosted asset addresses for the CDN-only walkthrough, preserving existing bundled media
+- [x] Verify playback and seeking with the corrected page; 189.5-second video plays and seeks to 90 seconds, three regression tests pass
+- [ ] User: redeploy the updated page to Plesk; current live deployment still requests the missing local files
+
 ## Google Ads connection and conversion tracking (2026-11-02)
 - [x] Connect Google Ads; selected existing account 7648807292 (USD, billing active, ready)
 - [x] Created conversion action 7886771918 "Contact form submission (ammarai.com)", primary for bidding

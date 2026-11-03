@@ -17,3 +17,9 @@ export function assetUrl(url: string): string {
   if (!filename) return url;
   return `/media/${filename}`;
 }
+
+/** CDN-only media must keep a public origin when deployed outside Lovable. */
+export function hostedAssetUrl(url: string): string {
+  if (!url.startsWith('/__l5e/assets-v1/')) return url;
+  return `https://ammarai-ecosystem-hub.lovable.app${url}`;
+}
