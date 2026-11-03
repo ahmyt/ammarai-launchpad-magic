@@ -176,6 +176,17 @@ function UseCasesIndex() {
                 Never miss a call during the rush: AI takes pickup orders, confirms them and sends tickets to your POS and kitchen screen.
               </p>
             </Card>
+            <Card interactive className="p-6">
+              <p className="eyebrow">Clinics & practices</p>
+              <h2 className="mt-3 text-base font-semibold">
+                <Link to="/clinic-phone-agent" className="text-foreground transition-colors hover:text-accent">
+                  Clinic Phone Agent
+                </Link>
+              </h2>
+              <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
+                An AI receptionist answers every patient call, books appointments into your calendar and sends reminder calls.
+              </p>
+            </Card>
           </div>
         </Container>
       </Section>
