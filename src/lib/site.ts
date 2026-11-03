@@ -36,6 +36,7 @@ export type StaticPath =
   | "/privacy"
   | "/terms"
   | "/refund-policy"
+  | "/clinic-phone-agent"
   | "/auth";
 
 export type SiteLink = { label: string; to: StaticPath } | { label: string; slug: string };
