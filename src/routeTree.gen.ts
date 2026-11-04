@@ -21,6 +21,7 @@ import { Route as AiTextToVideoRouteImport } from './routes/ai-text-to-video'
 import { Route as AiToolsRouteImport } from './routes/ai-tools'
 import { Route as AiVideoGeneratorRouteImport } from './routes/ai-video-generator'
 import { Route as AiVirtualTryOnRouteImport } from './routes/ai-virtual-try-on'
+import { Route as AiWriterRouteImport } from './routes/ai-writer'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ClinicPhoneAgentRouteImport } from './routes/clinic-phone-agent'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -113,6 +114,11 @@ const AiVideoGeneratorRoute = AiVideoGeneratorRouteImport.update({
 const AiVirtualTryOnRoute = AiVirtualTryOnRouteImport.update({
   id: '/ai-virtual-try-on',
   path: '/ai-virtual-try-on',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiWriterRoute = AiWriterRouteImport.update({
+  id: '/ai-writer',
+  path: '/ai-writer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -296,6 +302,7 @@ export interface FileRoutesByFullPath {
   '/ai-tools': typeof AiToolsRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
+  '/ai-writer': typeof AiWriterRoute
   '/auth': typeof AuthRoute
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
   '/contact': typeof ContactRoute
@@ -342,6 +349,7 @@ export interface FileRoutesByTo {
   '/ai-tools': typeof AiToolsRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
+  '/ai-writer': typeof AiWriterRoute
   '/auth': typeof AuthRoute
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
   '/contact': typeof ContactRoute
@@ -389,6 +397,7 @@ export interface FileRoutesById {
   '/ai-tools': typeof AiToolsRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
+  '/ai-writer': typeof AiWriterRoute
   '/auth': typeof AuthRoute
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
   '/contact': typeof ContactRoute
@@ -438,6 +447,7 @@ export interface FileRouteTypes {
     | '/ai-tools'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
+    | '/ai-writer'
     | '/auth'
     | '/clinic-phone-agent'
     | '/contact'
@@ -484,6 +494,7 @@ export interface FileRouteTypes {
     | '/ai-tools'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
+    | '/ai-writer'
     | '/auth'
     | '/clinic-phone-agent'
     | '/contact'
@@ -530,6 +541,7 @@ export interface FileRouteTypes {
     | '/ai-tools'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
+    | '/ai-writer'
     | '/auth'
     | '/clinic-phone-agent'
     | '/contact'
@@ -578,6 +590,7 @@ export interface RootRouteChildren {
   AiToolsRoute: typeof AiToolsRoute
   AiVideoGeneratorRoute: typeof AiVideoGeneratorRoute
   AiVirtualTryOnRoute: typeof AiVirtualTryOnRoute
+  AiWriterRoute: typeof AiWriterRoute
   AuthRoute: typeof AuthRoute
   ClinicPhoneAgentRoute: typeof ClinicPhoneAgentRoute
   ContactRoute: typeof ContactRoute
@@ -688,6 +701,13 @@ declare module '@tanstack/react-router' {
       path: '/ai-virtual-try-on'
       fullPath: '/ai-virtual-try-on'
       preLoaderRoute: typeof AiVirtualTryOnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-writer': {
+      id: '/ai-writer'
+      path: '/ai-writer'
+      fullPath: '/ai-writer'
+      preLoaderRoute: typeof AiWriterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -973,6 +993,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiToolsRoute: AiToolsRoute,
   AiVideoGeneratorRoute: AiVideoGeneratorRoute,
   AiVirtualTryOnRoute: AiVirtualTryOnRoute,
+  AiWriterRoute: AiWriterRoute,
   AuthRoute: AuthRoute,
   ClinicPhoneAgentRoute: ClinicPhoneAgentRoute,
   ContactRoute: ContactRoute,
