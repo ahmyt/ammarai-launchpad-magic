@@ -13,10 +13,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AiAgentBuilderRouteImport } from './routes/ai-agent-builder'
 import { Route as AiAvatarGeneratorRouteImport } from './routes/ai-avatar-generator'
 import { Route as AiFashionStudioRouteImport } from './routes/ai-fashion-studio'
 import { Route as AiImageGeneratorRouteImport } from './routes/ai-image-generator'
 import { Route as AiModelsRouteImport } from './routes/ai-models'
+import { Route as AiMusicGeneratorRouteImport } from './routes/ai-music-generator'
 import { Route as AiPhoneAgentRouteImport } from './routes/ai-phone-agent'
 import { Route as AiTextToVideoRouteImport } from './routes/ai-text-to-video'
 import { Route as AiToolsRouteImport } from './routes/ai-tools'
@@ -77,6 +79,11 @@ const AdminRoute = AdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiAgentBuilderRoute = AiAgentBuilderRouteImport.update({
+  id: '/ai-agent-builder',
+  path: '/ai-agent-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AiAvatarGeneratorRoute = AiAvatarGeneratorRouteImport.update({
   id: '/ai-avatar-generator',
   path: '/ai-avatar-generator',
@@ -95,6 +102,11 @@ const AiImageGeneratorRoute = AiImageGeneratorRouteImport.update({
 const AiModelsRoute = AiModelsRouteImport.update({
   id: '/ai-models',
   path: '/ai-models',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiMusicGeneratorRoute = AiMusicGeneratorRouteImport.update({
+  id: '/ai-music-generator',
+  path: '/ai-music-generator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiPhoneAgentRoute = AiPhoneAgentRouteImport.update({
@@ -300,10 +312,12 @@ export interface FileRoutesByFullPath {
   '/$slug': typeof SlugRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/ai-agent-builder': typeof AiAgentBuilderRoute
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-fashion-studio': typeof AiFashionStudioRoute
   '/ai-image-generator': typeof AiImageGeneratorRoute
   '/ai-models': typeof AiModelsRoute
+  '/ai-music-generator': typeof AiMusicGeneratorRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
@@ -348,10 +362,12 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
   '/about': typeof AboutRoute
+  '/ai-agent-builder': typeof AiAgentBuilderRoute
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-fashion-studio': typeof AiFashionStudioRoute
   '/ai-image-generator': typeof AiImageGeneratorRoute
   '/ai-models': typeof AiModelsRoute
+  '/ai-music-generator': typeof AiMusicGeneratorRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
@@ -397,10 +413,12 @@ export interface FileRoutesById {
   '/$slug': typeof SlugRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/ai-agent-builder': typeof AiAgentBuilderRoute
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-fashion-studio': typeof AiFashionStudioRoute
   '/ai-image-generator': typeof AiImageGeneratorRoute
   '/ai-models': typeof AiModelsRoute
+  '/ai-music-generator': typeof AiMusicGeneratorRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
@@ -448,10 +466,12 @@ export interface FileRouteTypes {
     | '/$slug'
     | '/about'
     | '/admin'
+    | '/ai-agent-builder'
     | '/ai-avatar-generator'
     | '/ai-fashion-studio'
     | '/ai-image-generator'
     | '/ai-models'
+    | '/ai-music-generator'
     | '/ai-phone-agent'
     | '/ai-text-to-video'
     | '/ai-tools'
@@ -496,10 +516,12 @@ export interface FileRouteTypes {
     | '/'
     | '/$slug'
     | '/about'
+    | '/ai-agent-builder'
     | '/ai-avatar-generator'
     | '/ai-fashion-studio'
     | '/ai-image-generator'
     | '/ai-models'
+    | '/ai-music-generator'
     | '/ai-phone-agent'
     | '/ai-text-to-video'
     | '/ai-tools'
@@ -544,10 +566,12 @@ export interface FileRouteTypes {
     | '/$slug'
     | '/about'
     | '/admin'
+    | '/ai-agent-builder'
     | '/ai-avatar-generator'
     | '/ai-fashion-studio'
     | '/ai-image-generator'
     | '/ai-models'
+    | '/ai-music-generator'
     | '/ai-phone-agent'
     | '/ai-text-to-video'
     | '/ai-tools'
@@ -594,10 +618,12 @@ export interface RootRouteChildren {
   SlugRoute: typeof SlugRoute
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
+  AiAgentBuilderRoute: typeof AiAgentBuilderRoute
   AiAvatarGeneratorRoute: typeof AiAvatarGeneratorRoute
   AiFashionStudioRoute: typeof AiFashionStudioRoute
   AiImageGeneratorRoute: typeof AiImageGeneratorRoute
   AiModelsRoute: typeof AiModelsRoute
+  AiMusicGeneratorRoute: typeof AiMusicGeneratorRoute
   AiPhoneAgentRoute: typeof AiPhoneAgentRoute
   AiTextToVideoRoute: typeof AiTextToVideoRoute
   AiToolsRoute: typeof AiToolsRoute
@@ -660,6 +686,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai-agent-builder': {
+      id: '/ai-agent-builder'
+      path: '/ai-agent-builder'
+      fullPath: '/ai-agent-builder'
+      preLoaderRoute: typeof AiAgentBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ai-avatar-generator': {
       id: '/ai-avatar-generator'
       path: '/ai-avatar-generator'
@@ -686,6 +719,13 @@ declare module '@tanstack/react-router' {
       path: '/ai-models'
       fullPath: '/ai-models'
       preLoaderRoute: typeof AiModelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-music-generator': {
+      id: '/ai-music-generator'
+      path: '/ai-music-generator'
+      fullPath: '/ai-music-generator'
+      preLoaderRoute: typeof AiMusicGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-phone-agent': {
@@ -1005,10 +1045,12 @@ const rootRouteChildren: RootRouteChildren = {
   SlugRoute: SlugRoute,
   AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
+  AiAgentBuilderRoute: AiAgentBuilderRoute,
   AiAvatarGeneratorRoute: AiAvatarGeneratorRoute,
   AiFashionStudioRoute: AiFashionStudioRoute,
   AiImageGeneratorRoute: AiImageGeneratorRoute,
   AiModelsRoute: AiModelsRoute,
+  AiMusicGeneratorRoute: AiMusicGeneratorRoute,
   AiPhoneAgentRoute: AiPhoneAgentRoute,
   AiTextToVideoRoute: AiTextToVideoRoute,
   AiToolsRoute: AiToolsRoute,
