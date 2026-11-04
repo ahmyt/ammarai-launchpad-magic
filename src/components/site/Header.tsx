@@ -85,6 +85,7 @@ export function Header() {
                   <Link to="/ai-phone-agent" className="mt-3 inline-flex text-xs font-semibold text-accent">AI Phone Agent</Link>
                   <Link to="/ai-fashion-studio" className="mt-3 ml-3 inline-flex text-xs font-semibold text-accent">AI Fashion Studio</Link>
                   <Link to="/ai-writer" className="mt-3 ml-3 inline-flex text-xs font-semibold text-accent">AI Writer</Link>
+                  <Link to="/ai-image-generator" className="mt-3 ml-3 inline-flex text-xs font-semibold text-accent">AI Image Pro</Link>
                 </div>
               </div>
             </div>
@@ -191,6 +192,9 @@ export function Header() {
             </Link>
             <Link to="/ai-writer" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
               AI Writer →
+            </Link>
+            <Link to="/ai-image-generator" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
+              AI Image Pro →
             </Link>
             <div className="flex items-center gap-3 pt-4">
               <ExternalButton

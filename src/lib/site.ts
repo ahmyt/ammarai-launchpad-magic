@@ -39,6 +39,7 @@ export type StaticPath =
   | "/ai-phone-agent"
   | "/ai-fashion-studio"
   | "/ai-writer"
+  | "/ai-image-generator"
   | "/clinic-phone-agent"
   | "/auth";
 
