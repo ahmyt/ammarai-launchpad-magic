@@ -239,7 +239,7 @@ function ClinicPage() {
           </div>
           <div className="mt-10 flex flex-col justify-between gap-6 border-y border-border py-8 md:flex-row md:items-center">
             <div className="max-w-xl"><p className="eyebrow">Try it yourself</p><h3 className="mt-3 text-2xl">Call the live demo agent</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Talk to an AmmarAI phone agent right now — no account needed.</p></div>
-            <PhoneDemoButton label="Show the demo phone number" />
+            <PhoneDemoButton label="Call the clinic demo agent" />
           </div>
         </Container>
       </Section>
