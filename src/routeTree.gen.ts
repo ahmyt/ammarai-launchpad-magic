@@ -13,11 +13,14 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AiAgentBuilderRouteImport } from './routes/ai-agent-builder'
 import { Route as AiAvatarGeneratorRouteImport } from './routes/ai-avatar-generator'
 import { Route as AiFashionStudioRouteImport } from './routes/ai-fashion-studio'
 import { Route as AiImageGeneratorRouteImport } from './routes/ai-image-generator'
 import { Route as AiModelsRouteImport } from './routes/ai-models'
+import { Route as AiMusicGeneratorRouteImport } from './routes/ai-music-generator'
 import { Route as AiPhoneAgentRouteImport } from './routes/ai-phone-agent'
+import { Route as AiSmartInboxRouteImport } from './routes/ai-smart-inbox'
 import { Route as AiTextToVideoRouteImport } from './routes/ai-text-to-video'
 import { Route as AiToolsRouteImport } from './routes/ai-tools'
 import { Route as AiVideoGeneratorRouteImport } from './routes/ai-video-generator'
@@ -77,6 +80,11 @@ const AdminRoute = AdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiAgentBuilderRoute = AiAgentBuilderRouteImport.update({
+  id: '/ai-agent-builder',
+  path: '/ai-agent-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AiAvatarGeneratorRoute = AiAvatarGeneratorRouteImport.update({
   id: '/ai-avatar-generator',
   path: '/ai-avatar-generator',
@@ -97,9 +105,19 @@ const AiModelsRoute = AiModelsRouteImport.update({
   path: '/ai-models',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiMusicGeneratorRoute = AiMusicGeneratorRouteImport.update({
+  id: '/ai-music-generator',
+  path: '/ai-music-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AiPhoneAgentRoute = AiPhoneAgentRouteImport.update({
   id: '/ai-phone-agent',
   path: '/ai-phone-agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiSmartInboxRoute = AiSmartInboxRouteImport.update({
+  id: '/ai-smart-inbox',
+  path: '/ai-smart-inbox',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiTextToVideoRoute = AiTextToVideoRouteImport.update({
@@ -300,11 +318,14 @@ export interface FileRoutesByFullPath {
   '/$slug': typeof SlugRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/ai-agent-builder': typeof AiAgentBuilderRoute
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-fashion-studio': typeof AiFashionStudioRoute
   '/ai-image-generator': typeof AiImageGeneratorRoute
   '/ai-models': typeof AiModelsRoute
+  '/ai-music-generator': typeof AiMusicGeneratorRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
+  '/ai-smart-inbox': typeof AiSmartInboxRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
@@ -348,11 +369,14 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
   '/about': typeof AboutRoute
+  '/ai-agent-builder': typeof AiAgentBuilderRoute
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-fashion-studio': typeof AiFashionStudioRoute
   '/ai-image-generator': typeof AiImageGeneratorRoute
   '/ai-models': typeof AiModelsRoute
+  '/ai-music-generator': typeof AiMusicGeneratorRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
+  '/ai-smart-inbox': typeof AiSmartInboxRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
@@ -397,11 +421,14 @@ export interface FileRoutesById {
   '/$slug': typeof SlugRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/ai-agent-builder': typeof AiAgentBuilderRoute
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-fashion-studio': typeof AiFashionStudioRoute
   '/ai-image-generator': typeof AiImageGeneratorRoute
   '/ai-models': typeof AiModelsRoute
+  '/ai-music-generator': typeof AiMusicGeneratorRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
+  '/ai-smart-inbox': typeof AiSmartInboxRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
@@ -448,11 +475,14 @@ export interface FileRouteTypes {
     | '/$slug'
     | '/about'
     | '/admin'
+    | '/ai-agent-builder'
     | '/ai-avatar-generator'
     | '/ai-fashion-studio'
     | '/ai-image-generator'
     | '/ai-models'
+    | '/ai-music-generator'
     | '/ai-phone-agent'
+    | '/ai-smart-inbox'
     | '/ai-text-to-video'
     | '/ai-tools'
     | '/ai-video-generator'
@@ -496,11 +526,14 @@ export interface FileRouteTypes {
     | '/'
     | '/$slug'
     | '/about'
+    | '/ai-agent-builder'
     | '/ai-avatar-generator'
     | '/ai-fashion-studio'
     | '/ai-image-generator'
     | '/ai-models'
+    | '/ai-music-generator'
     | '/ai-phone-agent'
+    | '/ai-smart-inbox'
     | '/ai-text-to-video'
     | '/ai-tools'
     | '/ai-video-generator'
@@ -544,11 +577,14 @@ export interface FileRouteTypes {
     | '/$slug'
     | '/about'
     | '/admin'
+    | '/ai-agent-builder'
     | '/ai-avatar-generator'
     | '/ai-fashion-studio'
     | '/ai-image-generator'
     | '/ai-models'
+    | '/ai-music-generator'
     | '/ai-phone-agent'
+    | '/ai-smart-inbox'
     | '/ai-text-to-video'
     | '/ai-tools'
     | '/ai-video-generator'
@@ -594,11 +630,14 @@ export interface RootRouteChildren {
   SlugRoute: typeof SlugRoute
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
+  AiAgentBuilderRoute: typeof AiAgentBuilderRoute
   AiAvatarGeneratorRoute: typeof AiAvatarGeneratorRoute
   AiFashionStudioRoute: typeof AiFashionStudioRoute
   AiImageGeneratorRoute: typeof AiImageGeneratorRoute
   AiModelsRoute: typeof AiModelsRoute
+  AiMusicGeneratorRoute: typeof AiMusicGeneratorRoute
   AiPhoneAgentRoute: typeof AiPhoneAgentRoute
+  AiSmartInboxRoute: typeof AiSmartInboxRoute
   AiTextToVideoRoute: typeof AiTextToVideoRoute
   AiToolsRoute: typeof AiToolsRoute
   AiVideoGeneratorRoute: typeof AiVideoGeneratorRoute
@@ -660,6 +699,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai-agent-builder': {
+      id: '/ai-agent-builder'
+      path: '/ai-agent-builder'
+      fullPath: '/ai-agent-builder'
+      preLoaderRoute: typeof AiAgentBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ai-avatar-generator': {
       id: '/ai-avatar-generator'
       path: '/ai-avatar-generator'
@@ -688,11 +734,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AiModelsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai-music-generator': {
+      id: '/ai-music-generator'
+      path: '/ai-music-generator'
+      fullPath: '/ai-music-generator'
+      preLoaderRoute: typeof AiMusicGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ai-phone-agent': {
       id: '/ai-phone-agent'
       path: '/ai-phone-agent'
       fullPath: '/ai-phone-agent'
       preLoaderRoute: typeof AiPhoneAgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-smart-inbox': {
+      id: '/ai-smart-inbox'
+      path: '/ai-smart-inbox'
+      fullPath: '/ai-smart-inbox'
+      preLoaderRoute: typeof AiSmartInboxRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-text-to-video': {
@@ -1005,11 +1065,14 @@ const rootRouteChildren: RootRouteChildren = {
   SlugRoute: SlugRoute,
   AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
+  AiAgentBuilderRoute: AiAgentBuilderRoute,
   AiAvatarGeneratorRoute: AiAvatarGeneratorRoute,
   AiFashionStudioRoute: AiFashionStudioRoute,
   AiImageGeneratorRoute: AiImageGeneratorRoute,
   AiModelsRoute: AiModelsRoute,
+  AiMusicGeneratorRoute: AiMusicGeneratorRoute,
   AiPhoneAgentRoute: AiPhoneAgentRoute,
+  AiSmartInboxRoute: AiSmartInboxRoute,
   AiTextToVideoRoute: AiTextToVideoRoute,
   AiToolsRoute: AiToolsRoute,
   AiVideoGeneratorRoute: AiVideoGeneratorRoute,

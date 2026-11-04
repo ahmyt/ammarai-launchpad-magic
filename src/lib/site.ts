@@ -40,6 +40,9 @@ export type StaticPath =
   | "/ai-fashion-studio"
   | "/ai-writer"
   | "/ai-image-generator"
+  | "/ai-agent-builder"
+  | "/ai-music-generator"
+  | "/ai-smart-inbox"
   | "/clinic-phone-agent"
   | "/auth";
 
