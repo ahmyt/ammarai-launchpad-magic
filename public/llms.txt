@@ -298,3 +298,6 @@
 - [Privacy Policy](https://ammarai.com/privacy): Mobile Unlocking LLC, US
 - [Terms of Service](https://ammarai.com/terms): Mobile Unlocking LLC, US
 - [Refund Policy](https://ammarai.com/refund-policy): Mobile Unlocking LLC, US
+
+## AI Fashion Studio
+- [AI Fashion Studio](https://ammarai.com/ai-fashion-studio): Put garments on AI models without a shoot — photoshoots, virtual try-on, model swaps, image edits and short fashion videos, using plan image and video credits.
