@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Captions, Check, Clapperboard, Film, Layers, Mic, RefreshCw, Sparkles, Wand2 } from "lucide-react";
 import { Card, Container, Section, SectionHeading } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { ButtonLink } from "@/components/site/Button";
+import { ButtonLink, ExternalButton } from "@/components/site/Button";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { plans, REGISTER_URL } from "@/lib/site";
@@ -78,7 +78,7 @@ function VideoPage() {
             <h1 className="text-balance text-4xl leading-tight sm:text-5xl">AI Video Pro, from script to finished cut</h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed">Describe a shot or upload a still, and get short videos for ads, reels and explainers—with voiceover, captions and every aspect ratio in one place.</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <ButtonLink href={REGISTER_URL} size="lg"><Clapperboard className="size-4" />Generate a video</ButtonLink>
+              <ExternalButton href={REGISTER_URL} size="lg"><Clapperboard className="size-4" />Generate a video</ExternalButton>
               <a href="#video-gallery" className="restaurant-hero-link"><ArrowRight className="size-4" />See real results</a>
             </div>
             <p className="mt-6 text-sm">Included from {basic?.name ?? "Basic"} · {basic?.price ?? "$24.99"}/month · 3-day free trial</p>
@@ -145,7 +145,7 @@ function VideoPage() {
               <p className="mt-3 font-mono text-sm leading-relaxed text-foreground" aria-live="polite">{brief}</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button variant="outline" onClick={() => navigator.clipboard?.writeText(brief)}>Copy brief</Button>
-                <ButtonLink href={REGISTER_URL}>Try it in AI Video Pro<ArrowRight className="size-4" /></ButtonLink>
+                <ExternalButton href={REGISTER_URL}>Try it in AI Video Pro<ArrowRight className="size-4" /></ExternalButton>
               </div>
             </Card>
           </div>
@@ -192,7 +192,7 @@ function VideoPage() {
               {(basic?.features ?? []).map((f) => <li key={f} className="flex items-center gap-2"><Check className="size-4" />{f}</li>)}
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href={REGISTER_URL} variant="onInk" size="lg">Start the 3-day trial</ButtonLink>
+              <ExternalButton href={REGISTER_URL} variant="onInk" size="lg">Start the 3-day trial</ExternalButton>
               <ButtonLink to="/pricing" variant="outline" size="lg" className="text-ink-foreground">Compare plans</ButtonLink>
             </div>
           </div>
