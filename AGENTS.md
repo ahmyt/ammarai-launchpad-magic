@@ -22,5 +22,5 @@
 - Google Ads tracking (account 7648807292, tag AW-653618937) loads site-wide under advanced Consent Mode behind the regional consent banner; the banner's region lookup reads a same-origin /cdn-cgi/trace fallback route so consent regions resolve correctly on Plesk, where Cloudflare is not in front. Conversion fires only from the completed contact form.
 - Resolve CDN-only media through hostedAssetUrl with the stable public asset origin; use assetUrl only for media bundled in public/media, so Plesk never requests nonexistent local copies.
 - Dedicated flagship pages retain route-local guidance, prompt libraries, FAQs and tutorial links; verified tutorials govern capability claims so visual redesigns do not erase useful search content or import the full catalogue into shared startup code.
-- New flagship pages render catalogue content through the shared FlagshipToolSections component so every dedicated page keeps the same complete search sections.
+- New flagship pages use the shared FlagshipVideoHero (clips bundled in public/media) and FlagshipToolSections so headers stay consistent and every page keeps complete search sections.
 - Preserve Fashion Studio's original tool URL with a permanent redirect to its dedicated flagship page so catalogue links and existing bookmarks open the same current experience.
