@@ -44,7 +44,7 @@ export const Route = createFileRoute("/ai-avatar-generator")({
     links: [{ rel: "canonical", href: url }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: tool.name, applicationCategory: "MultimediaApplication", operatingSystem: "Web", description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) },
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(tool.faqs)) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(tool.faqs ?? [])) },
     ],
   }),
   component: AvatarPage,
@@ -185,7 +185,7 @@ function AvatarPage() {
       </Section>
 
       <Section tone="sand">
-        <Container size="narrow"><FaqAccordion heading="AI Avatar FAQ" items={tool.faqs} /></Container>
+        <Container size="narrow"><FaqAccordion heading="AI Avatar FAQ" items={tool.faqs ?? []} /></Container>
       </Section>
 
       <Section>
