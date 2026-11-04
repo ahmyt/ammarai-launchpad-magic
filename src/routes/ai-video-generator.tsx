@@ -25,6 +25,15 @@ const clips = [
   { id: "fighters", tab: "Action", label: "Duel in the Cavern", prompt: "Two martial artists trade a rapid, precisely choreographed series of strikes inside a stone cavern. Each impact lifts dust through shafts of daylight. Keep the framing fixed.", result: "A fast, legible action beat with dynamic dust and lighting while the camera holds its framing." },
 ];
 
+const moreClips = [
+  { id: "puppet-wave-dance", label: "Puppet wave dance", style: "Handcrafted puppet", body: "A vivid handcrafted puppet performing a fluid wave dance against a simple fabric backdrop." },
+  { id: "family-lunch", label: "Family lunch", style: "Animated storybook", body: "Grandparents and grandchildren enjoying a warm animated family lunch together." },
+  { id: "hot-pot", label: "Hot-pot dinner", style: "Stylised animation", body: "Two animated characters sharing a Sichuan hot-pot meal beneath red lanterns." },
+  { id: "painting-class", label: "Painting class", style: "Stylised scene", body: "A warm afternoon painting class with expressive character animation." },
+  { id: "fixed-frame", label: "Concert arrival", style: "Fixed-frame cinematic", body: "An elegant animated couple arriving for an evening concert in one composed shot." },
+  { id: "bank-chase", label: "Bank-heist chase", style: "Live-action comedy", body: "A fictional comedic bank-heist escape staged as a fast live-action chase." },
+];
+
 const shots = {
   subject: ["a steaming cup of coffee", "a sneaker on a pedestal", "a red panda in a forest", "a city street at night"],
   camera: ["slow push in", "locked-off wide shot", "orbit around the subject", "handheld follow"],
@@ -124,6 +133,20 @@ function VideoPage() {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{clip.result}</p>
             </div>
             <video className="aspect-video w-full border border-border bg-secondary object-cover" controls muted loop playsInline preload="none" poster={`/media/ai-video-pro-${clip.id}.poster.jpg`} src={`/media/ai-video-pro-${clip.id}.webm`} aria-label={clip.label} />
+          </div>
+          <h3 className="mt-14 text-2xl sm:text-3xl">More real results</h3>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">Six more clips generated in AI Video Pro. Press play on any card.</p>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {moreClips.map((m) => (
+              <figure key={m.id} className="border border-border bg-background">
+                <video className="aspect-video w-full bg-secondary object-cover" controls muted loop playsInline preload="none" poster={`/media/ai-video-pro-${m.id}.poster.jpg`} src={`/media/ai-video-pro-${m.id}.webm`} aria-label={m.label} />
+                <figcaption className="p-4">
+                  <p className="eyebrow">{m.style}</p>
+                  <p className="mt-1 font-semibold text-foreground">{m.label}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{m.body}</p>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </Container>
       </Section>
