@@ -233,6 +233,16 @@ function Home() {
                   Or explore all {tools.length} AI tools <ArrowRight className="size-3.5" />
                 </Link>
                 <p className="studio-hero-note mt-5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Check className="size-3.5 text-success" /> Free plan available · No card required · 3-day trial on Basic</p>
+                <dl className="mt-6 grid max-w-md grid-cols-2 border border-border bg-card">
+                  <div className="border-r border-border p-4">
+                    <dt className="text-xs font-medium text-muted-foreground">Customers</dt>
+                    <dd className="font-display text-2xl font-semibold tabular-nums text-foreground">1,000+</dd>
+                  </div>
+                  <div className="p-4">
+                    <dt className="text-xs font-medium text-muted-foreground">Customer reviews</dt>
+                    <dd className="font-display text-2xl font-semibold tabular-nums text-foreground">1,000+</dd>
+                  </div>
+                </dl>
               </div>
             </div>
           </div>
