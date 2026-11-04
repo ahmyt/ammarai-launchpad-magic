@@ -8,11 +8,12 @@ type Slide = {
   icon: typeof Clapperboard;
   video?: string;
   poster: string;
+  position?: string;
 };
 
 const slides: Slide[] = [
   { label: "AI Video Pro", caption: "Text to cinematic video", slug: "ai-video-generator", icon: Clapperboard, video: "/media/ai-video-pro-espresso.webm", poster: "/media/ai-video-pro-espresso.poster.jpg" },
-  { label: "AI Image Pro", caption: "Product photos from a prompt", slug: "ai-image-generator", icon: ImageIcon, poster: "/media/tutorial-product-photoshoot-3.webp" },
+  { label: "AI Image Pro", caption: "Product photos from a prompt", slug: "ai-image-generator", icon: ImageIcon, poster: "/media/tutorial-product-photoshoot-3.webp", position: "100% 75%" },
   { label: "AI Avatar", caption: "Talking presenter videos", slug: "ai-avatar-generator", icon: UserRound, video: "/media/demo-avatar-video.webm", poster: "/media/demo-avatar-video.poster.webp" },
   { label: "AI Phone Agent", caption: "Answers calls and books orders", slug: "restaurant-phone-ordering", icon: PhoneCall, poster: "/media/ai-video-pro-hot-pot.poster.jpg" },
 ];
@@ -41,7 +42,7 @@ export function HomeShowreel() {
             {s.video && i === active ? (
               <video src={s.video} poster={s.poster} autoPlay muted loop playsInline preload="metadata" />
             ) : (
-              <img src={s.poster} alt="" loading={i === 0 ? "eager" : "lazy"} />
+              <img src={s.poster} alt="" style={s.position ? { objectPosition: s.position } : undefined} loading={i === 0 ? "eager" : "lazy"} />
             )}
             {s.slug === "restaurant-phone-ordering" ? (
               <div className="showreel-wave" aria-hidden="true">{Array.from({ length: 18 }).map((_, k) => <span key={k} style={{ animationDelay: `${k * 70}ms` }} />)}</div>
