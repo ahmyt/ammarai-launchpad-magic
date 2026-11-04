@@ -13,7 +13,7 @@ type Slide = {
 
 const slides: Slide[] = [
   { label: "AI Video Pro", caption: "Text to cinematic video", slug: "ai-video-generator", icon: Clapperboard, video: "/media/ai-video-pro-espresso.webm", poster: "/media/ai-video-pro-espresso.poster.jpg" },
-  { label: "AI Image Pro", caption: "Product photos from a prompt", slug: "ai-image-generator", icon: ImageIcon, poster: "/media/tutorial-product-photoshoot-3.webp", position: "100% 75%" },
+  { label: "Image to Video", caption: "Bring a still photo to life", slug: "ai-image-to-video", icon: ImageIcon, video: "/media/demo-image-to-video.mp4", poster: "/media/demo-image-to-video.poster.jpg" },
   { label: "AI Avatar", caption: "Talking presenter videos", slug: "ai-avatar-generator", icon: UserRound, video: "/media/demo-avatar-video.webm", poster: "/media/demo-avatar-video.poster.webp" },
   { label: "AI Phone Agent", caption: "Answers calls and books orders", slug: "restaurant-phone-ordering", icon: PhoneCall, poster: "/media/ai-video-pro-hot-pot.poster.jpg" },
 ];
