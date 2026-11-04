@@ -301,3 +301,6 @@
 
 ## AI Fashion Studio
 - [AI Fashion Studio](https://ammarai.com/ai-fashion-studio): Put garments on AI models without a shoot — photoshoots, virtual try-on, model swaps, image edits and short fashion videos, using plan image and video credits.
+
+## AI Writer
+- [AI Writer](https://ammarai.com/ai-writer): Full writing editor with the Article Wizard (keyword suggestions, search questions, section drafting), inline rewrites, tone and length control. Included on every plan, including Free.
