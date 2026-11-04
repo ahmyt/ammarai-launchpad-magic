@@ -208,9 +208,8 @@ function Home() {
               </h1>
               <div className="studio-hero-aside">
                 <p className="text-pretty text-base leading-[1.7] text-muted-foreground sm:text-lg">
-                  Build autonomous AI Agents, draft with AI Writer, think with Chat Pro, create with Image Pro
-                  and Video Pro, build talking avatars, transcribe recordings and plan search-led content. Add CRM,
-                  voiceovers, document analysis and code tools — all in one connected workspace.
+                  Write, design, make videos and talking avatars, and run AI agents that answer your phones —
+                  all in one connected workspace instead of five separate subscriptions.
                 </p>
                 <div className="studio-hero-actions mt-8 flex flex-col gap-3 sm:flex-row">
                   <ExternalButton href={REGISTER_URL} size="lg" className="studio-primary-cta w-full sm:w-auto">
