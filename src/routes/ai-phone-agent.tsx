@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Bell, CalendarCheck, Check, Clock, Moon, Phone, ShieldCheck, Wrench } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Clock, CalendarCheck, ShieldCheck } from "lucide-react";
 import { Card, Container, Section, SectionHeading, NumberedList, BulletList } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ButtonLink } from "@/components/site/Button";
@@ -28,7 +28,7 @@ const description =
 const routeFaqs: { q: string; a: string }[] = [
   {
     q: "Which plan includes the phone agent?",
-    a: `The ${ultimate?.name ?? "Ultimate"} plan ($${(ultimate?.price ?? "$129.99").replace("$", "")}/month) includes the AI Phone Call Agent with 120 inbound and outbound minutes. The ${voiceScale?.name ?? "Voice Scale"} plan ($${(voiceScale?.price ?? "$349.99").replace("$", "")}/month) raises that to 800 voice minutes and adds automated follow-up calls.`,
+    a: `The ${ultimate?.name ?? "Ultimate"} plan (${ultimate?.price ?? "$129.99"}/month) includes the AI Phone Call Agent with 120 inbound and outbound minutes. The ${voiceScale?.name ?? "Voice Scale"} plan (${voiceScale?.price ?? "$349.99"}/month) raises that to 800 voice minutes and adds automated follow-up calls.`,
   },
   {
     q: "Can it make outbound calls, not just answer them?",

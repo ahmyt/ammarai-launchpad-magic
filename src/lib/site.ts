@@ -36,6 +36,7 @@ export type StaticPath =
   | "/privacy"
   | "/terms"
   | "/refund-policy"
+  | "/ai-phone-agent"
   | "/clinic-phone-agent"
   | "/auth";
 
