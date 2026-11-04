@@ -17,7 +17,10 @@ export function HomePhoneAgentsStrip() {
         </div>
         <div className="flex flex-wrap gap-3">
           <a href={`tel:${restaurantOffer.demoPhone}`} className="inline-flex h-11 items-center gap-2 bg-accent px-5 text-sm font-semibold text-accent-foreground">
-            <PhoneCall className="size-4" /> Call the demo line {restaurantOffer.demoPhoneFormatted}
+            <PhoneCall className="size-4" /> Restaurant demo {restaurantOffer.demoPhoneFormatted}
+          </a>
+          <a href="tel:+18337729060" className="inline-flex h-11 items-center gap-2 bg-accent px-5 text-sm font-semibold text-accent-foreground">
+            <PhoneCall className="size-4" /> Clinic demo +1 (833) 772-9060
           </a>
           <Link to="/restaurant-phone-ordering" className="inline-flex h-11 items-center gap-2 border border-current px-4 text-sm font-semibold">Restaurants <ArrowRight className="size-3.5" /></Link>
           <Link to="/clinic-phone-agent" className="inline-flex h-11 items-center gap-2 border border-current px-4 text-sm font-semibold">Clinics <ArrowRight className="size-3.5" /></Link>
