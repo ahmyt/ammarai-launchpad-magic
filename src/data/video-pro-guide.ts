@@ -1,4 +1,4 @@
-import type { Example } from "./types";
+import type { Example, Faq } from "./types";
 
 // Original catalogue prompts; keep this route-local data out of the shared startup bundle.
 export const videoProExamples: Example[] = [
@@ -108,3 +108,46 @@ export const videoProExamples: Example[] = [
           "Scroll-stopping B-roll that would otherwise need a location shoot, generated from one line of text.",
       },
     ];
+
+// Guidance follows the verified how-to-use-ai-video-pro tutorial, not legacy assembly claims.
+export const videoProSteps = [
+  { title: "Choose your starting point", body: "Open AI Video Pro and choose text-to-video for a written scene, or image-to-video to animate a still image." },
+  { title: "Select an available model", body: "Check the source types and controls supported by the model shown in your workspace. Model variants can differ in quality, speed and audio support." },
+  { title: "Describe the shot", body: "Write the subject, action, setting, camera movement and lighting in one clear paragraph. For image-to-video, upload your source and describe the motion you want." },
+  { title: "Set duration and output size", body: "Choose the settings offered by the selected model. Start with the shortest duration while testing. Where a reference image is used, match its dimensions to the requested output size." },
+  { title: "Generate, review and download", body: "Review motion, subject consistency and framing before using the clip. Refine the prompt and generate again if faces, products or fine details change unexpectedly." },
+];
+
+export const videoProWorkflows = [
+  { title: "Product demo clip", body: "Start with an authorised product photo and a simple motion brief. Generate a short shot, then check that packaging, shape and fine details still represent the actual product." },
+  { title: "Social campaign variants", body: "Keep the subject consistent while testing different openings, camera moves or lighting. Choose a supported output size for the intended platform and compare the resulting clips." },
+  { title: "Storytelling and B-roll", body: "Describe one visual beat at a time. Generate and review short scenes, then bring the selected clips into AI Video Editor when you need to assemble a longer piece." },
+];
+
+export const videoProTips = [
+  "Use image-to-video when the starting composition, product or character matters; use text-to-video for a new scene.",
+  "Keep motion simple and physically plausible for a cleaner first result.",
+  "Describe subject, action, setting, camera and light rather than relying on a vague style label.",
+  "Test at the shortest available duration before committing to a longer generation.",
+  "Use your own authorised photos where possible, and review product details before publishing.",
+  "Add important typography afterwards rather than depending on generated on-screen text.",
+];
+
+export const videoProMistakes = [
+  "Requesting too many actions or camera changes in one short shot.",
+  "Uploading a reference image that does not match the requested output dimensions.",
+  "Assuming all models offer the same duration, resolution, aspect ratios or audio.",
+  "Publishing without checking faces, hands, text and other fine details between frames.",
+  "Using source images or likenesses without authorisation.",
+];
+
+export const videoProFaqs: Faq[] = [
+  { q: "What is AI Video Pro?", a: "AI Video Pro generates short video clips from a written scene description or a source image. Choose an available model, adjust its supported settings, then generate, review and download the result." },
+  { q: "Can I animate my own images?", a: "Yes. Choose image-to-video, upload an authorised source image and describe the motion you want. When using a reference image for the documented generation action, its dimensions must match the requested output size." },
+  { q: "How long can the generated videos be?", a: "Duration depends on the selected model and the options available in your workspace. Start with the shortest option to test a prompt; use separate clips and an editor for a longer piece." },
+  { q: "Which resolutions and aspect ratios are available?", a: "Select from the output sizes and aspect ratios offered by the chosen model. Vertical sizes suit Reels, Shorts and TikTok; landscape suits YouTube and website embeds. Supported settings can vary by plan and availability." },
+  { q: "Does every model generate audio?", a: "No universal audio support is promised. Model variants differ in whether audio is generated alongside the picture; check the option label. Use the separate voice and caption tools when preparing narration or subtitles." },
+  { q: "How can I improve the result?", a: "Describe one clear subject and action, include camera and lighting details, and keep movement physically plausible. Review every clip for motion, subject consistency, framing and unwanted visual changes." },
+  { q: "How is AI Video Pro different from AI Video Agent?", a: "AI Video Pro generates motion scenes from prompts or images. AI Video Agent is the separate brief-to-presenter video workflow with avatar, voice and storyboard choices." },
+  { q: "What should I check before publishing?", a: "Generated motion can alter faces, hands, products, text and fine details. Check every clip, especially when it represents a real product or person, and use only images and likenesses you are authorised to process." },
+];
