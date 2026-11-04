@@ -530,3 +530,7 @@
 - [x] Created conversion action 7886771918 (contact form submissions) and installed Google tag + event
 - [x] Regional consent banner + same-origin /cdn-cgi/trace fallback; privacy policy updated
 - [ ] User: redeploy to Plesk so the tag goes live on ammarai.com; then verify in Google Ads (Goals > Conversions)
+
+## Flagship tool pages (2026-11-04)
+- [x] AI Video Pro dedicated page at /ai-video-generator using restaurant/clinic template
+- [ ] Next flagship: AI Voice Agent for service businesses (awaiting user go-ahead)
