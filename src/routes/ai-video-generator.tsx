@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Clapperboard, Film, Layers, SlidersHorizontal, Sparkles, Wand2 } from "lucide-react";
 import { Card, Container, Section, SectionHeading, NumberedList, BulletList } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { ButtonLink, ExternalButton } from "@/components/site/Button";
+import { ButtonLink, ExternalButton, buttonClass } from "@/components/site/Button";
 import { Button } from "@/components/ui/button";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
@@ -193,7 +193,7 @@ function VideoPage() {
           <div className="mt-8 border-l-2 border-accent pl-6">
             <h3 className="text-xl font-semibold">Follow the illustrated tutorial</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">See the actual prompt, reference image, model, duration and output-size controls in AmmarAI.</p>
-            <ButtonLink to="/tutorials/$slug" params={{ slug: "how-to-use-ai-video-pro" }} variant="outline" className="mt-5">Read the AI Video Pro tutorial<ArrowRight className="size-4" /></ButtonLink>
+            <Link to="/tutorials/$slug" params={{ slug: "how-to-use-ai-video-pro" }} className={buttonClass("outline", "md", "mt-5")}>Read the AI Video Pro tutorial<ArrowRight className="size-4" /></Link>
           </div>
         </Container>
       </Section>
