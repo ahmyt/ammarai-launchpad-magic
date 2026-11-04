@@ -1,0 +1,67 @@
+import { useEffect, useState } from "react";
+import { ArrowRight, Clapperboard, ImageIcon, PhoneCall, UserRound } from "lucide-react";
+
+type Slide = {
+  label: string;
+  caption: string;
+  slug: string;
+  icon: typeof Clapperboard;
+  video?: string;
+  poster: string;
+  position?: string;
+};
+
+const slides: Slide[] = [
+  { label: "AI Video Pro", caption: "Text to cinematic video", slug: "ai-video-generator", icon: Clapperboard, video: "/media/ai-video-pro-espresso.webm", poster: "/media/ai-video-pro-espresso.poster.jpg" },
+  { label: "Image to Video", caption: "Bring a still photo to life", slug: "ai-image-to-video", icon: ImageIcon, video: "/media/demo-image-to-video.mp4", poster: "/media/demo-image-to-video.poster.jpg" },
+  { label: "AI Avatar", caption: "Talking presenter videos", slug: "ai-avatar-generator", icon: UserRound, video: "/media/demo-avatar-video.webm", poster: "/media/demo-avatar-video.poster.webp" },
+  { label: "AI Phone Agent", caption: "Answers calls and books orders", slug: "restaurant-phone-ordering", icon: PhoneCall, poster: "/media/ai-video-pro-hot-pot.poster.jpg" },
+];
+
+const DURATION = 4500;
+
+export function HomeShowreel() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    const t = window.setTimeout(() => setActive((i) => (i + 1) % slides.length), DURATION);
+    return () => window.clearTimeout(t);
+  }, [active, paused]);
+
+  const slide = slides[active] ?? slides[0]!;
+
+  return (
+    <div className="showreel" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      <div className="showreel-frame" aria-live="polite">
+        {slides.map((s, i) => (
+          <div key={s.label} className={`showreel-slide ${i === active ? "is-active" : ""}`} aria-hidden={i !== active}>
+            {s.video && i === active ? (
+              <video src={s.video} poster={s.poster} autoPlay muted loop playsInline preload="metadata" />
+            ) : (
+              <img src={s.poster} alt="" style={s.position ? { objectPosition: s.position } : undefined} loading={i === 0 ? "eager" : "lazy"} />
+            )}
+            {s.slug === "restaurant-phone-ordering" ? (
+              <div className="showreel-wave" aria-hidden="true">{Array.from({ length: 18 }).map((_, k) => <span key={k} style={{ animationDelay: `${k * 70}ms` }} />)}</div>
+            ) : null}
+          </div>
+        ))}
+        <a href={`/${slide.slug}`} className="showreel-caption">
+          <span className="showreel-caption-label"><slide.icon className="size-4" />{slide.label}</span>
+          <span className="showreel-caption-text">{slide.caption} <ArrowRight className="size-3.5" /></span>
+        </a>
+      </div>
+      <div className="showreel-tabs" role="tablist" aria-label="Showreel">
+        {slides.map((s, i) => (
+          <button key={s.label} type="button" role="tab" aria-selected={i === active} onClick={() => setActive(i)} className={`showreel-tab ${i === active ? "is-active" : ""}`}>
+            <span className="showreel-tab-bar"><i style={{ animationDuration: `${DURATION}ms`, animationPlayState: paused ? "paused" : "running" }} /></span>
+            <span>{s.label}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}

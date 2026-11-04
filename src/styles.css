@@ -6282,3 +6282,27 @@ body:has(.home-swiss-dark) .site-footer {
     transition: none;
   }
 }
+
+/* Homepage multi-tool showreel */
+.showreel { margin: 2.5rem auto 2rem; max-width: 80rem; }
+.showreel-frame { position: relative; aspect-ratio: 21 / 9; overflow: hidden; background: var(--ink); border: 1px solid var(--border); }
+@media (max-width: 640px) { .showreel-frame { aspect-ratio: 4 / 3; } }
+.showreel-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 700ms ease; }
+.showreel-slide.is-active { opacity: 1; }
+.showreel-slide img, .showreel-slide video { width: 100%; height: 100%; object-fit: cover; }
+.showreel-slide.is-active img { animation: showreel-zoom 6s ease-out both; }
+@keyframes showreel-zoom { from { transform: scale(1.06); } to { transform: scale(1); } }
+.showreel-caption { position: absolute; left: 0; bottom: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: var(--background); color: var(--foreground); border-top: 1px solid var(--border); border-right: 1px solid var(--border); font-size: 0.875rem; }
+.showreel-caption-label { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700; color: var(--accent); }
+.showreel-caption-text { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--muted-foreground); }
+.showreel-wave { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 5px; background: color-mix(in oklab, var(--ink) 55%, transparent); }
+.showreel-wave span { width: 5px; height: 30%; background: var(--accent); animation: showreel-wave 1.1s ease-in-out infinite; }
+@keyframes showreel-wave { 0%, 100% { transform: scaleY(0.25); } 50% { transform: scaleY(1); } }
+.showreel-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; margin-top: 0.75rem; }
+.showreel-tab { display: grid; gap: 0.4rem; text-align: left; font-size: 0.75rem; font-weight: 600; color: var(--muted-foreground); }
+.showreel-tab.is-active { color: var(--foreground); }
+.showreel-tab-bar { height: 2px; background: var(--border); overflow: hidden; }
+.showreel-tab-bar i { display: block; height: 100%; width: 0; background: var(--accent); }
+.showreel-tab.is-active .showreel-tab-bar i { animation: showreel-progress linear forwards; }
+@keyframes showreel-progress { to { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .showreel-slide, .showreel-slide.is-active img, .showreel-wave span { animation: none; transition: none; } }
