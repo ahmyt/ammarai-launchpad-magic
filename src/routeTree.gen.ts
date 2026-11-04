@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AiAvatarGeneratorRouteImport } from './routes/ai-avatar-generator'
 import { Route as AiModelsRouteImport } from './routes/ai-models'
 import { Route as AiTextToVideoRouteImport } from './routes/ai-text-to-video'
 import { Route as AiToolsRouteImport } from './routes/ai-tools'
@@ -69,6 +70,11 @@ const AboutRoute = AboutRouteImport.update({
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiAvatarGeneratorRoute = AiAvatarGeneratorRouteImport.update({
+  id: '/ai-avatar-generator',
+  path: '/ai-avatar-generator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiModelsRoute = AiModelsRouteImport.update({
@@ -264,6 +270,7 @@ export interface FileRoutesByFullPath {
   '/$slug': typeof SlugRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-models': typeof AiModelsRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
@@ -306,6 +313,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
   '/about': typeof AboutRoute
+  '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-models': typeof AiModelsRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
@@ -349,6 +357,7 @@ export interface FileRoutesById {
   '/$slug': typeof SlugRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-models': typeof AiModelsRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
@@ -394,6 +403,7 @@ export interface FileRouteTypes {
     | '/$slug'
     | '/about'
     | '/admin'
+    | '/ai-avatar-generator'
     | '/ai-models'
     | '/ai-text-to-video'
     | '/ai-tools'
@@ -436,6 +446,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$slug'
     | '/about'
+    | '/ai-avatar-generator'
     | '/ai-models'
     | '/ai-text-to-video'
     | '/ai-tools'
@@ -478,6 +489,7 @@ export interface FileRouteTypes {
     | '/$slug'
     | '/about'
     | '/admin'
+    | '/ai-avatar-generator'
     | '/ai-models'
     | '/ai-text-to-video'
     | '/ai-tools'
@@ -522,6 +534,7 @@ export interface RootRouteChildren {
   SlugRoute: typeof SlugRoute
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
+  AiAvatarGeneratorRoute: typeof AiAvatarGeneratorRoute
   AiModelsRoute: typeof AiModelsRoute
   AiTextToVideoRoute: typeof AiTextToVideoRoute
   AiToolsRoute: typeof AiToolsRoute
@@ -580,6 +593,13 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-avatar-generator': {
+      id: '/ai-avatar-generator'
+      path: '/ai-avatar-generator'
+      fullPath: '/ai-avatar-generator'
+      preLoaderRoute: typeof AiAvatarGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-models': {
@@ -885,6 +905,7 @@ const rootRouteChildren: RootRouteChildren = {
   SlugRoute: SlugRoute,
   AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
+  AiAvatarGeneratorRoute: AiAvatarGeneratorRoute,
   AiModelsRoute: AiModelsRoute,
   AiTextToVideoRoute: AiTextToVideoRoute,
   AiToolsRoute: AiToolsRoute,
