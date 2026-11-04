@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { Button } from "@/components/ui/button";
 import { faqJsonLd } from "@/components/site/Faq";
+import { FlagshipVideoHero } from "@/components/site/FlagshipVideoHero";
 import { FlagshipToolSections } from "@/components/site/FlagshipToolSections";
 import { agentTools } from "@/data/tools-agents";
 import { REGISTER_URL } from "@/lib/site";
@@ -80,23 +81,7 @@ function AgentBuilderPage() {
 
   return (
     <>
-      <section className="border-b border-border bg-background">
-        <Container className="py-12 sm:py-16">
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">AmmarAI / AI Agent Builder</p>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
-            <div className="restaurant-rise">
-              <h1 className="text-balance text-4xl leading-tight sm:text-5xl">{tool.h1}</h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">{tool.lede}</p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <ExternalButton href={REGISTER_URL} size="lg"><Bot className="size-4" />{tool.ctaLabel}</ExternalButton>
-                <a href="#workflow" className="inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowDown className="size-4" />Try the workflow builder</a>
-              </div>
-              <p className="mt-5 text-sm text-muted-foreground">AI Agent from Basic · unlimited Agent Builder on Ultimate.</p>
-            </div>
-            <img src="/media/tutorials/tutorial-agent-builder-01.png" alt="AmmarAI Agent Builder dashboard with a plain-language description field and featured workflows" className="w-full rounded-lg border border-border" width={1644} height={815} />
-          </div>
-        </Container>
-      </section>
+      <FlagshipVideoHero clip="agent-builder" crumb="AI Agent Builder" title={tool.h1} lede={tool.lede} cta={tool.ctaLabel} icon={<Bot className="size-4" />} jump={{ href: "#workflow", label: "Try the workflow builder" }} note="AI Agent from Basic · unlimited Agent Builder on Ultimate." />
 
       <Section tone="sand" id="workflow">
         <Container>
