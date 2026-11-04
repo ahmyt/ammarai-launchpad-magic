@@ -15,6 +15,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AiAvatarGeneratorRouteImport } from './routes/ai-avatar-generator'
 import { Route as AiFashionStudioRouteImport } from './routes/ai-fashion-studio'
+import { Route as AiImageGeneratorRouteImport } from './routes/ai-image-generator'
 import { Route as AiModelsRouteImport } from './routes/ai-models'
 import { Route as AiPhoneAgentRouteImport } from './routes/ai-phone-agent'
 import { Route as AiTextToVideoRouteImport } from './routes/ai-text-to-video'
@@ -84,6 +85,11 @@ const AiAvatarGeneratorRoute = AiAvatarGeneratorRouteImport.update({
 const AiFashionStudioRoute = AiFashionStudioRouteImport.update({
   id: '/ai-fashion-studio',
   path: '/ai-fashion-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiImageGeneratorRoute = AiImageGeneratorRouteImport.update({
+  id: '/ai-image-generator',
+  path: '/ai-image-generator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiModelsRoute = AiModelsRouteImport.update({
@@ -296,6 +302,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRouteWithChildren
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-fashion-studio': typeof AiFashionStudioRoute
+  '/ai-image-generator': typeof AiImageGeneratorRoute
   '/ai-models': typeof AiModelsRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
@@ -343,6 +350,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-fashion-studio': typeof AiFashionStudioRoute
+  '/ai-image-generator': typeof AiImageGeneratorRoute
   '/ai-models': typeof AiModelsRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
@@ -391,6 +399,7 @@ export interface FileRoutesById {
   '/admin': typeof AdminRouteWithChildren
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
   '/ai-fashion-studio': typeof AiFashionStudioRoute
+  '/ai-image-generator': typeof AiImageGeneratorRoute
   '/ai-models': typeof AiModelsRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
@@ -441,6 +450,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/ai-avatar-generator'
     | '/ai-fashion-studio'
+    | '/ai-image-generator'
     | '/ai-models'
     | '/ai-phone-agent'
     | '/ai-text-to-video'
@@ -488,6 +498,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai-avatar-generator'
     | '/ai-fashion-studio'
+    | '/ai-image-generator'
     | '/ai-models'
     | '/ai-phone-agent'
     | '/ai-text-to-video'
@@ -535,6 +546,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/ai-avatar-generator'
     | '/ai-fashion-studio'
+    | '/ai-image-generator'
     | '/ai-models'
     | '/ai-phone-agent'
     | '/ai-text-to-video'
@@ -584,6 +596,7 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRouteWithChildren
   AiAvatarGeneratorRoute: typeof AiAvatarGeneratorRoute
   AiFashionStudioRoute: typeof AiFashionStudioRoute
+  AiImageGeneratorRoute: typeof AiImageGeneratorRoute
   AiModelsRoute: typeof AiModelsRoute
   AiPhoneAgentRoute: typeof AiPhoneAgentRoute
   AiTextToVideoRoute: typeof AiTextToVideoRoute
@@ -659,6 +672,13 @@ declare module '@tanstack/react-router' {
       path: '/ai-fashion-studio'
       fullPath: '/ai-fashion-studio'
       preLoaderRoute: typeof AiFashionStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-image-generator': {
+      id: '/ai-image-generator'
+      path: '/ai-image-generator'
+      fullPath: '/ai-image-generator'
+      preLoaderRoute: typeof AiImageGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-models': {
@@ -987,6 +1007,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRouteWithChildren,
   AiAvatarGeneratorRoute: AiAvatarGeneratorRoute,
   AiFashionStudioRoute: AiFashionStudioRoute,
+  AiImageGeneratorRoute: AiImageGeneratorRoute,
   AiModelsRoute: AiModelsRoute,
   AiPhoneAgentRoute: AiPhoneAgentRoute,
   AiTextToVideoRoute: AiTextToVideoRoute,
