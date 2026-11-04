@@ -20,6 +20,7 @@ import { EcosystemOverview, WorkflowStories } from "@/components/site/HomeEcosys
 import { FlagshipCarousel } from "@/components/site/FlagshipCarousel";
 import { TryLiveSection } from "@/components/site/TryLiveSection";
 import { Zap } from "lucide-react";
+import { HomeFeaturedPages, HomePhoneAgentsStrip } from "@/components/site/HomeHighlights";
 import { HomeShowreel } from "@/components/site/HomeShowreel";
 import { featuredTutorials } from "@/data/tutorials-featured";
 
@@ -317,6 +318,8 @@ function Home() {
         </Container>
       </section>
 
+      <HomePhoneAgentsStrip />
+
       {settings?.showHomepageTrustLogos !== false ? (
         <TrustLogoStrip faded={settings?.fadeHomepageLogos !== false} />
       ) : null}
@@ -331,6 +334,7 @@ function Home() {
              scale="large"
              className="studio-heading-wide"
           />
+           <HomeFeaturedPages />
            <FlagshipCarousel tools={featuredTools} />
            <SecondaryToolsCarousel />
            <div className="mt-10 grid gap-4 sm:grid-cols-2">
