@@ -20,6 +20,7 @@ import { EcosystemOverview, WorkflowStories } from "@/components/site/HomeEcosys
 import { FlagshipCarousel } from "@/components/site/FlagshipCarousel";
 import { TryLiveSection } from "@/components/site/TryLiveSection";
 import { Zap } from "lucide-react";
+import { HomeShowreel } from "@/components/site/HomeShowreel";
 import { featuredTutorials } from "@/data/tutorials-featured";
 
 const title = "AmmarAI: One AI Platform for Writing, Video, Voice and Code";
@@ -235,6 +236,8 @@ function Home() {
               </div>
             </div>
           </div>
+
+          <HomeShowreel />
 
           <div className="studio-command-stage">
             <div className="studio-command-aura" aria-hidden="true" />

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { ArrowRight, Clapperboard, ImageIcon, PhoneCall, UserRound } from "lucide-react";
 
 type Slide = {
@@ -49,10 +48,10 @@ export function HomeShowreel() {
             ) : null}
           </div>
         ))}
-        <Link to="/$slug" params={{ slug: slide.slug }} className="showreel-caption">
+        <a href={`/${slide.slug}`} className="showreel-caption">
           <span className="showreel-caption-label"><slide.icon className="size-4" />{slide.label}</span>
           <span className="showreel-caption-text">{slide.caption} <ArrowRight className="size-3.5" /></span>
-        </Link>
+        </a>
       </div>
       <div className="showreel-tabs" role="tablist" aria-label="Showreel">
         {slides.map((s, i) => (
