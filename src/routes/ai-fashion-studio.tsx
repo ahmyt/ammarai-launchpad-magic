@@ -10,7 +10,8 @@ import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
 import { visualTools } from "@/data/tools-visual";
 import { REGISTER_URL } from "@/lib/site";
 
-const tool = visualTools.find((t) => t.slug === "ai-virtual-try-on")!;
+const tool = visualTools.find((t) => t.slug === "ai-virtual-try-on");
+if (!tool) throw new Error("Fashion Studio catalogue entry is missing");
 const url = "https://ammarai.com/ai-fashion-studio";
 const title = "AI Fashion Studio: Photoshoots, Try-On & Fashion Video | AmmarAI";
 const description = tool.description;
@@ -56,11 +57,13 @@ export const Route = createFileRoute("/ai-fashion-studio")({
 
 function FashionPage() {
   const [active, setActive] = useState(0);
-  const m = modes[active] ?? modes[0]!;
+  const m = modes[active] ?? modes[0];
   const [pick, setPick] = useState({ garment: 0, setting: 0, pose: 0 });
   const prompt = `A ${brief.garment[pick.garment]} worn by the model, ${brief.pose[pick.pose]} pose, ${brief.setting[pick.setting]}, soft natural light. Keep the fabric, colour, print and seams exactly as in the uploaded photo.`;
   const [shoot, setShoot] = useState({ cost: 1500, pieces: 20 });
   const perPiece = shoot.pieces > 0 ? shoot.cost / shoot.pieces : 0;
+
+  if (!m || !tool) return null;
 
   return (
     <>
