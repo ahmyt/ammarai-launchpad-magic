@@ -533,5 +533,5 @@
 
 ## Flagship tool pages (2026-11-04)
 - [x] AI Video Pro dedicated page at /ai-video-generator using restaurant/clinic template
-- [ ] Restore useful AI Video Pro FAQs, tips, workflows, examples and tutorial links without replacing the new design; verify desktop/mobile and search metadata
+- [x] Restore useful AI Video Pro FAQs, tips, workflows, examples and tutorial links without replacing the new design; verified 15 prompts, 8 FAQs, tutorial navigation, metadata, desktop/mobile layout and clean build
 - [ ] Next flagship: AI Voice Agent for service businesses (awaiting user go-ahead)
