@@ -32,7 +32,7 @@ export function HomeShowreel() {
     return () => window.clearTimeout(t);
   }, [active, paused]);
 
-  const slide = slides[active];
+  const slide = slides[active] ?? slides[0]!;
 
   return (
     <div className="showreel" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
