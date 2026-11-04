@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Captions, Check, Clapperboard, Film, Layers, Mic, RefreshCw, Sparkles, Wand2 } from "lucide-react";
-import { Card, Container, Section, SectionHeading } from "@/components/site/primitives";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, Check, Clapperboard, Film, Layers, SlidersHorizontal, Sparkles, Wand2 } from "lucide-react";
+import { Card, Container, Section, SectionHeading, NumberedList, BulletList } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { ButtonLink, ExternalButton } from "@/components/site/Button";
+import { ButtonLink, ExternalButton, buttonClass } from "@/components/site/Button";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
+import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
+import { videoProExamples, videoProSteps, videoProWorkflows, videoProTips, videoProMistakes, videoProFaqs } from "@/data/video-pro-guide";
 import { plans, REGISTER_URL } from "@/lib/site";
 
 const basic = plans.find((p) => p.name === "Basic");
@@ -32,9 +35,9 @@ const shots = {
 const features = [
   { icon: Film, title: "Text to video", body: "Describe subject, action, camera and light; get a clip back with no source footage." },
   { icon: Layers, title: "Image to video", body: "Animate a product photo or a generated still you already have." },
-  { icon: Mic, title: "Voiceover", body: "Add a generated voiceover in a chosen voice and pace." },
-  { icon: Captions, title: "Captions", body: "Burn in captions styled for silent autoplay feeds." },
-  { icon: RefreshCw, title: "Scene swaps", body: "Regenerate one scene without rebuilding the whole video." },
+  { icon: SlidersHorizontal, title: "Model settings", body: "Choose the duration, resolution and style controls supported by your model." },
+  { icon: Sparkles, title: "Model choice", body: "Compare available model variants for quality, speed and audio support." },
+  { icon: Wand2, title: "Review & refine", body: "Check the generated clip and refine your prompt before downloading." },
 ];
 
 const uses = [
@@ -57,16 +60,17 @@ export const Route = createFileRoute("/ai-video-generator")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: url }],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: "AI Video Pro", applicationCategory: "MultimediaApplication", operatingSystem: "Web", description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: "AI Video Pro", applicationCategory: "MultimediaApplication", operatingSystem: "Web", description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) }, { type: "application/ld+json", children: JSON.stringify(faqJsonLd(videoProFaqs)) }],
   }),
   component: VideoPage,
 });
 
 function VideoPage() {
   const [active, setActive] = useState(0);
-  const clip = clips[active] ?? clips[0]!;
+  const clip = clips[active] ?? clips[0];
   const [pick, setPick] = useState({ subject: 0, camera: 0, light: 0, ratio: 0 });
   const brief = `Cinematic shot of ${shots.subject[pick.subject]}, ${shots.camera[pick.camera]}, ${shots.light[pick.light]}. 5 seconds, ${shots.ratio[pick.ratio]}.`;
+  if (!clip) return null;
 
   return (
     <>
@@ -76,7 +80,7 @@ function VideoPage() {
           <p className="text-xs font-semibold uppercase tracking-wide">AmmarAI / AI Video Pro</p>
           <div className="mt-10 max-w-2xl restaurant-rise">
             <h1 className="text-balance text-4xl leading-tight sm:text-5xl">AI Video Pro, from script to finished cut</h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed">Describe a shot or upload a still, and get short videos for ads, reels and explainers—with voiceover, captions and every aspect ratio in one place.</p>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed">Describe a shot or upload a still, and create short video clips for ads, reels and explainers. Choose your model and its supported duration and output size.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <ExternalButton href={REGISTER_URL} size="lg"><Clapperboard className="size-4" />Generate a video</ExternalButton>
               <a href="#video-gallery" className="restaurant-hero-link"><ArrowRight className="size-4" />See real results</a>
@@ -88,8 +92,8 @@ function VideoPage() {
       <div className="border-b border-border bg-secondary/40">
         <Container className="flex flex-wrap gap-x-8 gap-y-3 py-5 text-sm font-semibold">
           <span className="flex items-center gap-2"><Sparkles className="size-4 text-accent" />Text & image to video</span>
-          <span className="flex items-center gap-2"><Layers className="size-4 text-accent" />9:16 · 1:1 · 16:9</span>
-          <span className="flex items-center gap-2"><Wand2 className="size-4 text-accent" />Built for 15–90 second pieces</span>
+          <span className="flex items-center gap-2"><Layers className="size-4 text-accent" />Model-dependent output sizes</span>
+          <span className="flex items-center gap-2"><Wand2 className="size-4 text-accent" />Short-form video generation</span>
         </Container>
       </div>
 
@@ -154,7 +158,7 @@ function VideoPage() {
 
       <Section tone="sand">
         <Container>
-          <SectionHeading eyebrow="What it does" title="One place from idea to posted video" intro="Generate, voice, caption and resize without switching apps." />
+          <SectionHeading eyebrow="What it does" title="From a visual brief to a playable clip" intro="Choose a source, direct the shot and review the generated motion." />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {features.map((it, i) => (
               <Card key={it.title} className="restaurant-lift p-5">
@@ -170,7 +174,7 @@ function VideoPage() {
 
       <Section>
         <Container>
-          <SectionHeading eyebrow="Who it's for" title="Built for short-form work" intro="Honest framing: it's made for 15–90 second pieces, not a replacement for a filmed brand piece with a crew." />
+          <SectionHeading eyebrow="Who it's for" title="Built for short-form work" intro="Create short visual scenes, not a replacement for a filmed brand piece with a crew. Duration and output controls depend on your selected model." />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {uses.map((u) => (
               <div key={u.who} className="border-t-2 border-accent pt-4">
@@ -178,6 +182,59 @@ function VideoPage() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{u.what}</p>
               </div>
             ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section tone="sand" id="video-workflow">
+        <Container>
+          <SectionHeading eyebrow="Step by step" title="How to generate a video with AI Video Pro" intro="Start from a clear scene, test a short generation and review before publishing." />
+          <NumberedList items={videoProSteps} />
+          <div className="mt-8 border-l-2 border-accent pl-6">
+            <h3 className="text-xl font-semibold">Follow the illustrated tutorial</h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">See the actual prompt, reference image, model, duration and output-size controls in AmmarAI.</p>
+            <Link to="/tutorials/$slug" params={{ slug: "how-to-use-ai-video-pro" }} className={buttonClass("outline", "md", "mt-5")}>Read the AI Video Pro tutorial<ArrowRight className="size-4" /></Link>
+          </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <SectionHeading eyebrow="Workflows" title="Practical ways teams use AI video" />
+          <div className="mt-8 grid gap-8 md:grid-cols-3">
+            {videoProWorkflows.map((item) => <div key={item.title} className="border-t-2 border-accent pt-5"><h3 className="text-lg font-semibold">{item.title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p></div>)}
+          </div>
+        </Container>
+      </Section>
+
+      <Section tone="sand" id="video-prompts">
+        <Container>
+          <SectionHeading eyebrow="Prompt library" title="More AI video prompts to explore" intro="Original scene and campaign briefs, from animation and product close-ups to social stories. Multi-scene campaign ideas may need separate clips and editing; results and audio depend on the model." />
+          <SamplePromptAccordion examples={videoProExamples} />
+        </Container>
+      </Section>
+
+      <Section>
+        <Container className="grid gap-12 md:grid-cols-2">
+          <div><h2 className="text-2xl sm:text-3xl">Tips that improve results</h2><BulletList items={videoProTips} className="mt-5" /></div>
+          <div><h2 className="text-2xl sm:text-3xl">Mistakes worth avoiding</h2><BulletList items={videoProMistakes} className="mt-5" /></div>
+        </Container>
+      </Section>
+
+      <Section tone="sand" id="video-faq">
+        <Container size="narrow"><FaqAccordion heading="AI Video Pro FAQ" items={videoProFaqs} /></Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <SectionHeading eyebrow="Tools to try next" title="Finish the rest of your video workflow" />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { slug: "ai-video-editor", name: "AI Video Editor", body: "Bring selected clips into an editing workflow." },
+              { slug: "ai-voice-generator", name: "AI Voice Generator", body: "Prepare narration for your video." },
+              { slug: "ai-captions", name: "AI Captions", body: "Prepare captions for your finished footage." },
+              { slug: "ai-video-agent", name: "AI Video Agent", body: "Explore the separate presenter-video workflow." },
+            ].map((item) => <div key={item.slug} className="border-t border-border pt-5"><h3 className="text-lg font-semibold"><Link to="/$slug" params={{ slug: item.slug }} className="text-foreground hover:text-accent">{item.name}<ArrowRight className="ml-2 inline size-4" /></Link></h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p></div>)}
           </div>
         </Container>
       </Section>
