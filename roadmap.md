@@ -541,3 +541,4 @@
 - [x] AI Music Pro page with real studio screens and a music brief builder
 - [x] Website Chatbot & Smart Inbox page with real builder screens and a channel-filter inbox demo
 - [x] Menu, AI guide links; verified desktop and phone with no errors
+- [x] Moving video headers on Agent Builder, Music Pro, Chatbot & Inbox and AI Writer; compact two-column mobile menu

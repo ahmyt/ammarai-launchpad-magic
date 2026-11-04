@@ -4166,6 +4166,13 @@ html[data-theme="dark"] body {
 .site-mobile-menu {
   border-color: var(--foreground);
   box-shadow: 0 20px 40px color-mix(in oklab, var(--foreground) 14%, transparent);
+  max-height: calc(100dvh - 4.5rem);
+  overflow-y: auto;
+}
+
+.site-mobile-menu nav .grid a {
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .site-mobile-menu nav > a {

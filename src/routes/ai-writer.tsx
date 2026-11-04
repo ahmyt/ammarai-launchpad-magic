@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
 import { coreToolsA } from "@/data/tools-core-a";
+import { FlagshipVideoHero } from "@/components/site/FlagshipVideoHero";
 import { REGISTER_URL } from "@/lib/site";
 
 const tool = coreToolsA.find((t) => t.slug === "ai-writer")!;
@@ -67,27 +68,7 @@ function WriterPage() {
 
   return (
     <>
-      <section className="border-b border-border bg-background">
-        <Container className="py-12 sm:py-16">
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">AmmarAI / AI Writer</p>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
-            <div className="restaurant-rise">
-              <h1 className="text-balance text-4xl leading-tight sm:text-5xl">{tool.h1}</h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">{tool.lede}</p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <ExternalButton href={REGISTER_URL} size="lg"><PenLine className="size-4" />{tool.ctaLabel}</ExternalButton>
-                <a href="#article-wizard" className="inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowRight className="size-4" />See the Article Wizard</a>
-              </div>
-              <p className="mt-5 text-sm text-muted-foreground">Included on every plan, including Free.</p>
-            </div>
-            <Card className="p-6">
-              <p className="eyebrow">Smart edit · select, then rewrite</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground line-through">{tool.examples[1]?.input.replace(/^.*?: /, "")}</p>
-              <p className="mt-4 border-l-2 border-accent pl-4 leading-relaxed text-foreground">{tool.examples[1]?.output}</p>
-            </Card>
-          </div>
-        </Container>
-      </section>
+      <FlagshipVideoHero clip="ai-writer" crumb="AI Writer" title={tool.h1} lede={tool.lede} cta={tool.ctaLabel} icon={<PenLine className="size-4" />} jump={{ href: "#article-wizard", label: "See the Article Wizard" }} note="Included on every plan, including Free." />
 
       <Section tone="sand" id="article-wizard">
         <Container>

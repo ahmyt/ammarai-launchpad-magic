@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { Button } from "@/components/ui/button";
 import { faqJsonLd } from "@/components/site/Faq";
+import { FlagshipVideoHero } from "@/components/site/FlagshipVideoHero";
 import { FlagshipToolSections } from "@/components/site/FlagshipToolSections";
 import { engagementTools } from "@/data/tools-engagement";
 import { REGISTER_URL } from "@/lib/site";
@@ -71,23 +72,7 @@ function InboxPage() {
 
   return (
     <>
-      <section className="border-b border-border bg-background">
-        <Container className="py-12 sm:py-16">
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">AmmarAI / Website Chatbot & Smart Inbox</p>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
-            <div className="restaurant-rise">
-              <h1 className="text-balance text-4xl leading-tight sm:text-5xl">A chatbot on your site. Every reply in one inbox.</h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">Build an AI assistant for your website, embed it in minutes, and read website, WhatsApp and Telegram conversations side by side — stepping in yourself whenever a chat needs a person.</p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <ExternalButton href={REGISTER_URL} size="lg"><Inbox className="size-4" />Build your chatbot</ExternalButton>
-                <a href="#inbox" className="inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowDown className="size-4" />Try the inbox</a>
-              </div>
-              <p className="mt-5 text-sm text-muted-foreground">Website chatbot included from Standard, $59.99/month.</p>
-            </div>
-            <img src="/media/tutorials/tutorial-site-chatbot-4.png" alt="AmmarAI chatbot editor with settings beside a live preview" width={2024} height={1566} className="w-full rounded-lg border border-border" />
-          </div>
-        </Container>
-      </section>
+      <FlagshipVideoHero clip="smart-inbox" crumb="Website Chatbot & Smart Inbox" title={"A chatbot on your site. Every reply in one inbox."} lede={"Build an AI assistant for your website, embed it in minutes, and read website, WhatsApp and Telegram conversations side by side — stepping in yourself whenever a chat needs a person."} cta={"Build your chatbot"} icon={<Inbox className="size-4" />} jump={{ href: "#inbox", label: "Try the inbox" }} note="Website chatbot included from Standard, $59.99/month." />
 
       <Section tone="sand">
         <Container>

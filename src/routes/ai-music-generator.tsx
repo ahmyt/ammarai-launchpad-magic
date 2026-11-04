@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { Button } from "@/components/ui/button";
 import { faqJsonLd } from "@/components/site/Faq";
+import { FlagshipVideoHero } from "@/components/site/FlagshipVideoHero";
 import { FlagshipToolSections } from "@/components/site/FlagshipToolSections";
 import { platformTools } from "@/data/tools-platform";
 import { REGISTER_URL } from "@/lib/site";
@@ -62,29 +63,7 @@ function MusicPage() {
 
   return (
     <>
-      <section className="border-b border-border bg-background">
-        <Container className="py-12 sm:py-16">
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">AmmarAI / AI Music Pro</p>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
-            <div className="restaurant-rise">
-              <h1 className="text-balance text-4xl leading-tight sm:text-5xl">{tool.h1}</h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">{tool.lede}</p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <ExternalButton href={REGISTER_URL} size="lg"><Music className="size-4" />{tool.ctaLabel}</ExternalButton>
-                <a href="#brief" className="inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowDown className="size-4" />Build a music brief</a>
-              </div>
-              <p className="mt-5 text-sm text-muted-foreground">Included from the Basic plan, $24.99/month.</p>
-            </div>
-            <Card className="p-6" aria-hidden="true">
-              <p className="eyebrow">Now generating</p>
-              <div className="mt-5 flex h-24 items-end gap-1">
-                {Array.from({ length: 40 }, (_, i) => <span key={i} className="flex-1 rounded-sm bg-accent/70 motion-safe:animate-pulse" style={{ height: `${20 + ((i * 37) % 80)}%`, animationDelay: `${(i % 8) * 120}ms` }} />)}
-              </div>
-              <p className="mt-4 font-mono text-xs text-muted-foreground">Optimistic electronic · warm synths · 30 s</p>
-            </Card>
-          </div>
-        </Container>
-      </section>
+      <FlagshipVideoHero clip="music-pro" crumb="AI Music Pro" title={tool.h1} lede={tool.lede} cta={tool.ctaLabel} icon={<Music className="size-4" />} jump={{ href: "#brief", label: "Build a music brief" }} note="Included from the Basic plan, $24.99/month." />
 
       <Section tone="sand">
         <Container>

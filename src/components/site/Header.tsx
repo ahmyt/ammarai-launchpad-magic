@@ -10,6 +10,20 @@ import logoAsset from "@/assets/ammarai-logo.png.asset.json";
 import { assetUrl } from "@/lib/asset-url";
 import { pillarDetails, pillarOrder } from "@/data/ecosystem";
 
+const featuredPages = [
+  { to: "/restaurant-phone-ordering", label: "Restaurant Phone Agent" },
+  { to: "/clinic-phone-agent", label: "Clinic Phone Agent" },
+  { to: "/ai-phone-agent", label: "AI Phone Agent" },
+  { to: "/ai-video-generator", label: "AI Video Pro" },
+  { to: "/ai-avatar-generator", label: "AI Avatar" },
+  { to: "/ai-image-generator", label: "AI Image Pro" },
+  { to: "/ai-fashion-studio", label: "AI Fashion Studio" },
+  { to: "/ai-writer", label: "AI Writer" },
+  { to: "/ai-agent-builder", label: "AI Agent Builder" },
+  { to: "/ai-music-generator", label: "AI Music Pro" },
+  { to: "/ai-smart-inbox", label: "Chatbot & Inbox" },
+] as const;
+
 export function Wordmark({ className }: { className?: string }) {
   return (
     <span className="flex items-center gap-1.5">
@@ -80,15 +94,13 @@ export function Header() {
                   <Link to="/clinic-phone-agent" className="mt-3 inline-flex text-xs font-semibold text-accent">Clinic Phone Agent</Link>
                 </div>
                 <div>
-                  <p className="eyebrow">For every business</p>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">An AI voice agent that answers inbound calls, makes outbound follow-ups and books into your calendar.</p>
-                  <Link to="/ai-phone-agent" className="mt-3 inline-flex text-xs font-semibold text-accent">AI Phone Agent</Link>
-                  <Link to="/ai-fashion-studio" className="mt-3 ml-3 inline-flex text-xs font-semibold text-accent">AI Fashion Studio</Link>
-                  <Link to="/ai-writer" className="mt-3 ml-3 inline-flex text-xs font-semibold text-accent">AI Writer</Link>
-                  <Link to="/ai-image-generator" className="mt-3 ml-3 inline-flex text-xs font-semibold text-accent">AI Image Pro</Link>
-                  <Link to="/ai-agent-builder" className="mt-3 ml-3 inline-flex text-xs font-semibold text-accent">AI Agent Builder</Link>
-                  <Link to="/ai-music-generator" className="mt-3 ml-3 inline-flex text-xs font-semibold text-accent">AI Music Pro</Link>
-                  <Link to="/ai-smart-inbox" className="mt-3 ml-3 inline-flex text-xs font-semibold text-accent">Website Chatbot & Inbox</Link>
+                  <p className="eyebrow">Featured tool pages</p>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">Dedicated guides with live demos and real examples.</p>
+                  <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5">
+                    {featuredPages.filter((f) => !f.to.includes("restaurant") && !f.to.includes("clinic")).map((f) => (
+                      <Link key={f.to} to={f.to} className="text-xs font-semibold text-accent">{f.label}</Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -181,33 +193,14 @@ export function Header() {
                 </Link>
               ))}
             </div>
-            <Link to="/restaurant-phone-ordering" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
-              Restaurant Phone Ordering Agent →
-            </Link>
-            <Link to="/clinic-phone-agent" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
-              Clinic Phone Agent →
-            </Link>
-            <Link to="/ai-phone-agent" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
-              AI Phone Agent →
-            </Link>
-            <Link to="/ai-fashion-studio" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
-              AI Fashion Studio →
-            </Link>
-            <Link to="/ai-writer" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
-              AI Writer →
-            </Link>
-            <Link to="/ai-image-generator" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
-              AI Image Pro →
-            </Link>
-            <Link to="/ai-agent-builder" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
-              AI Agent Builder →
-            </Link>
-            <Link to="/ai-music-generator" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
-              AI Music Pro →
-            </Link>
-            <Link to="/ai-smart-inbox" onClick={() => setOpen(false)} className="border-b border-border py-3 text-sm font-semibold text-accent">
-              Website Chatbot & Inbox →
-            </Link>
+            <p className="eyebrow pt-5">Featured tool pages</p>
+            <div className="grid grid-cols-2 gap-x-4 border-b border-border pb-4">
+              {featuredPages.map((f) => (
+                <Link key={f.to} to={f.to} onClick={() => setOpen(false)} className="py-2.5 text-sm font-medium normal-case tracking-normal text-foreground hover:text-accent">
+                  {f.label}
+                </Link>
+              ))}
+            </div>
             <div className="flex items-center gap-3 pt-4">
               <ExternalButton
                 href={REGISTER_URL}
