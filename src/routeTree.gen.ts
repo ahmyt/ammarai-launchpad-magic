@@ -14,6 +14,7 @@ import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AiAvatarGeneratorRouteImport } from './routes/ai-avatar-generator'
+import { Route as AiFashionStudioRouteImport } from './routes/ai-fashion-studio'
 import { Route as AiModelsRouteImport } from './routes/ai-models'
 import { Route as AiPhoneAgentRouteImport } from './routes/ai-phone-agent'
 import { Route as AiTextToVideoRouteImport } from './routes/ai-text-to-video'
@@ -76,6 +77,11 @@ const AdminRoute = AdminRouteImport.update({
 const AiAvatarGeneratorRoute = AiAvatarGeneratorRouteImport.update({
   id: '/ai-avatar-generator',
   path: '/ai-avatar-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiFashionStudioRoute = AiFashionStudioRouteImport.update({
+  id: '/ai-fashion-studio',
+  path: '/ai-fashion-studio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiModelsRoute = AiModelsRouteImport.update({
@@ -277,6 +283,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
+  '/ai-fashion-studio': typeof AiFashionStudioRoute
   '/ai-models': typeof AiModelsRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
@@ -321,6 +328,7 @@ export interface FileRoutesByTo {
   '/$slug': typeof SlugRoute
   '/about': typeof AboutRoute
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
+  '/ai-fashion-studio': typeof AiFashionStudioRoute
   '/ai-models': typeof AiModelsRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
@@ -366,6 +374,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
   '/ai-avatar-generator': typeof AiAvatarGeneratorRoute
+  '/ai-fashion-studio': typeof AiFashionStudioRoute
   '/ai-models': typeof AiModelsRoute
   '/ai-phone-agent': typeof AiPhoneAgentRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
@@ -413,6 +422,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/ai-avatar-generator'
+    | '/ai-fashion-studio'
     | '/ai-models'
     | '/ai-phone-agent'
     | '/ai-text-to-video'
@@ -457,6 +467,7 @@ export interface FileRouteTypes {
     | '/$slug'
     | '/about'
     | '/ai-avatar-generator'
+    | '/ai-fashion-studio'
     | '/ai-models'
     | '/ai-phone-agent'
     | '/ai-text-to-video'
@@ -501,6 +512,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/ai-avatar-generator'
+    | '/ai-fashion-studio'
     | '/ai-models'
     | '/ai-phone-agent'
     | '/ai-text-to-video'
@@ -547,6 +559,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
   AiAvatarGeneratorRoute: typeof AiAvatarGeneratorRoute
+  AiFashionStudioRoute: typeof AiFashionStudioRoute
   AiModelsRoute: typeof AiModelsRoute
   AiPhoneAgentRoute: typeof AiPhoneAgentRoute
   AiTextToVideoRoute: typeof AiTextToVideoRoute
@@ -613,6 +626,13 @@ declare module '@tanstack/react-router' {
       path: '/ai-avatar-generator'
       fullPath: '/ai-avatar-generator'
       preLoaderRoute: typeof AiAvatarGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-fashion-studio': {
+      id: '/ai-fashion-studio'
+      path: '/ai-fashion-studio'
+      fullPath: '/ai-fashion-studio'
+      preLoaderRoute: typeof AiFashionStudioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-models': {
@@ -926,6 +946,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
   AiAvatarGeneratorRoute: AiAvatarGeneratorRoute,
+  AiFashionStudioRoute: AiFashionStudioRoute,
   AiModelsRoute: AiModelsRoute,
   AiPhoneAgentRoute: AiPhoneAgentRoute,
   AiTextToVideoRoute: AiTextToVideoRoute,
