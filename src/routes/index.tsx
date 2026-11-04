@@ -13,6 +13,16 @@ import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { TrustLogoStrip } from "@/components/site/TrustLogoStrip";
 import { AiModelsStrip } from "@/components/site/AiModelsStrip";
 import { CustomerReviews } from "@/components/site/CustomerReviews";
+import { useQuery as useReviewQuery } from "@tanstack/react-query";
+import { publicReviewsQuery } from "@/lib/reviews";
+
+function HeroAverageRating() {
+  const { data } = useReviewQuery(publicReviewsQuery);
+  const reviews = data?.reviews ?? [];
+  if (!reviews.length) return <>—</>;
+  const avg = reviews.reduce((s, r) => s + r.rating, 0) / reviews.length;
+  return <>{avg.toFixed(1)} / 5</>;
+}
 import { SecondaryToolsCarousel } from "@/components/site/SecondaryToolsCarousel";
 import { useTheme } from "@/components/site/ThemeProvider";
 import { outcomeShortcuts } from "@/data/ecosystem";
@@ -239,8 +249,8 @@ function Home() {
                     <dd className="font-display text-2xl font-semibold tabular-nums text-foreground">1,000+</dd>
                   </div>
                   <div className="p-4">
-                    <dt className="text-xs font-medium text-muted-foreground">Customer reviews</dt>
-                    <dd className="font-display text-2xl font-semibold tabular-nums text-foreground">1,000+</dd>
+                    <dt className="text-xs font-medium text-muted-foreground">Average rating</dt>
+                    <dd className="font-display text-2xl font-semibold tabular-nums text-foreground"><HeroAverageRating /></dd>
                   </div>
                 </dl>
               </div>
