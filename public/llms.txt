@@ -316,3 +316,6 @@
 
 ## Website Chatbot & Smart Inbox
 - [Website Chatbot & Smart Inbox](https://ammarai.com/ai-smart-inbox): Build and embed a website chatbot, and read website, WhatsApp and Telegram conversations in one inbox with human handover. Website chatbot from Standard ($59.99/mo).
+
+## AI UGC Creator
+- [AI UGC Creator](https://ammarai.com/ai-ugc-generator): Make creator-style product videos from a script, voice (or your own audio), actor and scene. UGC Factory is included on Ultimate ($129.99/mo).
