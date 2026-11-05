@@ -7,6 +7,7 @@ import { ButtonLink, ExternalButton } from "@/components/site/Button";
 import { Button } from "@/components/ui/button";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
+import { FlagshipVideoHero } from "@/components/site/FlagshipVideoHero";
 import { coreToolsA } from "@/data/tools-core-a";
 import { REGISTER_URL } from "@/lib/site";
 
@@ -69,26 +70,7 @@ function ImageProPage() {
 
   return (
     <>
-      <section className="border-b border-border bg-background">
-        <Container className="py-12 sm:py-16">
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">AmmarAI / AI Image Pro</p>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center">
-            <div className="restaurant-rise">
-              <h1 className="text-balance text-4xl leading-tight sm:text-5xl">{tool.h1}</h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">{tool.lede}</p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <ExternalButton href={REGISTER_URL} size="lg"><ImageIcon className="size-4" />{tool.ctaLabel}</ExternalButton>
-                <a href="#studio" className="inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowRight className="size-4" />See the studio</a>
-              </div>
-              <p className="mt-5 text-sm text-muted-foreground">Included on every plan, including Free (500 credits a month).</p>
-            </div>
-            <figure className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
-              <img src="/media/tutorials/tutorial-image-pro-8.png" alt="AI Image Pro showing generated image results below the prompt" width={1024} height={490} className="h-auto w-full" fetchPriority="high" />
-              <figcaption className="border-t border-border px-4 py-2 text-xs text-muted-foreground">The real AI Image Pro screen with generated results.</figcaption>
-            </figure>
-          </div>
-        </Container>
-      </section>
+      <FlagshipVideoHero clip="image-pro" crumb="AI Image Pro" title={tool.h1} lede={tool.lede} cta={tool.ctaLabel} icon={<ImageIcon className="size-4" />} jump={{ href: "#studio", label: "See the studio" }} note="Included on every plan, including Free (500 credits a month)." />
 
       <Section tone="sand" id="studio">
         <Container>
