@@ -23,6 +23,7 @@ import { Route as AiPhoneAgentRouteImport } from './routes/ai-phone-agent'
 import { Route as AiSmartInboxRouteImport } from './routes/ai-smart-inbox'
 import { Route as AiTextToVideoRouteImport } from './routes/ai-text-to-video'
 import { Route as AiToolsRouteImport } from './routes/ai-tools'
+import { Route as AiTranscriptionRouteImport } from './routes/ai-transcription'
 import { Route as AiUgcGeneratorRouteImport } from './routes/ai-ugc-generator'
 import { Route as AiUrlToVideoRouteImport } from './routes/ai-url-to-video'
 import { Route as AiVideoGeneratorRouteImport } from './routes/ai-video-generator'
@@ -37,6 +38,7 @@ import { Route as ExternalChatbotRouteImport } from './routes/external-chatbot'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RealtimeVoiceChatRouteImport } from './routes/realtime-voice-chat'
 import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as RestaurantPhoneOrderingRouteImport } from './routes/restaurant-phone-ordering'
@@ -134,6 +136,11 @@ const AiToolsRoute = AiToolsRouteImport.update({
   path: '/ai-tools',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiTranscriptionRoute = AiTranscriptionRouteImport.update({
+  id: '/ai-transcription',
+  path: '/ai-transcription',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AiUgcGeneratorRoute = AiUgcGeneratorRouteImport.update({
   id: '/ai-ugc-generator',
   path: '/ai-ugc-generator',
@@ -202,6 +209,11 @@ const PricingRoute = PricingRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealtimeVoiceChatRoute = RealtimeVoiceChatRouteImport.update({
+  id: '/realtime-voice-chat',
+  path: '/realtime-voice-chat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RefundPolicyRoute = RefundPolicyRouteImport.update({
@@ -352,6 +364,7 @@ export interface FileRoutesByFullPath {
   '/ai-smart-inbox': typeof AiSmartInboxRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
+  '/ai-transcription': typeof AiTranscriptionRoute
   '/ai-ugc-generator': typeof AiUgcGeneratorRoute
   '/ai-url-to-video': typeof AiUrlToVideoRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
@@ -366,6 +379,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/realtime-voice-chat': typeof RealtimeVoiceChatRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
   '/restaurant-phone-ordering': typeof RestaurantPhoneOrderingRoute
@@ -407,6 +421,7 @@ export interface FileRoutesByTo {
   '/ai-smart-inbox': typeof AiSmartInboxRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
+  '/ai-transcription': typeof AiTranscriptionRoute
   '/ai-ugc-generator': typeof AiUgcGeneratorRoute
   '/ai-url-to-video': typeof AiUrlToVideoRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
@@ -421,6 +436,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/realtime-voice-chat': typeof RealtimeVoiceChatRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
   '/restaurant-phone-ordering': typeof RestaurantPhoneOrderingRoute
@@ -463,6 +479,7 @@ export interface FileRoutesById {
   '/ai-smart-inbox': typeof AiSmartInboxRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
+  '/ai-transcription': typeof AiTranscriptionRoute
   '/ai-ugc-generator': typeof AiUgcGeneratorRoute
   '/ai-url-to-video': typeof AiUrlToVideoRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
@@ -477,6 +494,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/realtime-voice-chat': typeof RealtimeVoiceChatRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
   '/restaurant-phone-ordering': typeof RestaurantPhoneOrderingRoute
@@ -521,6 +539,7 @@ export interface FileRouteTypes {
     | '/ai-smart-inbox'
     | '/ai-text-to-video'
     | '/ai-tools'
+    | '/ai-transcription'
     | '/ai-ugc-generator'
     | '/ai-url-to-video'
     | '/ai-video-generator'
@@ -535,6 +554,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/pricing'
     | '/privacy'
+    | '/realtime-voice-chat'
     | '/refund-policy'
     | '/resources'
     | '/restaurant-phone-ordering'
@@ -576,6 +596,7 @@ export interface FileRouteTypes {
     | '/ai-smart-inbox'
     | '/ai-text-to-video'
     | '/ai-tools'
+    | '/ai-transcription'
     | '/ai-ugc-generator'
     | '/ai-url-to-video'
     | '/ai-video-generator'
@@ -590,6 +611,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/pricing'
     | '/privacy'
+    | '/realtime-voice-chat'
     | '/refund-policy'
     | '/resources'
     | '/restaurant-phone-ordering'
@@ -631,6 +653,7 @@ export interface FileRouteTypes {
     | '/ai-smart-inbox'
     | '/ai-text-to-video'
     | '/ai-tools'
+    | '/ai-transcription'
     | '/ai-ugc-generator'
     | '/ai-url-to-video'
     | '/ai-video-generator'
@@ -645,6 +668,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/pricing'
     | '/privacy'
+    | '/realtime-voice-chat'
     | '/refund-policy'
     | '/resources'
     | '/restaurant-phone-ordering'
@@ -688,6 +712,7 @@ export interface RootRouteChildren {
   AiSmartInboxRoute: typeof AiSmartInboxRoute
   AiTextToVideoRoute: typeof AiTextToVideoRoute
   AiToolsRoute: typeof AiToolsRoute
+  AiTranscriptionRoute: typeof AiTranscriptionRoute
   AiUgcGeneratorRoute: typeof AiUgcGeneratorRoute
   AiUrlToVideoRoute: typeof AiUrlToVideoRoute
   AiVideoGeneratorRoute: typeof AiVideoGeneratorRoute
@@ -702,6 +727,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
+  RealtimeVoiceChatRoute: typeof RealtimeVoiceChatRoute
   RefundPolicyRoute: typeof RefundPolicyRoute
   ResourcesRoute: typeof ResourcesRoute
   RestaurantPhoneOrderingRoute: typeof RestaurantPhoneOrderingRoute
@@ -821,6 +847,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AiToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai-transcription': {
+      id: '/ai-transcription'
+      path: '/ai-transcription'
+      fullPath: '/ai-transcription'
+      preLoaderRoute: typeof AiTranscriptionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ai-ugc-generator': {
       id: '/ai-ugc-generator'
       path: '/ai-ugc-generator'
@@ -917,6 +950,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/realtime-voice-chat': {
+      id: '/realtime-voice-chat'
+      path: '/realtime-voice-chat'
+      fullPath: '/realtime-voice-chat'
+      preLoaderRoute: typeof RealtimeVoiceChatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/refund-policy': {
@@ -1155,6 +1195,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiSmartInboxRoute: AiSmartInboxRoute,
   AiTextToVideoRoute: AiTextToVideoRoute,
   AiToolsRoute: AiToolsRoute,
+  AiTranscriptionRoute: AiTranscriptionRoute,
   AiUgcGeneratorRoute: AiUgcGeneratorRoute,
   AiUrlToVideoRoute: AiUrlToVideoRoute,
   AiVideoGeneratorRoute: AiVideoGeneratorRoute,
@@ -1169,6 +1210,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
+  RealtimeVoiceChatRoute: RealtimeVoiceChatRoute,
   RefundPolicyRoute: RefundPolicyRoute,
   ResourcesRoute: ResourcesRoute,
   RestaurantPhoneOrderingRoute: RestaurantPhoneOrderingRoute,
