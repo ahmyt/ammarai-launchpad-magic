@@ -80,6 +80,18 @@ lines.push(
 );
 lines.push("");
 
+lines.push("## Clinic Phone Agent");
+lines.push(
+  `- [AI Phone Receptionist for Clinics](${BASE_URL}/clinic-phone-agent): Answers patient calls, books appointments into the practice calendar, handles after-hours callers and sends reminder calls. For dental, medical, medspa, physical therapy and veterinary practices. Runs on the Voice Scale plan ($349.99/month, 800 voice minutes); request a demo by email or chat via ${BASE_URL}/contact?topic=clinic.`,
+);
+lines.push("");
+
+lines.push("## AI Phone Agent");
+lines.push(
+  `- [AI Phone Call Agent](${BASE_URL}/ai-phone-agent): A natural-sounding AI phone agent for small businesses: answers inbound calls, makes outbound follow-up and reminder calls, books into your calendar and logs every conversation. Included from the Ultimate plan ($129.99/month, 120 minutes); Voice Scale ($349.99/month, 800 minutes) adds automated follow-up calls. Call the demo line +1 (833) 772-9060.`,
+);
+lines.push("");
+
 lines.push("## Pricing");
 lines.push(
   `- [Free](${BASE_URL}/pricing): $${freePlan.monthlyPrice}/month — ${freePlan.monthlyCredits.toLocaleString("en-US")} plan credits per month, no card required. AI Writer, AI Chat, AI Image, Image Assistant and all prompt templates.`,
