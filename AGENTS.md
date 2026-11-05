@@ -23,4 +23,5 @@
 - Resolve CDN-only media through hostedAssetUrl with the stable public asset origin; use assetUrl only for media bundled in public/media, so Plesk never requests nonexistent local copies.
 - Dedicated flagship pages retain route-local guidance, prompt libraries, FAQs and tutorial links; verified tutorials govern capability claims so visual redesigns do not erase useful search content or import the full catalogue into shared startup code.
 - New flagship pages use the shared FlagshipVideoHero (clips bundled in public/media) and FlagshipToolSections so headers stay consistent and every page keeps complete search sections.
+- Voice-tool workflow viewers share VoiceToolWorkflow and local verified steps to keep interaction consistent without loading the entire tutorial catalogue.
 - Preserve Fashion Studio's original tool URL with a permanent redirect to its dedicated flagship page so catalogue links and existing bookmarks open the same current experience.
