@@ -25,6 +25,8 @@ const featuredPages = [
   { to: "/ai-ugc-generator", label: "AI UGC Creator" },
   { to: "/ai-url-to-video", label: "AI URL to Video" },
   { to: "/ai-voice-generator", label: "Voiceover & Voice Clone" },
+  { to: "/realtime-voice-chat", label: "Realtime Voice Chat" },
+  { to: "/ai-transcription", label: "AI Transcription" },
 ] as const;
 
 export function Wordmark({ className }: { className?: string }) {

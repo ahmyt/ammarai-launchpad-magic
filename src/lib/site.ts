@@ -46,6 +46,8 @@ export type StaticPath =
   | "/ai-ugc-generator"
   | "/ai-url-to-video"
   | "/ai-voice-generator"
+  | "/realtime-voice-chat"
+  | "/ai-transcription"
   | "/clinic-phone-agent"
   | "/auth";
 
