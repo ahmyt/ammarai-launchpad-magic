@@ -23,6 +23,7 @@ const featuredPages = [
   { to: "/ai-music-generator", label: "AI Music Pro" },
   { to: "/ai-smart-inbox", label: "Chatbot & Inbox" },
   { to: "/ai-ugc-generator", label: "AI UGC Creator" },
+  { to: "/ai-voice-generator", label: "Voiceover & Voice Clone" },
 ] as const;
 
 export function Wordmark({ className }: { className?: string }) {

@@ -1,6 +1,11 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Voiceover flagship page (2026-11-05)
+- [x] Upgrade the existing AI Voiceover & Voice Clone address with a moving header, existing audio samples, cloning workflow and script brief
+- [x] Preserve catalogue guidance and the original verified tutorial; avoid claiming an unverified cloning plan entitlement
+- [ ] Verify playback, brief controls and desktop/phone layout
+
 ## Clinic walkthrough playback on Plesk (2026-11-03)
 - [x] Confirm live clinic page requests missing local video and poster files
 - [x] Use public hosted asset addresses for the CDN-only walkthrough, preserving existing bundled media
