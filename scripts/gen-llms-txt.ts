@@ -26,6 +26,36 @@ lines.push("## AI Tools");
 for (const tool of tools) lines.push(`- [${tool.name}](${BASE_URL}/${tool.slug}): ${tool.summary}`);
 lines.push("");
 
+// Dedicated flagship tool pages (moving video header, walkthrough, examples, FAQs).
+// Hand-written notes override the catalogue summary where pricing was verified.
+const flagshipNotes: Record<string, string> = {
+  "ai-image-generator": "Image studio — prompt, variations, style presets, aspect ratio, model choice and an image library. Included on every plan, including Free.",
+  "ai-writer": "Full writing editor with the Article Wizard (keyword suggestions, search questions, section drafting), inline rewrites, tone and length control. Included on every plan, including Free.",
+  "ai-agent-builder": "Build scheduled multi-step agent workflows from nine step types (Ask Agent, Send Message, Generate Report, Gmail, Path, Social Media Agent, Marketing Bot, External Chatbot, CRM Agent). AI Agent from Basic ($24.99/mo); unlimited Agent Builder and all connectors on Ultimate ($129.99/mo).",
+  "ai-music-generator": "Generate original background tracks from a description, duration and musical style. Included from Basic ($24.99/mo).",
+  "ai-smart-inbox": "Build and embed a website chatbot, and read website, WhatsApp and Telegram conversations in one inbox with human handover. Website chatbot from Standard ($59.99/mo).",
+  "ai-ugc-generator": "Make creator-style product videos from a script, voice (or your own audio), actor and scene. UGC Factory is included on Ultimate ($129.99/mo).",
+  "ai-url-to-video": "Paste a product link or upload assets, pick format, length, presenter, voice and captions, then compare previews. Included from Standard ($59.99/mo).",
+};
+const flagshipSlugs = [
+  "ai-image-generator", "ai-writer", "ai-video-generator", "ai-avatar-generator", "ai-agent-builder",
+  "ai-music-generator", "ai-smart-inbox", "ai-ugc-generator", "ai-url-to-video", "ai-voice-generator",
+  "realtime-voice-chat", "ai-transcription", "ai-crm", "ai-social-media-agent", "ai-blogger-agent",
+  "ai-dm-comment-agent", "ai-chat", "ai-deep-research", "ai-council-mode", "ai-video-agent",
+  "ai-video-editor", "ai-dubbing", "viral-clips", "ai-video-enhancer", "ai-presentation-maker",
+  "ai-seo-analyzer", "ai-document-analyzer", "ai-code-generator",
+];
+lines.push("## Featured Tool Pages");
+lines.push(
+  `- [AI Fashion Studio](${BASE_URL}/ai-fashion-studio): Put garments on AI models without a shoot — photoshoots, virtual try-on, model swaps, image edits and short fashion videos, using plan image and video credits.`,
+);
+for (const slug of flagshipSlugs) {
+  const tool = tools.find((t) => t.slug === slug);
+  if (!tool) throw new Error(`flagship slug missing from catalogue: ${slug}`);
+  lines.push(`- [${tool.name}](${BASE_URL}/${slug}): ${flagshipNotes[slug] ?? tool.summary}`);
+}
+lines.push("");
+
 lines.push("## Platform Features");
 for (const feature of features)
   lines.push(`- [${feature.name}](${BASE_URL}/features/${feature.slug}): ${feature.summary}`);
@@ -47,6 +77,18 @@ lines.push("");
 lines.push("## Restaurant Phone Ordering");
 lines.push(
   `- [AI Restaurant Phone Ordering Agent](${BASE_URL}/restaurant-phone-ordering): Answer restaurant calls, confirm takeout items and pickup date/time, and send confirmed orders to the POS and kitchen. Includes menu training and setup, with a tested AymarPOS flow; other POS connections require compatibility assessment. Separate $${restaurantOffer.monthlyPrice}/month service with unlimited inbound calls and zero per-order commissions. Optional phone payment and SMS are scoped separately. Anchor Fish & Wings is a fictional demo; call ${restaurantOffer.demoPhoneFormatted}.`,
+);
+lines.push("");
+
+lines.push("## Clinic Phone Agent");
+lines.push(
+  `- [AI Phone Receptionist for Clinics](${BASE_URL}/clinic-phone-agent): Answers patient calls, books appointments into the practice calendar, handles after-hours callers and sends reminder calls. For dental, medical, medspa, physical therapy and veterinary practices. Runs on the Voice Scale plan ($349.99/month, 800 voice minutes); request a demo by email or chat via ${BASE_URL}/contact?topic=clinic.`,
+);
+lines.push("");
+
+lines.push("## AI Phone Agent");
+lines.push(
+  `- [AI Phone Call Agent](${BASE_URL}/ai-phone-agent): A natural-sounding AI phone agent for small businesses: answers inbound calls, makes outbound follow-up and reminder calls, books into your calendar and logs every conversation. Included from the Ultimate plan ($129.99/month, 120 minutes); Voice Scale ($349.99/month, 800 minutes) adds automated follow-up calls. Call the demo line +1 (833) 772-9060.`,
 );
 lines.push("");
 

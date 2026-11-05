@@ -156,6 +156,37 @@
 - [AI Voice Isolator](https://ammarai.com/ai-voice-isolator): Strip background noise and music from a recording, leaving clean, clear speech behind.
 - [AI Video to Video](https://ammarai.com/ai-video-to-video): Restyle or enhance an existing video clip into a new finished version, based on your instructions.
 
+## Featured Tool Pages
+- [AI Fashion Studio](https://ammarai.com/ai-fashion-studio): Put garments on AI models without a shoot — photoshoots, virtual try-on, model swaps, image edits and short fashion videos, using plan image and video credits.
+- [AI Image Pro](https://ammarai.com/ai-image-generator): Image studio — prompt, variations, style presets, aspect ratio, model choice and an image library. Included on every plan, including Free.
+- [AI Writer](https://ammarai.com/ai-writer): Full writing editor with the Article Wizard (keyword suggestions, search questions, section drafting), inline rewrites, tone and length control. Included on every plan, including Free.
+- [AI Video Pro](https://ammarai.com/ai-video-generator): Create short videos from text prompts or still images. Includes text-to-video, image-to-video, smooth transitions, and options for captions and voiceover.
+- [AI Avatar Video Generator](https://ammarai.com/ai-avatar-generator): Turn any image into a talking avatar video with realistic lip-sync and natural expressions. Ideal for product explainers, social content, training videos, and personal branding.
+- [AI Agent Builder](https://ammarai.com/ai-agent-builder): Build scheduled multi-step agent workflows from nine step types (Ask Agent, Send Message, Generate Report, Gmail, Path, Social Media Agent, Marketing Bot, External Chatbot, CRM Agent). AI Agent from Basic ($24.99/mo); unlimited Agent Builder and all connectors on Ultimate ($129.99/mo).
+- [AI Music Pro](https://ammarai.com/ai-music-generator): Generate original background tracks from a description, duration and musical style. Included from Basic ($24.99/mo).
+- [AI Smart Inbox](https://ammarai.com/ai-smart-inbox): Build and embed a website chatbot, and read website, WhatsApp and Telegram conversations in one inbox with human handover. Website chatbot from Standard ($59.99/mo).
+- [AI UGC Creator](https://ammarai.com/ai-ugc-generator): Make creator-style product videos from a script, voice (or your own audio), actor and scene. UGC Factory is included on Ultimate ($129.99/mo).
+- [AI URL to Video & Influencer](https://ammarai.com/ai-url-to-video): Paste a product link or upload assets, pick format, length, presenter, voice and captions, then compare previews. Included from Standard ($59.99/mo).
+- [AI Voiceover & Voice Clone](https://ammarai.com/ai-voice-generator): Generate natural-sounding voiceovers in 150+ languages and dialects. Clone your own voice or choose from a large library of neural voices, with control over tone, speed, and emotion.
+- [Realtime Voice Chat](https://ammarai.com/realtime-voice-chat): Talk out loud with AI and get spoken replies back, in a live back-and-forth conversation.
+- [AI Transcription](https://ammarai.com/ai-transcription): Accurately transcribe audio and video files into text with speaker labels and timestamps. Supports multiple languages and common audio formats.
+- [AI CRM](https://ammarai.com/ai-crm): A CRM you talk to: ask about the pipeline, update deals and get reports without touching a spreadsheet.
+- [AI Social Media Agent](https://ammarai.com/ai-social-media-agent): An agent that plans, writes, schedules and adjusts a month of social posts across your accounts.
+- [AI Blogger Agent](https://ammarai.com/ai-blogger-agent): An agent that researches keywords, writes SEO articles in bulk and publishes them to your blog on a schedule.
+- [AI DM & Comment Agent](https://ammarai.com/ai-dm-comment-agent): Auto-reply to Instagram, Facebook and YouTube comments and DMs, capture leads and run campaign promotions.
+- [AI Chat Pro](https://ammarai.com/ai-chat): A multi-model chat with personas, reusable skills, smart memory, live web search, file uploads and organised folders — and it hands finished work to the rest of the platform.
+- [AI Deep Research](https://ammarai.com/ai-deep-research): Multi-source research runs with live web search, compiled into a clear, cited report.
+- [AI Council Mode](https://ammarai.com/ai-council-mode): Ask several AI models the same question at once and compare their answers side by side, or merge them into one.
+- [AI Video Agent](https://ammarai.com/ai-video-agent): Turn a written brief into a presenter video with avatar, voice, look and brand choices, plus optional storyboard review.
+- [AI Video Editor](https://ammarai.com/ai-video-editor): Upload footage and describe the finished cut you want, from pacing and colour to transitions and sound.
+- [AI Dubbing](https://ammarai.com/ai-dubbing): Translate spoken video into new languages with natural voices, matched timing and a finished localised video.
+- [Viral Clips](https://ammarai.com/viral-clips): Turn one long video into a set of short vertical clips built for TikTok, Reels and Shorts.
+- [AI Video Enhancer](https://ammarai.com/ai-video-enhancer): Upscale and restore video frame by frame for sharper detail and a higher output resolution.
+- [AI Presentation Maker](https://ammarai.com/ai-presentation-maker): Generate complete, professionally designed slide decks from a topic or brief — layouts and visuals included.
+- [AI SEO Analyzer](https://ammarai.com/ai-seo-analyzer): Find current keyword and search-question ideas while planning an article, then generate focused metadata for your site and blog posts.
+- [AI Document Analyzer](https://ammarai.com/ai-document-analyzer): Chat with uploaded documents — PDF, Word, CSV — and get summaries, answers with citations, and extracted structured data.
+- [AI Code Generator](https://ammarai.com/ai-code-generator): Generate code in multiple languages from natural language descriptions — functions, components, queries and tests, with explanations you can review.
+
 ## Platform Features
 - [Multi-model AI](https://ammarai.com/features/multi-model-ai): Each task runs on a model suited to it, without you managing providers.
 - [Brand voice](https://ammarai.com/features/brand-voice): Save tone, vocabulary and rules once and reuse them across every writing tool.
@@ -298,25 +329,3 @@
 - [Privacy Policy](https://ammarai.com/privacy): Mobile Unlocking LLC, US
 - [Terms of Service](https://ammarai.com/terms): Mobile Unlocking LLC, US
 - [Refund Policy](https://ammarai.com/refund-policy): Mobile Unlocking LLC, US
-
-## AI Fashion Studio
-- [AI Fashion Studio](https://ammarai.com/ai-fashion-studio): Put garments on AI models without a shoot — photoshoots, virtual try-on, model swaps, image edits and short fashion videos, using plan image and video credits.
-
-## AI Image Pro
-- [AI Image Pro](https://ammarai.com/ai-image-generator): Image studio — prompt, variations, style presets, aspect ratio, model choice and an image library. Included on every plan, including Free.
-
-## AI Writer
-- [AI Writer](https://ammarai.com/ai-writer): Full writing editor with the Article Wizard (keyword suggestions, search questions, section drafting), inline rewrites, tone and length control. Included on every plan, including Free.
-
-## AI Agent Builder
-- [AI Agent Builder](https://ammarai.com/ai-agent-builder): Build scheduled multi-step agent workflows from nine step types (Ask Agent, Send Message, Generate Report, Gmail, Path, Social Media Agent, Marketing Bot, External Chatbot, CRM Agent). AI Agent from Basic ($24.99/mo); unlimited Agent Builder and all connectors on Ultimate ($129.99/mo).
-
-## AI Music Pro
-- [AI Music Pro](https://ammarai.com/ai-music-generator): Generate original background tracks from a description, duration and musical style. Included from Basic ($24.99/mo).
-
-## Website Chatbot & Smart Inbox
-- [Website Chatbot & Smart Inbox](https://ammarai.com/ai-smart-inbox): Build and embed a website chatbot, and read website, WhatsApp and Telegram conversations in one inbox with human handover. Website chatbot from Standard ($59.99/mo).
-
-## AI UGC Creator
-- [AI UGC Creator](https://ammarai.com/ai-ugc-generator): Make creator-style product videos from a script, voice (or your own audio), actor and scene. UGC Factory is included on Ultimate ($129.99/mo).
-- [AI URL to Video & Influencer](https://ammarai.com/ai-url-to-video): Paste a product link or upload assets, pick format, length, presenter, voice and captions, then compare previews. Included from Standard ($59.99/mo).
