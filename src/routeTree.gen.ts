@@ -26,6 +26,7 @@ import { Route as AiToolsRouteImport } from './routes/ai-tools'
 import { Route as AiUgcGeneratorRouteImport } from './routes/ai-ugc-generator'
 import { Route as AiVideoGeneratorRouteImport } from './routes/ai-video-generator'
 import { Route as AiVirtualTryOnRouteImport } from './routes/ai-virtual-try-on'
+import { Route as AiVoiceGeneratorRouteImport } from './routes/ai-voice-generator'
 import { Route as AiWriterRouteImport } from './routes/ai-writer'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ClinicPhoneAgentRouteImport } from './routes/clinic-phone-agent'
@@ -145,6 +146,11 @@ const AiVideoGeneratorRoute = AiVideoGeneratorRouteImport.update({
 const AiVirtualTryOnRoute = AiVirtualTryOnRouteImport.update({
   id: '/ai-virtual-try-on',
   path: '/ai-virtual-try-on',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiVoiceGeneratorRoute = AiVoiceGeneratorRouteImport.update({
+  id: '/ai-voice-generator',
+  path: '/ai-voice-generator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiWriterRoute = AiWriterRouteImport.update({
@@ -343,6 +349,7 @@ export interface FileRoutesByFullPath {
   '/ai-ugc-generator': typeof AiUgcGeneratorRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
+  '/ai-voice-generator': typeof AiVoiceGeneratorRoute
   '/ai-writer': typeof AiWriterRoute
   '/auth': typeof AuthRoute
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
@@ -396,6 +403,7 @@ export interface FileRoutesByTo {
   '/ai-ugc-generator': typeof AiUgcGeneratorRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
+  '/ai-voice-generator': typeof AiVoiceGeneratorRoute
   '/ai-writer': typeof AiWriterRoute
   '/auth': typeof AuthRoute
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
@@ -450,6 +458,7 @@ export interface FileRoutesById {
   '/ai-ugc-generator': typeof AiUgcGeneratorRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
+  '/ai-voice-generator': typeof AiVoiceGeneratorRoute
   '/ai-writer': typeof AiWriterRoute
   '/auth': typeof AuthRoute
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
@@ -506,6 +515,7 @@ export interface FileRouteTypes {
     | '/ai-ugc-generator'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
+    | '/ai-voice-generator'
     | '/ai-writer'
     | '/auth'
     | '/clinic-phone-agent'
@@ -559,6 +569,7 @@ export interface FileRouteTypes {
     | '/ai-ugc-generator'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
+    | '/ai-voice-generator'
     | '/ai-writer'
     | '/auth'
     | '/clinic-phone-agent'
@@ -612,6 +623,7 @@ export interface FileRouteTypes {
     | '/ai-ugc-generator'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
+    | '/ai-voice-generator'
     | '/ai-writer'
     | '/auth'
     | '/clinic-phone-agent'
@@ -667,6 +679,7 @@ export interface RootRouteChildren {
   AiUgcGeneratorRoute: typeof AiUgcGeneratorRoute
   AiVideoGeneratorRoute: typeof AiVideoGeneratorRoute
   AiVirtualTryOnRoute: typeof AiVirtualTryOnRoute
+  AiVoiceGeneratorRoute: typeof AiVoiceGeneratorRoute
   AiWriterRoute: typeof AiWriterRoute
   AuthRoute: typeof AuthRoute
   ClinicPhoneAgentRoute: typeof ClinicPhoneAgentRoute
@@ -814,6 +827,13 @@ declare module '@tanstack/react-router' {
       path: '/ai-virtual-try-on'
       fullPath: '/ai-virtual-try-on'
       preLoaderRoute: typeof AiVirtualTryOnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-voice-generator': {
+      id: '/ai-voice-generator'
+      path: '/ai-voice-generator'
+      fullPath: '/ai-voice-generator'
+      preLoaderRoute: typeof AiVoiceGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-writer': {
@@ -1118,6 +1138,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiUgcGeneratorRoute: AiUgcGeneratorRoute,
   AiVideoGeneratorRoute: AiVideoGeneratorRoute,
   AiVirtualTryOnRoute: AiVirtualTryOnRoute,
+  AiVoiceGeneratorRoute: AiVoiceGeneratorRoute,
   AiWriterRoute: AiWriterRoute,
   AuthRoute: AuthRoute,
   ClinicPhoneAgentRoute: ClinicPhoneAgentRoute,
