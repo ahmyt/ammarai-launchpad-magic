@@ -49,6 +49,22 @@ export type StaticPath =
   | "/realtime-voice-chat"
   | "/ai-transcription"
   | "/clinic-phone-agent"
+  | "/ai-crm"
+  | "/ai-social-media-agent"
+  | "/ai-blogger-agent"
+  | "/ai-dm-comment-agent"
+  | "/ai-chat"
+  | "/ai-deep-research"
+  | "/ai-council-mode"
+  | "/ai-video-agent"
+  | "/ai-video-editor"
+  | "/ai-dubbing"
+  | "/viral-clips"
+  | "/ai-video-enhancer"
+  | "/ai-presentation-maker"
+  | "/ai-seo-analyzer"
+  | "/ai-document-analyzer"
+  | "/ai-code-generator"
   | "/auth";
 
 export type SiteLink = { label: string; to: StaticPath } | { label: string; slug: string };
