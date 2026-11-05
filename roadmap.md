@@ -1,6 +1,9 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## URL to Video flagship page (2026-11-05)
+- [x] Build /ai-url-to-video with moving header, 7 tutorial screens, ad planner, 3 real sample videos, FAQs, Standard pricing; checked on phone
+
 ## Voiceover flagship page (2026-11-05)
 - [x] Upgrade the existing AI Voiceover & Voice Clone address with a moving header, existing audio samples, cloning workflow and script brief
 - [x] Preserve catalogue guidance and the original verified tutorial; avoid claiming an unverified cloning plan entitlement
