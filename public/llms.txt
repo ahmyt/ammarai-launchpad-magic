@@ -319,3 +319,4 @@
 
 ## AI UGC Creator
 - [AI UGC Creator](https://ammarai.com/ai-ugc-generator): Make creator-style product videos from a script, voice (or your own audio), actor and scene. UGC Factory is included on Ultimate ($129.99/mo).
+- [AI URL to Video & Influencer](https://ammarai.com/ai-url-to-video): Paste a product link or upload assets, pick format, length, presenter, voice and captions, then compare previews. Included from Standard ($59.99/mo).
