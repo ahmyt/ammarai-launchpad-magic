@@ -23,6 +23,7 @@ import { Route as AiPhoneAgentRouteImport } from './routes/ai-phone-agent'
 import { Route as AiSmartInboxRouteImport } from './routes/ai-smart-inbox'
 import { Route as AiTextToVideoRouteImport } from './routes/ai-text-to-video'
 import { Route as AiToolsRouteImport } from './routes/ai-tools'
+import { Route as AiUgcGeneratorRouteImport } from './routes/ai-ugc-generator'
 import { Route as AiVideoGeneratorRouteImport } from './routes/ai-video-generator'
 import { Route as AiVirtualTryOnRouteImport } from './routes/ai-virtual-try-on'
 import { Route as AiWriterRouteImport } from './routes/ai-writer'
@@ -129,6 +130,11 @@ const AiTextToVideoRoute = AiTextToVideoRouteImport.update({
 const AiToolsRoute = AiToolsRouteImport.update({
   id: '/ai-tools',
   path: '/ai-tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiUgcGeneratorRoute = AiUgcGeneratorRouteImport.update({
+  id: '/ai-ugc-generator',
+  path: '/ai-ugc-generator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiVideoGeneratorRoute = AiVideoGeneratorRouteImport.update({
@@ -334,6 +340,7 @@ export interface FileRoutesByFullPath {
   '/ai-smart-inbox': typeof AiSmartInboxRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
+  '/ai-ugc-generator': typeof AiUgcGeneratorRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
   '/ai-writer': typeof AiWriterRoute
@@ -386,6 +393,7 @@ export interface FileRoutesByTo {
   '/ai-smart-inbox': typeof AiSmartInboxRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
+  '/ai-ugc-generator': typeof AiUgcGeneratorRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
   '/ai-writer': typeof AiWriterRoute
@@ -439,6 +447,7 @@ export interface FileRoutesById {
   '/ai-smart-inbox': typeof AiSmartInboxRoute
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
+  '/ai-ugc-generator': typeof AiUgcGeneratorRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
   '/ai-writer': typeof AiWriterRoute
@@ -494,6 +503,7 @@ export interface FileRouteTypes {
     | '/ai-smart-inbox'
     | '/ai-text-to-video'
     | '/ai-tools'
+    | '/ai-ugc-generator'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
     | '/ai-writer'
@@ -546,6 +556,7 @@ export interface FileRouteTypes {
     | '/ai-smart-inbox'
     | '/ai-text-to-video'
     | '/ai-tools'
+    | '/ai-ugc-generator'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
     | '/ai-writer'
@@ -598,6 +609,7 @@ export interface FileRouteTypes {
     | '/ai-smart-inbox'
     | '/ai-text-to-video'
     | '/ai-tools'
+    | '/ai-ugc-generator'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
     | '/ai-writer'
@@ -652,6 +664,7 @@ export interface RootRouteChildren {
   AiSmartInboxRoute: typeof AiSmartInboxRoute
   AiTextToVideoRoute: typeof AiTextToVideoRoute
   AiToolsRoute: typeof AiToolsRoute
+  AiUgcGeneratorRoute: typeof AiUgcGeneratorRoute
   AiVideoGeneratorRoute: typeof AiVideoGeneratorRoute
   AiVirtualTryOnRoute: typeof AiVirtualTryOnRoute
   AiWriterRoute: typeof AiWriterRoute
@@ -780,6 +793,13 @@ declare module '@tanstack/react-router' {
       path: '/ai-tools'
       fullPath: '/ai-tools'
       preLoaderRoute: typeof AiToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-ugc-generator': {
+      id: '/ai-ugc-generator'
+      path: '/ai-ugc-generator'
+      fullPath: '/ai-ugc-generator'
+      preLoaderRoute: typeof AiUgcGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-video-generator': {
@@ -1095,6 +1115,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiSmartInboxRoute: AiSmartInboxRoute,
   AiTextToVideoRoute: AiTextToVideoRoute,
   AiToolsRoute: AiToolsRoute,
+  AiUgcGeneratorRoute: AiUgcGeneratorRoute,
   AiVideoGeneratorRoute: AiVideoGeneratorRoute,
   AiVirtualTryOnRoute: AiVirtualTryOnRoute,
   AiWriterRoute: AiWriterRoute,

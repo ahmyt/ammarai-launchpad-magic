@@ -22,6 +22,7 @@ const featuredPages = [
   { to: "/ai-agent-builder", label: "AI Agent Builder" },
   { to: "/ai-music-generator", label: "AI Music Pro" },
   { to: "/ai-smart-inbox", label: "Chatbot & Inbox" },
+  { to: "/ai-ugc-generator", label: "AI UGC Creator" },
 ] as const;
 
 export function Wordmark({ className }: { className?: string }) {
