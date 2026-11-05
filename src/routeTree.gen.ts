@@ -30,6 +30,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ClinicPhoneAgentRouteImport } from './routes/clinic-phone-agent'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DemoVideoRouteImport } from './routes/demo-video'
+import { Route as ExternalChatbotRouteImport } from './routes/external-chatbot'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -163,6 +164,11 @@ const ContactRoute = ContactRouteImport.update({
 const DemoVideoRoute = DemoVideoRouteImport.update({
   id: '/demo-video',
   path: '/demo-video',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExternalChatbotRoute = ExternalChatbotRouteImport.update({
+  id: '/external-chatbot',
+  path: '/external-chatbot',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -335,6 +341,7 @@ export interface FileRoutesByFullPath {
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
   '/contact': typeof ContactRoute
   '/demo-video': typeof DemoVideoRoute
+  '/external-chatbot': typeof ExternalChatbotRoute
   '/faq': typeof FaqRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
@@ -386,6 +393,7 @@ export interface FileRoutesByTo {
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
   '/contact': typeof ContactRoute
   '/demo-video': typeof DemoVideoRoute
+  '/external-chatbot': typeof ExternalChatbotRoute
   '/faq': typeof FaqRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
@@ -438,6 +446,7 @@ export interface FileRoutesById {
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
   '/contact': typeof ContactRoute
   '/demo-video': typeof DemoVideoRoute
+  '/external-chatbot': typeof ExternalChatbotRoute
   '/faq': typeof FaqRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
@@ -492,6 +501,7 @@ export interface FileRouteTypes {
     | '/clinic-phone-agent'
     | '/contact'
     | '/demo-video'
+    | '/external-chatbot'
     | '/faq'
     | '/pricing'
     | '/privacy'
@@ -543,6 +553,7 @@ export interface FileRouteTypes {
     | '/clinic-phone-agent'
     | '/contact'
     | '/demo-video'
+    | '/external-chatbot'
     | '/faq'
     | '/pricing'
     | '/privacy'
@@ -594,6 +605,7 @@ export interface FileRouteTypes {
     | '/clinic-phone-agent'
     | '/contact'
     | '/demo-video'
+    | '/external-chatbot'
     | '/faq'
     | '/pricing'
     | '/privacy'
@@ -647,6 +659,7 @@ export interface RootRouteChildren {
   ClinicPhoneAgentRoute: typeof ClinicPhoneAgentRoute
   ContactRoute: typeof ContactRoute
   DemoVideoRoute: typeof DemoVideoRoute
+  ExternalChatbotRoute: typeof ExternalChatbotRoute
   FaqRoute: typeof FaqRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -816,6 +829,13 @@ declare module '@tanstack/react-router' {
       path: '/demo-video'
       fullPath: '/demo-video'
       preLoaderRoute: typeof DemoVideoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/external-chatbot': {
+      id: '/external-chatbot'
+      path: '/external-chatbot'
+      fullPath: '/external-chatbot'
+      preLoaderRoute: typeof ExternalChatbotRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -1082,6 +1102,7 @@ const rootRouteChildren: RootRouteChildren = {
   ClinicPhoneAgentRoute: ClinicPhoneAgentRoute,
   ContactRoute: ContactRoute,
   DemoVideoRoute: DemoVideoRoute,
+  ExternalChatbotRoute: ExternalChatbotRoute,
   FaqRoute: FaqRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
