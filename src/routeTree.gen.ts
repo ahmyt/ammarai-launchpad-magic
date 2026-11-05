@@ -24,6 +24,7 @@ import { Route as AiSmartInboxRouteImport } from './routes/ai-smart-inbox'
 import { Route as AiTextToVideoRouteImport } from './routes/ai-text-to-video'
 import { Route as AiToolsRouteImport } from './routes/ai-tools'
 import { Route as AiUgcGeneratorRouteImport } from './routes/ai-ugc-generator'
+import { Route as AiUrlToVideoRouteImport } from './routes/ai-url-to-video'
 import { Route as AiVideoGeneratorRouteImport } from './routes/ai-video-generator'
 import { Route as AiVirtualTryOnRouteImport } from './routes/ai-virtual-try-on'
 import { Route as AiVoiceGeneratorRouteImport } from './routes/ai-voice-generator'
@@ -136,6 +137,11 @@ const AiToolsRoute = AiToolsRouteImport.update({
 const AiUgcGeneratorRoute = AiUgcGeneratorRouteImport.update({
   id: '/ai-ugc-generator',
   path: '/ai-ugc-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiUrlToVideoRoute = AiUrlToVideoRouteImport.update({
+  id: '/ai-url-to-video',
+  path: '/ai-url-to-video',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiVideoGeneratorRoute = AiVideoGeneratorRouteImport.update({
@@ -347,6 +353,7 @@ export interface FileRoutesByFullPath {
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
   '/ai-ugc-generator': typeof AiUgcGeneratorRoute
+  '/ai-url-to-video': typeof AiUrlToVideoRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
   '/ai-voice-generator': typeof AiVoiceGeneratorRoute
@@ -401,6 +408,7 @@ export interface FileRoutesByTo {
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
   '/ai-ugc-generator': typeof AiUgcGeneratorRoute
+  '/ai-url-to-video': typeof AiUrlToVideoRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
   '/ai-voice-generator': typeof AiVoiceGeneratorRoute
@@ -456,6 +464,7 @@ export interface FileRoutesById {
   '/ai-text-to-video': typeof AiTextToVideoRoute
   '/ai-tools': typeof AiToolsRoute
   '/ai-ugc-generator': typeof AiUgcGeneratorRoute
+  '/ai-url-to-video': typeof AiUrlToVideoRoute
   '/ai-video-generator': typeof AiVideoGeneratorRoute
   '/ai-virtual-try-on': typeof AiVirtualTryOnRoute
   '/ai-voice-generator': typeof AiVoiceGeneratorRoute
@@ -513,6 +522,7 @@ export interface FileRouteTypes {
     | '/ai-text-to-video'
     | '/ai-tools'
     | '/ai-ugc-generator'
+    | '/ai-url-to-video'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
     | '/ai-voice-generator'
@@ -567,6 +577,7 @@ export interface FileRouteTypes {
     | '/ai-text-to-video'
     | '/ai-tools'
     | '/ai-ugc-generator'
+    | '/ai-url-to-video'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
     | '/ai-voice-generator'
@@ -621,6 +632,7 @@ export interface FileRouteTypes {
     | '/ai-text-to-video'
     | '/ai-tools'
     | '/ai-ugc-generator'
+    | '/ai-url-to-video'
     | '/ai-video-generator'
     | '/ai-virtual-try-on'
     | '/ai-voice-generator'
@@ -677,6 +689,7 @@ export interface RootRouteChildren {
   AiTextToVideoRoute: typeof AiTextToVideoRoute
   AiToolsRoute: typeof AiToolsRoute
   AiUgcGeneratorRoute: typeof AiUgcGeneratorRoute
+  AiUrlToVideoRoute: typeof AiUrlToVideoRoute
   AiVideoGeneratorRoute: typeof AiVideoGeneratorRoute
   AiVirtualTryOnRoute: typeof AiVirtualTryOnRoute
   AiVoiceGeneratorRoute: typeof AiVoiceGeneratorRoute
@@ -813,6 +826,13 @@ declare module '@tanstack/react-router' {
       path: '/ai-ugc-generator'
       fullPath: '/ai-ugc-generator'
       preLoaderRoute: typeof AiUgcGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-url-to-video': {
+      id: '/ai-url-to-video'
+      path: '/ai-url-to-video'
+      fullPath: '/ai-url-to-video'
+      preLoaderRoute: typeof AiUrlToVideoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-video-generator': {
@@ -1136,6 +1156,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiTextToVideoRoute: AiTextToVideoRoute,
   AiToolsRoute: AiToolsRoute,
   AiUgcGeneratorRoute: AiUgcGeneratorRoute,
+  AiUrlToVideoRoute: AiUrlToVideoRoute,
   AiVideoGeneratorRoute: AiVideoGeneratorRoute,
   AiVirtualTryOnRoute: AiVirtualTryOnRoute,
   AiVoiceGeneratorRoute: AiVoiceGeneratorRoute,
