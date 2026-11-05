@@ -27,6 +27,22 @@ const featuredPages = [
   { to: "/ai-voice-generator", label: "Voiceover & Voice Clone" },
   { to: "/realtime-voice-chat", label: "Realtime Voice Chat" },
   { to: "/ai-transcription", label: "AI Transcription" },
+  { to: "/ai-crm", label: "AI CRM" },
+  { to: "/ai-social-media-agent", label: "Social Media Agent" },
+  { to: "/ai-blogger-agent", label: "Blogger Agent" },
+  { to: "/ai-dm-comment-agent", label: "DM & Comment Agent" },
+  { to: "/ai-chat", label: "AI Chat Pro" },
+  { to: "/ai-deep-research", label: "Deep Research" },
+  { to: "/ai-council-mode", label: "Council Mode" },
+  { to: "/ai-video-agent", label: "AI Video Agent" },
+  { to: "/ai-video-editor", label: "AI Video Editor" },
+  { to: "/ai-dubbing", label: "AI Dubbing" },
+  { to: "/viral-clips", label: "Viral Clips" },
+  { to: "/ai-video-enhancer", label: "Video Enhancer" },
+  { to: "/ai-presentation-maker", label: "Presentation Maker" },
+  { to: "/ai-seo-analyzer", label: "SEO Analyzer" },
+  { to: "/ai-document-analyzer", label: "Document Analyzer" },
+  { to: "/ai-code-generator", label: "Code Generator" },
 ] as const;
 
 export function Wordmark({ className }: { className?: string }) {

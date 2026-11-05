@@ -25,3 +25,4 @@
 - New flagship pages use the shared FlagshipVideoHero (clips bundled in public/media) and FlagshipToolSections so headers stay consistent and every page keeps complete search sections.
 - Voice-tool workflow viewers share VoiceToolWorkflow and local verified steps to keep interaction consistent without loading the entire tutorial catalogue.
 - Preserve Fashion Studio's original tool URL with a permanent redirect to its dedicated flagship page so catalogue links and existing bookmarks open the same current experience.
+- Catalogue tools upgraded in bulk use CatalogFlagshipPage with route-local plan notes and brief rows, so pages stay consistent and keep complete catalogue content.

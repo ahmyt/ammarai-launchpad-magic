@@ -9,6 +9,7 @@ import { FlagshipVideoHero } from "@/components/site/FlagshipVideoHero";
 import { FlagshipToolSections } from "@/components/site/FlagshipToolSections";
 import { REGISTER_URL } from "@/lib/site";
 import type { Faq, Tool } from "@/data/types";
+import { toolSummaryBySlug } from "@/data/tools-lite";
 
 export type BriefRows = Record<string, readonly string[]>;
 
@@ -19,7 +20,7 @@ export type CatalogFlagshipConfig = {
   planNote: string;
   pricing: { title: string; body: string };
   tutorial: { slug: string; label: string };
-  next: { slug: string; name: string; body: string }[];
+  next?: { slug: string; name: string; body: string }[];
   moreFaqs?: Faq[];
   brief: { title: string; intro: string; rows: BriefRows; build: (pick: Record<string, string>) => string };
 };
@@ -129,7 +130,7 @@ export function CatalogFlagshipPage(c: CatalogFlagshipConfig) {
         </Container>
       </Section>
 
-      <FlagshipToolSections tool={tool} faqs={[...(tool.faqs ?? []), ...(c.moreFaqs ?? [])]} next={c.next} tutorial={c.tutorial} pricing={c.pricing} />
+      <FlagshipToolSections tool={tool} faqs={[...(tool.faqs ?? []), ...(c.moreFaqs ?? [])]} next={c.next ?? tool.related.flatMap((r) => { const t = toolSummaryBySlug.get(r); return t ? [{ slug: t.slug, name: t.name, body: t.summary }] : []; }).slice(0, 4)} tutorial={c.tutorial} pricing={c.pricing} />
     </>
   );
 }

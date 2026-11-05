@@ -1,6 +1,11 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 # Roadmap
 
+## Remaining 16 business, chat, video and content tool pages (2026-11-05)
+- [x] Upgrade all 16 existing addresses with moving headers, step viewer, before/after, brief builder and full catalogue guidance
+- [x] Verified all 16 open on phone with playing header, working tabs, no overflow or errors
+- [ ] 12 headers reuse real product footage; new custom clips wait on workspace video credits
+
 ## Realtime Voice Chat and Transcription flagship pages (2026-11-05)
 - [x] Upgrade both existing addresses with moving headers, verified workflows, existing audio examples and complete catalogue guidance
 - [x] Verify header and four audio recordings, workflow tabs, enlarged screenshot, copied request and excerpt search on desktop and phone; no overflow or browser errors
