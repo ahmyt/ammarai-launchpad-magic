@@ -214,6 +214,26 @@ function ClinicPage() {
         </Container>
       </Section>
 
+      <Section>
+        <Container>
+          <SectionHeading eyebrow="Calendar & practice software" title="Works with the schedule you already use" intro="No server changes and no new system for your team to learn." />
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {[
+              { n: "01", title: "Google Calendar & Outlook", body: "Two-way sync with Google Calendar, Outlook / Microsoft 365 and Apple Calendar. The agent only offers open times, so it never double-books." },
+              { n: "02", title: "Dentrix, Eaglesoft & on-site systems", body: "Your front desk gets an instant text and email with the patient's name, phone, visit reason and time, ready to enter in seconds." },
+              { n: "03", title: "Cloud practice software", body: "Bookings can be sent to cloud systems such as Athenahealth, Kareo (Tebra) or Jane App through Zapier or webhooks, set up during onboarding." },
+            ].map((it) => (
+              <Card key={it.n} className="restaurant-lift p-5">
+                <p className="text-xs font-semibold text-muted-foreground tabular-nums">{it.n}</p>
+                <h3 className="mt-1 text-base font-semibold text-foreground">{it.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.body}</p>
+              </Card>
+            ))}
+          </div>
+          <p className="mt-6 text-xs leading-relaxed text-muted-foreground">Direct practice-software connections depend on the system you use. Sending patient details through Zapier requires a plan that supports a signed BAA.</p>
+        </Container>
+      </Section>
+
       <Section tone="sand">
         <Container>
           <SectionHeading eyebrow="Monday 8 am" title="Your busiest hour, before and after" intro="Switch between the two to see what changes at the front desk." />
