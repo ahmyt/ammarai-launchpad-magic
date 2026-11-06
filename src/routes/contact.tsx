@@ -20,8 +20,14 @@ const fieldClass =
 
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },
-  validateSearch: (s: Record<string, unknown>): { topic?: "restaurant" | "clinic" } =>
-    s["topic"] === "restaurant" ? { topic: "restaurant" } : s["topic"] === "clinic" ? { topic: "clinic" } : {},
+  validateSearch: (s: Record<string, unknown>): { topic?: "restaurant" | "clinic" | "phone-agent" } =>
+    s["topic"] === "restaurant"
+      ? { topic: "restaurant" }
+      : s["topic"] === "clinic"
+        ? { topic: "clinic" }
+        : s["topic"] === "phone-agent"
+          ? { topic: "phone-agent" }
+          : {},
   loader: ({ context }) => context.queryClient.prefetchQuery(siteContentQuery),
   head: () => ({
     meta: [
@@ -125,6 +131,7 @@ function Contact() {
   const topic = Route.useSearch().topic;
   const isRestaurant = topic === "restaurant";
   const isClinic = topic === "clinic";
+  const isPhoneAgent = topic === "phone-agent";
   const [sent, setSent] = useState(false);
   const [confirmationSent, setConfirmationSent] = useState(true);
   const [sending, setSending] = useState(false);
@@ -226,7 +233,16 @@ function Contact() {
                                 "",
                                 String(data.get("message") ?? "").trim() || "(no extra notes)",
                               ].join("\n")
-                            : String(data.get("message") ?? ""),
+                            : isPhoneAgent
+                              ? [
+                                  "[AI Phone Agent inquiry]",
+                                  `Business: ${String(data.get("business") ?? "").trim()}`,
+                                  `Industry: ${String(data.get("industry") ?? "").trim()}`,
+                                  `Main need: ${String(data.get("need") ?? "").trim()}`,
+                                  "",
+                                  String(data.get("message") ?? "").trim() || "(no extra notes)",
+                                ].join("\n")
+                              : String(data.get("message") ?? ""),
                           company: String(data.get("company") ?? ""),
                           elapsedMs: Date.now() - startedAt,
                           captchaToken: captchaToken ?? "",
@@ -350,15 +366,44 @@ function Contact() {
                       </div>
                     </fieldset>
                   ) : null}
+                  {isPhoneAgent ? (
+                    <fieldset className="flex flex-col gap-4 rounded-md border border-border p-4">
+                      <legend className="px-1 text-xs font-semibold text-foreground">
+                        AI Phone Agent for your business
+                      </legend>
+                      <div>
+                        <label htmlFor="business" className="text-xs font-semibold text-foreground">Business name and city</label>
+                        <input id="business" name="business" required maxLength={150} className={fieldClass} />
+                      </div>
+                      <div>
+                        <label htmlFor="industry" className="text-xs font-semibold text-foreground">Industry</label>
+                        <select id="industry" name="industry" required defaultValue="" className={fieldClass}>
+                          <option value="" disabled>Choose your industry</option>
+                          {["Home services (plumbing, HVAC, electrical)", "Salon / spa / barbershop", "Legal / accounting / professional services", "Real estate / property management", "Auto repair / towing", "Retail / e-commerce", "Other"].map((p) => (
+                            <option key={p} value={p}>{p}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label htmlFor="need" className="text-xs font-semibold text-foreground">What do you need the agent to handle?</label>
+                        <select id="need" name="need" required defaultValue="" className={fieldClass}>
+                          <option value="" disabled>Choose the main job</option>
+                          {["After-hours & weekend answering", "Overflow calls when lines are busy", "24/7 front-desk receptionist & appointment booking", "Lead qualification & call-back scheduling", "A mix of the above"].map((p) => (
+                            <option key={p} value={p}>{p}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </fieldset>
+                  ) : null}
                   <div>
                     <label htmlFor="message" className="text-xs font-semibold text-foreground">
-                      {isRestaurant ? "Anything else we should know? (call volume, hours, menu link)" : isClinic ? "Anything else? (daily call volume, hours, what callers ask most)" : "What are you working on?"}
+                      {isRestaurant ? "Anything else we should know? (call volume, hours, menu link)" : isClinic ? "Anything else? (daily call volume, hours, what callers ask most)" : isPhoneAgent ? "Anything else? (daily call volume, hours, what callers ask most)" : "What are you working on?"}
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={5}
-                      required={!isRestaurant && !isClinic}
+                      required={!isRestaurant && !isClinic && !isPhoneAgent}
                       maxLength={4000}
                       className={fieldClass}
                     />
