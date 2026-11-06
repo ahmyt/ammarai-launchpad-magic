@@ -161,7 +161,7 @@ const SKIP_PATH_RE =
   /^\/(admin|auth|api|cdn-cgi|assets|fonts|media|_build|_serverFn|favicon|robots\.txt|sitemap\.xml|llms\.txt)/;
 
 const CRAWLER_RE =
-  /(googlebot|bingbot|google-inspectiontool|duckduckbot|yandexbot|baiduspider|slurp|applebot|petalbot|ahrefsbot|semrushbot|lighthouse|chrome-lighthouse|pagespeed|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot)/i;
+  /(googlebot|adsbot|mediapartners-google|google-adwords|googleother|google-read-aloud|google-safety|storebot-google|apis-google|bingbot|google-inspectiontool|duckduckbot|yandexbot|baiduspider|slurp|applebot|petalbot|ahrefsbot|semrushbot|lighthouse|chrome-lighthouse|pagespeed|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot)/i;
 
 function clientIp(request: Request): string {
   const forwarded = request.headers.get("x-forwarded-for");
