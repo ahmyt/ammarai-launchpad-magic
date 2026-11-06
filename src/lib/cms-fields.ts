@@ -303,6 +303,13 @@ const pageSettingsFields: FieldSpec[] = [
     item: S("Country code"),
   },
   {
+    name: "geoBlockStates",
+    label: "Country filter: blocked states / regions",
+    type: "json",
+    hint: "Always blocked, in either mode. Country + state code, e.g. US-CA, US-TX, CA-ON. About 85-90% accurate on mobile networks.",
+    item: S("State code"),
+  },
+  {
     name: "geoBlockTitle",
     label: "Country filter: maintenance page heading",
     type: "text",

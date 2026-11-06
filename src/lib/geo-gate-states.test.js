@@ -1,0 +1,10 @@
+import { expect, test } from "vitest";
+import { evaluateGeoGate, parseRememberedGeo, ipFingerprint, toStateList } from "./geo-gate.server";
+const cfg = { enabled: true, mode: "block", countries: [], states: ["US-CA"], title: "t", message: "m", bypassKey: "", cacheMs: 1, blockVpn: false };
+const req = () => new Request("https://ammarai.com/pricing");
+test("California visitor blocked", () => expect(evaluateGeoGate(req(), cfg, "US", false, "CA")?.status).toBe(503));
+test("Texas visitor passes", () => expect(evaluateGeoGate(req(), cfg, "US", false, "TX")).toBeNull());
+test("unknown region passes", () => expect(evaluateGeoGate(req(), cfg, "US", false, "")).toBeNull());
+test("states-only allow mode does not block everyone", () => expect(evaluateGeoGate(req(), { ...cfg, mode: "allow" }, "GB", false, "ENG")).toBeNull());
+test("state codes normalised", () => expect(toStateList(["us ca", "US_TX", "bad"])).toEqual(["US-CA", "US-TX"]));
+test("cookie remembers region", () => expect(parseRememberedGeo(`ammarai_cc=US~CA.${ipFingerprint("8.8.4.4")}`, "8.8.4.4")?.region).toBe("CA"));
