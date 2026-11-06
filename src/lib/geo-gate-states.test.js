@@ -1,4 +1,4 @@
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 import { evaluateGeoGate, parseRememberedGeo, ipFingerprint, toStateList } from "./geo-gate.server";
 const cfg = { enabled: true, mode: "block", countries: [], states: ["US-CA"], title: "t", message: "m", bypassKey: "", cacheMs: 1, blockVpn: false };
 const req = () => new Request("https://ammarai.com/pricing");

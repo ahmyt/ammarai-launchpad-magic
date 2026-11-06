@@ -328,7 +328,7 @@ export function parseRememberedGeo(cookieHeader: string, ip: string): GeoInfo | 
   const match = cookieHeader.match(REMEMBERED_RE);
   if (!match?.[1] || !ip || PRIVATE_IP_RE.test(ip)) return null;
   if (match[4] !== ipFingerprint(ip)) return null;
-  return { country: match[1], region: match[3] ?? "", vpn: Boolean(match[2]) };
+  return match[3] ? { country: match[1], region: match[3], vpn: Boolean(match[2]) } : { country: match[1], vpn: Boolean(match[2]) };
 }
 
 /** Own servers (e.g. the app.ammarai.com Plesk host) always pass the gate. */
