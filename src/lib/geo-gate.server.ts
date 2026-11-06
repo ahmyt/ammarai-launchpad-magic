@@ -57,7 +57,7 @@ let settingsInFlight: Promise<void> | null = null;
 interface GeoInfo {
   country: string;
   /** Region/state code within the country (e.g. "CA"), empty when unknown. */
-  region?: string;
+  region?: string | undefined;
   /** True when the IP belongs to a VPN, proxy or hosting/datacenter network. */
   vpn: boolean;
 }
