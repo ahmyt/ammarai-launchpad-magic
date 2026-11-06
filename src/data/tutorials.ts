@@ -3665,7 +3665,7 @@ export const tutorials: Tutorial[] = [
     ],
     relatedTools: ["ai-video-generator", "ai-avatar-generator", "ai-video-editor"],
     relatedTutorials: ["how-to-edit-videos-automatically-with-a-prompt", "how-to-create-ai-influencer-videos"],
-    cta: { toolName: "AI Video Pro", toolSlug: "ai-video-generator" },
+    cta: { toolName: "AI Video Agent", toolSlug: "ai-video-agent" },
   },
   {
     slug: "how-to-edit-videos-automatically-with-a-prompt",
