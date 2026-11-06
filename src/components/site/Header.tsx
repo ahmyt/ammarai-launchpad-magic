@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Moon, Sun } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { primaryNav, SITE, REGISTER_URL, LOGIN_URL } from "@/lib/site";
 import { siteContentQuery } from "@/lib/content";
 import { ActionButton, ExternalButton } from "./Button";
@@ -45,6 +46,26 @@ const featuredPages = [
   { to: "/ai-code-generator", label: "Code Generator" },
 ] as const;
 
+const mobileToolGroups = [
+  { label: "AI Phone & Agents", paths: ["/restaurant-phone-ordering", "/clinic-phone-agent", "/ai-phone-agent", "/ai-agent-builder", "/ai-crm", "/ai-social-media-agent", "/ai-blogger-agent", "/ai-dm-comment-agent"] },
+  { label: "Video Studio", paths: ["/ai-video-agent", "/ai-video-generator", "/ai-avatar-generator", "/ai-ugc-generator", "/ai-url-to-video", "/ai-video-editor", "/ai-dubbing", "/viral-clips", "/ai-video-enhancer"] },
+  { label: "Images & Design", paths: ["/ai-image-generator", "/ai-fashion-studio", "/ai-presentation-maker"] },
+  { label: "Audio & Voice", paths: ["/ai-voice-generator", "/ai-music-generator", "/realtime-voice-chat", "/ai-transcription"] },
+  { label: "Chat, Content & Research", paths: ["/ai-writer", "/ai-chat", "/ai-smart-inbox", "/ai-deep-research", "/ai-council-mode", "/ai-seo-analyzer", "/ai-document-analyzer", "/ai-code-generator"] },
+] as const;
+
+const mobileResourcePages = [
+  { to: "/pricing", label: "Pricing & Plans" },
+  { to: "/use-cases", label: "Use Cases" },
+  { to: "/features", label: "Features" },
+  { to: "/tutorials", label: "Step-by-Step Tutorials" },
+  { to: "/resources", label: "Resources Hub" },
+  { to: "/blog", label: "Blog" },
+  { to: "/faq", label: "FAQ" },
+  { to: "/about", label: "About Us" },
+  { to: "/contact", label: "Contact & Support" },
+] as const;
+
 export function Wordmark({ className }: { className?: string }) {
   return (
     <span className="flex items-center gap-1.5">
@@ -69,6 +90,7 @@ export function Wordmark({ className }: { className?: string }) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
   const { theme, toggleTheme } = useTheme();
   const { data: content } = useSuspenseQuery(siteContentQuery);
   const settings = content.pages.find((p) => p.slug === "settings");
@@ -79,7 +101,12 @@ export function Header() {
     : primaryNav.filter((item) => item.to !== "/tutorials");
 
   return (
-    <header className="site-header sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
+    <header className="site-header sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur" onKeyDown={(event) => {
+      if (event.key === "Escape" && open) {
+        setOpen(false);
+        menuToggleRef.current?.focus();
+      }
+    }}>
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8">
         <Link to="/" aria-label={`${SITE.name} home`} className="flex items-baseline gap-2">
           <Wordmark />
@@ -179,66 +206,58 @@ export function Header() {
           ) : null}
 
           <ActionButton
+            ref={menuToggleRef}
             type="button"
             variant="outline"
             size="sm"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
+            aria-controls="mobile-navigation"
             aria-label="Toggle navigation menu"
             className="site-menu-toggle size-10 p-0"
           >
-            <span aria-hidden="true" className="text-lg leading-none">
-              {open ? "×" : "≡"}
-            </span>
+            {open ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
           </ActionButton>
         </div>
       </div>
 
       {open ? (
-        <div className="site-mobile-menu border-t border-border bg-background md:hidden">
+        <div id="mobile-navigation" className="site-mobile-menu border-t border-border bg-background md:hidden">
           <nav aria-label="Mobile" className="mx-auto flex max-w-6xl flex-col px-5 py-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className="border-b border-border py-3 text-sm font-medium text-foreground last:border-0"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="grid grid-cols-2 gap-2 border-b border-border py-4">
-              {pillarOrder.map((pillar) => (
-                <Link key={pillar} to="/ai-tools" search={{ pillar }} onClick={() => setOpen(false)} className="text-xs font-semibold text-accent">
-                  {pillar} tools
-                </Link>
-              ))}
-            </div>
-            <p className="eyebrow pt-5">Featured tool pages</p>
-            <div className="grid grid-cols-2 gap-x-4 border-b border-border pb-4">
-              {featuredPages.map((f) => (
-                <Link key={f.to} to={f.to} onClick={() => setOpen(false)} className="py-2.5 text-sm font-medium normal-case tracking-normal text-foreground hover:text-accent">
-                  {f.label}
-                </Link>
-              ))}
-            </div>
-            <div className="flex items-center gap-3 pt-4">
+            <div className="grid grid-cols-2 gap-3 border-b border-border pb-4">
+              <ExternalButton href={LOGIN_URL} variant="outline" size="sm" onClick={() => setOpen(false)}>Login</ExternalButton>
               <ExternalButton
                 href={REGISTER_URL}
                 variant="primary"
                 size="sm"
                 onClick={() => setOpen(false)}
               >
-                Start Creating Free
+                Start Free
               </ExternalButton>
-              <a
-                href={LOGIN_URL}
-                onClick={() => setOpen(false)}
-                className="text-sm font-medium text-muted-foreground"
-              >
-                Login
-              </a>
             </div>
+            <Accordion type="single" collapsible className="mobile-nav-groups">
+              {mobileToolGroups.map((group) => (
+                <AccordionItem key={group.label} value={group.label} className="border-border">
+                  <AccordionTrigger className="min-h-14 gap-3 font-semibold hover:no-underline">{group.label}</AccordionTrigger>
+                  <AccordionContent className="flex flex-col pb-3">
+                    {group.paths.map((path) => featuredPages.find((page) => page.to === path)).map((page) => page ? (
+                      <Link key={page.to} to={page.to} onClick={() => setOpen(false)} className="mobile-nav-link" activeProps={{ className: "text-accent" }}>{page.label}</Link>
+                    ) : null)}
+                    {group.label === "Chat, Content & Research" ? <>
+                      <Link to="/ai-models" onClick={() => setOpen(false)} className="mobile-nav-link">AI Models Comparison</Link>
+                      <Link to="/ai-tools" onClick={() => setOpen(false)} className="mobile-nav-link">Full AI Tools Directory</Link>
+                      {pillarOrder.map((pillar) => <Link key={pillar} to="/ai-tools" search={{ pillar }} onClick={() => setOpen(false)} className="mobile-nav-link text-muted-foreground">{pillar} tools</Link>)}
+                    </> : null}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+              <AccordionItem value="resources" className="border-border">
+                <AccordionTrigger className="min-h-14 gap-3 font-semibold hover:no-underline">Resources & Company</AccordionTrigger>
+                <AccordionContent className="flex flex-col pb-3">
+                  {mobileResourcePages.filter((page) => showTutorials || page.to !== "/tutorials").map((page) => <Link key={page.to} to={page.to} onClick={() => setOpen(false)} className="mobile-nav-link" activeProps={{ className: "text-accent" }}>{page.label}</Link>)}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </nav>
         </div>
       ) : null}
