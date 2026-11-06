@@ -293,7 +293,7 @@ function PhoneAgentPage() {
             </ul>
             <p className="mt-4 text-pretty text-sm leading-relaxed opacity-80">The phone agent is included from the {ultimate?.name ?? "Ultimate"} plan at {ultimate?.price ?? "$129.99"}/month with 120 minutes; {voiceScale?.name ?? "Voice Scale"} raises it to 800 minutes and adds automated follow-up calls. Tell us about your business, call volume and calendar, and we reply by email within one business day with a setup plan.</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink to="/contact" search={{ topic: "phone-agent" }} variant="onInk" size="lg">Request a phone agent demo</ButtonLink>
+              <ButtonLink to="/contact" search={(prev) => ({ ...prev, topic: "phone-agent" })} variant="onInk" size="lg">Request a phone agent demo</ButtonLink>
               <ButtonLink to="/restaurant-phone-ordering" variant="outline" size="lg" className="text-ink-foreground">See the restaurant ordering agent</ButtonLink>
             </div>
           </div>
