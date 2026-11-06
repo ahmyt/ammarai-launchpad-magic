@@ -113,6 +113,7 @@ export const pages: Page[] = [
     geoBlockEnabled: false,
     geoBlockMode: "block",
     geoBlockCountries: [],
+    geoBlockStates: [],
     geoBlockTitle: "AmmarAI is temporarily unavailable in your region",
     geoBlockMessage:
       "We are carrying out scheduled maintenance for visitors in your country. Please check back shortly \u2014 everything will be back to normal soon.",

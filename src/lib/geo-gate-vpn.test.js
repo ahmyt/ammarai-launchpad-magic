@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 import { ALLOWED_SERVER_IPS, evaluateGeoGate, ipFingerprint, isVpnNetwork, parseRememberedGeo } from "./geo-gate.server";
-const cfg = { enabled: true, mode: "block", countries: ["GB"], title: "t", message: "m", bypassKey: "", cacheMs: 1, blockVpn: true };
+const cfg = { enabled: true, mode: "block", countries: ["GB"], states: [], title: "t", message: "m", bypassKey: "", cacheMs: 1, blockVpn: true };
 const req = (cookie = "", ua = "Mozilla") => new Request("https://ammarai.com/pricing", { headers: { cookie, "user-agent": ua } });
 test("vpn ip blocked when on", () => expect(evaluateGeoGate(req(), cfg, "US", true)?.status).toBe(503));
 test("vpn ip passes when off", () => expect(evaluateGeoGate(req(), { ...cfg, blockVpn: false }, "US", true)).toBeNull());

@@ -19,6 +19,8 @@ export interface GeoGateSettings {
   /** "block" = deny the listed countries, "allow" = deny everything else. */
   mode: "block" | "allow";
   countries: string[];
+  /** Always-blocked states/regions as COUNTRY-REGION codes, e.g. US-CA. */
+  states: string[];
   title: string;
   message: string;
   bypassKey: string;
@@ -36,6 +38,7 @@ const DEFAULTS: GeoGateSettings = {
   enabled: false,
   mode: "block",
   countries: [],
+  states: [],
   title: "AmmarAI is temporarily unavailable in your region",
   message:
     "We are carrying out scheduled maintenance for visitors in your country. Please check back shortly — everything will be back to normal soon.",
@@ -53,6 +56,8 @@ let settingsInFlight: Promise<void> | null = null;
 
 interface GeoInfo {
   country: string;
+  /** Region/state code within the country (e.g. "CA"), empty when unknown. */
+  region?: string | undefined;
   /** True when the IP belongs to a VPN, proxy or hosting/datacenter network. */
   vpn: boolean;
 }
@@ -92,11 +97,21 @@ function cacheHours(value: unknown): number {
   return Math.min(MAX_CACHE_HOURS, Math.max(MIN_CACHE_HOURS, parsed));
 }
 
+/** Normalises "US-CA", "us ca" or "US_CA" to "US-CA"; drops anything else. */
+export function toStateList(value: unknown): string[] {
+  const raw = Array.isArray(value) ? value : typeof value === "string" ? value.split(/[,;\n]+/) : [];
+  return raw
+    .map((entry) => String(entry).trim().toUpperCase().replace(/[\s_]+/g, "-"))
+    .filter((entry) => /^[A-Z]{2}-[A-Z0-9]{1,3}$/.test(entry));
+}
+
 function normalise(data: Record<string, unknown> | undefined): GeoGateSettings {
   if (!data) return DEFAULTS;
   const countries = toList(data["geoBlockCountries"]);
+  const states = toStateList(data["geoBlockStates"]);
   return {
-    enabled: data["geoBlockEnabled"] === true && countries.length > 0,
+    enabled: data["geoBlockEnabled"] === true && (countries.length > 0 || states.length > 0),
+    states,
     mode: data["geoBlockMode"] === "allow" ? "allow" : "block",
     countries,
     title: String(data["geoBlockTitle"] ?? "").trim() || DEFAULTS.title,
@@ -179,7 +194,7 @@ function headerCountry(request: Request): string {
 function cachedGeo(ip: string): GeoInfo | null {
   if (!ip || PRIVATE_IP_RE.test(ip)) return null;
   const hit = geoCache.get(ip);
-  return hit && hit.country ? { country: hit.country, vpn: hit.vpn } : null;
+  return hit && hit.country ? { country: hit.country, region: hit.region, vpn: hit.vpn } : null;
 }
 
 function cachedCountry(ip: string): string {
@@ -207,17 +222,19 @@ async function fetchCountry(url: string, json = false): Promise<string> {
 async function fetchIpWho(ip: string): Promise<GeoInfo | null> {
   try {
     const response = await fetch(
-      `https://ipwho.is/${encodeURIComponent(ip)}?fields=country_code,connection`,
+      `https://ipwho.is/${encodeURIComponent(ip)}?fields=country_code,region_code,connection`,
       { headers: { accept: "application/json", "user-agent": "ammarai-geo-gate" }, signal: AbortSignal.timeout(1400) },
     );
     if (!response.ok) return null;
     const body = (await response.json()) as {
       country_code?: unknown;
+      region_code?: unknown;
       connection?: { org?: unknown; isp?: unknown; domain?: unknown };
     };
     const country = String(body.country_code ?? "").trim().toUpperCase();
     if (!/^[A-Z]{2}$/.test(country)) return null;
-    return { country, vpn: isVpnNetwork(body.connection) };
+    const region = String(body.region_code ?? "").trim().toUpperCase();
+    return { country, region: /^[A-Z0-9]{1,3}$/.test(region) ? region : "", vpn: isVpnNetwork(body.connection) };
   } catch {
     return null;
   }
@@ -254,8 +271,20 @@ function resolveCountry(ip: string): Promise<GeoInfo> {
   return lookup;
 }
 
+function headerRegion(request: Request): string {
+  const code = (request.headers.get("cf-region-code") ?? request.headers.get("x-vercel-ip-country-region") ?? "").trim().toUpperCase();
+  return /^[A-Z0-9]{1,3}$/.test(code) ? code : "";
+}
+
+/** True when the visitor's country-region pair is on the blocked states list. */
+export function isStateBlocked(country: string, region: string | undefined, config: GeoGateSettings): boolean {
+  if (!country || !region || !config.states?.length) return false;
+  return config.states.includes(`${country}-${region}`);
+}
+
 function isBlocked(country: string, config: GeoGateSettings): boolean {
   if (!country) return false; // unknown country always passes
+  if (!config.countries.length) return false; // states-only setup
   const listed = config.countries.includes(country);
   return config.mode === "allow" ? !listed : listed;
 }
@@ -288,7 +317,7 @@ export function ipFingerprint(ip: string): string {
   return hash.toString(16).padStart(8, "0");
 }
 
-const REMEMBERED_RE = /ammarai_cc=([A-Z]{2}|XX)(-V)?(?:\.([0-9a-f]{8}))?\b/;
+const REMEMBERED_RE = /ammarai_cc=([A-Z]{2}|XX)(-V)?(?:~([A-Z0-9]{1,3}))?(?:\.([0-9a-f]{8}))?\b/;
 
 /**
  * Trust the remember cookie only when it carries a fingerprint of the
@@ -298,8 +327,8 @@ const REMEMBERED_RE = /ammarai_cc=([A-Z]{2}|XX)(-V)?(?:\.([0-9a-f]{8}))?\b/;
 export function parseRememberedGeo(cookieHeader: string, ip: string): GeoInfo | null {
   const match = cookieHeader.match(REMEMBERED_RE);
   if (!match?.[1] || !ip || PRIVATE_IP_RE.test(ip)) return null;
-  if (match[3] !== ipFingerprint(ip)) return null;
-  return { country: match[1], vpn: Boolean(match[2]) };
+  if (match[4] !== ipFingerprint(ip)) return null;
+  return match[3] ? { country: match[1], region: match[3], vpn: Boolean(match[2]) } : { country: match[1], vpn: Boolean(match[2]) };
 }
 
 /** Own servers (e.g. the app.ammarai.com Plesk host) always pass the gate. */
@@ -334,8 +363,11 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
   // networks or turning on a VPN changes the IP, so the old pass is never
   // trusted and the visitor is re-checked immediately.
   let info: GeoInfo | null = parseRememberedGeo(cookies, ip);
+  // Cookies issued before state filtering carry no region; re-check them.
+  if (info && config.states.length && !info.region) info = null;
   const header = headerCountry(request);
-  if (header && !config.blockVpn) info = { country: header, vpn: false };
+  const hRegion = headerRegion(request);
+  if (header && !config.blockVpn && (!config.states.length || hRegion)) info = { country: header, region: hRegion, vpn: false };
   let fresh = false;
   if (!info) {
     info = cachedGeo(ip);
@@ -344,14 +376,14 @@ export async function geoMaintenanceResponse(request: Request): Promise<{ block:
       // the same decision on the first request and every refresh after it.
       info = await resolveCountry(ip);
     }
-    if (info && header) info = { ...info, country: header };
+    if (info && header) info = { ...info, country: header, region: hRegion || (info.country === header ? info.region : "") };
     fresh = true;
   }
   const country = info?.country ?? "";
-  const response = evaluateGeoGate(request, config, country === "XX" ? "" : country, info?.vpn ?? false);
+  const response = evaluateGeoGate(request, config, country === "XX" ? "" : country, info?.vpn ?? false, info?.region ?? "");
   if (!fresh || !country) return { block: response, cookie: null };
   const maxAge = Math.round(config.cacheMs / 1000);
-  const value = `${country}${info?.vpn ? "-V" : ""}.${ipFingerprint(ip)}`;
+  const value = `${country}${info?.vpn ? "-V" : ""}${info?.region ? `~${info.region}` : ""}.${ipFingerprint(ip)}`;
   const cookie = `${COUNTRY_COOKIE}=${value}; Path=/; Max-Age=${maxAge}; HttpOnly; Secure; SameSite=Lax`;
   if (response) response.headers.append("set-cookie", cookie);
   return { block: response, cookie };
@@ -363,6 +395,7 @@ export function evaluateGeoGate(
   config: GeoGateSettings,
   knownCountry?: string,
   vpn = false,
+  region = "",
 ): Response | null {
   if (!config.enabled) return null;
 
@@ -386,6 +419,7 @@ export function evaluateGeoGate(
   try { tzCountry = tzRaw ? (TIMEZONE_COUNTRY[decodeURIComponent(tzRaw)] ?? "") : ""; } catch { /* Ignore malformed cookies. */ }
   const blocked =
     isBlocked(country, config) ||
+    isStateBlocked(country, region || headerRegion(request), config) ||
     (config.blockVpn && vpn) ||
     (config.blockVpn && tzCountry !== "" && config.mode === "block" && isBlocked(tzCountry, config));
   if (!blocked) return null;

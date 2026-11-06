@@ -210,6 +210,8 @@ export interface Page {
   geoBlockMode?: string;
   /** Two-letter country codes, e.g. US, GB, DE */
   geoBlockCountries?: string[];
+  /** Blocked states/regions, e.g. US-CA */
+  geoBlockStates?: string[];
   /** Heading on the maintenance page */
   geoBlockTitle?: string;
   /** Message on the maintenance page */
