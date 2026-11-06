@@ -341,7 +341,12 @@ function Contact() {
                       </div>
                       <div>
                         <label htmlFor="scheduler" className="text-xs font-semibold text-foreground">Scheduling or calendar system (optional)</label>
-                        <input id="scheduler" name="scheduler" maxLength={150} placeholder="e.g. Google Calendar, Dentrix, Jane" className={fieldClass} />
+                        <select id="scheduler" name="scheduler" defaultValue="" className={fieldClass}>
+                          <option value="">Choose your system</option>
+                          {["Google Calendar / Google Workspace", "Microsoft Outlook / Office 365", "Dentrix", "Eaglesoft", "Open Dental / Curve Dental", "Athenahealth", "Kareo (Tebra)", "Jane App / SimplePractice", "eClinicalWorks", "Other / not sure"].map((s) => (
+                            <option key={s} value={s}>{s}</option>
+                          ))}
+                        </select>
                       </div>
                     </fieldset>
                   ) : null}
