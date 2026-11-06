@@ -1,4 +1,5 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
+- [x] Organize mobile navigation into six collapsible categories with top Login/Start Free actions; verified all 32 tools plus directory/models and 9 main pages, single-open groups, link closing, Escape, 320/411/767px layouts and unchanged desktop; no runtime errors.
 # Roadmap
 
 ## Remaining 16 business, chat, video and content tool pages (2026-11-05)
