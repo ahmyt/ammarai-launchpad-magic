@@ -20,8 +20,14 @@ const fieldClass =
 
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },
-  validateSearch: (s: Record<string, unknown>): { topic?: "restaurant" | "clinic" } =>
-    s["topic"] === "restaurant" ? { topic: "restaurant" } : s["topic"] === "clinic" ? { topic: "clinic" } : {},
+  validateSearch: (s: Record<string, unknown>): { topic?: "restaurant" | "clinic" | "phone-agent" } =>
+    s["topic"] === "restaurant"
+      ? { topic: "restaurant" }
+      : s["topic"] === "clinic"
+        ? { topic: "clinic" }
+        : s["topic"] === "phone-agent"
+          ? { topic: "phone-agent" }
+          : {},
   loader: ({ context }) => context.queryClient.prefetchQuery(siteContentQuery),
   head: () => ({
     meta: [
@@ -125,6 +131,7 @@ function Contact() {
   const topic = Route.useSearch().topic;
   const isRestaurant = topic === "restaurant";
   const isClinic = topic === "clinic";
+  const isPhoneAgent = topic === "phone-agent";
   const [sent, setSent] = useState(false);
   const [confirmationSent, setConfirmationSent] = useState(true);
   const [sending, setSending] = useState(false);
