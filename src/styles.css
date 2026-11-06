@@ -6234,6 +6234,12 @@ body:has(.home-swiss-dark) .site-footer {
   isolation: isolate;
   color: var(--ink-foreground);
   background: var(--ink);
+  max-width: 100rem;
+  margin-inline: auto;
+}
+@media (min-width: 1600px) {
+  .restaurant-hero { min-height: 34rem; display: flex; align-items: center; }
+  .restaurant-hero > .relative { width: 100%; }
 }
 .restaurant-hero::after {
   position: absolute;
