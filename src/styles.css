@@ -177,11 +177,12 @@ body:has(.home-premium) .site-footer .font-display {
   letter-spacing: 0;
 }
 
-body:has(.home-premium) .site-header nav a {
+/* Desktop primary nav only: the mobile menu's nav must not inherit the accent underline. */
+body:has(.home-premium) .site-header nav[aria-label="Primary"] a {
   position: relative;
 }
 
-body:has(.home-premium) .site-header nav a::after {
+body:has(.home-premium) .site-header nav[aria-label="Primary"] a::after {
   position: absolute;
   right: 0;
   bottom: -0.45rem;
@@ -193,7 +194,7 @@ body:has(.home-premium) .site-header nav a::after {
   transition: transform 180ms ease;
 }
 
-body:has(.home-premium) .site-header nav a:hover::after {
+body:has(.home-premium) .site-header nav[aria-label="Primary"] a:hover::after {
   transform: scaleX(1);
 }
 
@@ -1643,7 +1644,7 @@ body:has(.home-swiss) .site-header nav a {
   text-transform: uppercase;
 }
 
-body:has(.home-swiss) .site-header nav a::after {
+body:has(.home-premium) .site-header nav[aria-label="Primary"] a::after {
   bottom: -1.55rem;
   height: 3px;
 }

@@ -1,5 +1,6 @@
 - [x] Add five verified customer-facing reference screenshots to the AI Chat Pro tutorial; keep administrator settings excluded.
 - [x] Organize mobile navigation into six collapsible categories with top Login/Start Free actions; verified all 32 tools plus directory/models and 9 main pages, single-open groups, link closing, Escape, 320/411/767px layouts and unchanged desktop; no runtime errors.
+- [x] Stop the desktop nav accent underline from drawing a blue line across the mobile menu item below a tapped link; scoped the accent bar to the desktop primary nav only, verified mobile links have no underline bar and the desktop hover underline still renders.
 # Roadmap
 
 ## Remaining 16 business, chat, video and content tool pages (2026-11-05)
