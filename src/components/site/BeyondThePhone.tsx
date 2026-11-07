@@ -30,7 +30,7 @@ export function BeyondThePhone({ items, note }: { items: BeyondThePhoneItem[]; n
               <Icon className="size-5 text-accent" aria-hidden="true" />
               <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{item.job}</p>
               <h3 className="mt-2 text-lg font-semibold">
-                <Link to={item.to} className="text-foreground hover:text-accent">{item.tool}<ArrowRight className="ml-2 inline size-4" aria-hidden="true" /></Link>
+                <Link to={item.to} className="text-foreground hover:text-accent">{item.tool.split(" ").slice(0, -1).join(" ")}{" "}<span className="whitespace-nowrap">{item.tool.split(" ").at(-1)}<ArrowRight className="ml-2 inline size-4" aria-hidden="true" /></span></Link>
               </h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
               {item.tutorial ? (
