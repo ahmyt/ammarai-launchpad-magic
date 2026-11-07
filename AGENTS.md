@@ -27,3 +27,4 @@
 - Preserve Fashion Studio's original tool URL with a permanent redirect to its dedicated flagship page so catalogue links and existing bookmarks open the same current experience.
 - Catalogue tools upgraded in bulk use CatalogFlagshipPage with route-local plan notes and brief rows, so pages stay consistent and keep complete catalogue content.
 - Mobile navigation groups reuse the desktop featured-page records and preserve CMS tutorial visibility; desktop navigation stays independent so mobile organization does not change desktop discovery.
+- Phone-agent landing pages show other included tools only through the shared BeyondThePhone section placed after the core call content, so ad visitors see the phone offer first and the extras stay consistent.
