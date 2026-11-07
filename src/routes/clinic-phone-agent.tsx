@@ -285,7 +285,7 @@ function ClinicPage() {
             items={[
               { icon: "chat", job: "Website chat & bookings", tool: "Website AI Chatbot & Smart Inbox", to: "/ai-smart-inbox", body: "Answer website questions after hours, offer an appointment slot inside the chat, and read website, WhatsApp and Telegram messages in one inbox.", tutorial: { slug: "how-to-take-bookings-with-your-website-chatbot", label: "See how chat bookings work" } },
               { icon: "newsletter", job: "Newsletters & announcements", tool: "AI Writer", to: "/ai-writer", body: "Draft patient newsletters, seasonal care tips, holiday-hours notices and recall reminders with ready-made email templates." },
-              { icon: "social", job: "Social & Google posts", tool: "AI Social Media Agent", to: "/ai-social-media-agent", body: "Plan, write and schedule practice updates and care tips, and review every post before anything goes out.", tutorial: { slug: "how-to-run-a-social-media-agent", label: "See the social media tutorial" } },
+              { icon: "social", job: "Social posts on a schedule", tool: "AI Social Media Agent", to: "/ai-social-media-agent", body: "Plan, write and schedule practice updates and care tips, and review every post before anything goes out.", tutorial: { slug: "how-to-run-a-social-media-agent", label: "See the social media tutorial" } },
             ]}
             note="Use these tools for general education and announcements. Keep patient names, health details and appointment records out of marketing content."
           />
