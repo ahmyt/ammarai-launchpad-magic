@@ -561,3 +561,8 @@
 - [x] Website Chatbot & Smart Inbox page with real builder screens and a channel-filter inbox demo
 - [x] Menu, AI guide links; verified desktop and phone with no errors
 - [x] Moving video headers on Agent Builder, Music Pro, Chatbot & Inbox and AI Writer; compact two-column mobile menu
+
+## Phone-agent pages: other included tools (2026-11-07)
+- [x] Add a "More than a phone line" section near the bottom of /ai-phone-agent and /clinic-phone-agent showing chatbot & inbox, AI Writer, Social Media Agent (and CRM on the general page), linked to verified tutorials
+- [x] Checked on desktop and phone: all links present, no overflow or browser errors
+- [ ] User: upload to Plesk for ammarai.com
