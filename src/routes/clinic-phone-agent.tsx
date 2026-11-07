@@ -278,6 +278,20 @@ function ClinicPage() {
         </Container>
       </Section>
 
+      <Section tone="sand">
+        <Container>
+          <SectionHeading eyebrow="More than a phone line" title="Patient communication, in the same plan" intro={`Most answering services stop at the call. Your ${voiceScale?.name ?? "Voice Scale"} plan also includes these AmmarAI tools at no extra cost.`} />
+          <BeyondThePhone
+            items={[
+              { icon: "chat", job: "Website chat & bookings", tool: "Website AI Chatbot & Smart Inbox", to: "/ai-smart-inbox", body: "Answer website questions after hours, offer an appointment slot inside the chat, and read website, WhatsApp and Telegram messages in one inbox.", tutorial: { slug: "how-to-take-bookings-with-your-website-chatbot", label: "See how chat bookings work" } },
+              { icon: "newsletter", job: "Newsletters & announcements", tool: "AI Writer", to: "/ai-writer", body: "Draft patient newsletters, seasonal care tips, holiday-hours notices and recall reminders with ready-made email templates." },
+              { icon: "social", job: "Social & Google posts", tool: "AI Social Media Agent", to: "/ai-social-media-agent", body: "Plan, write and schedule practice updates and care tips, and review every post before anything goes out.", tutorial: { slug: "how-to-run-a-social-media-agent", label: "See the social media tutorial" } },
+            ]}
+            note="Use these tools for general education and announcements. Keep patient names, health details and appointment records out of marketing content."
+          />
+        </Container>
+      </Section>
+
       <Section tone="ink">
         <Container>
           <div className="max-w-2xl">

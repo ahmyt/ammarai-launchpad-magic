@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { FaqAccordion, faqJsonLd } from "@/components/site/Faq";
 import { SmallBusinessRoiCalculator, PhoneAgentPipeline, PhoneAgentRush, PhoneAgentScenarios, PhoneAgentSafetyNet } from "@/components/site/PhoneAgentGrowth";
 import { agentTools } from "@/data/tools-agents";
+import { BeyondThePhone } from "@/components/site/BeyondThePhone";
 import receptionImage from "@/assets/small-business-reception.jpg";
 import followupAudio from "@/assets/ai-phone-agent-outbound-followup.mp3.asset.json";
 import { assetUrl } from "@/lib/asset-url";
@@ -268,10 +269,23 @@ function PhoneAgentPage() {
 
       <Section>
         <Container>
+          <SectionHeading eyebrow="More than a phone line" title="The rest of your front office, already in your plan" intro={`Most answering services stop at the call. The ${ultimate?.name ?? "Ultimate"} and ${voiceScale?.name ?? "Voice Scale"} plans also include these AmmarAI tools at no extra cost.`} />
+          <BeyondThePhone
+            items={[
+              { icon: "chat", job: "Website chat & bookings", tool: "Website AI Chatbot & Smart Inbox", to: "/ai-smart-inbox", body: "Answer website visitors around the clock, offer a booking slot inside the chat, and read website, WhatsApp and Telegram messages in one inbox.", tutorial: { slug: "how-to-take-bookings-with-your-website-chatbot", label: "See how chat bookings work" } },
+              { icon: "crm", job: "Leads & follow-up", tool: "AI CRM", to: "/ai-crm", body: "Keep contacts, deals, tasks and calendar activity in one place, so the callers your agent books don't get lost afterwards.", tutorial: { slug: "how-to-manage-sales-with-ai-crm", label: "See the CRM tutorial" } },
+              { icon: "newsletter", job: "Emails & newsletters", tool: "AI Writer", to: "/ai-writer", body: "Draft follow-up emails, monthly newsletters, announcements and service pages with ready-made email and business templates." },
+              { icon: "social", job: "Social posts on a schedule", tool: "AI Social Media Agent", to: "/ai-social-media-agent", body: "Plan, write and schedule posts for your accounts, and review every post before anything goes out.", tutorial: { slug: "how-to-run-a-social-media-agent", label: "See the social media tutorial" } },
+            ]}
+          />
+        </Container>
+      </Section>
+
+      <Section tone="sand">
+        <Container>
           <SectionHeading eyebrow="Tools to try next" title="Finish the rest of your front-office workflow" />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { slug: "ai-crm", name: "AI CRM", body: "Every call lands against the right contact, with transcripts and summaries." },
               { slug: "ai-agent-builder", name: "AI Agent Builder", body: "Automate the follow-up work that happens after the call." },
               { slug: "ai-voice-generator", name: "AI Voice Generator", body: "Prepare voiceovers and messages in the same voice family." },
             ].map((item) => (
