@@ -15,6 +15,7 @@ import { assetUrl, hostedAssetUrl } from "@/lib/asset-url";
 import walkthroughVideo from "@/assets/clinic_agent_walkthrough.mp4.asset.json";
 import walkthroughPoster from "@/assets/clinic_agent_walkthrough_poster.jpg.asset.json";
 import { plans } from "@/lib/site";
+import { BeyondThePhone } from "@/components/site/BeyondThePhone";
 
 const voiceScale = plans.find((p) => p.name === "Voice Scale");
 
