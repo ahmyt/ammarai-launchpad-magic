@@ -24,7 +24,6 @@ const ultimate = plans.find((p) => p.name === "Ultimate");
 
 const url = "https://ammarai.com/ai-phone-agent";
 const phoneTitle = (name: string) => `${name}: Answer and Make Business Calls | AmmarAI`;
-const title = phoneTitle(tool.name);
 const description =
   "A natural-sounding AI phone agent for small businesses: answers inbound calls, makes outbound follow-up and reminder calls, books into your calendar and logs every conversation. Try the live demo.";
 
