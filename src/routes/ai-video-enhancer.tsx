@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Sparkles } from "lucide-react";
-import { CatalogFlagshipPage, catalogFlagshipHead, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { CatalogFlagshipPage, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { catalogFlagshipHead, toolHeadData } from "@/lib/flagship-head";
 import { marketplaceTools } from "@/data/tools-marketplace";
 
 const tool = marketplaceTools.find((t) => t.slug === "ai-video-enhancer")!;
@@ -20,7 +21,9 @@ const config: Omit<CatalogFlagshipConfig, "icon"> = {
 
 export const Route = createFileRoute("/ai-video-enhancer")({
   staticData: { sitemap: true },
-  head: () => catalogFlagshipHead(config),
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-marketplace")).marketplaceTools, "ai-video-enhancer"),
+  head: ({ loaderData }) => catalogFlagshipHead(loaderData),
   component: AiVideoEnhancerPage,
 });
 

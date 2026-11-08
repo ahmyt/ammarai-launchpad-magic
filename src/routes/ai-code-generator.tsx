@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Code } from "lucide-react";
-import { CatalogFlagshipPage, catalogFlagshipHead, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { CatalogFlagshipPage, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { catalogFlagshipHead, toolHeadData } from "@/lib/flagship-head";
 import { coreToolsB } from "@/data/tools-core-b";
 
 const tool = coreToolsB.find((t) => t.slug === "ai-code-generator")!;
@@ -20,7 +21,9 @@ const config: Omit<CatalogFlagshipConfig, "icon"> = {
 
 export const Route = createFileRoute("/ai-code-generator")({
   staticData: { sitemap: true },
-  head: () => catalogFlagshipHead(config),
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-core-b")).coreToolsB, "ai-code-generator"),
+  head: ({ loaderData }) => catalogFlagshipHead(loaderData),
   component: AiCodeGeneratorPage,
 });
 

@@ -4,7 +4,6 @@ import { Card, Container, Section, SectionHeading } from "@/components/site/prim
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ExternalButton } from "@/components/site/Button";
 import { Button } from "@/components/ui/button";
-import { faqJsonLd } from "@/components/site/Faq";
 import { FlagshipVideoHero } from "@/components/site/FlagshipVideoHero";
 import { FlagshipToolSections } from "@/components/site/FlagshipToolSections";
 import { REGISTER_URL } from "@/lib/site";
@@ -24,27 +23,6 @@ export type CatalogFlagshipConfig = {
   moreFaqs?: Faq[];
   brief: { title: string; intro: string; rows: BriefRows; build: (pick: Record<string, string>) => string };
 };
-
-export function catalogFlagshipHead(c: Pick<CatalogFlagshipConfig, "tool" | "moreFaqs">, category = "BusinessApplication") {
-  const { tool } = c;
-  const url = `https://ammarai.com/${tool.slug}`;
-  return {
-    meta: [
-      { title: tool.title },
-      { name: "description", content: tool.description },
-      { property: "og:title", content: tool.title },
-      { property: "og:description", content: tool.description },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: url },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: url }],
-    scripts: [
-      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: tool.name, applicationCategory: category, operatingSystem: "Web", description: tool.description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) },
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd([...(tool.faqs ?? []), ...(c.moreFaqs ?? [])])) },
-    ],
-  };
-}
 
 /** Dedicated flagship layout for catalogue tools: moving header, step viewer, before/after, brief builder and full search sections. */
 export function CatalogFlagshipPage(c: CatalogFlagshipConfig) {
