@@ -12,21 +12,17 @@ type Props = Omit<VideoHTMLAttributes<HTMLVideoElement>, "src" | "autoPlay" | "p
  */
 export function InViewVideo({ src, poster, ...rest }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
-  const [load, setLoad] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const io = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return;
-        if (entry.isIntersecting) {
-          setLoad(true);
-          if (!reduce) void el.play().catch(() => {});
-        } else if (!el.paused) {
-          el.pause();
-        }
+        setVisible(entry.isIntersecting);
+        if (entry.isIntersecting) setLoaded(true);
       },
       { rootMargin: "200px 0px" },
     );
@@ -34,15 +30,25 @@ export function InViewVideo({ src, poster, ...rest }: Props) {
     return () => io.disconnect();
   }, []);
 
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !loaded) return;
+    if (visible && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      void el.play().catch(() => {});
+    } else {
+      el.pause();
+    }
+  }, [loaded, visible]);
+
   return (
     <video
       ref={ref}
-      src={load ? src : undefined}
+      src={loaded ? src : undefined}
       poster={poster}
       muted
       loop
       playsInline
-      preload="none"
+      preload={loaded ? "auto" : "none"}
       {...rest}
     />
   );
