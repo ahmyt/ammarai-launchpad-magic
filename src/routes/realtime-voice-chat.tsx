@@ -11,8 +11,7 @@ import { Button } from "@/components/ui/button";
 import { faqJsonLd } from "@/components/site/Faq";
 import { toolHeadData } from "@/lib/flagship-head";
 
-const tool = blogTemplateTools.find((item) => item.slug === "realtime-voice-chat");
-if (!tool) throw new Error("Realtime Voice Chat catalogue entry missing");
+const tool = blogTemplateTools.find((item) => item.slug === "realtime-voice-chat")!;
 const extraFaqs = [{ q: "Is this a phone agent for my business?", a: "No. Realtime Voice Chat is a spoken session inside your own AI Chat. For incoming customer calls, explore the dedicated AI Phone Agent." }, { q: "Are these live conversations?", a: "The recordings below are existing spoken-answer samples. Start an actual two-way voice session inside the AmmarAI workspace." }];
 const faqs = [...(tool.faqs ?? []), ...extraFaqs];
 const steps = [

@@ -11,8 +11,7 @@ import { Button } from "@/components/ui/button";
 import { faqJsonLd } from "@/components/site/Faq";
 import { toolHeadData } from "@/lib/flagship-head";
 
-const entry = coreToolsA.find(item => item.slug === "ai-transcription");
-if (!entry) throw new Error("Transcription catalogue entry missing");
+const entry = coreToolsA.find(item => item.slug === "ai-transcription")!;
 const pageDescription = "Turn audio and video recordings into searchable transcripts with speaker labels and timestamps. Review interviews, extract quotes and prepare subtitles with AmmarAI.";
 const extraFaqs = [{ q: "Does the preview transcribe my files?", a: "No. These are existing recordings and catalogue excerpts. Upload and process your own recording inside the AmmarAI workspace." }];
 const tool = { ...entry, description: pageDescription };

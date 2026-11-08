@@ -11,8 +11,7 @@ import { faqJsonLd } from "@/components/site/Faq";
 import { toolHeadData } from "@/lib/flagship-head";
 import type { Faq } from "@/data/types";
 
-const catalogueTool = coreToolsA.find((item) => item.slug === "ai-voice-generator");
-if (!catalogueTool) throw new Error("Voiceover catalogue entry is missing");
+const catalogueTool = coreToolsA.find((item) => item.slug === "ai-voice-generator")!;
 const pageDescription =
   "Create AI voiceovers for videos, courses and product audio. Clone your own voice with permission, shape the delivery and hear narration examples.";
 const tool = {
