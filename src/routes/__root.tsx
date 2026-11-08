@@ -25,6 +25,7 @@ import { LiveChatbotProvider } from "@/components/site/LiveChatbot";
 import { siteContentQuery, siteContentRowsQuery, type ContentRow } from "@/lib/content";
 import { ConsentBanner } from "@/components/site/ConsentBanner";
 import { loadGoogleAds } from "@/lib/google-ads";
+import { runAfterEngagement } from "@/lib/defer-load";
 
 function NotFoundComponent() {
   return (
@@ -204,8 +205,12 @@ function SiteShell() {
   // Google Ads tag under advanced Consent Mode: the tag loads on every page;
   // visitors in consent-required regions keep denied signals until they choose
   // in the regional banner, and everyone else tracks under ordinary defaults.
+  // Other visits start the tag on first interaction or shortly after load;
+  // the contact form still loads it on demand before firing the conversion.
   useEffect(() => {
-    void loadGoogleAds(true);
+    // Ad-click landings load at once so the click ID is read before any in-app navigation.
+    if (/[?&](gclid|gbraid|wbraid|gad_source)=/.test(window.location.search)) { void loadGoogleAds(true); return; }
+    return runAfterEngagement(() => void loadGoogleAds(true), 3000);
   }, []);
 
   return (

@@ -5,6 +5,7 @@ import { CalendarDays, MessageSquare, Mic, Phone, X } from "lucide-react";
 import { ActionButton } from "./Button";
 import { Container, Section } from "./primitives";
 import { siteContentQuery } from "@/lib/content";
+import { runAfterEngagement } from "@/lib/defer-load";
 import "./live-chatbot.css";
 
 const DEFAULT_BUBBLE = "📞 Live AI Demo: Try live voice call";
@@ -100,11 +101,12 @@ export function LiveChatbotProvider({ children }: { children: ReactNode }) {
       return;
     }
     if (!content) return;
-    const timer = setTimeout(() => {
+    // Vendor widgets are large and unminified: start them on first interaction
+    // (or 8s after load) so they never block the main thread during page load.
+    return runAfterEngagement(() => {
       loadChatbot();
       loadVoiceChatbot();
-    }, 4000);
-    return () => clearTimeout(timer);
+    }, 8000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hidden, content, settings?.chatbotEmbed, settings?.voiceBotEmbed, settings?.chatbotEnabled, settings?.voiceBotEnabled, settings?.restaurantVoiceBotEmbed, isRestaurantPage]);
 
