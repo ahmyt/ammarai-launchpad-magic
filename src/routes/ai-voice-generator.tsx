@@ -8,21 +8,26 @@ import { FlagshipVideoHero } from "@/components/site/FlagshipVideoHero";
 import { FlagshipToolSections } from "@/components/site/FlagshipToolSections";
 import { Button } from "@/components/ui/button";
 import { faqJsonLd } from "@/components/site/Faq";
+import { toolHeadData } from "@/lib/flagship-head";
+import type { Faq } from "@/data/types";
 
 const catalogueTool = coreToolsA.find((item) => item.slug === "ai-voice-generator");
 if (!catalogueTool) throw new Error("Voiceover catalogue entry is missing");
+const pageDescription =
+  "Create AI voiceovers for videos, courses and product audio. Clone your own voice with permission, shape the delivery and hear narration examples.";
 const tool = {
   ...catalogueTool,
   h1: "AI Voiceover & Voice Clone",
-  description: "Create AI voiceovers for videos, courses and product audio. Clone your own voice with permission, shape the delivery and hear narration examples.",
+  description: pageDescription,
 };
 const url = "https://ammarai.com/ai-voice-generator";
-const faqs = [
-  ...(tool.faqs ?? []).filter((item) => !["What file formats can I export?", "Can I clone my own voice?"].includes(item.q)),
+const pageFaqs = (base: Faq[]) => [
+  ...base.filter((item) => !["What file formats can I export?", "Can I clone my own voice?"].includes(item.q)),
   { q: "Can I clone my own voice?", a: "Yes. Record at least a minute of clear, natural speech from one speaker, upload it in the voice cloning area and give the voice a name. Once processing finishes, select it from the voice list. Only clone a voice you own or have clear permission to use." },
   { q: "Do the samples change when I edit the script here?", a: "No. The two recordings are existing narration examples. The script brief below prepares your text and delivery notes; generate new audio inside the AmmarAI workspace." },
   { q: "Which plan should I choose?", a: "Basic includes Text-to-Speech from $24.99/month. Voice cloning access is separate from that inclusion; check the available voice features in your workspace before choosing a plan." },
 ];
+const faqs = pageFaqs(tool.faqs ?? []);
 const steps = [
   { title: "Record a clear sample", body: "Read naturally for at least a minute in a quiet room. Leave out music, background chatter and heavy echo.", label: "01 / Your recording" },
   { title: "Keep one speaker", body: "Use only your voice, or a voice you have clear permission to use. Record in the language you will narrate in most often.", label: "02 / Clean source" },
@@ -38,18 +43,23 @@ const paces = ["Unhurried", "Natural", "Brisk"];
 
 export const Route = createFileRoute("/ai-voice-generator")({
   staticData: { sitemap: true },
-  head: () => ({
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => ({
+    ...toolHeadData((await import("@/data/tools-core-a")).coreToolsA, "ai-voice-generator"),
+    description: pageDescription,
+  }),
+  head: ({ loaderData: t }) => !t ? {} : ({
     meta: [
-      { title: tool.title },
-      { name: "description", content: tool.description },
-      { property: "og:title", content: tool.title },
-      { property: "og:description", content: tool.description },
+      { title: t.title },
+      { name: "description", content: t.description },
+      { property: "og:title", content: t.title },
+      { property: "og:description", content: t.description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: url },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: url }],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd(faqs)) }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd(pageFaqs(t.faqs))) }],
   }),
   component: VoicePage,
 });
