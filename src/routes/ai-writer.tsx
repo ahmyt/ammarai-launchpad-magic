@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { toolHeadData } from "@/lib/flagship-head";
 import { ArrowRight, Check, PenLine, Wand2, Ruler, Repeat2, Languages, Search, ListTree, FileText } from "lucide-react";
 import { Card, Container, Section, SectionHeading, NumberedList, BulletList } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -37,20 +38,22 @@ const moreFaqs = [
 
 export const Route = createFileRoute("/ai-writer")({
   staticData: { sitemap: true },
-  head: () => ({
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-core-a")).coreToolsA, "ai-writer"),
+  head: ({ loaderData: t }) => !t ? {} : ({
     meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
+      { title: t.title },
+      { name: "description", content: t.description },
+      { property: "og:title", content: t.title },
+      { property: "og:description", content: t.description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: url },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: url }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: tool.name, applicationCategory: "BusinessApplication", operatingSystem: "Web", description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) },
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd([...(tool.faqs ?? []), ...moreFaqs])) },
+      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: t.name, applicationCategory: "BusinessApplication", operatingSystem: "Web", description: t.description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd([...(t.faqs ?? []), ...moreFaqs])) },
     ],
   }),
   component: WriterPage,

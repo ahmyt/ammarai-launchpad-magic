@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { toolHeadData } from "@/lib/flagship-head";
 import { ArrowDown, Bot, Brain, Send, FileBarChart, Mail, GitBranch, Share2, Megaphone, MessageSquare, Users, Clock, Plus, X } from "lucide-react";
 import { Card, Container, Section, SectionHeading } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -42,20 +43,22 @@ const faqs = [...(tool.faqs ?? []), ...moreFaqs];
 
 export const Route = createFileRoute("/ai-agent-builder")({
   staticData: { sitemap: true },
-  head: () => ({
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-agents")).agentTools, "ai-agent-builder"),
+  head: ({ loaderData: t }) => !t ? {} : ({
     meta: [
-      { title: tool.title },
-      { name: "description", content: tool.description },
-      { property: "og:title", content: tool.title },
-      { property: "og:description", content: tool.description },
+      { title: t.title },
+      { name: "description", content: t.description },
+      { property: "og:title", content: t.title },
+      { property: "og:description", content: t.description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: url },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: url }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: tool.name, applicationCategory: "BusinessApplication", operatingSystem: "Web", description: tool.description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) },
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(faqs)) },
+      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: t.name, applicationCategory: "BusinessApplication", operatingSystem: "Web", description: t.description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd([...t.faqs, ...moreFaqs])) },
     ],
   }),
   component: AgentBuilderPage,

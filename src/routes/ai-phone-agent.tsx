@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { toolHeadData } from "@/lib/flagship-head";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Clock, CalendarCheck, ShieldCheck } from "lucide-react";
 import { Card, Container, Section, SectionHeading, NumberedList, BulletList } from "@/components/site/primitives";
@@ -22,7 +23,8 @@ const voiceScale = plans.find((p) => p.name === "Voice Scale");
 const ultimate = plans.find((p) => p.name === "Ultimate");
 
 const url = "https://ammarai.com/ai-phone-agent";
-const title = `${tool.name}: Answer and Make Business Calls | AmmarAI`;
+const phoneTitle = (name: string) => `${name}: Answer and Make Business Calls | AmmarAI`;
+const title = phoneTitle(tool.name);
 const description =
   "A natural-sounding AI phone agent for small businesses: answers inbound calls, makes outbound follow-up and reminder calls, books into your calendar and logs every conversation. Try the live demo.";
 
@@ -74,11 +76,13 @@ const steps: Step[] = [
 
 export const Route = createFileRoute("/ai-phone-agent")({
   staticData: { sitemap: true },
-  head: () => ({
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-agents")).agentTools, "ai-phone-agent"),
+  head: ({ loaderData: t }) => !t ? {} : ({
     meta: [
-      { title },
+      { title: phoneTitle(t.name) },
       { name: "description", content: description },
-      { property: "og:title", content: title },
+      { property: "og:title", content: phoneTitle(t.name) },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: url },
@@ -98,7 +102,7 @@ export const Route = createFileRoute("/ai-phone-agent")({
           url,
         }),
       },
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(allFaqs)) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd([...t.faqs, ...routeFaqs])) },
     ],
   }),
   component: PhoneAgentPage,
