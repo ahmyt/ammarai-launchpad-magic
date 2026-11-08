@@ -15,7 +15,7 @@ type Target = Pick<Window, "addEventListener" | "removeEventListener" | "setTime
  */
 export function runAfterEngagement(task: () => void, fallbackMs: number, target: Target = window as unknown as Target) {
   let done = false;
-  let timer: ReturnType<typeof setTimeout> | undefined;
+  let timer: number | undefined;
   const run = () => {
     if (done) return;
     done = true;
