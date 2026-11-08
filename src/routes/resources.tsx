@@ -8,7 +8,7 @@ import { ToolCard } from "@/components/site/ToolCard";
 
 const title = "AI Guides, Writing Tools & Workflows for Content Creation";
 const description =
-  "Explore practical AI guides for content, blogs, video, voiceovers, and SEO, plus tools for agents and CRM. Find an AI workflow that fits your everyday work."
+  "Explore practical AI guides for content creation, blogging, video, voiceovers, and SEO, plus AI agents for everyday workflows. Find your next guide.";
 
 const resourceGuides = posts.slice(0, 6);
 const resourceTools = [...featuredTools, ...popularTools].slice(0, 6);
