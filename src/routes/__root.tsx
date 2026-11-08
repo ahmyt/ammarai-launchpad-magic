@@ -205,9 +205,13 @@ function SiteShell() {
   // Google Ads tag under advanced Consent Mode: the tag loads on every page;
   // visitors in consent-required regions keep denied signals until they choose
   // in the regional banner, and everyone else tracks under ordinary defaults.
-  // The tag starts on first interaction or shortly after load (ad click IDs stay
-  // in the URL until then); the contact form still loads it on demand.
-  useEffect(() => runAfterEngagement(() => void loadGoogleAds(true), 3000), []);
+  // Other visits start the tag on first interaction or shortly after load;
+  // the contact form still loads it on demand before firing the conversion.
+  useEffect(() => {
+    // Ad-click landings load at once so the click ID is read before any in-app navigation.
+    if (/[?&](gclid|gbraid|wbraid|gad_source)=/.test(window.location.search)) { void loadGoogleAds(true); return; }
+    return runAfterEngagement(() => void loadGoogleAds(true), 3000);
+  }, []);
 
   return (
     <OfferProvider>
