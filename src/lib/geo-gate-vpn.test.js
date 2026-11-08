@@ -38,9 +38,8 @@ test("google ads bots pass", () => {
     expect(evaluateGeoGate(req("", ua), cfg, "NL", true)).toBeNull();
 });
 
-test("babylovegrowth and ai crawlers pass", async () => {
-  const src = await Bun.file(new URL("./geo-gate.server.ts", import.meta.url)).text();
-  for (const bot of ["babylovegrowth", "gptbot", "claudebot", "perplexitybot", "oai-searchbot"]) {
-    expect(src.includes(bot)).toBe(true);
+test("babylovegrowth and ai crawlers pass", () => {
+  for (const bot of ["BabyLoveGrowth/1.0", "GPTBot/1.2", "ClaudeBot/1.0", "PerplexityBot/1.0", "OAI-SearchBot/1.0"]) {
+    expect(evaluateGeoGate(req("", bot), cfg, "US", true)).toBeNull();
   }
 });
