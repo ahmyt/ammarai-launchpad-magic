@@ -37,3 +37,9 @@ test("google ads bots pass", () => {
   for (const ua of ["AdsBot-Google (+http://www.google.com/adsbot.html)", "Mozilla/5.0 (Linux; Android) AdsBot-Google-Mobile", "Mediapartners-Google", "Google-Adwords-Instant"])
     expect(evaluateGeoGate(req("", ua), cfg, "NL", true)).toBeNull();
 });
+
+test("babylovegrowth and ai crawlers pass", () => {
+  for (const bot of ["BabyLoveGrowth/1.0", "GPTBot/1.2", "ClaudeBot/1.0", "PerplexityBot/1.0", "OAI-SearchBot/1.0"]) {
+    expect(evaluateGeoGate(req("", bot), cfg, "US", true)).toBeNull();
+  }
+});
