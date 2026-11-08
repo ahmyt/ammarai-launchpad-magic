@@ -48,8 +48,10 @@ export const Route = createFileRoute("/blog/")({
     ],
   }),
   loader: async ({ context }) => {
+    // Loaded on demand so the full catalogue never ships with every page's startup code.
+    const { fullSiteContentQuery } = await import("@/lib/content-full");
     await Promise.all([
-      context.queryClient.prefetchQuery(siteContentQuery),
+      context.queryClient.prefetchQuery(fullSiteContentQuery),
       context.queryClient.ensureQueryData(syndicatedArticlesQuery),
     ]);
   },
