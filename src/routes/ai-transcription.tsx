@@ -9,11 +9,13 @@ import { FlagshipToolSections } from "@/components/site/FlagshipToolSections";
 import { VoiceToolWorkflow } from "@/components/site/VoiceToolWorkflow";
 import { Button } from "@/components/ui/button";
 import { faqJsonLd } from "@/components/site/Faq";
+import { toolHeadData } from "@/lib/flagship-head";
 
-const entry = coreToolsA.find(item => item.slug === "ai-transcription");
-if (!entry) throw new Error("Transcription catalogue entry missing");
-const tool = { ...entry, description: "Turn audio and video recordings into searchable transcripts with speaker labels and timestamps. Review interviews, extract quotes and prepare subtitles with AmmarAI." };
-const faqs = [...(tool.faqs ?? []), { q: "Does the preview transcribe my files?", a: "No. These are existing recordings and catalogue excerpts. Upload and process your own recording inside the AmmarAI workspace." }];
+const entry = coreToolsA.find(item => item.slug === "ai-transcription")!;
+const pageDescription = "Turn audio and video recordings into searchable transcripts with speaker labels and timestamps. Review interviews, extract quotes and prepare subtitles with AmmarAI.";
+const extraFaqs = [{ q: "Does the preview transcribe my files?", a: "No. These are existing recordings and catalogue excerpts. Upload and process your own recording inside the AmmarAI workspace." }];
+const tool = { ...entry, description: pageDescription };
+const faqs = [...(tool.faqs ?? []), ...extraFaqs];
 const steps = [
   { title: "Upload the recording", body: "Start with clear audio or video. Record separate speaker tracks where possible, and tell participants they are being recorded." },
   { title: "Set the language", body: "Name the spoken language, particularly for accented speech or technical vocabulary." },
@@ -27,7 +29,12 @@ const samples = [
 ];
 export const Route = createFileRoute("/ai-transcription")({
   staticData: { sitemap: true },
-  head: () => ({ meta: [{ title: tool.title }, { name: "description", content: tool.description }, { property: "og:title", content: tool.title }, { property: "og:description", content: tool.description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }], links: [{ rel: "canonical", href: "https://ammarai.com/ai-transcription" }], scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd(faqs)) }] }),
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => ({
+    ...toolHeadData((await import("@/data/tools-core-a")).coreToolsA, "ai-transcription"),
+    description: pageDescription,
+  }),
+  head: ({ loaderData: t }) => !t ? {} : ({ meta: [{ title: t.title }, { name: "description", content: t.description }, { property: "og:title", content: t.title }, { property: "og:description", content: t.description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }], links: [{ rel: "canonical", href: "https://ammarai.com/ai-transcription" }], scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd([...t.faqs, ...extraFaqs])) }] }),
   component: TranscriptionPage,
 });
 function TranscriptionPage() {

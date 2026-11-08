@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { toolHeadData } from "@/lib/flagship-head";
 import { ArrowRight, Check, Shirt, Users, Layers, Palette, Sparkles, Images } from "lucide-react";
 import { Card, Container, Section, SectionHeading, NumberedList, BulletList } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -10,11 +11,9 @@ import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
 import { visualTools } from "@/data/tools-visual";
 import { REGISTER_URL } from "@/lib/site";
 
-const tool = visualTools.find((t) => t.slug === "ai-virtual-try-on");
-if (!tool) throw new Error("Fashion Studio catalogue entry is missing");
+const tool = visualTools.find((t) => t.slug === "ai-virtual-try-on")!;
 const url = "https://ammarai.com/ai-fashion-studio";
 const title = "AI Fashion Studio: Photoshoots, Try-On & Fashion Video | AmmarAI";
-const description = tool.description;
 
 // Real Fashion Studio screens from the verified tutorial.
 const modes = [
@@ -36,20 +35,22 @@ const brief = {
 
 export const Route = createFileRoute("/ai-fashion-studio")({
   staticData: { sitemap: true },
-  head: () => ({
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-visual")).visualTools, "ai-virtual-try-on"),
+  head: ({ loaderData: t }) => !t ? {} : ({
     meta: [
       { title },
-      { name: "description", content: description },
+      { name: "description", content: t.description },
       { property: "og:title", content: title },
-      { property: "og:description", content: description },
+      { property: "og:description", content: t.description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: url },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: url }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: tool.name, applicationCategory: "MultimediaApplication", operatingSystem: "Web", description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) },
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(tool.faqs ?? [])) },
+      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: t.name, applicationCategory: "MultimediaApplication", operatingSystem: "Web", description: t.description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(t.faqs ?? [])) },
     ],
   }),
   component: FashionPage,

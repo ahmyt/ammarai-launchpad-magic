@@ -159,6 +159,14 @@ configuration.
 
 ## Troubleshooting
 
+### Site is slow / PageSpeed shows high "Total Blocking Time"
+
+Check you deployed a **production** build. Always run `npm run build` — never
+`npm run build:dev` — and set Plesk → Node.js → **Application mode: Production**.
+A development build ships React's debug code and makes every page several
+times slower. `scripts/deploy-from-github.sh` now refuses to finish if it
+detects a development build.
+
 ### `npm run build` fails with exit code 127 and `nodenv: node: command not found`
 
 This is a Plesk environment issue, not a code problem. Some Plesk servers (e.g.

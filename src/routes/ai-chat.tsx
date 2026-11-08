@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageSquare } from "lucide-react";
-import { CatalogFlagshipPage, catalogFlagshipHead, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { CatalogFlagshipPage, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { catalogFlagshipHead, toolHeadData } from "@/lib/flagship-head";
 import { coreToolsA } from "@/data/tools-core-a";
 
 const tool = coreToolsA.find((t) => t.slug === "ai-chat")!;
@@ -20,7 +21,9 @@ const config: Omit<CatalogFlagshipConfig, "icon"> = {
 
 export const Route = createFileRoute("/ai-chat")({
   staticData: { sitemap: true },
-  head: () => catalogFlagshipHead(config),
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-core-a")).coreToolsA, "ai-chat"),
+  head: ({ loaderData }) => catalogFlagshipHead(loaderData),
   component: AiChatPage,
 });
 

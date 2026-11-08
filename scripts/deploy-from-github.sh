@@ -22,6 +22,15 @@ npm run build
 
 test -f dist/server/index.mjs || { echo "BUILD FAILED: dist/server/index.mjs missing"; exit 1; }
 
+# A development build (e.g. `npm run build:dev`, or Plesk "Application mode:
+# Development") ships React's slow debug code and source annotations, which
+# makes every page several times slower. Refuse to go live with one.
+if grep -rqs "data-tsd-source" dist/public/assets/ dist/client/assets/ 2>/dev/null; then
+  echo "BUILD FAILED: this is a development build. Run 'npm run build' (not build:dev)"
+  echo "and set Plesk -> Node.js -> Application mode to Production."
+  exit 1
+fi
+
 echo "==> Asking Passenger to restart the app"
 mkdir -p tmp
 touch tmp/restart.txt

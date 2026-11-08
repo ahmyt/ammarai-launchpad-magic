@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Presentation } from "lucide-react";
-import { CatalogFlagshipPage, catalogFlagshipHead, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { CatalogFlagshipPage, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { catalogFlagshipHead, toolHeadData } from "@/lib/flagship-head";
 import { platformTools } from "@/data/tools-platform";
 
 const tool = platformTools.find((t) => t.slug === "ai-presentation-maker")!;
@@ -20,7 +21,9 @@ const config: Omit<CatalogFlagshipConfig, "icon"> = {
 
 export const Route = createFileRoute("/ai-presentation-maker")({
   staticData: { sitemap: true },
-  head: () => catalogFlagshipHead(config),
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-platform")).platformTools, "ai-presentation-maker"),
+  head: ({ loaderData }) => catalogFlagshipHead(loaderData),
   component: AiPresentationMakerPage,
 });
 

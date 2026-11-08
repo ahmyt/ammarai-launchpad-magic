@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { toolHeadData } from "@/lib/flagship-head";
 import { ArrowRight, Check, Mic, ScanFace, Languages, Images, UserRound } from "lucide-react";
 import { Card, Container, Section, SectionHeading, NumberedList, BulletList } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -12,8 +13,6 @@ import { REGISTER_URL } from "@/lib/site";
 
 const tool = coreToolsB.find((t) => t.slug === "ai-avatar-generator")!;
 const url = "https://ammarai.com/ai-avatar-generator";
-const title = tool.title;
-const description = tool.description;
 
 const samples = [
   { id: "founder", tab: "Founder announcement", src: "/media/avatar-option-1-final.webm", poster: "/media/avatar-option-1-final.poster.jpg", input: "Founder headshot + typed 45-second launch script, generated voice.", result: "A talking-head clip delivering the announcement with lip-sync, ready for LinkedIn and a product page." },
@@ -31,20 +30,22 @@ const scripts = {
 
 export const Route = createFileRoute("/ai-avatar-generator")({
   staticData: { sitemap: true },
-  head: () => ({
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-core-b")).coreToolsB, "ai-avatar-generator"),
+  head: ({ loaderData: t }) => !t ? {} : ({
     meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
+      { title: t.title },
+      { name: "description", content: t.description },
+      { property: "og:title", content: t.title },
+      { property: "og:description", content: t.description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: url },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: url }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: tool.name, applicationCategory: "MultimediaApplication", operatingSystem: "Web", description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) },
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(tool.faqs ?? [])) },
+      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: t.name, applicationCategory: "MultimediaApplication", operatingSystem: "Web", description: t.description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(t.faqs ?? [])) },
     ],
   }),
   component: AvatarPage,

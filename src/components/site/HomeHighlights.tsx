@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, PhoneCall } from "lucide-react";
 import { Container } from "@/components/site/primitives";
 import { restaurantOffer } from "@/data/restaurant-offer";
+import { InViewVideo } from "@/components/site/InViewVideo";
 
 /** Phone-agent strip shown right under the homepage hero. */
 export function HomePhoneAgentsStrip() {
@@ -45,7 +46,7 @@ export function HomeFeaturedPages() {
         <Link key={p.to} to={p.to} className="group flex flex-col border border-border bg-background">
           <div className="aspect-[4/3] overflow-hidden bg-secondary">
             {"video" in p ? (
-              <video src={p.video} poster={p.poster} autoPlay muted loop playsInline preload="none" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" aria-hidden="true" />
+              <InViewVideo src={p.video} poster={p.poster} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" aria-hidden="true" />
             ) : (
               <div className="relative grid h-full w-full place-items-center bg-ink text-ink-foreground" aria-hidden="true">
                 <div className="showreel-wave">{Array.from({ length: 14 }).map((_, k) => <span key={k} style={{ animationDelay: `${k * 80}ms` }} />)}</div>

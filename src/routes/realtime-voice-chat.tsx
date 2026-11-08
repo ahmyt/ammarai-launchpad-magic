@@ -9,10 +9,11 @@ import { FlagshipToolSections } from "@/components/site/FlagshipToolSections";
 import { VoiceToolWorkflow } from "@/components/site/VoiceToolWorkflow";
 import { Button } from "@/components/ui/button";
 import { faqJsonLd } from "@/components/site/Faq";
+import { toolHeadData } from "@/lib/flagship-head";
 
-const tool = blogTemplateTools.find((item) => item.slug === "realtime-voice-chat");
-if (!tool) throw new Error("Realtime Voice Chat catalogue entry missing");
-const faqs = [...(tool.faqs ?? []), { q: "Is this a phone agent for my business?", a: "No. Realtime Voice Chat is a spoken session inside your own AI Chat. For incoming customer calls, explore the dedicated AI Phone Agent." }, { q: "Are these live conversations?", a: "The recordings below are existing spoken-answer samples. Start an actual two-way voice session inside the AmmarAI workspace." }];
+const tool = blogTemplateTools.find((item) => item.slug === "realtime-voice-chat")!;
+const extraFaqs = [{ q: "Is this a phone agent for my business?", a: "No. Realtime Voice Chat is a spoken session inside your own AI Chat. For incoming customer calls, explore the dedicated AI Phone Agent." }, { q: "Are these live conversations?", a: "The recordings below are existing spoken-answer samples. Start an actual two-way voice session inside the AmmarAI workspace." }];
+const faqs = [...(tool.faqs ?? []), ...extraFaqs];
 const steps = [
   { title: "Open a chat", body: "Go to AI Chat and open an existing conversation or start a new one. Realtime voice runs inside a normal chat, so earlier messages remain available as context." },
   { title: "Switch on real-time voice", body: "Select the real-time voice control in the message bar to switch from typed messages to a live spoken session.", image: { src: "/media/tutorials/tutorial-voice-chat-1.png", alt: "AmmarAI chat message bar with the real-time voice control highlighted", caption: "The real-time voice control sits in the message bar of any chat.", width: 2724, height: 1313 } },
@@ -27,7 +28,9 @@ const scenarios = [
 ];
 export const Route = createFileRoute("/realtime-voice-chat")({
   staticData: { sitemap: true },
-  head: () => ({ meta: [{ title: tool.title }, { name: "description", content: tool.description }, { property: "og:title", content: tool.title }, { property: "og:description", content: tool.description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }], links: [{ rel: "canonical", href: "https://ammarai.com/realtime-voice-chat" }], scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd(faqs)) }] }),
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-templates-blog")).blogTemplateTools, "realtime-voice-chat"),
+  head: ({ loaderData: t }) => !t ? {} : ({ meta: [{ title: t.title }, { name: "description", content: t.description }, { property: "og:title", content: t.title }, { property: "og:description", content: t.description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }], links: [{ rel: "canonical", href: "https://ammarai.com/realtime-voice-chat" }], scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd([...t.faqs, ...extraFaqs])) }] }),
   component: RealtimePage,
 });
 function RealtimePage() {

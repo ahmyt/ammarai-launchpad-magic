@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Languages } from "lucide-react";
-import { CatalogFlagshipPage, catalogFlagshipHead, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { CatalogFlagshipPage, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { catalogFlagshipHead, toolHeadData } from "@/lib/flagship-head";
 import { videoTools } from "@/data/tools-video";
 
 const tool = videoTools.find((t) => t.slug === "ai-dubbing")!;
@@ -20,7 +21,9 @@ const config: Omit<CatalogFlagshipConfig, "icon"> = {
 
 export const Route = createFileRoute("/ai-dubbing")({
   staticData: { sitemap: true },
-  head: () => catalogFlagshipHead(config),
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-video")).videoTools, "ai-dubbing"),
+  head: ({ loaderData }) => catalogFlagshipHead(loaderData),
   component: AiDubbingPage,
 });
 

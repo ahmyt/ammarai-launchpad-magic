@@ -28,3 +28,5 @@
 - Catalogue tools upgraded in bulk use CatalogFlagshipPage with route-local plan notes and brief rows, so pages stay consistent and keep complete catalogue content.
 - Mobile navigation groups reuse the desktop featured-page records and preserve CMS tutorial visibility; desktop navigation stays independent so mobile organization does not change desktop discovery.
 - Phone-agent landing pages show other included tools only through the shared BeyondThePhone section placed after the core call content, so ad visitors see the phone offer first and the extras stay consistent.
+- Route head()/loader code must not reference module-level tool data or full-catalogue modules; read head fields from a loader that dynamically imports the catalogue file (see lib/flagship-head), because anything head/loader touches ships in every visitor's startup bundle.
+- Self-hosted builds must be production builds (`npm run build` forces NODE_ENV=production and the deploy script rejects dev output), because a development bundle multiplies main-thread blocking time.

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Clapperboard, ImageIcon, PhoneCall, UserRound } from "lucide-react";
+import { runAfterEngagement } from "@/lib/defer-load";
 
 type Slide = {
   label: string;
@@ -23,6 +24,10 @@ const DURATION = 4500;
 export function HomeShowreel() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  // Poster images paint first; clips start after the page settles so the
+  // video download never competes with the first view.
+  const [videoReady, setVideoReady] = useState(false);
+  useEffect(() => runAfterEngagement(() => setVideoReady(true), 1500), []);
 
   useEffect(() => {
     if (paused) return;
@@ -39,7 +44,7 @@ export function HomeShowreel() {
       <div className="showreel-frame" aria-live="polite">
         {slides.map((s, i) => (
           <div key={s.label} className={`showreel-slide ${i === active ? "is-active" : ""}`} aria-hidden={i !== active}>
-            {s.video && i === active ? (
+            {s.video && i === active && videoReady ? (
               <video src={s.video} poster={s.poster} autoPlay muted loop playsInline preload="metadata" />
             ) : (
               <img src={s.poster} alt="" style={s.position ? { objectPosition: s.position } : undefined} loading={i === 0 ? "eager" : "lazy"} />

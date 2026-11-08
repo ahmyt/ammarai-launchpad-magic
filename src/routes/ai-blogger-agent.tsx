@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Newspaper } from "lucide-react";
-import { CatalogFlagshipPage, catalogFlagshipHead, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { CatalogFlagshipPage, type CatalogFlagshipConfig } from "@/components/site/CatalogFlagshipPage";
+import { catalogFlagshipHead, toolHeadData } from "@/lib/flagship-head";
 import { agentTools } from "@/data/tools-agents";
 
 const tool = agentTools.find((t) => t.slug === "ai-blogger-agent")!;
@@ -20,7 +21,9 @@ const config: Omit<CatalogFlagshipConfig, "icon"> = {
 
 export const Route = createFileRoute("/ai-blogger-agent")({
   staticData: { sitemap: true },
-  head: () => catalogFlagshipHead(config),
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-agents")).agentTools, "ai-blogger-agent"),
+  head: ({ loaderData }) => catalogFlagshipHead(loaderData),
   component: AiBloggerAgentPage,
 });
 

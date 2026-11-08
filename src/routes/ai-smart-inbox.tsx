@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { toolHeadData } from "@/lib/flagship-head";
 import { ArrowDown, Inbox, MessageSquare, Send, Globe, UserRound } from "lucide-react";
 import { Card, Container, Section, SectionHeading } from "@/components/site/primitives";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -43,7 +44,9 @@ const faqs = [...(tool.faqs ?? []), ...moreFaqs];
 
 export const Route = createFileRoute("/ai-smart-inbox")({
   staticData: { sitemap: true },
-  head: () => ({
+  // Head data comes from the loader so the tool catalogue stays out of startup code.
+  loader: async () => toolHeadData((await import("@/data/tools-engagement")).engagementTools, "ai-smart-inbox"),
+  head: ({ loaderData: t }) => !t ? {} : ({
     meta: [
       { title },
       { name: "description", content: description },
@@ -56,7 +59,7 @@ export const Route = createFileRoute("/ai-smart-inbox")({
     links: [{ rel: "canonical", href: url }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: "AmmarAI Website Chatbot & Smart Inbox", applicationCategory: "BusinessApplication", operatingSystem: "Web", description, url, provider: { "@type": "Organization", name: "AmmarAI", url: "https://ammarai.com" } }) },
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(faqs)) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd([...t.faqs, ...moreFaqs])) },
     ],
   }),
   component: InboxPage,

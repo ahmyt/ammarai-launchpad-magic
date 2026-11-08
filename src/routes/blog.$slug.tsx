@@ -1,10 +1,11 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import type { Post } from "@/data/types";
-import {
-  getFullSiteContent as getSiteContent,
-  fullSiteContentQuery as siteContentQuery,
-} from "@/lib/content-full";
+import { fullSiteContentQuery as siteContentQuery } from "@/lib/content-full";
+
+// Loaded on demand so the full catalogue never ships with every page's startup code.
+const getSiteContent: typeof import("@/lib/content-full").getFullSiteContent = async (queryClient) =>
+  (await import("@/lib/content-full")).getFullSiteContent(queryClient);
 import {
   articleCategory,
   articleDate,
