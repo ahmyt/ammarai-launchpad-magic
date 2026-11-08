@@ -11,8 +11,7 @@ import { SamplePromptAccordion } from "@/components/site/SamplePromptAccordion";
 import { visualTools } from "@/data/tools-visual";
 import { REGISTER_URL } from "@/lib/site";
 
-const tool = visualTools.find((t) => t.slug === "ai-virtual-try-on");
-if (!tool) throw new Error("Fashion Studio catalogue entry is missing");
+const tool = visualTools.find((t) => t.slug === "ai-virtual-try-on")!;
 const url = "https://ammarai.com/ai-fashion-studio";
 const title = "AI Fashion Studio: Photoshoots, Try-On & Fashion Video | AmmarAI";
 const description = tool.description;
