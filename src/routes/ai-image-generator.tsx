@@ -14,8 +14,6 @@ import { REGISTER_URL } from "@/lib/site";
 
 const tool = coreToolsA.find((t) => t.slug === "ai-image-generator")!;
 const url = "https://ammarai.com/ai-image-generator";
-const title = tool.title;
-const description = tool.description;
 const icons = [Brush, Scissors, Expand, Layers, Maximize2, ImageIcon];
 
 // Steps and screenshots mirror the verified "How to use AI Image Pro" tutorial.

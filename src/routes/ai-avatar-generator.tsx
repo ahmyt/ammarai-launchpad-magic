@@ -13,8 +13,6 @@ import { REGISTER_URL } from "@/lib/site";
 
 const tool = coreToolsB.find((t) => t.slug === "ai-avatar-generator")!;
 const url = "https://ammarai.com/ai-avatar-generator";
-const title = tool.title;
-const description = tool.description;
 
 const samples = [
   { id: "founder", tab: "Founder announcement", src: "/media/avatar-option-1-final.webm", poster: "/media/avatar-option-1-final.poster.jpg", input: "Founder headshot + typed 45-second launch script, generated voice.", result: "A talking-head clip delivering the announcement with lip-sync, ready for LinkedIn and a product page." },

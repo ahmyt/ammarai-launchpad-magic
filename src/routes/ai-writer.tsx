@@ -14,8 +14,6 @@ import { REGISTER_URL } from "@/lib/site";
 
 const tool = coreToolsA.find((t) => t.slug === "ai-writer")!;
 const url = "https://ammarai.com/ai-writer";
-const title = tool.title;
-const description = tool.description;
 const icons = [PenLine, Wand2, Ruler, Repeat2, Languages];
 
 const wizardSteps = [
