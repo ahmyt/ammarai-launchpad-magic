@@ -11,19 +11,19 @@ function Cell({ v }: { v: string | Mark }) {
 export function CompareMatrix() {
   return (
     <div className="overflow-x-auto rounded-lg border border-border">
-      <table className="w-full min-w-[720px] text-sm">
-        <thead className="bg-muted/50">
+      <table className="compare-table w-full min-w-[720px] text-sm">
+        <thead>
           <tr>
-            <th className="p-3 text-left font-semibold">Capability</th>
+            <th className="compare-sticky p-3 text-left font-semibold">Capability</th>
             {competitors.map((c, i) => (
-              <th key={c} className={`p-3 text-center font-semibold ${i === 0 ? "bg-accent/10 text-accent" : ""}`}>{c}</th>
+              <th key={c} className={`p-3 text-center font-semibold ${i === 0 ? "compare-ours" : ""}`}>{c}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {compareRows.map((r) => (
             <tr key={r.feature} className="border-t border-border">
-              <td className="p-3 font-medium">{r.feature}</td>
+              <td className="compare-sticky max-w-[9rem] p-3 font-medium">{r.feature}</td>
               {r.values.map((v, i) => (
                 <td key={i} className={`p-3 text-center ${i === 0 ? "bg-accent/5" : ""}`}><Cell v={v} /></td>
               ))}
