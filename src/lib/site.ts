@@ -26,6 +26,7 @@ export type StaticPath =
   | "/features"
   | "/use-cases"
   | "/pricing"
+  | "/compare"
   | "/ai-models"
   | "/resources"
   | "/tutorials"
@@ -112,6 +113,7 @@ export const footerNav: { heading: string; links: SiteLink[] }[] = [
       { label: "About", to: "/about" },
       { label: "Blog", to: "/blog" },
       { label: "Resources", to: "/resources" },
+      { label: "Compare AmmarAI", to: "/compare" },
       { label: "Contact", to: "/contact" },
       { label: "Content studio", to: "/auth" },
       { label: "Privacy Policy", to: "/privacy" },
