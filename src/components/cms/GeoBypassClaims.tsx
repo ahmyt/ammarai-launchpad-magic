@@ -21,7 +21,7 @@ export function GeoBypassClaims() {
     {query.error ? <p role="alert" className="mt-3 text-sm text-destructive">Could not load bypass claims.</p> : null}
     {query.data?.length === 0 ? <p className="mt-3 text-sm text-muted-foreground">No saved bypass codes.</p> : null}
     {query.data?.map((item) => <div key={item.hash} className="flex flex-wrap items-center justify-between gap-3 border-b border-border py-4">
-      <div><p className="text-sm font-semibold">{item.label}</p><p className="mt-1 text-xs text-muted-foreground">{item.claimedAt ? `Claimed ${new Date(item.claimedAt).toLocaleDateString()} · ${item.expiresAt && new Date(item.expiresAt) <= new Date() ? "Expired" : "One browser"}` : "Unclaimed"}</p></div>
+      <div><p className="text-sm font-semibold">{item.label} <span className="font-normal text-muted-foreground">(Code {item.position})</span></p><p className="mt-1 text-xs text-muted-foreground">{item.claimedAt ? `Claimed ${new Date(item.claimedAt).toLocaleDateString()} · ${item.expiresAt && new Date(item.expiresAt) <= new Date() ? "Expired" : "One browser"}` : "Unclaimed"}</p></div>
       <ActionButton type="button" variant="outline" size="sm" disabled={!item.claimedAt || busy !== null} onClick={async () => {
         if (!window.confirm(`Reset ${item.label}? Its current browser will lose bypass access.`)) return;
         setBusy(item.hash); setStatus("");

@@ -15,7 +15,8 @@ export const listGeoBypasses = createServerFn({ method: "GET" })
     return Promise.all(bypassCodes(keys).map(async (code, index) => {
       const hash = await bypassHash(code);
       const claim = claims.data.find((item) => item.code_hash === hash);
-      return { hash, label: `Code ${index + 1}`, claimedAt: claim?.claimed_at ?? null, expiresAt: claim?.expires_at ?? null };
+      // Admin-only list: show the configured code itself so each person's browser is identifiable.
+      return { hash, label: code, position: index + 1, claimedAt: claim?.claimed_at ?? null, expiresAt: claim?.expires_at ?? null };
     }));
   });
 
