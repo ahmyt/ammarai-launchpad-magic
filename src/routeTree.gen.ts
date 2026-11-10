@@ -47,6 +47,7 @@ import { Route as AiVoiceGeneratorRouteImport } from './routes/ai-voice-generato
 import { Route as AiWriterRouteImport } from './routes/ai-writer'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ClinicPhoneAgentRouteImport } from './routes/clinic-phone-agent'
+import { Route as CompareRouteImport } from './routes/compare'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DemoVideoRouteImport } from './routes/demo-video'
 import { Route as ExternalChatbotRouteImport } from './routes/external-chatbot'
@@ -272,6 +273,11 @@ const ClinicPhoneAgentRoute = ClinicPhoneAgentRouteImport.update({
   path: '/clinic-phone-agent',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -484,6 +490,7 @@ export interface FileRoutesByFullPath {
   '/ai-writer': typeof AiWriterRoute
   '/auth': typeof AuthRoute
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/demo-video': typeof DemoVideoRoute
   '/external-chatbot': typeof ExternalChatbotRoute
@@ -557,6 +564,7 @@ export interface FileRoutesByTo {
   '/ai-writer': typeof AiWriterRoute
   '/auth': typeof AuthRoute
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/demo-video': typeof DemoVideoRoute
   '/external-chatbot': typeof ExternalChatbotRoute
@@ -631,6 +639,7 @@ export interface FileRoutesById {
   '/ai-writer': typeof AiWriterRoute
   '/auth': typeof AuthRoute
   '/clinic-phone-agent': typeof ClinicPhoneAgentRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/demo-video': typeof DemoVideoRoute
   '/external-chatbot': typeof ExternalChatbotRoute
@@ -707,6 +716,7 @@ export interface FileRouteTypes {
     | '/ai-writer'
     | '/auth'
     | '/clinic-phone-agent'
+    | '/compare'
     | '/contact'
     | '/demo-video'
     | '/external-chatbot'
@@ -780,6 +790,7 @@ export interface FileRouteTypes {
     | '/ai-writer'
     | '/auth'
     | '/clinic-phone-agent'
+    | '/compare'
     | '/contact'
     | '/demo-video'
     | '/external-chatbot'
@@ -853,6 +864,7 @@ export interface FileRouteTypes {
     | '/ai-writer'
     | '/auth'
     | '/clinic-phone-agent'
+    | '/compare'
     | '/contact'
     | '/demo-video'
     | '/external-chatbot'
@@ -928,6 +940,7 @@ export interface RootRouteChildren {
   AiWriterRoute: typeof AiWriterRoute
   AuthRoute: typeof AuthRoute
   ClinicPhoneAgentRoute: typeof ClinicPhoneAgentRoute
+  CompareRoute: typeof CompareRoute
   ContactRoute: typeof ContactRoute
   DemoVideoRoute: typeof DemoVideoRoute
   ExternalChatbotRoute: typeof ExternalChatbotRoute
@@ -1221,6 +1234,13 @@ declare module '@tanstack/react-router' {
       path: '/clinic-phone-agent'
       fullPath: '/clinic-phone-agent'
       preLoaderRoute: typeof ClinicPhoneAgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -1539,6 +1559,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiWriterRoute: AiWriterRoute,
   AuthRoute: AuthRoute,
   ClinicPhoneAgentRoute: ClinicPhoneAgentRoute,
+  CompareRoute: CompareRoute,
   ContactRoute: ContactRoute,
   DemoVideoRoute: DemoVideoRoute,
   ExternalChatbotRoute: ExternalChatbotRoute,
