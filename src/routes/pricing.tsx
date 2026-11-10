@@ -10,6 +10,7 @@ import { ActionButton, ExternalButton } from "@/components/site/Button";
 import { OfferInline } from "@/components/site/OfferInline";
 import { ChatbotCallout } from "@/components/site/LiveChatbot";
 import { cn } from "@/lib/utils";
+import { StackSavings } from "@/components/site/CompareTables";
 import { freePlan } from "@/data/free-plan";
 
 const title = "Pricing: One Subscription for Every AI Tool | AmmarAI";
@@ -323,6 +324,16 @@ function Pricing() {
               </Link>
             </div>
           </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <SectionHeading title="Separate tools vs. AmmarAI" />
+          <div className="mt-8"><StackSavings /></div>
+          <Link to="/compare" className="mt-6 inline-block text-sm font-semibold text-accent hover:underline">
+            See the full comparison with ElevenLabs, Jasper and more →
+          </Link>
         </Container>
       </Section>
 
