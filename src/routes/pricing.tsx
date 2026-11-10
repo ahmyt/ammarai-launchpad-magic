@@ -10,6 +10,7 @@ import { ActionButton, ExternalButton } from "@/components/site/Button";
 import { OfferInline } from "@/components/site/OfferInline";
 import { ChatbotCallout } from "@/components/site/LiveChatbot";
 import { cn } from "@/lib/utils";
+import { StackSavings } from "@/components/site/CompareTables";
 import { freePlan } from "@/data/free-plan";
 
 const title = "Pricing: One Subscription for Every AI Tool | AmmarAI";
