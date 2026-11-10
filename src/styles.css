@@ -6350,3 +6350,22 @@ body:has(.home-swiss-dark) .site-footer {
 .showreel-tab.is-active .showreel-tab-bar i { animation: showreel-progress linear forwards; }
 @keyframes showreel-progress { to { width: 100%; } }
 @media (prefers-reduced-motion: reduce) { .showreel-slide, .showreel-slide.is-active img, .showreel-wave span { animation: none; transition: none; } }
+
+/* Comparison table: header always contrasts with its own background in light and dark themes. */
+.site-shell .compare-table thead {
+  background: var(--foreground);
+  color: var(--background);
+}
+.site-shell .compare-table thead th.compare-ours {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+.site-shell .compare-table .compare-sticky {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--background);
+}
+.site-shell .compare-table thead .compare-sticky {
+  background: var(--foreground);
+}
