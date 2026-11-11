@@ -161,7 +161,7 @@ const SKIP_PATH_RE =
   /^\/(admin|auth|api|cdn-cgi|assets|fonts|media|_build|_serverFn|favicon|robots\.txt|sitemap\.xml|llms\.txt)/;
 
 const CRAWLER_RE =
-  /(googlebot|adsbot|mediapartners-google|google-adwords|googleother|google-read-aloud|google-safety|storebot-google|apis-google|bingbot|google-inspectiontool|duckduckbot|yandexbot|baiduspider|slurp|applebot|petalbot|ahrefsbot|semrushbot|lighthouse|chrome-lighthouse|pagespeed|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|babylovegrowth|blgbot|gptbot|oai-searchbot|chatgpt-user|claudebot|claude-searchbot|claude-user|perplexitybot|perplexity-user|google-extended|bingpreview|msnbot|adidxbot|pinterestbot|redditbot|skypeuripreview|embedly|iframely|ia_archiver|archive\.org_bot|w3c_validator|validator\.nu|uptimerobot|screaming frog|rogerbot|dotbot|mj12bot|lovable)/i;
+  /(googlebot|adsbot|mediapartners-google|google-adwords|googleother|google-read-aloud|google-safety|storebot-google|apis-google|bingbot|google-inspectiontool|duckduckbot|yandexbot|baiduspider|slurp|applebot|petalbot|ahrefsbot|semrushbot|lighthouse|chrome-lighthouse|pagespeed|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|babylovegrowth|blgbot|creatify|creatifybot|gptbot|oai-searchbot|chatgpt-user|claudebot|claude-searchbot|claude-user|perplexitybot|perplexity-user|google-extended|bingpreview|msnbot|adidxbot|pinterestbot|redditbot|skypeuripreview|embedly|iframely|ia_archiver|archive\.org_bot|w3c_validator|validator\.nu|uptimerobot|screaming frog|rogerbot|dotbot|mj12bot|lovable)/i;
 
 function clientIp(request: Request): string {
   const forwarded = request.headers.get("x-forwarded-for");
