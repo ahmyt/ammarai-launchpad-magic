@@ -43,3 +43,11 @@ test("babylovegrowth and ai crawlers pass", () => {
     expect(evaluateGeoGate(req("", bot), cfg, "US", true)).toBeNull();
   }
 });
+
+// URL to Video sends links to Creatify, whose scraper must see real pages, not the 503.
+test("creatify scraper passes vpn gate", () => {
+  for (const bot of ["CreatifyBot/1.0", "Mozilla/5.0 (compatible; Creatify/1.0; +https://creatify.ai)"])
+    expect(evaluateGeoGate(req("", bot), cfg, "US", true)).toBeNull();
+});
+test("ordinary vpn visitor still blocked after creatify allowlist", () =>
+  expect(evaluateGeoGate(req("", "Mozilla/5.0 Chrome/130"), cfg, "US", true)?.status).toBe(503));
